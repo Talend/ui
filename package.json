@@ -1,5 +1,5 @@
 {
-  "name": "json-schema-form",
+  "name": "json-schema-form-core",
   "version": "1.0.0",
   "description": "Core library",
   "main": "bundle.js",
