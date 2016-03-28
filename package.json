@@ -5,6 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "build": "webpack",
+    "prepublish": "npm run build",
     "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

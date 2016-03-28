@@ -19,8 +19,5 @@ module.exports = {
         loader: 'babel',
       }
     ]
-  },
-  externals: {
-      'objectpath': 'objectpath'
   }
 };
