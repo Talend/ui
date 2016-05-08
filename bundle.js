@@ -1,3 +1,8 @@
+/*!
+ * json-schema-form
+ * @version 1.0.0-alpha.1
+ * Copyright 2016 JSON Schema Form
+ */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -608,8 +613,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var rules = schemaTypes[stripNullType(schema.type)];
 	  if (rules) {
 	    var def = void 0;
+	    // We give each rule a possibility to recurse it's children.
+	    var innerDefaultFormDefinition = function innerDefaultFormDefinition(childName, childSchema, childOptions) {
+	      return defaultFormDefinition(schemaTypes, childName, childSchema, childOptions);
+	    };
 	    for (var i = 0; i < rules.length; i++) {
-	      def = rules[i](name, schema, options);
+	      def = rules[i](name, schema, options, innerDefaultFormDefinition);
 
 	      //first handler in list that actually returns something is our handler!
 	      if (def) {
@@ -747,7 +756,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-	function fieldset(name, schema, options) {
+	function fieldset(name, schema, options, defaultFormDef) {
 	  if (stripNullType(schema.type) === 'object') {
 	    var _ret = function () {
 	      var f = stdFormObj(name, schema, options);
@@ -755,6 +764,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      f.items = [];
 	      options.lookup[(0, _sfPath.stringify)(options.path)] = f;
 
+	      console.log('fieldset', f, schema);
 	      //recurse down into properties
 	      if (schema.properties) {
 	        Object.keys(schema.properties).forEach(function (key) {
@@ -764,7 +774,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          if (options.ignore[(0, _sfPath.stringify)(path)] !== true) {
 	            var required = schema.required && schema.required.indexOf(key) !== -1;
 
-	            var def = defaultFormDefinition(key, value, {
+	            var def = defaultFormDef(key, value, {
 	              path: path,
 	              required: required || false,
 	              lookup: options.lookup,
@@ -786,7 +796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-	function array(name, schema, options) {
+	function array(name, schema, options, defaultFormDef) {
 	  if (stripNullType(schema.type) === 'array') {
 	    var f = stdFormObj(name, schema, options);
 	    f.type = 'array';
@@ -803,7 +813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var arrPath = options.path.slice();
 	    arrPath.push('');
 
-	    f.items = [defaultFormDefinition(name, schema.items, {
+	    f.items = [defaultFormDef(name, schema.items, {
 	      path: arrPath,
 	      required: required || false,
 	      lookup: options.lookup,
@@ -823,8 +833,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    object: [fieldset],
 	    number: [number],
 	    integer: [integer],
-	    boolean: [checkbox],
-	    array: [checkboxes, array]
+	    boolean: [checkbox], defaultForm: defaultForm
 	  };
 	}
 
