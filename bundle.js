@@ -214,7 +214,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // Since have to ternary state we need a default
 	    if (obj.type === 'checkbox' && obj.schema['default'] === undefined) {
 	      obj.schema['default'] = false;
-	    }
+	    };
 
 	    // Special case: template type with tempplateUrl that's needs to be loaded before rendering
 	    // TODO: this is not a clean solution. Maybe something cleaner can be made when $ref support
@@ -591,9 +591,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* Utils */
 	var stripNullType = function stripNullType(type) {
 	  if (Array.isArray(type) && type.length == 2) {
-	    if (type[0] === 'null') return type[1];
-	    if (type[1] === 'null') return type[0];
-	  }
+	    if (type[0] === 'null') {
+	      return type[1];
+	    };
+	    if (type[1] === 'null') {
+	      return type[0];
+	    };
+	  };
 	  return type;
 	};
 
@@ -685,7 +689,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  f.ngModelOptions = f.ngModelOptions || {};
 
 	  return f;
-	}
+	};
 
 	/*** Schema types to form type mappings, with defaults ***/
 	function text(name, schema, options) {
@@ -833,9 +837,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    object: [fieldset],
 	    number: [number],
 	    integer: [integer],
-	    boolean: [checkbox], defaultForm: defaultForm
+	    boolean: [checkbox],
+	    array: [array],
+	    defaultForm: defaultForm
 	  };
-	}
+	};
 
 	/**
 	 * Create form defaults from schema
