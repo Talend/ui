@@ -23,6 +23,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('json-schema-form\n@version ' + pjson.version + '\nCopyright 2016 JSON Schema Form')
+    new webpack.BannerPlugin(
+      'json-schema-form\n' +
+      '@version ' +
+      pjson.version + '\n' +
+      '@link https://github.com/json-schema-form/json-schema-form-core\n' +
+      '@license MIT\n' +
+      'Copyright (c) 2016 JSON Schema Form')
   ]
 };

@@ -1,6 +1,7 @@
 /*!
  * json-schema-form
  * @version 1.0.0-alpha.1
+ * @license MIT
  * Copyright 2016 JSON Schema Form
  */
 (function webpackUniversalModuleDefinition(root, factory) {
