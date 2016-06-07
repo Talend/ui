@@ -1,8 +1,9 @@
 /*!
  * json-schema-form
  * @version 1.0.0-alpha.1
+ * @link https://github.com/json-schema-form/json-schema-form-core
  * @license MIT
- * Copyright 2016 JSON Schema Form
+ * Copyright (c) 2016 JSON Schema Form
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -766,6 +767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _ret = function () {
 	      var f = stdFormObj(name, schema, options);
 	      f.type = 'fieldset';
+	      f.key = options.path;
 	      f.items = [];
 	      options.lookup[(0, _sfPath.stringify)(options.path)] = f;
 
@@ -839,8 +841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    number: [number],
 	    integer: [integer],
 	    boolean: [checkbox],
-	    array: [array],
-	    defaultForm: defaultForm
+	    array: [checkboxes, array]
 	  };
 	};
 
@@ -852,6 +853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var lookup = {}; //Map path => form obj for fast lookup in merging
 	  ignore = ignore || {};
 	  globalOptions = globalOptions || {};
+	  defaultSchemaTypes = defaultSchemaTypes || createDefaults();
 
 	  if (schema.properties) {
 	    Object.keys(schema.properties).forEach(function (key) {
