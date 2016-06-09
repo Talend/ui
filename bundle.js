@@ -771,7 +771,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      f.items = [];
 	      options.lookup[(0, _sfPath.stringify)(options.path)] = f;
 
-	      console.log('fieldset', f, schema);
 	      //recurse down into properties
 	      if (schema.properties) {
 	        Object.keys(schema.properties).forEach(function (key) {
