@@ -1,0 +1,40 @@
+.node-element {
+    fill: white;
+    stroke: #B8C6D3;
+    stroke-width: 2;
+    rx: 5;
+    ry: 5;
+}
+
+.node-element--empty-source {
+    animation: nodeDash 1s infinite linear;
+    cursor: pointer;
+    filter: none;
+    stroke-dasharray: 5;
+}
+
+@keyframes nodeDash {
+    to {
+        stroke-dashoffset: 10;
+    }
+}
+
+.node-element--selected {
+    fill: #D8E454;
+    stroke: #266092;
+    filter: url(#blur-filter);
+}
+
+.node-element--grabbed {
+    cursor: -webkit-grabbing;
+}
+
+.node-element__text {
+    color: #266092;
+    cursor: pointer;
+    display: inline-block;
+    fill: #266092;
+    font-size: 0.8em;
+    text-align: center;
+    text-anchor: middle;
+}

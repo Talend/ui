@@ -1,0 +1,30 @@
+.edge-element {
+    fill: transparent;
+    stroke: #266092;
+    stroke-width: 6;
+}
+
+.edge-element__decoration {
+    animation: edgeDash 1s infinite linear;
+    fill: transparent;
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 4, 32;
+}
+
+@keyframes edgeDash {
+    to {
+        stroke-dashoffset: 36;
+    }
+}
+
+.edge-handle {
+    cursor: -webkit-grab;
+    fill: rgb(38, 96, 146);
+    r: 6;
+}
+
+.edge-handle--grabbed {
+    cursor: -webkit-grabbing;
+}

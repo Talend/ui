@@ -1,0 +1,29 @@
+
+.connector {
+    r: 8;
+    stroke: #266092;
+    stroke-width: 2;
+    fill: white;
+    transition: r .1s ease-in-out;
+    cursor: pointer;
+}
+
+.connector:hover {
+    r: 12;
+}
+
+.connector.VALID_TARGET {
+    stroke: green;
+    r: 12;
+}
+
+.connector__label__box {
+    fill: white;
+    stroke: #266092;
+    stroke-width: 1px;
+}
+
+.connector__label__text {
+    fill: #266092;
+    color: #266092;
+}
