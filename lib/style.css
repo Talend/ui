@@ -1,2 +1,112 @@
-.connector{r:8;stroke:#266092;stroke-width:2;fill:#fff;transition:r .1s ease-in-out;cursor:pointer}.connector:hover{r:12}.connector.VALID_TARGET{stroke:green;r:12}.connector__label__box{fill:#fff;stroke:#266092;stroke-width:1px}.connector__label__text{fill:#266092;color:#266092}.node-element{fill:#fff;stroke:#b8c6d3;stroke-width:2;rx:5;ry:5}.node-element--empty-source{animation:nodeDash 1s infinite linear;cursor:pointer;filter:none;stroke-dasharray:5}@keyframes nodeDash{to{stroke-dashoffset:10}}.node-element--selected{fill:#d8e454;stroke:#266092;filter:url(#blur-filter)}.node-element--grabbed{cursor:-webkit-grabbing}.node-element__text{color:#266092;cursor:pointer;display:inline-block;fill:#266092;font-size:.8em;text-align:center;text-anchor:middle}.edge-element{fill:transparent;stroke:#266092;stroke-width:6}.edge-element__decoration{animation:edgeDash 1s infinite linear;fill:transparent;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:4,32}@keyframes edgeDash{to{stroke-dashoffset:36}}.edge-handle{cursor:-webkit-grab;fill:#266092;r:6}.edge-handle--grabbed{cursor:-webkit-grabbing}
+/*!
+ * ============================================================================
+ *     
+ *      Copyright (C) 2006-2016 Talend Inc. - www.talend.com
+ *     
+ *      This source code is available under agreement available at
+ *      https://github.com/Talend/data-prep/blob/master/LICENSE
+ *     
+ *      You should have received a copy of the agreement
+ *      along with this program; if not, write to Talend SA
+ *      9 rue Pages 92150 Suresnes, France
+ * 
+ *      ============================================================================
+ */
+
+.connector {
+    r: 8;
+    stroke: #266092;
+    stroke-width: 2;
+    fill: white;
+    transition: r .1s ease-in-out;
+    cursor: pointer;
+}
+
+.connector:hover {
+    r: 12;
+}
+
+.connector.VALID_TARGET {
+    stroke: green;
+    r: 12;
+}
+
+.connector__label__box {
+    fill: white;
+    stroke: #266092;
+    stroke-width: 1px;
+}
+
+.connector__label__text {
+    fill: #266092;
+    color: #266092;
+}.node-element {
+    fill: white;
+    stroke: #B8C6D3;
+    stroke-width: 2;
+    rx: 5;
+    ry: 5;
+}
+
+.node-element--empty-source {
+    animation: nodeDash 1s infinite linear;
+    cursor: pointer;
+    filter: none;
+    stroke-dasharray: 5;
+}
+
+@keyframes nodeDash {
+    to {
+        stroke-dashoffset: 10;
+    }
+}
+
+.node-element--selected {
+    fill: #D8E454;
+    stroke: #266092;
+    filter: url(#blur-filter);
+}
+
+.node-element--grabbed {
+    cursor: -webkit-grabbing;
+}
+
+.node-element__text {
+    color: #266092;
+    cursor: pointer;
+    display: inline-block;
+    fill: #266092;
+    font-size: 0.8em;
+    text-align: center;
+    text-anchor: middle;
+}.edge-element {
+    fill: transparent;
+    stroke: #266092;
+    stroke-width: 6;
+}
+
+.edge-element__decoration {
+    animation: edgeDash 1s infinite linear;
+    fill: transparent;
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 4, 32;
+}
+
+@keyframes edgeDash {
+    to {
+        stroke-dashoffset: 36;
+    }
+}
+
+.edge-handle {
+    cursor: -webkit-grab;
+    fill: rgb(38, 96, 146);
+    r: 6;
+}
+
+.edge-handle--grabbed {
+    cursor: -webkit-grabbing;
+}
 /*# sourceMappingURL=style.css.map*/
