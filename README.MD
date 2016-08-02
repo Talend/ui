@@ -1,3 +1,5 @@
+![](https://travis-ci.org/acateland/react-flow-designer.svg?branch=master)
+
 # Datastream Designer
 
 Use D3 for calculations.
