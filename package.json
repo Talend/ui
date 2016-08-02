@@ -9,7 +9,7 @@
     "clean:lib": "rimraf ./lib",
     "clean:coverage": "rimraf ./coverage",
     "dev": "webpack --progress --colors --watch --env.dev",
-    "test": "jest",
+    "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
   },

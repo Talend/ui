@@ -1,5 +1,6 @@
 jest.unmock('./node.actions');
 jest.unmock('redux-thunk');
+jest.unmock('lodash/memoize');
 jest.unmock('../selectors/portSelectors');
 jest.unmock('reselect');
 

@@ -1,7 +1,8 @@
 jest.unmock('reselect');
+jest.unmock('lodash/memoize');
 jest.unmock('./portSelectors');
 jest.unmock('../constants/flowdesigner.model');
-jest.unmock('lodash/memoize');
+
 
 import { Map } from 'immutable';
 import matchers from 'jasmine-immutable-matchers';
