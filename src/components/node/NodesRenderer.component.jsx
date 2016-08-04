@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import invariant from 'invariant';
 
+import { NodeType } from './AbstractNode.component';
+
 const NodesRenderer = React.createClass({
+    propTypes: {
+        nodes: PropTypes.arrayOf(NodeType).isRequired,
+        nodeTypeMap: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                component: PropTypes.element.isRequired,
+            })
+        ).isRequired,
+        moveNodeTo: PropTypes.func.isRequired,
+    },
     renderNode(node) {
         const ConcreteComponent = this.props.nodeTypeMap[node.nodeType].component;
         if (!ConcreteComponent) {

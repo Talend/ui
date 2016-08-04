@@ -48,15 +48,18 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
     return portsWithPosition;
 };
 
+export const NodeType = PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    position: PropTypes.shape({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
+    }),
+});
+
 export const Node = React.createClass({
     propTypes: {
-        node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            position: PropTypes.shape({
-                x: PropTypes.number.isRequired,
-                y: PropTypes.number.isRequired,
-            }),
-        }),
+        node: NodeType,
+        moveNodeTo: PropTypes.func.isRequired,
         onDragStart: PropTypes.func,
         onDrag: PropTypes.func,
         onDragEnd: PropTypes.func,
@@ -114,7 +117,10 @@ export const Node = React.createClass({
         const { node } = this.props;
         return (
           <g>
-            <g transform={`translate(${node.position.x},${node.position.y})`} ref={c => (this.nodeElement = c)} onClick={this.onClick}>
+            <g
+              transform={`translate(${node.position.x},${node.position.y})`}
+              ref={c => (this.nodeElement = c)} onClick={this.onClick}
+            >
               {this.renderContent()}
             </g>
           </g>

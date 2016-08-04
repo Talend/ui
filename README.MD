@@ -1,5 +1,9 @@
 ![](https://travis-ci.org/acateland/react-flow-designer.svg?branch=master)
 
+LIB in active development, concept are not fully scoped
+
+Do Not Use !
+
 # Datastream Designer
 
 Use D3 for calculations.

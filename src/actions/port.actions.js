@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-
+import invariant from 'invariant';
 import {
   FLOWDESIGNER_PORT_ADD,
   FLOWDESIGNER_PORT_SET_ATTR,
@@ -22,19 +22,23 @@ export const addPort = (nodeId, portId, portType, attr) => (
     (dispatch, getState) => {
         const state = getState();
         const node = state.flowDesigner.nodes.get(nodeId);
-        const calculatePortPosition = state.flowDesigner.nodeTypes.getIn([node.nodeType, 'component']).calculatePortPosition;
-        let ports = getPortsForNode(state)(node.id);
-        ports = ports.set(portId, new PortRecord({
-            id: portId,
-            nodeId,
-            portType,
-            attr: new Map(attr),
-        }));
-        ports = calculatePortPosition(ports, node.position, node.nodeSize);
-        dispatch({
-            type: FLOWDESIGNER_PORT_MERGE,
-            ports,
-        });
+        if (!node) {
+            invariant(false, `Can't set a new port ${portId} on non existing node ${nodeId}`);
+        } else {
+            const calculatePortPosition = state.flowDesigner.nodeTypes.getIn([node.nodeType, 'component']).calculatePortPosition;
+            let ports = getPortsForNode(state)(node.id);
+            ports = ports.set(portId, new PortRecord({
+                id: portId,
+                nodeId,
+                portType,
+                attr: new Map(attr),
+            }));
+            ports = calculatePortPosition(ports, node.position, node.nodeSize);
+            dispatch({
+                type: FLOWDESIGNER_PORT_MERGE,
+                ports,
+            });
+        }
     }
 );
 
@@ -59,7 +63,6 @@ export const removePort = portId => ({
     type: FLOWDESIGNER_PORT_REMOVE,
     portId,
 });
-
 
 
 export const removePortsFromNode = nodeId => ({

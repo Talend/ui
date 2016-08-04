@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import invariant from 'invariant';
 
-const NodeType = React.createClass({
+const LinkType = React.createClass({
     propTypes: {
         type: PropTypes.string.isRequired,
         component: PropTypes.func.isRequired,
@@ -9,9 +9,10 @@ const NodeType = React.createClass({
     render() {
         invariant(
             false,
-            '<NodeType> elements are for DataFlow configuration only and should not be rendered'
+            '<LinkType> elements are for DataFlow configuration only and should not be rendered'
         );
+        return null;
     },
 });
 
-export default NodeType;
+export default LinkType;

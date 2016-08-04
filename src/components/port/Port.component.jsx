@@ -3,18 +3,20 @@ import { select, event } from 'd3-selection';
 
 import './port.css';
 
+export const PortType = PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    nodeId: PropTypes.string.isRequired,
+    portType: PropTypes.string.isRequired,
+    position: PropTypes.shape({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
+    }),
+    attr: PropTypes.object.isRequired,
+});
+
 const Port = React.createClass({
     propTypes: {
-        port: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            nodeId: PropTypes.string.isRequired,
-            portType: PropTypes.string.isRequired,
-            position: PropTypes.shape({
-                x: PropTypes.number.isRequired,
-                y: PropTypes.number.isRequired,
-            }),
-            attr: PropTypes.object.isRequired,
-        }),
+        port: PortType,
         onClick: PropTypes.func,
     },
     componentDidMount() {

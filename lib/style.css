@@ -4,7 +4,7 @@
  *      Copyright (C) 2006-2016 Talend Inc. - www.talend.com
  *     
  *      This source code is available under agreement available at
- *      https://github.com/Talend/data-prep/blob/master/LICENSE
+ *      https://github.com/Talend/react-flow-designer/blob/master/LICENSE
  *     
  *      You should have received a copy of the agreement
  *      along with this program; if not, write to Talend SA
@@ -12,35 +12,7 @@
  * 
  *      ============================================================================
  */
-
-.connector {
-    r: 8;
-    stroke: #266092;
-    stroke-width: 2;
-    fill: white;
-    transition: r .1s ease-in-out;
-    cursor: pointer;
-}
-
-.connector:hover {
-    r: 12;
-}
-
-.connector.VALID_TARGET {
-    stroke: green;
-    r: 12;
-}
-
-.connector__label__box {
-    fill: white;
-    stroke: #266092;
-    stroke-width: 1px;
-}
-
-.connector__label__text {
-    fill: #266092;
-    color: #266092;
-}.node-element {
+.node-element {
     fill: white;
     stroke: #B8C6D3;
     stroke-width: 2;
@@ -79,6 +51,34 @@
     font-size: 0.8em;
     text-align: center;
     text-anchor: middle;
+}
+.connector {
+    r: 8;
+    stroke: #266092;
+    stroke-width: 2;
+    fill: white;
+    transition: r .1s ease-in-out;
+    cursor: pointer;
+}
+
+.connector:hover {
+    r: 12;
+}
+
+.connector.VALID_TARGET {
+    stroke: green;
+    r: 12;
+}
+
+.connector__label__box {
+    fill: white;
+    stroke: #266092;
+    stroke-width: 1px;
+}
+
+.connector__label__text {
+    fill: #266092;
+    color: #266092;
 }.edge-element {
     fill: transparent;
     stroke: #266092;
