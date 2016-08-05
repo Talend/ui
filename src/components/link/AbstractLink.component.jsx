@@ -13,12 +13,27 @@ import LinkHandle from './LinkHandle.component';
 
 import './link.css';
 
+const calculatePath = (sourcePosition, targetPosition) => {
+    const pathCoords = [];
+    pathCoords[0] = targetPosition;
+    pathCoords[1] = {
+        x: sourcePosition.x + 10,
+        y: sourcePosition.y,
+    };
+    const xInterpolate = interpolateBasis([targetPosition.x, pathCoords[1].x]);
+    const yInterpolate = interpolateBasis([targetPosition.y, pathCoords[1].y]);
+    const path = line().x(d => d.x).y(d => d.y)
+            .curve(curveBasis)(pathCoords);
+    return { path, xInterpolate, yInterpolate };
+};
+
 const AbstractLink = React.createClass({
     propTypes: {
         link: PropTypes.shape({
             id: PropTypes.string.isRequired,
         }).isRequired,
     },
+    statics: calculatePath,
     componentWillMount() {
         this.line = line().x(d => d.x).y(d => d.y)
             .curve(curveBasis);
@@ -49,45 +64,29 @@ const AbstractLink = React.createClass({
     //     this.props.resetConnectorsState();
     // },
     render() {
-        const pathCoords = [];
-        // if (this.state.targetHandlePosition && this.props.source.position) {
-            pathCoords[0] = this.state.targetHandlePosition;
-            pathCoords[1] = {
-                x: this.state.targetHandlePosition.x - 50,
-                y: this.state.targetHandlePosition.y,
-            };
-            pathCoords[2] = {
-                x: this.props.source.position.x + 50,
-                y: this.props.source.position.y,
-            };
-            pathCoords[3] = {
-                x: this.props.source.position.x + 10,
-                y: this.props.source.position.y,
-            };
-            const xInterpolate = interpolateBasis([pathCoords[0].x, pathCoords[1].x, pathCoords[2].x, pathCoords[3].x]);
-            const yInterpolate = interpolateBasis([pathCoords[0].y, pathCoords[1].y, pathCoords[2].y, pathCoords[3].y]);
-            this.path = this.line(pathCoords);
-            const newChildren = React.Children.map(this.props.children, child => (
-                React.cloneElement(child, { d: this.path, xInterpolate, yInterpolate })
+        const pathCalculationMethod = this.props.calculatePath || calculatePath;
+        const { path, xInterpolate, yInterpolate } = pathCalculationMethod(
+            this.props.source.position,
+            this.state.targetHandlePosition
+        );
+        const newChildren = React.Children.map(this.props.children, child => (
+                React.cloneElement(child, { d: path, xInterpolate, yInterpolate })
             ));
-            return (
-                <g>
-                  {newChildren}
-                  <LinkHandle
-                    onDrag={this.onTargetHandleDrag} onDragEnd={this.ontTargetHandleDragEnd}
-                    position={this.state.targetHandlePosition}
-                  />
-                </g>
-            );
-        // }
-        // return null;
+        return (
+          <g>
+            {newChildren}
+            <LinkHandle
+              onDrag={this.onTargetHandleDrag} onDragEnd={this.ontTargetHandleDragEnd}
+              position={this.state.targetHandlePosition}
+            />
+          </g>
+        );
     },
 });
 
 const mapStateToProps = (state, ownProps) => ({
     source: state.flowDesigner.ports.get(ownProps.link.sourceId),
     target: state.flowDesigner.ports.get(ownProps.link.targetId),
-    // freeInputConnectors: getFreeInputConnectors(state),
 });
 
 export default connect(mapStateToProps, undefined)(AbstractLink);

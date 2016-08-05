@@ -1,6 +1,5 @@
 jest.unmock('classnames');
 jest.unmock('./AbstractNode.component.jsx');
-jest.unmock('../../2DTools');
 jest.unmock('../../constants/flowdesigner.model');
 jest.unmock('d3-selection');
 jest.unmock('d3-drag');

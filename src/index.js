@@ -10,6 +10,7 @@ import * as nodeActions from './actions/node.actions';
 import * as portActions from './actions/port.actions';
 import * as linkActions from './actions/link.actions';
 import * as flowPropTypes from './constants/flowdesigner.proptypes';
+
 export {
     flowDesignerReducer,
     FlowDesigner,

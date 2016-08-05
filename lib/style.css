@@ -12,6 +12,15 @@
  * 
  *      ============================================================================
  */
+.Grid__smallGrid___3qXxK path {
+  fill: none;
+  stroke: #BFBDBD;
+  stroke-width: 0.5; }
+
+.Grid__largeGrid___3pFSr path {
+  fill: none;
+  stroke: #BFBDBD;
+  stroke-width: 1; }
 .node-element {
     fill: white;
     stroke: #B8C6D3;

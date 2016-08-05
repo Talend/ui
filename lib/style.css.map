@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"style.css","sourceRoot":""}
+{"version":3,"sources":["webpack:///webpack:///src/components/grid/Grid.scss"],"names":[],"mappings":";;;;;;;;;;;;;;AAAA;EACE,WAAW;EACX,gBAAgB;EAChB,kBAAkB,EAAE;;AAEtB;EACE,WAAW;EACX,gBAAgB;EAChB,gBAAgB,EAAE","file":"style.css","sourcesContent":[".smallGrid path {\n  fill: none;\n  stroke: #BFBDBD;\n  stroke-width: 0.5; }\n\n.largeGrid path {\n  fill: none;\n  stroke: #BFBDBD;\n  stroke-width: 1; }\n\n\n\n// WEBPACK FOOTER //\n// webpack:///src/components/grid/Grid.scss"],"sourceRoot":""}

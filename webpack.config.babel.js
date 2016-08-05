@@ -1,61 +1,82 @@
-var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require('path');
-var env = require('yargs').argv.mode;
+const webpack = require('webpack');
+
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 const licenceTemplate = require('./licence');
 
-var libraryName = 'react-flow-designer';
+const libraryName = 'react-flow-designer';
 
-var plugins = [], outputFile;
-exports.default = function(options){
-    if (options.build) {
-    plugins.push(new UglifyJsPlugin({ minimize: true }));
-    outputFile = libraryName + '.min.js';
-    } else {
-    outputFile = libraryName + '.js';
-    }
+const PATH = {
+    src: path.join(__dirname, '/src'),
+    lib: path.join(__dirname, './lib'),
+};
 
-    plugins.push(new ExtractTextPlugin('style.css'));
+const css = 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]';
 
-    plugins.push(new webpack.BannerPlugin(licenceTemplate));
+const sass = `${css}!sass`;
+const extractCSS = new ExtractTextPlugin({ filename: 'style.css', allChuncks: true });
+const uglify = new UglifyJsPlugin({ minimize: true });
+const license = new webpack.BannerPlugin(licenceTemplate);
 
-    return {
-        entry: __dirname + '/src/index.js',
-        devtool: 'source-map',
-        output: {
-            path: __dirname + '/lib',
-            filename: outputFile,
-            library: libraryName,
-            libraryTarget: 'umd',
-            umdNamedDefine: true
-        },
-        externals: {
-            "immutable": "immutable",
-            "react": "react",
-            "react-dom": "react-dom",
-            "react-redux": "react-redux",
-            "redux": "redux",
-            "reselect": "reselect"
-        },
-        module: {
-            loaders: [
+const CONFIG = {
+    entry: path.join(PATH.src, 'index.js'),
+    devtool: 'source-map',
+    externals: {
+        'immutable': 'immutable',
+        'react': 'react',
+        'react-dom': 'react-dom',
+        'react-redux': 'react-redux',
+        'redux': 'redux',
+        'reselect': 'reselect',
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
+    module: {
+        loaders: [
             {
                 test: /(\.jsx|\.js)$/,
                 loader: 'babel',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                query: {
+                    presets: ['react'],
+                },
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader'}),
-                exclude: /node_modules/
-            }
-            ]
-        },
-        resolve: {
-            root: path.resolve('./src'),
-            extensions: ['', '.js', '.jsx']
-        },
-        plugins: plugins
-    };
-}
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader',
+                }),
+                exclude: /node_modules/,
+            }, {
+                test: /\.scss$/,
+                loader: extractCSS.extract({ fallbackLoader: 'style', loader: sass }),
+            },
+        ],
+    },
+    plugins: [extractCSS, license],
+};
+
+const umd = Object.assign({}, CONFIG, {
+    output: {
+        libraryTarget: 'umd',
+        library: libraryName,
+        filename: `${libraryName}.js`,
+        path: PATH.lib,
+    },
+});
+
+const umdMinified = Object.assign({}, umd, {
+    output: {
+        libraryTarget: 'umd',
+        library: libraryName,
+        filename: `${libraryName}.min.js`,
+        path: PATH.lib,
+    },
+    plugins: [extractCSS, uglify, license],
+});
+
+
+module.exports = [umd, umdMinified];
