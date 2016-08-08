@@ -1,0 +1,48 @@
+{
+  "name": "react-ui-abstraction",
+  "version": "0.0.1",
+  "description": "A framework built on top of best react libraries",
+  "main": "lib/react-ui-abstraction.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talend/react-ui-abstraction.git"
+  },
+  "keywords": [
+    "react",
+    "framework"
+  ],
+  "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/talend/react-ui-abstraction/issues"
+  },
+  "homepage": "https://github.com/talend/react-ui-abstraction#readme",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-jest": "^14.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "jest-cli": "^14.1.0",
+    "react-test-renderer": "^15.3.0",
+    "webpack": "^1.13.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "automock": false
+  },
+  "dependencies": {
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2"
+  }
+}
