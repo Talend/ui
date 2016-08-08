@@ -1,0 +1,57 @@
+import React from 'react';
+import ButtonDispatcher from '../src/ButtonDispatcher';
+import { mount } from 'enzyme';
+
+describe('ButtonDispatcher', () => {
+  let dispatched = false;
+  function dispatch() {
+    dispatched = true;
+  }
+  const routes = [];
+  function push(route) {
+    routes.push(route);
+  }
+  const state = {
+    settings: {
+      actions: {
+        test: {
+          id: 'test',
+          name: 'Test',
+          icon: 'icon-test',
+        },
+      },
+    },
+  };
+  const context = {
+    store: {
+      getState() {
+        return state;
+      },
+      subscribe() {},
+      dispatch,
+    },
+    router: {
+      push,
+    },
+    registry: {
+      'actionCreator:router.push': push,
+    },
+  };
+  const childContextTypes = {
+    router: React.PropTypes.object,
+    store: React.PropTypes.object,
+    registry: React.PropTypes.object,
+  };
+  beforeEach(() => {
+    dispatched = false;
+  });
+  it('should dispatch an action onclick', () => {
+    const wrapper = mount(
+      <ButtonDispatcher action="test" />, { context, childContextTypes }
+    );
+    expect(dispatched).toBe(false);
+    wrapper.simulate('click');
+    expect(dispatched).toBe(true);
+
+  });
+});
