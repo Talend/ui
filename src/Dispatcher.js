@@ -31,6 +31,7 @@ Dispatcher.propTypes = {
   ]),
   model: React.PropTypes.object,
   onClick: React.PropTypes.func,
+  children: React.PropTypes.object,
 };
 
 Dispatcher.contextTypes = {

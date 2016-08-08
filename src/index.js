@@ -6,7 +6,6 @@ import Icon from './Icon';
 import LinkAction from './LinkAction';
 import LinkDispatcher from './LinkDispatcher';
 import LinksDispatcher from './LinksDispatcher';
-import UIRouter from './UIRouter';
 
 export {
   ButtonAction,
@@ -17,5 +16,4 @@ export {
   LinkDispatcher,
   LinksDispatcher,
   LinkAction,
-  UIRouter,
 };
