@@ -8,7 +8,7 @@ const defaultState = {
   routes: {},
 };
 
-export default function settingsReducer(state = defaultState, action) {
+export function settingsReducer(state = defaultState, action) {
   switch (action.type) {
   case ACTIONS.REQUEST_OK: {
     return Object.assign({}, state, {
