@@ -42,6 +42,12 @@ const lib = Object.assign({}, CONFIG, {
     path: PATH.lib,
   },
   externals: {
+    classnames: {
+      root: 'classNames',
+      commonjs2: 'classnames',
+      commonjs: 'classnames',
+      amd: 'classnames',
+    },
     react: {
       root: 'React',
       commonjs2: 'react',
@@ -73,7 +79,7 @@ const umd = Object.assign({}, lib, {
     libraryTarget: 'umd',
     library: 'ReactUIAbstration',
     filename: 'react-ui-abstraction.js',
-    path: PATH.dist,
+    path: PATH.lib,
   }
 });
 const umdMinified = Object.assign({}, umd, {
@@ -81,7 +87,7 @@ const umdMinified = Object.assign({}, umd, {
     libraryTarget: 'umd',
     library: 'ReactUIAbstration',
     filename: 'react-ui-abstraction.min.js',
-    path: PATH.dist,
+    path: PATH.lib,
   },
   plugins: [uglify],
 });
