@@ -1,0 +1,14 @@
+$btn-inverse-bg: transparent !default;
+$btn-inverse-color: White !default;
+$btn-inverse-border: transparent !default;
+
+$btn-add-bg: #bad104 !default;
+$btn-add-color: White !default;
+$btn-add-border: darken($btn-add-bg, 5%) !default;
+
+.btn-inverse {
+  @include button-variant($btn-inverse-color, $btn-inverse-bg, $btn-inverse-border);
+}
+.btn-add {
+  @include button-variant($btn-add-color, $btn-add-bg, $btn-add-border);
+}
