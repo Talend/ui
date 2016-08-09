@@ -16,11 +16,12 @@ But we have decided to rewrite the build using webpack and bootstrap-sass.
 
 # How to use
 
-TODO: fill this once released
+TODO
 
 # How to contribute
-
-  npm install
-  ./node_modules/.bin/webpack-dev-server
-  open http://localhost:8080/example
+```
+npm install
+./node_modules/.bin/webpack-dev-server
+open http://localhost:8080/example
+```
 
