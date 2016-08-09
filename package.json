@@ -1,6 +1,5 @@
 {
   "name": "react-ui-abstraction",
-  "version": "0.0.1",
   "description": "A framework built on top of best react libraries",
   "main": "lib/react-ui-abstraction.js",
   "scripts": {
@@ -10,11 +9,12 @@
     "test:watch": "./node_modules/.bin/jest --watch",
     "test:cov": "./node_modules/.bin/jest --coverage",
     "lint:es": "./node_modules/.bin/eslint --config .eslintrc src/*.js",
-    "lint": "npm run lint:es"
+    "lint": "npm run lint:es",
+    "semantic-release": "./node_modules/.bin/semantic-release pre && npm publish && ./node_modules/.bin/semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmfrancois/react-ui-abstraction.git"
+    "url": "https://github.com/jmfrancois/react-ui-abstraction.git"
   },
   "keywords": [
     "react",
@@ -47,7 +47,8 @@
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "react-test-renderer": "^15.3.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "semantic-release": "^4.3.5"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",

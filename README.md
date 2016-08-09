@@ -10,6 +10,7 @@ It provides a set of base components and patterns.
 [![Quality][quality-badge] ][quality-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [npm-icon]: https://nodei.co/npm/react-ui-abstraction.png?downloads=true
 [npm-url]: https://npmjs.org/package/react-ui-abstraction
