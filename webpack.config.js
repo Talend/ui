@@ -41,11 +41,29 @@ const umd = Object.assign({}, CONFIG, {
     path: PATH.lib,
   },
   externals: {
+    classnames: {
+      root: 'classNames',
+      commonjs2: 'classnames',
+      commonjs: 'classnames',
+      amd: 'classnames',
+    },
     react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react',
+    },
+    'react-bootstrap': {
+      root: 'ReactBootstrap',
+      commonjs2: 'react-bootstrap',
+      commonjs: 'react-bootstrap',
+      amd: 'react-bootstrap',
+    },
+    'react-redux': {
+      root: 'ReactRedux',
+      commonjs2: 'react-redux',
+      commonjs: 'react-redux',
+      amd: 'react-redux',
     },
     'react-ui-abstraction': {
       root: 'ReactUIAbstration',
