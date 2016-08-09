@@ -2,14 +2,14 @@
   "name": "react-ui-abstraction-bootstrap",
   "version": "0.0.1",
   "description": "Provide base widgets for react-abstraction-ui",
-  "main": "index.js",
+  "main": "lib/react-ui-abstraction-bootstrap.js",
   "scripts": {
-    "build": "webpack",
-    "prepublish": "webpack",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "lint:es": "eslint --config .eslintrc src/*.js",
+    "build": "./node_modules/.bin/webpack",
+    "prepublish": "./node_modules/.bin/webpack",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch",
+    "test:cov": "./node_modules/.bin/jest --coverage",
+    "lint:es": "./node_modules/.bin/eslint --config .eslintrc src/*.js",
     "lint": "npm run lint:es"
   },
   "repository": {
@@ -56,12 +56,12 @@
     "automock": false
   },
   "peerDependencies": {
+    "classnames": "^2.2.5",
     "react": "^0.14.0 || ^15.3.0",
     "react-bootstrap": "^0.30.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "react-ui-abstraction": "^0.0.1",
-    "redux": "^3.5.2",
-    "classnames": "^2.2.5"
+    "redux": "^3.5.2"
   }
 }
