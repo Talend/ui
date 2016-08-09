@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonAction from '../src/ButtonAction';
-import Icon from '../src/Icon';
+import { Icon } from 'react-ui-abstraction';
 import { shallow } from 'enzyme';
 
 describe('ButtonAction', () => {

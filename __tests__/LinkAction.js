@@ -1,6 +1,6 @@
 import React from 'react';
 import LinkAction from '../src/LinkAction';
-import Icon from '../src/Icon';
+import { Icon } from 'react-ui-abstraction';
 import { shallow } from 'enzyme';
 
 describe('LinkAction', () => {
