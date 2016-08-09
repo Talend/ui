@@ -41,15 +41,8 @@
     "eslint-plugin-jsx-a11y": "2.0.1",
     "eslint-plugin-react": "6.0.0",
     "jest-cli": "^14.1.0",
-    "react": "^15.3.0",
     "react-addons-test-utils": "^15.3.0",
-    "react-bootstrap": "^0.30.2",
-    "react-dom": "^15.3.0",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.6.1",
-    "react-router-redux": "^4.0.5",
-    "react-ui-abstraction": "^0.0.3",
-    "redux": "^3.5.2",
+    "react-dom": "15.3.0",
     "webpack": "^1.13.1",
     "semantic-release": "^4.3.5"
   },
@@ -57,13 +50,10 @@
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "automock": false
   },
-  "peerDependencies": {
-    "classnames": "^2.2.5",
-    "react": "^0.14.0 || ^15.3.0",
-    "react-bootstrap": "^0.30.2",
+  "dependencies": {
     "react-redux": "^4.4.5",
-    "react-router": "^2.6.1",
-    "react-ui-abstraction": "^0.0.3",
+    "react-bootstrap": "^0.30.2",
+    "react-ui-abstraction": "0.0.4",
     "redux": "^3.5.2"
   }
 }
