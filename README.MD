@@ -14,7 +14,7 @@ Redux as a state manager.
 ### How to use it
 
 #### Use the rendering component
-```
+```js
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';node
@@ -33,7 +33,7 @@ render(
 ```
 #### integrate the reducer into your redux data store
 
-```
+```js
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
