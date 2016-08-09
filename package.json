@@ -2,9 +2,10 @@
   "name": "bootstrap-tlnd-theme",
   "version": "0.0.1",
   "description": "A bootstrap theme based on talend style guide lines",
-  "main": "index.js",
+  "main": "dist/bootstrap.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",

@@ -3,10 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractBootstrap = new ExtractTextPlugin('bootstrap.css', {
   allChunks: true,
 });
+const extractBootstrapMin = new ExtractTextPlugin('bootstrap.min.css', {
+  allChunks: true,
+});
 const BOOT_PATH = `${__dirname}/node_modules/bootstrap-sass/assets/stylesheets`;
 const THEME_PATH = `${__dirname}./src/theme`;
 
-module.exports = {
+const BASE_CONF = {
   entry: './src/index.js',
   output: {
     path: `${__dirname}/dist`,
@@ -20,9 +23,22 @@ module.exports = {
     }],
   },
   sassLoader: {
-    includePaths: [BOOT_PATH, THEME_PATH],
+    includePaths: [THEME_PATH, BOOT_PATH],
   },
-  plugins: [
-    extractBootstrap,
-  ],
+  plugins: [extractBootstrap],
+  devServer: {
+    contentBase: './example',
+  },
 };
+
+const MINIFIED = Object.assign({}, BASE_CONF, {
+  module: {
+    loaders: [{
+      test: /bootstrap\.scss$/,
+      loader: extractBootstrapMin.extract('style', 'css?minimize!sass'),
+    }],
+  },
+  plugins: [extractBootstrapMin],
+});
+
+module.exports = [BASE_CONF, MINIFIED];
