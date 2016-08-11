@@ -14,13 +14,13 @@ It provides a set of base components and patterns.
 
 [npm-icon]: https://nodei.co/npm/react-ui-abstraction.png?downloads=true
 [npm-url]: https://npmjs.org/package/react-ui-abstraction
-[travis-ci-image]: https://travis-ci.org/jmfrancois/react-ui-abstraction.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/jmfrancois/react-ui-abstraction
+[travis-ci-image]: https://travis-ci.org/talend/react-ui-abstraction.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/talend/react-ui-abstraction
 
-[dependencies-image]: https://david-dm.org/jmfrancois/react-ui-abstraction.png
-[dependencies-url]: https://david-dm.org/jmfrancois/react-ui-abstraction
-[devdependencies-image]: https://david-dm.org/jmfrancois/react-ui-abstraction/dev-status.png
-[devdependencies-url]: https://david-dm.org/jmfrancois/react-ui-abstraction#info=devDependencies
+[dependencies-image]: https://david-dm.org/talend/react-ui-abstraction.png
+[dependencies-url]: https://david-dm.org/talend/react-ui-abstraction
+[devdependencies-image]: https://david-dm.org/talend/react-ui-abstraction/dev-status.png
+[devdependencies-url]: https://david-dm.org/talend/react-ui-abstraction#info=devDependencies
 
 [quality-badge]: http://npm.packagequality.com/shield/react-ui-abstraction.svg
 [quality-url]: http://packagequality.com/#?package=react-ui-abstraction
