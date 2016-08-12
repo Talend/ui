@@ -40,6 +40,7 @@
     "eslint-plugin-import": "1.13.0",
     "eslint-plugin-jsx-a11y": "2.1.0",
     "eslint-plugin-react": "6.0.0",
+    "jest": "^14.1.0",
     "jest-cli": "^14.1.0",
     "react-addons-test-utils": "^15.3.0",
     "react-test-renderer": "^15.3.0",

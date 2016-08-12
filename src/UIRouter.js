@@ -4,20 +4,15 @@ import { connect } from 'react-redux';
 
 import api from './api';
 
-class UIRouter extends React.Component {
-
-  render() {
-    const routes = api.route.getRoutesFromSettings(this.context, this.props.routes);
-    if (routes.path === '/' && !!routes.component) {
-      return (
-        <BaseRouter routes={routes} history={this.props.history} />
-      );
-    }
-    return (
-      <div>loading</div>
-    );
+const UIRouter = (props, context) => {
+  const routes = api.route.getRoutesFromSettings(context, props.routes);
+  if (routes.path === '/' && !!routes.component) {
+    return (<BaseRouter routes={routes} history={props.history} />);
   }
-}
+  return (
+    <div>loading</div>
+  );
+};
 
 UIRouter.propTypes = {
   history: React.PropTypes.object,
