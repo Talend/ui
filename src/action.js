@@ -15,7 +15,6 @@ function getActionsById(context) {
   return {};
 }
 
-
 /**
  * return actions registred for a given content type
  * @param  {object} context
@@ -107,7 +106,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
 /**
  * register your action creator. The action creator is a function with
  * the following arguments:
@@ -120,7 +118,6 @@ function mapDispatchToProps(dispatch) {
 function registerActionCreator(id, actionCreator) {
   registry.addToRegistry(`actionCreator:${id}`, actionCreator);
 }
-
 
 export default {
   getActionsById,

@@ -8,6 +8,7 @@ export default class RegistryProvider extends React.Component {
   }
 
   render() {
+    // FIXME: what is that .onClick ?
     const childrenWithProps = React.Children.map(
       this.props.children,
        (child) => React.cloneElement(child, {
