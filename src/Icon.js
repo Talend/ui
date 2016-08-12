@@ -7,9 +7,7 @@ const Icon = (props) => {
     props.className,
     props.name
   );
-  return (
-    <i className={iconClasses}></i>
-  );
+  return (<i className={iconClasses} />);
 };
 
 Icon.propTypes = {

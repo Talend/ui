@@ -4,7 +4,8 @@
   "rules": {
     "brace-style": [2, "stroustrup"],
     "indent": ["error", 2],
-    "react/prefer-stateless-function": 2
+    "react/prefer-stateless-function": 2,
+    "react/jsx-filename-extension": 0,
   },
   "env": {
     "es6": true,

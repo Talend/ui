@@ -1,4 +1,5 @@
 import api from './api';
+import App from './App';
 import Dispatcher from './Dispatcher';
 import Icon from './Icon';
 import RegistryProvider from './RegistryProvider';
@@ -7,6 +8,7 @@ import settings from './settings/';
 
 export {
   api,
+  App,
   Dispatcher,
   Icon,
   RegistryProvider,
