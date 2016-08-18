@@ -7,6 +7,7 @@ import { Map } from 'immutable';
 import invariant from 'invariant';
 
 import './node.css';
+import { NodeType } from '../../constants/flowdesigner.proptypes';
 
 
 /**
@@ -48,17 +49,10 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
     return portsWithPosition;
 };
 
-export const NodeType = PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    position: PropTypes.shape({
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired,
-    }),
-});
 
 export const Node = React.createClass({
     propTypes: {
-        node: NodeType,
+        node: NodeType.isRequired,
         moveNodeTo: PropTypes.func.isRequired,
         onDragStart: PropTypes.func,
         onDrag: PropTypes.func,
@@ -109,8 +103,8 @@ export const Node = React.createClass({
         if (this.props.children) {
             return this.props.children;
         }
-        invariant(false, `<Node /> should not be used without giving it a children
-        ex: <Node><rect /></Node>`);
+        invariant(false, '<AbstractNode /> should not be used without giving it a children' +
+            'ex: <AbstractNode><rect /></AbstractNode>');
         return null;
     },
     render() {

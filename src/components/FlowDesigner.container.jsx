@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-
+import { mapOf, orderedMapOf } from 'react-immutable-proptypes';
 import invariant from 'invariant';
 
 
 import ZoomHandler from './ZoomHandler.component';
 import Grid from './grid/Grid.component';
-import { NodeType } from './node/AbstractNode.component.jsx';
-import { PortType } from './port/Port.component.jsx';
+import { NodeType, PortType } from '../constants/flowdesigner.proptypes';
 import NodesRenderer from './node/NodesRenderer.component';
 import LinksRenderer from './link/LinksRenderer.component';
 import PortsRenderer from './port/PortsRenderer.component';
@@ -15,14 +14,18 @@ import PortsRenderer from './port/PortsRenderer.component';
 import { moveNodeTo } from '../actions/node.actions';
 import { setNodeTypes } from '../actions/nodeType.actions';
 
+
+
 export const FlowDesigner = React.createClass({
     propTypes: {
         children: PropTypes.node,
         setNodeTypes: PropTypes.func.isRequired,
         moveNodeTo: PropTypes.func.isRequired,
-        nodes: PropTypes.arrayOf(NodeType).isRequired,
-        ports: PropTypes.arrayOf(PortType).isRequired,
-        links: PropTypes.arrayOf(PropTypes.object).isRequired,
+        nodes: mapOf(
+            NodeType
+        ).isRequired,
+        ports: orderedMapOf(PortType).isRequired,
+        links: mapOf(PropTypes.object).isRequired,
     },
     getInitialState() {
         return {

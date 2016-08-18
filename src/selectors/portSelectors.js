@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect';
 import memoize from 'lodash/memoize';
 
-const getPorts = state => state.flowDesigner.ports;
-const getLinks = state => state.flowDesigner.links;
+const getNodes = state => state.nodes;
+const getPorts = state => state.ports;
+const getLinks = state => state.links;
 
 /**
  * Create and return function who will return all ports for a specific node
@@ -68,13 +69,30 @@ export const getSinkPortsForNode = createSelector(
  */
 export const getFreeSinkPorts = createSelector(
   [getSinkPorts, getLinks],
-  (sinkPorts, edges) => (
+  (sinkPorts, links) => (
     sinkPorts.filter(sinkPort => (
-      !edges.find(edge => (
-        edge.target === sinkPort.id
+      !links.find(link => (
+        link.targetId === sinkPort.id
       ))
     ))
   )
+);
+
+/**
+ * Get all the data Emitter port attached to every nodes not attached at a single edge
+ * as a single map of port
+ * map key is the port id
+ * @return Map
+ */
+export const getFreeEmitterPorts = createSelector(
+    [getEmitterPorts, getLinks],
+    (emitterPorts, links) => (
+        emitterPorts.filter(emitterPort =>
+            !links.find(link => (
+                link.sourceId === emitterPort.id
+            ))
+        )
+    )
 );
 
 /**
@@ -88,4 +106,15 @@ export const getActionKeyedPorts = createSelector(
   freeSinkPorts => (
     freeSinkPorts.filter(sinkPort => sinkPort.accessKey)
   )
+);
+
+export const getDetachedPorts = createSelector(
+    [getPorts, getNodes],
+    (ports, nodes) => (
+        ports.filter(
+            port => !nodes.find(
+                node => node.id === port.nodeId
+            )
+        )
+    )
 );

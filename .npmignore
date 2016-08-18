@@ -1,0 +1,10 @@
+npm-debug.log
+node_modules/
+coverage/
+src/
+test/
+.babelrc
+.eslintrc
+.gitignore
+.travis.yml
+webpack.config.babel.js

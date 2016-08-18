@@ -1,9 +1,3 @@
-jest.unmock('classnames');
-jest.unmock('./AbstractNode.component.jsx');
-jest.unmock('../../constants/flowdesigner.model');
-jest.unmock('d3-selection');
-jest.unmock('d3-drag');
-
 import ReactTestUtils from 'react-addons-test-utils';
 import React from 'react';
 import { shallow, mount } from 'enzyme';
@@ -20,15 +14,16 @@ const node = new NodeRecord({
 });
 
 describe('Testing <AbstractNode>', () => {
+
     it('should create a bare node component with provided position', () => {
-        const wrapper = shallow(<AbstractNode node={node} />);
+        const wrapper = shallow(<AbstractNode node={node}><rect /></AbstractNode>);
         const rect = wrapper.find('g[transform]');
         expect(rect.prop('transform')).toBe('translate(100,50)');
     });
 
     it('call the injected onClick action when clicked', () => {
         const onClick = jasmine.createSpy('onClick');
-        const wrapper = shallow(<AbstractNode node={node} onClick={onClick} />);
+        const wrapper = shallow(<AbstractNode node={node} onClick={onClick}><rect /></AbstractNode>);
         wrapper.find('g[transform]').simulate('click');
         expect(onClick.and.identity()).toEqual('onClick');
         expect(onClick).toHaveBeenCalled();
@@ -38,10 +33,21 @@ describe('Testing <AbstractNode>', () => {
     // if anyone got a clue on how to test react + d3 events
 
     // it('call the injected onDragStart action when drag action start', () => {
+    //     const evt = document.createEvent('HTMLEvents');
+    //     evt.initEvent('click', false, true);
     //     const onDragStart = jasmine.createSpy('onDragStart');
-    //     const wrapper = mount(<AbstractNode node={node} onDragStart={onDragStart} />);
+    //     const wrapper = mount(
+    //         <AbstractNode node={node} click={onDragStart}>
+    //             <rect />
+    //         </AbstractNode>
+    //     , { attachTo: document.body });
+    //     document.querySelector('g g').addEventListener('click', function() {
+    //         console.error('super');
+    //     });
+    //     console.error('childNodes', wrapper.ref);
+    //     document.querySelector('g g').dispatchEvent(evt);
     //     // wrapper.find('g[transform]').simulate('dragStart');
-    //     ReactTestUtils.Simulate.dragStart(wrapper.find('g[transform]'));
+    //     // ReactTestUtils.Simulate.dragStart(wrapper.find('g[transform]'));
     //     expect(onDragStart.and.identity()).toEqual('onDragStart');
     //     expect(onDragStart).toHaveBeenCalled();
     //     expect(onDragStart.calls.count()).toEqual(1);
@@ -56,6 +62,11 @@ describe('Testing <AbstractNode>', () => {
     // });
 
     it('should fire an error if its rendered without a children set up', () => {
-        shallow(<AbstractNode node={node} />);
+        expect(() => {
+            shallow(<AbstractNode node={node} />);
+        }).toThrowError(
+            '<AbstractNode /> should not be used without giving it a children' +
+                'ex: <AbstractNode><rect /></AbstractNode>'
+        );
     });
 });

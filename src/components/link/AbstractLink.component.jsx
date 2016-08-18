@@ -4,13 +4,8 @@ import { connect } from 'react-redux';
 import { line, curveBasis } from 'd3-shape';
 import { interpolateBasis } from 'd3-interpolate';
 
-import * as EdgeActionCreator from '../../actions/link.actions';
-import * as ConnectorActionCreator from '../../actions/port.actions';
-
-import { getFreeInputConnectors } from '../../selectors/portSelectors';
-
 import LinkHandle from './LinkHandle.component';
-
+import { NodeType, LinkType } from '../../constants/flowdesigner.proptypes';
 import './link.css';
 
 const calculatePath = (sourcePosition, targetPosition) => {
@@ -29,45 +24,33 @@ const calculatePath = (sourcePosition, targetPosition) => {
 
 const AbstractLink = React.createClass({
     propTypes: {
-        link: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-        }).isRequired,
+        link: LinkType.isRequired,
+        source: NodeType.isRequired,
+        target: NodeType.isRequired,
+        targetHandlePosition: PropTypes.shape({
+            x: PropTypes.number.isRequired,
+            y: PropTypes.number.isRequired,
+        }),
+        calculatePath: PropTypes.func.isRequired,
+        onTargetDrag: PropTypes.func.isRequired,
+        onTargetDragEnd: PropTypes.func.isRequired,
+        children: PropTypes.node,
     },
     statics: calculatePath,
     componentWillMount() {
         this.line = line().x(d => d.x).y(d => d.y)
             .curve(curveBasis);
-        this.setState({ targetHandlePosition: this.props.target.position });
-    },
-    componentWillReceiveProps(nextProps) {
-        this.setState({ targetHandlePosition: nextProps.target.position });
     },
     shouldComponentUpdate(nextProps) {
-        return nextProps.source !== this.props.source || nextProps.target !== this.props.target;
+        return nextProps.source !== this.props.source ||
+            nextProps.target !== this.props.target ||
+            nextProps.targetHandlePosition !== this.props.targetHandlePosition;
     },
-    // onTargetHandleDrag(event) {
-    //     const containingCursorPosition = containing(event);
-    //     const foundConnector = find(this.props.freeInputConnectors)(containingCursorPosition);
-    //     if (foundConnector) {
-    //         this.props.changeConnectorState(foundConnector.id, 'VALID_TARGET');
-    //     } else {
-    //         this.props.resetConnectorsState();
-    //     }
-    //     this.setState({ targetHandlePosition: event });
-    // },
-    // ontTargetHandleDragEnd(event) {
-    //     const containingCursorPosition = containing(event);
-    //     const foundConnector = find(this.props.freeInputConnectors)(containingCursorPosition);
-    //     if (foundConnector) {
-    //         this.props.setEdgeTarget(this.props.edge.data.id, foundConnector.id);
-    //     }
-    //     this.props.resetConnectorsState();
-    // },
     render() {
         const pathCalculationMethod = this.props.calculatePath || calculatePath;
         const { path, xInterpolate, yInterpolate } = pathCalculationMethod(
             this.props.source.position,
-            this.state.targetHandlePosition
+            this.props.targetHandlePosition || this.props.target.position
         );
         const newChildren = React.Children.map(this.props.children, child => (
                 React.cloneElement(child, { d: path, xInterpolate, yInterpolate })
@@ -76,8 +59,8 @@ const AbstractLink = React.createClass({
           <g>
             {newChildren}
             <LinkHandle
-              onDrag={this.onTargetHandleDrag} onDragEnd={this.ontTargetHandleDragEnd}
-              position={this.state.targetHandlePosition}
+              onDrag={this.props.onTargetDrag} onDragEnd={this.props.onTargetDragEnd}
+              position={this.props.targetHandlePosition || this.props.target.position}
             />
           </g>
         );

@@ -1,17 +1,13 @@
 import React, { PropTypes } from 'react';
 import invariant from 'invariant';
+import { mapOf } from 'react-immutable-proptypes';
 
-import { NodeType } from './AbstractNode.component';
+import { NodeType } from '../../constants/flowdesigner.proptypes';
 
 const NodesRenderer = React.createClass({
     propTypes: {
-        nodes: PropTypes.arrayOf(NodeType).isRequired,
-        nodeTypeMap: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                component: PropTypes.element.isRequired,
-            })
-        ).isRequired,
+        nodes: mapOf(NodeType).isRequired,
+        nodeTypeMap: PropTypes.object.isRequired,
         moveNodeTo: PropTypes.func.isRequired,
     },
     renderNode(node) {

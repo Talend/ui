@@ -1,0 +1,8 @@
+exports[`<LinkHandle /> renders correctly <LinkHandle /> renders correctly 1`] = `
+<circle
+  className="edge-handle "
+  cx={10}
+  cy={10}
+  height="8"
+  width="8" />
+`;

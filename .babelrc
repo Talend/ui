@@ -1,6 +1,7 @@
 {
   "presets": ['es2015', 'react'],
-	"ignore": [
-		"**/**/*.css"
-	]
+  "ignore": [
+    "**/**/*.css"
+  ],
+  "plugins": ["transform-object-rest-spread"]
 }

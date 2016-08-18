@@ -1,12 +1,26 @@
 import { PropTypes } from 'react';
+import { recordOf } from 'react-immutable-proptypes';
 
-export const nodePropType = PropTypes.shape({
-  position: PropTypes.shape({
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
-  }),
-  data: PropTypes.shape({
-    name: PropTypes.string,
-    merge: PropTypes.func.isRequired,
-  }),
-}).isRequired;
+export const NodeType = recordOf({
+    id: PropTypes.string.isRequired,
+    position: recordOf({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
+    }),
+});
+
+export const PortType = recordOf({
+    id: PropTypes.string.isRequired,
+    nodeId: PropTypes.string.isRequired,
+    position: recordOf({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
+    }),
+    attr: PropTypes.object.isRequired,
+});
+
+export const LinkType = recordOf({
+    id: PropTypes.string.isRequired,
+    sourceId: PropTypes.string.isRequired,
+    targetId: PropTypes.string.isRequired,
+});

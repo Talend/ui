@@ -1,15 +1,9 @@
-jest.unmock('reselect');
-jest.unmock('lodash/memoize');
-jest.unmock('./portSelectors');
-jest.unmock('../constants/flowdesigner.model');
-
-
 import { Map } from 'immutable';
 import matchers from 'jasmine-immutable-matchers';
 import * as Selectors from './portSelectors';
 import {
-  LinkRecord,
-  PortRecord,
+    LinkRecord,
+    PortRecord,
 } from '../constants/flowdesigner.model';
 
 describe('Testing dataflow selectors', () => {
@@ -34,18 +28,16 @@ describe('Testing dataflow selectors', () => {
         attr: new Map({ type: 'EMITTER' }),
     });
     const givenState = {
-        flowDesigner: {
-            edges: new Map().set('id1', new LinkRecord({
-                id: 'id1',
-                source: 'id1',
-                target: 'id2',
-            })),
-            ports: new Map()
-                .set('id1', port1)
-                .set('id2', port2)
-                .set('id3', port3)
-                .set('id4', port4),
-        },
+        links: new Map().set('id1', new LinkRecord({
+            id: 'id1',
+            source: 'id1',
+            target: 'id2',
+        })),
+        ports: new Map()
+            .set('id1', port1)
+            .set('id2', port2)
+            .set('id3', port3)
+            .set('id4', port4),
     };
 
     beforeEach(() => {
@@ -74,12 +66,4 @@ describe('Testing dataflow selectors', () => {
         const expectedPortMap = new Map().set('id2', port2);
         expect(Selectors.getEmitterPortsForNode(givenState)('nodeId1')).toEqualImmutable(expectedPortMap);
     });
-
-    // it('getFreeSinkConnectors return a map of connectors from a map of nodes', () => {
-    //     const expectedConnectorsMap = new Map().set('id4', new ConnectorRecord({
-    //         id: 'id4',
-    //         type: 'SINK',
-    //     }));
-    //     expect(Selectors.getFreeSinkConnectors(givenState)).toEqualImmutable(expectedConnectorsMap);
-    // });
 });
