@@ -19,7 +19,7 @@ describe('Testing node selectors', () => {
         id: 'id1',
         nodeId: 'id1',
     });
-    
+
     const port2 = new PortRecord({
         id: 'id2',
         nodeId: 'id2',

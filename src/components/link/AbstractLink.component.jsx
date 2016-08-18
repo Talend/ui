@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 
 import { line, curveBasis } from 'd3-shape';
 import { interpolateBasis } from 'd3-interpolate';
@@ -67,9 +66,4 @@ const AbstractLink = React.createClass({
     },
 });
 
-const mapStateToProps = (state, ownProps) => ({
-    source: state.flowDesigner.ports.get(ownProps.link.sourceId),
-    target: state.flowDesigner.ports.get(ownProps.link.targetId),
-});
-
-export default connect(mapStateToProps, undefined)(AbstractLink);
+export default AbstractLink;

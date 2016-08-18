@@ -99,7 +99,11 @@ export const FlowDesigner = React.createClass({
                 nodes={this.props.nodes}
               />
               <PortsRenderer ports={this.props.ports} />
-              <LinksRenderer linkTypeMap={this.state.linkTypeMap} links={this.props.links} />
+              <LinksRenderer
+                linkTypeMap={this.state.linkTypeMap}
+                links={this.props.links}
+                ports={this.props.ports}
+              />
             </ZoomHandler>
           </svg>
         );

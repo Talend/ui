@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react';
 import invariant from 'invariant';
 import { mapOf } from 'react-immutable-proptypes';
-import { LinkType } from '../../constants/flowdesigner.proptypes';
+import { LinkType, PortType } from '../../constants/flowdesigner.proptypes';
 
 const LinksRender = React.createClass({
     propTypes: {
         links: mapOf(LinkType).isRequired,
+        ports: mapOf(PortType).isRequired,
         linkTypeMap: PropTypes.object.isRequired,
     },
     renderLink(link) {
         const ConcreteLink = this.props.linkTypeMap[link.linkType].component;
+        const source = this.props.ports.get(link.sourceId);
+        const target = this.props.ports.get(link.targetId);
         if (!ConcreteLink) {
             invariant(
             false,
@@ -18,7 +21,7 @@ const LinksRender = React.createClass({
           );
         }
         return (
-          <ConcreteLink link={link} key={link.id} />
+          <ConcreteLink link={link} source={source} target={target} key={link.id} />
         );
     },
     render() {
