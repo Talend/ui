@@ -52,8 +52,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "react-router-redux": "^4.0.5",
