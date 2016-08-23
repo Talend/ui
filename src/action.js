@@ -87,23 +87,28 @@ function getActionObject(context, id, event, data) {
 }
 
 /**
- * bind onClick to a component that will dispatch the action
+ * create a map dispatchable action function expecting event object, props, and context information
+ * merge this map with non event properties
  * @param  {[type]} dispatch [description]
+ * @param  {[type]} props    [props object containing maybe on(event) with string
+ *                           or action creator function]
  * @return {[type]}          [description]
+ * @throws if an action is unknow in configuration, throw
  */
-function mapDispatchToProps(dispatch) {
-  return {
-    onClick(event, data, context) {
-      let action = data.action;
-      if (typeof action === 'string') {
-        action = getActionObject(context, action, event, data);
-      }
-      if (!action) {
-        throw new Error(`no action found ${data.action}`);
-      }
-      dispatch(action);
-    },
-  };
+function mapDispatchToProps(dispatch, props) {
+  const resolvedActions = {};
+  for (const name in props) {
+    if (props.hasOwnProperty(name) && /^on.+/.test(name)) {
+      resolvedActions[name] = (event, data, context) => {
+        let action = props[name];
+        if (typeof action === 'string') {
+          action = getActionObject(context, action, event, data);
+        }
+        dispatch(action);
+      };
+    }
+  }
+  return Object.assign({}, props, resolvedActions);
 }
 
 /**

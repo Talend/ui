@@ -1,41 +1,53 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from './api';
 
-class Dispatcher extends React.Component {
+/**
+ * This component purpose is to decorate any component and map an user event
+ * to an action to be dispatched
+ * @example
+ * <Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
+ *    <ChildrenElement />
+ * </Dispatcher>
+ */
+export class Dispatcher extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
+    this.onEvent = this.onEvent.bind(this);
   }
-  onClick(event) {
-    if (this.props.onClick) {
-      this.props.onClick(event, this.props, this.context);
+
+  onEvent(event, eventName) {
+    if (this.props[eventName]) {
+      this.props[eventName](event, this.props, this.context);
     }
   }
 
   render() {
     const childrenWithProps = React.Children.map(this.props.children,
-     (child) => React.cloneElement(child, {
-       onClick: this.onClick,
-     })
+     (child) => {
+       let props = {};
+       for (const name in this.props) {
+         if (this.props.hasOwnProperty(name) && /^on.+/.test(name)) {
+           props[name] = (event) => this.onEvent(event, name);
+         }
+       }
+       return React.cloneElement(child, props);
+     }
     );
     const child = React.Children.only(childrenWithProps[0]);
     return (child);
   }
 }
+
 Dispatcher.propTypes = {
-  action: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object,
-  ]),
-  model: React.PropTypes.object,
-  onClick: React.PropTypes.func,
-  children: React.PropTypes.object,
+  children: PropTypes.node.isRequired,
 };
 
 Dispatcher.contextTypes = {
-  store: React.PropTypes.object,
+  store: PropTypes.object.isRequired,
+  registry: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 };
 
 export default connect(

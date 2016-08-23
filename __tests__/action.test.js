@@ -120,36 +120,27 @@ describe('uiAbstraction action', () => {
     expect(action.event).toBe(undefined);
     expect(action.context).toBe(undefined);
   });
-  it('mapDispatchToProps should bind onClilck', () => {
-    const dispatched = {
-      called: false,
-    };
-    function dispatch(action) {
-      dispatched.called = true;
-      dispatched.action = action;
-    }
-    const mapped = actionAPI.mapDispatchToProps(dispatch);
-    expect(typeof mapped.onClick).toBe('function');
-    const data = {
-      action: settings.actions['menu:article'],
-    };
-    mapped.onClick(null, data, context);
-    expect(dispatched.called).toBe(true);
-    expect(dispatched.action).toBe(data.action);
-  });
-  it('mapDispatchToProps should throw exception if no action found', () => {
-    const dispatched = {
-      called: false,
-    };
-    function dispatch(action) {
-      dispatched.called = true;
-      dispatched.action = action;
-    }
-    const mapped = actionAPI.mapDispatchToProps(dispatch);
-    function callWithEmptyData() {
-      mapped.onClick(null, {}, context);
-    }
-    expect(callWithEmptyData).toThrowError('no action found undefined');
-  });
 
+  it('mapDispatchToProps should build a dispatchable action for any on[eventName] present in props', () => {
+    function dispatch() {}
+    const props = {
+      onClick: 'menu:article',
+      onAnything: 'menu:article',
+    };
+    const mapped = actionAPI.mapDispatchToProps(dispatch, props);
+    expect(typeof mapped.onClick).toBe('function');
+    expect(typeof mapped.onAnything).toBe('function');
+  });
+  it('mapDispatchToProps should merge props with any resolved dispatchable action creator', () => {
+    function dispatch() {}
+    const props = {
+      onClick: 'menu:article',
+      onAnything: 'menu:article',
+      elementId: 'id',
+    };
+    const mapped = actionAPI.mapDispatchToProps(dispatch, props);
+    expect(typeof mapped.onClick).toBe('function');
+    expect(typeof mapped.onAnything).toBe('function');
+    expect(mapped.elementId).toBe('id');
+  });
 });
