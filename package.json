@@ -1,26 +1,30 @@
 {
   "name": "bootstrap-tlnd-theme",
   "version": "0.0.1",
-  "description": "A bootstrap theme based on talend style guide lines",
+  "description": "Bootstrap theme based on Talend styleguide",
   "main": "dist/bootstrap.js",
+  "engines" : { 
+    "npm" : ">=2.7.1" 
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "./node_modules/.bin/webpack"
+    "prepublish": "webpack",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmfrancois/bootstrap-theme.git"
+    "url": "git+https://github.com/Talend/bootstrap-theme.git"
   },
   "keywords": [
     "bootstrap",
     "theme"
   ],
-  "author": "talend",
+  "author": "Talend",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jmfrancois/bootstrap-theme/issues"
+    "url": "https://github.com/Talend/bootstrap-theme/issues"
   },
-  "homepage": "https://github.com/jmfrancois/bootstrap-theme#readme",
+  "homepage": "https://github.com/Talend/bootstrap-theme#readme",
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.23.1",

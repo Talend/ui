@@ -19,9 +19,9 @@ But we have decided to rewrite the build using webpack and bootstrap-sass.
 TODO
 
 # How to contribute
+
 ```
 npm install
-./node_modules/.bin/webpack-dev-server
-open http://localhost:8080/example
+npm start
 ```
-
+Open [http://localhost:8080/](http://localhost:8080/) to see your changes.
