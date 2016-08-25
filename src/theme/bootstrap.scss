@@ -1,10 +1,14 @@
-@import './config';
+@import './helpers';
 
-@import './buttons';
+// Core variables and mixins
+@import './variables';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
 // Reset and dependencies
 @import 'bootstrap/normalize';
 //@import 'bootstrap/print';
-// @import 'bootstrap/glyphicons';
+//@import 'bootstrap/glyphicons';
 
 // Core CSS
 @import 'bootstrap/scaffolding';
@@ -14,6 +18,7 @@
 @import 'bootstrap/tables';
 @import 'bootstrap/forms';
 @import 'bootstrap/buttons';
+@import './buttons';
 
 // Components
 @import 'bootstrap/component-animations';
@@ -43,3 +48,7 @@
 @import 'bootstrap/tooltip';
 @import 'bootstrap/popovers';
 //@import 'bootstrap/carousel';
+
+// Utility classes
+@import 'bootstrap/utilities';
+@import 'bootstrap/responsive-utilities';
