@@ -1,13 +1,22 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const extractFonts = new ExtractTextPlugin('fonts.css', {
+  allChunks: true,
+});
+const extractFontsMin = new ExtractTextPlugin('fonts.min.css', {
+  allChunks: true,
+});
 const extractBootstrap = new ExtractTextPlugin('bootstrap.css', {
   allChunks: true,
 });
 const extractBootstrapMin = new ExtractTextPlugin('bootstrap.min.css', {
   allChunks: true,
 });
-const BOOT_PATH = `${__dirname}/node_modules/bootstrap-sass/assets/stylesheets`;
-const THEME_PATH = `${__dirname}./src/theme`;
+
+const PATHS = {
+  bootstrap: `${__dirname}/node_modules/bootstrap-sass/assets/stylesheets`,
+  theme: `${__dirname}./src/theme`,
+};
 
 const BASE_CONF = {
   entry: './src/index.js',
@@ -17,15 +26,40 @@ const BASE_CONF = {
   },
   resolve: ['', '.scss', '.css', '.js'],
   module: {
-    loaders: [{
-      test: /bootstrap\.scss$/,
-      loader: extractBootstrap.extract('style', 'css!sass'),
-    }],
+    loaders: [
+      {
+        test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+        loader: 'url',
+        query: {
+          limit: 50000,
+          mimetype: 'application/font-woff',
+          name: './fonts/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(ttf|otf|eot|svg)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file',
+        query: {
+          name: './fonts/[name].[ext]'
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: extractFonts.extract('style', 'css'),
+      },
+      {
+        test: /bootstrap\.scss$/,
+        loader: extractBootstrap.extract('style', 'css!sass'),
+      }
+    ],
   },
   sassLoader: {
-    includePaths: [THEME_PATH, BOOT_PATH],
+    includePaths: [PATHS.theme, PATHS.bootstrap],
   },
-  plugins: [extractBootstrap],
+  plugins: [
+    extractFonts,
+    extractBootstrap
+  ],
   devServer: {
     contentBase: './example',
   },
@@ -33,12 +67,37 @@ const BASE_CONF = {
 
 const MINIFIED = Object.assign({}, BASE_CONF, {
   module: {
-    loaders: [{
-      test: /bootstrap\.scss$/,
-      loader: extractBootstrapMin.extract('style', 'css?minimize!sass'),
-    }],
+    loaders: [
+      {
+        test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+        loader: 'url',
+        query: {
+          limit: 50000,
+          mimetype: 'application/font-woff',
+          name: './fonts/[hash].[ext]'
+        }
+      },
+      {
+        test: /\.(ttf|otf|eot|svg)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file',
+        query: {
+          name: './fonts/[hash].[ext]'
+        }
+      },
+      {
+        test: /source-sans-pro\.css$/,
+        loader: extractFontsMin.extract('style', 'css?minimize'),
+      },
+      {
+        test: /bootstrap\.scss$/,
+        loader: extractBootstrapMin.extract('style', 'css?minimize!sass'),
+      }
+    ],
   },
-  plugins: [extractBootstrapMin],
+  plugins: [
+    extractFontsMin,
+    extractBootstrapMin,
+  ],
 });
 
 module.exports = [BASE_CONF, MINIFIED];
