@@ -13,11 +13,6 @@ const extractBootstrapMin = new ExtractTextPlugin('bootstrap.min.css', {
   allChunks: true,
 });
 
-const PATHS = {
-  bootstrap: `${__dirname}/node_modules/bootstrap-sass/assets/stylesheets`,
-  theme: `${__dirname}./src/theme`,
-};
-
 const BASE_CONF = {
   entry: './src/index.js',
   output: {
@@ -52,9 +47,6 @@ const BASE_CONF = {
         loader: extractBootstrap.extract('style', 'css!sass'),
       }
     ],
-  },
-  sassLoader: {
-    includePaths: [PATHS.theme, PATHS.bootstrap],
   },
   plugins: [
     extractFonts,
