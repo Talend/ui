@@ -9,10 +9,12 @@ node_js:
   - "6"
   - "4"
 before_install:
-  - npm i -g npm@^2.0.0
+  - npm i react@15 react-dom@15 react-redux@4 react-router@2 react-router-redux@4 redux@3 redux-thunk@2 classnames@2
 before_script:
   - npm prune
 after_success:
+  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
+  - rm -rf ./coverage
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
