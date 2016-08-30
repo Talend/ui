@@ -39,6 +39,8 @@
     "eslint": "3.4.0",
     "eslint-config-airbnb": "10.0.1",
     "eslint-plugin-import": "1.14.0",
+    "jasmine-immutable-matchers": "1.0.1",
+    "redux-mock-store": "^1.1.4",
     "eslint-plugin-jsx-a11y": "2.2.0",
     "eslint-plugin-react": "6.2.0",
     "jest": "14.1.0",
@@ -61,6 +63,8 @@
   },
   "peerDependencies": {
     "classnames": "2",
+    "immutable": "^3.8.1",
+    "invariant": "^2.2.1",
     "react": "15",
     "react-dom": "15",
     "react-redux": "4",
