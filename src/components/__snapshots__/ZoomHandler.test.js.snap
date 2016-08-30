@@ -1,0 +1,23 @@
+exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`] = `
+<g
+  height="100%"
+  width="100%"
+  x="0"
+  y="0">
+  <rect
+    height="100%"
+    style={
+      Object {
+        "fill": "none",
+        "pointerEvents": "all"
+      }
+    }
+    width="100%"
+    x="0"
+    y="0" />
+  <g
+    transform={undefined}>
+    <rect />
+  </g>
+</g>
+`;

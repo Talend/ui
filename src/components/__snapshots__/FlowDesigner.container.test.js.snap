@@ -1,0 +1,94 @@
+exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1`] = `
+<svg
+  height="800"
+  width="100%">
+  <defs>
+    <filter
+      height="200"
+      id="blur-filter"
+      width="200"
+      x="-1"
+      y="-1">
+      <feFlood
+        floodColor="#01A7CF"
+        result="COLOR" />
+      <feComposite
+        in="COLOR"
+        in2="SourceGraphic"
+        operator="in"
+        result="shadow" />
+      <feGaussianBlur
+        in="shadow"
+        stdDeviation="3" />
+      <feOffset
+        dx="0"
+        dy="0" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode
+          in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g
+    height="100%"
+    width="100%"
+    x="0"
+    y="0">
+    <rect
+      height="100%"
+      style={
+        Object {
+          "fill": "none",
+          "pointerEvents": "all"
+        }
+      }
+      width="100%"
+      x="0"
+      y="0" />
+    <g
+      transform={undefined}>
+      <g>
+        <defs>
+          <pattern
+            className={undefined}
+            height="10"
+            id="smallGrid"
+            patternUnits="userSpaceOnUse"
+            width="10">
+            <path
+              d="M 10 0 L 0 0 0 10" />
+          </pattern>
+          <pattern
+            className={undefined}
+            height="50"
+            id="grid"
+            patternUnits="userSpaceOnUse"
+            width="50">
+            <rect
+              fill="url(#smallGrid)"
+              height="50"
+              width="50" />
+            <path
+              d="M 50 0 L 0 0 0 50" />
+          </pattern>
+        </defs>
+        <rect
+          fill="url(#grid)"
+          height="1000%"
+          style={
+            Object {
+              "pointerEvents": "none"
+            }
+          }
+          width="1000%"
+          x="0"
+          y="0" />
+      </g>
+      <g />
+      <g />
+      <g />
+    </g>
+  </g>
+</svg>
+`;

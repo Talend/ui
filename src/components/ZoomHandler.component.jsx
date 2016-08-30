@@ -14,10 +14,10 @@ const ZoomHandler = React.createClass({
     },
     componentDidMount() {
         select(this.zoomCatcher)
-      .call(zoom()
-        .scaleExtent([1 / 8, 4])
-        .on('zoom', this.onZoom)
-      );
+        .call(zoom()
+          .scaleExtent([1 / 8, 4])
+          .on('zoom', this.onZoom)
+        );
     },
     onZoom() {
         this.setState({ transform: event.transform });

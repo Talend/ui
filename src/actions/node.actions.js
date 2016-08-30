@@ -2,6 +2,7 @@ import invariant from 'invariant';
 
 import {
     FLOWDESIGNER_NODE_MOVE,
+    FLOWDESIGNER_NODE_MOVE_END,
     FLOWDESIGNER_NODE_ADD,
     FLOWDESIGNER_NODE_SET_ATTR,
     FLOWDESIGNER_NODE_REMOVE_ATTR,
@@ -23,7 +24,7 @@ export const addNode = (nodeId, nodePosition, nodeSize, nodeType, attr) => (
     (dispatch, getState) => {
         const state = getState();
         if (state.flowDesigner.nodes.get(nodeId)) {
-            invariant(false, `Can't not create node ${nodeId} since it does already exist`);
+            invariant(false, `Can not create node ${nodeId} since it does already exist`);
         }
         dispatch({
             type: FLOWDESIGNER_NODE_ADD,
@@ -50,6 +51,26 @@ export const moveNodeTo = (nodeId, nodePosition) => (
         }
         dispatch({
             type: FLOWDESIGNER_NODE_MOVE,
+            nodeId,
+            nodePosition,
+        });
+    }
+);
+
+/**
+ * When node movement is done
+ * @param {string} nodeId - identifier of the targeted node
+ * @param {{x: number, y: number}} nodePosition - the new absolute position of the node
+ * @return {Object}
+ */
+export const moveNodeToEnd = (nodeId, nodePosition) => (
+    (dispatch, getState) => {
+        const state = getState();
+        if (!state.flowDesigner.nodes.get(nodeId)) {
+            invariant(false, `Can't move node ${nodeId} since it doesn't exist`);
+        }
+        dispatch({
+            type: FLOWDESIGNER_NODE_MOVE_END,
             nodeId,
             nodePosition,
         });
@@ -84,15 +105,18 @@ export const setNodeSize = (nodeId, nodeSize) => (
 export const setNodeAttribute = (nodeId, attr) => (
     (dispatch, getState) => {
         const state = getState();
-        const node = state.flowDesigner.nodes.get(nodeId);
-        if (!node) {
+        let error = false;
+        if (!state.flowDesigner.nodes.get(nodeId)) {
+            error = true;
             invariant(false, `Can't set an attribute on non existing node ${nodeId}`);
         }
-        dispatch({
-            type: FLOWDESIGNER_NODE_SET_ATTR,
-            nodeId,
-            attr,
-        });
+        if (!error) {
+            dispatch({
+                type: FLOWDESIGNER_NODE_SET_ATTR,
+                nodeId,
+                attr,
+            });
+        }
     }
 );
 
@@ -101,7 +125,6 @@ export const setNodeAttribute = (nodeId, attr) => (
  * @param {string} nodeId
  * @param {string} attrKey - the key of the attribute to be removed
  */
-// TODO specific for TFD should be moved
 export const removeNodeAttribute = (nodeId, attrKey) => (
     (dispatch, getState) => {
         const state = getState();
@@ -124,12 +147,16 @@ export const removeNodeAttribute = (nodeId, attrKey) => (
 export const removeNode = nodeId => (
     (dispatch, getState) => {
         const state = getState();
+        let error = false;
         if (!state.flowDesigner.nodes.get(nodeId)) {
+            error = true;
             invariant(false, `Can not remove node ${nodeId} since it doesn't exist`);
         }
-        dispatch({
-            type: FLOWDESIGNER_NODE_REMOVE,
-            nodeId,
-        });
+        if (!error) {
+            dispatch({
+                type: FLOWDESIGNER_NODE_REMOVE,
+                nodeId,
+            });
+        }
     }
 );

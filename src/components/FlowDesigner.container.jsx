@@ -11,7 +11,7 @@ import NodesRenderer from './node/NodesRenderer.component';
 import LinksRenderer from './link/LinksRenderer.component';
 import PortsRenderer from './port/PortsRenderer.component';
 
-import { moveNodeTo } from '../actions/node.actions';
+import { moveNodeTo, moveNodeToEnd } from '../actions/node.actions';
 import { setNodeTypes } from '../actions/nodeType.actions';
 
 
@@ -96,6 +96,7 @@ export const FlowDesigner = React.createClass({
               <NodesRenderer
                 nodeTypeMap={this.state.nodeTypeMap}
                 moveNodeTo={this.props.moveNodeTo}
+                moveNodeToEnd={this.props.moveNodeToEnd}
                 nodes={this.props.nodes}
               />
               <PortsRenderer ports={this.props.ports} />
@@ -120,6 +121,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setNodeTypes: (nodeTypeMap) => dispatch(setNodeTypes(nodeTypeMap)),
     moveNodeTo: (nodId, nodePosition) => (dispatch(moveNodeTo(nodId, nodePosition))),
+    moveNodeToEnd: (nodId, nodePosition) => (dispatch(moveNodeToEnd(nodId, nodePosition))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlowDesigner);

@@ -1,0 +1,7 @@
+exports[`<LinksRenderer /> renders correctly <LinksRenderer /> renders correctly 1`] = `
+<g>
+  <span>
+    MockLink
+  </span>
+</g>
+`;

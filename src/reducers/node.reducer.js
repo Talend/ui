@@ -3,6 +3,7 @@ import { Map } from 'immutable';
 import {
    FLOWDESIGNER_NODE_ADD,
    FLOWDESIGNER_NODE_MOVE,
+   FLOWDESIGNER_NODE_MOVE_END,
    FLOWDESIGNER_NODE_UPDATE_TYPE,
    FLOWDESIGNER_NODE_SET_ATTR,
    FLOWDESIGNER_NODE_SET_SIZE,
@@ -23,7 +24,7 @@ const nodeReducer = (state = defaultState, action) => {
             nodeType: action.nodeType,
             attr: new Map(action.attr),
         }));
-    case FLOWDESIGNER_NODE_MOVE:
+    case FLOWDESIGNER_NODE_MOVE || FLOWDESIGNER_NODE_MOVE_END:
         return state.setIn(
             [action.nodeId, 'position'],
             new PositionRecord(action.nodePosition)

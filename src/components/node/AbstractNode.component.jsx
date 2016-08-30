@@ -8,6 +8,7 @@ import invariant from 'invariant';
 
 import './node.css';
 import { NodeType } from '../../constants/flowdesigner.proptypes';
+import { PositionRecord } from '../../constants/flowdesigner.model';
 
 
 /**
@@ -32,28 +33,29 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
     let sinkNumber = 0;
     emitterPorts.forEach(port => {
         emitterNumber += 1;
-        const position = {
+        const position = new PositionRecord({
             x: nodePosition.x + nodeSize.width,
             y: scaleYEmitter(emitterNumber),
-        };
+        });
         portsWithPosition = portsWithPosition.set(port.id, port.set('position', position));
     });
     sinkPorts.forEach(port => {
         sinkNumber += 1;
-        const position = {
+        const position = new PositionRecord({
             x: nodePosition.x,
             y: scaleYSink(sinkNumber),
-        };
+        });
         portsWithPosition = portsWithPosition.set(port.id, port.set('position', position));
     });
     return portsWithPosition;
 };
 
 
-export const Node = React.createClass({
+export const AbstractNode = React.createClass({
     propTypes: {
         node: NodeType.isRequired,
         moveNodeTo: PropTypes.func.isRequired,
+        moveNodeToEnd: PropTypes.func.isRequired,
         onDragStart: PropTypes.func,
         onDrag: PropTypes.func,
         onDragEnd: PropTypes.func,
@@ -77,9 +79,9 @@ export const Node = React.createClass({
     componentWillUnmount() {
         this.d3Node.remove();
     },
-    onClick() {
+    onClick(event) {
         if (this.props.onClick) {
-            this.props.onClick();
+            this.props.onClick(event);
         }
     },
     onDragStart() {
@@ -95,6 +97,7 @@ export const Node = React.createClass({
         }
     },
     onDragEnd() {
+        this.props.moveNodeToEnd(this.props.node.id, event);
         if (this.props.onDragEnd) {
             this.props.onDragEnd(event);
         }
@@ -123,4 +126,4 @@ export const Node = React.createClass({
 });
 
 
-export default Node;
+export default AbstractNode;

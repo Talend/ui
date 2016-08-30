@@ -9,6 +9,7 @@ const NodesRenderer = React.createClass({
         nodes: mapOf(NodeType).isRequired,
         nodeTypeMap: PropTypes.object.isRequired,
         moveNodeTo: PropTypes.func.isRequired,
+        moveNodeToEnd: PropTypes.func.isRequired,
     },
     renderNode(node) {
         const ConcreteComponent = this.props.nodeTypeMap[node.nodeType].component;
@@ -20,7 +21,7 @@ const NodesRenderer = React.createClass({
           );
         }
         return (
-          <ConcreteComponent node={node} moveNodeTo={this.props.moveNodeTo} key={node.id} />
+          <ConcreteComponent node={node} moveNodeTo={this.props.moveNodeTo} moveNodeToEnd={this.props.moveNodeToEnd} key={node.id} />
     );
     },
     render() {

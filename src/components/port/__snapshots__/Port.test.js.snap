@@ -1,0 +1,10 @@
+exports[`<Port /> renders correctly <Port /> renders correctly 1`] = `
+<g>
+  <g>
+    <circle
+      className="connector"
+      cx={100}
+      cy={100} />
+  </g>
+</g>
+`;
