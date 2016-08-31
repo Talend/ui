@@ -1,4 +1,4 @@
-# UI Abstraction
+# Content Management Framework (aka CMF)
 
 This is a library to help you to build configurable React App.
 
@@ -12,19 +12,29 @@ It provides a set of base components and patterns.
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-[npm-icon]: https://nodei.co/npm/react-ui-abstraction.png?downloads=true
-[npm-url]: https://npmjs.org/package/react-ui-abstraction
-[travis-ci-image]: https://travis-ci.org/Talend/react-ui-abstraction.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-ui-abstraction
+[npm-icon]: https://nodei.co/npm/react-cmf.png?downloads=true
+[npm-url]: https://npmjs.org/package/react-cmf
+[travis-ci-image]: https://travis-ci.org/Talend/react-cmf.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/react-cmf
 
-[dependencies-image]: https://david-dm.org/Talend/react-ui-abstraction.png
-[dependencies-url]: https://david-dm.org/Talend/react-ui-abstraction
-[devdependencies-image]: https://david-dm.org/Talend/react-ui-abstraction/dev-status.png
-[devdependencies-url]: https://david-dm.org/Talend/react-ui-abstraction#info=devDependencies
+[dependencies-image]: https://david-dm.org/Talend/react-cmf.png
+[dependencies-url]: https://david-dm.org/Talend/react-cmf
+[devdependencies-image]: https://david-dm.org/Talend/react-cmf/dev-status.png
+[devdependencies-url]: https://david-dm.org/Talend/react-cmf#info=devDependencies
 
-[quality-badge]: http://npm.packagequality.com/shield/react-ui-abstraction.svg
-[quality-url]: http://packagequality.com/#?package=react-ui-abstraction
+[quality-badge]: http://npm.packagequality.com/shield/react-cmf.svg
+[quality-url]: http://packagequality.com/#?package=react-cmf
 
+
+## Definition
+
+*CMF* definition from wikipedia:
+
+```
+A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
+```
+
+It feets with our goal, this is why this addon has been named that way.
 
 ## Paradigm
 
@@ -54,9 +64,17 @@ Then view will be composed of react components that can get their props.
 
 ### Actions
 
-Actions are redux actions.
+Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
 
 ### Content Types
+
+A content type define metadata over content. For example when you display a list of article you said each item in this list are an *article* which is a content type.
+
+We are adding metadata over content type:
+
+* title
+* icon id
+* actions (by category)
 
 ## Internals: The registry
 
@@ -65,6 +83,4 @@ It's just a key/object registry and it's used with prefix to store the following
 
 * action creators (function)
 * views (React Component)
-
-## How to use it
 
