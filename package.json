@@ -20,7 +20,6 @@
   "author": "Axel Cateland <acateland@talend.com>",
   "license": "Apache-2.0",
   "jest": {
-    "automock": false,
     "testRegex": "/.*\\.test(.js|.jsx)$",
     "moduleNameMapper": {
       "^.+\\.(css|sass|scss)$": "<rootDir>/test/styleMock.js",
