@@ -36,7 +36,7 @@
     "babel-cli": "6.11.4",
     "babel-core": "6.11.4",
     "babel-eslint": "6.1.2",
-    "babel-jest": "14.1.0",
+    "babel-jest": "15.0.0",
     "babel-loader": "6.2.5",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-plugin-transform-object-rest-spread": "6.8.0",
