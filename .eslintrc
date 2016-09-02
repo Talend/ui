@@ -5,7 +5,8 @@
     "brace-style": [2, "stroustrup"],
     "indent": ["error", "tab"],
     "react/prefer-es6-class": 0,
-    "react/jsx-indent": ["error", "tab"]
+    "react/jsx-indent": ["error", "tab"],
+    "react/jsx-indent-props": ["error", "tab"]
   },
   "env": {
     "es6": true,
