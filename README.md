@@ -66,6 +66,13 @@ Then view will be composed of react components that can get their props.
 
 Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
 
+### ComponentState Management
+Component state can be easily stored in cmf state, each are identified by theyr name and an unique key,
+so component state, can be stored and reused later
+
+### collections management
+Manage a local cache of your business data
+
 ### Content Types
 
 A content type define metadata over content. For example when you display a list of article you said each item in this list are an *article* which is a content type.
@@ -84,3 +91,10 @@ It's just a key/object registry and it's used with prefix to store the following
 * action creators (function)
 * views (React Component)
 
+## Store structure
+cmf store structure is the following
+* root
+  * cmf
+    * collections
+    * components
+    * settings

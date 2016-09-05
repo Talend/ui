@@ -21,7 +21,7 @@ UIRouter.propTypes = {
 UIRouter.contextTypes = {
   registry: React.PropTypes.object,
 };
-const mapStateToProps = (state) => ({ routes: state.settings.routes });
+const mapStateToProps = (state) => ({ routes: state.cmf.settings.routes });
 export default connect(
   mapStateToProps
 )(UIRouter);

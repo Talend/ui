@@ -8,7 +8,9 @@ describe('uiAbstraction action', () => {
 
   beforeEach(() => {
     state = {
-      settings,
+      cmf: {
+        settings,
+      },
     };
     context = {
       store: {
@@ -22,10 +24,12 @@ describe('uiAbstraction action', () => {
         getState() {
           return {
             initialized: false,
-            settings: {
-              contentTypes: {},
-              actions: {},
-              views: {},
+            cmf: {
+              settings: {
+                contentTypes: {},
+                actions: {},
+                views: {},
+              },
             },
           };
         },
@@ -34,7 +38,7 @@ describe('uiAbstraction action', () => {
   });
   it('getActionsById should return action from settings', () => {
     const actions = actionAPI.getActionsById(context);
-    expect(actions).toBe(state.settings.actions);
+    expect(actions).toBe(state.cmf.settings.actions);
     expect(typeof actions).toBe('object');
   });
   it('getActionsById should return empty if settings are not loaded', () => {

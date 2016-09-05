@@ -52,7 +52,7 @@ function loadComponents(context, item) {
     item.component = getComponentFromRegistry(context, item.component);
     if (item.view) {
       item.component = connect(
-        (state) => state.settings.views[item.view]
+        (state) => state.cmf.settings.views[item.view]
       )(item.component);
     }
   }

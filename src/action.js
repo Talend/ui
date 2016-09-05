@@ -8,8 +8,8 @@ import registry from './registry';
 function getActionsById(context) {
   const state = context.store.getState();
   if (state) {
-    if (state.settings) {
-      return state.settings.actions;
+    if (state.cmf.settings) {
+      return state.cmf.settings.actions;
     }
   }
   return {};
@@ -24,7 +24,7 @@ function getActionsById(context) {
  */
 function getContentTypeActions(context, contentType, category) {
   const state = context.store.getState();
-  const ct = state.settings.contentTypes[contentType];
+  const ct = state.cmf.settings.contentTypes[contentType];
   if (ct) {
     if (ct.actions) {
       if (ct.actions[category]) {
