@@ -54,7 +54,7 @@
     "immutable": "3.8.1",
     "jasmine-immutable-matchers": "1.0.1",
     "jest-cli": "15.1.1",
-    "node-sass": "3.8.0",
+    "node-sass": "3.9.3",
     "react": "15.3.0",
     "react-addons-test-utils": "15.3.0",
     "react-dom": "15.3.0",
