@@ -6,7 +6,7 @@ import settingsReducers from './settingsReducers';
 
 
 export default combineReducers({
-  collections: collectionsReducers,
-  components: componentsReducers,
-  settings: settingsReducers,
+	collections: collectionsReducers,
+	components: componentsReducers,
+	settings: settingsReducers,
 });

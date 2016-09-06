@@ -7,50 +7,51 @@ import api from './api';
  * to an action to be dispatched
  * @example
  * <Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
- *    <ChildrenElement />
+ *		<ChildrenElement />
  * </Dispatcher>
  */
 export class Dispatcher extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.onEvent = this.onEvent.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.onEvent = this.onEvent.bind(this);
+	}
 
-  onEvent(event, eventName) {
-    if (this.props[eventName]) {
-      this.props[eventName](event, this.props, this.context);
-    }
-  }
+	onEvent(event, eventName) {
+		if (this.props[eventName]) {
+			this.props[eventName](event, this.props, this.context);
+		}
+	}
 
-  render() {
-    const childrenWithProps = React.Children.map(this.props.children,
-     (child) => {
-       let props = {};
-       for (const name in this.props) {
-         if (this.props.hasOwnProperty(name) && /^on.+/.test(name)) {
-           props[name] = (event) => this.onEvent(event, name);
-         }
-       }
-       return React.cloneElement(child, props);
-     }
-    );
-    const child = React.Children.only(childrenWithProps[0]);
-    return (child);
-  }
+	render() {
+		const childrenWithProps = React.Children.map(
+			this.props.children,
+			(child) => {
+				const props = {};
+				Object.keys(this.props).forEach((name) => {
+					if ({}.hasOwnProperty.call(this.props, name) && /^on.+/.test(name)) {
+						props[name] = (event) => this.onEvent(event, name);
+					}
+				});
+				return React.cloneElement(child, props);
+			}
+		);
+		const child = React.Children.only(childrenWithProps[0]);
+		return (child);
+	}
 }
 
 Dispatcher.propTypes = {
-  children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 Dispatcher.contextTypes = {
-  store: PropTypes.object.isRequired,
-  registry: PropTypes.object.isRequired,
-  router: PropTypes.object.isRequired,
+	store: PropTypes.object.isRequired,
+	registry: PropTypes.object.isRequired,
+	router: PropTypes.object.isRequired,
 };
 
 export default connect(
-  undefined,
-  api.action.mapDispatchToProps
+	undefined,
+	api.action.mapDispatchToProps
 )(Dispatcher);

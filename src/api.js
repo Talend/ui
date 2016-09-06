@@ -8,7 +8,7 @@ import route from './route';
 import action from './action';
 
 export default {
-  action,
-  route,
-  registry,
+	action,
+	route,
+	registry,
 };

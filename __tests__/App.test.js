@@ -7,22 +7,22 @@ import RegistryProvider from '../src/RegistryProvider';
 import UIRouter from '../src/UIRouter';
 
 describe('uiAbstraction App', () => {
-  it('App should init stuff', () => {
-    const store = {
-      subscribe() {},
-      dispatch() {},
-      getState() {
-        return {};
-      },
-    };
-    const history = {};
-    const wrapper = shallow(<App store={store} history={history} />);
-    expect(wrapper.contains(
-      <Provider store={store}>
-        <RegistryProvider>
-          <UIRouter history={history} />
-        </RegistryProvider>
-      </Provider>)
-    ).toEqual(true);
-  });
+	it('App should init stuff', () => {
+		const store = {
+			subscribe() {},
+			dispatch() {},
+			getState() {
+				return {};
+			},
+		};
+		const history = {};
+		const wrapper = shallow(<App store={store} history={history} />);
+		expect(wrapper.contains(
+			<Provider store={store}>
+				<RegistryProvider>
+					<UIRouter history={history} />
+				</RegistryProvider>
+			</Provider>)
+		).toEqual(true);
+	});
 });

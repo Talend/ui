@@ -3,7 +3,7 @@ import * as componentsActions from './componentsActions';
 import * as settingsActions from './settingsActions';
 
 export default {
-  collectionsActions,
-  componentsActions,
-  settingsActions,
+	collectionsActions,
+	componentsActions,
+	settingsActions,
 };

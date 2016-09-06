@@ -3,26 +3,26 @@ import Registry from './registry';
 
 export default class RegistryProvider extends React.Component {
 
-  getChildContext() {
-    return { registry: Registry.getRegistry() };
-  }
+	getChildContext() {
+		return { registry: Registry.getRegistry() };
+	}
 
-  render() {
-    // FIXME: what is that .onClick ?
-    const childrenWithProps = React.Children.map(
-      this.props.children,
-       (child) => React.cloneElement(child, {
-         onClick: this.onClick,
-       })
-    );
-    const child = React.Children.only(childrenWithProps[0]);
-    return (child);
-  }
+	render() {
+		// FIXME: what is that .onClick ?
+		const childrenWithProps = React.Children.map(
+			this.props.children,
+			(child) => React.cloneElement(child, {
+				onClick: this.onClick,
+			})
+		);
+		const child = React.Children.only(childrenWithProps[0]);
+		return (child);
+	}
 }
 
 RegistryProvider.propTypes = {
-  children: React.PropTypes.object,
+	children: React.PropTypes.object,
 };
 RegistryProvider.childContextTypes = {
-  registry: React.PropTypes.object,
+	registry: React.PropTypes.object,
 };

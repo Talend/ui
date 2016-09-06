@@ -6,13 +6,13 @@ import registry from './registry';
  * @return {object} actions with key === action id
  */
 function getActionsById(context) {
-  const state = context.store.getState();
-  if (state) {
-    if (state.cmf.settings) {
-      return state.cmf.settings.actions;
-    }
-  }
-  return {};
+	const state = context.store.getState();
+	if (state) {
+		if (state.cmf.settings) {
+			return state.cmf.settings.actions;
+		}
+	}
+	return {};
 }
 
 /**
@@ -23,30 +23,30 @@ function getActionsById(context) {
  * @return {array} actions
  */
 function getContentTypeActions(context, contentType, category) {
-  const state = context.store.getState();
-  const ct = state.cmf.settings.contentTypes[contentType];
-  if (ct) {
-    if (ct.actions) {
-      if (ct.actions[category]) {
-        return ct.actions[category];
-      }
-    }
-  }
-  return [];
+	const state = context.store.getState();
+	const ct = state.cmf.settings.contentTypes[contentType];
+	if (ct) {
+		if (ct.actions) {
+			if (ct.actions[category]) {
+				return ct.actions[category];
+			}
+		}
+	}
+	return [];
 }
 
 /**
  * return a function from the registry
  * @param  {object} context
- * @param  {string} id      the id of the action creator
+ * @param  {string} id the id of the action creator
  * @return {function}
  */
 function getActionCreatorFunction(context, id) {
-  const creator = context.registry[`actionCreator:${id}`];
-  if (!creator) {
-    throw new Error(`actionCreator not found in the registry: ${id}`);
-  }
-  return creator;
+	const creator = context.registry[`actionCreator:${id}`];
+	if (!creator) {
+		throw new Error(`actionCreator not found in the registry: ${id}`);
+	}
+	return creator;
 }
 
 /**
@@ -56,11 +56,11 @@ function getActionCreatorFunction(context, id) {
  * @return {object}
  */
 function getActionInfo(context, id) {
-  const action = getActionsById(context)[id];
-  if (!action) {
-    throw new Error(`action not found id: ${id}`);
-  }
-  return action;
+	const action = getActionsById(context)[id];
+	if (!action) {
+		throw new Error(`action not found id: ${id}`);
+	}
+	return action;
 }
 
 /**
@@ -73,17 +73,17 @@ function getActionInfo(context, id) {
  * @return {object} redux ready action object with .event, .data, .context
  */
 function getActionObject(context, id, event, data) {
-  const action = getActionInfo(context, id);
-  if (action.actionCreator) {
-    const actionCreator = getActionCreatorFunction(context, action.actionCreator);
-    return actionCreator(event, data, {
-      getState: context.store.getState,
-      router: context.router,
-      registry: context.registry,
-      action,
-    });
-  }
-  return Object.assign({}, action, { event, data, context });
+	const action = getActionInfo(context, id);
+	if (action.actionCreator) {
+		const actionCreator = getActionCreatorFunction(context, action.actionCreator);
+		return actionCreator(event, data, {
+			getState: context.store.getState,
+			router: context.router,
+			registry: context.registry,
+			action,
+		});
+	}
+	return Object.assign({}, action, { event, data, context });
 }
 
 /**
@@ -96,19 +96,19 @@ function getActionObject(context, id, event, data) {
  * @throws if an action is unknow in configuration, throw
  */
 function mapDispatchToProps(dispatch, props) {
-  const resolvedActions = {};
-  for (const name in props) {
-    if (props.hasOwnProperty(name) && /^on.+/.test(name)) {
-      resolvedActions[name] = (event, data, context) => {
-        let action = props[name];
-        if (typeof action === 'string') {
-          action = getActionObject(context, action, event, data);
-        }
-        dispatch(action);
-      };
-    }
-  }
-  return Object.assign({}, props, resolvedActions);
+	const resolvedActions = {};
+	Object.keys(props).forEach((name) => {
+		if ({}.hasOwnProperty.call(props, name) && /^on.+/.test(name)) {
+			resolvedActions[name] = (event, data, context) => {
+				let action = props[name];
+				if (typeof action === 'string') {
+					action = getActionObject(context, action, event, data);
+				}
+				dispatch(action);
+			};
+		}
+	});
+	return Object.assign({}, props, resolvedActions);
 }
 
 /**
@@ -121,15 +121,15 @@ function mapDispatchToProps(dispatch, props) {
  * @param  {function} actionCreator (event, data, context)
  */
 function registerActionCreator(id, actionCreator) {
-  registry.addToRegistry(`actionCreator:${id}`, actionCreator);
+	registry.addToRegistry(`actionCreator:${id}`, actionCreator);
 }
 
 export default {
-  getActionsById,
-  getActionCreatorFunction,
-  getActionInfo,
-  getActionObject,
-  getContentTypeActions,
-  mapDispatchToProps,
-  registerActionCreator,
+	getActionsById,
+	getActionCreatorFunction,
+	getActionInfo,
+	getActionObject,
+	getContentTypeActions,
+	mapDispatchToProps,
+	registerActionCreator,
 };

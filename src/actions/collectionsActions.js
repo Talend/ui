@@ -9,9 +9,9 @@ export const COLLECTION_REMOVE = 'REACT_CMF.COLLECTION_REMOVE';
  * @param {any} any element that represent business data
  */
 export const addOrReplaceCollection = (collectionId, data) => ({
-  type: COLLECTION_ADD_OR_REPLACE,
-  collectionId,
-  data,
+	type: COLLECTION_ADD_OR_REPLACE,
+	collectionId,
+	data,
 });
 
 /**
@@ -21,18 +21,18 @@ export const addOrReplaceCollection = (collectionId, data) => ({
  * @throws if you try to remove non existent collection
  */
 export const removeCollection = collectionId => (
-  (dispatch, getState) => {
-    const state = getState();
-    let error = false;
-    if (!state.settings.collections.get('collectionId')) {
-      error = true;
-      invariant(false, `Can't remove collection ${collectionId} since it doesn't already exist.`);
-    }
-    if (!error) {
-      dispatch({
-        type: COLLECTION_REMOVE,
-        collectionId,
-      });
-    }
-  }
+	(dispatch, getState) => {
+		const state = getState();
+		let error = false;
+		if (!state.settings.collections.get('collectionId')) {
+			error = true;
+			invariant(false, `Can't remove collection ${collectionId} since it doesn't already exist.`);
+		}
+		if (!error) {
+			dispatch({
+				type: COLLECTION_REMOVE,
+				collectionId,
+			});
+		}
+	}
 );

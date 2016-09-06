@@ -2,17 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 
 const Icon = (props) => {
-  const iconClasses = classNames(
-    'fa',
-    props.className,
-    props.name
-  );
-  return (<i className={iconClasses} />);
+	const iconClasses = classNames(
+		'fa',
+		props.className,
+		props.name
+	);
+	return (<i className={iconClasses} />);
 };
 
 Icon.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string,
+	name: React.PropTypes.string.isRequired,
+	className: React.PropTypes.string,
 };
 
 export default Icon;

@@ -1,20 +1,21 @@
 import * as ACTIONS from '../actions';
 
 const defaultState = {
-  initialized: false,
-  contentTypes: {},
-  actions: {},
-  views: {},
-  routes: {},
+	initialized: false,
+	contentTypes: {},
+	actions: {},
+	views: {},
+	routes: {},
 };
 
 export function settingsReducer(state = defaultState, action) {
-  switch (action.type) {
-  case ACTIONS.REQUEST_OK:
-    return Object.assign({}, state, {
-      initialized: true,
-    }, action.settings);
-  default:
-    return state;
-  }
+	switch (action.type) {
+	case ACTIONS.REQUEST_OK:
+		return Object.assign({}, state, {
+			initialized: true,
+		}, action.settings);
+	default:
+		return state;
+	}
 }
+export default settingsReducer;

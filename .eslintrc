@@ -2,21 +2,18 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "brace-style": [2, "stroustrup"],
-    "indent": ["error", 2],
-    "react/prefer-stateless-function": 2,
-    "react/jsx-filename-extension": 0,
+    "indent": ["error", "tab"],
+    "react/prefer-es6-class": 0,
+    "react/jsx-indent": ["error", "tab"],
+    "react/jsx-indent-props": ["error", "tab"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
   },
   "env": {
     "es6": true,
     "browser": true,
     "jasmine": true
   },
-  "globals": {
-    "jest": true,
-    "beforeEachProviders": true,
-    "injectAsync": true
-  },
+  "globals": {},
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
