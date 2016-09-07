@@ -53,7 +53,7 @@ $limeade:               #8ABC00;
 /// @type Color
 $lightning-yellow:      #FEB914;
 
-// Used for errors.
+/// Used for errors.
 ///
 /// @type Color
 $chestnut-rose:         #CE6464;
