@@ -3,10 +3,7 @@
 STATUS: this is a Work In Progress.
 
 [![Build Status](https://travis-ci.org/Talend/bootstrap-theme.svg?branch=travis)](https://travis-ci.org/Talend/bootstrap-theme)
-[![devdependencies][devdependencies-image] ][devdependencies-url]
-
-[devdependencies-image]: https://david-dm.org/jmfrancois/bootstrap-theme/dev-status.png
-[devdependencies-url]: https://david-dm.org/jmfrancois/bootstrap-theme#info=devDependencies
+[![dependencies Status](https://david-dm.org/Talend/bootstrap-theme/status.svg)](https://david-dm.org/Talend/bootstrap-theme)
 
 This theme is a base theme free of colors that must be configured to be used.
 
