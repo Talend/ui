@@ -25,7 +25,8 @@ npm install --save bootstrap-tlnd-theme
 Create your `_colors.scss` file and fill it with your own color set.
 
 ```sass
-/// Primary color, mostly used for the selected elements and to draw attention to the important elements of interaction.
+/// Primary color, mostly used for the selected elements 
+/// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
 $st-tropaz:             #266092;
