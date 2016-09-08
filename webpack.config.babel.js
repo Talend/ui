@@ -24,6 +24,7 @@ const CONFIG = {
     devtool: 'source-map',
     externals: {
         'immutable': 'immutable',
+		'lodash': 'lodash',
         'react': 'react',
         'react-dom': 'react-dom',
         'react-redux': 'react-redux',
