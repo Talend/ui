@@ -3,6 +3,9 @@ cache:
   directories:
     - node_modules
 node_js:
+  - "4"
   - "6"
+before_install:
+  - npm i immutable@3 react@15 react-dom@15 react-redux@4 redux@3 reselect@2
 before_script:
   - npm prune

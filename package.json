@@ -64,17 +64,18 @@
     "redux-mock-store": "1.2.0",
     "redux-thunk": "2.1.0",
     "reselect": "2.5.3",
+    "rimraf": "^2.5.4",
     "sass-loader": "4.0.2",
     "style-loader": "0.13.1",
     "webpack": "2.1.0-beta.20"
   },
   "peerDependencies": {
-    "immutable": "3.8.1",
-    "react": "15.3.0",
-    "react-dom": "15.3.0",
-    "react-redux": "4.4.5",
-    "redux": "3.5.2",
-    "reselect": "2.5.3"
+    "immutable": "3",
+    "react": "15",
+    "react-dom": "15",
+    "react-redux": "4",
+    "redux": "3",
+    "reselect": "2"
   },
   "dependencies": {
     "classnames": "2.2.5",
