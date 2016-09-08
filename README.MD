@@ -2,6 +2,8 @@
 
 [![dependencies Status](https://david-dm.org/acateland/react-flow-designer/status.svg)](https://david-dm.org/acateland/react-flow-designer)
 
+[![Coverage Status](https://coveralls.io/repos/github/acateland/react-flow-designer/badge.svg)](https://coveralls.io/github/acateland/react-flow-designer)
+
 LIB in active development, concept are not fully scoped
 
 Do Not Use !

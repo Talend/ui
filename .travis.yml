@@ -9,3 +9,7 @@ before_install:
   - npm i immutable@3 react@15 react-dom@15 react-redux@4 redux@3 reselect@2
 before_script:
   - npm prune
+after_success:
+  - npm run test:cov
+  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
+  - rm -rf ./coverage
