@@ -1,7 +1,7 @@
 import actionAPI from '../src/action';
 const settings = require('./settings.json');
 
-describe('uiAbstraction action', () => {
+describe('CMF action', () => {
 	let state;
 	let context;
 	let emptyContext;

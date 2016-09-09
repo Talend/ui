@@ -1,7 +1,7 @@
 import route from '../src/route';
 import registry from '../src/registry';
 
-describe('uiAbstraction route', () => {
+describe('CMF route', () => {
 	it('registerComponent', () => {
 		function C1() {}
 		const emptyRegistry = {};

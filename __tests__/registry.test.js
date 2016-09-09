@@ -1,6 +1,6 @@
 import registry from '../src/registry';
 
-describe('uiAbstraction registry', () => {
+describe('CMF registry', () => {
 	it('Registry should get a singleton', () => {
 		const r1 = registry.Registry.getRegistry();
 		const r2 = registry.Registry.getRegistry();

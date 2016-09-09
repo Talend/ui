@@ -6,7 +6,7 @@ import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
 import UIRouter from '../src/UIRouter';
 
-describe('uiAbstraction App', () => {
+describe('CMF App', () => {
 	it('App should init stuff', () => {
 		const store = {
 			subscribe() {},
