@@ -8,6 +8,8 @@ import ConnectedDispatcher from './Dispatcher';
 import Icon from './Icon';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
+import history from './history';
+import initializeStore from './store';
 import actions from './actions/';
 import reducers from './reducers/';
 
@@ -30,6 +32,8 @@ export {
 	api,
 	App,
 	Dispatcher,
+	history,
+	initializeStore,
 	Icon,
 	reducers,
 	RegistryProvider,

@@ -23,6 +23,7 @@
           "src/registry.js",
           "src/RegistryProvider.js",
           "src/route.js",
+          "src/store.js",
           "src/UIRouter.js"
         ],
         "excludePattern": "(node_modules/*|docs/*|lib/*)"

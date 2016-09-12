@@ -17,7 +17,7 @@ const defaultState = {
  * @param  {object} action redux aciton
  * @return {object}        new state
  */
-export function settingsReducer(state = defaultState, action) {
+export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 	case ACTIONS.REQUEST_OK:
 		return Object.assign({}, state, {
@@ -27,4 +27,5 @@ export function settingsReducer(state = defaultState, action) {
 		return state;
 	}
 }
-export default settingsReducer;
+
+export default settingsReducers;

@@ -11,7 +11,7 @@ export const defaultState = new Map();
  * @param  {object} action the excuted action
  * @return {object}        the new state
  */
-export function componentsReducer(state = defaultState, action) {
+export function componentsReducers(state = defaultState, action) {
 	switch (action.type) {
 	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
 		if (action.initialComponentState) {
@@ -36,4 +36,4 @@ export function componentsReducer(state = defaultState, action) {
 	}
 }
 
-export default componentsReducer;
+export default componentsReducers;

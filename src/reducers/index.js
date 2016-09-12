@@ -6,10 +6,9 @@
  */
 import { combineReducers } from 'redux';
 
-import collectionsReducers from './collectionsReducers';
-import componentsReducers from './componentsReducers';
-import settingsReducers from './settingsReducers';
-
+import { collectionsReducers } from './collectionsReducers';
+import { componentsReducers } from './componentsReducers';
+import { settingsReducers } from './settingsReducers';
 
 /**
  * exported API
