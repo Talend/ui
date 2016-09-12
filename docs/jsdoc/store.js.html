@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: reducers/index.js</title>
+    <title>JSDoc: Source: store.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: reducers/index.js</h1>
+    <h1 class="page-title">Source: store.js</h1>
 
     
 
@@ -27,28 +27,76 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module react-cmf/lib/reducers
- * @see module:react-cmf/lib/reducers/collectionsReducers
- * @see module:react-cmf/lib/reducers/componentsReducers
- * @see module:react-cmf/lib/reducers/settingsReducers
+ * @module react-cmf/lib/store
  */
-import { combineReducers } from 'redux';
+import { hashHistory } from 'react-router';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import invariant from 'invariant';
 
-import { collectionsReducers } from './collectionsReducers';
-import { componentsReducers } from './componentsReducers';
-import { settingsReducers } from './settingsReducers';
+import cmfReducers from './reducers';
+
+const enhancers = [];
+const middlewares = [thunk];
+if (window) {
+	if (window.devToolsExtension) {
+		enhancers.push(window.devToolsExtension());
+	}
+}
+
+const configuredRouterMiddleware = routerMiddleware(hashHistory);
+middlewares.push(configuredRouterMiddleware);
 
 /**
- * exported API
- * @type {object}
- * @example
-	import reducer from 'react-cmf/lib/reducers';
+ * helper to create the store with all the things needed by CMF
+ * the store look like this:
+ * - root
+ * |- app (with appReducer)
+ * |- routing (for react-router)
+ * |- cmf (for the internals)
+ *
+ * @param  {function} appReducer   the reducer for your app.
+ * @param  {any} preloadedState if you want to create your state tree with initial values.
+ *                              This is usefull for server side renderring
+ * @param  {function} enhancer     The store enhancer
+ * @param  {Array|function} middleware   redux middleware: http://redux.js.org/docs/api/applyMiddleware.html
+ * @return {Object}              The created store
  */
-export default combineReducers({
-	collections: collectionsReducers,
-	components: componentsReducers,
-	settings: settingsReducers,
-});
+export default function initializeStore(appReducer, preloadedState, enhancer, middleware) {
+	let rootReducer;
+	if (appReducer) {
+		rootReducer = combineReducers({
+			app: appReducer,
+			routing: routerReducer,
+			cmf: cmfReducers,
+		});
+	} else {
+		invariant(true, 'Are you sure you want to bootstrap an app without reducers ?');
+		rootReducer = combineReducers({
+			routing: routerReducer,
+			cmf: cmfReducers,
+		});
+	}
+	if (Array.isArray(middleware)) {
+		middleware.forEach((mid) => {
+			if (middlewares.indexOf(mid) === -1) {
+				middlewares.push(mid);
+			}
+		});
+	} else if (middleware) {
+		middlewares.push(middleware);
+	}
+	if (typeof enhancer === 'function') {
+		enhancers.push(enhancer);
+	}
+	const store = compose(
+		applyMiddleware(...middlewares),
+		...enhancers
+	)(createStore)(rootReducer, preloadedState);
+
+	return store;
+}
 </code></pre>
         </article>
     </section>

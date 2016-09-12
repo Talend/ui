@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: react-cmf/lib/actions</title>
+    <title>JSDoc: Module: react-cmf/lib/store</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: react-cmf/lib/actions</h1>
+    <h1 class="page-title">Module: react-cmf/lib/store</h1>
 
     
 
@@ -44,14 +44,19 @@
 
     
 
-    <h4 class="name" id="module:react-cmf/lib/actions"><span class="type-signature"></span>module:react-cmf/lib/actions<span class="type-signature"> :Object</span></h4>
+    <h4 class="name" id="module:react-cmf/lib/store"><span class="type-signature"></span>(require("react-cmf/lib/store"))<span class="signature">(appReducer, preloadedState, enhancer, middleware)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
 
 
 <div class="description">
-    exported API
+    helper to create the store with all the things needed by CMF
+the store look like this:
+- root
+|- app (with appReducer)
+|- routing (for react-router)
+|- cmf (for the internals)
 </div>
 
 
@@ -60,6 +65,128 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>appReducer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the reducer for your app.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>preloadedState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if you want to create your state tree with initial values.
+                             This is usefull for server side renderring</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>enhancer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The store enhancer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>middleware</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">redux middleware: http://redux.js.org/docs/api/applyMiddleware.html</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -95,7 +222,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions_index.js.html">actions/index.js</a>, <a href="actions_index.js.html#line22">line 22</a>
+        <a href="store.js.html">store.js</a>, <a href="store.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -118,15 +245,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The created store
+</div>
 
 
-    <h5>Example</h5>
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
     
-    <pre class="prettyprint"><code>import {
-	collectionsActions,
-	componentsActions,
-	settingsActions
-} from 'react-cmf/lib/actions';</code></pre>
 
 
 
