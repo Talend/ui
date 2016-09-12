@@ -32,7 +32,7 @@ middlewares.push(configuredRouterMiddleware);
  * @param  {any} preloadedState if you want to create your state tree with initial values.
  *                              This is usefull for server side renderring
  * @param  {function} enhancer     The store enhancer
- * @param  {Array or function} middleware   redux middleware: http://redux.js.org/docs/api/applyMiddleware.html
+ * @param  {Array|function} middleware   redux middleware: http://redux.js.org/docs/api/applyMiddleware.html
  * @return {Object}              The created store
  */
 export default function initializeStore(appReducer, preloadedState, enhancer, middleware) {
