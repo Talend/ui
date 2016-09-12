@@ -1,6 +1,10 @@
 import registry from './registry';
 
 /**
+ * @module react-cmf/lib/action
+ */
+
+/**
  * get the global actions registred in the settings
  * @param  {object} context
  * @return {object} actions with key === action id
@@ -18,8 +22,8 @@ function getActionsById(context) {
 /**
  * return actions registred for a given content type
  * @param  {object} context
- * @param  {string} contentType
- * @param  {string} category
+ * @param  {String} contentType
+ * @param  {String} category
  * @return {array} actions
  */
 function getContentTypeActions(context, contentType, category) {
@@ -52,7 +56,7 @@ function getActionCreatorFunction(context, id) {
 /**
  * Return information available about this action
  * @param  {object} context
- * @param  {string} id
+ * @param  {String} id
  * @return {object}
  */
 function getActionInfo(context, id) {
@@ -67,7 +71,7 @@ function getActionInfo(context, id) {
  * Return the action object ready to be dispatched
  * This is supposed to be used outside of content type
  * @param  {object} context
- * @param  {string} id
+ * @param  {String} id
  * @param  {object} event event which have trigger this action
  * @param  {object} data data attached to the action
  * @return {object} redux ready action object with .event, .data, .context
@@ -89,10 +93,10 @@ function getActionObject(context, id, event, data) {
 /**
  * create a map dispatchable action function expecting event object, props, and context information
  * merge this map with non event properties
- * @param  {[type]} dispatch [description]
- * @param  {[type]} props    [props object containing maybe on(event) with string
+ * @param  {Function} dispatch the dispatch function
+ * @param  {object} props    props object containing maybe on(event) with string
  *                           or action creator function]
- * @return {[type]}          [description]
+ * @return {object}          the connected object
  * @throws if an action is unknow in configuration, throw
  */
 function mapDispatchToProps(dispatch, props) {
@@ -117,8 +121,8 @@ function mapDispatchToProps(dispatch, props) {
  * - event which trigger this action
  * - data attached to the action (could contains anything)
  * - context of the current react app (could contains registry, getState, ...)
- * @param  {string} id
- * @param  {function} actionCreator (event, data, context)
+ * @param  {String} id
+ * @param  {Function} actionCreator (event, data, context)
  */
 function registerActionCreator(id, actionCreator) {
 	registry.addToRegistry(`actionCreator:${id}`, actionCreator);

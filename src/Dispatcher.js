@@ -1,3 +1,8 @@
+/**
+ *
+ * @module react-cmf/lib/Dispatcher
+ *
+ */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from './api';
@@ -12,17 +17,30 @@ import api from './api';
  */
 export class Dispatcher extends React.Component {
 
+	/**
+	 * @param  {object} props only one child under children
+	 */
 	constructor(props) {
 		super(props);
 		this.onEvent = this.onEvent.bind(this);
 	}
 
+	/**
+	 * on any even just try to find a onTHEEVENT props.
+	 * If found execute it with the common stuff
+	 * (event, props, context)
+	 * @param  {object} event     the react event dispathed event
+	 * @param  {string} eventName the name of the event
+	 */
 	onEvent(event, eventName) {
 		if (this.props[eventName]) {
 			this.props[eventName](event, this.props, this.context);
 		}
 	}
 
+	/**
+	 * @return {object} ReactElement
+	 */
 	render() {
 		const childrenWithProps = React.Children.map(
 			this.props.children,

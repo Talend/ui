@@ -1,3 +1,6 @@
+/**
+ * @module react-cmf/lib/actions/componentsActions
+ */
 import invariant from 'invariant';
 
 export const COMPONENT_ADD_STATE = 'REACT_CMF.COMPONENT_ADD_STATE';

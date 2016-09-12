@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: route.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: route.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * All stuff related to the routing in CMF
+ * @module react-cmf/lib/route
+ */
+import { connect } from 'react-redux';
+import registry from './registry';
+
+const componentPrefix = '_.route.component';
+const hookPrefix = '_.route.hook';
+
+/**
+ * return a component from the registry
+ * @param  {object} context
+ * @param  {string} id
+ * @return {function} the react component
+ */
+function getComponentFromRegistry(context, id) {
+	const component = context.registry[`${componentPrefix}:${id}`];
+	if (!component) {
+		throw new Error(`component not found in the registry: ${id}`);
+	}
+	return component;
+}
+
+
+/**
+ * register a component for the router configuration
+ * @param  {string} id
+ * @param  {function} component
+ */
+function registerComponent(id, component) {
+	registry.addToRegistry(`${componentPrefix}:${id}`, component);
+}
+
+
+function registerFunction(id, func) {
+	if ((typeof func) !== 'function') {
+		throw new Error('registerFunction wait for a function');
+	}
+	registry.addToRegistry(`${hookPrefix}:${id}`, func);
+}
+
+function getFunction(id) {
+	return registry.getFromRegistry(`${hookPrefix}:${id}`);
+}
+
+/**
+ * internal. Is here to replace all 'component' from an object by their
+ * value in the registry
+ * @param  {object} context
+ * @param  {object} item
+ */
+function loadComponents(context, item) {
+	/* eslint no-param-reassign: ["error", { "props": false }] */
+	if (item.component) {
+		item.component = getComponentFromRegistry(context, item.component);
+		if (item.view) {
+			item.component = connect(
+				(state) => state.cmf.settings.views[item.view]
+			)(item.component);
+		}
+	}
+	if (item.components) {
+		// TODO: iterate over all keys to call loadComponents
+	}
+	if (item.getComponent) {
+		item.getComponent = getFunction(item.getComponent);
+	}
+	if (item.getComponents) {
+		item.getComponents = getFunction(item.getComponents);
+	}
+	if (item.onEnter) {
+		item.onEnter = getFunction(item.onEnter);
+	}
+	if (item.onLeave) {
+		item.onEnter = getFunction(item.onEnter);
+	}
+	if (item.childRoutes) {
+		item.childRoutes.forEach((route) => loadComponents(context, route));
+	}
+	if (item.indexRoute) {
+		loadComponents(context, item.indexRoute);
+	}
+}
+
+/**
+ * get the react router configuration 'routes' from our settings
+ * @param  {object} context
+ * @param  {object} settings
+ * @return {object} react router config
+ */
+function getRoutesFromSettings(context, settings) {
+	const copy = Object.assign({}, settings);
+	loadComponents(context, copy);
+	return copy;
+}
+
+export default {
+	loadComponents,
+	getRoutesFromSettings,
+	getComponentFromRegistry,
+	registerComponent,
+	registerFunction,
+	getFunction,
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-react-cmf.html">react-cmf</a></li><li><a href="module-react-cmf_lib_action.html">react-cmf/lib/action</a></li><li><a href="module-react-cmf_lib_actions.html">react-cmf/lib/actions</a></li><li><a href="module-react-cmf_lib_actions_collectionsActions.html">react-cmf/lib/actions/collectionsActions</a></li><li><a href="module-react-cmf_lib_actions_componentsActions.html">react-cmf/lib/actions/componentsActions</a></li><li><a href="module-react-cmf_lib_actions_settingsActions.html">react-cmf/lib/actions/settingsActions</a></li><li><a href="module-react-cmf_lib_api.html">react-cmf/lib/api</a></li><li><a href="module-react-cmf_lib_App.html">react-cmf/lib/App</a></li><li><a href="module-react-cmf_lib_Dispatcher.html">react-cmf/lib/Dispatcher</a></li><li><a href="module-react-cmf_lib_Icon.html">react-cmf/lib/Icon</a></li><li><a href="module-react-cmf_lib_reducers.html">react-cmf/lib/reducers</a></li><li><a href="module-react-cmf_lib_reducers_collectionsReducers.html">react-cmf/lib/reducers/collectionsReducers</a></li><li><a href="module-react-cmf_lib_reducers_componentsReducers.html">react-cmf/lib/reducers/componentsReducers</a></li><li><a href="module-react-cmf_lib_reducers_settingsReducers.html">react-cmf/lib/reducers/settingsReducers</a></li><li><a href="module-react-cmf_lib_registry.html">react-cmf/lib/registry</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li><li><a href="module-react-cmf_lib_route.html">react-cmf/lib/route</a></li><li><a href="module-react-cmf_lib_UIRouter.html">react-cmf/lib/UIRouter</a></li></ul><h3>Classes</h3><ul><li><a href="module-react-cmf_lib_Dispatcher.html">react-cmf/lib/Dispatcher</a></li><li><a href="module-react-cmf_lib_Dispatcher.Dispatcher.Dispatcher.html">Dispatcher</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Mon Sep 12 2016 14:33:13 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

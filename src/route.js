@@ -1,3 +1,7 @@
+/**
+ * All stuff related to the routing in CMF
+ * @module react-cmf/lib/route
+ */
 import { connect } from 'react-redux';
 import registry from './registry';
 

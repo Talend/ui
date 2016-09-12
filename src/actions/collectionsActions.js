@@ -1,3 +1,6 @@
+/**
+ * @module react-cmf/lib/actions/collectionsActions
+ */
 import invariant from 'invariant';
 
 export const COLLECTION_ADD_OR_REPLACE = 'REACT_CMF.COLLECTION_ADD_OR_REPLACE';

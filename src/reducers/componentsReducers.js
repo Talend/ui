@@ -1,8 +1,16 @@
+/**
+ * @module react-cmf/lib/reducers/componentsReducers
+ */
 import { Map, fromJS } from 'immutable';
 import ACTIONS from '../actions';
 
 export const defaultState = new Map();
 
+/**
+ * @param  {object} state  initial state
+ * @param  {object} action the excuted action
+ * @return {object}        the new state
+ */
 export function componentsReducer(state = defaultState, action) {
 	switch (action.type) {
 	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
