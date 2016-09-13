@@ -36,20 +36,23 @@ middlewares.push(configuredRouterMiddleware);
  * @return {Object}              The created store
  */
 export default function initializeStore(appReducer, preloadedState, enhancer, middleware) {
-	let rootReducer;
+	let reducerObject = {};
 	if (appReducer) {
-		rootReducer = combineReducers({
-			app: appReducer,
-			routing: routerReducer,
-			cmf: cmfReducers,
-		});
+		if (typeof appReducer === 'object') {
+			reducerObject = Object.assign({}, appReducer);
+		} else if (typeof appReducer === 'function') {
+			reducerObject = { app: appReducer };
+		}
 	} else {
 		invariant(true, 'Are you sure you want to bootstrap an app without reducers ?');
-		rootReducer = combineReducers({
-			routing: routerReducer,
-			cmf: cmfReducers,
-		});
 	}
+	if (!reducerObject.cmf) {
+		reducerObject.cmf = cmfReducers;
+	}
+	if (!reducerObject.routing) {
+		reducerObject.routing = routerReducer;
+	}
+	const rootReducer = combineReducers(reducerObject);
 	if (Array.isArray(middleware)) {
 		middleware.forEach((mid) => {
 			if (middlewares.indexOf(mid) === -1) {

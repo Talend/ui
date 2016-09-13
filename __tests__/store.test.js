@@ -5,7 +5,9 @@ describe('CMF store', () => {
 		expect(typeof initializeStore).toBe('function');
 	});
 	it('should initialize the store', () => {
-		const reducer = {};
+		function reducer(state, action) {
+			return {};
+		};
 		const initialState = {};
 		const store = initializeStore(reducer, initialState);
 		expect(typeof store.dispatch).toBe('function');
@@ -15,11 +17,29 @@ describe('CMF store', () => {
 		const state = store.getState();
 		expect(typeof state.routing).toBe('object');
 		expect(typeof state.cmf.settings).toBe('object');
+		expect(typeof state.app).toBe('object');
 	});
 	it('should initialize the store without args', () => {
 		const store = initializeStore();
 		const state = store.getState();
 		expect(typeof state.routing).toBe('object');
 		expect(typeof state.cmf.settings).toBe('object');
+		expect(typeof state.app).toBe('undefined');
+	});
+	it('should support object as reducer config', () => {
+		const reducer = {
+			heyImRoot(state, action) {
+				return {};
+			},
+			app(state, action) {
+				return {};
+			},
+		};
+		const store = initializeStore(reducer);
+		const state = store.getState();
+		expect(typeof state.routing).toBe('object');
+		expect(typeof state.cmf.settings).toBe('object');
+		expect(typeof state.app).toBe('object');
+		expect(typeof state.heyImRoot).toBe('object');
 	});
 });
