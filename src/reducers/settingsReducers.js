@@ -1,9 +1,9 @@
 /**
  * @module react-cmf/lib/reducers/settingsReducers
  */
-import * as ACTIONS from '../actions';
+import * as ACTIONS from '../actions/settingsActions';
 
-const defaultState = {
+export const defaultState = {
 	initialized: false,
 	contentTypes: {},
 	actions: {},
