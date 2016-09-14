@@ -24,10 +24,10 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [quality-badge]: http://npm.packagequality.com/shield/react-cmf-bootstrap.svg
 [quality-url]: http://packagequality.com/#?package=react-cmf-bootstrap
 
-
 ## Dependencies
 
 * react
 * react-cmf
 * react-bootstrap
 * classnames
+
