@@ -1,6 +1,6 @@
 {
   "name": "react-cmf-bootstrap",
-  "description": "Provide base widgets for react-abstraction-ui",
+  "description": "Provide base widgets for react-cmf",
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "babel -d lib ./src/",
@@ -22,9 +22,9 @@
   "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/talend/react-abstraction-ui-bootstrap/issues"
+    "url": "https://github.com/jmfrancois/react-cmf-bootstrap/issues"
   },
-  "homepage": "https://github.com/talend/react-abstraction-ui-bootstrap#readme",
+  "homepage": "https://github.com/jmfrancois/react-cmf-bootstrap#readme",
   "devDependencies": {
     "babel-cli": "6.14.0",
     "babel-core": "^6.13.2",
