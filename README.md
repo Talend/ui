@@ -1,6 +1,6 @@
-# React UI Abstraction Bootstrap
+# React CMF Bootstrap
 
-This library provide a set of widgets to be ready to start with UI Abstraction
+This library provide a set of widgets to be ready to start with [react-cmf](https://github.com/Talend/react-cmf)
 
 
 [![NPM][npm-icon] ][npm-url]
@@ -28,7 +28,6 @@ This library provide a set of widgets to be ready to start with UI Abstraction
 ## Dependencies
 
 * react
-* redux
-* react-redux
+* react-cmf
 * react-bootstrap
 * classnames
