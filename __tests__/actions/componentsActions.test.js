@@ -21,7 +21,7 @@ describe('test component state management action creators', () => {
 		}];
 
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collectionId', new Map()),
 				components: new Map().set('component', new Map().set('key', new Map())),
 			},
@@ -32,7 +32,7 @@ describe('test component state management action creators', () => {
 
 	it('addComponentState throw when a couple of componentName, key already exist', () => {
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collectionId', new Map()),
 				components: new Map().set('componentName', new Map().set('keyId', new Map())),
 			},
@@ -56,7 +56,7 @@ describe('test component state management action creators', () => {
 			componentState: { searchQuery: 'JSON' },
 		}];
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collectionId', new Map()),
 				components: new Map().set('componentName', new Map().set('key', new Map())),
 			},
@@ -73,7 +73,7 @@ describe('test component state management action creators', () => {
 		componentName, keyId doesn't exist`,
 		() => {
 			const store = mockStore({
-				settings: {
+				cmf: {
 					collections: new Map().set('collection', new Map()),
 					components: new Map().set('component', new Map().set('key', new Map())),
 				},
@@ -110,7 +110,7 @@ describe('test component state management action creators', () => {
 		}];
 
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collectionId', new Map()),
 				components: new Map().set('componentName', new Map().set('key', new Map())),
 			},
@@ -121,7 +121,7 @@ describe('test component state management action creators', () => {
 
 	it('removeComponentState throw when a couple of componentName, collectionId doesn\'t exist', () => {
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collection', new Map()),
 				components: new Map().set('component', new Map().set('key', new Map())),
 			},

@@ -20,7 +20,7 @@ export const addComponentState = (componentName, key, initialComponentState) => 
 	(dispatch, getState) => {
 		const state = getState();
 		const error = false;
-		if (state.settings.components.getIn([componentName, key])) {
+		if (state.cmf.components.getIn([componentName, key])) {
 			let msg = `Can't set up your component ${componentName} on `;
 			msg += `key ${key} since this association already exist`;
 			invariant(false, msg);
@@ -49,7 +49,7 @@ export const mergeComponentState = (componentName, key, componentState) => (
 	(dispatch, getState) => {
 		const state = getState();
 		let error = false;
-		if (!state.settings.components.getIn([componentName, key])) {
+		if (!state.cmf.components.getIn([componentName, key])) {
 			error = true;
 			let msg = 'The component state can\'t be merged since the ';
 			msg += `${componentName}, ${key} association doesn't exist.`;
@@ -78,7 +78,7 @@ export const removeComponentState = (componentName, key) => (
 	(dispatch, getState) => {
 		const state = getState();
 		let error = false;
-		if (!state.settings.components.getIn([componentName, key])) {
+		if (!state.cmf.components.getIn([componentName, key])) {
 			error = true;
 			let msg = 'The component can\'t be removed since the';
 			msg += ` ${componentName}, ${key} association doesn't exist.`;

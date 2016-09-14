@@ -27,7 +27,7 @@ export const removeCollection = collectionId => (
 	(dispatch, getState) => {
 		const state = getState();
 		let error = false;
-		if (!state.settings.collections.get('collectionId')) {
+		if (!state.cmf.collections.get('collectionId')) {
 			error = true;
 			invariant(false, `Can't remove collection ${collectionId} since it doesn't already exist.`);
 		}

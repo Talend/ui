@@ -26,7 +26,7 @@ describe('test collection management action creators', () => {
 		}];
 
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map().set('collectionId', 'data'),
 			},
 		});
@@ -37,7 +37,7 @@ describe('test collection management action creators', () => {
 
 	it('removeCollection throw when collection doesn\'t exist', () => {
 		const store = mockStore({
-			settings: {
+			cmf: {
 				collections: new Map(),
 			},
 		});
