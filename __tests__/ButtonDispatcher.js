@@ -12,12 +12,14 @@ describe('ButtonDispatcher', () => {
     routes.push(route);
   }
   const state = {
-    settings: {
-      actions: {
-        test: {
-          id: 'test',
-          name: 'Test',
-          icon: 'icon-test',
+    cmf: {
+      settings: {
+        actions: {
+          test: {
+            id: 'test',
+            name: 'Test',
+            icon: 'icon-test',
+          },
         },
       },
     },

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonAction from '../src/ButtonAction';
-import { Icon } from 'react-ui-abstraction';
+import { Icon } from 'react-cmf';
 import { shallow } from 'enzyme';
 
 describe('ButtonAction', () => {
@@ -10,12 +10,14 @@ describe('ButtonAction', () => {
     clicked = true;
   }
   const state = {
-    settings: {
-      actions: {
-        test: {
-          id: 'test',
-          name: 'Test',
-          icon: 'icon-test',
+    cmf: {
+      settings: {
+        actions: {
+          test: {
+            id: 'test',
+            name: 'Test',
+            icon: 'icon-test',
+          },
         },
       },
     },

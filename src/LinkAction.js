@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { api, Icon } from 'react-ui-abstraction';
+import { api, Icon } from 'react-cmf';
 
 /**
  * This component show an action creator and dispatch it to redux

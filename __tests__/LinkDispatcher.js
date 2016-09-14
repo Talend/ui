@@ -1,8 +1,8 @@
 import React from 'react';
-import ButtonDispatcher from '../src/ButtonDispatcher';
+import LinkDispatcher from '../src/LinkDispatcher';
 import { mount } from 'enzyme';
 
-describe('ButtonDispatcher', () => {
+describe('LinkDispatcher', () => {
   let dispatched = false;
   function dispatch() {
     dispatched = true;
@@ -12,12 +12,14 @@ describe('ButtonDispatcher', () => {
     routes.push(route);
   }
   const state = {
-    settings: {
-      actions: {
-        test: {
-          id: 'test',
-          name: 'Test',
-          icon: 'icon-test',
+    cmf: {
+      settings: {
+        actions: {
+          test: {
+            id: 'test',
+            name: 'Test',
+            icon: 'icon-test',
+          },
         },
       },
     },
@@ -47,7 +49,7 @@ describe('ButtonDispatcher', () => {
   });
   it('should dispatch an action onclick', () => {
     const wrapper = mount(
-      <ButtonDispatcher action="test" />, { context, childContextTypes }
+      <LinkDispatcher action="test" />, { context, childContextTypes }
     );
     expect(dispatched).toBe(false);
     wrapper.simulate('click');

@@ -1,7 +1,7 @@
 import React from 'react';
-import LinkAction from '../src/LinkAction';
-import { Icon } from 'react-ui-abstraction';
+import { Icon } from 'react-cmf';
 import { shallow } from 'enzyme';
+import LinkAction from '../src/LinkAction';
 
 describe('LinkAction', () => {
   let clicked = false;
@@ -9,12 +9,14 @@ describe('LinkAction', () => {
     clicked = true;
   }
   const state = {
-    settings: {
-      actions: {
-        test: {
-          id: 'test',
-          name: 'Test',
-          icon: 'icon-test',
+    cmf: {
+      settings: {
+        actions: {
+          test: {
+            id: 'test',
+            name: 'Test',
+            icon: 'icon-test',
+          },
         },
       },
     },

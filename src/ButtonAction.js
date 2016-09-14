@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { api, Icon } from 'react-ui-abstraction';
+import { api, Icon } from 'react-cmf';
 
 export default class ButtonAction extends React.Component {
 

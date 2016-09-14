@@ -12,7 +12,9 @@ describe('ButtonsDispatcher', () => {
   beforeEach(() => {
     settings = require('./settings.json');
     state = {
-      settings,
+      cmf: {
+        settings,
+      },
     };
     context = {
       store: {

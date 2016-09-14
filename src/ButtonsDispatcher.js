@@ -1,5 +1,5 @@
 import React from 'react';
-import { api } from 'react-ui-abstraction';
+import { api } from 'react-cmf';
 
 import ButtonDispatcher from './ButtonDispatcher';
 

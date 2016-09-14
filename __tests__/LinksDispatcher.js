@@ -11,7 +11,9 @@ describe('LinksDispatcher', () => {
   beforeEach(() => {
     settings = require('./settings.json');
     state = {
-      settings,
+      cmf: {
+        settings,
+      },
     };
     context = {
       store: {
