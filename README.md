@@ -12,6 +12,12 @@ It provides layout that follow Talend Style Guidelines.
 Note: The example has been taken from the excellent project Bootstwatch.
 But we have decided to rewrite the build using webpack and bootstrap-sass.
 
+# Docs & Help
+* [Example page](https://talend.github.io/bootstrap-theme)
+* [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
+
+<!---* Frontify (soon &trade;))-->
+
 # How to use
 
 ## Install dependency
