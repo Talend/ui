@@ -1,0 +1,35 @@
+{
+    "opts": {
+      "recurse": true,
+      "destination": "docs/jsdoc",
+      "readme": "README.md"
+    },
+    "source": {
+        "include": [
+          "src/index.js",
+          "src/ButtonAction/ButtonAction.js",
+          "src/ButtonDispatcher/ButtonDispatcher.js",
+          "src/ButtonsDispatcher/ButtonsDispatcher.js",
+          "src/LinkAction/LinkAction.js",
+          "src/LinkDispatcher/LinkDispatcher.js",
+          "src/LinksDispatcher/LinksDispatcher.js"
+        ],
+        "excludePattern": "(node_modules/*|docs/*|lib/*)"
+    },
+    "plugins": [],
+    "templates": {
+        "license": "MIT",
+        "outputSourceFiles"     : true,
+        "systemName"            : "React CMF",
+        "navType"               : "vertical",
+        "theme"                 : "cerulean",
+        "linenums"              : true,
+        "collapseSymbols"       : false,
+        "inverseNav"            : false,
+        "dateFormat"            : "YYYY-MM-DD",
+        "analytics": {
+            "ua": "UA-77701501-4",
+            "domain": "auto"
+        }
+    }
+}

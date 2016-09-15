@@ -6,10 +6,10 @@ import LinkDispatcher from './LinkDispatcher';
 import LinksDispatcher from './LinksDispatcher';
 
 export {
-  ButtonAction,
-  ButtonDispatcher,
-  ButtonsDispatcher,
-  LinkDispatcher,
-  LinksDispatcher,
-  LinkAction,
+	ButtonAction,
+	ButtonDispatcher,
+	ButtonsDispatcher,
+	LinkDispatcher,
+	LinksDispatcher,
+	LinkAction,
 };
