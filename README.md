@@ -2,11 +2,12 @@
 
 ## Installation
 
-You'll first need to install [yeoman]() then install [generator-talend-lib]().
+You'll first need to install [yeoman](http://yeoman.io/) then install
+ [generator-talend](https://github.com/Talend/generator-talend).
 
 ```bash
 npm install -g yo
-npm install -g generator-talend-lib
+npm install -g generator-talend
 ```
 
 ## Usage
