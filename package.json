@@ -6,7 +6,7 @@
     "docs:js": "jsdoc -c docs.json",
     "docs:cleanup": "rm -rf docs/jsodc/*",
     "docs": "npm run docs:cleanup && npm run docs:js",
-    "prepublish": "babel -d lib ./src/ && rm lib/**/*.test.js",
+    "prepublish": "babel -d lib ./src/ && rm lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -39,6 +39,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "classnames": "2",
+    "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^11.0.0",
@@ -69,5 +70,11 @@
   "peerDependencies": {
     "react-cmf": "<1",
     "react-bootstrap": "0"
+  },
+  "dependencies": {
+    "css-loader": "^0.25.0",
+    "node-sass": "^3.10.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1"
   }
 }

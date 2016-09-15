@@ -1,3 +1,4 @@
+import AppHeaderBar from './AppHeaderBar';
 import ButtonAction from './ButtonAction';
 import ButtonDispatcher from './ButtonDispatcher';
 import ButtonsDispatcher from './ButtonsDispatcher';
@@ -6,6 +7,7 @@ import LinkDispatcher from './LinkDispatcher';
 import LinksDispatcher from './LinksDispatcher';
 
 export {
+  AppHeaderBar,
 	ButtonAction,
 	ButtonDispatcher,
 	ButtonsDispatcher,
