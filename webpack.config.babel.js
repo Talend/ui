@@ -8,8 +8,8 @@ const licenceTemplate = require('./licence');
 const libraryName = 'react-flow-designer';
 
 const PATH = {
-    src: path.join(__dirname, '/src'),
-    lib: path.join(__dirname, './lib'),
+	src: path.join(__dirname, '/src'),
+	lib: path.join(__dirname, './lib'),
 };
 
 const css = 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]';
@@ -61,22 +61,22 @@ const CONFIG = {
 };
 
 const umd = Object.assign({}, CONFIG, {
-    output: {
-        libraryTarget: 'umd',
-        library: libraryName,
-        filename: `${libraryName}.js`,
-        path: PATH.lib,
-    },
+	output: {
+		libraryTarget: 'umd',
+		library: libraryName,
+		filename: `${libraryName}.js`,
+		path: PATH.lib,
+	},
 });
 
 const umdMinified = Object.assign({}, umd, {
-    output: {
-        libraryTarget: 'umd',
-        library: libraryName,
-        filename: `${libraryName}.min.js`,
-        path: PATH.lib,
-    },
-    plugins: [extractCSS, uglify, license],
+	output: {
+		libraryTarget: 'umd',
+		library: libraryName,
+		filename: `${libraryName}.min.js`,
+		path: PATH.lib,
+	},
+	plugins: [extractCSS, uglify, license],
 });
 
 

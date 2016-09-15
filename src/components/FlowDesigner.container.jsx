@@ -112,9 +112,9 @@ export const FlowDesigner = React.createClass({
 });
 
 const mapStateToProps = state => ({
-    nodes: state.flowDesigner.nodes,
-    links: state.flowDesigner.links,
-    ports: state.flowDesigner.ports,
+    nodes: state.flowDesigner.get('nodes'),
+    links: state.flowDesigner.get('links'),
+    ports: state.flowDesigner.get('ports'),
 });
 
 

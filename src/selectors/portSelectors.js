@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 import memoize from 'lodash/memoize';
 
-const getNodes = state => state.nodes;
-const getPorts = state => state.ports;
-const getLinks = state => state.links;
+const getNodes = state => state.get('nodes');
+const getPorts = state => state.get('ports');
+const getLinks = state => state.get('links');
 
 /**
  * Create and return function who will return all ports for a specific node

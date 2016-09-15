@@ -6,6 +6,7 @@ import NodeType from './components/configuration/NodeType.component';
 import LinkType from './components/configuration/LinkType.component';
 import flowDesignerReducer from './reducers/';
 import * as flowDesignerConstants from './constants/flowdesigner.constants';
+import * as flowActions from './actions/flow.actions';
 import * as nodeActions from './actions/node.actions';
 import * as portActions from './actions/port.actions';
 import * as linkActions from './actions/link.actions';
@@ -23,6 +24,7 @@ export {
     LinkType,
     flowDesignerConstants,
     // should i share ?
+    flowActions,
     nodeActions,
     portActions,
     linkActions,

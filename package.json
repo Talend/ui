@@ -1,6 +1,6 @@
 {
   "name": "react-flow-designer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Flow designer for react and redux",
   "main": "lib/react-flow-designer.js",
   "scripts": {
@@ -53,7 +53,6 @@
     "eslint-plugin-react": "^6.0.0",
     "extract-text-webpack-plugin": "2.0.0-beta.3",
     "immutable": "3.8.1",
-    "jasmine-immutable-matchers": "1.0.1",
     "jest-cli": "15.1.1",
     "node-sass": "3.9.3",
     "react": "15.3.0",
@@ -83,7 +82,7 @@
     "d3-drag": "1.0.0",
     "d3-interpolate": "1.1.1",
     "d3-scale": "1.0.2",
-    "d3-selection": "1.0.1",
+    "d3-selection": "1.0.2",
     "d3-shape": "1.0.3",
     "d3-zoom": "1.0.2",
     "invariant": "2.2.1",
