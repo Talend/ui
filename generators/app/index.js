@@ -2,6 +2,8 @@ const path = require('path');
 const yosay = require('yosay');
 const remote = require('yeoman-remote');
 const yeoman = require('yeoman-generator');
+const slug = require('slugg');
+const mkdirp = require('mkdirp');
 
 module.exports = yeoman.Base.extend({
 	prompting() {
@@ -10,7 +12,7 @@ module.exports = yeoman.Base.extend({
 			type: 'input',
 			name: 'name',
 			message: 'Library name',
-			default: this.appname,
+			default: slug(this.appname),
 		}, {
 			type: 'input',
 			name: 'author_name',
@@ -35,7 +37,7 @@ module.exports = yeoman.Base.extend({
 		const scssFormatterPath = 'tools-scss-formatting';
 		const sasslint = '.sass-lint.yml';
 
-		if (this.props.name !== this.appname) {
+		if (this.props.name !== slug(this.appname)) {
 			this.destinationRoot(this.props.name);
 		}
 
@@ -51,6 +53,7 @@ module.exports = yeoman.Base.extend({
 		const files = [
 			'.gitignore',
 			'.travis.yml',
+			'.npmignore',
 		];
 
 		files.forEach((name) => {
@@ -60,7 +63,11 @@ module.exports = yeoman.Base.extend({
 			);
 		});
 
-		this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
+		mkdirp(this.destinationPath('src'), (err) => {
+			if (err) {
+				this.log("Couldn't create src directory", err);
+			}
+		});
 	},
 
 	writing() {

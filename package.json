@@ -17,6 +17,8 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "generator-git-init": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "slugg": "^1.0.0",
     "yeoman-generator": "^0.24.1",
     "yeoman-remote": "^1.0.1",
     "yosay": "^1.0.0"
