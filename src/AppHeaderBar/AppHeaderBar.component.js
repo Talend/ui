@@ -7,7 +7,6 @@ import { themr } from 'react-css-themr';
 import { APP_HEADER_BAR } from '../identifiers';
 // TODO: we have an issue during the build on this.
 
-
 function getActions(context, id) {
 	if (typeof id === 'string') {
 		return api.action.getActionInfo(context, id);
