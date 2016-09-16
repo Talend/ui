@@ -1,0 +1,74 @@
+////
+/// Bootstrap breadcrumbs customization
+/// @group Bootstrap
+////
+
+/// Breadcrumb not selected links color
+/// @type Color
+$breadcrumb-links-color:        $brand-primary !default;
+
+/// Breadcrumb separator color
+/// @type Color
+$breadcrumb-separator-color:    $breadcrumb-color !default;
+
+/// Breadcrumb separator padding
+/// @type Number
+$breadcrumb-separator-padding:  $padding-large-horizontal !default;
+
+.breadcrumb {
+    margin-bottom: 0;
+    color: $breadcrumb-links-color;
+    text-transform: uppercase;
+    border-radius: 0;
+
+    a {
+        color: $breadcrumb-links-color;
+
+        &:focus,
+        &:hover,
+        &:active,
+        &:visited {
+            // list item border on hover replaces this default feature
+            text-decoration: none;
+        }
+    }
+
+    > li {
+        position: relative;
+        margin-right: $breadcrumb-separator-padding;
+
+        + li {
+            margin: 0 $breadcrumb-separator-padding;
+            padding: 0;
+
+            &:before {
+                position: absolute;
+                content: '';
+                padding: 0;
+                top: 40%;
+                left: -($breadcrumb-separator-padding + 7px);
+                height: 5px;
+                width: 5px;
+                border: 1px solid $breadcrumb-separator-color;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+                box-shadow: 1px -1px 0 $breadcrumb-separator-color;
+                transform: rotate(45deg);
+            }
+        }
+
+        &:hover,
+        &.active {
+            &:after {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                bottom: -($breadcrumb-padding-vertical);
+                right: 0;
+                pointer-events: none;
+                border-bottom: 1px solid $breadcrumb-links-color;
+            }
+        }
+    }
+}
