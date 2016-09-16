@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 import Dropdown from 'react-bootstrap/lib/Dropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { api, Dispatcher, Icon } from 'react-cmf';
+import { themr } from 'react-css-themr';
+import { APP_HEADER_BAR } from '../identifiers';
 // TODO: we have an issue during the build on this.
-import theme from './AppHeaderBar.scss';
+
 
 function getActions(context, id) {
 	if (typeof id === 'string') {
@@ -33,11 +35,11 @@ function AppHeaderBar(props, context) {
 		});
 	}
 	return (
-		<div className={theme.appHeaderBar}>
-			<div className={theme.brand}>
-				<Link to="/" className={theme.link}>
+		<div className={props.theme.appHeaderBar}>
+			<div className={props.theme.brand}>
+				<Link to="/" className={props.theme.link}>
 					{props.logo ? <img
-						className={theme.logo}
+						className={props.theme.logo}
 						src={props.logo.src}
 						alt={props.logo.alt}
 						style={props.logo.style}
@@ -45,10 +47,10 @@ function AppHeaderBar(props, context) {
 					{props.app}
 				</Link>
 			</div>
-			<div className={theme.links}>
+			<div className={props.theme.links}>
 				{actions.map((action, i) => (
 					<Dispatcher onClick={action} key={i}>
-						<a className={theme.link}>
+						<a className={props.theme.link}>
 							<Icon name={action.icon} className="fa-fw" />
 						</a>
 					</Dispatcher>
@@ -83,8 +85,16 @@ AppHeaderBar.propTypes = {
 		style: React.PropTypes.string,
 	}),
 	app: React.PropTypes.string,
+	theme: React.PropTypes.shape({
+		appHeaderBar: React.PropTypes.string,
+		brand: React.PropTypes.string,
+		link: React.PropTypes.string,
+		links: React.PropTypes.string,
+		logo: React.PropTypes.string,
+	}),
 };
 AppHeaderBar.contextTypes = {
 	store: React.PropTypes.object,
 };
-export default AppHeaderBar;
+export default themr(APP_HEADER_BAR, null)(AppHeaderBar);
+export { AppHeaderBar };

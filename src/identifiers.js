@@ -1,0 +1,1 @@
+export const APP_HEADER_BAR = 'REACT_CMF_APP_HEADER_BAR';
