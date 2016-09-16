@@ -91,6 +91,18 @@ function getActionObject(context, id, event, data) {
 }
 
 /**
+ * return every props name that start with 'on'
+ * @param  {object} props react props
+ * @return {Array}       of string
+ */
+function getOnProps(props) {
+	return Object.keys(props).filter((name) => (
+		{}.hasOwnProperty.call(props, name) &&
+		/^on.+/.test(name)
+	));
+}
+
+/**
  * create a map dispatchable action function expecting event object, props, and context information
  * merge this map with non event properties
  * @param  {Function} dispatch the dispatch function
@@ -101,16 +113,14 @@ function getActionObject(context, id, event, data) {
  */
 function mapDispatchToProps(dispatch, props) {
 	const resolvedActions = {};
-	Object.keys(props).forEach((name) => {
-		if ({}.hasOwnProperty.call(props, name) && /^on.+/.test(name)) {
-			resolvedActions[name] = (event, data, context) => {
-				let action = props[name];
-				if (typeof action === 'string') {
-					action = getActionObject(context, action, event, data);
-				}
-				dispatch(action);
-			};
-		}
+	getOnProps(props).forEach((name) => {
+		resolvedActions[name] = (event, data, context) => {
+			let action = props[name];
+			if (typeof action === 'string') {
+				action = getActionObject(context, action, event, data);
+			}
+			dispatch(action);
+		};
 	});
 	return Object.assign({}, props, resolvedActions);
 }
@@ -134,6 +144,7 @@ export default {
 	getActionInfo,
 	getActionObject,
 	getContentTypeActions,
+	getOnProps,
 	mapDispatchToProps,
 	registerActionCreator,
 };

@@ -125,7 +125,7 @@ describe('CMF action', () => {
 		expect(action.context).toBe(undefined);
 	});
 
-	it('mapDispatchToProps should build a dispatchable action for any on[eventName] present in props', () => {
+	it('mapDispatchToProps should build a dispatchable action for any on[eventName] in props', () => {
 		function dispatch() {}
 		const props = {
 			onClick: 'menu:article',
@@ -146,5 +146,21 @@ describe('CMF action', () => {
 		expect(typeof mapped.onClick).toBe('function');
 		expect(typeof mapped.onAnything).toBe('function');
 		expect(mapped.elementId).toBe('id');
+	});
+});
+
+describe('getOnProps', () => {
+	it('getOnProps should return only attribute that start with on', () => {
+		const props = {
+			notByOn: 'noByOn',
+			onBy: 'onBy',
+			exists: 'exists',
+			onClick: 'onClick',
+			onNotExists: 'onNotExists',
+			'with-weird id': 'with-weird id',
+		};
+		const result = actionAPI.getOnProps(props);
+		expect(Array.isArray(result)).toBe(true);
+		expect(result).toEqual(['onBy', 'onClick', 'onNotExists']);
 	});
 });

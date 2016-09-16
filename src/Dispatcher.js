@@ -8,12 +8,27 @@ import { connect } from 'react-redux';
 import api from './api';
 
 /**
+ * check if on[event] string relate to a declared action handler
+ * @param {object} component props
+ * @param {object} react app context, containing redux store ref
+ *
+ * @throws
+ */
+function checkIfActionInfoExist(props, context) {
+	api.action.getOnProps(props).forEach((name) => {
+		api.action.getActionInfo(context, props[name]);
+	});
+}
+
+/**
  * This component purpose is to decorate any component and map an user event
  * to an action to be dispatched
  * @example
- * <Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
- *		<ChildrenElement />
- * </Dispatcher>
+function myfunc(event, props, context) {
+}
+<Dispatcher onClick={myfunc}>
+	<ChildrenElement />
+</Dispatcher>
  */
 export class Dispatcher extends React.Component {
 
@@ -23,6 +38,20 @@ export class Dispatcher extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onEvent = this.onEvent.bind(this);
+	}
+
+	/**
+	 * Check if the actions are described in settings when mount
+	 */
+	componentDidMount() {
+		checkIfActionInfoExist(this.props, this.context);
+	}
+
+	/**
+	 * Check if the actions are described in settings when receiving new props
+	 */
+	componentWillReceiveProps(nextProps) {
+		checkIfActionInfoExist(nextProps, this.context);
 	}
 
 	/**
@@ -42,14 +71,13 @@ export class Dispatcher extends React.Component {
 	 * @return {object} ReactElement
 	 */
 	render() {
+		const onProps = api.action.getOnProps(this.props);
 		const childrenWithProps = React.Children.map(
 			this.props.children,
 			(child) => {
 				const props = {};
-				Object.keys(this.props).forEach((name) => {
-					if ({}.hasOwnProperty.call(this.props, name) && /^on.+/.test(name)) {
-						props[name] = (event) => this.onEvent(event, name);
-					}
+				onProps.forEach((name) => {
+					props[name] = (event) => this.onEvent(event, name);
 				});
 				return React.cloneElement(child, props);
 			}
@@ -69,7 +97,18 @@ Dispatcher.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-export default connect(
+
+const ConnectedDispatcher = connect(
 	undefined,
 	api.action.mapDispatchToProps
 )(Dispatcher);
+
+/**
+ * This component purpose is to decorate any component and map an user event
+ * to an action to be dispatched
+ * @example
+<Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
+	<ChildrenElement />
+</Dispatcher>
+ */
+export default ConnectedDispatcher;
