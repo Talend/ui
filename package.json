@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jmfrancois/react-cmf-bootstrap.git"
+    "url": "https://github.com/Talend/react-cmf-bootstrap.git"
   },
   "keywords": [
     "react",
@@ -25,9 +25,9 @@
   "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jmfrancois/react-cmf-bootstrap/issues"
+    "url": "https://github.com/Talend/react-cmf-bootstrap/issues"
   },
-  "homepage": "https://github.com/jmfrancois/react-cmf-bootstrap#readme",
+  "homepage": "https://github.com/Talend/react-cmf-bootstrap#readme",
   "devDependencies": {
     "babel-cli": "6.14.0",
     "babel-core": "^6.13.2",
