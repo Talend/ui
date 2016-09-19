@@ -10,7 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "lint:es": "eslint --config .eslintrc src/*.js",
+    "lint:es": "eslint --config .eslintrc --ext .js src",
     "lint": "npm run lint:es",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
