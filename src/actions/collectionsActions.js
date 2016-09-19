@@ -8,8 +8,8 @@ export const COLLECTION_REMOVE = 'REACT_CMF.COLLECTION_REMOVE';
 
 /**
  * Add or replace collection data in store
- * @param {string} collection identifier
- * @param {any} any element that represent business data
+ * @param {string} collectionId identifier
+ * @param {any} data element that represent business data
  */
 export const addOrReplaceCollection = (collectionId, data) => ({
 	type: COLLECTION_ADD_OR_REPLACE,
@@ -19,7 +19,7 @@ export const addOrReplaceCollection = (collectionId, data) => ({
 
 /**
  * Remove collection data in store to free space
- * @param {string} collection identifier
+ * @param {string} collectionId identifier
  *
  * @throws if you try to remove non existent collection
  */
@@ -27,7 +27,7 @@ export const removeCollection = collectionId => (
 	(dispatch, getState) => {
 		const state = getState();
 		let error = false;
-		if (!state.cmf.collections.get('collectionId')) {
+		if (!state.cmf.collections.get(collectionId)) {
 			error = true;
 			invariant(false, `Can't remove collection ${collectionId} since it doesn't already exist.`);
 		}
