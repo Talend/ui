@@ -20,11 +20,7 @@
 }
 
 .edge-handle {
-    cursor: -webkit-grab;
+    cursor: move;
     fill: rgb(38, 96, 146);
     r: 6;
-}
-
-.edge-handle--grabbed {
-    cursor: -webkit-grabbing;
 }

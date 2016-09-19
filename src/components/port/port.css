@@ -4,7 +4,7 @@
     stroke: #266092;
     stroke-width: 2;
     fill: white;
-    transition: r .1s ease-in-out;
+    transition: r .13s cubic-bezier(0.18, 0.89, 0.32, 1.28);
     cursor: pointer;
 }
 
