@@ -1,4 +1,4 @@
-![](https://travis-ci.org/acateland/react-flow-designer.svg?branch=master)
+[![Build Status](https://travis-ci.org/acateland/react-flow-designer.svg?branch=master)](https://travis-ci.org/acateland/react-flow-designer)
 
 [![dependencies Status](https://david-dm.org/acateland/react-flow-designer/status.svg)](https://david-dm.org/acateland/react-flow-designer)
 
