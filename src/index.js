@@ -5,13 +5,15 @@ import ButtonsDispatcher from './ButtonsDispatcher';
 import LinkAction from './LinkAction';
 import LinkDispatcher from './LinkDispatcher';
 import LinksDispatcher from './LinksDispatcher';
+import SideMenu from './SideMenu';
 
 export {
-  AppHeaderBar,
+	AppHeaderBar,
 	ButtonAction,
 	ButtonDispatcher,
 	ButtonsDispatcher,
 	LinkDispatcher,
 	LinksDispatcher,
 	LinkAction,
+	SideMenu,
 };

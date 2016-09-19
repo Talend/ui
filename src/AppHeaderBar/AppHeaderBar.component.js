@@ -95,5 +95,5 @@ AppHeaderBar.propTypes = {
 AppHeaderBar.contextTypes = {
 	store: React.PropTypes.object,
 };
-export default themr(APP_HEADER_BAR, null)(AppHeaderBar);
+export default themr(APP_HEADER_BAR)(AppHeaderBar);
 export { AppHeaderBar as PureAppHeaderBar };
