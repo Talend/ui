@@ -1,4 +1,4 @@
-# react-boostrap-forms
+# react-bootstrap-forms
 
 ## Installation
 

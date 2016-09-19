@@ -1,12 +1,12 @@
 {
-  "name": "react-boostrap-forms",
+  "name": "react-bootstrap-forms",
   "version": "0.0.0",
-  "description": "react-boostrap-forms library.",
+  "description": "react-bootstrap-forms library.",
   "license": "Apache-2.0",
   "author": "Geoffroy Lorieux glorieux@talend.com",
   "repository": {
     "type": "git",
-    "url": "github:Talend/react-boostrap-forms"
+    "url": "github:Talend/react-bootstrap-forms"
   },
   "devDependencies": {
     "babel-core": "6.13.2",
