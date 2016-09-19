@@ -9,8 +9,8 @@ import api from './api';
 
 /**
  * check if on[event] string relate to a declared action handler
- * @param {object} component props
- * @param {object} react app context, containing redux store ref
+ * @param {object} props component props
+ * @param {object} context app context, containing redux store ref
  *
  * @throws
  */
@@ -58,7 +58,7 @@ export class Dispatcher extends React.Component {
 	 * on any even just try to find a onTHEEVENT props.
 	 * If found execute it with the common stuff
 	 * (event, props, context)
-	 * @param  {object} event     the react event dispathed event
+	 * @param  {object} event     the react event dispatched event
 	 * @param  {string} eventName the name of the event
 	 */
 	onEvent(event, eventName) {

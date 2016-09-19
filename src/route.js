@@ -5,8 +5,8 @@
 import { connect } from 'react-redux';
 import registry from './registry';
 
-const componentPrefix = '_.route.component';
-const hookPrefix = '_.route.hook';
+const COMPONENT_PREFIX = '_.route.component';
+const HOOK_PREFIX = '_.route.hook';
 
 /**
  * return a component from the registry
@@ -15,7 +15,7 @@ const hookPrefix = '_.route.hook';
  * @return {function} the react component
  */
 function getComponentFromRegistry(context, id) {
-	const component = context.registry[`${componentPrefix}:${id}`];
+	const component = context.registry[`${COMPONENT_PREFIX}:${id}`];
 	if (!component) {
 		throw new Error(`component not found in the registry: ${id}`);
 	}
@@ -26,22 +26,30 @@ function getComponentFromRegistry(context, id) {
 /**
  * register a component for the router configuration
  * @param  {string} id
- * @param  {function} component
+ * @param  {any} component
  */
 function registerComponent(id, component) {
-	registry.addToRegistry(`${componentPrefix}:${id}`, component);
+	registry.addToRegistry(`${COMPONENT_PREFIX}:${id}`, component);
 }
 
-
+/**
+ * register a function for the router configuration
+ * @param  {string} id
+ * @param  {function} func
+ */
 function registerFunction(id, func) {
 	if ((typeof func) !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	registry.addToRegistry(`${hookPrefix}:${id}`, func);
+	registry.addToRegistry(`${HOOK_PREFIX}:${id}`, func);
 }
 
+/**
+ * return a function from the router configuration
+ * @param  {string} id
+ */
 function getFunction(id) {
-	return registry.getFromRegistry(`${hookPrefix}:${id}`);
+	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
 }
 
 /**

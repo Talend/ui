@@ -4,8 +4,10 @@ import registry from './registry';
  * @module react-cmf/lib/action
  */
 
+const ACTION_CREATOR_PREFIX = 'actionCreator';
+
 /**
- * get the global actions registred in the settings
+ * get the global actions registered in the settings
  * @param  {object} context
  * @return {object} actions with key === action id
  */
@@ -20,11 +22,11 @@ function getActionsById(context) {
 }
 
 /**
- * return actions registred for a given content type
+ * return actions registered for a given content type
  * @param  {object} context
  * @param  {String} contentType
  * @param  {String} category
- * @return {array} actions
+ * @return {Array} actions
  */
 function getContentTypeActions(context, contentType, category) {
 	const state = context.store.getState();
@@ -46,7 +48,7 @@ function getContentTypeActions(context, contentType, category) {
  * @return {function}
  */
 function getActionCreatorFunction(context, id) {
-	const creator = context.registry[`actionCreator:${id}`];
+	const creator = context.registry[`${ACTION_CREATOR_PREFIX}:${id}`];
 	if (!creator) {
 		throw new Error(`actionCreator not found in the registry: ${id}`);
 	}
@@ -74,7 +76,6 @@ function getActionInfo(context, id) {
  * @param  {String} id
  * @param  {object} event event which have trigger this action
  * @param  {object} data data attached to the action
- * @return {object} redux ready action object with .event, .data, .context
  */
 function getActionObject(context, id, event, data) {
 	const action = getActionInfo(context, id);
@@ -109,7 +110,7 @@ function getOnProps(props) {
  * @param  {object} props    props object containing maybe on(event) with string
  *                           or action creator function]
  * @return {object}          the connected object
- * @throws if an action is unknow in configuration, throw
+ * @throws if an action is unknown in configuration, throw
  */
 function mapDispatchToProps(dispatch, props) {
 	const resolvedActions = {};
@@ -135,7 +136,7 @@ function mapDispatchToProps(dispatch, props) {
  * @param  {Function} actionCreator (event, data, context)
  */
 function registerActionCreator(id, actionCreator) {
-	registry.addToRegistry(`actionCreator:${id}`, actionCreator);
+	registry.addToRegistry(`${ACTION_CREATOR_PREFIX}:${id}`, actionCreator);
 }
 
 export default {

@@ -8,7 +8,7 @@ export const defaultState = new Map();
 
 /**
  * @param  {object} state  initial state
- * @param  {object} action the excuted action
+ * @param  {object} action the executed action
  * @return {object}        the new state
  */
 export function componentsReducers(state = defaultState, action) {

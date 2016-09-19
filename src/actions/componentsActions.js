@@ -8,11 +8,11 @@ export const COMPONENT_MERGE_STATE = 'REACT_CMF.COMPONENT_MERGE_STATE';
 export const COMPONENT_REMOVE_STATE = 'REACT_CMF.COMPONENT_REMOVE_STATE';
 
 /**
- * add a new component state with optionnal initialComponentState to the store
+ * add a new component state with optional initialComponentState to the store
  *
  * @param {string} componentName : name of the component
  * @param {string} key : identifier of state used by this component
- * @param {object} initialComponentState	: intial state of the component if required
+ * @param {object} initialComponentState : initial state of the component if required
  *
  * @throw if a component with this componentName associated to this key already exist
  */
@@ -41,7 +41,7 @@ export const addComponentState = (componentName, key, initialComponentState) => 
  *
  * @param {string} componentName : name of the component
  * @param {string} key : identifier of state used by this component
- * @param {object} componentState	: intial state of the component if required
+ * @param {object} componentState	: initial state of the component if required
  *
  * @throw if no componentName associated with this collectionId exist
  */
@@ -70,7 +70,7 @@ export const mergeComponentState = (componentName, key, componentState) => (
  * Remove component state from the store
  *
  * @param {string} componentName : name of the component
- * @param {string} collectionId	: identifier of collection used by the component
+ * @param {string} key	: identifier of collection used by the component
  *
  * @throw if no componentName associated with this collectionId exist
  */

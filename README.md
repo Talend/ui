@@ -34,7 +34,7 @@ It provides a set of base components and patterns.
 A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
 ```
 
-It feets with our goal, this is why this addon has been named that way.
+It fits with our goal, this is why this add-on has been named that way.
 
 ## Paradigm
 
@@ -53,7 +53,7 @@ Let's talk about each of them.
 
 ### Views
 
-Views are special React component. They are high level component which has the following responsability:
+Views are special React component. They are high level component which has the following responsibility:
 They must dispatch props to configurable components.
 
 They are called by UI abstraction library from the router and connected to the store throw the settings.
@@ -67,15 +67,15 @@ Then view will be composed of react components that can get their props.
 Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
 
 ### ComponentState Management
-Component state can be easily stored in cmf state, each are identified by theyr name and an unique key,
-so component state, can be stored and reused later
+Component state can be easily stored in cmf state, each are identified by their name and an unique key,
+so component state can be stored and reused later
 
-### collections management
+### Collections management
 Manage a local cache of your business data
 
 ### Content Types
 
-A content type define metadata over content. For example when you display a list of article you said each item in this list are an *article* which is a content type.
+A content type defines metadata over content. For example when you display a list of article you say each item in this list are an *article* which is a content type.
 
 We are adding metadata over content type:
 
@@ -85,7 +85,7 @@ We are adding metadata over content type:
 
 ## Internals: The registry
 
-You will find the the registry as the central piece of ui abstraction.
+You will find the registry as the central piece of ui abstraction.
 It's just a key/object registry and it's used with prefix to store the following:
 
 * action creators (function)

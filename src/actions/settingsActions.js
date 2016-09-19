@@ -27,8 +27,8 @@ export function errorWithSettings(error) {
 
 /**
  * get the settings on the server and dispatch the corresponding actions
- * this should be execute during the bootstrap of the App.
- * @return {Promise} with the fetch process results
+ * this should be executed during the bootstrap of the App.
+ * @return {function} with the fetch process results
  */
 export function fetchSettings() {
 	return (dispatch) => {
