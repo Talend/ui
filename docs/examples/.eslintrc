@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ['*.test.js', '.spec.js']}],
+    "no-tabs": "off",
+    "indent": ["error", "tab"],
+    "react/prefer-es6-class": 0,
+    "react/jsx-indent": ["error", "tab"],
+    "react/jsx-indent-props": ["error", "tab"]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true
+  },
+  "globals": {},
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}

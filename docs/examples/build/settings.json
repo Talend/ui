@@ -1,0 +1,162 @@
+{
+  "contentTypes": {},
+  "actions":{
+    "menu:home": {
+      "id":"menu:home",
+      "name":"back to home",
+      "icon": "fa-home",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/"]
+      }
+    },
+    "menu:Alert": {
+      "id":"menu:Alert",
+      "name":"Alert",
+      "icon": "fa-exclamation-triangle",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Alert"]
+      }
+    },
+    "menu:AppHeaderBar": {
+      "id":"menu:AppHeaderBar",
+      "name":"AppHeaderBar",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/AppHeaderBar"]
+      }
+    },
+    "menu:Breadcrumb": {
+      "id":"menu:Breadcrumb",
+      "name":"Breadcrumb",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Breadcrumb"]
+      }
+    },
+    "menu:Button": {
+      "id":"menu:Button",
+      "name":"Button",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Button"]
+      }
+    },
+    "menu:ButtonAction": {
+      "id":"menu:ButtonAction",
+      "name":"ButtonAction",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonAction"]
+      }
+    },
+    "menu:ButtonDispatcher": {
+      "id":"menu:ButtonDispatcher",
+      "name":"ButtonDispatcher",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonDispatcher"]
+      }
+    },
+    "menu:ButtonsDispatcher": {
+      "id":"menu:ButtonsDispatcher",
+      "name":"ButtonsDispatcher",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonsDispatcher"]
+      }
+    },
+    "menu:LinkAction": {
+      "id":"menu:LinkAction",
+      "name":"LinkAction",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinkAction"]
+      }
+    },
+    "menu:LinkDispatcher": {
+      "id":"menu:LinkDispatcher",
+      "name":"LinkDispatcher",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinkDispatcher"]
+      }
+    },
+    "menu:LinksDispatcher": {
+      "id":"menu:LinksDispatcher",
+      "name":"LinksDispatcher",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinksDispatcher"]
+      }
+    },
+    "menu:SideMenu": {
+      "id":"menu:SideMenu",
+      "name":"SideMenu",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/SideMenu"]
+      }
+    }
+  },
+  "views":{
+    "appmenu":{
+      "actions": ["menu:home"],
+      "userMenuActions": [],
+      "logo": {"src": "images/talend_logo.png", "alt": "Talend"},
+      "app": "React CMF Bootstrap"
+    },
+    "sidemenu": {
+      "actions": [
+        "menu:Alert",
+        "menu:Breadcrumb",
+        "menu:Button",
+        "menu:ButtonAction",
+        "menu:ButtonDispatcher",
+        "menu:ButtonsDispatcher",
+        "menu:LinkAction",
+        "menu:LinkDispatcher",
+        "menu:LinksDispatcher",
+        "menu:SideMenu"
+      ]
+    },
+    "example":{
+      "exampleSideMenu":{
+        "actions":["menu:SideMenu"]
+      }
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": { "component": "ExampleSideMenu" },
+    "childRoutes": [
+      { "path": "Alert", "component": "ExampleAlert" },
+      { "path": "Breadcrumb", "component": "ExampleBreadcrumb" },
+      { "path": "SideMenu", "component": "ExampleSideMenu" }
+    ]
+  }
+}
