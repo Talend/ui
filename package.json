@@ -17,6 +17,10 @@
     "test:cov": "jest --coverage",
     "test:reset:snapshot": "jest --no-cache -u"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acateland/react-flow-designer.git"
+  },
   "author": "Axel Cateland <acateland@talend.com>",
   "license": "Apache-2.0",
   "jest": {
