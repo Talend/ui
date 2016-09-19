@@ -1,12 +1,12 @@
 {
     "name": "bootstrap-tlnd-theme",
-    "version": "0.0.1",
     "description": "Bootstrap theme based on Talend styleguide",
     "main": "dist/bootstrap.js",
     "engines": {
         "npm": ">=2.7.1"
     },
     "scripts": {
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post",
         "prepublish": "webpack",
         "start": "webpack-dev-server",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,6 +32,7 @@
         "node-sass": "^3.8.0",
         "path": "^0.12.7",
         "sass-loader": "^4.0.0",
+        "semantic-release": "4.3.5",
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.7",
         "webpack": "^1.13.1",
