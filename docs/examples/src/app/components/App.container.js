@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AppHeaderBar, SideMenu } from 'react-cmf-bootstrap';
+import { AppHeaderBar, SidePanel } from 'react-cmf-bootstrap';
 import theme from './App.scss';
 
 const mapStateToProps = (state) => state.cmf.settings.views.appmenu || {};
@@ -8,15 +8,15 @@ const Menu = connect(
   mapStateToProps
 )(AppHeaderBar);
 
-const ConnectedSideMenu = connect(
-	(state) => state.cmf.settings.views.sidemenu || {}
-)(SideMenu)
+const ConnectedSidePanel = connect(
+	(state) => state.cmf.settings.views.sidePanel || {}
+)(SidePanel)
 
 const App = (props) => (
 	<div>
 		<Menu />
 		<div className={theme.container}>
-			<ConnectedSideMenu />
+			<ConnectedSidePanel />
 			<div className={theme.main}>
 				{props.children}
 			</div>

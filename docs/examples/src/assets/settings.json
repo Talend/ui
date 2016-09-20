@@ -129,14 +129,14 @@
           "args":["/LinksDispatcher"]
       }
     },
-    "menu:SideMenu": {
-      "id":"menu:SideMenu",
-      "name":"SideMenu",
+    "menu:SidePanel": {
+      "id":"menu:SidePanel",
+      "name":"SidePanel",
       "icon": "fa-bars",
       "type":"@@router/CALL_HISTORY_METHOD",
       "payload":{
           "method": "push",
-          "args":["/SideMenu"]
+          "args":["/SidePanel"]
       }
     }
   },
@@ -147,7 +147,7 @@
       "logo": {"src": "images/talend_logo.png", "alt": "Talend"},
       "app": "React CMF Bootstrap"
     },
-    "sidemenu": {
+    "sidePanel": {
       "actions": [
         "menu:Alert",
         "menu:Breadcrumb",
@@ -158,19 +158,19 @@
         "menu:LinkAction",
         "menu:LinkDispatcher",
         "menu:LinksDispatcher",
-        "menu:SideMenu"
+        "menu:SidePanel"
       ]
     },
     "example":{
-      "exampleSideMenu":{
-        "actions":["menu:SideMenu"]
+      "exampleSidePanel":{
+        "actions":["menu:SidePanel"]
       }
     }
   },
   "routes": {
     "path": "/",
     "component": "App",
-    "indexRoute": { "component": "ExampleSideMenu" },
+    "indexRoute": { "component": "ExampleSidePanel" },
     "childRoutes": [
       { "path": "Alert", "component": "ExampleAlert" },
       { "path": "Breadcrumb", "component": "ExampleBreadcrumb" },
@@ -181,7 +181,7 @@
       { "path": "LinkAction", "component": "ExampleLinkAction" },
       { "path": "LinkDispatcher", "component": "ExampleLinkDispatcher" },
       { "path": "LinksDispatcher", "component": "ExampleLinksDispatcher" },
-      { "path": "SideMenu", "component": "ExampleSideMenu" }
+      { "path": "SidePanel", "component": "ExampleSidePanel" }
     ]
   }
 }

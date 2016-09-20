@@ -10,7 +10,7 @@ import ExampleButtonsDispatcher from './components/ExampleButtonsDispatcher';
 import ExampleLinkAction from './components/ExampleLinkAction';
 import ExampleLinkDispatcher from './components/ExampleLinkDispatcher';
 import ExampleLinksDispatcher from './components/ExampleLinksDispatcher';
-import ExampleSideMenu from './components/ExampleSideMenu';
+import ExampleSidePanel from './components/ExampleSidePanel';
 
 const registerComponent = api.route.registerComponent;
 
@@ -26,6 +26,6 @@ export default {
 		registerComponent('ExampleLinkAction', ExampleLinkAction);
 		registerComponent('ExampleLinkDispatcher', ExampleLinkDispatcher);
 		registerComponent('ExampleLinksDispatcher', ExampleLinksDispatcher);
-		registerComponent('ExampleSideMenu', ExampleSideMenu);
+		registerComponent('ExampleSidePanel', ExampleSidePanel);
 	},
 };
