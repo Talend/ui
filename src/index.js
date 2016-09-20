@@ -73,7 +73,7 @@ import ButtonsDispatcher from './ButtonsDispatcher';
 import LinkAction from './LinkAction';
 import LinkDispatcher from './LinkDispatcher';
 import LinksDispatcher from './LinksDispatcher';
-import SideMenu from './SideMenu';
+import SidePanel from './SidePanel';
 
 export {
 	AppHeaderBar,
@@ -83,7 +83,7 @@ export {
 	LinkDispatcher,
 	LinksDispatcher,
 	LinkAction,
-	SideMenu,
+	SidePanel,
 
 	Alert,
 	Badge,

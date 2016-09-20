@@ -15,12 +15,15 @@ function getActions(context, id) {
 }
 
 /**
- * This is the main bar for webapp
+ * The top bar is the place where the user finds useful information and tools
+ * to describe the application
+ * the logo, the name of the application, an optionnal global search,
+ * few icons for feedback & onboarding and a menu to access logout
+ * and profile information.
  * @param {object} props   react props
  * @param {object} context react context
  */
 function AppHeaderBar(props, context) {
-
 	const actions = [];
 	if (Array.isArray(props.actions)) {
 		props.actions.forEach((action) => {
