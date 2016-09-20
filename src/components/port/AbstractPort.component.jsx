@@ -3,8 +3,6 @@ import { select, event } from 'd3-selection';
 
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
-import './port.css';
-
 const Port = React.createClass({
     propTypes: {
         port: PortType,
@@ -26,12 +24,8 @@ const Port = React.createClass({
         if (this.props.port.position) {
             return (
               <g>
-                <g ref={c => (this.node = c)}>
-                  <circle
-                    className="connector"
-                    cx={this.props.port.position.x}
-                    cy={this.props.port.position.y}
-                  />
+                <g ref={c => (this.node = c)} transform={`translate(${this.props.port.position.x},${this.props.port.position.y})`}>
+					{this.props.children}
                 </g>
               </g>
             );

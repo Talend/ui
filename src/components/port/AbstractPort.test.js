@@ -1,18 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Port from './Port.component';
+import AbstractPort from './AbstractPort.component';
 import { PortRecord, PositionRecord } from '../../constants/flowdesigner.model';
 
 
-describe('<Port /> renders correctly', () => {
-    it('<Port /> renders correctly', () => {
+describe('<AbstractPort /> renders correctly', () => {
+    it('<AbstractPort /> renders correctly', () => {
         const port = new PortRecord({
             id: 'idPort',
             position: new PositionRecord({ x: 100, y: 100 }),
         });
         const tree = renderer.create(
-          <Port port={port} />
+          <AbstractPort port={port} />
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

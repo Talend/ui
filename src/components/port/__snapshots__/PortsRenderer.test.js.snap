@@ -1,0 +1,7 @@
+exports[`<PortsRenderer /> renders correctly <PortsRenderer /> renders correctly 1`] = `
+<g>
+  <span>
+    MockPort
+  </span>
+</g>
+`;

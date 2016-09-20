@@ -1,9 +1,10 @@
 import FlowDesigner from './components/FlowDesigner.container';
 import AbstractNode from './components/node/AbstractNode.component';
 import AbstractLink from './components/link/AbstractLink.component';
-import Port from './components/port/Port.component';
+import AbstractPort from './components/port/AbstractPort.component';
 import NodeType from './components/configuration/NodeType.component';
 import LinkType from './components/configuration/LinkType.component';
+import PortType from './components/configuration/PortType.component';
 import flowDesignerReducer from './reducers/';
 import * as flowDesignerConstants from './constants/flowdesigner.constants';
 import * as flowActions from './actions/flow.actions';
@@ -19,9 +20,10 @@ export {
     FlowDesigner,
     AbstractNode,
     AbstractLink,
-    Port,
+    AbstractPort,
     NodeType,
     LinkType,
+	PortType,
     flowDesignerConstants,
     // should i share ?
     flowActions,

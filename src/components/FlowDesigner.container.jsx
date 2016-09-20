@@ -37,13 +37,14 @@ export const FlowDesigner = React.createClass({
         const { children } = this.props;
         let nodeTypeMap = {};
         let linkTypeMap = {};
+		let portTypeMap = {};
         if (children) {
             children.forEach(element => {
                 switch (element.type.displayName) {
                 case 'NodeType':
                     nodeTypeMap = Object.assign(
-                    {},
-                    nodeTypeMap,
+                    	{},
+                    	nodeTypeMap,
                         {
                             [element.props.type]: {
                                 component: element.props.component,
@@ -53,8 +54,8 @@ export const FlowDesigner = React.createClass({
                     break;
                 case 'LinkType':
                     linkTypeMap = Object.assign(
-                    {},
-                    linkTypeMap,
+                    	{},
+                    	linkTypeMap,
                         {
                             [element.props.type]: {
                                 component: element.props.component,
@@ -62,6 +63,17 @@ export const FlowDesigner = React.createClass({
                         }
                     );
                     break;
+				case 'PortType':
+					portTypeMap = Object.assign(
+						{},
+						portTypeMap,
+						{
+                            [element.props.type]: {
+                                component: element.props.component,
+                            },
+                        }
+					)
+					break;
                 default:
                     invariant(
                     false,
@@ -74,7 +86,7 @@ export const FlowDesigner = React.createClass({
         }
 
         this.props.setNodeTypes(nodeTypeMap);
-        this.setState({ nodeTypeMap, linkTypeMap });
+        this.setState({ nodeTypeMap, linkTypeMap, portTypeMap });
     },
     render() {
         return (
@@ -99,7 +111,9 @@ export const FlowDesigner = React.createClass({
                 moveNodeToEnd={this.props.moveNodeToEnd}
                 nodes={this.props.nodes}
               />
-              <PortsRenderer ports={this.props.ports} />
+              <PortsRenderer
+			  	portTypeMap={this.state.portTypeMap}
+			  	ports={this.props.ports} />
               <LinksRenderer
                 linkTypeMap={this.state.linkTypeMap}
                 links={this.props.links}

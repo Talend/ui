@@ -1,0 +1,6 @@
+exports[`<AbstractPort /> renders correctly <AbstractPort /> renders correctly 1`] = `
+<g>
+  <g
+    transform="translate(100,100)" />
+</g>
+`;

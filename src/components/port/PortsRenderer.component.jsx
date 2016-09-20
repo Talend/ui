@@ -1,7 +1,6 @@
 import React from 'react';
 import { orderedMapOf } from 'react-immutable-proptypes';
 
-import Port from './Port.component';
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
 const PortsRenderer = React.createClass({
@@ -9,7 +8,8 @@ const PortsRenderer = React.createClass({
         ports: orderedMapOf(PortType).isRequired,
     },
     renderPort(port) {
-        return (<Port key={port.id} port={port} />);
+		const ConcretePort = this.props.portTypeMap[port.portType].component;
+        return (<ConcretePort key={port.id} port={port} />);
     },
     render() {
         return (
