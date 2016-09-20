@@ -1,5 +1,23 @@
 {
-  "contentTypes": {},
+  "contentTypes": {
+    "article": {
+      "id": "article",
+      "name": "Article",
+      "actions": {
+        "primary": [{
+          "id": "edit",
+          "name": "Edit",
+          "icon": "fa-pencil",
+          "type": "DISPLAY_FORM"
+        }, {
+          "id": "delete",
+          "name": "Delete",
+          "icon": "fa-trash-o",
+          "type": "DELETE_CONFIRMATION"
+        }]
+      }
+    }
+  },
   "actions":{
     "menu:home": {
       "id":"menu:home",
@@ -156,6 +174,13 @@
     "childRoutes": [
       { "path": "Alert", "component": "ExampleAlert" },
       { "path": "Breadcrumb", "component": "ExampleBreadcrumb" },
+      { "path": "Button", "component": "ExampleButton" },
+      { "path": "ButtonAction", "component": "ExampleButtonAction" },
+      { "path": "ButtonDispatcher", "component": "ExampleButtonDispatcher" },
+      { "path": "ButtonsDispatcher", "component": "ExampleButtonsDispatcher" },
+      { "path": "LinkAction", "component": "ExampleLinkAction" },
+      { "path": "LinkDispatcher", "component": "ExampleLinkDispatcher" },
+      { "path": "LinksDispatcher", "component": "ExampleLinksDispatcher" },
       { "path": "SideMenu", "component": "ExampleSideMenu" }
     ]
   }
