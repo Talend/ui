@@ -9,8 +9,8 @@ const LinkHandle = React.createClass({
             x: PropTypes.number.isRequired,
             y: PropTypes.number.isRequired,
         }).isRequired,
-        onDrag: PropTypes.func.isRequired,
-        onDragEnd: PropTypes.func.isRequired,
+        onDrag: PropTypes.func,
+        onDragEnd: PropTypes.func,
     },
     getInitialState() {
         return {
@@ -46,12 +46,13 @@ const LinkHandle = React.createClass({
     render() {
         const grabbedClass = this.state.grabbed ? 'edge-handle--grabbed' : '';
         return (
-          <circle
-            ref={(c) => this.handle = c}
-            cx={this.props.position.x} cy={this.props.position.y}
-            width="8" height="8"
-            className={`edge-handle ${grabbedClass}`}
-          />
+		  	<g
+		  		ref={(c) => this.handle = c}
+				transform={`translate(${this.props.position.x},${this.props.position.y})`}
+			>
+				{this.props.component}
+
+		  	</g>
         );
     },
 });

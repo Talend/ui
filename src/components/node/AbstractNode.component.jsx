@@ -6,7 +6,6 @@ import { Map } from 'immutable';
 
 import invariant from 'invariant';
 
-import './node.css';
 import { NodeType } from '../../constants/flowdesigner.proptypes';
 import { PositionRecord } from '../../constants/flowdesigner.model';
 
