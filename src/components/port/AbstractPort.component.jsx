@@ -3,7 +3,7 @@ import { select, event } from 'd3-selection';
 
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
-const Port = React.createClass({
+const AbstractPort = React.createClass({
     propTypes: {
         port: PortType,
         onClick: PropTypes.func,
@@ -13,7 +13,7 @@ const Port = React.createClass({
         this.d3Node.on('click', this.onClick);
     },
     shouldComponentUpdate(nextProps) {
-        return nextProps.port !== this.props.port;
+        return nextProps.port !== this.props.port || nextProps.children !== this.props.children;
     },
     onClick() {
         if (this.props.onClick) {
@@ -34,4 +34,4 @@ const Port = React.createClass({
         return null;
     },
 });
-export default Port;
+export default AbstractPort;
