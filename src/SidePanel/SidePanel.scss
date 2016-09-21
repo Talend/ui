@@ -4,22 +4,23 @@ $tlnd-side-menu-txt-color: #fff !default;
 $tlnd-side-menu-toggle-color: #ddd !default;
 
 .sidePanel{
-  background-color: $tlnd-side-menu-bg-color;
-  height: 100%;
-  .sidePanelLink, .sidePanelLink:hover{
-    color: $tlnd-side-menu-txt-color;
-    padding: 20px;
-    text-align: left;
-    display: block;
-    font-size: 1.3em;
-    > span {
-      text-transform: uppercase;
-      margin-left: 10px;
-    }
-  }
-  .toggleBtn{
-    display: block;
-    color: $tlnd-side-menu-toggle-color;
-    padding: 20px;
-  }
+	background-color: $tlnd-side-menu-bg-color;
+	display: inline-block;
+	height: 100%;
+	.sidePanelLink, .sidePanelLink:hover{
+		color: $tlnd-side-menu-txt-color;
+		padding: 20px;
+		text-align: left;
+		display: block;
+		font-size: 1.3em;
+		> span {
+			text-transform: uppercase;
+			margin-left: 10px;
+		}
+	}
+	.toggleBtn{
+		display: block;
+		color: $tlnd-side-menu-toggle-color;
+		padding: 20px;
+	}
 }

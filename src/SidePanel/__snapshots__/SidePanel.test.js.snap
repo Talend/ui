@@ -1,0 +1,22 @@
+exports[`SidePanel should render provided actions 1`] = `
+<div
+  className={undefined}>
+  <button
+    className="btn btn-link"
+    disabled={false}
+    onClick={[Function bound toggleDock]}
+    type="button">
+    |
+    <i
+      className="fa fa-arrow-left" />
+  </button>
+  <div
+    className="btn-group-vertical">
+    <a
+      className="btn btn-link"
+      onClick={[Function bound onClick]}>
+      test
+    </a>
+  </div>
+</div>
+`;

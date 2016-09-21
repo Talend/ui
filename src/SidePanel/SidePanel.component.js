@@ -4,10 +4,8 @@ import { Button } from 'react-bootstrap';
 import LinkDispatcher from '../LinkDispatcher';
 
 /**
+ * Checkout the {@link http://talend.github.io/react-cmf-bootstrap/examples/build/#/SidePanel|examples}
  * @param {object} props react props
- * @example
-const actions = ['menu:home', 'menu:myarticle', 'menu:archive'];
-<SidePanel actions={actions}></SidePanel>
  */
 class SidePanel extends React.Component {
 	constructor(props) {
@@ -21,9 +19,15 @@ class SidePanel extends React.Component {
 	render() {
 		const theme = this.props.theme || {};
 		const actions = this.props.actions || [];
+		const iconClass = classNames('fa', {
+			'fa-arrow-left': !this.state.docked,
+			'fa-arrow-right': this.state.docked,
+		});
 		return (
 			<div className={theme.sidePanel}>
-				<Button onClick={this.toggleDock} bsStyle="link" className={theme.toggleBtn}>x</Button>
+				<Button onClick={this.toggleDock} bsStyle="link" className={theme.toggleBtn}>
+					|<i className={iconClass} />
+				</Button>
 				<div className="btn-group-vertical">
 					{actions.map(action => (
 						<LinkDispatcher
