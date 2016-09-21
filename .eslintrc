@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "rules": {
     "indent": ["error", "tab"],
+    "no-tabs": "off",
     "react/prefer-es6-class": 0,
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
