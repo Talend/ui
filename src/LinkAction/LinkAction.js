@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { api, Icon } from 'react-cmf';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 /**
  * This component show an action creator and dispatch it to redux
@@ -35,12 +36,21 @@ class LinkAction extends React.Component {
 				icon = action.icon;
 			}
 		}
-		return (
+		let link = (
 			<a className={linkCSS} onClick={this.onClick}>
 				{icon ? <Icon name={icon} className="fa-fw" /> : null}
 				{this.props.hideLabel ? null : label}
 			</a>
 		);
+		if (this.props.hideLabel) {
+			const tooltip = (<Tooltip>{label}</Tooltip>);
+			link = (
+				<OverlayTrigger placement="top" overlay={tooltip}>
+					{link}
+				</OverlayTrigger>
+			);
+		}
+		return link;
 	}
 }
 LinkAction.propTypes = Object.assign(
