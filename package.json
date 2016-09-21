@@ -71,7 +71,8 @@
     "webpack": "^1.13.1"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest"
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testRegex": "src/.*\\.test\\.js$"
   },
   "peerDependencies": {
     "react-cmf": "<1",
