@@ -30,8 +30,8 @@ const schema = {
 
 describe('<Form/>', () => {
 	let wrapper;
-	let onSubmit = jest.fn();
-	let onChange = jest.fn();
+	const onSubmit = jest.fn();
+	const onChange = jest.fn();
 
 	beforeEach(() => {
 		wrapper = mount(<Form schema={schema} onSubmit={onSubmit} onChange={onChange} />);
