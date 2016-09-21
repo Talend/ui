@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Dispatcher } from '../src/Dispatcher';
+import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
+
 jest.mock('../src/api', () => ({
 	action: {
 		getActionInfo(context, id) {
@@ -36,7 +37,17 @@ describe('Testing <Dispatcher />', () => {
 			JSON.stringify({ onClick: noOp, onStuff: noOp }, replacer).replace(/(\\t|\\n)/g, '')
 			);
 	});
-
+	it('should checkIfActionInfoExist do not throw with action object', () => {
+		const props = { onClick: {
+			id: 'test',
+			name: 'Test',
+			type: 'TEST_ACTION',
+		}};
+		const check = () => {
+			checkIfActionInfoExist(props, {});
+		};
+		expect(check).not.toThrow();
+	});
 	it('should have its method onEvent called when children handle an event', () => {
 		const wrapper = shallow(
 			<Dispatcher onClick={noOp} onStuff={noOp}>

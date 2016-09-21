@@ -14,9 +14,11 @@ import api from './api';
  *
  * @throws
  */
-function checkIfActionInfoExist(props, context) {
+export function checkIfActionInfoExist(props, context) {
 	api.action.getOnProps(props).forEach((name) => {
-		api.action.getActionInfo(context, props[name]);
+		if (typeof props[name] === 'string') {
+			api.action.getActionInfo(context, props[name]);
+		}
 	});
 }
 
