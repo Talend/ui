@@ -22,7 +22,6 @@ class ShowIf extends React.Component {
 	}
 
 	render() {
-		console.debug(this.props);
 		return (<Checkbox {...this.props} onChange={this.handleChange} />);
 	}
 }

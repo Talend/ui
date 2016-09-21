@@ -70,7 +70,6 @@ class SchemaField extends React.Component {
 	}
 
 	handleSchemaChange(schema) {
-		console.debug('SCHEMA CHANGE', schema);
 	}
 
 	render() {
