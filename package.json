@@ -60,7 +60,7 @@
     "jest-cli": "15.1.1",
     "node-sass": "3.9.3",
     "react": "15.3.2",
-    "react-addons-test-utils": "15.3.0",
+    "react-addons-test-utils": "15.3.2",
     "react-dom": "15.3.2",
     "react-redux": "4.4.5",
     "react-test-renderer": "15.3.2",
