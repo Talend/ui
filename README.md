@@ -9,17 +9,20 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [![Quality][quality-badge] ][quality-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
+[![peerdependencies][peerdependencies-image] ][peerdependencies-url]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [npm-icon]: https://nodei.co/npm/react-cmf-bootstrap.png?downloads=true
 [npm-url]: https://npmjs.org/package/react-cmf-bootstrap
-[travis-ci-image]: https://travis-ci.org/jmfrancois/react-cmf-bootstrap.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/jmfrancois/react-cmf-bootstrap
+[travis-ci-image]: https://travis-ci.org/Talend/react-cmf-bootstrap.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/react-cmf-bootstrap
 
-[dependencies-image]: https://david-dm.org/jmfrancois/react-cmf-bootstrap.png
-[dependencies-url]: https://david-dm.org/jmfrancois/react-cmf-bootstrap
-[devdependencies-image]: https://david-dm.org/jmfrancois/react-cmf-bootstrap/dev-status.png
-[devdependencies-url]: https://david-dm.org/jmfrancois/react-cmf-bootstrap#info=devDependencies
+[dependencies-image]: https://david-dm.org/Talend/react-cmf-bootstrap.png
+[dependencies-url]: https://david-dm.org/Talend/react-cmf-bootstrap
+[devdependencies-image]: https://david-dm.org/Talend/react-cmf-bootstrap/dev-status.png
+[devdependencies-url]: https://david-dm.org/Talend/react-cmf-bootstrap#info=devDependencies
+[peerdependencies-image]: https://david-dm.org/Talend/react-cmf-bootstrap/peer-status.svg
+[peerdependencies-url]: https://david-dm.org/Talend/react-cmf-bootstrap?type=peer
 
 [quality-badge]: http://npm.packagequality.com/shield/react-cmf-bootstrap.svg
 [quality-url]: http://packagequality.com/#?package=react-cmf-bootstrap
