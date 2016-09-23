@@ -12,7 +12,14 @@ npm install -g generator-talend
 
 ## Usage
 
-Running `yo talend-lib` will launch the library creation wizard.
+This generator has multiple subgenerators, so you use one of the following:
+
+* `yo talend` -> javascript library
+* `yo talend:dotfiles` -> talend common dotfiles for javascript project
+* `yo talend:react-cmf` -> create a project based on react-cmf
+* `yo talend:react-component` -> add a react component
+
+Running `yo talend` will launch the library creation wizard.
 It will do the following:
 
 * Fetch and Install the configuration files from Talend's tools repository
