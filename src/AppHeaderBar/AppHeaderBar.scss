@@ -1,0 +1,28 @@
+$tlnd-app-menu-bg-color: #465A65 !default;
+$tlnd-app-menu-txt-color: white !default;
+
+// AppHeaderBar styles
+.appHeaderBar {
+	background-color: $tlnd-app-menu-bg-color;
+	height: 100%;
+}
+.brand {
+	display: inline-block;
+	width: 50%
+}
+.link, .link:hover {
+	color: $tlnd-app-menu-txt-color;
+	cursor: pointer;
+	text-decoration: none;
+	margin: 10px;
+}
+
+.links {
+	display: inline-block;
+	width: 50%;
+	text-align: right;
+	padding: 12px 20px 0;
+}
+.logo {
+  max-width: '100px';
+}

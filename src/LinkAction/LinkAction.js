@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { api, Icon } from 'react-cmf';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 /**
  * This component show an action creator and dispatch it to redux
@@ -35,32 +36,45 @@ class LinkAction extends React.Component {
 				icon = action.icon;
 			}
 		}
-		return (
+		let link = (
 			<a className={linkCSS} onClick={this.onClick}>
 				{icon ? <Icon name={icon} className="fa-fw" /> : null}
-				{label}
+				{this.props.hideLabel ? null : label}
 			</a>
 		);
+		if (this.props.hideLabel) {
+			const tooltip = (<Tooltip>{label}</Tooltip>);
+			link = (
+				<OverlayTrigger placement="top" overlay={tooltip}>
+					{link}
+				</OverlayTrigger>
+			);
+		}
+		return link;
 	}
 }
-LinkAction.propTypes = {
-	action: React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.object,
-	]),
-	icon: React.PropTypes.bool,
-	model: React.PropTypes.object,
-	displayMode: React.PropTypes.string,
-	onClick: React.PropTypes.func,
+LinkAction.propTypes = Object.assign(
+	{
+		action: React.PropTypes.oneOfType([
+			React.PropTypes.string,
+			React.PropTypes.object,
+		]),
+		icon: React.PropTypes.bool,
+		model: React.PropTypes.object,
+		onClick: React.PropTypes.func,
+		hideLabel: React.PropTypes.bool,
+	}, {
+		displayMode: React.PropTypes.string,
 
-	active: React.PropTypes.bool,
-	count: React.PropTypes.number,
+		active: React.PropTypes.bool,
+		count: React.PropTypes.number,
 
-	className: React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.object,
-	]),
-};
+		className: React.PropTypes.oneOfType([
+			React.PropTypes.string,
+			React.PropTypes.object,
+		]),
+	}
+);
 LinkAction.contextTypes = {
 	router: React.PropTypes.object,
 	store: React.PropTypes.object,

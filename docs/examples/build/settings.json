@@ -1,0 +1,187 @@
+{
+  "contentTypes": {
+    "article": {
+      "id": "article",
+      "name": "Article",
+      "actions": {
+        "primary": [{
+          "id": "edit",
+          "name": "Edit",
+          "icon": "fa-pencil",
+          "type": "DISPLAY_FORM"
+        }, {
+          "id": "delete",
+          "name": "Delete",
+          "icon": "fa-trash-o",
+          "type": "DELETE_CONFIRMATION"
+        }]
+      }
+    }
+  },
+  "actions":{
+    "menu:home": {
+      "id":"menu:home",
+      "name":"back to home",
+      "icon": "fa-home",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/"]
+      }
+    },
+    "menu:Alert": {
+      "id":"menu:Alert",
+      "name":"Alert",
+      "icon": "fa-exclamation-triangle",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Alert"]
+      }
+    },
+    "menu:AppHeaderBar": {
+      "id":"menu:AppHeaderBar",
+      "name":"AppHeaderBar",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/AppHeaderBar"]
+      }
+    },
+    "menu:Breadcrumb": {
+      "id":"menu:Breadcrumb",
+      "name":"Breadcrumb",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Breadcrumb"]
+      }
+    },
+    "menu:Button": {
+      "id":"menu:Button",
+      "name":"Button",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/Button"]
+      }
+    },
+    "menu:ButtonAction": {
+      "id":"menu:ButtonAction",
+      "name":"ButtonAction",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonAction"]
+      }
+    },
+    "menu:ButtonDispatcher": {
+      "id":"menu:ButtonDispatcher",
+      "name":"ButtonDispatcher",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonDispatcher"]
+      }
+    },
+    "menu:ButtonsDispatcher": {
+      "id":"menu:ButtonsDispatcher",
+      "name":"ButtonsDispatcher",
+      "icon": "fa-hand-pointer-o",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/ButtonsDispatcher"]
+      }
+    },
+    "menu:LinkAction": {
+      "id":"menu:LinkAction",
+      "name":"LinkAction",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinkAction"]
+      }
+    },
+    "menu:LinkDispatcher": {
+      "id":"menu:LinkDispatcher",
+      "name":"LinkDispatcher",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinkDispatcher"]
+      }
+    },
+    "menu:LinksDispatcher": {
+      "id":"menu:LinksDispatcher",
+      "name":"LinksDispatcher",
+      "icon": "fa-anchor",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/LinksDispatcher"]
+      }
+    },
+    "menu:SidePanel": {
+      "id":"menu:SidePanel",
+      "name":"SidePanel",
+      "icon": "fa-bars",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/SidePanel"]
+      }
+    }
+  },
+  "views":{
+    "appmenu":{
+      "actions": ["menu:home"],
+      "userMenuActions": [],
+      "logo": {"src": "images/talend_logo.png", "alt": "Talend"},
+      "app": "React CMF Bootstrap"
+    },
+    "sidePanel": {
+      "actions": [
+        "menu:Alert",
+        "menu:Breadcrumb",
+        "menu:Button",
+        "menu:ButtonAction",
+        "menu:ButtonDispatcher",
+        "menu:ButtonsDispatcher",
+        "menu:LinkAction",
+        "menu:LinkDispatcher",
+        "menu:LinksDispatcher",
+        "menu:SidePanel"
+      ]
+    },
+    "example":{
+      "exampleSidePanel":{
+        "actions":["menu:SidePanel"]
+      }
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": { "component": "ExampleSidePanel" },
+    "childRoutes": [
+      { "path": "Alert", "component": "ExampleAlert" },
+      { "path": "Breadcrumb", "component": "ExampleBreadcrumb" },
+      { "path": "Button", "component": "ExampleButton" },
+      { "path": "ButtonAction", "component": "ExampleButtonAction" },
+      { "path": "ButtonDispatcher", "component": "ExampleButtonDispatcher" },
+      { "path": "ButtonsDispatcher", "component": "ExampleButtonsDispatcher" },
+      { "path": "LinkAction", "component": "ExampleLinkAction" },
+      { "path": "LinkDispatcher", "component": "ExampleLinkDispatcher" },
+      { "path": "LinksDispatcher", "component": "ExampleLinksDispatcher" },
+      { "path": "SidePanel", "component": "ExampleSidePanel" }
+    ]
+  }
+}
