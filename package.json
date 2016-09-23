@@ -1,8 +1,7 @@
 {
   "name": "generator-talend",
   "description": "Talend's JavaScript generator",
-  "version": "0.0.0",
-  "homepage": "https://github.com/talend-glorieux/generator-talend",
+  "homepage": "https://github.com/Talend/generator-talend",
   "author": {
     "name": "Geoffroy Lorieux",
     "email": "glorieux@talend.com"
@@ -41,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/talend-glorieux/generator-talend.git"
+    "url": "https://github.com/Talend/generator-talend.git"
   },
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",

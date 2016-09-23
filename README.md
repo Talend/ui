@@ -1,5 +1,27 @@
 # Talend's JavaScript Library Generator
 
+[![NPM][npm-icon] ][npm-url]
+
+[![Travis CI][travis-ci-image] ][travis-ci-url]
+[![Quality][quality-badge] ][quality-url]
+[![dependencies][dependencies-image] ][dependencies-url]
+[![devdependencies][devdependencies-image] ][devdependencies-url]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+[npm-icon]: https://nodei.co/npm/generator-talend.png?downloads=true
+[npm-url]: https://npmjs.org/package/generator-talend
+[travis-ci-image]: https://travis-ci.org/Talend/generator-talend.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/generator-talend
+
+[dependencies-image]: https://david-dm.org/Talend/generator-talend.png
+[dependencies-url]: https://david-dm.org/Talend/generator-talend
+[devdependencies-image]: https://david-dm.org/Talend/generator-talend/dev-status.png
+[devdependencies-url]: https://david-dm.org/Talend/generator-talend#info=devDependencies
+
+[quality-badge]: http://npm.packagequality.com/shield/generator-talend.svg
+[quality-url]: http://packagequality.com/#?package=generator-talend
+
+
 ## Installation
 
 You'll first need to install [yeoman](http://yeoman.io/) then install

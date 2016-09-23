@@ -1,9 +1,4 @@
 language: node_js
-before_cache:
-  - mkdir -p /home/travis/.cache/node-yeoman-remote-cache/Talend/tools
-  - 'curl -Lo master.zip https://github.com/Talend/tools/archive/master.zip'
-  - unzip master.zip
-  - mv tools-master /home/travis/.cache/node-yeoman-remote-cache/Talend/tools/master
 cache:
   directories:
     - node_modules
@@ -16,6 +11,11 @@ node_js:
 before_script:
   - npm prune
   - npm update
+  - mkdir -p /home/travis/.cache/node-yeoman-remote-cache/Talend/tools
+  - rm -rf /home/travis/.cache/node-yeoman-remote-cache/Talend/tools/master
+  - curl -Lo master.zip https://github.com/Talend/tools/archive/master.zip
+  - unzip master.zip
+  - mv tools-master /home/travis/.cache/node-yeoman-remote-cache/Talend/tools/master
 after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
