@@ -1,18 +1,16 @@
 import React from 'react';
 
-import theme from './Grid.scss';
-
 const Grid = () => (
   <g>
     <defs>
       <pattern
-        id="smallGrid" className={theme.smallGrid}
+        id="smallGrid"fill="none" stroke="#BFBDBD" strokeWidth="0.5"
         width="10" height="10" patternUnits="userSpaceOnUse"
       >
         <path d="M 10 0 L 0 0 0 10" />
       </pattern>
       <pattern
-        id="grid" className={theme.largeGrid}
+        id="grid" fill="none" stroke="#BFBDBD" strokeWidth="0.5"
         width="50" height="50" patternUnits="userSpaceOnUse"
       >
         <rect width="50" height="50" fill="url(#smallGrid)" />

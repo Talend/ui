@@ -51,19 +51,23 @@ exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1
       <g>
         <defs>
           <pattern
-            className={undefined}
+            fill="none"
             height="10"
             id="smallGrid"
             patternUnits="userSpaceOnUse"
+            stroke="#BFBDBD"
+            strokeWidth="0.5"
             width="10">
             <path
               d="M 10 0 L 0 0 0 10" />
           </pattern>
           <pattern
-            className={undefined}
+            fill="none"
             height="50"
             id="grid"
             patternUnits="userSpaceOnUse"
+            stroke="#BFBDBD"
+            strokeWidth="0.5"
             width="50">
             <rect
               fill="url(#smallGrid)"
