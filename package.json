@@ -1,7 +1,7 @@
 {
   "name": "react-flow-designer",
   "description": "Flow designer for react and redux",
-  "main": "lib/react-flow-designer.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "npm run clean:lib && npm run clean:coverage",
     "clean:lib": "rimraf ./lib",
