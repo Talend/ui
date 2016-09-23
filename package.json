@@ -3,14 +3,12 @@
   "description": "Flow designer for react and redux",
   "main": "lib/react-flow-designer.js",
   "scripts": {
-    "build": "npm run test  && npm run clean && webpack",
     "clean": "npm run clean:lib && npm run clean:coverage",
     "clean:lib": "rimraf ./lib",
     "clean:coverage": "rimraf ./coverage",
-    "dev": "webpack --progress --colors --watch --env.dev",
     "lint": "npm run lint:es",
     "lint:es": "eslint --config .eslintrc src/**/*.js",
-    "prepublish": "npm run build",
+    "prepublish": "babel -d lib ./src/ && rm lib/**/*.test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
@@ -24,7 +22,7 @@
   "author": "Axel Cateland <acateland@talend.com>",
   "license": "Apache-2.0",
   "jest": {
-    "testRegex": "/.*\\.test(.js|.jsx)$",
+    "testRegex": "/src/.*\\.test(.js|.jsx)$",
     "moduleNameMapper": {
       "^.+\\.(css|sass|scss)$": "<rootDir>/test/styleMock.js",
       "^.+\\.(gif|ttf|eot|svg)$": "<rootDir>/test/fileMock.js"
