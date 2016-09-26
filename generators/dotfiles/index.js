@@ -29,34 +29,24 @@ module.exports = yeoman.Base.extend({
 	},
 
 	configuring() {
-		const jsFormatterPath = 'tools-javascript-formatter';
-		const editorconfig = '.editorconfig';
-		const eslintrc = '.eslintrc';
+		const jsFormatterPath = 'tools-javascript';
+		const jsDotFiles = ['.editorconfig', '.eslintrc', '.travis.yml', '.npmignore'];
 		const scssFormatterPath = 'tools-scss-formatting';
 		const sasslint = '.sass-lint.yml';
+		const githubRoot = 'tools-root-github';
+		const gitignore = '.gitignore';
 
 		const done = this.async();
 		remote('Talend', 'tools', (err, cachePath) => {
-			this.fs.copy(path.join(cachePath, jsFormatterPath, editorconfig),
-				this.destinationPath(editorconfig));
-			this.fs.copy(path.join(cachePath, jsFormatterPath, eslintrc),
-				this.destinationPath(eslintrc));
+			jsDotFiles.forEach((dotfile) => {
+				this.fs.copy(path.join(cachePath, jsFormatterPath, dotfile),
+				this.destinationPath(dotfile));
+			});
 			this.fs.copy(path.join(cachePath, scssFormatterPath, sasslint),
 				this.destinationPath(sasslint));
+			this.fs.copy(path.join(cachePath, githubRoot, gitignore),
+				this.destinationPath(gitignore));
 			done();
-		});
-
-		const files = [
-			'.gitignore',
-			'.travis.yml',
-			'.npmignore',
-		];
-
-		files.forEach((name) => {
-			this.fs.copy(
-				path.join(__dirname, `../../${name}`),
-				this.destinationPath(name)
-			);
 		});
 
 		mkdirp(this.destinationPath('src'), (err) => {
