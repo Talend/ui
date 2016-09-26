@@ -72,7 +72,10 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testRegex": "src/.*\\.test\\.js$"
+    "testRegex": "src/.*\\.test\\.js$",
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
+    }
   },
   "peerDependencies": {
     "react-cmf": "<1",
