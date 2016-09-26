@@ -37,7 +37,7 @@ npm install -g generator-talend
 This generator has multiple subgenerators, so you use one of the following:
 
 * `yo talend` -> javascript library
-* `yo talend:dotfiles` -> talend common dotfiles for javascript project
+* `yo talend:dotfiles` -> [talend common dotfiles](https://github.com/Talend/tools/tree/master/tools-javascript) for javascript project
 * `yo talend:react-cmf` -> create a project based on react-cmf
 * `yo talend:react-component` -> add a react component
 
@@ -49,6 +49,8 @@ It will do the following:
 * Add the Apache-2 LICENSE file
 * Setup a default .gitignore file and make the initial git commit
 * Run the initial `npm install`
+
+Run the `yo talend:dotfiles` command again when you want to make sure configuration files and license are up to date.
 
 ## License
 
