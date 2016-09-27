@@ -4,22 +4,25 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import BCheckbox from 'react-bootstrap/lib/Checkbox';
 
-const Checkbox = (props) => <FormGroup>
-	<ControlLabel>{props.name}</ControlLabel>
+const Checkbox = ({ formData, name, onChange, required }) => <FormGroup>
+	<ControlLabel>{name}</ControlLabel>
 	<BCheckbox
-		checked={props.formData || props.schema.default}
-		label={props.name}
-		required={props.required}
-		onChange={props.onChange}
+		checked={formData || false}
+		label={name}
+		required={required}
+		onChange={(e) => onChange(e.target.checked)}
 	/>
 </FormGroup>;
 
 Checkbox.propTypes = {
-	required: React.PropTypes.bool,
-	schema: React.PropTypes.object.isRequired,
-	name: React.PropTypes.string,
 	formData: React.PropTypes.bool,
+	name: React.PropTypes.string,
 	onChange: React.PropTypes.func,
+	required: React.PropTypes.bool,
+};
+
+Checkbox.defaultProps = {
+	formData: false,
 };
 
 export default Checkbox;

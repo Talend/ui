@@ -9,36 +9,33 @@ class Form extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { formData: {} };
-		this.handleChange = this.handleChange.bind(this);
+		this.handleSchemaChange = this.handleSchemaChange.bind(this);
 	}
 
-	handleChange(change) {
-		this.setState({ formData: change.formData });
+	handleSchemaChange(change) {
+		// TODO: Handle Schema Change
 	}
 
 	render() {
 		return (<RJSForm
 			schema={this.props.schema}
-			formData={this.props.formData || this.state.formData}
+			formData={this.props.formData}
 			onSubmit={this.props.onSubmit}
-			onChange={this.props.onChange || this.handleChange}
 			fields={{ SchemaField }}
+			onChange={this.handleSchemaChange}
 		>
-			<div>
-				<Button bsStyle="primary">
-					<i className="fa icon-edit" />Save
-				</Button>
-			</div>
-		</RJSForm>);
+			<Button bsStyle="primary" type="submit">
+				<i className="fa fa-pencil" />Save
+			</Button>
+		</RJSForm>
+		);
 	}
 }
 
 Form.propTypes = {
-	schema: React.PropTypes.object.isRequired,
 	formData: React.PropTypes.object,
-	onChange: React.PropTypes.func,
 	onSubmit: React.PropTypes.func.isRequired,
+	schema: React.PropTypes.object.isRequired,
 };
 
 export default Form;

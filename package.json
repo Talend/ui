@@ -3,15 +3,18 @@
   "description": "react-bootstrap-forms library.",
   "license": "Apache-2.0",
   "author": "Geoffroy Lorieux glorieux@talend.com",
+  "main": "lib/Form.js",
   "repository": {
     "type": "git",
     "url": "github:Talend/react-bootstrap-forms"
   },
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-core": "6.13.2",
     "babel-eslint": "6.1.2",
     "babel-jest": "^15.0.0",
     "babel-loader": "6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "6.13.2",
     "babel-preset-react": "^6.11.1",
     "enzyme": "^2.4.1",
@@ -33,6 +36,7 @@
     "react-jsonschema-form": "^0.40.0"
   },
   "scripts": {
+    "prepublish": "babel -d lib ./src/",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
