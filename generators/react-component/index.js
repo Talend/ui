@@ -24,13 +24,28 @@ module.exports = yeoman.Base.extend({
 			name: 'type',
 			message: 'type',
 			default: 'es6.class',
-			choices: ['es6.class', 'es6.arrow', 'stateless', 'createClass'],
+			choices: ['es6.class', 'es6.arrow', 'stateless', 'createClass', 'connect'],
+		}, {
+			type: 'input',
+			name: 'purePath',
+			message: 'pure component import path',
+			default: './',
+			when(answers) {
+				return answers.type === 'connect';
+			},
 		}, {
 			type: 'list',
 			name: 'test',
 			message: 'test',
 			default: 'snapshot',
 			choices: ['snapshot', 'enzyme'],
+			when(answers) {
+				if (answers.type === 'connect') {
+					answers.test = 'connect';
+					return false;
+				}
+				return true;
+			},
 		}, {
 			type: 'input',
 			name: 'path',
