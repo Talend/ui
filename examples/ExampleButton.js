@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from 'react-cmf-bootstrap';
+import { Button } from '../src';
 
-function ExampleButton(props) {
+export default function ExampleButton() {
 	return (
 		<div>
 			<h1>Button</h1>
@@ -13,13 +13,6 @@ function ExampleButton(props) {
 			<Button bsStyle="primary">Button primary</Button>
 			<Button bsStyle="warning">Button warning</Button>
 			<Button bsStyle="danger">Button danger</Button>
-			<pre><code>{
-`import { Button } from 'react-cmf-bootstrap';
-
-<Button>Button</Button>`
-			}</code></pre>
 		</div>
 	);
 }
-
-export default ExampleButton;

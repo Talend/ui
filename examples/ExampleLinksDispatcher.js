@@ -1,7 +1,7 @@
 import React from 'react';
-import { LinksDispatcher } from 'react-cmf-bootstrap';
+import { LinksDispatcher } from '../src';
 
-function ExampleLinksDispatcher(props) {
+export default function ExampleLinksDispatcher() {
 	return (
 		<div>
 			<h1>LinksDispatcher</h1>
@@ -13,13 +13,6 @@ function ExampleLinksDispatcher(props) {
 			<a href="/settings.json" target="_blank">open settings.json</a>
 			</p>
 			<LinksDispatcher contentType="article" category="primary" icon />
-			<pre><code>{
-`import { LinksDispatcher } from 'react-cmf-bootstrap';
-
-<LinksDispatcher contentType="article" category="primary" icon />`
-			}</code></pre>
 		</div>
 	);
 }
-
-export default ExampleLinksDispatcher;

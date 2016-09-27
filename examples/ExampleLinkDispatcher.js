@@ -1,7 +1,7 @@
 import React from 'react';
-import { LinkDispatcher } from 'react-cmf-bootstrap';
+import { LinkDispatcher } from '../src';
 
-function ExampleLinkDispatcher(props) {
+export default function ExampleLinkDispatcher() {
 	const action = {
 		id: 'example',
 		name: 'Example action',
@@ -16,20 +16,7 @@ function ExampleLinkDispatcher(props) {
 			<p>It dispatch the provided action to redux.</p>
 			<h2>Example</h2>
 			<p>Please open the debugger console to see the dispatched action in redux-logger;</p>
-			<LinkDispatcher action={action} />
-			<pre><code>{
-`import { LinkDispatcher } from 'react-cmf-bootstrap';
-
-const action = {
-	id: 'example',
-	name: 'Example action',
-	icon: 'fa-user',
-};
-
-<LinkDispatcher action={action} onClick={onClick}} icon/>`
-			}</code></pre>
+			<LinkDispatcher action={action} icon />
 		</div>
 	);
 }
-
-export default ExampleLinkDispatcher;

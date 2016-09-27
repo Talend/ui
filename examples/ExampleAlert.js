@@ -1,7 +1,7 @@
 import React from 'react';
-import { Alert } from 'react-cmf-bootstrap';
+import { Alert } from '../src';
 
-function ExampleAlert(props) {
+export default function AlertExample() {
 	return (
 		<div>
 			<h1>Alert</h1>
@@ -20,26 +20,7 @@ function ExampleAlert(props) {
 			<Alert bsStyle="danger">
 				danger !
 			</Alert>
-			<pre><code>{
-`import { Alert } from 'react-cmf-bootstrap';
-
-<Alert bsStyle="success">
-	success !
-</Alert>
-<Alert bsStyle="warning">
-	warning !
-</Alert>
-<Alert bsStyle="info">
-	info !
-</Alert>
-<Alert bsStyle="danger">
-	danger !
-</Alert>`
-			}</code></pre>
 			<a href="https://react-bootstrap.github.io/components.html#alerts"target="_blank">API DOC</a>
-
 		</div>
 	);
 }
-
-export default ExampleAlert;

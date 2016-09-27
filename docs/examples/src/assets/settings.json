@@ -29,6 +29,16 @@
           "args":["/"]
       }
     },
+    "menu:demo": {
+      "id":"menu:demo",
+      "name":"demo",
+      "icon": "fa-home",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/"]
+      }
+    },
     "menu:Alert": {
       "id":"menu:Alert",
       "name":"Alert",

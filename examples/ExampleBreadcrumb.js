@@ -1,7 +1,7 @@
 import React from 'react';
-import { Breadcrumb } from 'react-cmf-bootstrap';
+import { Breadcrumb } from '../src';
 
-function ExampleBreadcrumb(props) {
+export default function BreadcrumbExample() {
 	return (
 		<div>
 			<h1>Breadcrumb</h1>
@@ -19,23 +19,6 @@ function ExampleBreadcrumb(props) {
 					Data
 				</Breadcrumb.Item>
 			</Breadcrumb>
-			<pre><code>{
-`import { Breadcrumb } from 'react-cmf-bootstrap';
-
-<Breadcrumb>
-	<Breadcrumb.Item href="#">
-		Home
-	</Breadcrumb.Item>
-	<Breadcrumb.Item href="#">
-		Library
-	</Breadcrumb.Item>
-	<Breadcrumb.Item active>
-		Data
-	</Breadcrumb.Item>
-</Breadcrumb>`
-			}</code></pre>
 		</div>
 	);
 }
-
-export default ExampleBreadcrumb;
