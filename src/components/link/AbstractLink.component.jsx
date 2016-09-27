@@ -4,7 +4,10 @@ import { line, curveBasis } from 'd3-shape';
 import { interpolateBasis } from 'd3-interpolate';
 
 import LinkHandle from './LinkHandle.component';
-import { PortType, LinkType } from '../../constants/flowdesigner.proptypes';
+import { PortType } from '../../constants/flowdesigner.proptypes';
+
+const concreteLine = line().x(d => d.x).y(d => d.y)
+			.curve(curveBasis);
 
 const calculatePath = (sourcePosition, targetPosition) => {
 	const pathCoords = [];
@@ -15,8 +18,7 @@ const calculatePath = (sourcePosition, targetPosition) => {
 	};
 	const xInterpolate = interpolateBasis([targetPosition.x, pathCoords[1].x]);
 	const yInterpolate = interpolateBasis([targetPosition.y, pathCoords[1].y]);
-	const path = line().x(d => d.x).y(d => d.y)
-			.curve(curveBasis)(pathCoords);
+	const path = concreteLine(pathCoords);
 	return { path, xInterpolate, yInterpolate };
 };
 
@@ -38,10 +40,6 @@ const AbstractLink = React.createClass({
 		children: PropTypes.node,
 	},
 	statics: calculatePath,
-	componentWillMount() {
-		this.line = line().x(d => d.x).y(d => d.y)
-			.curve(curveBasis);
-	},
 	shouldComponentUpdate(nextProps) {
 		return nextProps.source !== this.props.source ||
 			nextProps.target !== this.props.target ||
