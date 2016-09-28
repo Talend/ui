@@ -7,6 +7,7 @@ module.exports = yeoman.Base.extend({
 		this.composeWith('talend:dotfiles', {
 			options: {
 				name: () => this.props.name,
+				babelrc: 'react',
 			},
 		});
 	},

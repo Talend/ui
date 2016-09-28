@@ -14,6 +14,12 @@ module.exports = yeoman.Base.extend({
 				name: 'name',
 				message: 'Library name',
 				default: slug(this.appname),
+			}, {
+				type: 'list',
+				name: 'babelrc',
+				message: '.babelrc',
+				choices: ['angular', 'react'],
+				default: 'react',
 			}];
 
 			return this.prompt(prompts).then((props) => {
@@ -35,6 +41,7 @@ module.exports = yeoman.Base.extend({
 		const sasslint = '.sass-lint.yml';
 		const githubRoot = 'tools-root-github';
 		const gitignore = '.gitignore';
+		const babelrc = `compilation/${this.props.babelrc || 'react'}/.babelrc`;
 
 		const done = this.async();
 		remote('Talend', 'tools', (err, cachePath) => {
@@ -46,6 +53,8 @@ module.exports = yeoman.Base.extend({
 				this.destinationPath(sasslint));
 			this.fs.copy(path.join(cachePath, githubRoot, gitignore),
 				this.destinationPath(gitignore));
+			this.fs.copy(path.join(cachePath, jsFormatterPath, babelrc),
+				this.destinationPath('.babelrc'));
 			done();
 		});
 
