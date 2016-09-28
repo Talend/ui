@@ -44,7 +44,7 @@ module.exports = yeoman.Base.extend({
 		const babelrc = `compilation/${this.props.babelrc || 'react'}/.babelrc`;
 
 		const done = this.async();
-		remote('Talend', 'tools', (err, cachePath) => {
+		remote('Talend', 'tools', 'master', (err, cachePath) => {
 			jsDotFiles.forEach((dotfile) => {
 				this.fs.copy(path.join(cachePath, jsFormatterPath, dotfile),
 				this.destinationPath(dotfile));
@@ -56,7 +56,7 @@ module.exports = yeoman.Base.extend({
 			this.fs.copy(path.join(cachePath, jsFormatterPath, babelrc),
 				this.destinationPath('.babelrc'));
 			done();
-		});
+		}, true);
 
 		mkdirp(this.destinationPath('src'), (err) => {
 			if (err) {
