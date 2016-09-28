@@ -1,0 +1,25 @@
+{
+    "url": "http://localhost:8080/",
+    "mapping": [
+        {
+            "name": "headings",
+            "selector": "#headings"
+        },
+        {
+            "name": "buttons",
+            "selector": "#btn"
+        },
+        {
+            "name": "buttons_disabled",
+            "selector": "#btn_disabled"
+        },
+        {
+            "name": "dropdowns",
+            "selector": "#btn-dropdown"
+        },
+        {
+            "name": "forms",
+            "selector": "form.bs-component"
+        }
+    ]
+}

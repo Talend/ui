@@ -9,7 +9,8 @@
         "semantic-release": "semantic-release pre && npm publish && semantic-release post",
         "prepublish": "webpack",
         "start": "webpack-dev-server",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "babel -d .tmp/test test/ && casperjs test .tmp/test/screenshots.spec.js",
+        "test:rebase": "babel -d .tmp/test test/ && casperjs test .tmp/test/screenshots.spec.js --rebase"
     },
     "repository": {
         "type": "git",
@@ -26,11 +27,14 @@
     },
     "homepage": "https://github.com/Talend/bootstrap-theme#readme",
     "devDependencies": {
+        "babel-cli": "^6.14.0",
+        "babel-preset-es2015": "^6.14.0",
         "css-loader": "^0.23.1",
         "extract-text-webpack-plugin": "^1.0.1",
         "file-loader": "^0.9.0",
         "node-sass": "^3.8.0",
         "path": "^0.12.7",
+        "phantomcss": "^1.1.3",
         "sass-loader": "^4.0.0",
         "semantic-release": "4.3.5",
         "style-loader": "^0.13.1",
