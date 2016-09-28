@@ -3,18 +3,13 @@ import { connect } from 'react-redux';
 import { AppHeaderBar, SidePanel } from 'react-cmf-bootstrap';
 import theme from './App.scss';
 
-const mapStateToProps = (state) => state.cmf.settings.views.appmenu || {};
-const Menu = connect(
-  mapStateToProps
-)(AppHeaderBar);
-
 const ConnectedSidePanel = connect(
 	(state) => state.cmf.settings.views.sidePanel || {}
-)(SidePanel)
+)(SidePanel);
 
 const App = (props) => (
 	<div>
-		<Menu />
+		<AppHeaderBar />
 		<div className={theme.container}>
 			<ConnectedSidePanel />
 			<div className={theme.main}>

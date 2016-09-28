@@ -151,7 +151,7 @@
     }
   },
   "views":{
-    "appmenu":{
+    "appheaderbar":{
       "actions": ["menu:home"],
       "userMenuActions": [],
       "logo": {"src": "images/talend_logo.png", "alt": "Talend"},

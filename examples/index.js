@@ -1,4 +1,5 @@
 import AlertExample from './ExampleAlert';
+import AppHeaderBarExample from './ExampleAppHeaderBar';
 import BreadcrumbExample from './ExampleBreadcrumb';
 import ButtonExample from './ExampleButton';
 import ButtonActionExample from './ExampleButtonAction';
@@ -11,6 +12,7 @@ import SidePanelExample from './ExampleSidePanel';
 
 export default {
 	AlertExample,
+	AppHeaderBarExample,
 	BreadcrumbExample,
 	ButtonExample,
 	ButtonActionExample,

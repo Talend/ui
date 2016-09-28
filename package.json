@@ -71,7 +71,7 @@
     "react-redux": "4",
     "react-router": "2",
     "react-router-redux": "4",
-    "react-storybook-cmf": "0.0.0",
+    "react-storybook-cmf": "^0",
     "react-stub-context": "^0.7.0",
     "react-test-renderer": "15",
     "redux": "3",
