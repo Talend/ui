@@ -1,40 +1,17 @@
 import actionAPI from '../src/action';
-const settings = require('./settings.json');
+import mock from '../src/mock';
 
 describe('CMF action', () => {
 	let state;
 	let context;
 	let emptyContext;
+	let settings;
 
 	beforeEach(() => {
-		state = {
-			cmf: {
-				settings,
-			},
-		};
-		context = {
-			store: {
-				getState() {
-					return state;
-				},
-			},
-		};
-		emptyContext = {
-			store: {
-				getState() {
-					return {
-						initialized: false,
-						cmf: {
-							settings: {
-								contentTypes: {},
-								actions: {},
-								views: {},
-							},
-						},
-					};
-				},
-			},
-		};
+		settings = mock.settings();
+		state = mock.state();
+		context = mock.context();
+		emptyContext = mock.emptyContext();
 	});
 	it('getActionsById should return action from settings', () => {
 		const actions = actionAPI.getActionsById(context);
