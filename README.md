@@ -1,8 +1,8 @@
-# react-bootstrap-forms
+# react-talend-forms
 
 ## Installation
 
-Run `npm install react-bootstrap-forms`.
+Run `npm install react-talend-forms`.
 
 ## Usage
 
@@ -11,7 +11,7 @@ You'll have to pass it a JSONSchema and a onSubmit callback as a minimum to
 handle forms rendering and get the data back.
 
 ```javascript
-import Form from 'react-bootstrap-forms';
+import Form from 'react-talend-forms';
 
 class MyForm extends React.Component {
 

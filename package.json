@@ -1,12 +1,12 @@
 {
-  "name": "react-bootstrap-forms",
-  "description": "react-bootstrap-forms library.",
+  "name": "react-talend-forms",
+  "description": "react-talend-forms library.",
   "license": "Apache-2.0",
   "author": "Geoffroy Lorieux glorieux@talend.com",
   "main": "lib/Form.js",
   "repository": {
     "type": "git",
-    "url": "github:Talend/react-bootstrap-forms"
+    "url": "github:Talend/react-talend-forms"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
