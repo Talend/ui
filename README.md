@@ -34,3 +34,38 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 * react-bootstrap
 * classnames
 
+## Architecture
+
+This library is architectured around one concept:
+Provide a set of components which implement our [style guide](http://guidelines.talend.com)
+
+Each components exists in two versions:
+* pure
+* connected
+
+The pure component is responsible of the rendering from props.
+Everythings are props here.
+We avoid state because we are using redux with CMF.
+For the style we are using sass with [react-css-themr](https://github.com/javivelasco/react-css-themr).
+
+To get a connected component just do the following:
+
+```
+import { AppHeaderBar } from 'react-cmf-bootstrap';
+```
+
+
+Next we provide a connected version which only map to props of the pure version.
+
+If you import a widget from the package you will have the connected version.
+If you want to import the pure version use the following import path:
+
+```
+import { AppHeaderBar } from 'react-cmf-bootstrap/lib/pure';
+```
+
+## How to contribute
+
+First please take a look at our contributing guildelines.
+
+To create a new widget, you can use the [talend yeoman generator](https://github.com/Talend/generator-talend)
