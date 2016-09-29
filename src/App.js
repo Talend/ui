@@ -14,10 +14,7 @@ import UIRouter from './UIRouter';
  * @return {object} ReactElement
  */
 export default function App(props) {
-	let hist = props.history;
-	if (!props.history) {
-		hist = history.get(props.store);
-	}
+	const hist = props.history || history.get(props.store);
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
