@@ -20,7 +20,7 @@ const UIRouter = (props, context) => {
 		return (<BaseRouter routes={routes} history={props.history} />);
 	}
 	return (
-		<div>loading</div>
+		<div className="is-loading">loading</div>
 	);
 };
 
