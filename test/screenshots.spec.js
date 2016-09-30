@@ -1,6 +1,6 @@
 const phantomcss = require('phantomcss');
 
-const { url, mapping } = require('./../phantomcss.config.json');
+const { url, viewport, mapping } = require('./../phantomcss.config.json');
 
 casper.test.begin('Screenshots', mapping.length, () => {
     phantomcss.init({
@@ -75,6 +75,9 @@ casper.test.begin('Screenshots', mapping.length, () => {
     casper
         .start(url)
         .then(() => {
+            if (viewport) {
+                casper.viewport(viewport.width, viewport.height);
+            }
             // Take a screenshot of each UI component
             mapping.forEach(({selector, name}) => {
                 phantomcss.screenshot(selector, name)

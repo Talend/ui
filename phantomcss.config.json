@@ -1,5 +1,9 @@
 {
     "url": "http://localhost:8080/",
+    "viewport": {
+        "height": 768,
+        "width": 1366
+    },
     "mapping": [
         {
             "name": "headings",
