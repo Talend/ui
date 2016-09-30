@@ -199,6 +199,11 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 				}))
 			)
 			.set('nodeTypes', new Map())
+			.set('transform', {
+				k: 1,
+				x: 0,
+				y: 0,
+			})
 		);
 	});
 });

@@ -6,10 +6,13 @@ import { Map } from 'immutable';
 import { FlowDesigner } from './FlowDesigner.container';
 import NodeType from './configuration/NodeType.component';
 
+jest.mock('./ZoomHandler.component');
+
 const noOp = () => {};
 
 describe('<FlowDesigner /> renders correctly', () => {
 	it('<FlowDesigner /> renders correctly', () => {
+		const mockGrid = <g />;
 		const nodes = new Map();
 		const ports = new Map();
 		const links = new Map();
@@ -17,6 +20,7 @@ describe('<FlowDesigner /> renders correctly', () => {
 			<FlowDesigner
 				moveNodeTo={noOp} setNodeTypes={noOp}
 				nodes={nodes} ports={ports} links={links}
+				grid={mockGrid}
 			>
 				<NodeType type="test" component={NodeType} />
 				<NodeType type="test2" component={NodeType} />

@@ -1,27 +1,60 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Grid = () => (
-  <g>
-    <defs>
-      <pattern
-        id="smallGrid"fill="none" stroke="#BFBDBD" strokeWidth="0.5"
-        width="10" height="10" patternUnits="userSpaceOnUse"
-      >
-        <path d="M 10 0 L 0 0 0 10" />
-      </pattern>
-      <pattern
-        id="grid" fill="none" stroke="#BFBDBD" strokeWidth="0.5"
-        width="50" height="50" patternUnits="userSpaceOnUse"
-      >
-        <rect width="50" height="50" fill="url(#smallGrid)" />
-        <path d="M 50 0 L 0 0 0 50" />
-      </pattern>
-    </defs>
-    <rect
-      style={{ pointerEvents: 'none' }}
-      x="0" y="0" width="1000%" height="1000%" fill="url(#grid)"
-    />
-  </g>
-);
+const Grid = ({ transform }) => {
+	const smallGridSize = 10 * transform.k;
+	const largeGridSize = 50 * transform.k;
+	const smallGridOpacity = transform.k < 1 ? transform.k : 1;
+	return (
+		<g>
+			<defs>
+				<pattern
+					id="smallGrid"
+					fill="none"
+					stroke="#BFBDBD"
+					strokeWidth="0.5"
+					width={smallGridSize}
+					height={smallGridSize}
+					patternUnits="userSpaceOnUse"
+				>
+					<path d={`M ${smallGridSize} 0 L 0 0 0 ${smallGridSize}`} />
+				</pattern>
+				<pattern
+					id="grid"
+					fill="none"
+					stroke="#BFBDBD"
+					strokeWidth="0.5"
+					x={transform.x}
+					y={transform.y}
+					width={largeGridSize}
+					height={largeGridSize}
+					patternUnits="userSpaceOnUse"
+				>
+					<rect
+						width={largeGridSize}
+						height={largeGridSize}
+						fillOpacity={smallGridOpacity}
+						fill="url(#smallGrid)"
+					/>
+					<path d={`M ${largeGridSize} 0 L 0 0 0 ${largeGridSize}`} />
+				</pattern>
+			</defs>
+			<rect
+				style={{ pointerEvents: 'none' }}
+				x="0"
+				y="0"
+				width="100%"
+				height="100%"
+				fill="url(#grid)"
+			/>
+	</g>
+	)
+};
 
-export default Grid;
+function mapStateToProps(state, ownProps) {
+	return {
+		transform: state.flowDesigner.get('transform'),
+	};
+}
+
+export default connect(mapStateToProps)(Grid);

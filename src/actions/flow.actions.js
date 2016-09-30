@@ -2,6 +2,7 @@ import {
 	FLOWDESIGNER_FLOW_ADD_ELEMENTS,
 	FLOWDESIGNER_FLOW_RESET,
 	FLOWDESIGNER_FLOW_LOAD,
+	FLOWDESIGNER_FLOW_SET_ZOOM,
 } from '../constants/flowdesigner.constants';
 
 /**
@@ -28,4 +29,10 @@ export const resetFlow = () => ({
 export const loadFlow = listOfActionCreation => ({
 	type: FLOWDESIGNER_FLOW_LOAD,
 	listOfActionCreation,
+});
+
+
+export const setZoom = transform => ({
+	type: FLOWDESIGNER_FLOW_SET_ZOOM,
+	transform,
 });

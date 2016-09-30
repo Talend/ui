@@ -1,16 +1,13 @@
 import React, { PropTypes } from 'react';
-
 import { select, event } from 'd3-selection';
 import { zoom } from 'd3-zoom';
+import { connect } from 'react-redux';
 
-const ZoomHandler = React.createClass({
+import { setZoom } from '../actions/flow.actions';
+
+export const ZoomHandler = React.createClass({
     propTypes: {
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
-    },
-    getInitialState() {
-        return {
-            transform: undefined,
-        };
     },
     componentDidMount() {
         select(this.zoomCatcher)
@@ -20,7 +17,7 @@ const ZoomHandler = React.createClass({
         );
     },
     onZoom() {
-        this.setState({ transform: event.transform });
+		this.props.setZoom(event.transform);
     },
     render() {
         return (
@@ -30,10 +27,22 @@ const ZoomHandler = React.createClass({
               style={{ fill: 'none', pointerEvents: 'all' }}
               x="0" y="0" width="100%" height="100%"
             />
-            <g transform={this.state.transform}>{this.props.children}</g>
+            <g transform={this.props.transform}>{this.props.children}</g>
           </g>
         );
     },
 });
 
-export default ZoomHandler;
+function mapStateToProps(state){
+	return {
+		transform: state.flowDesigner.get('transform')
+	}
+}
+
+function mapDispatchToProps (dispatch){
+	return {
+		setZoom: (transform) => dispatch(setZoom(transform)),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ZoomHandler);

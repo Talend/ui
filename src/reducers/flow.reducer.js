@@ -4,6 +4,7 @@ import {
 	FLOWDESIGNER_FLOW_ADD_ELEMENTS,
 	FLOWDESIGNER_FLOW_RESET,
 	FLOWDESIGNER_FLOW_LOAD,
+	FLOWDESIGNER_FLOW_SET_ZOOM,
 } from '../constants/flowdesigner.constants';
 import nodesReducer from './node.reducer';
 import linksReducer from './link.reducer';
@@ -17,6 +18,7 @@ const defaultState = new Map({
 	links: new Map(),
 	ports: new OrderedMap(),
 	nodeTypes: new Map(),
+	transform: { k: 1, x: 0, y: 0 },
 });
 
 const combinedReducer = (state = defaultState, action) => (
@@ -56,6 +58,8 @@ export const reducer = (state, action) => {
 			);
 			return state;
 		}
+	case FLOWDESIGNER_FLOW_SET_ZOOM:
+		return state.set('transform', action.transform);
 	default:
 		return combinedReducer(state, action);
 	}
