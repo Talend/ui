@@ -17,9 +17,10 @@ $gray-lighter:           lighten($gray-base, 85%) !default;   // #bfbfbf
 
 $brand-primary:         $gray-dark !default;
 $brand-primary-lighter: tint($brand-primary, 25) !default;
-$brand-primary-light:   tint($brand-primary, 10) !default;
-$brand-primary-dark:    shade($brand-primary, 10) !default;
+$brand-primary-light:   tint($brand-primary, 12) !default;
+$brand-primary-dark:    shade($brand-primary, 12) !default;
 $brand-primary-darker:  shade($brand-primary, 25) !default;
+
 $brand-secondary:       $rio-grande !default;
 $brand-success:         $limeade !default;
 $brand-info:            $scooter !default;
