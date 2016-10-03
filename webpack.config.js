@@ -19,7 +19,7 @@ const BASE_CONF = {
     path: `${__dirname}/dist`,
     filename: 'bootstrap.js',
   },
-  resolve: ['', '.scss', '.css', '.js'],
+  resolve: ['', '.scss', '.less', '.css', '.js'],
   module: {
     loaders: [
       {
@@ -41,6 +41,10 @@ const BASE_CONF = {
       {
         test: /\.css$/,
         loader: extractFonts.extract('style', 'css'),
+      },
+      {
+        test: /\.less$/,
+        loader: extractFonts.extract('style', 'css!less'),
       },
       {
         test: /bootstrap\.scss$/,
@@ -79,6 +83,10 @@ const MINIFIED = Object.assign({}, BASE_CONF, {
       {
         test: /source-sans-pro\.css$/,
         loader: extractFontsMin.extract('style', 'css?minimize'),
+      },
+      {
+        test: /\.less$/,
+        loader: extractFontsMin.extract('style', 'css?minimize!less'),
       },
       {
         test: /bootstrap\.scss$/,
