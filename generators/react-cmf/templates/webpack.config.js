@@ -44,7 +44,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: './index.html',
 			template: './src/app/index.html',
-			title: 'Data streams',
+			title: 'Talend Web App Name',
 		}),
 		new CopyWebpackPlugin([
 			{ from: 'src/assets' },
