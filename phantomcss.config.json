@@ -6,6 +6,10 @@
     },
     "mapping": [
         {
+            "name": "navbars",
+            "selector": "#navbars"
+        },
+        {
             "name": "headings",
             "selector": "#headings"
         },
