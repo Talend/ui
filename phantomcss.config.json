@@ -14,10 +14,6 @@
       "selector": "#headings"
     },
     {
-      "name": "paragraphs",
-      "selector": "#paragraphs"
-    },
-    {
       "name": "buttons",
       "selector": "#btn"
     },
