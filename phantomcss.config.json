@@ -1,37 +1,37 @@
 {
-    "url": "http://localhost:8080/",
-    "viewport": {
-        "height": 768,
-        "width": 1366
+  "url": "http://localhost:8080/",
+  "viewport": {
+    "height": 768,
+    "width": 1366
+  },
+  "mapping": [
+    {
+      "name": "navbars",
+      "selector": "#navbars"
     },
-    "mapping": [
-        {
-            "name": "navbars",
-            "selector": "#navbars"
-        },
-        {
-            "name": "headings",
-            "selector": "#headings"
-        },
-        {
-            "name": "paragraphs",
-            "selector": "#paragraphs"
-        },
-        {
-            "name": "buttons",
-            "selector": "#btn"
-        },
-        {
-            "name": "buttons_disabled",
-            "selector": "#btn_disabled"
-        },
-        {
-            "name": "dropdowns",
-            "selector": "#btn-dropdown"
-        },
-        {
-            "name": "forms",
-            "selector": "form.bs-component"
-        }
-    ]
+    {
+      "name": "headings",
+      "selector": "#headings"
+    },
+    {
+      "name": "paragraphs",
+      "selector": "#paragraphs"
+    },
+    {
+      "name": "buttons",
+      "selector": "#btn"
+    },
+    {
+      "name": "buttons_disabled",
+      "selector": "#btn_disabled"
+    },
+    {
+      "name": "dropdowns",
+      "selector": "#btn-dropdown"
+    },
+    {
+      "name": "forms",
+      "selector": "form.bs-component"
+    }
+  ]
 }

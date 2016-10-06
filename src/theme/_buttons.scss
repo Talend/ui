@@ -20,44 +20,44 @@ $btn-box-shadow-shade-percent:  20 !default;
 /// @access public
 /// @param {Color} $btn-bg [$btn-default-bg] - button background color to shade
 @mixin btn-box-shadow($btn-bg: $btn-default-bg) {
-  box-shadow: 0 -1*($btn-box-shadow-width) 0 shade($btn-bg, $btn-box-shadow-shade-percent) inset;
+	box-shadow: 0 -1*($btn-box-shadow-width) 0 shade($btn-bg, $btn-box-shadow-shade-percent) inset;
 }
 
 .btn {
-  @include btn-box-shadow;
-  font-size: $btn-font-size;
-  letter-spacing: .6px;
-  text-transform: uppercase;
+	@include btn-box-shadow;
+	font-size: $btn-font-size;
+	letter-spacing: .6px;
+	text-transform: uppercase;
 
-  &-primary,
-  &-success,
-  &-info,
-  &-warning,
-  &-danger {
-    border: 0;
-  }
+	&-primary,
+	&-success,
+	&-info,
+	&-warning,
+	&-danger {
+		border: 0;
+	}
 
-  &-primary {
-    @include btn-box-shadow($btn-primary-bg);
-  }
+	&-primary {
+		@include btn-box-shadow($btn-primary-bg);
+	}
 
-  &-success {
-    @include btn-box-shadow($btn-success-bg);
-  }
+	&-success {
+		@include btn-box-shadow($btn-success-bg);
+	}
 
-  &-info {
-    @include btn-box-shadow($btn-info-bg);
-  }
+	&-info {
+		@include btn-box-shadow($btn-info-bg);
+	}
 
-  &-warning {
-    @include btn-box-shadow($btn-warning-bg);
-  }
+	&-warning {
+		@include btn-box-shadow($btn-warning-bg);
+	}
 
-  &-danger {
-    @include btn-box-shadow($btn-danger-bg);
-  }
+	&-danger {
+		@include btn-box-shadow($btn-danger-bg);
+	}
 
-  &-link {
-    box-shadow: none;
-  }
+	&-link {
+		box-shadow: none;
+	}
 }

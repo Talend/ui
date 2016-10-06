@@ -5,7 +5,7 @@
 /// @return {Color}
 /// @source https://css-tricks.com/snippets/sass/tint-shade-functions/
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+	@return mix(white, $color, $percentage);
 }
 
 /// Slightly darken a color
@@ -15,5 +15,5 @@
 /// @return {Color}
 /// @source https://css-tricks.com/snippets/sass/tint-shade-functions/
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+	@return mix(black, $color, $percentage);
 }
