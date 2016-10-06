@@ -15,7 +15,7 @@ before_script:
 script: npm test && npm run lint
 after_success:
   - npm run test:cov
-  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
+  - cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage
   - rm -rf ./coverage
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
