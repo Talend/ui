@@ -5,9 +5,9 @@ describe('CMF store', () => {
 		expect(typeof initializeStore).toBe('function');
 	});
 	it('should initialize the store', () => {
-		function reducer(state, action) {
+		function reducer() {
 			return {};
-		};
+		}
 		const initialState = {};
 		const store = initializeStore(reducer, initialState);
 		expect(typeof store.dispatch).toBe('function');
@@ -28,10 +28,10 @@ describe('CMF store', () => {
 	});
 	it('should support object as reducer config', () => {
 		const reducer = {
-			heyImRoot(state, action) {
+			heyImRoot() {
 				return {};
 			},
-			app(state, action) {
+			app() {
 				return {};
 			},
 		};

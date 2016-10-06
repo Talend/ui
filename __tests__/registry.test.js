@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import registry from '../src/registry';
 
 describe('CMF registry', () => {

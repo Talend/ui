@@ -1,3 +1,5 @@
+/* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
+
 import route from '../src/route';
 import registry from '../src/registry';
 
