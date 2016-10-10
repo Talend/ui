@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import LinkDispatcher from '../LinkDispatcher';
 
 /**
@@ -10,36 +10,42 @@ import LinkDispatcher from '../LinkDispatcher';
 class SidePanel extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { docked: false };
+		this.state = {docked: false};
 		this.toggleDock = this.toggleDock.bind(this);
 	}
+
 	toggleDock() {
-		this.setState({ docked: !this.state.docked });
+		this.setState({docked: !this.state.docked});
 	}
+
 	render() {
 		const theme = this.props.theme || {};
 		const actions = this.props.actions || [];
-		const iconClass = classNames('fa', {
-			'fa-arrow-left': !this.state.docked,
-			'fa-arrow-right': this.state.docked,
-		});
+		const docked = {};
+		docked[theme.docked] = this.state.docked;
+		const className = classNames(theme.sidePanel, docked);
+
 		return (
-			<div className={theme.sidePanel}>
-				<Button onClick={this.toggleDock} bsStyle="link" className={theme.toggleBtn}>
-					|<i className={iconClass} />
+			<nav className={className}>
+				<Button className={theme.toggleBtn}
+				        bsStyle="link"
+				        onClick={this.toggleDock}
+				        aria-hidden="true"
+				        title="Toggle side panel">
+					<i className="fa fa-arrow-left"/>
 				</Button>
-				<div className="btn-group-vertical">
+				<ul className="nav nav-pills nav-stacked">
 					{actions.map(action => (
-						<LinkDispatcher
-							key={action}
-							action={action}
-							icon
-							hideLabel={this.state.docked}
-							className={theme.sidePanelLink}
-						/>
+						<li key={action}>
+							<LinkDispatcher
+								action={action}
+								icon
+								className={theme.sidePanelLink}
+							/>
+						</li>
 					))}
-				</div>
-			</div>
+				</ul>
+			</nav>
 		);
 	}
 }

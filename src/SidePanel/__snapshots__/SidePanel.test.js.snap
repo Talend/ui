@@ -1,22 +1,27 @@
 exports[`SidePanel should render provided actions 1`] = `
-<div
-  className={undefined}>
+<nav
+  className="">
   <button
+    aria-hidden="true"
     className="btn btn-link"
     disabled={false}
     onClick={[Function bound toggleDock]}
+    title="Toggle side panel"
     type="button">
-    |
     <i
       className="fa fa-arrow-left" />
   </button>
-  <div
-    className="btn-group-vertical">
-    <a
-      className="btn btn-link"
-      onClick={[Function bound onClick]}>
-      test
-    </a>
-  </div>
-</div>
+  <ul
+    className="nav nav-pills nav-stacked">
+    <li>
+      <a
+        className="btn btn-link"
+        onClick={[Function bound onClick]}>
+        <span>
+          test
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
 `;

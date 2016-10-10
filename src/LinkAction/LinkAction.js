@@ -39,7 +39,7 @@ class LinkAction extends React.Component {
 		let link = (
 			<a className={linkCSS} onClick={this.onClick}>
 				{icon ? <Icon name={icon} className="fa-fw" /> : null}
-				{this.props.hideLabel ? null : label}
+				{this.props.hideLabel ? null : <span>{label}</span>}
 			</a>
 		);
 		if (this.props.hideLabel) {

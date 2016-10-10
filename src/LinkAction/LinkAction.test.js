@@ -39,7 +39,7 @@ describe('LinkAction', () => {
 				onClick={onClick}
 			/>, { context }
 		);
-		expect(wrapper.containsMatchingElement(<a>Test</a>)).toEqual(true);
+		expect(wrapper.containsMatchingElement(<a><span>Test</span></a>)).toEqual(true);
 		expect(wrapper.containsMatchingElement(<Icon name="icon-test" />)).toEqual(false);
 		expect(clicked).toEqual(false);
 		wrapper.simulate('click');
