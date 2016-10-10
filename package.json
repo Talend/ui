@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Set of react widgets.",
   "license": "Apache-2.0",
-  "author": "jsomsanith jsomsanith@talend.com",
+  "author": "jsomsanith <jsomsanith@talend.com>",
   "bugs": {
     "url": "https://github.com/Talend/react-talend-components/issues"
   },
@@ -27,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "github:Talend/react-talend-components"
+    "url": "https://github.com/Talend/react-talend-components"
   },
   "dependencies": {
     "react": "^15.3.2",
