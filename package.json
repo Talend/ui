@@ -29,11 +29,7 @@
     "type": "git",
     "url": "https://github.com/Talend/react-talend-components"
   },
-  "dependencies": {
-    "react": "^15.3.2",
-    "react-bootstrap": "0",
-    "react-css-themr": "^1.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "babel-cli": "6.14.0",
@@ -68,5 +64,10 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
+  },
+  "peerDependencies": {
+    "react": "^15.3.2",
+    "react-bootstrap": "0",
+    "react-css-themr": "^1.3.0"
   }
 }
