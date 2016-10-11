@@ -2,6 +2,7 @@
   "name": "react-talend-components",
   "version": "0.0.0",
   "description": "Set of react widgets.",
+  "main": "lib/index.js",
   "license": "Apache-2.0",
   "author": "jsomsanith <jsomsanith@talend.com>",
   "bugs": {
