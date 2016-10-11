@@ -7,7 +7,7 @@
     "source": {
         "include": [
           "src/index.js",
-          "src/AppHeaderBar/AppHeaderBar.js",
+          "src/AppHeaderBar/AppHeaderBar.component.js",
           "src/ButtonAction/ButtonAction.js",
           "src/ButtonDispatcher/ButtonDispatcher.js",
           "src/ButtonsDispatcher/ButtonsDispatcher.js",

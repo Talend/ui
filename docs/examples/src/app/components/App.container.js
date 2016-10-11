@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AppHeaderBar, SidePanel } from 'react-cmf-bootstrap';
+import { AppHeaderBar, SidePanel } from 'react-talend-containers';
 import theme from './App.scss';
 
 const ConnectedSidePanel = connect(

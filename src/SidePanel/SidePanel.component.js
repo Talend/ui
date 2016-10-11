@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 import LinkDispatcher from '../LinkDispatcher';
 
 /**
- * Checkout the {@link http://talend.github.io/react-cmf-bootstrap/examples/build/#/SidePanel|examples}
+ * Checkout the {@link http://talend.github.io/react-talend-containers/examples/build/#/SidePanel|examples}
  * @param {object} props react props
  */
 class SidePanel extends React.Component {

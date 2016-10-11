@@ -5,7 +5,7 @@ import AppHeaderBar, {
 	mapStateToProps,
 } from './AppHeaderBar.component';
 
-import { AppHeaderBar as PureAppHeaderBar } from '../pure';
+import { AppHeaderBar as PureAppHeaderBar } from 'react-talend-components/lib';
 
 describe('AppHeaderBar', () => {
 	it('should map state to props', () => {

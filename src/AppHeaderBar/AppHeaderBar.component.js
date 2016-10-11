@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { AppHeaderBar } from '../pure';
+import { AppHeaderBar } from 'react-talend-components/lib';
 
 export function mapDispatchToProps(dispatch) {
 	return {};

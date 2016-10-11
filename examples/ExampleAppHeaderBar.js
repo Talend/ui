@@ -1,6 +1,5 @@
 import React from 'react';
-import { AppHeaderBar } from '../src/pure';
-import { AppHeaderBar as Connected } from '../src';
+import { AppHeaderBar } from '../src';
 
 export default function AppHeaderBarExample() {
 	const logo = {
@@ -14,14 +13,8 @@ export default function AppHeaderBarExample() {
 			<h2>Definition</h2>
 			<a href="http://guidelines.talend.com/d/xawdeLsCK7Vn/talend-style-guide#/ui-controls/app-header">Spec</a>
 			<h2>Examples</h2>
-			<h3>Pure</h3>
-			<AppHeaderBar
-				logo={logo}
-				app="Example app name"
-			/>
-			<h3>Connected to the store</h3>
 			<p>It takes the settings from views.appheaderbar</p>
-			<Connected />
+			<AppHeaderBar />
 		</div>
 	);
 }
