@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import LinkDispatcher from '../LinkDispatcher';
 
 /**
@@ -10,12 +10,12 @@ import LinkDispatcher from '../LinkDispatcher';
 class SidePanel extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {docked: false};
+		this.state = { docked: false };
 		this.toggleDock = this.toggleDock.bind(this);
 	}
 
 	toggleDock() {
-		this.setState({docked: !this.state.docked});
+		this.setState({ docked: !this.state.docked });
 	}
 
 	render() {
@@ -27,12 +27,14 @@ class SidePanel extends React.Component {
 
 		return (
 			<nav className={className}>
-				<Button className={theme.toggleBtn}
-				        bsStyle="link"
-				        onClick={this.toggleDock}
-				        aria-hidden="true"
-				        title="Toggle side panel">
-					<i className="fa fa-arrow-left"/>
+				<Button
+					className={theme.toggleBtn}
+					bsStyle="link"
+					onClick={this.toggleDock}
+					aria-hidden="true"
+					title="Toggle side panel"
+				>
+					<i className="fa fa-arrow-left" />
 				</Button>
 				<ul className="nav nav-pills nav-stacked">
 					{actions.map(action => (
@@ -58,6 +60,8 @@ SidePanel.propTypes = {
 		])
 	),
 	theme: React.PropTypes.shape({
+		toggleBtn: React.PropTypes.string,
+		docked: React.PropTypes.string,
 		sidePanel: React.PropTypes.string,
 		sidePanelLink: React.PropTypes.string,
 	}),
