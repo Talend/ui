@@ -1,7 +1,7 @@
 exports[`<AbstractNode /> renders correctly <AbstractNode /> renders correctly 1`] = `
 <g>
   <g
-    onClick={[Function bound onClick]}
+    onClick={[Function]}
     transform="translate(100,100)">
     <rect />
   </g>

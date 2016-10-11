@@ -9,7 +9,7 @@ exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`]
     style={
       Object {
         "fill": "none",
-        "pointerEvents": "all"
+        "pointerEvents": "all",
       }
     }
     width="100%"
