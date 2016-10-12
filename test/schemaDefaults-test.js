@@ -15,39 +15,39 @@ describe('createDefaults', () => {
 describe('defaultForm', () => {
   it('should generate default form def from a schema', () => {
     const schema = {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Gimme yea name lad",
-          "type": "string"
+      'type': 'object',
+      'properties': {
+        'name': {
+          'title': 'Name',
+          'description': 'Gimme yea name lad',
+          'type': 'string'
         },
-        "gender": {
-          "title": "Choose",
-          "type": "string",
-          "enum": [
-            "undefined",
-            "null",
-            "NaN",
+        'gender': {
+          'title': 'Choose',
+          'type': 'string',
+          'enum': [
+            'undefined',
+            'null',
+            'NaN',
           ]
         },
-        "overEighteen": {
-          "title": "Are you over 18 years old?",
-          "type": "boolean",
-          "default": false
+        'overEighteen': {
+          'title': 'Are you over 18 years old?',
+          'type': 'boolean',
+          'default': false
         },
-        "attributes": {
-          "type": "object",
-          "required": ['eyecolor'],
-          "properties": {
-            "eyecolor": { "type": "string", "title": "Eye color" },
-            "haircolor": { "type": "string", "title": "Hair color" },
-            "shoulders": {
-              "type": "object",
-              "title": "Shoulders",
-              "properties": {
-                "left": { "type": "string" },
-                "right": { "type": "string" },
+        'attributes': {
+          'type': 'object',
+          'required': [ 'eyecolor' ],
+          'properties': {
+            'eyecolor': { 'type': 'string', 'title': 'Eye color' },
+            'haircolor': { 'type': 'string', 'title': 'Hair color' },
+            'shoulders': {
+              'type': 'object',
+              'title': 'Shoulders',
+              'properties': {
+                'left': { 'type': 'string' },
+                'right': { 'type': 'string' },
               }
             }
           }
@@ -57,172 +57,172 @@ describe('defaultForm', () => {
 
     const form = [
       {
-        "title": "Name",
-        "description": "Gimme yea name lad",
-        "schema": {
-          "title": "Name",
-          "description": "Gimme yea name lad",
-          "type": "string"
+        'title': 'Name',
+        'description': 'Gimme yea name lad',
+        'schema': {
+          'title': 'Name',
+          'description': 'Gimme yea name lad',
+          'type': 'string'
         },
-        "ngModelOptions": {},
-        "key": [
-          "name"
+        'ngModelOptions': {},
+        'key': [
+          'name'
         ],
-        "type": "text"
+        'type': 'text'
       },
       {
-        "title": "Choose",
-        "schema": {
-          "title": "Choose",
-          "type": "string",
-          "enum": [
-            "undefined",
-            "null",
-            "NaN"
+        'title': 'Choose',
+        'schema': {
+          'title': 'Choose',
+          'type': 'string',
+          'enum': [
+            'undefined',
+            'null',
+            'NaN'
           ]
         },
-        "ngModelOptions": {},
-        "key": [
-          "gender"
+        'ngModelOptions': {},
+        'key': [
+          'gender'
         ],
-        "type": "select",
-        "titleMap": [
+        'type': 'select',
+        'titleMap': [
           {
-            "name": "undefined",
-            "value": "undefined"
+            'name': 'undefined',
+            'value': 'undefined'
           },
           {
-            "name": "null",
-            "value": "null"
+            'name': 'null',
+            'value': 'null'
           },
           {
-            "name": "NaN",
-            "value": "NaN"
+            'name': 'NaN',
+            'value': 'NaN'
           }
         ]
       },
       {
-        "title": "Are you over 18 years old?",
-        "schema": {
-          "title": "Are you over 18 years old?",
-          "type": "boolean",
-          "default": false
+        'title': 'Are you over 18 years old?',
+        'schema': {
+          'title': 'Are you over 18 years old?',
+          'type': 'boolean',
+          'default': false
         },
-        "ngModelOptions": {},
-        "key": [
-          "overEighteen"
+        'ngModelOptions': {},
+        'key': [
+          'overEighteen'
         ],
-        "type": "checkbox"
+        'type': 'checkbox'
       },
       {
-        "title": "attributes",
-        "schema": {
-          "type": "object",
-          "required": [
-            "eyecolor"
+        'title': 'attributes',
+        'schema': {
+          'type': 'object',
+          'required': [
+            'eyecolor'
           ],
-          "properties": {
-            "eyecolor": {
-              "type": "string",
-              "title": "Eye color"
+          'properties': {
+            'eyecolor': {
+              'type': 'string',
+              'title': 'Eye color'
             },
-            "haircolor": {
-              "type": "string",
-              "title": "Hair color"
+            'haircolor': {
+              'type': 'string',
+              'title': 'Hair color'
             },
-            "shoulders": {
-              "type": "object",
-              "title": "Shoulders",
-              "properties": {
-                "left": {
-                  "type": "string"
+            'shoulders': {
+              'type': 'object',
+              'title': 'Shoulders',
+              'properties': {
+                'left': {
+                  'type': 'string'
                 },
-                "right": {
-                  "type": "string"
+                'right': {
+                  'type': 'string'
                 }
               }
             }
           }
         },
-        "ngModelOptions": {},
-        "key": [
-          "attributes"
+        'ngModelOptions': {},
+        'key': [
+          'attributes'
         ],
-        "type": "fieldset",
-        "items": [
+        'type': 'fieldset',
+        'items': [
           {
-            "title": "Eye color",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Eye color"
+            'title': 'Eye color',
+            'required': true,
+            'schema': {
+              'type': 'string',
+              'title': 'Eye color'
             },
-            "ngModelOptions": {},
-            "key": [
-              "attributes",
-              "eyecolor"
+            'ngModelOptions': {},
+            'key': [
+              'attributes',
+              'eyecolor'
             ],
-            "type": "text"
+            'type': 'text'
           },
           {
-            "title": "Hair color",
-            "schema": {
-              "type": "string",
-              "title": "Hair color"
+            'title': 'Hair color',
+            'schema': {
+              'type': 'string',
+              'title': 'Hair color'
             },
-            "ngModelOptions": {},
-            "key": [
-              "attributes",
-              "haircolor"
+            'ngModelOptions': {},
+            'key': [
+              'attributes',
+              'haircolor'
             ],
-            "type": "text"
+            'type': 'text'
           },
           {
-            "title": "Shoulders",
-            "schema": {
-              "type": "object",
-              "title": "Shoulders",
-              "properties": {
-                "left": {
-                  "type": "string"
+            'title': 'Shoulders',
+            'schema': {
+              'type': 'object',
+              'title': 'Shoulders',
+              'properties': {
+                'left': {
+                  'type': 'string'
                 },
-                "right": {
-                  "type": "string"
+                'right': {
+                  'type': 'string'
                 }
               }
             },
-            "ngModelOptions": {},
-            "key": [
-              "attributes",
-              "shoulders"
+            'ngModelOptions': {},
+            'key': [
+              'attributes',
+              'shoulders'
             ],
-            "type": "fieldset",
-            "items": [
+            'type': 'fieldset',
+            'items': [
               {
-                "title": "left",
-                "schema": {
-                  "type": "string"
+                'title': 'left',
+                'schema': {
+                  'type': 'string'
                 },
-                "ngModelOptions": {},
-                "key": [
-                  "attributes",
-                  "shoulders",
-                  "left"
+                'ngModelOptions': {},
+                'key': [
+                  'attributes',
+                  'shoulders',
+                  'left'
                 ],
-                "type": "text"
+                'type': 'text'
               },
               {
-                "title": "right",
-                "schema": {
-                  "type": "string"
+                'title': 'right',
+                'schema': {
+                  'type': 'string'
                 },
-                "ngModelOptions": {},
-                "key": [
-                  "attributes",
-                  "shoulders",
-                  "right"
+                'ngModelOptions': {},
+                'key': [
+                  'attributes',
+                  'shoulders',
+                  'right'
                 ],
-                "type": "text"
+                'type': 'text'
               }
             ]
           }

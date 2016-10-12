@@ -1,20 +1,20 @@
 /*!
  * json-schema-form
- * @version 1.0.0-alpha.1
+ * @version 1.0.0-alpha.2
  * @link https://github.com/json-schema-form/json-schema-form-core
  * @license MIT
  * Copyright (c) 2016 JSON Schema Form
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("tv4"));
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define(["tv4"], factory);
 	else {
-		var a = factory();
+		var a = typeof exports === 'object' ? factory(require("tv4")) : factory(root["tv4"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function() {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_10__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -111,7 +111,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _schemaDefaults = __webpack_require__(9);
+	var _validate = __webpack_require__(9);
+
+	Object.keys(_validate).forEach(function (key) {
+	  if (key === "default") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _validate[key];
+	    }
+	  });
+	});
+
+	var _schemaDefaults = __webpack_require__(11);
 
 	var schemaDefaultsImp = _interopRequireWildcard(_schemaDefaults);
 
@@ -559,6 +571,81 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.validate = validate;
+
+	var _tv = __webpack_require__(10);
+
+	var _tv2 = _interopRequireDefault(_tv);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Validate a value against its form definition and schema.
+	 * The value should either be of proper type or a string, some type
+	 * coercion is applied.
+	 *
+	 * @param {Object} form A merged form definition, i.e. one with a schema.
+	 * @param {Any} value the value to validate.
+	 * @return {Object} a tv4js result object.
+	 */
+	function validate(form, value) {
+	  if (!form) {
+	    return { valid: true };
+	  };
+
+	  var schema = form.schema;
+	  if (!schema) {
+	    return { valid: true };
+	  };
+
+	  // Input of type text and textareas will give us a viewValue of ''
+	  // when empty, this is a valid value in a schema and does not count as something
+	  // that breaks validation of 'required'. But for our own sanity an empty field should
+	  // not validate if it's required.
+	  if (value === '') {
+	    value = undefined;
+	  };
+
+	  // Numbers fields will give a null value, which also means empty field
+	  if (form.type === 'number' && value === null) {
+	    value = undefined;
+	  };
+
+	  // Version 4 of JSON Schema has the required property not on the
+	  // property itself but on the wrapping object. Since we like to test
+	  // only this property we wrap it in a fake object.
+	  var wrap = { type: 'object', 'properties': {} };
+	  var propName = form.key[form.key.length - 1];
+	  wrap.properties[propName] = schema;
+
+	  if (form.required) {
+	    wrap.required = [propName];
+	  };
+
+	  var valueWrap = {};
+	  if (!!value) {
+	    valueWrap[propName] = value;
+	  };
+
+	  return _tv2.default.validateResult(valueWrap, wrap);
+	} /*  Common code for validating a value against its form and schema definition */
+	;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = tv4;
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

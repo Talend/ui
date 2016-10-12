@@ -7,8 +7,8 @@ console.log('JSON Schema Form Core v' + pjson.version);
 module.exports = {
   entry: [ './index.js' ],
   output: {
-    path: __dirname,
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'json-schema-form-core.js',
     libraryTarget: 'umd'
   },
   resolve: { extensions: [ '', '.js' ] },
@@ -21,6 +21,9 @@ module.exports = {
         loader: 'babel',
       }
     ]
+  },
+  externals: {
+    'tv4': 'var tv4',
   },
   plugins: [
     new webpack.BannerPlugin(
