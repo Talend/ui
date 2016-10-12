@@ -15,13 +15,13 @@ import {
  * @param {string} linkType
  * @param {Object} attr
  */
-export const addLink = (linkId, sourceId, targetId, linkType, attr) => ({
+export const addLink = (linkId, sourceId, targetId, linkType, attributes) => ({
 	type: FLOWDESIGNER_LINK_ADD,
 	linkId,
 	sourceId,
 	targetId,
 	linkType,
-	attr,
+	attributes,
 });
 
 /**
@@ -51,10 +51,10 @@ export const setLinkSource = (linkId, sourceId) => ({
  * @param {string} linkId
  * @param {Object} attr
  */
-export const setLinkAttribute = (linkId, attr) => ({
+export const setLinkAttribute = (linkId, attributes) => ({
 	type: FLOWDESIGNER_LINK_SET_ATTR,
 	linkId,
-	attr,
+	attributes,
 });
 
 /**
@@ -62,10 +62,10 @@ export const setLinkAttribute = (linkId, attr) => ({
  * @param {string} linkId
  * @param {string} attrKey - the key of the attribute to be removed
  */
-export const removeLinkAttribute = (linkId, attrKey) => ({
+export const removeLinkAttribute = (linkId, attributesKey) => ({
 	type: FLOWDESIGNER_LINK_REMOVE_ATTR,
 	linkId,
-	attrKey,
+	attributesKey,
 });
 
 /**

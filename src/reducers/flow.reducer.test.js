@@ -36,7 +36,7 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation', () => {
 						width: 10,
 					}),
 					nodeType: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 			));
 	});
@@ -79,7 +79,7 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation', () => {
 						width: 10,
 					}),
 					nodeType: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 				.set('node2', new NodeRecord({
 					id: 'node2',
@@ -92,7 +92,7 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation', () => {
 						width: 10,
 					}),
 					nodeType: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 			).set('ports', new Map()
 				.set('portId', new PortRecord({
@@ -100,7 +100,7 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation', () => {
 					nodeId: 'nodeId',
 					portType: undefined,
 					position: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				})))
 			);
 	});
@@ -173,7 +173,7 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 						width: 10,
 					}),
 					nodeType: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 				.set('node2', new NodeRecord({
 					id: 'node2',
@@ -186,7 +186,7 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 						width: 10,
 					}),
 					nodeType: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 			).set('links', new Map())
 			.set('ports', new OrderedMap()
@@ -195,7 +195,7 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 					nodeId: 'nodeId',
 					portType: undefined,
 					position: undefined,
-					attr: new Map(),
+					attributes: new Map(),
 				}))
 			)
 			.set('nodeTypes', new Map())
@@ -204,7 +204,7 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 				x: 0,
 				y: 0,
 			})
-		);
+			);
 	});
 });
 
@@ -228,7 +228,7 @@ describe('calculatePortsPosition behavior', () => {
 		.set('nodeTypes', new Map()
 			.set('42', new Map()
 				.set('component', {}),
-			)
+		)
 		);
 
 	it('should trigger only if NODE/PORT/FLOW action are dispatched', () => {
@@ -247,7 +247,7 @@ describe('calculatePortsPosition behavior', () => {
 	});
 
 	it('should not trigger on FLOWDESIGNER_NODE_REMOVE and FLOWDESIGNER_PORT_REMOVE', () => {
-				const calculatePortPosition = jest.fn();
+		const calculatePortPosition = jest.fn();
 		const givenState = state.setIn(['nodeTypes', '42', 'component'], { calculatePortPosition });
 		calculatePortsPosition(givenState, {
 			type: 'FLOWDESIGNER_NODE_REMOVE',

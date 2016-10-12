@@ -10,119 +10,119 @@ const mockStore = configureMockStore(middlewares);
 
 describe('Check that link action creators generate proper' +
 	' action objects and perform checking', () => {
-	it('addLink', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_ADD',
-			linkId: 'linkId',
-			sourceId: 'sourceId',
-			targetId: 'targetId',
-			linkType: 'linkType',
-			attr: { selected: true },
-		}];
+		it('addLink', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_ADD',
+				linkId: 'linkId',
+				sourceId: 'sourceId',
+				targetId: 'targetId',
+				linkType: 'linkType',
+				attributes: { selected: true },
+			}];
 
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map(),
-				ports: new Map({
-					id1: { id: 'portId', portType: 'type' },
-					id2: { id: 'portId', portType: 'type' },
-				}),
-			},
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map(),
+					ports: new Map({
+						id1: { id: 'portId', portType: 'type' },
+						id2: { id: 'portId', portType: 'type' },
+					}),
+				},
+			});
+
+			store.dispatch(
+				linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', { selected: true })
+			);
+			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		store.dispatch(
-			linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', { selected: true })
-		);
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+		it('setLinkTarget', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_SET_TARGET',
+				linkId: 'linkId',
+				targetId: 'portId',
+			}];
 
-	it('setLinkTarget', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_TARGET',
-			linkId: 'linkId',
-			targetId: 'portId',
-		}];
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ linkId: { id: 'linkId' } }),
+					ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
+				},
+			});
 
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ linkId: { id: 'linkId' } }),
-				ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
-			},
+			store.dispatch(linkActions.setLinkTarget('linkId', 'portId'));
+
+			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		store.dispatch(linkActions.setLinkTarget('linkId', 'portId'));
+		it('setLinkSource', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_SET_SOURCE',
+				linkId: 'linkId',
+				sourceId: 'portId',
+			}];
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ linkId: { id: 'linkId' } }),
+					ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
+				},
+			});
 
-	it('setLinkSource', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_SOURCE',
-			linkId: 'linkId',
-			sourceId: 'portId',
-		}];
+			store.dispatch(linkActions.setLinkSource('linkId', 'portId'));
 
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ linkId: { id: 'linkId' } }),
-				ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
-			},
+			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		store.dispatch(linkActions.setLinkSource('linkId', 'portId'));
+		it('setLinkAttribute', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_SET_ATTR',
+				linkId: 'id',
+				attributes: { selected: true },
+			}];
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-	it('setLinkAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_ATTR',
-			linkId: 'id',
-			attr: { selected: true },
-		}];
+			store.dispatch(linkActions.setLinkAttribute('id', { selected: true }));
 
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		store.dispatch(linkActions.setLinkAttribute('id', { selected: true }));
+		it('removeLinkAttribute', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_REMOVE_ATTR',
+				linkId: 'id',
+				attributesKey: 'selected',
+			}];
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-	it('removeLinkAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_REMOVE_ATTR',
-			linkId: 'id',
-			attrKey: 'selected',
-		}];
+			store.dispatch(linkActions.removeLinkAttribute('id', 'selected'));
 
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		store.dispatch(linkActions.removeLinkAttribute('id', 'selected'));
+		it('removeLink', () => {
+			const expectedActions = [{
+				type: 'FLOWDESIGNER_LINK_REMOVE',
+				linkId: 'id',
+			}];
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId' } }),
+				},
+			});
 
-	it('removeLink', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_REMOVE',
-			linkId: 'id',
-		}];
-
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId' } }),
-			},
+			store.dispatch(linkActions.removeLink('id'));
+			expect(store.getActions()).toEqual(expectedActions);
 		});
-
-		store.dispatch(linkActions.removeLink('id'));
-		expect(store.getActions()).toEqual(expectedActions);
 	});
-});

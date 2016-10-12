@@ -25,7 +25,7 @@ export const getPortsForNode = createSelector(
 export const getEmitterPorts = createSelector(
   getPorts,
   ports => (
-    ports.filter(port => port.attr.get('type') === 'EMITTER')
+    ports.filter(port => port.attributes.get('type') === 'EMITTER')
   )
 );
 
@@ -37,7 +37,7 @@ export const getEmitterPorts = createSelector(
 export const getSinkPorts = createSelector(
   getPorts,
   ports => (
-    ports.filter(port => port.attr.get('type') === 'SINK')
+    ports.filter(port => port.attributes.get('type') === 'SINK')
   )
 );
 
@@ -85,14 +85,14 @@ export const getFreeSinkPorts = createSelector(
  * @return Map
  */
 export const getFreeEmitterPorts = createSelector(
-    [getEmitterPorts, getLinks],
-    (emitterPorts, links) => (
-        emitterPorts.filter(emitterPort =>
-            !links.find(link => (
-                link.sourceId === emitterPort.id
-            ))
-        )
+  [getEmitterPorts, getLinks],
+  (emitterPorts, links) => (
+    emitterPorts.filter(emitterPort =>
+      !links.find(link => (
+        link.sourceId === emitterPort.id
+      ))
     )
+  )
 );
 
 /**
@@ -109,12 +109,12 @@ export const getActionKeyedPorts = createSelector(
 );
 
 export const getDetachedPorts = createSelector(
-    [getPorts, getNodes],
-    (ports, nodes) => (
-        ports.filter(
-            port => !nodes.find(
-                node => node.id === port.nodeId
-            )
-        )
+  [getPorts, getNodes],
+  (ports, nodes) => (
+    ports.filter(
+      port => !nodes.find(
+        node => node.id === port.nodeId
+      )
     )
+  )
 );

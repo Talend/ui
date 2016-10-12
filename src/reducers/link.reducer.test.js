@@ -8,7 +8,7 @@ describe('check linkreducer', () => {
 		.set('links', new Map()
 			.set('id1', new LinkRecord({
 				id: 'id1',
-				attr: new Map().set('attr', 'attr'),
+				attributes: new Map().set('attr', 'attr'),
 			}))
 		).set('ports', new Map()
 			.set('id1', new PortRecord({
@@ -26,39 +26,39 @@ describe('check linkreducer', () => {
 			sourceId: 'id1',
 			targetId: 'id2',
 		})).toEqual(new Map()
-		.set('links', new Map()
-			.set('id1', new LinkRecord({
-				id: 'id1',
-				attr: new Map().set('attr', 'attr'),
-			}))
-			.set('id2', new LinkRecord({
-				id: 'id2',
-				sourceId: 'id1',
-				targetId: 'id2',
-				attr: new Map(),
-			}))
-		).set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.set('links', new Map()
+				.set('id1', new LinkRecord({
+					id: 'id1',
+					attributes: new Map().set('attr', 'attr'),
+				}))
+				.set('id2', new LinkRecord({
+					id: 'id2',
+					sourceId: 'id1',
+					targetId: 'id2',
+					attributes: new Map(),
+				}))
+			).set('ports', new Map()
+				.set('id1', new PortRecord({
+					id: 'id1',
+				}))
+				.set('id2', new PortRecord({
+					id: 'id2',
+				}))
+			));
 	});
 
 	it('FLOWDESIGNER_LINK_REMOVE should remove link from state', () => {
 		expect(linkReducer(initialState, { type: 'FLOWDESIGNER_LINK_REMOVE', linkId: 'id1' }))
-		.toEqual(new Map()
-		.set('links', new Map())
-		.set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.toEqual(new Map()
+				.set('links', new Map())
+				.set('ports', new Map()
+					.set('id1', new PortRecord({
+						id: 'id1',
+					}))
+					.set('id2', new PortRecord({
+						id: 'id2',
+					}))
+				));
 	});
 
 
@@ -66,81 +66,81 @@ describe('check linkreducer', () => {
 		expect(linkReducer(initialState,
 			{ type: 'FLOWDESIGNER_LINK_SET_TARGET', linkId: 'id1', targetId: 'id1' }
 		)).toEqual(new Map()
-		.set('links', new Map()
-			.set('id1', new LinkRecord({
-				id: 'id1',
-				targetId: 'id1',
-				attr: new Map().set('attr', 'attr'),
-			}))
-		).set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.set('links', new Map()
+				.set('id1', new LinkRecord({
+					id: 'id1',
+					targetId: 'id1',
+					attributes: new Map().set('attr', 'attr'),
+				}))
+			).set('ports', new Map()
+				.set('id1', new PortRecord({
+					id: 'id1',
+				}))
+				.set('id2', new PortRecord({
+					id: 'id2',
+				}))
+			));
 	});
 
 	it('FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist', () => {
 		expect(linkReducer(initialState,
 			{ type: 'FLOWDESIGNER_LINK_SET_SOURCE', linkId: 'id1', sourceId: 'id1' }
 		)).toEqual(new Map()
-		.set('links', new Map()
-			.set('id1', new LinkRecord({
-				id: 'id1',
-				sourceId: 'id1',
-				attr: new Map().set('attr', 'attr'),
-			}))
-		).set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.set('links', new Map()
+				.set('id1', new LinkRecord({
+					id: 'id1',
+					sourceId: 'id1',
+					attributes: new Map().set('attr', 'attr'),
+				}))
+			).set('ports', new Map()
+				.set('id1', new PortRecord({
+					id: 'id1',
+				}))
+				.set('id2', new PortRecord({
+					id: 'id2',
+				}))
+			));
 	});
 
 	it('FLOWDESIGNER_LINK_SET_ATTR should merge attributes within link attr property', () => {
 		expect(linkReducer(initialState, {
 			type: 'FLOWDESIGNER_LINK_SET_ATTR',
 			linkId: 'id1',
-			attr: { selected: false },
+			attributes: { selected: false },
 		})).toEqual(new Map()
-		.set('links', new Map()
-			.set('id1', new LinkRecord({
-				id: 'id1',
-				attr: new Map().set('attr', 'attr').set('selected', false),
-			}))
-		).set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.set('links', new Map()
+				.set('id1', new LinkRecord({
+					id: 'id1',
+					attributes: new Map().set('attr', 'attr').set('selected', false),
+				}))
+			).set('ports', new Map()
+				.set('id1', new PortRecord({
+					id: 'id1',
+				}))
+				.set('id2', new PortRecord({
+					id: 'id2',
+				}))
+			));
 	});
 
 	it('FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map', () => {
 		expect(linkReducer(initialState, {
 			type: 'FLOWDESIGNER_LINK_REMOVE_ATTR',
 			linkId: 'id1',
-			attrKey: 'attr',
+			attributesKey: 'attr',
 		})).toEqual(new Map()
-		.set('links', new Map()
-			.set('id1', new LinkRecord({
-				id: 'id1',
-				attr: new Map(),
-			}))
-		).set('ports', new Map()
-			.set('id1', new PortRecord({
-				id: 'id1',
-			}))
-			.set('id2', new PortRecord({
-				id: 'id2',
-			}))
-		));
+			.set('links', new Map()
+				.set('id1', new LinkRecord({
+					id: 'id1',
+					attributes: new Map(),
+				}))
+			).set('ports', new Map()
+				.set('id1', new PortRecord({
+					id: 'id1',
+				}))
+				.set('id2', new PortRecord({
+					id: 'id2',
+				}))
+			));
 	});
 });

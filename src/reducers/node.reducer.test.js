@@ -8,12 +8,12 @@ describe('Check node reducer', () => {
 		id: 'id1',
 		nodeType: 'type1',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attr: new Map({ selected: true }),
+		attributes: new Map({ selected: true }),
 	})).setIn(['nodes', 'id2'], new NodeRecord({
 		id: 'id2',
 		nodeType: 'type2',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attr: new Map({ selected: false }),
+		attributes: new Map({ selected: false }),
 	}));
 
 	it('FLOWDESIGNER_NODE_ADD properly add a new node to the node collection', () => {
@@ -26,7 +26,7 @@ describe('Check node reducer', () => {
 			nodeType: undefined,
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeSize: new SizeRecord({ width: undefined, height: undefined }),
-			attr: new Map(),
+			attributes: new Map(),
 		})));
 	});
 
@@ -36,13 +36,13 @@ describe('Check node reducer', () => {
 			nodeId: 'id',
 			nodeType: 'MY_NODE_TYPE',
 			nodePosition: { x: 10, y: 10 },
-			attr: { name: 'test' },
+			attributes: { name: 'test' },
 		})).toEqual(new Map().setIn(['nodes', 'id'], new NodeRecord({
 			id: 'id',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'MY_NODE_TYPE',
 			nodeSize: new SizeRecord({ width: undefined, height: undefined }),
-			attr: new Map().set('name', 'test'),
+			attributes: new Map().set('name', 'test'),
 		})));
 	});
 
@@ -55,12 +55,12 @@ describe('Check node reducer', () => {
 			id: 'id1',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type1',
-			attr: new Map({ selected: true }),
+			attributes: new Map({ selected: true }),
 		})).setIn(['nodes', 'id2'], new NodeRecord({
 			id: 'id2',
 			position: new PositionRecord({ x: 50, y: 50 }),
 			nodeType: 'type2',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})));
 	});
 
@@ -74,12 +74,12 @@ describe('Check node reducer', () => {
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeSize: new SizeRecord({ height: 200, width: 200 }),
 			nodeType: 'type1',
-			attr: new Map({ selected: true }),
+			attributes: new Map({ selected: true }),
 		})).setIn(['nodes', 'id2'], new NodeRecord({
 			id: 'id2',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type2',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})));
 	});
 
@@ -87,35 +87,35 @@ describe('Check node reducer', () => {
 		expect(nodeReducer(initialState, {
 			type: 'FLOWDESIGNER_NODE_SET_ATTR',
 			nodeId: 'id1',
-			attr: { selected: false },
+			attributes: { selected: false },
 		})).toEqual(new Map().setIn(['nodes', 'id1'], new NodeRecord({
 			id: 'id1',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type1',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})).setIn(['nodes', 'id2'], new NodeRecord({
 			id: 'id2',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type2',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})));
 	});
 
-		it('FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map', () => {
+	it('FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map', () => {
 		expect(nodeReducer(initialState, {
 			type: 'FLOWDESIGNER_NODE_REMOVE_ATTR',
 			nodeId: 'id1',
-			attrKey: 'selected',
+			attributesKey: 'selected',
 		})).toEqual(new Map().setIn(['nodes', 'id1'], new NodeRecord({
 			id: 'id1',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type1',
-			attr: new Map(),
+			attributes: new Map(),
 		})).setIn(['nodes', 'id2'], new NodeRecord({
 			id: 'id2',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type2',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})));
 	});
 
@@ -127,7 +127,7 @@ describe('Check node reducer', () => {
 			id: 'id2',
 			position: new PositionRecord({ x: 10, y: 10 }),
 			nodeType: 'type2',
-			attr: new Map({ selected: false }),
+			attributes: new Map({ selected: false }),
 		})));
 	});
 });

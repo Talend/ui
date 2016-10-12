@@ -18,13 +18,13 @@ import {
  * @param {Object} attr
  * @return {Object}
  */
-export const addNode = (nodeId, nodePosition, nodeSize, nodeType, attr) => ({
+export const addNode = (nodeId, nodePosition, nodeSize, nodeType, attributes) => ({
 	type: FLOWDESIGNER_NODE_ADD,
 	nodeId,
 	nodePosition,
 	nodeSize,
 	nodeType,
-	attr,
+	attributes,
 });
 
 /**
@@ -68,10 +68,10 @@ export const setNodeSize = (nodeId, nodeSize) => ({
  * @param {string} nodeId
  * @param {Object} attr
  */
-export const setNodeAttribute = (nodeId, attr) => ({
+export const setNodeAttribute = (nodeId, attributes) => ({
 	type: FLOWDESIGNER_NODE_SET_ATTR,
 	nodeId,
-	attr,
+	attributes,
 });
 
 /**
@@ -79,10 +79,10 @@ export const setNodeAttribute = (nodeId, attr) => ({
  * @param {string} nodeId
  * @param {string} attrKey - the key of the attribute to be removed
  */
-export const removeNodeAttribute = (nodeId, attrKey) => ({
+export const removeNodeAttribute = (nodeId, attributesKey) => ({
 	type: FLOWDESIGNER_NODE_REMOVE_ATTR,
 	nodeId,
-	attrKey,
+	attributesKey,
 });
 
 /**
