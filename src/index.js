@@ -67,9 +67,11 @@ import {
 } from 'react-bootstrap';
 
 import AppHeaderBar from './AppHeaderBar';
+import SidePanel from './SidePanel';
 
 export {
 	AppHeaderBar,
+	SidePanel,
 
 	Alert,
 	Badge,

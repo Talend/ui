@@ -1,0 +1,106 @@
+exports[`SidePanel should render docked menu 1`] = `
+<nav
+  className="undefined">
+  <button
+    aria-hidden="true"
+    className="btn btn-link"
+    disabled={false}
+    onClick={undefined}
+    title="Toggle side panel"
+    type="button">
+    <i
+      className="fa fa-arrow-left" />
+  </button>
+  <ul
+    className="nav nav-pills nav-stacked">
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Preparations">
+        <i
+          className="fa fa-asterisk" />
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Datasets">
+        <i
+          className="fa fa-file-excel-o" />
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Favorites">
+        <i
+          className="fa fa-star" />
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`SidePanel should render expanded menu 1`] = `
+<nav
+  className="">
+  <button
+    aria-hidden="true"
+    className="btn btn-link"
+    disabled={false}
+    onClick={undefined}
+    title="Toggle side panel"
+    type="button">
+    <i
+      className="fa fa-arrow-left" />
+  </button>
+  <ul
+    className="nav nav-pills nav-stacked">
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Preparations">
+        <i
+          className="fa fa-asterisk" />
+        <span>
+          Preparations
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Datasets">
+        <i
+          className="fa fa-file-excel-o" />
+        <span>
+          Datasets
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="#"
+        onClick={undefined}
+        title="Display Favorites">
+        <i
+          className="fa fa-star" />
+        <span>
+          Favorites
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
