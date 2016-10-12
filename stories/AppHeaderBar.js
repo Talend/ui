@@ -4,7 +4,7 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 import { AppHeaderBar } from '../src/index';
 
 storiesOf('App Header Bar', module)
-	.add('default', () => {
+	.addWithInfo('default', () => {
 		const logo = {
 			src: 'https://www.talend.com/sites/all/themes/talend_responsive/images/talend-logo.png',
 			alt: 'Talend logo',
