@@ -5,31 +5,31 @@
 
 /// Button font size
 /// @type Number (Unit)
-$btn-font-size:                 12px !default;
+$btn-font-size: 12px !default;
 
 /// Button box shadow width
 /// @type Number (Unit)
-$btn-box-shadow-width:          3px !default;
+$btn-box-shadow-width: 3px !default;
 
 /// Button background tinting percent
 /// @type Number (Unitless)
-$btn-background-tint-percent:   10 !default;
+$btn-background-tint-percent: 10 !default;
 
 /// Define button colors based on its background
 /// @access public
 /// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
 @mixin btn-colors($btn-bg: $btn-default-bg) {
-	transition: box-shadow .1s ease-out;
-	box-shadow: 0 -1 * ($btn-box-shadow-width) 0 rgba(0, 0, 0, .15) inset;
+	transition: box-shadow 0.1s ease-out;
+	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
 
 	&:hover {
 		background-color: tint($btn-bg, $btn-background-tint-percent);
-		box-shadow: 0 -1 * ($btn-box-shadow-width) 0 rgba(0, 0, 0, .2) inset;
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.2) inset;
 	}
 
 	&:active {
 		background-color: $btn-bg;
-		box-shadow: 0 -1 * ($btn-box-shadow-width) 0 rgba(0, 0, 0, 0) inset;
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0) inset;
 	}
 }
 
@@ -44,7 +44,7 @@ $btn-background-tint-percent:   10 !default;
 	&-info,
 	&-warning,
 	&-danger {
-		border: 0;
+		border: none;
 	}
 
 	&-success,

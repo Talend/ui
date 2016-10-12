@@ -5,15 +5,15 @@
 
 /// Breadcrumb not selected links color
 /// @type Color
-$breadcrumb-links-color:        $brand-primary !default;
+$breadcrumb-links-color: $brand-primary !default;
 
 /// Breadcrumb separator color
 /// @type Color
-$breadcrumb-separator-color:    $breadcrumb-color !default;
+$breadcrumb-separator-color: $breadcrumb-color !default;
 
 /// Breadcrumb separator padding
 /// @type Number
-$breadcrumb-separator-padding:  $padding-large-horizontal !default;
+$breadcrumb-separator-padding: $padding-large-horizontal !default;
 
 .breadcrumb {
 	margin-bottom: 0;

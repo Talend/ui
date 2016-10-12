@@ -13,25 +13,25 @@ $navbar-search-btn-color: #FFF !default;
 $navbar-search-btn-width: 40px !default;
 
 .navbar {
-    [role="search"] {
-        .form-control {
-            padding-right: $navbar-search-btn-width;
-            font-style: italic;
-            color: $navbar-search-btn-color;
-            background: none;
-            border: none;
-            border-bottom: 1px solid $navbar-search-btn-color;
-            border-radius: 0;
-        }
+	[role='search'] {
+		.form-control {
+			padding-right: $navbar-search-btn-width;
+			font-style: italic;
+			color: $navbar-search-btn-color;
+			background: none;
+			border: none;
+			border-bottom: 1px solid $navbar-search-btn-color;
+			border-radius: 0;
+		}
 
-        .btn-link {
-            margin-left: -$navbar-search-btn-width;
+		.btn-link {
+			margin-left: -$navbar-search-btn-width;
 
-            &:hover,
-            &:focus,
-            &:active {
-                text-decoration: none;
-            }
-        }
-    }
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+			}
+		}
+	}
 }
