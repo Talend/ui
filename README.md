@@ -10,6 +10,7 @@ A set of stateless components which follows the [Talend Guidelines](http://guide
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 [![peerdependencies][peerdependencies-image] ][peerdependencies-url]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2dd69f1168bb43f781fee182a67a00f2)](https://www.codacy.com/app/Talend/react-talend-components)
 
 [npm-icon]: https://nodei.co/npm/react-talend-components.png?downloads=true
 [npm-url]: https://npmjs.org/package/react-talend-components
