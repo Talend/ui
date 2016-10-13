@@ -21,53 +21,62 @@ $breadcrumb-separator-padding: $padding-large-horizontal !default;
 	text-transform: uppercase;
 	border-radius: 0;
 
-	a {
+	a,
+	.btn {
 		color: $breadcrumb-links-color;
 
 		&:focus,
 		&:hover,
 		&:active,
-		&:visited {
+		&:visited{
 			// list item border on hover replaces this default feature
 			text-decoration: none;
 		}
 	}
 
+	.btn {
+		padding: 0;
+		font-size: inherit;
+	}
+
 	> li {
-		position: relative;
-		margin-right: $breadcrumb-separator-padding;
 
-		+ li {
-			margin: 0 $breadcrumb-separator-padding;
-			padding: 0;
+		&:not(.sr-only) {
+			position: relative;
+			margin-right: $breadcrumb-separator-padding;
 
-			&:before {
-				position: absolute;
-				content: '';
+			+ li {
+				margin: 0 $breadcrumb-separator-padding;
 				padding: 0;
-				top: 40%;
-				left: -($breadcrumb-separator-padding + 7px);
-				height: 5px;
-				width: 5px;
-				border: 1px solid $breadcrumb-separator-color;
-				border-bottom-color: transparent;
-				border-left-color: transparent;
-				box-shadow: 1px -1px 0 $breadcrumb-separator-color;
-				transform: rotate(45deg);
-			}
-		}
 
-		&:hover,
-		&.active {
-			&:after {
-				position: absolute;
-				content: '';
-				top: 0;
-				left: 0;
-				bottom: -($breadcrumb-padding-vertical);
-				right: 0;
-				pointer-events: none;
-				border-bottom: 1px solid $breadcrumb-links-color;
+				&:before {
+					position: absolute;
+					content: '';
+					padding: 0;
+					top: 40%;
+					left: -($breadcrumb-separator-padding + 7px);
+					height: 5px;
+					width: 5px;
+					border: 1px solid $breadcrumb-separator-color;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+					box-shadow: 1px -1px 0 $breadcrumb-separator-color;
+					transform: rotate(45deg);
+				}
+			}
+
+			&:hover,
+			&.active {
+				&:after {
+					position: absolute;
+					content: '';
+					top: 0;
+					left: 0;
+					bottom: -($breadcrumb-padding-vertical);
+					right: 0;
+					pointer-events: none;
+					border-bottom: 1px solid $breadcrumb-links-color;
+				}
 			}
 		}
 	}
