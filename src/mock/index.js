@@ -1,3 +1,4 @@
+
 /**
  * The mock is in the src folder and there is reason for that
  * In the past without this we have added mocked states to other CMF libraries
@@ -10,6 +11,7 @@
  *
  * ```import mock from 'react-cmf/lib/mock';```
  */
+import React from 'react';
 import settings from './settings';
 
 const state = {
@@ -32,9 +34,13 @@ const store = {
 	getState() {
 		return state;
 	},
+	subscribe() { },
+	dispatch() { return 'dispatch'; },
 };
 
-const registry = {};
+const registry = {
+	'_.route.component:component': (<div>mock</div>),
+};
 
 const context = {
 	store,

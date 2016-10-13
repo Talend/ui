@@ -63,9 +63,20 @@ function loadComponents(context, item) {
 	if (item.component) {
 		item.component = getComponentFromRegistry(context, item.component);
 		if (item.view) {
-			item.component = connect(
-				(state) => state.cmf.settings.views[item.view]
-			)(item.component);
+			if (context.store) {
+				item.component = connect(
+					(state) =>
+						Object.assign(
+							{},
+							state.cmf.settings.views[item.view],
+							{ dispatch: context.store.dispatch }
+						)
+				)(item.component);
+			} else {
+				item.component = connect(
+					(state) => state.cmf.settings.views[item.view]
+				)(item.component);
+			}
 		}
 	}
 	if (item.components) {
