@@ -68,10 +68,12 @@ import {
 
 import AppHeaderBar from './AppHeaderBar';
 import SidePanel from './SidePanel';
+import Breadcrumbs from './Breadcrumbs';
 
 export {
 	AppHeaderBar,
 	SidePanel,
+	Breadcrumbs,
 
 	Alert,
 	Badge,

@@ -1,0 +1,95 @@
+exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
+<ol
+  className="breadcrumb" />
+`;
+
+exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
+<ol
+  className="breadcrumb">
+  <li
+    className="">
+    <span
+      className="sr-only">
+      Text A
+    </span>
+    <span
+      aria-hidden="true">
+      …
+    </span>
+  </li>
+  <li
+    className="">
+    Text B
+  </li>
+  <li
+    className="">
+    Text C
+  </li>
+  <li
+    className="active">
+    Text D
+  </li>
+</ol>
+`;
+
+exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
+<ol
+  className="breadcrumb">
+  <li
+    className="">
+    Text A
+  </li>
+  <li
+    className="">
+    Text B
+  </li>
+  <li
+    className="">
+    Text C
+  </li>
+  <li
+    className="">
+    Text D
+  </li>
+  <li
+    className="active">
+    Text E
+  </li>
+</ol>
+`;
+
+exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
+<ol
+  className="breadcrumb">
+  <li
+    className="">
+    Text A
+  </li>
+  <li
+    className="">
+    Text B
+  </li>
+  <li
+    className="active">
+    Text C
+  </li>
+</ol>
+`;
+
+exports[`Breadcrumbs should render small list of items without ellipsis 2`] = `
+<ol
+  className="breadcrumb">
+  <li
+    className="">
+    Text A
+  </li>
+  <li
+    className="">
+    Text B
+  </li>
+  <li
+    className="active">
+    Text C
+  </li>
+</ol>
+`;

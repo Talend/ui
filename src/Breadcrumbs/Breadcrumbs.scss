@@ -1,0 +1,12 @@
+////
+/// Breadcrumb
+/// @group Custom widgets
+////
+
+.breadcrumb {
+	.dots {
+		&:before {
+			content: none;
+		}
+	}
+}
