@@ -1,2 +1,2 @@
-export const APP_HEADER_BAR = 'APP_HEADER_BAR';
-export const SIDE_PANEL = 'SIDE_PANEL';
+const SIDE_PANEL = 'SIDE_PANEL';
+export default SIDE_PANEL;

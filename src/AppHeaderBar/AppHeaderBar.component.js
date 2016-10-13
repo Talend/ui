@@ -1,7 +1,136 @@
 import React from 'react';
-import { themr } from 'react-css-themr';
 import classNames from 'classnames';
-import { APP_HEADER_BAR } from '../identifiers';
+import {
+	Button,
+	FormGroup,
+	FormControl,
+	MenuItem,
+	Navbar,
+	Nav,
+	NavDropdown,
+	NavItem,
+} from 'react-bootstrap';
+
+const NAV_ITEM = 'navItem';
+const DROPDOWN = 'dropdown';
+
+export function renderNavItem(props, index) {
+	const { icon, ...rest } = props;
+	return (
+		<NavItem key={index} {...rest}><i className={icon}/></NavItem>
+	);
+}
+renderNavItem.propTypes = {
+	icon: React.PropTypes.string,
+	...NavItem.propTypes,
+};
+
+export function renderDropdownItem(props, index) {
+	return (
+		<MenuItem key={index}>
+			<i className={props.icon}/>
+			{props.name}
+		</MenuItem>
+	);
+}
+renderDropdownItem.propTypes = {
+	icon: React.PropTypes.string,
+	name: React.PropTypes.string,
+};
+
+export function renderDropdown(props, index) {
+	return (
+		<NavDropdown {...props.dropdown} key={index}>
+			{props.items.map(renderDropdownItem)}
+		</NavDropdown>
+	);
+}
+renderDropdown.propTypes = {
+	dropdown: React.PropTypes.shape(NavDropdown.propTypes),
+	items: React.PropTypes.arrayOf(
+		React.PropTypes.shape(renderDropdownItem.propTypes)
+	),
+};
+
+export function renderNav(props) {
+	return (
+		<Nav {...props.nav}>
+			{props.navItems.map((itemDef, index) => {
+				const { type, item } = itemDef;
+				switch (type) {
+				case NAV_ITEM:
+					return renderNavItem(item, index);
+				case DROPDOWN:
+					return renderDropdown(item, index);
+				default:
+					return null;
+				}
+			})}
+		</Nav>
+	);
+}
+renderNav.propTypes = {
+	nav: React.PropTypes.shape(Nav.propTypes),
+	navItems: React.PropTypes.arrayOf(
+		React.PropTypes.shape({
+			type: React.PropTypes.oneOf([NAV_ITEM, DROPDOWN]),
+			item: React.PropTypes.oneOfType([
+				React.PropTypes.shape(renderNavItem.propTypes),
+				React.PropTypes.shape(renderDropdown.propTypes),
+			]),
+		})
+	),
+};
+
+export function renderFormGroup(props, index) {
+	return (
+		<FormGroup key={index} {...props.formgroup}>
+			<FormControl {...props.formcontrol} />
+		</FormGroup>
+	);
+}
+renderFormGroup.propTypes = {
+	formgroup: React.PropTypes.shape(FormGroup.propTypes),
+	formcontrol: React.PropTypes.shape(FormControl.propTypes),
+};
+
+export function renderForm(props, index) {
+	return (
+		<Navbar.Form {...props.form} key={index}>
+			{props.formgroups ? props.formgroups.map(renderFormGroup) : null}
+			<Button {...props.button}>
+				{props.icon ? (<i className={props.icon} />) : null}
+				{props.buttonLabel}
+			</Button>
+		</Navbar.Form>
+	);
+}
+renderForm.propTypes = {
+	form: React.PropTypes.shape(Navbar.Form.propTypes),
+	formgroups: React.PropTypes.arrayOf(
+		React.PropTypes.shape(renderFormGroup.propTypes)
+	),
+	button: React.PropTypes.shape(Button.propTypes),
+	buttonLabel: React.PropTypes.string,
+};
+
+export function renderContent(props) {
+	if (props.navs) {
+		return props.navs.map(renderNav);
+	}
+	if (props.forms) {
+		return props.forms.map(renderForm);
+	}
+	return null;
+}
+renderContent.propTypes = {
+	navs: React.PropTypes.arrayOf(
+		React.PropTypes.shape(renderNav.propTypes)
+	),
+	forms: React.PropTypes.arrayOf(
+		React.PropTypes.shape(renderForm.propTypes)
+	),
+};
 
 /**
  * The top bar is the place where the user finds useful information and tools
@@ -12,50 +141,34 @@ import { APP_HEADER_BAR } from '../identifiers';
  * @param {object} props   react props
  */
 function AppHeaderBar(props) {
-	let logo = null;
-	if (props.logo) {
-		logo = (<img
-			className={props.theme.logo}
-			src={props.logo.src}
-			alt={props.logo.alt}
-			style={props.logo.style}
-		/>);
-	}
-	let link = (
-		<a href="#/" className={props.theme.link}>
-			{logo} {props.app}
-		</a>
-	);
-	if (props.link) {
-		link = (
-			<props.link>{logo} {props.app}</props.link>
-		);
-	}
-	const wrapper = classNames(props.theme.appHeaderBar, 'navbar');
-	const brand = classNames(props.theme.brand, 'navbar-brand');
+	const { className, ...brandProps } = props.brandLink;
+	const brandClasses = classNames('navbar-brand', className);
 	return (
-		<div className={wrapper}>
-			<div className={brand}>
-				{link}
-			</div>
-			{props.children}
-		</div>
+		<Navbar fluid fixedTop>
+			<Navbar.Header>
+				<Navbar.Brand>
+					<a className={brandClasses} {...brandProps}>
+						{props.app}
+					</a>
+				</Navbar.Brand>
+				<Navbar.Toggle />
+			</Navbar.Header>
+			<Navbar.Collapse>
+				{props.content ? props.content.map(renderContent) : null}
+			</Navbar.Collapse>
+		</Navbar>
 	);
 }
-
 AppHeaderBar.propTypes = {
-	logo: React.PropTypes.shape({
-		src: React.PropTypes.string,
-		alt: React.PropTypes.string,
-		style: React.PropTypes.object,
-	}),
 	app: React.PropTypes.string,
-	theme: React.PropTypes.shape({
-		appHeaderBar: React.PropTypes.string,
-		brand: React.PropTypes.string,
-		link: React.PropTypes.string,
-		logo: React.PropTypes.string,
+	brandLink: React.PropTypes.shape({
+		title: React.PropTypes.string,
+		onClick: React.PropTypes.func,
+		className: React.PropTypes.string,
 	}),
+	content: React.PropTypes.arrayOf(
+		React.PropTypes.shape(renderContent.propTypes)
+	),
 };
-export default themr(APP_HEADER_BAR)(AppHeaderBar);
-export { AppHeaderBar as PureAppHeaderBar };
+
+export default AppHeaderBar;

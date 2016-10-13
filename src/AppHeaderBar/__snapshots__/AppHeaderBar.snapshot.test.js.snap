@@ -1,0 +1,130 @@
+exports[`AppHeaderBar should render its name 1`] = `
+<nav
+  className="navbar navbar-default navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <a
+        className="navbar-brand my-brand-class navbar-brand"
+        onClick={[Function]}
+        title="my brand title">
+        Example App Name
+      </a>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              className="fa fa-bars" />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              className="fa fa-heart" />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  className="fa fa-fw fa-cog" />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        className="navbar-form navbar-right"
+        onSubmit={[Function]}>
+        <div
+          className="form-group">
+          <input
+            className="form-control"
+            id="globalSearch"
+            onChange={[Function]}
+            placeholder="search anything"
+            type="text" />
+        </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          <i
+            className="fa fa-search" />
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
