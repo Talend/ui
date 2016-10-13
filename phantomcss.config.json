@@ -6,8 +6,12 @@
   },
   "mapping": [
     {
-      "name": "navbars",
-      "selector": "#navbars"
+      "name": "navbar-default",
+      "selector": "#navbar-default"
+    },
+    {
+      "name": "navbar-inverse",
+      "selector": "#navbar-inverse"
     },
     {
       "name": "headings",

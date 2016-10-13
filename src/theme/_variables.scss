@@ -375,22 +375,22 @@ $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             #FFF !default;
-$navbar-default-bg:                $brand-primary-darker !default;
+$navbar-default-color:             #777 !default;
+$navbar-default-bg:                #F8F8F8 !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                #FFF !default;
-$navbar-default-link-hover-color:          $brand-primary-lighter !default;
+$navbar-default-link-color:                #777 !default;
+$navbar-default-link-hover-color:          #333 !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         $navbar-default-link-color !default;
-$navbar-default-link-active-bg:            rgba(0, 0, 0, 0.1) !default;
-$navbar-default-link-disabled-color:       $brand-primary-light !default;
+$navbar-default-link-active-bg:            rgba(0, 0, 0, .1) !default;
+$navbar-default-link-disabled-color:       #CCC !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
 $navbar-default-brand-color:               $navbar-default-link-color !default;
-$navbar-default-brand-hover-color:         $navbar-default-link-hover-color !default;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
 $navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
@@ -401,8 +401,8 @@ $navbar-default-toggle-border-color:       #DDD !default;
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-$navbar-inverse-color:                      lighten($gray-light, 15%) !default;
-$navbar-inverse-bg:                         #222 !default;
+$navbar-inverse-color:                      $white !default;
+$navbar-inverse-bg:                         $brand-primary-darker !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
