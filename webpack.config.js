@@ -1,3 +1,5 @@
+const autoprefixer = require('autoprefixer');
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractFonts = new ExtractTextPlugin('fonts.css', {
@@ -12,6 +14,8 @@ const extractBootstrap = new ExtractTextPlugin('bootstrap.css', {
 const extractBootstrapMin = new ExtractTextPlugin('bootstrap.min.css', {
 	allChunks: true,
 });
+
+const autoprefixerConfig = autoprefixer({ browsers: ['not ie <= 9'] });
 
 const BASE_CONF = {
 	entry: './src/index.js',
@@ -44,9 +48,14 @@ const BASE_CONF = {
 			},
 			{
 				test: /bootstrap\.scss$/,
-				loader: extractBootstrap.extract('style', 'css!sass'),
+				loader: extractBootstrap.extract('style', 'css!postcss!sass'),
 			}
 		],
+	},
+	postcss: function () {
+		return [
+			autoprefixerConfig
+		];
 	},
 	plugins: [
 		extractFonts,
