@@ -5,23 +5,23 @@
 
 /// Side panel toggle button color
 /// @type Color
-$side-panel-toggle-color: #DDD !default;
+$tc-side-panel-toggle-color: #DDD !default;
 
 /// Side panel default spacing
 /// @type Number (Unit)
-$side-panel-spacing: 20px !default;
+$tc-side-panel-spacing: 20px !default;
 
 /// Docked side panel spacing
 /// @type Number (Unit)
-$side-panel-docked-spacing: 15px !default;
+$tc-side-panel-docked-spacing: 15px !default;
 
-.side-panel {
+.tc-side-panel {
 	overflow-x: hidden;
-	padding: 0 $side-panel-spacing;
+	padding: 0 $tc-side-panel-spacing;
 	transition: 0.2s padding ease-out;
 
 	.action-list {
-		margin: 0 (-$side-panel-spacing);
+		margin: 0 (-$tc-side-panel-spacing);
 		transition: 0.2s margin ease-out;
 	}
 
@@ -29,10 +29,10 @@ $side-panel-docked-spacing: 15px !default;
 		position: relative;
 		display: block;
 		padding: 0;
-		margin: $side-panel-spacing 0;
+		margin: $tc-side-panel-spacing 0;
 		line-height: 0.75;
-		color: $side-panel-toggle-color;
-		box-shadow: -2px 0 0 $side-panel-toggle-color;
+		color: $tc-side-panel-toggle-color;
+		box-shadow: -2px 0 0 $tc-side-panel-toggle-color;
 
 		&:hover,
 		&:focus,
@@ -73,7 +73,7 @@ $side-panel-docked-spacing: 15px !default;
 	}
 
 	&.docked {
-		padding: 0 $side-panel-docked-spacing;
+		padding: 0 $tc-side-panel-docked-spacing;
 
 		.toggle-btn i {
 			transform: rotate(-180deg);

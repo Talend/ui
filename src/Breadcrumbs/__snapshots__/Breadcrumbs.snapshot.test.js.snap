@@ -1,11 +1,11 @@
 exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <ol
-  className="breadcrumb" />
+  className="breadcrumb tc-breadcrumb" />
 `;
 
 exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
 <ol
-  className="breadcrumb">
+  className="breadcrumb tc-breadcrumb">
   <li
     className="">
     <span
@@ -34,7 +34,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
 
 exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
 <ol
-  className="breadcrumb">
+  className="breadcrumb tc-breadcrumb">
   <li
     className="">
     Text A
@@ -60,7 +60,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
 
 exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 <ol
-  className="breadcrumb">
+  className="breadcrumb tc-breadcrumb">
   <li
     className="">
     Text A
@@ -78,7 +78,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 
 exports[`Breadcrumbs should render small list of items without ellipsis 2`] = `
 <ol
-  className="breadcrumb">
+  className="breadcrumb tc-breadcrumb">
   <li
     className="">
     Text A

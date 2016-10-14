@@ -1,6 +1,6 @@
 exports[`AppHeaderBar should render its name 1`] = `
 <nav
-  className="navbar navbar-inverse navbar-fixed-top">
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
   <div
     className="container-fluid">
     <div

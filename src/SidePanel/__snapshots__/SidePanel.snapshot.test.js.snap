@@ -1,6 +1,6 @@
 exports[`SidePanel should render docked menu 1`] = `
 <nav
-  className="undefined">
+  className="undefined tc-side-panel">
   <button
     aria-hidden="true"
     className="btn btn-link"
@@ -55,7 +55,7 @@ exports[`SidePanel should render docked menu 1`] = `
 
 exports[`SidePanel should render expanded menu 1`] = `
 <nav
-  className="">
+  className="tc-side-panel">
   <button
     aria-hidden="true"
     className="btn btn-link"

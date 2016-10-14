@@ -95,7 +95,7 @@ function Breadcrumbs(props) {
 	};
 
 	return (
-		<ol className={classNames('breadcrumb', theme.breadcrumb)}>
+		<ol className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
 			{items.map(renderBreadcrumbItem)}
 		</ol>
 	);
