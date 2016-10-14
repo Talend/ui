@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
 import SidePanel from './SidePanel.component';
 
@@ -22,7 +23,7 @@ describe('SidePanel', () => {
 			/>
 		);
 		const wrapper = mount(sidePanel);
-		wrapper.find('button').simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(onToggleDock).toBeCalled();
@@ -48,7 +49,7 @@ describe('SidePanel', () => {
 			/>
 		);
 		const wrapper = mount(sidePanel);
-		wrapper.find('nav').find('a').at(1).simulate('click');
+		wrapper.find('nav').find(Button).at(2).simulate('click');
 
 		// then
 		expect(onPreparationsClick).not.toBeCalled();

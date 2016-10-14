@@ -14,34 +14,40 @@ exports[`SidePanel should render docked menu 1`] = `
   <ul
     className="nav nav-pills nav-stacked">
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Preparations">
+        role="link"
+        title="Display Preparations"
+        type="button">
         <i
           className="fa fa-asterisk" />
-      </a>
+      </button>
     </li>
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Datasets">
+        role="link"
+        title="Display Datasets"
+        type="button">
         <i
           className="fa fa-file-excel-o" />
-      </a>
+      </button>
     </li>
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Favorites">
+        role="link"
+        title="Display Favorites"
+        type="button">
         <i
           className="fa fa-star" />
-      </a>
+      </button>
     </li>
   </ul>
 </nav>
@@ -63,43 +69,49 @@ exports[`SidePanel should render expanded menu 1`] = `
   <ul
     className="nav nav-pills nav-stacked">
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Preparations">
+        role="link"
+        title="Display Preparations"
+        type="button">
         <i
           className="fa fa-asterisk" />
         <span>
           Preparations
         </span>
-      </a>
+      </button>
     </li>
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Datasets">
+        role="link"
+        title="Display Datasets"
+        type="button">
         <i
           className="fa fa-file-excel-o" />
         <span>
           Datasets
         </span>
-      </a>
+      </button>
     </li>
     <li>
-      <a
-        className={undefined}
-        href="#"
+      <button
+        className="btn btn-link"
+        disabled={false}
         onClick={undefined}
-        title="Display Favorites">
+        role="link"
+        title="Display Favorites"
+        type="button">
         <i
           className="fa fa-star" />
         <span>
           Favorites
         </span>
-      </a>
+      </button>
     </li>
   </ul>
 </nav>

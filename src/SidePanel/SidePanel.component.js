@@ -43,15 +43,16 @@ function SidePanel(props) {
 			<ul className={listClassName}>
 				{actions.map(action => (
 					<li key={action.label}>
-						<a
-							href="#"
+						<Button
 							title={`Display ${action.label}`}
+							bsStyle="link"
+							role="link"
 							className={theme.link}
 							onClick={action.onClick}
 						>
 							{ action.icon ? <i className={action.icon} /> : null }
 							{ props.docked ? null : <span>{action.label}</span> }
-						</a>
+						</Button>
 					</li>
 				))}
 			</ul>
