@@ -449,9 +449,9 @@ $nav-tabs-justified-link-border-color:            #DDD !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 //== Pills
-$nav-pills-border-radius:                   $border-radius-base !default;
-$nav-pills-active-link-hover-bg:            $component-active-bg !default;
-$nav-pills-active-link-hover-color:         $component-active-color !default;
+$nav-pills-border-radius:                   0 !default;
+$nav-pills-active-link-hover-bg:            $brand-primary-darker !default;
+$nav-pills-active-link-hover-color:         $white !default;
 
 
 //== Pagination

@@ -32,6 +32,22 @@
     {
       "name": "forms",
       "selector": "form.bs-component"
+    },
+    {
+      "name": "nav_pills-default",
+      "selector": "#nav-pills + div"
+    },
+    {
+      "name": "nav_pills-nav_stacked-default",
+      "selector": "#nav-pills + div + br + div"
+    },
+    {
+      "name": "nav_pills-inverse",
+      "selector": "#nav-pills + div + br + div + br + div"
+    },
+    {
+      "name": "nav_pills-nav_stacked-inverse",
+      "selector": "#nav-pills + div + br + div + br + div + br + div"
     }
   ]
 }

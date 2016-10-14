@@ -1,0 +1,67 @@
+.nav {
+
+	.btn.btn-link {
+		font-size: inherit;
+		color: inherit;
+		border: none;
+
+		&:focus,
+		&:active,
+		&:hover {
+			text-decoration: none;
+			background: none;
+		}
+	}
+
+	&-inverse {
+		color: $navbar-inverse-color;
+		background-color: $brand-primary;
+	}
+
+	&-pills {
+
+		> li {
+
+			&,
+			& + li {
+				margin: 0;
+			}
+
+			&.active {
+				color: $white;
+				background-color: $brand-primary-darker;
+			}
+
+			&:focus,
+			&:hover {
+				color: $white;
+				background-color: $brand-primary-dark;
+			}
+
+			&.disabled .btn {
+				&:focus,
+				&:active,
+				&:hover {
+					color: shade($white, 10);
+				}
+			}
+		}
+
+		.btn.btn-link {
+			padding: $padding-large-horizontal;
+			width: 100%;
+			line-height: 1;
+			text-align: left;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		&.nav-stacked {
+			.btn.btn-link {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+}
