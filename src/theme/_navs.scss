@@ -28,13 +28,13 @@
 			}
 
 			&.active {
-				color: $white;
+				color: $navbar-inverse-color;
 				background-color: $brand-primary-darker;
 			}
 
 			&:focus,
 			&:hover {
-				color: $white;
+				color: $navbar-inverse-color;
 				background-color: $brand-primary-dark;
 			}
 
@@ -42,7 +42,7 @@
 				&:focus,
 				&:active,
 				&:hover {
-					color: shade($white, 10);
+					color: shade($navbar-inverse-color, 10);
 				}
 			}
 		}
