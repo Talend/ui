@@ -17,7 +17,7 @@ const DROPDOWN = 'dropdown';
 export function renderNavItem(props, index) {
 	const { icon, ...rest } = props;
 	return (
-		<NavItem key={index} {...rest}><i className={icon}/></NavItem>
+		<NavItem key={index} {...rest}><i className={icon} /></NavItem>
 	);
 }
 renderNavItem.propTypes = {
@@ -28,7 +28,7 @@ renderNavItem.propTypes = {
 export function renderDropdownItem(props, index) {
 	return (
 		<MenuItem key={index}>
-			<i className={props.icon}/>
+			<i className={props.icon} />
 			{props.name}
 		</MenuItem>
 	);

@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
-import { themr } from 'react-css-themr';
-import { SIDE_PANEL } from '../identifiers';
+import theme from './SidePanel.scss';
 
 /* eslint-disable jsx-a11y/href-no-hash */
 
@@ -24,7 +23,6 @@ import { SIDE_PANEL } from '../identifiers';
  *
  */
 function SidePanel(props) {
-	const theme = props.theme || {};
 	const actions = props.actions || [];
 
 	const dockedClassName = { [theme.docked]: props.docked };
@@ -62,13 +60,6 @@ function SidePanel(props) {
 }
 
 SidePanel.propTypes = {
-	theme: React.PropTypes.shape({
-		'side-panel': React.PropTypes.string,
-		'action-list': React.PropTypes.string,
-		'toggle-btn': React.PropTypes.string,
-		docked: React.PropTypes.string,
-		link: React.PropTypes.string,
-	}),
 	actions: React.PropTypes.arrayOf(
 		React.PropTypes.shape({
 			label: React.PropTypes.string,
@@ -80,4 +71,4 @@ SidePanel.propTypes = {
 	docked: React.PropTypes.bool,
 };
 
-export default themr(SIDE_PANEL)(SidePanel);
+export default SidePanel;

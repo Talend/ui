@@ -1,8 +1,7 @@
 import React from 'react';
-import { themr } from 'react-css-themr';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
-import { BREADCRUMBS } from '../identifiers';
+import theme from './Breadcrumbs.scss';
 
 /**
  * Default max items to display without starting by ellipsis
@@ -19,7 +18,6 @@ const DEFAULT_MAX_ITEMS = 3;
  />
  */
 function Breadcrumbs(props) {
-	const theme = props.theme || {};
 	const items = props.items || [];
 
 	const nbItems = items.length;
@@ -56,7 +54,9 @@ function Breadcrumbs(props) {
 							role="link"
 							title={title}
 							onClick={wrappedOnClick}
-      >{text}</Button> : text}
+						>{text}</Button> :
+						text
+					}
 				</li>
 			);
 		}
@@ -70,8 +70,9 @@ function Breadcrumbs(props) {
 							role="link"
 							title={title}
 							onClick={wrappedOnClick}
-      >{text}</Button> :
-	<span className="sr-only">{text}</span>}
+						>{text}</Button> :
+							<span className="sr-only">{text}</span>
+					}
 					<span aria-hidden="true">
 						&hellip;
 					</span>
@@ -86,7 +87,9 @@ function Breadcrumbs(props) {
 						role="link"
 						title={title}
 						onClick={wrappedOnClick}
-     >{text}</Button> : text}
+					>{text}</Button> :
+					text
+				}
 			</li>
 		);
 	};
@@ -99,10 +102,6 @@ function Breadcrumbs(props) {
 }
 
 Breadcrumbs.propTypes = {
-	theme: React.PropTypes.shape({
-		breadcrumb: React.PropTypes.string,
-		dots: React.PropTypes.string,
-	}),
 	items: React.PropTypes.arrayOf(
 		React.PropTypes.shape({
 			text: React.PropTypes.string.isRequired,
@@ -113,5 +112,4 @@ Breadcrumbs.propTypes = {
 	maxItems: React.PropTypes.number,
 };
 
-export default themr(BREADCRUMBS)(Breadcrumbs);
-export { Breadcrumbs as PureBreadcrumbs };
+export default Breadcrumbs;
