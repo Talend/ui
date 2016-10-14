@@ -144,7 +144,7 @@ function AppHeaderBar(props) {
 	const { className, ...brandProps } = props.brandLink;
 	const brandClasses = classNames('navbar-brand', className);
 	return (
-		<Navbar fluid fixedTop>
+		<Navbar fluid fixedTop inverse>
 			<Navbar.Header>
 				<Navbar.Brand>
 					<a className={brandClasses} {...brandProps}>
