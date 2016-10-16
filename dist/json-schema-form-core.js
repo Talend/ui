@@ -250,27 +250,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.name = exports.normalize = exports.stringify = exports.parse = undefined;
 
 	var _objectpath = __webpack_require__(4);
 
-	Object.defineProperty(exports, 'parse', {
-	  enumerable: true,
-	  get: function get() {
-	    return _objectpath.parse;
-	  }
-	});
-	Object.defineProperty(exports, 'stringify', {
-	  enumerable: true,
-	  get: function get() {
-	    return _objectpath.stringify;
-	  }
-	});
-	Object.defineProperty(exports, 'normalize', {
-	  enumerable: true,
-	  get: function get() {
-	    return _objectpath.normalize;
-	  }
-	});
+	var name = function name(key, separator, formName, omitNumbers) {
+	  if (key) {
+	    var fieldKey = key;
+	    var fieldSeparator = separator || '-';
+
+	    if (omitNumbers) {
+	      fieldKey = fieldKey.filter(function (key) {
+	        return typeof key !== 'number';
+	      });
+	    };
+
+	    return (formName ? formName + fieldSeparator : '') + fieldKey.join(fieldSeparator);
+	  };
+
+	  return '';
+	}; // This is of course a bit silly. And should be refactored.
+
+
+	exports.parse = _objectpath.parse;
+	exports.stringify = _objectpath.stringify;
+	exports.normalize = _objectpath.normalize;
+	exports.name = name;
 
 /***/ },
 /* 4 */
