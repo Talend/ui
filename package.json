@@ -9,6 +9,8 @@
     "url": "https://github.com/Talend/react-talend-forms"
   },
   "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.2.2",
+    "@kadira/storybook": "^2.5.2",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
@@ -25,8 +27,8 @@
     "eslint-plugin-react": "^6.2.0",
     "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
-    "react-addons-test-utils": "^15.3.1",
     "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.1",
     "react-jsonschema-form": "^0.40.0",
@@ -44,9 +46,15 @@
     "prepublish": "babel -d lib ./src/",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "storybook": "start-storybook -p 6006",
+    "start": "npm run storybook",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest"
+  },
+  "dependencies": {
+    "bootstrap-talend-theme": "^0.6.0"
   }
 }
