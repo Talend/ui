@@ -1,0 +1,41 @@
+exports[`Actions should render buttons 1`] = `
+<div
+  className="btn-group">
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    role={null}
+    type="button">
+    <i
+      className="fa fa-asterisk" />
+    <span>
+      Preparations
+    </span>
+  </button>
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    role={null}
+    type="button">
+    <i
+      className="fa fa-file-excel-o" />
+    <span>
+      Datasets
+    </span>
+  </button>
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    role={null}
+    type="button">
+    <i
+      className="fa fa-star" />
+    <span>
+      Favorites
+    </span>
+  </button>
+</div>
+`;

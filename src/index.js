@@ -66,12 +66,14 @@ import {
 	Well,
 } from 'react-bootstrap';
 
+import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import List from './List';
 import SidePanel from './SidePanel';
 
 export {
+	Actions,
 	AppHeaderBar,
 	Breadcrumbs,
 	List,
