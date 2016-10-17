@@ -1,0 +1,75 @@
+exports[`SelectSortBy should render its name 1`] = `
+<ul
+  className="nav"
+  role={null}>
+  <label
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-text"
+    onSelect={null}>
+    Sort by:
+  </label>
+  <li
+    className="dropdown"
+    style={undefined}>
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href=""
+      id="tc-list-toolbar-sort-by"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button">
+      Name
+       
+      <span
+        className="caret" />
+    </a>
+    <ul
+      aria-labelledby="tc-list-toolbar-sort-by"
+      className="dropdown-menu"
+      role="menu">
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          Name
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          Name
+        </a>
+      </li>
+    </ul>
+  </li>
+  <button
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-btn btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    onSelect={null}
+    type="button">
+    <i
+      className="fa fa-sort-asc" />
+    ASCENDING
+  </button>
+</ul>
+`;

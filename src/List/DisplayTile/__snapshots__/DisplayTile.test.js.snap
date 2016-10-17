@@ -1,0 +1,10 @@
+exports[`DisplayTile should render its name 1`] = `
+<div
+  className="panel panel-default">
+  <pre>
+    {
+      \"name\": \"Hello world\"
+    }
+  </pre>
+</div>
+`;

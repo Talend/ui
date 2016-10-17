@@ -1,3 +1,4 @@
 import './AppHeaderBar';
-import './SidePanel';
 import './Breadcrumbs';
+import './List';
+import './SidePanel';

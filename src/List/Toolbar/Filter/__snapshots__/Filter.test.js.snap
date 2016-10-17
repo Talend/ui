@@ -1,0 +1,32 @@
+exports[`Filter should render its name 1`] = `
+<form
+  className="navbar-form navbar-right"
+  onSubmit={[Function]}
+  role="search">
+  <div
+    className="form-group">
+    <div
+      className="input-group">
+      <input
+        aria-label="Filter"
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Filter"
+        type="search" />
+    </div>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      title="Filter"
+      type="submit">
+      <i
+        aria-hidden="true"
+        className="fa fa-search" />
+      <span
+        className="sr-only">
+        Filter
+      </span>
+    </button>
+  </div>
+</form>
+`;

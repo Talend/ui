@@ -1,0 +1,8 @@
+// DisplayTable styles
+.table .btn {
+	visibility: hidden;
+}
+
+.table tr:hover .btn {
+	visibility: visible;
+}

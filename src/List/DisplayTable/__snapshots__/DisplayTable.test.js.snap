@@ -1,0 +1,33 @@
+exports[`DisplayTable should render its name 1`] = `
+<table
+  className="table talend-component-list-display-table">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        one
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>
+        two
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

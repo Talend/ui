@@ -1,0 +1,4 @@
+exports[`DisplayLarge should render its name 1`] = `
+<div
+  className={undefined} />
+`;

@@ -1,0 +1,83 @@
+exports[`SelectDisplayMode should render its name 1`] = `
+<ul
+  className="nav"
+  role={null}>
+  <label
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-text"
+    onSelect={null}>
+    Display:
+  </label>
+  <li
+    className="dropdown"
+    style={undefined}>
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href=""
+      id="grid"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button">
+      <i
+        className="fa fa-bars" />
+       
+      <span
+        className="caret" />
+    </a>
+    <ul
+      aria-labelledby="grid"
+      className="dropdown-menu"
+      role="menu">
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            className="fa fa-bars" />
+           Table
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            className="fa fa-list-alt" />
+           Expanded
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            className="fa fa-th-large" />
+           Tile
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;

@@ -1,0 +1,193 @@
+exports[`Toolbar should render its name 1`] = `
+<div
+  className="navbar navbar-default"
+  role="toolbar">
+  <div
+    className="container-fluid">
+    <ul
+      className="nav navbar-nav"
+      role={null}>
+      <label
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-text"
+        onSelect={null}>
+        Display:
+      </label>
+      <li
+        className="dropdown"
+        style={undefined}>
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href=""
+          id="grid"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button">
+          <i
+            className="fa fa-bars" />
+           
+          <span
+            className="caret" />
+        </a>
+        <ul
+          aria-labelledby="grid"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              <i
+                className="fa fa-bars" />
+               Table
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              <i
+                className="fa fa-list-alt" />
+               Expanded
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              <i
+                className="fa fa-th-large" />
+               Tile
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul
+      className="nav navbar-nav"
+      role={null}>
+      <label
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-text"
+        onSelect={null}>
+        Sort by:
+      </label>
+      <li
+        className="dropdown"
+        style={undefined}>
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href=""
+          id="tc-list-toolbar-sort-by"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button">
+          Name
+           
+          <span
+            className="caret" />
+        </a>
+        <ul
+          aria-labelledby="tc-list-toolbar-sort-by"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              Name
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              Name
+            </a>
+          </li>
+        </ul>
+      </li>
+      <button
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-btn btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onSelect={null}
+        type="button">
+        <i
+          className="fa fa-sort-asc" />
+        ASCENDING
+      </button>
+    </ul>
+    <form
+      className="navbar-form navbar-right"
+      onSubmit={[Function]}
+      role="search">
+      <div
+        className="form-group">
+        <div
+          className="input-group">
+          <input
+            aria-label="Filter"
+            className="form-control"
+            onChange={[Function]}
+            placeholder="Filter"
+            type="search" />
+        </div>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          title="Filter"
+          type="submit">
+          <i
+            aria-hidden="true"
+            className="fa fa-search" />
+          <span
+            className="sr-only">
+            Filter
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
