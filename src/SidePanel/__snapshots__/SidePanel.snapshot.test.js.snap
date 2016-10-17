@@ -12,7 +12,7 @@ exports[`SidePanel should render docked menu 1`] = `
       className="fa fa-arrow-left" />
   </button>
   <ul
-    className="nav nav-pills nav-stacked">
+    className="nav nav-pills nav-inverse nav-stacked">
     <li>
       <button
         className="btn btn-link"
@@ -67,7 +67,7 @@ exports[`SidePanel should render expanded menu 1`] = `
       className="fa fa-arrow-left" />
   </button>
   <ul
-    className="nav nav-pills nav-stacked">
+    className="nav nav-pills nav-inverse nav-stacked">
     <li>
       <button
         className="btn btn-link"

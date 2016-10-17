@@ -27,7 +27,7 @@ function SidePanel(props) {
 
 	const dockedClassName = { [theme.docked]: props.docked };
 	const navClassName = classNames(theme['tc-side-panel'], dockedClassName, 'tc-side-panel');
-	const listClassName = classNames('nav nav-pills nav-stacked', theme['action-list']);
+	const listClassName = classNames('nav nav-pills nav-inverse nav-stacked', theme['action-list']);
 
 	return (
 		<nav className={navClassName}>
