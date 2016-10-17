@@ -23,7 +23,7 @@ But we have decided to rewrite the build using webpack and bootstrap-sass.
 ## Install dependency
 
 ```bash
-npm install --save bootstrap-tlnd-theme
+npm install --save bootstrap-talend-theme
 ```
 
 ## Define your color set
@@ -52,7 +52,7 @@ Edit your Sass entry file.
 ```sass
 @import 'colors';
 @import 'variables';
-@import '~bootstrap-tlnd-theme/src/theme/bootstrap';
+@import '~bootstrap-talend-theme/src/theme/bootstrap';
 ```
 
 You can now add [Bootstrap](http://getbootstrap.com/) markup!

@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap-tlnd-theme",
+  "name": "bootstrap-talend-theme",
   "description": "Bootstrap theme based on Talend styleguide",
   "main": "dist/bootstrap.js",
   "engines": {
