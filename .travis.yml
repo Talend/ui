@@ -2,13 +2,14 @@ language: node_js
 cache:
   directories:
     - node_modules
+    - $HOME/.npm
+    - $HOME/.yarn-cache
 node_js:
-  - "4"
   - "6"
 before_install:
-  - npm i immutable@3 react@15 react-dom@15 react-redux@4 redux@3 reselect@2
-before_script:
-  - npm prune
+  - npm i -g yarn --cache-min 999999999
+install:
+  - yarn
 after_success:
   - npm run test:cov
   - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
