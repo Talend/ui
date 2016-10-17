@@ -18,7 +18,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs"
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "react",
