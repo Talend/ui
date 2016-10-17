@@ -19,15 +19,21 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   </li>
   <li
     className="">
-    Text B
+    <span>
+      Text B
+    </span>
   </li>
   <li
     className="">
-    Text C
+    <span>
+      Text C
+    </span>
   </li>
   <li
     className="active">
-    Text D
+    <span>
+      Text D
+    </span>
   </li>
 </ol>
 `;
@@ -37,23 +43,33 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   className="breadcrumb tc-breadcrumb">
   <li
     className="">
-    Text A
+    <span>
+      Text A
+    </span>
   </li>
   <li
     className="">
-    Text B
+    <span>
+      Text B
+    </span>
   </li>
   <li
     className="">
-    Text C
+    <span>
+      Text C
+    </span>
   </li>
   <li
     className="">
-    Text D
+    <span>
+      Text D
+    </span>
   </li>
   <li
     className="active">
-    Text E
+    <span>
+      Text E
+    </span>
   </li>
 </ol>
 `;
@@ -63,15 +79,21 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   className="breadcrumb tc-breadcrumb">
   <li
     className="">
-    Text A
+    <span>
+      Text A
+    </span>
   </li>
   <li
     className="">
-    Text B
+    <span>
+      Text B
+    </span>
   </li>
   <li
     className="active">
-    Text C
+    <span>
+      Text C
+    </span>
   </li>
 </ol>
 `;
@@ -81,15 +103,21 @@ exports[`Breadcrumbs should render small list of items without ellipsis 2`] = `
   className="breadcrumb tc-breadcrumb">
   <li
     className="">
-    Text A
+    <span>
+      Text A
+    </span>
   </li>
   <li
     className="">
-    Text B
+    <span>
+      Text B
+    </span>
   </li>
   <li
     className="active">
-    Text C
+    <span>
+      Text C
+    </span>
   </li>
 </ol>
 `;

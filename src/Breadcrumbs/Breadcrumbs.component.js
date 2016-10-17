@@ -54,8 +54,7 @@ function Breadcrumbs(props) {
 							role="link"
 							title={title}
 							onClick={wrappedOnClick}
-						>{text}</Button> :
-						text
+						>{text}</Button> : <span>{text}</span>
 					}
 				</li>
 			);
@@ -70,8 +69,7 @@ function Breadcrumbs(props) {
 							role="link"
 							title={title}
 							onClick={wrappedOnClick}
-						>{text}</Button> :
-							<span className="sr-only">{text}</span>
+						>{text}</Button> : <span className="sr-only">{text}</span>
 					}
 					<span aria-hidden="true">
 						&hellip;
@@ -87,8 +85,7 @@ function Breadcrumbs(props) {
 						role="link"
 						title={title}
 						onClick={wrappedOnClick}
-					>{text}</Button> :
-					text
+					>{text}</Button> : <span>{text}</span>
 				}
 			</li>
 		);
