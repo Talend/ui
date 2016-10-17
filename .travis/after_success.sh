@@ -15,7 +15,7 @@ if [ -n "$GITHUB_API_KEY" ]; then
         git checkout -b gh-pages
         git add .
         git -c user.name='travis' -c user.email='travis' commit -m 'Generate gh-pages from CI'
-        git push -f -q https://frassinier:$GITHUB_API_KEY@github.com/Talend/react-talend-forms gh-pages &> /dev/null
+        git push -f -q https://frassinier:$GITHUB_API_KEY@github.com/Talend/react-talend-components gh-pages &> /dev/null
         echo "✓ Push storybook-static/ content to gh-pages"
     else
         echo "Building PR #$TRAVIS_PULL_REQUEST from branch $TRAVIS_BRANCH"
