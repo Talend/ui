@@ -76,6 +76,7 @@ $btn-background-tint-percent: 10 !default;
 		&,
 		&:hover,
 		&:active {
+			background: none;
 			box-shadow: none;
 		}
 	}
