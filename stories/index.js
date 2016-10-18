@@ -1,8 +1,11 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import { withKnobs, object } from '@kadira/storybook-addon-knobs';
+
 import Form from '../src/Form';
 
 storiesOf('Form', module)
+	.addDecorator(withKnobs)
 	.addWithInfo('login form', () => {
 		const loginFormSchema = {
 			"title": "Login form",
@@ -26,7 +29,7 @@ storiesOf('Form', module)
 		};
 		return (
 			<Form
-				schema={loginFormSchema}
+				schema={object('Schema', loginFormSchema)}
 				onSubmit={action('submit')}
 			/>
 		);
