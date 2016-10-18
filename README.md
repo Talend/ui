@@ -1,5 +1,7 @@
 # react-talend-forms
 
+[![Build Status](https://travis-ci.org/Talend/react-talend-forms.svg?branch=master)](https://travis-ci.org/Talend/react-talend-forms)
+
 ## Installation
 
 Run `npm install react-talend-forms`.
