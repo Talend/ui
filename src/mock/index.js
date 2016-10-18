@@ -1,4 +1,3 @@
-
 /**
  * The mock is in the src folder and there is reason for that
  * In the past without this we have added mocked states to other CMF libraries
@@ -11,61 +10,12 @@
  *
  * ```import mock from 'react-cmf/lib/mock';```
  */
-import React from 'react';
-import settings from './settings';
+import store from './store';
+import Provider from './provider';
 
-const state = {
-	cmf: {
-		settings,
-	},
-};
-const notInitializedState = {
-	initialized: false,
-	cmf: {
-		settings: {
-			contentTypes: {},
-			actions: {},
-			views: {},
-		},
-	},
-};
+export default store;
 
-const store = {
-	getState() {
-		return state;
-	},
-	subscribe() { },
-	dispatch() { return 'dispatch'; },
-};
-
-const registry = {
-	'_.route.component:component': (<div>mock</div>),
-};
-
-const context = {
+export {
 	store,
-	registry,
+	Provider,
 };
-
-const emptyContext = {
-	store: {
-		getState() {
-			return notInitializedState;
-		},
-	},
-};
-
-function copy(obj) {
-	return Object.assign({}, obj);
-}
-
-const mock = {
-	context: () => copy(context),
-	emptyContext: () => copy(emptyContext),
-	notInitializedState: () => copy(notInitializedState),
-	registry: () => copy(registry),
-	state: () => copy(state),
-	settings: () => copy(settings),
-	store: () => copy(store),
-};
-export default mock;
