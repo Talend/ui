@@ -3,9 +3,13 @@
 /// @group Breadcrumbs
 ////
 
-/// Breadcrumb not selected links color
+/// Breadcrumb not selected items color
 /// @type Color
-$breadcrumb-links-color: $brand-primary !default;
+$breadcrumb-items-color: $brand-primary !default;
+
+/// Breadcrumb items max width
+/// @type Number
+$breadcrumb-items-max-width: 250px !default;
 
 /// Breadcrumb separator color
 /// @type Color
@@ -16,37 +20,34 @@ $breadcrumb-separator-color: $breadcrumb-color !default;
 $breadcrumb-separator-padding: $padding-large-horizontal !default;
 
 .breadcrumb {
-	margin-bottom: 0;
-	color: $breadcrumb-links-color;
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	margin: 0;
+	color: $breadcrumb-items-color;
 	text-transform: uppercase;
 	border-radius: 0;
-
-	a,
-	.btn {
-		color: $breadcrumb-links-color;
-
-		&:focus,
-		&:hover,
-		&:active,
-		&:visited{
-			// list item border on hover replaces this default feature
-			text-decoration: none;
-		}
-	}
-
-	.btn {
-		padding: 0;
-		font-size: inherit;
-	}
+	overflow: hidden;
 
 	> li {
+		display: flex;
+		min-width: 0;
+
+		& > a,
+		& > span,
+		& > .btn {
+			flex: 0 1 auto;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
 
 		&:not(.sr-only) {
 			position: relative;
 			margin-right: $breadcrumb-separator-padding;
 
 			+ li {
-				margin: 0 $breadcrumb-separator-padding;
+				margin: 0 $padding-large-horizontal;
 				padding: 0;
 
 				&:before {
@@ -65,18 +66,46 @@ $breadcrumb-separator-padding: $padding-large-horizontal !default;
 				}
 			}
 
-			&:hover,
-			&.active {
-				&:after {
-					position: absolute;
-					content: '';
-					top: 0;
-					left: 0;
-					bottom: -($breadcrumb-padding-vertical);
-					right: 0;
-					pointer-events: none;
-					border-bottom: 1px solid $breadcrumb-links-color;
-				}
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.active span {
+				box-shadow: 0 1px 0 $breadcrumb-items-color;
+			}
+		}
+	}
+
+	// Buttons need to have the same behavior as links
+	.btn {
+		font-size: inherit;
+		text-align: left;
+		border: none;
+		background: none;
+	}
+
+	a,
+	span,
+	.btn {
+		display: inline-block;
+		padding: $breadcrumb-padding-vertical 0;
+		max-width: $breadcrumb-items-max-width;
+		color: $breadcrumb-items-color;
+
+		&:focus,
+		&:hover,
+		&:active,
+		&.active,
+		&:visited {
+			// list item border on hover replaces this default feature
+			text-decoration: none;
+		}
+
+		&:active,
+		&.active {
+			&:focus,
+			&.focus {
+				outline: 0;
 			}
 		}
 	}
