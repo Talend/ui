@@ -19,8 +19,8 @@ import { PositionRecord } from '../../constants/flowdesigner.model';
  */
 const calculatePortPosition = (ports, nodePosition, nodeSize) => {
     let portsWithPosition = new Map();
-    const emitterPorts = ports.filter(port => port.attr.get('type') === 'EMITTER');
-    const sinkPorts = ports.filter(port => port.attr.get('type') === 'SINK');
+    const emitterPorts = ports.filter(port => port.attributes.get('type') === 'EMITTER');
+    const sinkPorts = ports.filter(port => port.attributes.get('type') === 'SINK');
     const range = [nodePosition.y, nodePosition.y + nodeSize.height];
     const scaleYEmitter = scaleLinear()
             .domain([0, emitterPorts.size + 1])
