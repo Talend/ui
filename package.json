@@ -53,8 +53,5 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest"
-  },
-  "dependencies": {
-    "bootstrap-talend-theme": "^0.6.0"
   }
 }
