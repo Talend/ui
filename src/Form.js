@@ -17,17 +17,17 @@ class Form extends React.Component {
 	}
 
 	render() {
-		return (<RJSForm
-			schema={this.props.schema}
-			formData={this.props.formData}
-			onSubmit={this.props.onSubmit}
-			fields={{ SchemaField }}
-			onChange={this.handleSchemaChange}
-		>
-			<Button bsStyle="primary" type="submit">
-				<i className="fa fa-pencil" />Save
-			</Button>
-		</RJSForm>
+		return (
+			<RJSForm
+				schema={this.props.schema}
+				formData={this.props.formData}
+				onSubmit={this.props.onSubmit}
+				fields={{ SchemaField }}
+				onChange={this.handleSchemaChange}
+			>
+				<Button bsStyle="link">Cancel</Button>
+				<Button bsStyle="primary" type="submit">Submit</Button>
+			</RJSForm>
 		);
 	}
 }

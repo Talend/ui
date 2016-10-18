@@ -1,71 +1,17 @@
 import React from 'react';
 
 import RJSSchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
-import { optionsList, asNumber } from 'react-jsonschema-form/lib/utils';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
-import Checkbox from './Checkbox';
-
-const Input = ({ formData, name, onChange, schema, required, type }) => <FormGroup>
-	<ControlLabel>{name}</ControlLabel>
-	<FormControl
-		type={type}
-		value={formData || schema.default}
-		required={required}
-		onChange={(e) => onChange(e.target.value)}
-	/>
-</FormGroup>;
-
-
-Input.defaultProps = {
-	required: false,
-};
-
-Input.propTypes = {
-	formData: React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.number,
-	]),
-	name: React.PropTypes.string,
-	onChange: React.PropTypes.func,
-	required: React.PropTypes.bool,
-	schema: React.PropTypes.object.isRequired,
-	type: React.PropTypes.string,
-};
-
-const Number = (props) => <Input
-	{...props}
-	type="number"
-	onChange={(val) => props.onChange(asNumber(val))}
-/>;
-
-Number.propTypes = {
-	onChange: React.PropTypes.func,
-};
-
-const Dropdown = ({ name, onChange, schema }) => <FormGroup>
-	<ControlLabel>{name}</ControlLabel>
-	<FormControl
-		componentClass="select"
-		label={name}
-		onChange={(e) => onChange(e.target.value)}
-	>
-			{optionsList(schema).map((o, i) => <option key={i} value={o.value}>{o.label}</option>)}
-	</FormControl>
-</FormGroup>;
-
-Dropdown.propTypes = {
-	name: React.PropTypes.string,
-	onChange: React.PropTypes.func,
-	schema: React.PropTypes.object.isRequired,
-};
+import Checkbox from './controls/Checkbox';
+import Dropdown from './controls/Dropdown';
+import Input from './controls/Input';
+import InputNumber from './controls/Input.number';
+import InputPassword from './controls/Input.password';
 
 const fieldsMap = {
-	integer: Number,
+	integer: InputNumber,
 	string: Input,
-	password: Input,
+	password: InputPassword,
 	boolean: Checkbox,
 	showIf: Checkbox,
 };
@@ -88,7 +34,10 @@ class SchemaField extends React.Component {
 		if (Array.isArray(this.props.schema.enum)) {
 			return (<Dropdown {...this.props} />);
 		}
-		const FieldComponent = fieldsMap[this.props.schema.type] || RJSSchemaField;
+		const uiWidgetType = this.props.schema['ui:widget'] && this.props.schema['ui:widget'].toLowerCase();
+		const fieldType = this.props.schema.type && this.props.schema.type.toLowerCase();
+		const schemaType =  uiWidgetType || fieldType;
+		const FieldComponent = fieldsMap[schemaType] || RJSSchemaField;
 		if (!FieldComponent) {
 			throw new SchemaException(`Unknown property ${this.props.schema.type}`);
 		}
