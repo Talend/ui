@@ -2,9 +2,15 @@
 
 [![Build Status](https://travis-ci.org/Talend/react-talend-forms.svg?branch=master)](https://travis-ci.org/Talend/react-talend-forms)
 
+## Introduction
+
+This library is designed to be used on top of [react-jsonschema-form](https://mozilla-services.github.io/react-jsonschema-form/), a React component for building Web forms from JSONSchema.
+
+In addition of Mozilla lib, this wrapper uses [react-bootstrap](https://react-bootstrap.github.io/) to not have to maintain Bootstrap markup.  
+
 ## Installation
 
-Run `npm install react-talend-forms`.
+Run `npm install --save react-talend-forms`.
 
 ## Usage
 
