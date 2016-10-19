@@ -47,7 +47,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "source-sans-pro": "^2.0.10"
+    "bootstrap-sass": "^3.3.7"
   }
 }
