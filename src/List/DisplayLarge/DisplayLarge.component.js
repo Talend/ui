@@ -1,54 +1,72 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
+import Actions from '../../Actions';
 import theme from './DisplayLarge.scss';
 
-function getColumnsData(columns, item) {
-	return columns.map((column) => {
-		const data = {
-			label: column.label,
-			value: item[column.key],
-		};
-		if (column.dateformat && data.value) {
-			data.value = data.value.format(column.dateformat);
-		}
-		return data;
-	});
+function getColumnsData({ columns, item, titleKey }) {
+	return columns
+		.filter(column => column.key !== titleKey)
+		.map((column) => {
+			const data = {
+				label: column.label,
+				value: item[column.key],
+			};
+			if (column.dateformat && data.value) {
+				data.value = data.value.format(column.dateformat);
+			}
+			return data;
+		});
 }
 
 function getTwoDim(columnsData) {
-	return columnsData.filter((column, i) => i % 2 === 1).map(
-		(column) => {
+	return columnsData
+		.filter((column, i) => i % 2 === 0)
+		.map((column) => {
 			const i = columnsData.indexOf(column);
 			if (columnsData.length > i + 1) {
 				return [column, columnsData[i + 1]];
 			}
 			return [column];
-		}
-	);
+		});
 }
 
-function rowRenderer(item, index, columns) {
-	const columnsData = getColumnsData(columns, item);
+function rowRenderer({ item, index, columns, titleKey, onTitleClick }) {
+	const columnsData = getColumnsData({ columns, item, titleKey });
 	const info = getTwoDim(columnsData);
-
+	const panel = classNames(
+		'panel',
+		'panel-default',
+		theme.panel
+	);
+	const title = classNames(
+		'btn',
+		'btn-link',
+		theme.title,
+	);
 	return (
-		<div className="panel panel-default">
-			<button className="btn btn-link" role="link" onClick={item.onClick}>
-				{columnsData[0].value}
+		<div className={panel} key={index}>
+			<button
+				className={title}
+				role="link"
+				onClick={event => onTitleClick(item, event)}
+			>
+				<span>{item[titleKey]}</span>
 			</button>
-			<div className="btn-group">
-				<button>action 1</button>
-				<button>action 2</button>
-			</div>
-			<div className={theme.streamrow}>
+			<Actions
+				actions={item.actions ? item.actions : []}
+				hideLabel
+				link
+			/>
+			<div className={theme.columns}>
 				{info.map((group, i) => (
 					<ul key={i}>
-					{group.map((item, j) => (
-						<li key={j}>
-							<span className={theme.streamlabel}>{item.label}</span>
-							<span className={theme.streamvalue}>{item.value}</span>
-						</li>
-					))}
+						{group.map((obj, j) => (
+							<li key={j}>
+								<span className={theme.label}>{obj.label}</span>
+								<span className={theme.value}>{obj.value}</span>
+							</li>
+						))}
 					</ul>
 				))}
 			</div>
@@ -56,29 +74,47 @@ function rowRenderer(item, index, columns) {
 	);
 }
 
+rowRenderer.propTypes = {
+	item: PropTypes.object,
+	index: PropTypes.number,
+	columns: PropTypes.arrayOf(
+		PropTypes.object
+	),
+	titleKey: PropTypes.string,
+	onTitleClick: PropTypes.func.isRequired,
+};
+
 /**
  * @param {object} props react props
  * @example
-<DisplayLarge name="Hello world"></DisplayLarge>
+
+<DisplayLarge items={items} columns={columns} elementTitle={title} />
  */
-function DisplayLarge(props) {
-	const items = props.items || [];
+function DisplayLarge({ items, columns, titleKey, onTitleClick }) {
+	const oItems = items || [];
+	const oKey = titleKey || 'name';
 	return (
 		<div className={theme.container}>
-			{items.map((item, index) => {
-				return rowRenderer(item, index, props.columns);
-			})}
+			{oItems.map((item, index) => rowRenderer({
+				item,
+				index,
+				columns,
+				onTitleClick,
+				titleKey: oKey,
+			}))}
 		</div>
 	);
 }
 
 DisplayLarge.propTypes = {
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.object
+	items: PropTypes.arrayOf(
+		PropTypes.object
 	),
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.object
+	columns: PropTypes.arrayOf(
+		PropTypes.object
 	),
+	titleKey: PropTypes.string,
+	onTitleClick: PropTypes.func.isRequired,
 };
 
 export default DisplayLarge;

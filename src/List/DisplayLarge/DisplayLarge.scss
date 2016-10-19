@@ -1,5 +1,49 @@
 // DisplayLarge styles
+$tc-list-display-large-color: #AAA !default;
 
 .container {
 	padding: 20px;
+}
+
+.panel {
+	&:hover {
+		background-color: lighten($tc-list-display-large-color, 25%);
+
+		:global(.tc-actions) {
+			visibility: visible;
+		}
+
+	}
+
+	.title {
+		font-size: 1em;
+	}
+
+	:global(.tc-actions) {
+		visibility: hidden;
+	}
+}
+
+.columns {
+	margin-top: 15px;
+	display: flex;
+
+	& ul {
+		flex: 1;
+	}
+}
+
+
+.label,
+.title {
+	color: darken($tc-list-display-large-color, 10%);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.label {
+
+	&::after {
+		content: ': ';
+	}
 }

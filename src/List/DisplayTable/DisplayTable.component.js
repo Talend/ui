@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import { Button } from 'react-bootstrap';
+import Actions from '../../Actions';
+
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
@@ -9,13 +12,22 @@ function RowRenderer(props) {
 	return (
 		<tr>
 			{row.map((column, index) => {
-				const onClickView = props.columns[index].onClickView;
-				if (onClickView) {
-					const onClick = event => onClickView(props.row, event);
+				if (props.columns[index].key === props.titleKey) {
+					const onClick = event => props.onTitleClick(props.row, event);
 					return (
 						<td key={index}>
-							<button className="btn btn-link" onClick={onClick} role="link">{column}</button>
-							{props.row.actions ? props.row.actions.map(renderAction) : null}
+							<Button
+								bsStyle="link"
+								onClick={onClick}
+								role="link"
+							>
+								{column}
+							</Button>
+							<Actions
+								actions={props.row.actions || []}
+								hideLabel
+								link
+							/>
 						</td>
 					);
 				}
@@ -23,34 +35,14 @@ function RowRenderer(props) {
 			})}
 		</tr>
 	);
-	function renderAction(aprops, index) {
-		const onClick = (event) => {
-			aprops.onClick(props.row, event);
-		};
-		const btnClass = classnames(
-			'btn',
-			'btn-link',
-			theme.btn
-		);
-		return (
-			<div className="btn-group" key={index}>
-				<button className={btnClass} onClick={onClick}>
-					<i className={aprops.icon}></i>
-				</button>
-			</div>
-		);
-	}
-	renderAction.propTypes = {
-		onClick: React.PropTypes.func,
-		icon: React.PropTypes.string,
-		name: React.PropTypes.string,
-	};
 }
 RowRenderer.propTypes = {
-	row: React.PropTypes.object,
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.object
+	row: PropTypes.object,
+	columns: PropTypes.arrayOf(
+		PropTypes.object
 	),
+	titleKey: PropTypes.string,
+	onTitleClick: PropTypes.func,
 };
 
 function ListHeader(props) {
@@ -61,9 +53,9 @@ function ListHeader(props) {
 	);
 }
 ListHeader.propTypes = {
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.shape(
-			{ label: React.PropTypes.string },
+	columns: PropTypes.arrayOf(
+		PropTypes.shape(
+			{ label: PropTypes.string },
 		)
 	),
 };
@@ -74,24 +66,26 @@ ListHeader.propTypes = {
  * @example
 <DisplayTable name="Hello world"></DisplayTable>
  */
-function DisplayTable(props) {
+function DisplayTable({ items, columns, titleKey, onTitleClick }) {
 	const className = classnames(
 		'table',
-		'talend-component-list-display-table',
+		'tc-list-display-table',
 		theme.table,
 	);
 	return (
 		<table className={className}>
 			<thead>
-				<ListHeader columns={props.columns} />
+				<ListHeader columns={columns} />
 			</thead>
 			<tbody>
-				{props.items.map(
+				{items.map(
 					(item, index) => (
 						<RowRenderer
 							key={index}
 							row={item}
-							columns={props.columns}
+							columns={columns}
+							titleKey={titleKey || 'name'}
+							onTitleClick={onTitleClick}
 						/>
 					)
 				)}
@@ -101,12 +95,14 @@ function DisplayTable(props) {
 }
 
 DisplayTable.propTypes = {
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.object
+	items: PropTypes.arrayOf(
+		PropTypes.object
 	),
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.object
+	columns: PropTypes.arrayOf(
+		PropTypes.object
 	),
+	titleKey: PropTypes.string,
+	onTitleClick: PropTypes.func,
 };
 
 export default DisplayTable;

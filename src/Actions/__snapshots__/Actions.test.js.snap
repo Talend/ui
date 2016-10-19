@@ -1,6 +1,6 @@
 exports[`Actions should render buttons 1`] = `
 <div
-  className="btn-group">
+  className="tc-actions btn-group">
   <button
     className="btn btn-primary"
     disabled={false}

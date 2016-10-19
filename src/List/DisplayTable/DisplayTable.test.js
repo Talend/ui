@@ -3,6 +3,8 @@ import renderer from 'react-test-renderer';
 
 import DisplayTable from './DisplayTable.component';
 
+jest.mock('react-dom');
+
 describe('DisplayTable', () => {
 	it('should render its name', () => {
 		const items = [
@@ -13,8 +15,13 @@ describe('DisplayTable', () => {
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 		];
+		const onTitleClick = jest.fn();
 		const wrapper = renderer.create(
-			<DisplayTable items={items} columns={columns} />).toJSON();
+			<DisplayTable
+				items={items}
+				columns={columns}
+				onTitleClick={onTitleClick}
+			/>).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });

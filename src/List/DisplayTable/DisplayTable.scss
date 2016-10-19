@@ -1,8 +1,8 @@
 // DisplayTable styles
-.table .btn {
+.table :global(.btn-group) {
 	visibility: hidden;
 }
 
-.table tr:hover .btn {
+.table tr:hover :global(.btn-group) {
 	visibility: visible;
 }

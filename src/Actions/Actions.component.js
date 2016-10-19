@@ -76,10 +76,11 @@ function Actions(props) {
 		}
 	});
 	return (
-		<ButtonGroup {...buttonGroupProps}>
+		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
 			{props.actions.map((action, index) => renderAction({
 				hideLabel: props.hideLabel,
 				placement: props.placement,
+				link: props.link,
 				...action,
 			}, index))}
 		</ButtonGroup>);

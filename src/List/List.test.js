@@ -25,6 +25,7 @@ describe('List', () => {
 				{ key: 'id', label: 'Id' },
 				{ key: 'name', label: 'Name' },
 			],
+			onTitleClick: jest.fn(),
 		};
 		const wrapper = renderer.create(
 			<List {...props} />

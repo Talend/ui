@@ -1,6 +1,6 @@
 exports[`DisplayTable should render its name 1`] = `
 <table
-  className="table talend-component-list-display-table">
+  className="table tc-list-display-table">
   <thead>
     <tr>
       <th>
@@ -17,7 +17,16 @@ exports[`DisplayTable should render its name 1`] = `
         1
       </td>
       <td>
-        one
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          role="link"
+          type="button">
+          one
+        </button>
+        <div
+          className="tc-actions btn-group" />
       </td>
     </tr>
     <tr>
@@ -25,7 +34,16 @@ exports[`DisplayTable should render its name 1`] = `
         2
       </td>
       <td>
-        two
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          role="link"
+          type="button">
+          two
+        </button>
+        <div
+          className="tc-actions btn-group" />
       </td>
     </tr>
   </tbody>

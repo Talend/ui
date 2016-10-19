@@ -12,11 +12,11 @@ const props = {
 			modified: 1355563265.81,
 			author: 'Jean-Pierre DUPONT',
 			actions: [{
-				name: 'edit',
+				label: 'edit',
 				icon: 'fa fa-edit',
 				onClick: action('onEdit'),
 			}, {
-				name: 'delete',
+				label: 'delete',
 				icon: 'fa fa-trash-o',
 				onClick: action('onDelete'),
 			}],
@@ -46,11 +46,12 @@ const props = {
 	],
 	columns: [
 		{ key: 'id', label: 'Id' },
-		{ key: 'name', label: 'Name', onClickView: action('onDataClick') },
+		{ key: 'name', label: 'Name' },
+		{ key: 'author', label: 'Author' },
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
-		{ key: 'author', label: 'Author' },
 	],
+	onTitleClick: action('onTitleClick'),
 };
 
 storiesOf('List', module)
