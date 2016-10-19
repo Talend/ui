@@ -10,6 +10,5 @@
   },
   "disallowKeywordsOnNewLine": [ ],
   "disallowMultipleVarDecl": null,
-  "maximumLineLength": 120,
   "requireSemicolons": true
 }
