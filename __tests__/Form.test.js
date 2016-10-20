@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import {
-  FormControl,
-  Checkbox,
+	FormControl,
+	Checkbox,
 } from 'react-bootstrap';
 import Form from '../src/Form';
 
@@ -56,7 +56,7 @@ describe('<Form/>', () => {
 		const input = wrapper.find('input').first();
 		input.simulate('change', { target: { value: 'Test' } });
 		expect(input.props().value).toEqual('Test');
-	// expect(onChange.mock.calls.length).toEqual(1);
+		// expect(onChange.mock.calls.length).toEqual(1);
 	});
 	it('Handles submit', () => {
 		wrapper.simulate('submit');
