@@ -44,7 +44,7 @@ $btn-background-tint-percent: 10 !default;
 	&-info,
 	&-warning,
 	&-danger {
-		border: none;
+		border-color: transparent;
 	}
 
 	&-success,
