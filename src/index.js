@@ -70,6 +70,7 @@ import Action from './Action';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
+import Icon from './Icon';
 import List from './List';
 import SidePanel from './SidePanel';
 
@@ -78,6 +79,7 @@ export {
 	Actions,
 	AppHeaderBar,
 	Breadcrumbs,
+	Icon,
 	List,
 	SidePanel,
 
