@@ -4,6 +4,7 @@ exports[`Actions should render buttons 1`] = `
   <button
     className="btn btn-primary"
     disabled={false}
+    href={undefined}
     onClick={[Function]}
     role={null}
     type="button">
@@ -16,6 +17,7 @@ exports[`Actions should render buttons 1`] = `
   <button
     className="btn btn-default"
     disabled={false}
+    href={undefined}
     onClick={[Function]}
     role={null}
     type="button">
@@ -28,6 +30,7 @@ exports[`Actions should render buttons 1`] = `
   <button
     className="btn btn-default"
     disabled={false}
+    href={undefined}
     onClick={[Function]}
     role={null}
     type="button">

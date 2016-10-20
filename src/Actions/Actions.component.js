@@ -1,49 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
 	ButtonGroup,
-	Button,
-	OverlayTrigger,
-	Tooltip,
 } from 'react-bootstrap';
-
-function renderAction(props, index) {
-	const {
-		hideLabel,
-		placement,
-		onClick,
-		link,
-		...action,
-	} = props;
-	const rClick = event => onClick(action, event);
-	let bsStyle = props.bsStyle;
-	if (!bsStyle) {
-		if (link) {
-			bsStyle = 'link';
-		} else {
-			bsStyle = 'default';
-		}
-	}
-	let btn = (
-		<Button
-			onClick={rClick}
-			bsStyle={bsStyle}
-			key={hideLabel ? null : index}
-			role={link ? 'link' : null}
-		>
-			{action.icon ? <i className={action.icon} /> : null}
-			{hideLabel ? null : <span>{action.label}</span>}
-		</Button>
-	);
-	if (hideLabel) {
-		const tooltip = (<Tooltip>{action.label}</Tooltip>);
-		btn = (
-			<OverlayTrigger placement={placement || 'top'} overlay={tooltip} key={index}>
-				{btn}
-			</OverlayTrigger>
-		);
-	}
-	return btn;
-}
+import Action from '../Action';
 
 /**
  * @param {object} props react props
@@ -77,20 +36,25 @@ function Actions(props) {
 	});
 	return (
 		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
-			{props.actions.map((action, index) => renderAction({
-				hideLabel: props.hideLabel,
-				placement: props.placement,
-				link: props.link,
-				...action,
-			}, index))}
+			{props.actions.map((action, index) => (
+				<Action
+					hideLabel={props.hideLabel}
+					tooltipPlacement={props.tooltipPlacement}
+					link={props.link}
+					key={index}
+					{...action}
+				/>
+			))}
 		</ButtonGroup>);
 }
 
 Actions.propTypes = {
-	actions: React.PropTypes.array,
-	hideLabel: React.PropTypes.bool,
-	placement: OverlayTrigger.propTypes.placement,
-	link: React.PropTypes.bool,
+	actions: PropTypes.arrayOf(
+		PropTypes.object
+	),
+	hideLabel: PropTypes.bool,
+	tooltipPlacement: Action.propTypes.tooltipPlacement,
+	link: PropTypes.bool,
 	...ButtonGroup.propTypes,
 };
 

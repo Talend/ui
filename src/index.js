@@ -66,6 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
+import Action from './Action';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
@@ -73,6 +74,7 @@ import List from './List';
 import SidePanel from './SidePanel';
 
 export {
+	Action,
 	Actions,
 	AppHeaderBar,
 	Breadcrumbs,

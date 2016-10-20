@@ -4,9 +4,22 @@ import { storiesOf, action } from '@kadira/storybook';
 import { Actions } from '../src/index';
 
 const actions = [
-	{ label: 'Preparations', icon: 'fa fa-asterisk', onClick: action('Preparations clicked'), bsStyle: 'primary' },
-	{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick: action('Datasets clicked') },
-	{ label: 'Favorites', icon: 'fa fa-star', onClick: action('Favorites clicked') },
+	{
+		label: 'Preparations',
+		icon: 'fa fa-asterisk',
+		onClick: action('Preparations clicked'),
+		bsStyle: 'primary',
+	},
+	{
+		label: 'Datasets',
+		icon: 'fa fa-file-excel-o',
+		onClick: action('Datasets clicked'),
+	},
+	{
+		label: 'Favorites',
+		icon: 'fa fa-star',
+		onClick: action('Favorites clicked'),
+	},
 ];
 storiesOf('Actions', module)
 	.addWithInfo('default', () => (

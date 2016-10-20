@@ -1,0 +1,15 @@
+exports[`Action should render a button 1`] = `
+<button
+  className="btn btn-default"
+  disabled={false}
+  href={undefined}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <i
+    className="fa fa-asterisk" />
+  <span>
+    Click me
+  </span>
+</button>
+`;
