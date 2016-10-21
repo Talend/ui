@@ -10,6 +10,7 @@ import {
 	NavDropdown,
 	NavItem,
 } from 'react-bootstrap';
+import Icon from '../Icon';
 
 const NAV_ITEM = 'navItem';
 const DROPDOWN = 'dropdown';
@@ -17,7 +18,9 @@ const DROPDOWN = 'dropdown';
 export function renderNavItem(props, index) {
 	const { icon, ...rest } = props;
 	return (
-		<NavItem key={index} {...rest}><i className={icon} /></NavItem>
+		<NavItem key={index} {...rest}>
+			<Icon name={icon} />
+		</NavItem>
 	);
 }
 renderNavItem.propTypes = {
@@ -29,7 +32,7 @@ export function renderDropdownItem(props, index) {
 	const { icon, name, ...rest } = props;
 	return (
 		<MenuItem key={index} {...rest}>
-			<i aria-hidden="true" className={icon} />
+			<Icon name={icon} />
 			{name}
 		</MenuItem>
 	);
@@ -108,7 +111,7 @@ export function renderForm(props, index) {
 		<Navbar.Form {...props.form} key={index}>
 			{props.formgroups ? props.formgroups.map(renderFormGroup) : null}
 			<Button {...props.button}>
-				{props.icon ? (<i className={props.icon} />) : null}
+				{props.icon ? (<Icon name={props.icon} />) : null}
 				{props.buttonLabel}
 			</Button>
 		</Navbar.Form>
@@ -150,15 +153,27 @@ renderContent.propTypes = {
  * @param {object} props   react props
  */
 function AppHeaderBar(props) {
-	const { className, ...brandProps } = props.brandLink;
-	const brandClasses = classNames('navbar-brand', className);
+	let brandLink;
+	if (props.brandLink) {
+		brandLink = (
+			<Button
+				bsStyle="link"
+				role="link"
+				{...props.brandLink}
+			>
+				{props.app}
+			</Button>
+		);
+	} else {
+		brandLink = (
+			<span>{props.app}</span>
+		);
+	}
 	return (
 		<Navbar fluid fixedTop inverse className="tc-app-header-bar">
 			<Navbar.Header>
 				<Navbar.Brand>
-					<a className={brandClasses} {...brandProps}>
-						{props.app}
-					</a>
+					{brandLink}
 				</Navbar.Brand>
 				<Navbar.Toggle />
 			</Navbar.Header>
@@ -169,9 +184,8 @@ function AppHeaderBar(props) {
 	);
 }
 AppHeaderBar.propTypes = {
-	app: React.PropTypes.string,
+	app: React.PropTypes.string.isRequired,
 	brandLink: React.PropTypes.shape({
-		title: React.PropTypes.string,
 		onClick: React.PropTypes.func,
 		className: React.PropTypes.string,
 	}),

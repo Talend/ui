@@ -16,7 +16,7 @@ describe('AppHeaderBar', () => {
 
 		// when
 		const appBarInstance = shallow(appBar);
-		appBarInstance.find('NavbarBrand').find('a').simulate('click');
+		appBarInstance.find('NavbarBrand').find('Button').simulate('click');
 
 		// then
 		expect(brandClick).toBeCalled();

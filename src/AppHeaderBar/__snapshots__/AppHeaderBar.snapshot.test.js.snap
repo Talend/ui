@@ -1,16 +1,19 @@
-exports[`AppHeaderBar should render its name 1`] = `
+exports[`AppHeaderBar should render 1`] = `
 <nav
   className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
   <div
     className="container-fluid">
     <div
       className="navbar-header">
-      <a
-        className="navbar-brand my-brand-class navbar-brand"
+      <button
+        className="my-brand-class navbar-brand btn btn-link"
+        disabled={false}
         onClick={[Function]}
-        title="my brand title">
+        role="link"
+        title="my brand title"
+        type="button">
         Example App Name
-      </a>
+      </button>
       <button
         className="navbar-toggle collapsed"
         onClick={[Function]}
@@ -43,7 +46,9 @@ exports[`AppHeaderBar should render its name 1`] = `
             onClick={[Function]}
             role="button">
             <i
-              className="fa fa-bars" />
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
           </a>
         </li>
       </ul>
@@ -60,7 +65,9 @@ exports[`AppHeaderBar should render its name 1`] = `
             onClick={[Function]}
             role="button">
             <i
-              className="fa fa-heart" />
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
           </a>
         </li>
         <li
@@ -96,7 +103,8 @@ exports[`AppHeaderBar should render its name 1`] = `
                 tabIndex="-1">
                 <i
                   aria-hidden="true"
-                  className="fa fa-fw fa-cog" />
+                  className="fa fa-fw fa-cog"
+                  title={null} />
                 settings
               </a>
             </li>
@@ -121,7 +129,146 @@ exports[`AppHeaderBar should render its name 1`] = `
           onClick={[Function]}
           type="button">
           <i
-            className="fa fa-search" />
+            aria-hidden="true"
+            className="fa fa-search"
+            title={null} />
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeaderBar should render wihtout brandLink 1`] = `
+<nav
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <span
+        className="navbar-brand">
+        Example App Name
+      </span>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-fw fa-cog"
+                  title={null} />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        className="navbar-form navbar-right"
+        onSubmit={[Function]}>
+        <div
+          className="form-group">
+          <input
+            className="form-control"
+            id="globalSearch"
+            onChange={[Function]}
+            placeholder="search anything"
+            type="text" />
+        </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-search"
+            title={null} />
           Save
         </button>
       </div>

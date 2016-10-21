@@ -73,7 +73,7 @@ const props = {
 };
 
 storiesOf('App Header Bar', module)
-	.add('default', () => (
+	.addWithInfo('default', () => (
 		<div>
 			<AppHeaderBar {...props} />
 			<div className="container" style={{ paddingTop: 40 }}>
@@ -85,4 +85,19 @@ storiesOf('App Header Bar', module)
 				<pre>{JSON.stringify(props, null, 2)}</pre>
 			</div>
 		</div>
-	));
+	))
+	.addWithInfo('without brandLink', () => {
+		const myprops = Object.assign({}, props);
+		delete myprops.brandLink;
+		return (
+			<div>
+				<AppHeaderBar {...myprops} />
+				<div className="container" style={{ paddingTop: 40 }}>
+					<h1>AppHeaderBar</h1>
+					<h2>Definition</h2>
+					<p>Display a navigation bar on top of the page.</p>
+					<p>Look on top</p>
+				</div>
+			</div>
+		);
+	});

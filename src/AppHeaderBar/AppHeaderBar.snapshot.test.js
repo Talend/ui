@@ -75,9 +75,21 @@ const props = {
 };
 
 describe('AppHeaderBar', () => {
-	it('should render its name', () => {
+	it('should render', () => {
 		// given
 		const appBar = <AppHeaderBar {...props} />;
+
+		// when
+		const appBarInstance = renderer.create(appBar).toJSON();
+
+		// then
+		expect(appBarInstance).toMatchSnapshot();
+	});
+	it('should render wihtout brandLink', () => {
+		// given
+		const myprops = Object.assign({}, props);
+		delete myprops.brandLink;
+		const appBar = <AppHeaderBar {...myprops} />;
 
 		// when
 		const appBarInstance = renderer.create(appBar).toJSON();
