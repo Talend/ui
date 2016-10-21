@@ -30,7 +30,9 @@ exports[`List should render its name 1`] = `
             onKeyDown={[Function]}
             role="button">
             <i
-              className="fa fa-bars" />
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
              
             <span
               className="caret" />
@@ -50,8 +52,11 @@ exports[`List should render its name 1`] = `
                 role="menuitem"
                 tabIndex="-1">
                 <i
-                  className="fa fa-bars" />
-                 Table
+                  aria-hidden="true"
+                  className="fa fa-bars"
+                  title={null} />
+                 
+                Table
               </a>
             </li>
             <li
@@ -65,8 +70,11 @@ exports[`List should render its name 1`] = `
                 role="menuitem"
                 tabIndex="-1">
                 <i
-                  className="fa fa-list-alt" />
-                 Expanded
+                  aria-hidden="true"
+                  className="fa fa-list-alt"
+                  title={null} />
+                 
+                Expanded
               </a>
             </li>
             <li
@@ -80,8 +88,11 @@ exports[`List should render its name 1`] = `
                 role="menuitem"
                 tabIndex="-1">
                 <i
-                  className="fa fa-th-large" />
-                 Tile
+                  aria-hidden="true"
+                  className="fa fa-th-large"
+                  title={null} />
+                 
+                Tile
               </a>
             </li>
           </ul>
@@ -150,13 +161,16 @@ exports[`List should render its name 1`] = `
         <button
           activeHref={undefined}
           activeKey={undefined}
-          className="navbar-btn btn btn-default"
+          className="navbar-btn btn btn-link"
           disabled={false}
           onClick={[Function]}
           onSelect={null}
+          role="button"
           type="button">
           <i
-            className="fa fa-sort-asc" />
+            aria-hidden="true"
+            className="fa fa-sort-asc"
+            title={null} />
           ASCENDING
         </button>
       </ul>

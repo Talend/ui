@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import Icon from '../../../Icon';
 
 /**
  * @param {object} props react props
@@ -13,20 +14,41 @@ function SelectSortBy(props) {
 			selected = sortBy;
 		}
 	});
+	let onSelectSortBy = props.onSelectSortBy;
+	if (onSelectSortBy) {
+		onSelectSortBy = (key, event) => props.onSelectSortBy(
+			event,
+			{
+				sortBy: key.id,
+				sortDesc: !!props.sortDesc,
+			}
+		);
+	}
+	const toggleSortOrder = () => {
+		if (props.onSelectSortBy) {
+			props.onSelectSortBy(
+				event,
+				{
+					sortBy: selected.id,
+					sortDesc: !props.sortDesc,
+				}
+			);
+		}
+	};
 	return (
 		<Nav>
 			<label className="navbar-text">Sort by:</label>
 			<NavDropdown
 				title={selected.name}
 				id="tc-list-toolbar-sort-by"
-				onSelect={props.onSelectSortBy}
+				onSelect={onSelectSortBy}
 			>
 				{props.sortBy.map((sortBy, index) => (
 					<MenuItem key={index} eventKey={sortBy}>{sortBy.name}</MenuItem>
 				))}
 			</NavDropdown>
-			<Button className="navbar-btn" onClick={props.onSelectSortBy}>
-				<i className={props.sortDesc ? 'fa fa-sort-desc' : 'fa fa-sort-asc'} />
+			<Button className="navbar-btn" bsStyle="link" role="button" onClick={toggleSortOrder}>
+				<Icon name={props.sortDesc ? 'fa-sort-desc' : 'fa-sort-asc'} />
 				{props.sortDesc ? 'DESCENDING' : 'ASCENDING'}
 			</Button>
 		</Nav>

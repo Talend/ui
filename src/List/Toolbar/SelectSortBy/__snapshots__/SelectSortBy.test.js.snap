@@ -62,13 +62,16 @@ exports[`SelectSortBy should render its name 1`] = `
   <button
     activeHref={undefined}
     activeKey={undefined}
-    className="navbar-btn btn btn-default"
+    className="navbar-btn btn btn-link"
     disabled={false}
     onClick={[Function]}
     onSelect={null}
+    role="button"
     type="button">
     <i
-      className="fa fa-sort-asc" />
+      aria-hidden="true"
+      className="fa fa-sort-asc"
+      title={null} />
     ASCENDING
   </button>
 </ul>
