@@ -1,10 +1,159 @@
-exports[`DisplayTile should render its name 1`] = `
-<div
-  className="panel panel-default">
-  <pre>
-    {
-      \"name\": \"Hello world\"
-    }
-  </pre>
-</div>
+exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
+<ul
+  className={undefined}>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={undefined}>
+      <span
+        className="">
+        1
+      </span>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Name
+        </dt>
+        <dd
+          className={undefined}
+          title="one">
+          one
+        </dd>
+      </dl>
+    </div>
+  </li>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={undefined}>
+      <span
+        className="">
+        2
+      </span>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Name
+        </dt>
+        <dd
+          className={undefined}
+          title="two">
+          two
+        </dd>
+      </dl>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`DisplayTile should render 3 tiles with id as title by setting and render a button 1`] = `
+<ul
+  className={undefined}>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={[Function]}>
+      <button
+        className="btn btn-link"
+        onClick={[Function]}
+        role="link">
+        1
+      </button>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Name
+        </dt>
+        <dd
+          className={undefined}
+          title="one">
+          one
+        </dd>
+      </dl>
+    </div>
+  </li>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={[Function]}>
+      <button
+        className="btn btn-link"
+        onClick={[Function]}
+        role="link">
+        2
+      </button>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Name
+        </dt>
+        <dd
+          className={undefined}
+          title="two">
+          two
+        </dd>
+      </dl>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
+<ul
+  className={undefined}>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={undefined}>
+      <span
+        className="">
+        one
+      </span>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Id
+        </dt>
+        <dd
+          className={undefined}
+          title={1}>
+          1
+        </dd>
+      </dl>
+    </div>
+  </li>
+  <li>
+    <div
+      className={undefined}
+      onClick={undefined}
+      onDoubleClick={undefined}>
+      <span
+        className="">
+        two
+      </span>
+      <dl
+        className={undefined}>
+        <dt
+          className={undefined}>
+          Id
+        </dt>
+        <dd
+          className={undefined}
+          title={2}>
+          2
+        </dd>
+      </dl>
+    </div>
+  </li>
+</ul>
 `;

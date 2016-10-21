@@ -51,7 +51,9 @@ const props = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	onTitleClick: action('onTitleClick'),
+	titleKey: 'id',
+	onTitleClick: action('onClick'),
+	onElementSelect: action('onSelect'),
 };
 
 storiesOf('List', module)
