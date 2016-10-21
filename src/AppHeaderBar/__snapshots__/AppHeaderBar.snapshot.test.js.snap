@@ -95,6 +95,7 @@ exports[`AppHeaderBar should render its name 1`] = `
                 role="menuitem"
                 tabIndex="-1">
                 <i
+                  aria-hidden="true"
                   className="fa fa-fw fa-cog" />
                 settings
               </a>

@@ -26,21 +26,30 @@ renderNavItem.propTypes = {
 };
 
 export function renderDropdownItem(props, index) {
+	const { icon, name, ...rest } = props;
 	return (
-		<MenuItem key={index}>
-			<i className={props.icon} />
-			{props.name}
+		<MenuItem key={index} {...rest}>
+			<i aria-hidden="true" className={icon} />
+			{name}
 		</MenuItem>
 	);
 }
 renderDropdownItem.propTypes = {
 	icon: React.PropTypes.string,
 	name: React.PropTypes.string,
+	onClick: React.PropTypes.func,
 };
 
 export function renderDropdown(props, index) {
+	let dropdownProps = props.dropdown;
+	if (dropdownProps.onSelect) {
+		dropdownProps = {
+			...props.dropdown,
+			onSelect: (eventKey, event) => dropdownProps.onSelect(event, eventKey),
+		};
+	}
 	return (
-		<NavDropdown {...props.dropdown} key={index}>
+		<NavDropdown {...dropdownProps} key={index}>
 			{props.items.map(renderDropdownItem)}
 		</NavDropdown>
 	);
