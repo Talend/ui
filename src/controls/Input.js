@@ -5,9 +5,14 @@ import BControlLabel from 'react-bootstrap/lib/ControlLabel';
 import BFormControl from 'react-bootstrap/lib/FormControl';
 import BHelpBlock from 'react-bootstrap/lib/HelpBlock';
 
+const REQUIRED_FIELD_SYMBOL = "*";
+
 const Input = ({ formData, name, onChange, schema, required, type, helpMessage }) => (
 	<BFormGroup>
-		<BControlLabel>{name}</BControlLabel>
+		<BControlLabel>
+			{schema.title ? schema.title : name }
+			{required ? REQUIRED_FIELD_SYMBOL: ''}
+		</BControlLabel>
 		<BFormControl
 			type={type}
 			value={formData || schema.default}
