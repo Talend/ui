@@ -1,4 +1,4 @@
-exports[`Toolbar should render its name 1`] = `
+exports[`Toolbar should render 1`] = `
 <div
   className="navbar navbar-default"
   role="toolbar">
@@ -167,9 +167,9 @@ exports[`Toolbar should render its name 1`] = `
         type="button">
         <i
           aria-hidden="true"
-          className="fa fa-sort-asc"
+          className="fa fa-sort-desc"
           title={null} />
-        ASCENDING
+        DESCENDING
       </button>
     </ul>
     <form
