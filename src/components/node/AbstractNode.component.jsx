@@ -23,11 +23,11 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
     const sinkPorts = ports.filter(port => port.attributes.get('type') === 'SINK');
     const range = [nodePosition.y, nodePosition.y + nodeSize.height];
     const scaleYEmitter = scaleLinear()
-            .domain([0, emitterPorts.size + 1])
-            .range(range);
+        .domain([0, emitterPorts.size + 1])
+        .range(range);
     const scaleYSink = scaleLinear()
-            .domain([0, sinkPorts.size + 1])
-            .range(range);
+        .domain([0, sinkPorts.size + 1])
+        .range(range);
     let emitterNumber = 0;
     let sinkNumber = 0;
     emitterPorts.forEach(port => {
@@ -67,9 +67,9 @@ export const AbstractNode = React.createClass({
         this.d3Node.data([this.props.node.position]);
         this.d3Node.call(
             drag()
-            .on('start', this.onDragStart)
-            .on('drag', this.onDrag)
-            .on('end', this.onDragEnd)
+                .on('start', this.onDragStart)
+                .on('drag', this.onDrag)
+                .on('end', this.onDragEnd)
         );
     },
     shouldComponentUpdate(nextProps) {
@@ -112,14 +112,14 @@ export const AbstractNode = React.createClass({
     render() {
         const { node } = this.props;
         return (
-          <g>
-            <g
-              transform={`translate(${node.position.x},${node.position.y})`}
-              ref={c => (this.nodeElement = c)} onClick={this.onClick}
-            >
-              {this.renderContent()}
+            <g>
+                <g
+                    transform={`translate(${node.position.x},${node.position.y})`}
+                    ref={c => (this.nodeElement = c)} onClick={this.onClick}
+                    >
+                    {this.renderContent()}
+                </g>
             </g>
-          </g>
         );
     },
 });

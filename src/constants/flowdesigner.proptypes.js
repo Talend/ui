@@ -16,7 +16,7 @@ export const PortType = recordOf({
 		x: PropTypes.number.isRequired,
 		y: PropTypes.number.isRequired,
 	}),
-	attr: PropTypes.object.isRequired,
+	attributes: PropTypes.object.isRequired,
 });
 
 export const LinkType = recordOf({
