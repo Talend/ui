@@ -71,6 +71,7 @@ import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import Icon from './Icon';
+import Layout from './Layout';
 import List from './List';
 import SidePanel from './SidePanel';
 
@@ -80,6 +81,7 @@ export {
 	AppHeaderBar,
 	Breadcrumbs,
 	Icon,
+	Layout,
 	List,
 	SidePanel,
 

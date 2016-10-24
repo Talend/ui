@@ -1,0 +1,29 @@
+////
+/// Layout
+/// @group Custom widgets
+////
+
+/// Layout height of the header
+/// @type Number (Unit)
+$tc-layout-header-height: 49px;
+
+.app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.header {
+	flex: 0 0 $tc-layout-header-height;
+}
+
+.content {
+	display: flex;
+	flex-direction: row;
+	flex: 1 1 auto;
+}
+
+html,
+body {
+	min-height: 100vh;
+}

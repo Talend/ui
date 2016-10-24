@@ -1,0 +1,27 @@
+////
+/// Layout
+/// @group Custom widgets
+////
+
+/// Layout first columns in two columns background color
+/// @type Color
+$tc-layout-two-columns-sidemenu-bg: #4F8992 !default;
+
+.container {
+	display: flex;
+	flex: 1 0 100%;
+	min-height: 0;
+}
+
+.sidemenu {
+	background-color: $tc-layout-two-columns-sidemenu-bg;
+
+	:global(.nav-pills) :global(.btn-link) {
+		color: #FFF;
+		width: 100%;
+	}
+
+	:global(.btn-link):hover {
+		background-color: darken($tc-layout-two-columns-sidemenu-bg, 12%);
+	}
+}

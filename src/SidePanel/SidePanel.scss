@@ -63,8 +63,8 @@ $tc-side-panel-docked-spacing: 15px !default;
 		font-size: 1.2em;
 		text-transform: uppercase;
 
-		i {
-			padding-right: 20px;
+		i + span {
+			padding-left: 20px;
 		}
 
 		span {

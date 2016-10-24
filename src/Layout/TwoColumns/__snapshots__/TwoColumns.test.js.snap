@@ -1,0 +1,9 @@
+exports[`TwoColumns should render its name 1`] = `
+<div
+  className={undefined}>
+  <div
+    className={undefined} />
+  <div
+    className={undefined} />
+</div>
+`;

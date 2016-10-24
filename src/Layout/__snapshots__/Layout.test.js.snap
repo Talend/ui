@@ -1,0 +1,101 @@
+exports[`Layout should render Layout OneColumn 1`] = `
+<div
+  className={undefined}>
+  <div
+    className={undefined}>
+    <nav
+      className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+      <div
+        className="container-fluid">
+        <div
+          className="navbar-header">
+          <span
+            className="navbar-brand" />
+          <button
+            className="navbar-toggle collapsed"
+            onClick={[Function]}
+            type="button">
+            <span
+              className="sr-only">
+              Toggle navigation
+            </span>
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+          </button>
+        </div>
+        <div
+          aria-expanded={null}
+          className="navbar-collapse collapse" />
+      </div>
+    </nav>
+  </div>
+  <div
+    className={undefined}>
+    <div>
+      <h1>
+        Column one
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout should render Layout TwoColumns 1`] = `
+<div
+  className={undefined}>
+  <div
+    className={undefined}>
+    <nav
+      className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+      <div
+        className="container-fluid">
+        <div
+          className="navbar-header">
+          <span
+            className="navbar-brand" />
+          <button
+            className="navbar-toggle collapsed"
+            onClick={[Function]}
+            type="button">
+            <span
+              className="sr-only">
+              Toggle navigation
+            </span>
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+          </button>
+        </div>
+        <div
+          aria-expanded={null}
+          className="navbar-collapse collapse" />
+      </div>
+    </nav>
+  </div>
+  <div
+    className={undefined}>
+    <div
+      className={undefined}>
+      <div
+        className={undefined}>
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className={undefined}>
+        <h1>
+          Column two
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;
