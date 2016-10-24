@@ -1,8 +1,23 @@
+exports[`Action should pass all props to the Button 1`] = `
+<button
+  className="navbar-btn btn btn-default"
+  disabled={false}
+  notExisting={true}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <i
+    className="fa fa-asterisk" />
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
 exports[`Action should render a button 1`] = `
 <button
   className="btn btn-default"
   disabled={false}
-  href={undefined}
   onClick={[Function]}
   role={null}
   type="button">

@@ -17,6 +17,7 @@ function Action(props) {
 		link,
 		...rest,
 	} = props;
+
 	function rClick(event) {
 		return onClick(
 			event,
@@ -29,6 +30,7 @@ function Action(props) {
 			}
 		);
 	}
+
 	let bsStyle = props.bsStyle;
 	if (!bsStyle) {
 		if (link) {
@@ -37,24 +39,12 @@ function Action(props) {
 			bsStyle = 'default';
 		}
 	}
-	const restBtn = {};
-	Object.keys(Button.propTypes).forEach((key) => {
-		if (
-			key === 'bsStyle' ||
-			key === 'onClick' ||
-			key === 'role' ||
-			rest[key] !== undefined
-		) {
-			return;
-		}
-		restBtn[key] = rest[key];
-	});
 	let btn = (
 		<Button
 			onClick={rClick}
 			bsStyle={bsStyle}
 			role={link ? 'link' : null}
-			{...restBtn}
+			{...rest}
 		>
 			{icon ? <i className={icon} /> : null}
 			{hideLabel ? null : <span>{label}</span>}
