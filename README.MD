@@ -60,20 +60,4 @@ Exemple a reducer listening for 'DATASTREAM_DESIGNER_NODE_SELECTED' could trigge
 
 ## Redux API
 
-Redux action type for datastream_designer should follow this convention.
 
-DATASTREAM_DESIGNER_*DOMAIN*_*ACTION*
-
-Ex: DATASTREAM_DESIGNER_NODE_SELECTED, DATASTREAM_DESIGNER_NODE_MOVED
-
-| Action                                 | payload value           | expected type            |
-| -------------------------------------- |:-----------------------:| ------------------------:|
-| DATASTREAM_DESIGNER_NODE_SELECTED      | nodeId                  | string                   |
-| DATASTREAM_DESIGNER_NODE_MOVE          | nodeId                  | string                   |
-| DATASTREAM_DESIGNER_NODE_MOVE          | position                | `{x: number, y: number}` |
-
-other prospective,
-
-expose api as a configurable middleware to fire intermediate customized action into the host app ?
-
-expose api as classical callback hooks on the main component ?
