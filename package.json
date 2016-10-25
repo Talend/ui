@@ -1,0 +1,39 @@
+{
+  "version": "4.4.0",
+  "name": "talend-icons",
+  "description": "A scalable set of icons handcrafted with <3 by Talend.",
+  "homepage": "https://talend.github.com/icons",
+  "author": "Talend inc",
+  "license": "(OFL-1.1 OR MIT)",
+  "style": "build/octicons.css",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "build"
+  ],
+  "repository": "https://github.com/talend/icons.git",
+  "bugs": {
+    "url": "https://github.com/talend/icons/issues"
+  },
+  "scripts": {
+    "build": "grunt",
+    "prepublish": "npm run build",
+    "test": "npm run build && ava --verbose \"test/**/*.js\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "ava": "^0.16.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-cssnano": "^2.1.0",
+    "grunt-svgmin": "^3.2.0",
+    "grunt-svgstore": "^1.0.0"
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons"
+  ]
+}

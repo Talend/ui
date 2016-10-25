@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg id="cluster" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<defs><style>.cls-1{fill:#231f20;}</style></defs><title>cluster</title><path class="cls-1" d="M650,85.5H150L0,435.5v250H800v-250Zm100,550H50v-150H750Z" transform="translate(0 -85.5)"/><rect class="cls-1" x="650" y="450" width="50" height="50"/><rect class="cls-1" x="100" y="450" width="50" height="50"/><rect class="cls-1" x="200" y="450" width="50" height="50"/><rect class="cls-1" x="300" y="450" width="50" height="50"/>
+</svg>
