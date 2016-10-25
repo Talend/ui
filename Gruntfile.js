@@ -103,8 +103,7 @@ module.exports = function(grunt) {
       },
       'docs-demo': {
         src: "build/sprite.talendicons-demo.html",
-        dest: "docs/sprite.talendicons-demo.html",
-          
+        dest: "docs/index.html"
       },
       'docs-css': {
         src: "build/talendicons.css",
