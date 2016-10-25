@@ -48,7 +48,7 @@ Object.keys(data).forEach(function(key) {
     "width": data[key].width,
     "height": data[key].height,
     "viewBox": "0 0 " + data[key].width + " " + data[key].height,
-    "class": "octicon octicon-" + key,
+    "class": "talendicon talendicon-" + key,
     "aria-hidden": "true"
   }
 
