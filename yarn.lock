@@ -5042,9 +5042,9 @@ react-stub-context@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-stub-context/-/react-stub-context-0.7.0.tgz#a1c7b0caacf1bff0cac4758a754d7b1bb9a11b67"
 
-react-talend-components@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.0.1.tgz#1d8f8139e500c912e22fab5fbbb64c22a32ce2cc"
+react-talend-components@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.4.1.tgz#266ab2b77cd735f638f46ba2b8a0da680c245a04"
 
 react-test-renderer@15:
   version "15.3.2"

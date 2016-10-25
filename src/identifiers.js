@@ -1,2 +1,1 @@
 export const APP_HEADER_BAR = 'REACT_CMF_APP_HEADER_BAR';
-export const SIDE_PANEL = 'REACT_CMF_SIDE_PANEL';

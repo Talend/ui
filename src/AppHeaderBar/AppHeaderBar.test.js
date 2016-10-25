@@ -24,7 +24,7 @@ describe('AppHeaderBar', () => {
 		expect(props.logo).toBe('my logo');
 	});
 	it('should be connected to the store', () => {
-		expect(AppHeaderBar.displayName).toBe(`Connect(${PureAppHeaderBar.displayName})`);
+		expect(AppHeaderBar.displayName).toBe('Connect(AppHeaderBar)');
 		expect(AppHeaderBar.WrappedComponent).toBe(PureAppHeaderBar);
 	});
 	it('should map dispatch to props bind onClick on react-redux-router', () => {
