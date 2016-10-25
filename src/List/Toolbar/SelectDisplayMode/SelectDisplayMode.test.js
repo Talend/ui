@@ -15,30 +15,30 @@ describe('SelectDisplayMode', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render with selected = table', () => {
+	it('should render with displayMode = table', () => {
 		const props = {
 			onSelectDisplayMode: jest.fn(),
-			selected: 'table',
+			displayMode: 'table',
 		};
 		const wrapper = renderer.create(
 			<SelectDisplayMode {...props} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render with selected = large', () => {
+	it('should render with displayMode = large', () => {
 		const props = {
 			onSelectDisplayMode: jest.fn(),
-			selected: 'large',
+			displayMode: 'large',
 		};
 		const wrapper = renderer.create(
 			<SelectDisplayMode {...props} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render with selected = tile', () => {
+	it('should render with displayMode = tile', () => {
 		const props = {
 			onSelectDisplayMode: jest.fn(),
-			selected: 'tile',
+			displayMode: 'tile',
 		};
 		const wrapper = renderer.create(
 			<SelectDisplayMode {...props} />

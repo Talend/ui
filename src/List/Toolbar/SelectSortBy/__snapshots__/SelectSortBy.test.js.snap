@@ -7,6 +7,7 @@ exports[`SelectSortBy should render its name 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
+    htmlFor="tc-list-toolbar-sort-by"
     onSelect={null}>
     Sort by:
   </label>

@@ -12,6 +12,7 @@ exports[`Toolbar should render 1`] = `
         activeHref={undefined}
         activeKey={undefined}
         className="navbar-text"
+        htmlFor="tc-list-toolbar-display-mode"
         onSelect={null}>
         Display:
       </label>
@@ -23,7 +24,7 @@ exports[`Toolbar should render 1`] = `
           aria-haspopup={true}
           className="dropdown-toggle"
           href=""
-          id="grid"
+          id="tc-list-toolbar-display-mode"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button">
@@ -36,7 +37,7 @@ exports[`Toolbar should render 1`] = `
             className="caret" />
         </a>
         <ul
-          aria-labelledby="grid"
+          aria-labelledby="tc-list-toolbar-display-mode"
           className="dropdown-menu"
           role="menu">
           <li
@@ -104,6 +105,7 @@ exports[`Toolbar should render 1`] = `
         activeHref={undefined}
         activeKey={undefined}
         className="navbar-text"
+        htmlFor="tc-list-toolbar-sort-by"
         onSelect={null}>
         Sort by:
       </label>

@@ -26,15 +26,15 @@ const displayModes = ['table', 'large', 'tile'];
  * @param {object} props react props
  */
 function SelectDisplayMode(props) {
-	const selected = props.selected ? props.selected : 'table';
+	const selected = props.displayMode ? props.displayMode : 'table';
 	const displayIcon = (<Icon name={getIcon(selected)} />);
 	const onSelectDisplayMode = (value, e) => {
 		props.onSelectDisplayMode(e, value);
 	};
 	return (
 		<Nav>
-			<label className="navbar-text">Display:</label>
-			<NavDropdown title={displayIcon} id="grid" onSelect={onSelectDisplayMode}>
+			<label className="navbar-text" htmlFor="tc-list-toolbar-display-mode">Display:</label>
+			<NavDropdown title={displayIcon} id="tc-list-toolbar-display-mode" onSelect={onSelectDisplayMode}>
 				{displayModes.map(mode => (
 					<MenuItem eventKey={mode}><Icon name={getIcon(mode)} /> {getLabel(mode)}</MenuItem>
 
@@ -45,7 +45,7 @@ function SelectDisplayMode(props) {
 }
 SelectDisplayMode.propTypes = {
 	onSelectDisplayMode: PropTypes.func,
-	selected: PropTypes.string,
+	displayMode: PropTypes.string,
 };
 
 export default SelectDisplayMode;

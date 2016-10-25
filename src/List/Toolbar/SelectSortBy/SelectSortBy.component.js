@@ -37,7 +37,7 @@ function SelectSortBy(props) {
 	};
 	return (
 		<Nav>
-			<label className="navbar-text">Sort by:</label>
+			<label className="navbar-text" htmlFor="tc-list-toolbar-sort-by">Sort by:</label>
 			<NavDropdown
 				title={selected.name}
 				id="tc-list-toolbar-sort-by"

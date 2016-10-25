@@ -7,6 +7,7 @@ exports[`SelectDisplayMode should render 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
+    htmlFor="tc-list-toolbar-display-mode"
     onSelect={null}>
     Display:
   </label>
@@ -18,7 +19,7 @@ exports[`SelectDisplayMode should render 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="grid"
+      id="tc-list-toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -31,7 +32,7 @@ exports[`SelectDisplayMode should render 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="grid"
+      aria-labelledby="tc-list-toolbar-display-mode"
       className="dropdown-menu"
       role="menu">
       <li
@@ -93,7 +94,7 @@ exports[`SelectDisplayMode should render 1`] = `
 </ul>
 `;
 
-exports[`SelectDisplayMode should render with selected = large 1`] = `
+exports[`SelectDisplayMode should render with displayMode = large 1`] = `
 <ul
   className="nav"
   role={null}>
@@ -102,6 +103,7 @@ exports[`SelectDisplayMode should render with selected = large 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
+    htmlFor="tc-list-toolbar-display-mode"
     onSelect={null}>
     Display:
   </label>
@@ -113,7 +115,7 @@ exports[`SelectDisplayMode should render with selected = large 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="grid"
+      id="tc-list-toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -126,7 +128,7 @@ exports[`SelectDisplayMode should render with selected = large 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="grid"
+      aria-labelledby="tc-list-toolbar-display-mode"
       className="dropdown-menu"
       role="menu">
       <li
@@ -188,7 +190,7 @@ exports[`SelectDisplayMode should render with selected = large 1`] = `
 </ul>
 `;
 
-exports[`SelectDisplayMode should render with selected = table 1`] = `
+exports[`SelectDisplayMode should render with displayMode = table 1`] = `
 <ul
   className="nav"
   role={null}>
@@ -197,6 +199,7 @@ exports[`SelectDisplayMode should render with selected = table 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
+    htmlFor="tc-list-toolbar-display-mode"
     onSelect={null}>
     Display:
   </label>
@@ -208,7 +211,7 @@ exports[`SelectDisplayMode should render with selected = table 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="grid"
+      id="tc-list-toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -221,7 +224,7 @@ exports[`SelectDisplayMode should render with selected = table 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="grid"
+      aria-labelledby="tc-list-toolbar-display-mode"
       className="dropdown-menu"
       role="menu">
       <li
@@ -283,7 +286,7 @@ exports[`SelectDisplayMode should render with selected = table 1`] = `
 </ul>
 `;
 
-exports[`SelectDisplayMode should render with selected = tile 1`] = `
+exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
 <ul
   className="nav"
   role={null}>
@@ -292,6 +295,7 @@ exports[`SelectDisplayMode should render with selected = tile 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
+    htmlFor="tc-list-toolbar-display-mode"
     onSelect={null}>
     Display:
   </label>
@@ -303,7 +307,7 @@ exports[`SelectDisplayMode should render with selected = tile 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="grid"
+      id="tc-list-toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -316,7 +320,7 @@ exports[`SelectDisplayMode should render with selected = tile 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="grid"
+      aria-labelledby="tc-list-toolbar-display-mode"
       className="dropdown-menu"
       role="menu">
       <li
