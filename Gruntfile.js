@@ -100,6 +100,15 @@ module.exports = function(grunt) {
       css: {
         src: "lib/talendicons.css",
         dest: "build/talendicons.css"
+      },
+      'docs-demo': {
+        src: "build/sprite.talendicons-demo.html",
+        dest: "docs/sprite.talendicons-demo.html",
+          
+      },
+      'docs-css': {
+        src: "build/talendicons.css",
+        dest: "docs/talendicons.css"
       }
     }
   });
@@ -136,5 +145,6 @@ module.exports = function(grunt) {
     })
 
     fs.writeFileSync("build/data.json", JSON.stringify(data));
-  })
+  });
+  grunt.registerTask('docs', ['copy:docs-demo', 'copy:docs-css'])
 };
