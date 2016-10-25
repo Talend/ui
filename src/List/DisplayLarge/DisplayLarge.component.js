@@ -12,8 +12,8 @@ function getColumnsData({ columns, item, titleKey }) {
 				label: column.label,
 				value: item[column.key],
 			};
-			if (column.dateformat && data.value) {
-				data.value = data.value.format(column.dateformat);
+			if (column.formater && data.value) {
+				data.value = column.formater(data.value);
 			}
 			return data;
 		});

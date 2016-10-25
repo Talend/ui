@@ -8,8 +8,8 @@ const props = {
 		{
 			id: 1,
 			name: 'Hello world',
-			created: 1355563265.81,
-			modified: 1355563265.81,
+			created: '2016-09-22',
+			modified: '2016-09-22',
 			author: 'Jean-Pierre DUPONT',
 			actions: [{
 				label: 'edit',
@@ -24,19 +24,27 @@ const props = {
 		{
 			id: 2,
 			name: 'Foo',
-			created: 1355563265.81,
-			modified: 1355563265.81,
+			created: '2016-09-22',
+			modified: '2016-09-22',
 			author: 'Jean-Pierre DUPONT',
 		},
 		{
 			id: 2,
 			name: 'Bar',
-			created: 1355563265.81,
-			modified: 1355563265.81,
+			created: '2016-09-22',
+			modified: '2016-09-22',
 			author: 'Jean-Pierre DUPONT',
 		},
 	],
 	displayMode: 'table',
+	onClickAdd: action('onClickAdd'),
+	listActions: [
+		{
+			label: 'Delete selection',
+			icon: 'fa fa-trash-o',
+			onClick: action('delete'),
+		},
+	],
 	onFilter: action('onFilter'),
 	onSelectSortBy: action('onSelectSortBy'),
 	onSelectDisplayMode: action('onSelectDisplayMode'),
@@ -51,7 +59,7 @@ const props = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	titleKey: 'id',
+	titleKey: 'name',
 	onTitleClick: action('onClick'),
 	onElementSelect: action('onSelect'),
 };

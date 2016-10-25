@@ -12,13 +12,9 @@ const columnPropType = PropTypes.shape({
  * render a tile sub element
  */
 function tileItem(column, value) {
-	let renderValue = value;
-	if (column.formater) {
-		renderValue = column.formater(value);
-	}
 	return [
 		(<dt className={theme.itemtitle}>{column.label}</dt>),
-		(<dd title={renderValue} className={theme.itemvalue}>{renderValue}</dd>),
+		(<dd title={value} className={theme.itemvalue}>{value}</dd>),
 	];
 }
 

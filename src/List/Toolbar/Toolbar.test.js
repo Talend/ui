@@ -1,9 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-import Toolbar, { getSubProps } from './Toolbar.component';
-
-jest.mock('react-dom');
+import Toolbar from './Toolbar.component';
 
 const props = {
 	onSelectDisplayMode: jest.fn(),
@@ -17,20 +15,13 @@ const props = {
 };
 
 describe('Toolbar', () => {
-	it('should render', () => {
-		const wrapper = renderer.create(
-			<Toolbar {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-	it('should getSubProps', () => {
-		const propTypes = {
-			onSelectDisplayMode: 'func',
-			sortBy: 'bool',
-		};
-		const subProps = getSubProps(props, { propTypes });
-		expect(subProps.onSelectDisplayMode).toBe(props.onSelectDisplayMode);
-		expect(subProps.sortBy).toBe(props.sortBy);
-		expect(Object.keys(subProps).length).toBe(2);
+	it('should let me click the add btn', () => {
+		const tprops = Object.assign({}, props);
+		tprops.onClickAdd = jest.fn();
+		const wrapper = shallow(
+			<Toolbar {...tprops} />
+		);
+		wrapper.find('.navbar-btn[bsStyle="success"]').simulate('click');
+		expect(tprops.onClickAdd).toBeCalled();
 	});
 });

@@ -6,14 +6,14 @@ import Actions from '../../Actions';
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
-	const keys = props.columns.map(column => column.key); // {key, label}
-	const row = [];
-	keys.forEach(key => row.push(props.row[key]));
 	return (
 		<tr>
-			{row.map((column, index) => {
-				if (props.columns[index].key === props.titleKey) {
-					const onClick = event => props.onTitleClick(props.row, event);
+			{props.columns.map((column, index) => {
+				if (column.key === props.titleKey) {
+					const onClick = event => props.onTitleClick(
+						event,
+						props.item,
+					);
 					return (
 						<td key={index}>
 							<Button
@@ -21,26 +21,28 @@ function RowRenderer(props) {
 								onClick={onClick}
 								role="link"
 							>
-								{column}
+								{props.item[column.key]}
 							</Button>
 							<Actions
-								actions={props.row.actions || []}
+								actions={props.item.actions || []}
 								hideLabel
 								link
 							/>
 						</td>
 					);
 				}
-				return (<td key={index}>{column}</td>);
+				return (<td key={index}>{props.item[column.key]}</td>);
 			})}
 		</tr>
 	);
 }
 RowRenderer.propTypes = {
-	row: PropTypes.object,
+	item: PropTypes.object,
 	columns: PropTypes.arrayOf(
-		PropTypes.object
-	),
+		PropTypes.shape({
+			key: PropTypes.string.isRequired,
+		})
+	).isRequired,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
 };
@@ -82,7 +84,7 @@ function DisplayTable({ items, columns, titleKey, onTitleClick }) {
 					(item, index) => (
 						<RowRenderer
 							key={index}
-							row={item}
+							item={item}
 							columns={columns}
 							titleKey={titleKey || 'name'}
 							onTitleClick={onTitleClick}
