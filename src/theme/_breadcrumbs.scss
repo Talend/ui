@@ -17,7 +17,7 @@ $breadcrumb-separator-color: $breadcrumb-color !default;
 
 /// Breadcrumb separator padding
 /// @type Number
-$breadcrumb-separator-padding: $padding-large-horizontal !default;
+$breadcrumb-separator-padding: $padding-large !default;
 
 .breadcrumb {
 	display: flex;
@@ -47,7 +47,7 @@ $breadcrumb-separator-padding: $padding-large-horizontal !default;
 			margin-right: $breadcrumb-separator-padding;
 
 			+ li {
-				margin: 0 $padding-large-horizontal;
+				margin: 0 $padding-large;
 				padding: 0;
 
 				&:before {
