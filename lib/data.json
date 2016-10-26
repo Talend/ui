@@ -44,6 +44,11 @@
       "dataprep"
     ]
   },
+  "delete": {
+    "keywords": [
+      "delete"
+    ]
+  },
   "edit": {
     "keywords": [
       "edit"
