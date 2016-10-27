@@ -2,6 +2,34 @@
 
 This is the set of SVG icons used in our apps.
 
+# How to use
+
+To use this icon set you just have to install it through NPM.
+
+```shell
+npm install talend-icons
+```
+
+Next you can get the icon set object through a simple require:
+
+```javascript
+var icons = require('talend-icons');
+icons.add.toSVG();
+<svg ...></svg>
+icons.add.toSVGuse();
+<svg ...><use xlink:href="#add" /></svg>
+```
+
+This icon set is registred within [react-talend-components](https://github.com/Talend/react-talend-components) Icon. So you can use it through this addon.
+
+```javascript
+import React from 'react';
+import { Icon } from 'react-talend-components';
+function MyComponent() {
+	return (<Icon name="talend-add" />);
+}
+```
+
 # How to contribute
 
 Please be sure you have read our guidelines.

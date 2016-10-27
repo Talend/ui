@@ -144,6 +144,18 @@ module.exports = function(grunt) {
     })
 
     fs.writeFileSync("build/data.json", JSON.stringify(data));
+    writeReactTalendComponentIconSet(data);
   });
   grunt.registerTask('docs', ['copy:docs-demo', 'copy:docs-css'])
 };
+
+function writeReactTalendComponentIconSet(data) {
+  console.log('data', data);
+  const buff = Object.keys(data).map((key) => {
+    const i = data[key];
+    return `Icon.register('${key}', (<svg viewBox="0 0 ${i.width} ${i.height}">${i.path}</svg>));`;
+  });
+  buff.unshift("");
+  buff.unshift("import { Icon } from 'react-talend-components'");
+  fs.writeFileSync("react.js", buff.join('\n'));
+}
