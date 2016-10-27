@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Button, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import Icon from '../../../Icon';
 
@@ -39,7 +39,7 @@ function SelectSortBy(props) {
 		<Nav>
 			<label className="navbar-text" htmlFor="tc-list-toolbar-sort-by">Sort by:</label>
 			<NavDropdown
-				title={selected.name}
+				title={selected ? selected.name : 'N.C'}
 				id="tc-list-toolbar-sort-by"
 				onSelect={onSelectSortBy}
 			>
@@ -56,14 +56,15 @@ function SelectSortBy(props) {
 }
 
 SelectSortBy.propTypes = {
-	sortBy: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			id: React.PropTypes.string,
-			name: React.PropTypes.string,
+	sortBy: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string,
+			name: PropTypes.string,
+			selected: PropTypes.bool,
 		})
 	),
-	onSelectSortBy: React.PropTypes.func,
-	sortDesc: React.PropTypes.bool,
+	onSelectSortBy: PropTypes.func,
+	sortDesc: PropTypes.bool,
 };
 
 export default SelectSortBy;
