@@ -1,0 +1,93 @@
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch many elements creation 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {},
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch one element creation 1`] = `
+Object {
+  "in": Object {
+    "nodeId": Object {},
+  },
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {
+      "attributes": Object {},
+      "id": "nodeId",
+      "nodeSize": Object {
+        "height": 10,
+        "width": 10,
+      },
+      "nodeType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {
+    "nodeId": Object {},
+  },
+  "ports": Object {},
+  "preds": Object {
+    "nodeId": Object {},
+  },
+  "sucs": Object {
+    "nodeId": Object {},
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should handle throwing sub reducer by returning old state 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {},
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {},
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;

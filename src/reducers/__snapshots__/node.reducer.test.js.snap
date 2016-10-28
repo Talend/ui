@@ -1,0 +1,285 @@
+exports[`Check node reducer FLOWDESIGNER_NODE_ADD add a new node to the node collection with the right type 1`] = `
+Object {
+  "in": Object {
+    "id": Object {},
+  },
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id": Object {
+      "attributes": Object {
+        "name": "test",
+      },
+      "id": "id",
+      "nodeSize": Object {
+        "height": undefined,
+        "width": undefined,
+      },
+      "nodeType": "MY_NODE_TYPE",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {
+    "id": Object {},
+  },
+  "ports": Object {},
+  "preds": Object {
+    "id": Object {},
+  },
+  "sucs": Object {
+    "id": Object {},
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_ADD properly add a new node to the node collection 1`] = `
+Object {
+  "in": Object {
+    "id": Object {},
+  },
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id": Object {
+      "attributes": Object {},
+      "id": "id",
+      "nodeSize": Object {
+        "height": undefined,
+        "width": undefined,
+      },
+      "nodeType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {
+    "id": Object {},
+  },
+  "ports": Object {},
+  "preds": Object {
+    "id": Object {},
+  },
+  "sucs": Object {
+    "id": Object {},
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_MOVE update node position 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": Object {
+        "selected": true,
+      },
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 50,
+        "y": 50,
+      },
+    },
+  },
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE should remove node from node collection 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": Object {},
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_ATTR should add attribute to node attribute map 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_SIZE update node size property 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": Object {
+        "selected": true,
+      },
+      "id": "id1",
+      "nodeSize": Object {
+        "height": 200,
+        "width": 200,
+      },
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;

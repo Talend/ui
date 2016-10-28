@@ -73,7 +73,7 @@ export const removeLinkAttribute = (linkId, attributesKey) => ({
  * @param {string} linkId
  * @return {Object}
  */
-export const removeLink = (linkId) => ({
+export const removeLink = linkId => ({
 	type: FLOWDESIGNER_LINK_REMOVE,
 	linkId,
 });

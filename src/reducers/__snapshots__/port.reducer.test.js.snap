@@ -1,0 +1,291 @@
+exports[`Check port reducer FLOWDESIGNER_PORT_ADD properly add the port to the port OrderedMap 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {},
+  },
+  "out": Object {
+    "nodeId": Object {
+      "portId": Object {},
+    },
+  },
+  "ports": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "portId": Object {
+      "attributes": Object {
+        "clicked": true,
+        "type": "EMITTER",
+      },
+      "id": "portId",
+      "nodeId": "nodeId",
+      "portType": "portType",
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check port reducer FLOWDESIGNER_PORT_ADDS to add multiple ports to port collection 1`] = `
+Object {
+  "in": Object {
+    "nodeId": Object {
+      "portId2": Object {},
+    },
+  },
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {},
+  },
+  "out": Object {
+    "nodeId": Object {
+      "portId1": Object {},
+    },
+  },
+  "ports": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "portId1": Object {
+      "attributes": Object {
+        "type": "EMITTER",
+      },
+      "id": "portId1",
+      "nodeId": "nodeId",
+      "portType": "portType",
+      "position": undefined,
+    },
+    "portId2": Object {
+      "attributes": Object {
+        "type": "SINK",
+      },
+      "id": "portId2",
+      "nodeId": "nodeId",
+      "portType": "portType",
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE should remove port from ports collection 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {},
+  },
+  "out": Object {},
+  "ports": Object {
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_ATTR to remove attr from attr map 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {},
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": Object {},
+      "id": "id1",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`Check port reducer FLOWDESIGNER_PORT_SET_ATTR to merge a new attributes in attribute collection 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "nodeId": Object {},
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+        "selected": true,
+      },
+      "id": "id1",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;

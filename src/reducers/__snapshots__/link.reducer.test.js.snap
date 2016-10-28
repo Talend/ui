@@ -1,0 +1,459 @@
+exports[`check linkreducer FLOWDESIGNER_LINK_ADD should add a new link to the state 1`] = `
+Object {
+  "in": Object {
+    "id2": Object {
+      "id2": Object {
+        "id2": "id2",
+      },
+    },
+  },
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+    "id2": Object {
+      "attributes": Object {},
+      "id": "id2",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {
+    "id1": Object {
+      "id1": Object {
+        "id2": "id2",
+      },
+    },
+  },
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {
+    "id2": Object {
+      "id1": "id1",
+    },
+  },
+  "sucs": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE should remove link from state 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {},
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_SET_ATTR should merge attributes within link attr property 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+        "selected": false,
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist 1`] = `
+Object {
+  "in": Object {},
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id4",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {
+    "id1": Object {
+      "id4": Object {
+        "id1": "id1",
+      },
+    },
+  },
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_SET_TARGET switch target to correct port if it exist 1`] = `
+Object {
+  "in": Object {
+    "id2": Object {
+      "id3": Object {
+        "id1": "id1",
+      },
+    },
+  },
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id3",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+}
+`;

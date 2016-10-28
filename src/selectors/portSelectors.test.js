@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
 import * as Selectors from './portSelectors';
+import { defaultState } from '../reducers/flow.reducer';
 import {
 	LinkRecord,
 	PortRecord,
@@ -26,7 +27,7 @@ describe('Testing dataflow selectors', () => {
 		nodeId: 'nodeId2',
 		attributes: new Map({ type: 'EMITTER' }),
 	});
-	const givenState = new Map().set('links', new Map().set('id1', new LinkRecord({
+	const givenState = defaultState.set('links', new Map().set('id1', new LinkRecord({
 		id: 'id1',
 		source: 'id1',
 		target: 'id2',
@@ -46,9 +47,9 @@ describe('Testing dataflow selectors', () => {
 
 	it(`getEmitterPortsForNode return a function
 	  wich can be used to retribe emitterPorts form specific node`, () => {
-			const expectedPortMap = new Map().set('id2', port2);
-			expect(Selectors.getEmitterPortsForNode(givenState)('nodeId1')).toEqual(expectedPortMap);
-		});
+		const expectedPortMap = new Map().set('id2', port2);
+		expect(Selectors.getEmitterPortsForNode(givenState)('nodeId1')).toEqual(expectedPortMap);
+	});
 
 	it('getSinkPorts return a map of Sink ports ', () => {
 		const expectedPortsMap = new Map().set('id1', port1).set('id3', port3);
@@ -57,7 +58,7 @@ describe('Testing dataflow selectors', () => {
 
 	it(`getSinkPortsForNode return a function
 	  wich can be used to retribe emitterPorts form specific node`, () => {
-			const expectedPortMap = new Map().set('id2', port2);
-			expect(Selectors.getEmitterPortsForNode(givenState)('nodeId1')).toEqual(expectedPortMap);
-		});
+		const expectedPortMap = new Map().set('id2', port2);
+		expect(Selectors.getEmitterPortsForNode(givenState)('nodeId1')).toEqual(expectedPortMap);
+	});
 });

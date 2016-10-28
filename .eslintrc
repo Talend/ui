@@ -16,7 +16,9 @@
     "browser": true,
     "jasmine": true
   },
-  "globals": {},
+  "globals": {
+    "jest": true
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
