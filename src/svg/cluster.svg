@@ -1,0 +1,7 @@
+<svg id="cluster" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<title>
+		cluster
+	</title>
+	<path class="cls-1" d="M650 85.5H150L0 435.5v250h800v-250zm100 550H50v-150h700z" transform="translate(0 -85.5)"/>
+	<path class="cls-1" d="M650 450h50v50h-50zm-550 0h50v50h-50zm100 0h50v50h-50zm100 0h50v50h-50z"/>
+</svg>

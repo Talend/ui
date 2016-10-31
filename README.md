@@ -13,11 +13,9 @@ npm install talend-icons
 Next you can get the icon set object through a simple require:
 
 ```javascript
-var icons = require('talend-icons');
-icons.add.toSVG();
+var icons = require('talend-icons').default;
+icons.svgs['add'];
 <svg ...></svg>
-icons.add.toSVGuse();
-<svg ...><use xlink:href="#add" /></svg>
 ```
 
 This icon set is registred within [react-talend-components](https://github.com/Talend/react-talend-components) Icon. So you can use it through this addon.
@@ -38,8 +36,7 @@ Create a Pull Request and be smart.
 
 # How to add an icon
 
-The icon svg file must be added inside the `lib/svg` folder.
-Then register it to the `lib/data.json` using alphabetic order.
+Just add the icon svg file inside the `src/svg` folder.
 
 # How svg code should look like
 ## No style embed
