@@ -370,7 +370,11 @@ Object {
       "position": undefined,
     },
   },
-  "preds": Object {},
+  "preds": Object {
+    "id2": Object {
+      "id1": undefined,
+    },
+  },
   "sucs": Object {},
   "transform": Object {
     "k": 1,
@@ -449,7 +453,11 @@ Object {
     },
   },
   "preds": Object {},
-  "sucs": Object {},
+  "sucs": Object {
+    "id1": Object {
+      "id2": undefined,
+    },
+  },
   "transform": Object {
     "k": 1,
     "x": 0,
