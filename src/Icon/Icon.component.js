@@ -49,4 +49,5 @@ Icon.propTypes = {
 };
 
 Icon.register = register;
+Icon.registry = registry;
 export default Icon;
