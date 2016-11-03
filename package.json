@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build-react": "node scripts/react.js",
+    "docs": "node ./scripts/docs.js",
     "prepublish": "npm run build-react",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "svgo": "svgo -f src/svg --config=.svgo.yml",

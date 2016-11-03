@@ -11,6 +11,7 @@ install:
 script:
   - npm test
 after_success:
+  - /bin/bash .travis/after_success.sh
   - npm run semantic-release
 branches:
   except:
