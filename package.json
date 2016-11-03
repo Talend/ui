@@ -81,6 +81,7 @@
     "classnames": "^2.2.5",
     "react": "^15.3.2",
     "react-bootstrap": "0",
+    "talend-icons": "^0.0.1",
     "uuid": "^2.0.3"
   }
 }
