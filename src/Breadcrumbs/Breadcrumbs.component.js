@@ -42,7 +42,7 @@ function Breadcrumbs(props) {
 		 */
 		let wrappedOnClick;
 		if (onClick) {
-			wrappedOnClick = (...args) => onClick(item, ...args);
+			wrappedOnClick = event => onClick(event, item);
 		}
 
 		if (maxItemsReached && index < ellipsisIndex) {

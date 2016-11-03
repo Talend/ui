@@ -14,6 +14,7 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text B', onClick: onTextBClick },
 			{ text: 'Text C', onClick: onTextCClick },
 		];
+		const clickedElementIndex = 1;
 
 		// when
 		const breadcrumbs = (
@@ -22,11 +23,14 @@ describe('Breadcrumbs', () => {
 			/>
 		);
 		const wrapper = mount(breadcrumbs);
-		wrapper.find('ol').find(Button).at(1).simulate('click');
+		wrapper.find('ol').find(Button).at(clickedElementIndex).simulate('click');
 
 		// then
 		expect(onTextAClick).not.toBeCalled();
 		expect(onTextBClick).toBeCalled();
 		expect(onTextCClick).not.toBeCalled();
+
+		const callArgs = onTextBClick.mock.calls[0];
+		expect(callArgs[1]).toBe(actions[clickedElementIndex]);
 	});
 });
