@@ -1,5 +1,4 @@
 {
-  "version": "4.4.0",
   "name": "talend-icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
   "homepage": "https://talend.github.com/icons",
@@ -9,7 +8,8 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "build"
+    "dist",
+    "src"
   ],
   "repository": "https://github.com/talend/icons.git",
   "bugs": {
@@ -18,12 +18,11 @@
   "scripts": {
     "build-react": "node scripts/react.js",
     "prepublish": "npm run build-react",
-    "svgo": "svgo -f src/svg --config=.svgo.yml"
+    "svgo": "svgo -f src/svg --config=.svgo.yml",
+    "test": "echo no test"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
-    "ava": "^0.16.0",
-    "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.2",
     "babel-plugin-transform-class-properties": "^6.6.0",
@@ -36,9 +35,8 @@
     "svgo": "0.7.1"
   },
   "keywords": [
-    "GitHub",
+    "Talend",
     "icons",
-    "svg",
-    "octicons"
+    "svg"
   ]
 }
