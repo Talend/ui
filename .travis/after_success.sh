@@ -8,9 +8,11 @@ if [ -n "$GH_TOKEN" ]; then
 		cd "$TRAVIS_BUILD_DIR"
 		npm run docs
 		cd docs
+		git init
+		git checkout -b gh-pages
 		git add .
-		git -c user.name='travis' -c user.email='travis' commit -m 'Generate docs from CI'
-		git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/icons master &> /dev/null
+		git -c user.name='travis' -c user.email='travis' commit -m 'Generate gh-pages from CI'
+		git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/icons gh-pages &> /dev/null
 		echo "✓ Push docs"
 	fi
 fi
