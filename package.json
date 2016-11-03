@@ -11,13 +11,17 @@
     "dist",
     "src"
   ],
-  "repository": "https://github.com/talend/icons.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talend/icons.git"
+  },
   "bugs": {
     "url": "https://github.com/talend/icons/issues"
   },
   "scripts": {
     "build-react": "node scripts/react.js",
     "prepublish": "npm run build-react",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "svgo": "svgo -f src/svg --config=.svgo.yml",
     "test": "echo no test"
   },
@@ -32,6 +36,7 @@
     "babel-register": "^6.14.0",
     "mkdirp": "^0.5.1",
     "react": "^15.3.2",
+    "semantic-release": "^4.3.5",
     "svgo": "0.7.1"
   },
   "keywords": [
