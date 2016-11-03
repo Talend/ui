@@ -2,6 +2,32 @@
 
 This is the set of SVG icons used in our apps.
 
+
+[![NPM][npm-icon] ][npm-url]
+
+[![Travis CI][travis-ci-image] ][travis-ci-url]
+[![Quality][quality-badge] ][quality-url]
+[![dependencies][dependencies-image] ][dependencies-url]
+[![devdependencies][devdependencies-image] ][devdependencies-url]
+[![peerdependencies][peerdependencies-image] ][peerdependencies-url]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+[npm-icon]: https://nodei.co/npm/talend-icons.svg?downloads=true
+[npm-url]: https://npmjs.org/package/talend-icons
+[travis-ci-image]: https://travis-ci.org/Talend/icons.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/icons
+
+[dependencies-image]: https://david-dm.org/Talend/icons.svg
+[dependencies-url]: https://david-dm.org/Talend/icons
+[devdependencies-image]: https://david-dm.org/Talend/icons/dev-status.svg
+[devdependencies-url]: https://david-dm.org/Talend/icons#info=devDependencies
+[peerdependencies-image]: https://david-dm.org/Talend/icons/peer-status.svg
+[peerdependencies-url]: https://david-dm.org/Talend/icons?type=peer
+
+[quality-badge]: http://npm.packagequality.com/shield/talend-icons.svg
+[quality-url]: http://packagequality.com/#?package=talend-icons
+
+
 # How to use
 
 To use this icon set you just have to install it through NPM.
