@@ -62,4 +62,43 @@ describe('<Form/>', () => {
 		wrapper.simulate('submit');
 		expect(onSubmit.mock.calls.length).toEqual(1);
 	});
+	describe('<Form actions />', () => {
+		it('Renders default actions when no actions specified', () => {
+			const actions = wrapper.find('button');
+			expect(actions.length).toEqual(1);
+			expect(actions.first().props().type).toEqual('submit');
+		});
+		it('Renders pass-in form actions', () => {
+			const onClickReset = jest.fn();
+			const formActions = [
+				{
+					style: 'primary',
+					type: 'submit',
+					onClick: onSubmit,
+					label: 'Submit',
+				},
+				{
+					style: 'link',
+					type: 'reset',
+					onClick: onClickReset,
+					label: 'Reset',
+				},
+			];
+			wrapper = mount(<Form
+				schema={schema}
+				onSubmit={onSubmit}
+				onChange={onChange}
+				actions={formActions}
+			/>);
+			const actions = wrapper.find('button');
+			expect(actions.length).toEqual(2);
+
+			expect(actions.first().props().type).toEqual('submit');
+			const reset = actions.at(1);
+			expect(reset.props().type).toEqual('reset');
+
+			reset.simulate('click');
+			expect(onClickReset.mock.calls.length).toEqual(1);
+		});
+	});
 });

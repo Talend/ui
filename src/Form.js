@@ -36,6 +36,18 @@ class Form extends React.Component {
 		};
 		const formData = (this.props.data && this.props.data.properties) || this.props.formData;
 		const fields = { SchemaField };
+		const actions = this.props.actions ? this.props.actions.map((action, index) => (
+			<Button
+				key={index}
+				bsStyle={action.style}
+				type={action.type}
+				onClick={action.onClick}
+				title={action.title}
+			>
+				{action.icon ? <i className={action.icon} /> : null }
+				{action.label}
+			</Button>
+		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
 		return (
 			<RJSForm
 				{...this.props}
@@ -46,8 +58,7 @@ class Form extends React.Component {
 				widgets={customWidgets}
 				onChange={this.handleSchemaChange}
 			>
-				<Button bsStyle="link">Cancel</Button>
-				<Button bsStyle="primary" type="submit">Submit</Button>
+				{actions}
 			</RJSForm>
 		);
 	}
@@ -65,6 +76,14 @@ Form.propTypes = {
 	formData: React.PropTypes.object,
 	schema: React.PropTypes.object,
 	onChange: React.PropTypes.func,
+	actions: React.PropTypes.arrayOf(React.PropTypes.shape({
+		style: React.PropTypes.string,
+		type: React.PropTypes.oneOf(['submit', 'reset', 'button']),
+		onClick: React.PropTypes.func,
+		label: React.PropTypes.string,
+		icon: React.PropTypes.string,
+		title: React.PropTypes.string,
+	})),
 };
 
 export default Form;
