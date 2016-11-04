@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Button } from 'react-bootstrap';
 import Actions from '../../Actions';
+import Icon from '../../Icon';
 
 import theme from './DisplayTable.scss';
 
@@ -15,8 +16,10 @@ function RowRenderer(props) {
 						event,
 						item,
 					);
+					const iconName = props.iconKey && props.item[props.iconKey];
 					return (
 						<td key={index}>
+							{iconName && <Icon name={iconName} />}
 							<Button
 								bsStyle="link"
 								onClick={onClick}
@@ -44,6 +47,7 @@ RowRenderer.propTypes = {
 			key: PropTypes.string.isRequired,
 		})
 	).isRequired,
+	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
 };
@@ -67,9 +71,9 @@ ListHeader.propTypes = {
 /**
  * @param {object} props react props
  * @example
-<DisplayTable name="Hello world"></DisplayTable>
+ <DisplayTable name="Hello world"></DisplayTable>
  */
-function DisplayTable({ items, columns, titleKey, onTitleClick }) {
+function DisplayTable({ items, columns, iconKey, titleKey, onTitleClick }) {
 	const className = classnames(
 		'table',
 		'tc-list-display-table',
@@ -87,7 +91,8 @@ function DisplayTable({ items, columns, titleKey, onTitleClick }) {
 							key={index}
 							item={item}
 							columns={columns}
-							titleKey={titleKey || 'name'}
+							iconKey={iconKey}
+							titleKey={titleKey}
 							onTitleClick={onTitleClick}
 						/>
 					)
@@ -104,8 +109,14 @@ DisplayTable.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.object
 	),
+	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
+};
+
+DisplayTable.defaultProps = {
+	items: [],
+	titleKey: 'name',
 };
 
 export default DisplayTable;

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import Icon from '../../Icon';
 
 import theme from './DisplayTile.scss';
 
@@ -21,33 +22,40 @@ function tileItem(column, value) {
 /**
  * Render a tile title
  */
-function renderTitle(item, onTitleClick, titleKey) {
-	let onClick;
+function renderTitle(item, onTitleClick, titleKey, iconKey) {
 	const classes = classNames(
 		theme.title,
 		theme.titlelink,
 		{ btn: onTitleClick, 'btn-link': onTitleClick }
 	);
+
+	const iconName = iconKey && item[iconKey];
+	const icon = iconName ?
+		<Icon name={iconName} /> :
+		null;
+
+	let title;
 	if (onTitleClick) {
-		onClick = (event) => {
+		const onClick = (event) => {
 			event.stopPropagation();
 			onTitleClick(item, event);
 		};
-	}
-	if (onClick) {
-		return (
+
+		title = (
 			<button className={classes} onClick={onClick} role="link">
 				{item[titleKey]}
 			</button>
 		);
+	} else {
+		title = (<span className={classes}>{item[titleKey]}</span>);
 	}
-	return <span className={classes}>{item[titleKey]}</span>;
+	return (<div>{icon}{title}</div>);
 }
 
 /**
  * Render a tile
  */
-function Tile({ columns, item, onElementSelect, onTitleClick, titleKey }) {
+function Tile({ columns, item, onElementSelect, onTitleClick, titleKey, iconKey }) {
 	const filteredColumns = columns.filter(column => column.key !== titleKey);
 	let onClick;
 	let onSelect;
@@ -63,7 +71,7 @@ function Tile({ columns, item, onElementSelect, onTitleClick, titleKey }) {
 			onClick={onSelect}
 			onDoubleClick={onClick}
 		>
-			{renderTitle(item, onTitleClick, titleKey)}
+			{renderTitle(item, onTitleClick, titleKey, iconKey)}
 			<dl className={theme.itemlist}>
 				{[].concat(filteredColumns.map(column =>
 					tileItem(column, item[column.key])
@@ -76,6 +84,7 @@ function Tile({ columns, item, onElementSelect, onTitleClick, titleKey }) {
 Tile.propTypes = {
 	item: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(columnPropType).isRequired,
+	iconKey: PropTypes.string,
 	titleKey: PropTypes.string.isRequired,
 	onTitleClick: PropTypes.func,
 	onElementSelect: PropTypes.func,
@@ -86,7 +95,7 @@ Tile.propTypes = {
  * @example
 <DisplayTile name="Hello world"></DisplayTile>
  */
-function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, width }) {
+function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, iconKey, width }) {
 	return (
 		<ul className={theme.tiles}>
 			{items.map((item, index) =>
@@ -98,6 +107,7 @@ function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, 
 						onTitleClick={onTitleClick}
 						style={{ width }}
 						titleKey={titleKey}
+						iconKey={iconKey}
 					/>
 				</li>
 			)}
@@ -113,12 +123,14 @@ DisplayTile.propTypes = {
 		React.PropTypes.object
 	),
 	width: PropTypes.string,
+	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
 	onElementSelect: PropTypes.func,
 };
 
 DisplayTile.defaultProps = {
+	items: [],
 	titleKey: 'name',
 	width: '250px',
 };

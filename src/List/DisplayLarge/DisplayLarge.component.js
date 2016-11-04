@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Actions from '../../Actions';
+import Icon from '../../Icon';
 import theme from './DisplayLarge.scss';
 
 function getColumnsData({ columns, item, titleKey }) {
@@ -31,7 +32,7 @@ function getTwoDim(columnsData) {
 		});
 }
 
-function rowRenderer({ item, index, columns, titleKey, onTitleClick }) {
+function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey }) {
 	const columnsData = getColumnsData({ columns, item, titleKey });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
@@ -44,6 +45,7 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick }) {
 		'btn-link',
 		theme.title,
 	);
+	const iconName = iconKey && item[iconKey];
 	return (
 		<div className={panel} key={index}>
 			<button
@@ -51,7 +53,8 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick }) {
 				role="link"
 				onClick={event => onTitleClick(item, event)}
 			>
-				<span>{item[titleKey]}</span>
+				{iconName && <Icon name={iconName} />}
+				{item[titleKey]}
 			</button>
 			<Actions
 				actions={item.actions ? item.actions : []}
@@ -80,6 +83,7 @@ rowRenderer.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.object
 	),
+	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
 };
@@ -90,17 +94,16 @@ rowRenderer.propTypes = {
 
 <DisplayLarge items={items} columns={columns} elementTitle={title} />
  */
-function DisplayLarge({ items, columns, titleKey, onTitleClick }) {
-	const oItems = items || [];
-	const oKey = titleKey || 'name';
+function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick }) {
 	return (
 		<div className={theme.container}>
-			{oItems.map((item, index) => rowRenderer({
+			{items.map((item, index) => rowRenderer({
 				item,
 				index,
 				columns,
 				onTitleClick,
-				titleKey: oKey,
+				iconKey,
+				titleKey,
 			}))}
 		</div>
 	);
@@ -114,7 +117,13 @@ DisplayLarge.propTypes = {
 		PropTypes.object
 	),
 	titleKey: PropTypes.string,
+	iconKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
+};
+
+DisplayLarge.defaultProps = {
+	items: [],
+	titleKey: 'name',
 };
 
 export default DisplayLarge;
