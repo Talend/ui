@@ -71,6 +71,7 @@ import Action from './Action';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
+import CircularProgress from './CircularProgress';
 import Icon from './Icon';
 import Layout from './Layout';
 import List from './List';
@@ -87,6 +88,7 @@ export {
 	Actions,
 	AppHeaderBar,
 	Breadcrumbs,
+	CircularProgress,
 	Icon,
 	Layout,
 	List,

@@ -1,0 +1,63 @@
+exports[`CircularProgress should render as light if set 1`] = `
+<svg
+  className=""
+  viewBox="0 0 50 50"
+  x="0px"
+  y="0px">
+  <circle
+    className={undefined}
+    cx="25"
+    cy="25"
+    fill="none"
+    r="20"
+    strokeWidth="5" />
+</svg>
+`;
+
+exports[`CircularProgress should render at large size if set 1`] = `
+<svg
+  className="undefined"
+  viewBox="0 0 50 50"
+  x="0px"
+  y="0px">
+  <circle
+    className={undefined}
+    cx="25"
+    cy="25"
+    fill="none"
+    r="20"
+    strokeWidth="5" />
+</svg>
+`;
+
+exports[`CircularProgress should render at small size if set 1`] = `
+<svg
+  className=""
+  viewBox="0 0 50 50"
+  x="0px"
+  y="0px">
+  <circle
+    className={undefined}
+    cx="25"
+    cy="25"
+    fill="none"
+    r="20"
+    strokeWidth="5" />
+</svg>
+`;
+
+exports[`CircularProgress should render by default at default size 1`] = `
+<svg
+  className=""
+  viewBox="0 0 50 50"
+  x="0px"
+  y="0px">
+  <circle
+    className={undefined}
+    cx="25"
+    cy="25"
+    fill="none"
+    r="20"
+    strokeWidth="5" />
+</svg>
+`;

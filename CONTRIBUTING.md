@@ -7,6 +7,22 @@ Here are the guidelines we'd like you to follow:
 - [Pull Requests](#pullrequest)
 - [Commit Message Guidelines](#commit)
 
+## Code style
+
+### SCSS
+scss variables should follow this convention :
+
+```
+$tc-{component-name}-{variable-name}
+```
+*tc* identify talend component
+
+*component name* the targeted component
+
+*variable-name* the specific name
+
+don't use camel case or underscore in variable naming.
+
 
 ## <a name="pullrequest"></a> Github Pull Requests
 
