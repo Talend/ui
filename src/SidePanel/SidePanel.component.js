@@ -25,12 +25,19 @@ import theme from './SidePanel.scss';
 function SidePanel(props) {
 	const actions = props.actions || [];
 
-	const dockedClassName = { [theme.docked]: props.docked };
-	const navClassName = classNames(theme['tc-side-panel'], dockedClassName, 'tc-side-panel');
-	const listClassName = classNames('nav nav-pills nav-inverse nav-stacked', theme['action-list']);
-
+	const dockedCSS = { [theme.docked]: props.docked };
+	const navCSS = classNames(
+		theme['tc-side-panel'],
+		dockedCSS,
+		'tc-side-panel'
+	);
+	const listCSS = classNames(
+		'nav nav-pills nav-inverse nav-stacked',
+		'tc-side-panel-list',
+		theme['action-list']
+	);
 	return (
-		<nav className={navClassName}>
+		<nav className={navCSS}>
 			<Button
 				className={theme['toggle-btn']}
 				bsStyle="link"
@@ -40,9 +47,15 @@ function SidePanel(props) {
 			>
 				<i className="fa fa-arrow-left" />
 			</Button>
-			<ul className={listClassName}>
+			<ul className={listCSS}>
 				{actions.map(action => (
-					<li key={action.label}>
+					<li
+						key={action.label}
+						className={classNames(
+							'tc-side-panel-list-item',
+							{ active: !!action.active }
+							)}
+					>
 						<Button
 							title={`Display ${action.label}`}
 							bsStyle="link"

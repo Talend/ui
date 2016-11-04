@@ -12,8 +12,9 @@ exports[`SidePanel should render docked menu 1`] = `
       className="fa fa-arrow-left" />
   </button>
   <ul
-    className="nav nav-pills nav-inverse nav-stacked">
-    <li>
+    className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+    <li
+      className="tc-side-panel-list-item">
       <button
         className="btn btn-link"
         disabled={false}
@@ -25,7 +26,8 @@ exports[`SidePanel should render docked menu 1`] = `
           className="fa fa-asterisk" />
       </button>
     </li>
-    <li>
+    <li
+      className="tc-side-panel-list-item">
       <button
         className="btn btn-link"
         disabled={false}
@@ -37,7 +39,8 @@ exports[`SidePanel should render docked menu 1`] = `
           className="fa fa-file-excel-o" />
       </button>
     </li>
-    <li>
+    <li
+      className="tc-side-panel-list-item active">
       <button
         className="btn btn-link"
         disabled={false}
@@ -67,8 +70,9 @@ exports[`SidePanel should render expanded menu 1`] = `
       className="fa fa-arrow-left" />
   </button>
   <ul
-    className="nav nav-pills nav-inverse nav-stacked">
-    <li>
+    className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+    <li
+      className="tc-side-panel-list-item">
       <button
         className="btn btn-link"
         disabled={false}
@@ -83,7 +87,8 @@ exports[`SidePanel should render expanded menu 1`] = `
         </span>
       </button>
     </li>
-    <li>
+    <li
+      className="tc-side-panel-list-item">
       <button
         className="btn btn-link"
         disabled={false}
@@ -98,7 +103,8 @@ exports[`SidePanel should render expanded menu 1`] = `
         </span>
       </button>
     </li>
-    <li>
+    <li
+      className="tc-side-panel-list-item active">
       <button
         className="btn btn-link"
         disabled={false}

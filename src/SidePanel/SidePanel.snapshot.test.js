@@ -10,7 +10,7 @@ describe('SidePanel', () => {
 		const actions = [
 			{ label: 'Preparations', icon: 'fa fa-asterisk' },
 			{ label: 'Datasets', icon: 'fa fa-file-excel-o' },
-			{ label: 'Favorites', icon: 'fa fa-star' },
+			{ label: 'Favorites', icon: 'fa fa-star', active: true },
 		];
 		const docked = false;
 
@@ -27,7 +27,7 @@ describe('SidePanel', () => {
 		const actions = [
 			{ label: 'Preparations', icon: 'fa fa-asterisk' },
 			{ label: 'Datasets', icon: 'fa fa-file-excel-o' },
-			{ label: 'Favorites', icon: 'fa fa-star' },
+			{ label: 'Favorites', icon: 'fa fa-star', active: true },
 		];
 		const docked = true;
 
