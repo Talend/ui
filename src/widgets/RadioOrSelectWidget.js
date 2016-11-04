@@ -16,11 +16,10 @@ const RadioOrSelectWidget = (props) => {
 	const enumOptions = options && options.enumOptions;
 	const shouldDisplayRadio = enumOptions && enumOptions.length <= MAX_TO_RADIO;
 
-	return (
-		<div>
-			{ shouldDisplayRadio ? <Radio {...props} /> : <Select {...props} /> }
-		</div>
-	);
+	if (shouldDisplayRadio) {
+		return <Radio {...props} />;
+	}
+	return <Select {...props} />;
 };
 
 RadioOrSelectWidget.propTypes = {

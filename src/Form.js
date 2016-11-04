@@ -4,15 +4,16 @@ import RJSForm from 'react-jsonschema-form';
 
 import Button from 'react-bootstrap/lib/Button';
 
-import SchemaField from './SchemaField';
+import CustomFieldTemplate from './templates/CustomFieldTemplate';
+
 import RadioOrSelectWidget from './widgets/RadioOrSelectWidget';
 
 const customWidgets = {
-	radioOrSelectWidget: RadioOrSelectWidget,
+	radioOrSelect: RadioOrSelectWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': 'radioOrSelectWidget',
+	'ui:widget': 'radioOrSelect',
 };
 
 class Form extends React.Component {
@@ -20,6 +21,12 @@ class Form extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSchemaChange = this.handleSchemaChange.bind(this);
+		this.handleSchemaSubmit = this.handleSchemaSubmit.bind(this);
+	}
+
+	handleSchemaSubmit(change) {
+		// TODO: Handle Schema Submit
+		return this.props.onSubmit && this.props.onSubmit(change);
 	}
 
 	handleSchemaChange(change) {
@@ -28,14 +35,15 @@ class Form extends React.Component {
 	}
 
 	render() {
-		const schema = (this.props.data && this.props.data.jsonSchema) ||
-			this.props.jsonSchema || this.props.schema;
+		const schema = this.props.data && this.props.data.jsonSchema;
+		if (!schema) {
+			throw 'You must provide data with valid JSON Schema';
+		}
 		const uiSchema = {
-			...((this.props.data && this.props.data.uiSchema) || this.props.uiSchema),
+			...(this.props.data && this.props.data.uiSchema),
 			...customUiSchema,
 		};
-		const formData = (this.props.data && this.props.data.properties) || this.props.formData;
-		const fields = { SchemaField };
+		const formData = this.props.data && this.props.data.properties;
 		const actions = this.props.actions ? this.props.actions.map((action, index) => (
 			<Button
 				key={index}
@@ -54,9 +62,10 @@ class Form extends React.Component {
 				schema={schema}
 				uiSchema={uiSchema}
 				formData={formData}
-				fields={fields}
+				FieldTemplate={CustomFieldTemplate}
 				widgets={customWidgets}
 				onChange={this.handleSchemaChange}
+				onSubmit={this.handleSchemaSubmit}
 			>
 				{actions}
 			</RJSForm>
@@ -66,16 +75,12 @@ class Form extends React.Component {
 
 Form.propTypes = {
 	data: React.PropTypes.shape({
-		jsonSchema: React.PropTypes.object,
+		jsonSchema: React.PropTypes.object.isRequired,
 		uiSchema: React.PropTypes.object,
 		properties: React.PropTypes.object,
-		formData: React.PropTypes.object,
-	}),
-	jsonSchema: React.PropTypes.object,
-	uiSchema: React.PropTypes.object,
-	formData: React.PropTypes.object,
-	schema: React.PropTypes.object,
+	}).isRequired,
 	onChange: React.PropTypes.func,
+	onSubmit: React.PropTypes.func,
 	actions: React.PropTypes.arrayOf(React.PropTypes.shape({
 		style: React.PropTypes.string,
 		type: React.PropTypes.oneOf(['submit', 'reset', 'button']),

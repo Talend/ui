@@ -20,9 +20,17 @@
           3
         ]
       },
-      "numberEnumRadio": {
+      "numberEnumRadio2": {
         "type": "number",
-        "title": "Number enum",
+        "title": "Number enum with 2 options",
+        "enum": [
+          1,
+          2
+        ]
+      },
+      "numberEnumRadio3": {
+        "type": "number",
+        "title": "Number enum with 3 options",
         "enum": [
           1,
           2,
@@ -48,8 +56,11 @@
     "integer": {
       "ui:widget": "updown"
     },
-    "numberEnumRadio": {
-      "ui:widget": "radio"
+    "numberEnumRadio2": {
+      "ui:widget": "radioOrSelect"
+    },
+    "numberEnumRadio3": {
+      "ui:widget": "radioOrSelect"
     },
     "integerRange": {
       "ui:widget": "range"
