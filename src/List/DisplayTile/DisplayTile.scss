@@ -12,6 +12,9 @@ $title-color: #555;
 /// Global font size for tile rendering
 /// @type Number (Unit)
 $text-size: 15px;
+/// tile width
+/// @type Number (Unit)
+$tile-width: 16em;
 
 .tiles {
 	display: flex;
@@ -28,6 +31,7 @@ $text-size: 15px;
 	font-size: $text-size;
 	height: 250px;
 	margin: 0 25px 25px 0;
+	max-width: $tile-width;
 	padding: 15px;
 	transition: 0.13s background cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.13s border-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
@@ -43,6 +47,9 @@ $text-size: 15px;
 	font-weight: 600;
 	letter-spacing: 0;
 	margin: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	text-transform: uppercase;
 }
 
@@ -55,7 +62,7 @@ $text-size: 15px;
 }
 
 .itemlist {
-	padding-left: 6em;
+	padding-left: ($tile-width / 2) - 2;
 
 	&:after {
 		content: '';
@@ -79,10 +86,10 @@ $text-size: 15px;
 	font-size: 0.8em;
 	font-weight: 400;
 	line-height: 2.5em;
-	margin-left: -7.5em;
+	margin-left: -($tile-width / 2) - 0.5;
 	text-align: right;
 	text-transform: uppercase;
-	width: 7em;
+	width: ($tile-width / 2) - 1;
 
 	&:after {
 		content: ' :';
@@ -95,6 +102,6 @@ $text-size: 15px;
 	margin-left: 0; // reset default
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 9em;
+	width: $tile-width / 2;
 	white-space: nowrap;
 }

@@ -30,10 +30,10 @@ const props = {
 		},
 		{
 			id: 2,
-			name: 'Bar',
+			name: 'Super long title to trigger overflow on tile rendering',
 			created: '2016-09-22',
 			modified: '2016-09-22',
-			author: 'Jean-Pierre DUPONT',
+			author: 'Jean-Pierre DUPONT with super long name',
 		},
 	],
 	displayMode: 'table',
