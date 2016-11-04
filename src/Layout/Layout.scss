@@ -7,23 +7,20 @@
 /// @type Number (Unit)
 $tc-layout-header-height: 49px;
 
-.app {
+body {
+	margin: 0;
+	max-height: 100vh;
+	overflow: hidden; /* due to borders */
+	width: 100vw;
+}
+
+.layout {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	width: 100vw;
 }
 
 .header {
 	flex: 0 0 $tc-layout-header-height;
-}
-
-.content {
-	display: flex;
-	flex-direction: row;
-	flex: 1 1 auto;
-}
-
-html,
-body {
-	min-height: 100vh;
 }

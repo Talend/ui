@@ -20,8 +20,51 @@ const actions = [
 		onClick: action('Favorites clicked'),
 	},
 ];
-const contentOne = (<h1>Content one</h1>);
-const contentTwo = (<h1>Content two</h1>);
+const content = (
+	<div>
+		<h1>Welcome to the content for testing scroll</h1>
+		<ul>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+			<li>one</li>
+		</ul>
+	</div>
+);
 const sidePanel = (<SidePanel
 	actions={actions}
 	onToggleDock={action('Toggle dock clicked')}
@@ -32,25 +75,23 @@ const header = {
 };
 
 storiesOf('Layout', module)
-	.addWithInfo('OneColumn', () => {
-		return (
-			<Layout
-				header={header}
-				mode="OneColumn"
-				one={contentOne}
-			/>
-		);
-	})
-	.addWithInfo('TwoColumns', () => {
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={sidePanel}
-				two={contentTwo}
-			/>
-		);
-	})
+	.addWithInfo('OneColumn', () => (
+		<Layout
+			header={header}
+			mode="OneColumn"
+		>
+			{content}
+		</Layout>
+	))
+	.addWithInfo('TwoColumns', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+		>
+			{content}
+		</Layout>
+	))
 	.addWithInfo('TwoColumns docked', () => {
 		const dockedSidePanel = (<SidePanel
 			actions={actions}
@@ -63,7 +104,8 @@ storiesOf('Layout', module)
 				header={header}
 				mode="TwoColumns"
 				one={dockedSidePanel}
-				two={contentTwo}
-			/>
+			>
+				{content}
+			</Layout>
 		);
 	});

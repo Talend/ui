@@ -1,4 +1,6 @@
 import React from 'react';
+import classnames from 'classnames';
+import theme from './OneColumn.scss';
 
 /**
  * @param {object} props react props
@@ -6,11 +8,15 @@ import React from 'react';
 <OneColumn name="Hello world"></OneColumn>
  */
 function OneColumn(props) {
-	return (<div>{props.one}</div>);
+	const container = classnames(
+		'tc-layout-one-column',
+		theme.main
+	);
+	return (<div className={container}>{props.children}</div>);
 }
 
 OneColumn.propTypes = {
-	one: React.PropTypes.element,
+	children: React.PropTypes.node,
 };
 
 export default OneColumn;

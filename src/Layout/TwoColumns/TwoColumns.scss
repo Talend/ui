@@ -9,8 +9,7 @@ $tc-layout-two-columns-sidemenu-bg: #4F8992 !default;
 
 .container {
 	display: flex;
-	flex: 1 0 100%;
-	min-height: 0;
+	flex-direction: row;
 }
 
 .sidemenu {
@@ -24,4 +23,10 @@ $tc-layout-two-columns-sidemenu-bg: #4F8992 !default;
 	:global(.btn-link):hover {
 		background-color: darken($tc-layout-two-columns-sidemenu-bg, 12%);
 	}
+}
+
+.main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow-y: auto;
 }

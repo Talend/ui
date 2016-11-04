@@ -41,12 +41,27 @@ All components are created using the [yeoman talend generator](https://github.co
     > (nature) stateless
     > (tests) snapshot
 
-### No {children}
+### No {children} for leaf
 
-We want to avoid {children}.
+We want to avoid {children} as much as possible.
 We believe an app should only pass arguments to stateless components.
 
-So please don't do Pull Requests (PR) to add {children}.
+So please don't do Pull Requests (PR) to add {children} on leaf components.
+
+But what is a leaf component ?
+It's a component that is not supposed to contain another component.
+For example the following components are leaf components:
+
+* AppHeaderBar
+* SidePanel
+* List
+* Breadcrumb
+* Icon
+* Action(s)
+
+But the following are not leaf:
+
+* Layout
 
 If you feel the need to add {children} this means we have forget a use case.
 In this case please expose your use case and try to see how

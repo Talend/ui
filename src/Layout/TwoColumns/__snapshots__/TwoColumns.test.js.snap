@@ -1,9 +1,15 @@
-exports[`TwoColumns should render its name 1`] = `
+exports[`TwoColumns should render two columns 1`] = `
 <div
-  className={undefined}>
+  className="tc-layout-two-columns">
   <div
-    className={undefined} />
+    className="tc-layout-two-columns-left">
+    Hello world
+  </div>
   <div
-    className={undefined} />
+    className="tc-layout-two-columns-main">
+    <span>
+      children
+    </span>
+  </div>
 </div>
 `;

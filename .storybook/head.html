@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="https://talend.github.io/bootstrap-theme/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!-- Storybook is wrapping our content into three divs
+So to fix Layout components which handle scrool,
+we have to set the flex things
+-->
 <style>
-    #root {
-        height: 100vh;
+    #root,
+    #root > div,
+    #root > div > div {
+        max-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        width: 100vw;
     }
 </style>
