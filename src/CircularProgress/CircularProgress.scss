@@ -1,7 +1,7 @@
 // CircularProgress styles
-$tc-circular-progress-dark-fill: rgba(0,0,0, 0.4);
-$tc-circular-progress-light-fill: rgba(255, 255, 255, 0.6);
-$tc-circular-progress-small: 1rem;
+$tc-circular-progress-dark-fill: #333 !default;
+$tc-circular-progress-light-fill: #eee !default;
+$tc-circular-progress-small: 1.2rem;
 $tc-circular-progress-regular: 2rem;
 $tc-circular-progress-large: 4rem;
 
@@ -10,14 +10,14 @@ $tc-circular-progress-large: 4rem;
 
 	& .path {
 		animation: dash 1.3s ease-in-out infinite;
-		stroke: $tc-circular-progress-dark-fill;
+		stroke: rgba($tc-circular-progress-dark-fill, 0.4);
 		stroke-linecap: round;
 	}
 }
 
 .loaderlight {
 	& .path {
-		stroke: $tc-circular-progress-light-fill;
+		stroke: rgba($tc-circular-progress-light-fill, 0.6);
 	}
 }
 
@@ -45,6 +45,13 @@ $tc-circular-progress-large: 4rem;
 .small {
 	width: $tc-circular-progress-small;
 	height: $tc-circular-progress-small;
+	& .path {
+		stroke: $tc-circular-progress-dark-fill;
+	}
+	&.loaderlight .path {
+		stroke: $tc-circular-progress-light-fill;
+	}
+
 }
 
 .default {

@@ -17,6 +17,10 @@ storiesOf('CircularProgress', module)
 			<CircularProgress />
 			<h3>Small</h3>
 			<CircularProgress size="small" />
+			<h3>Small on color</h3>
+			<div style={{ background: '#2f5157' }}>
+				<CircularProgress light size="small" />
+			</div>
 			<h3>Normal</h3>
 			<CircularProgress size="default" />
 			<h3>large</h3>
