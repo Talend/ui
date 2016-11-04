@@ -10,7 +10,9 @@ exports[`Layout should render Layout OneColumn 1`] = `
         <div
           className="navbar-header">
           <span
-            className="navbar-brand" />
+            className="navbar-brand">
+            My app
+          </span>
           <button
             className="navbar-toggle collapsed"
             onClick={[Function]}
@@ -56,7 +58,9 @@ exports[`Layout should render Layout TwoColumns 1`] = `
         <div
           className="navbar-header">
           <span
-            className="navbar-brand" />
+            className="navbar-brand">
+            My app
+          </span>
           <button
             className="navbar-toggle collapsed"
             onClick={[Function]}

@@ -44,11 +44,12 @@ function Toolbar(props) {
 					/>) : null}
 					<ButtonGroup className="navbar-btn">
 						{props.listActions ? (
-							<DropdownButton id="tc-list-toolbar-add-dropdown" bsStyle="link">
+							<DropdownButton id="tc-list-toolbar-add-dropdown" title="" bsStyle="link">
 								{props.listActions.map((action, index) => {
 									const onClick = e => action.onClick(e, action);
 									return (
 										<MenuItem
+											key={index}
 											onClick={onClick}
 											eventKey={index}
 										>

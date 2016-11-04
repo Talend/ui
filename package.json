@@ -54,6 +54,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.0",
+    "invariant": "^2.2.1",
     "jest": "^16.0.1",
     "node-sass": "^3.10.1",
     "react": "^15.3.2",
@@ -79,6 +80,7 @@
   },
   "peerDependencies": {
     "classnames": "^2.2.5",
+    "invariant": "^2.2.1",
     "react": "^15.3.2",
     "react-bootstrap": "0",
     "talend-icons": "^0.0.1",

@@ -22,22 +22,20 @@ function getLabel(selected) {
 
 const displayModes = ['table', 'large', 'tile'];
 
-/**
- * @param {object} props react props
- */
-function SelectDisplayMode(props) {
-	const selected = props.displayMode ? props.displayMode : 'table';
+function SelectDisplayMode({ displayMode, onSelectDisplayMode }) {
+	const selected = displayMode || 'table';
 	const displayIcon = (<Icon name={getIcon(selected)} />);
-	const onSelectDisplayMode = (value, e) => {
-		props.onSelectDisplayMode(e, value);
+	const onSelectMode = (value, e) => {
+		onSelectDisplayMode(e, value);
 	};
 	return (
 		<Nav>
 			<label className="navbar-text" htmlFor="tc-list-toolbar-display-mode">Display:</label>
-			<NavDropdown title={displayIcon} id="tc-list-toolbar-display-mode" onSelect={onSelectDisplayMode}>
+			<NavDropdown title={displayIcon} id="tc-list-toolbar-display-mode" onSelect={onSelectMode}>
 				{displayModes.map(mode => (
-					<MenuItem eventKey={mode}><Icon name={getIcon(mode)} /> {getLabel(mode)}</MenuItem>
-
+					<MenuItem key={mode} eventKey={mode}>
+						<Icon name={getIcon(mode)} /> {getLabel(mode)}
+					</MenuItem>
 				))}
 			</NavDropdown>
 		</Nav>

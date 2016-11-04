@@ -74,7 +74,7 @@ function Tile({ columns, item, onElementSelect, onTitleClick, titleKey }) {
 }
 
 Tile.propTypes = {
-	item: PropTypes.any.isRequired,
+	item: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(columnPropType).isRequired,
 	titleKey: PropTypes.string.isRequired,
 	onTitleClick: PropTypes.func,

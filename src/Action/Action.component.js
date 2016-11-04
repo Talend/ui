@@ -62,11 +62,11 @@ function Action(props) {
 }
 
 Action.propTypes = {
+	icon: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
-	icon: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-	model: PropTypes.object,
+	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	hideLabel: PropTypes.bool,
 };

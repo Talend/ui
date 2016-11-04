@@ -6,13 +6,14 @@ import Actions from '../../Actions';
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
+	const { titleKey, onTitleClick, item } = props;
 	return (
 		<tr>
 			{props.columns.map((column, index) => {
-				if (column.key === props.titleKey) {
-					const onClick = event => props.onTitleClick(
+				if (column.key === titleKey) {
+					const onClick = event => onTitleClick(
 						event,
-						props.item,
+						item,
 					);
 					return (
 						<td key={index}>
@@ -21,23 +22,23 @@ function RowRenderer(props) {
 								onClick={onClick}
 								role="link"
 							>
-								{props.item[column.key]}
+								{item[column.key]}
 							</Button>
 							<Actions
-								actions={props.item.actions || []}
+								actions={item.actions || []}
 								hideLabel
 								link
 							/>
 						</td>
 					);
 				}
-				return (<td key={index}>{props.item[column.key]}</td>);
+				return (<td key={index}>{item[column.key]}</td>);
 			})}
 		</tr>
 	);
 }
 RowRenderer.propTypes = {
-	item: PropTypes.object,
+	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,

@@ -75,13 +75,13 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick }) {
 }
 
 rowRenderer.propTypes = {
-	item: PropTypes.object,
+	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	index: PropTypes.number,
 	columns: PropTypes.arrayOf(
 		PropTypes.object
 	),
 	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func.isRequired,
+	onTitleClick: PropTypes.func,
 };
 
 /**
@@ -114,7 +114,7 @@ DisplayLarge.propTypes = {
 		PropTypes.object
 	),
 	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func.isRequired,
+	onTitleClick: PropTypes.func,
 };
 
 export default DisplayLarge;
