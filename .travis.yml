@@ -12,7 +12,6 @@ node_js:
   - "4"
 before_install:
   - npm install -g yarn
-  - yarn add react@15 react-dom@15 react-redux@4 react-router@2 react-router-redux@4 redux@3 redux-thunk@2 classnames@2
 install:
   - yarn
 after_success:
