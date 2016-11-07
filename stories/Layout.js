@@ -80,10 +80,27 @@ storiesOf('Layout', module)
 			header={header}
 			mode="OneColumn"
 		>
+			<h1>Hello world</h1>
+		</Layout>
+	))
+	.addWithInfo('OneColumn with scroll', () => (
+		<Layout
+			header={header}
+			mode="OneColumn"
+		>
 			{content}
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+		>
+			<h1>Hello world</h1>
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with scroll', () => (
 		<Layout
 			header={header}
 			mode="TwoColumns"
