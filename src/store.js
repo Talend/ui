@@ -1,7 +1,7 @@
 /**
  * @module react-cmf/lib/store
  */
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -17,8 +17,18 @@ if (window) {
 	}
 }
 
-const configuredRouterMiddleware = routerMiddleware(hashHistory);
-middlewares.push(configuredRouterMiddleware);
+// Indicated wether or not the default router was overwritten
+let defaultRouterOverwrite = false;
+
+/**
+ * setRouterMiddleware overwrites the default router middleware
+ *
+ * @param middleware a router middleware
+ */
+function setRouterMiddleware(middleware) {
+	middlewares.push(middleware);
+	defaultRouterOverwrite = true;
+}
 
 /**
  * helper to create the store with all the things needed by CMF
@@ -35,7 +45,7 @@ middlewares.push(configuredRouterMiddleware);
  * @param  {Array|function} middleware   redux middleware: http://redux.js.org/docs/api/applyMiddleware.html
  * @return {Object}              The created store
  */
-export default function initializeStore(appReducer, preloadedState, enhancer, middleware) {
+function initialize(appReducer, preloadedState, enhancer, middleware) {
 	let reducerObject = {};
 	if (appReducer) {
 		if (typeof appReducer === 'object') {
@@ -65,6 +75,10 @@ export default function initializeStore(appReducer, preloadedState, enhancer, mi
 	if (typeof enhancer === 'function') {
 		enhancers.push(enhancer);
 	}
+	if (!defaultRouterOverwrite) {
+		setRouterMiddleware(routerMiddleware(browserHistory));
+	}
+
 	const store = compose(
 		applyMiddleware(...middlewares),
 		...enhancers
@@ -72,3 +86,8 @@ export default function initializeStore(appReducer, preloadedState, enhancer, mi
 
 	return store;
 }
+
+export default {
+	setRouterMiddleware,
+	initialize,
+};
