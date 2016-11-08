@@ -3,16 +3,6 @@ import invariant from 'invariant';
 import classnames from 'classnames';
 import theme from './Icon.scss';
 
-const registry = {};
-
-function register(id, svg) {
-	registry[id] = svg;
-}
-
-function getSVG(id) {
-	return registry[id];
-}
-
 /**
  * SVG implementation is inspired by
  * http://svgicons.sparkk.fr/
@@ -20,27 +10,26 @@ function getSVG(id) {
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon(props) {
-	const id = props.name;
+function Icon({ name, title }) {
 	const accessibility = {
 		'aria-hidden': 'true',
-		title: props.title || null,
+		title: title || null,
 	};
-	if (id.startsWith('fa-')) {
-		return (<i className={`fa ${id}`} {...accessibility} />);
+	if (name.startsWith('fa-')) {
+		return (<i className={`fa ${name}`} {...accessibility} />);
 	}
-	if (id.startsWith('fa fa-') || id.startsWith('icon-')) {
-		return (<i className={id} {...accessibility} />);
+	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
+		return (<i className={name} {...accessibility} />);
 	}
-	if (registry[id]) {
+	if (name) {
 		const classname = classnames(theme['svg-icon'], 'tc-svg-icon');
 		return (
 			<svg className={classname} {...accessibility}>
-				{getSVG(id)}
+				<use xlinkHref={`#${name}`} />
 			</svg>
 		);
 	}
-	invariant(false, `icon not found ${id}`);
+	invariant(true, 'no name provided');
 }
 
 Icon.propTypes = {
@@ -48,6 +37,4 @@ Icon.propTypes = {
 	title: React.PropTypes.string,
 };
 
-Icon.register = register;
-Icon.registry = registry;
 export default Icon;
