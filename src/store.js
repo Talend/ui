@@ -1,7 +1,7 @@
 /**
  * @module react-cmf/lib/store
  */
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -76,7 +76,7 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	if (!defaultRouterOverwrite) {
-		setRouterMiddleware(routerMiddleware(browserHistory));
+		setRouterMiddleware(routerMiddleware(hashHistory));
 	}
 
 	const store = compose(
