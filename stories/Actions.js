@@ -19,6 +19,7 @@ const actions = [
 		label: 'Favorites',
 		icon: 'fa fa-star',
 		onClick: action('Favorites clicked'),
+		inProgress: true,
 	},
 ];
 storiesOf('Actions', module)

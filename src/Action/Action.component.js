@@ -5,11 +5,14 @@ import {
 	Tooltip,
 } from 'react-bootstrap';
 import uuid from 'uuid';
+import CircularProgress from '../CircularProgress';
+import Icon from '../Icon';
 
 function Action(props) {
 	const {
 		label,
 		icon,
+		inProgress,
 		onClick,
 		model,
 		hideLabel,
@@ -43,10 +46,12 @@ function Action(props) {
 		<Button
 			onClick={rClick}
 			bsStyle={bsStyle}
+			disabled={inProgress}
 			role={link ? 'link' : null}
 			{...rest}
 		>
-			{icon ? <i className={icon} /> : null}
+			{icon && !inProgress ? <Icon name={icon} /> : null}
+			{inProgress ? <CircularProgress size="small" /> : null}
 			{hideLabel ? null : <span>{label}</span>}
 		</Button>
 	);
@@ -69,6 +74,11 @@ Action.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	hideLabel: PropTypes.bool,
+	inProgress: PropTypes.bool,
+};
+
+Action.defaultProps = {
+	inProgress: false,
 };
 
 export default Action;

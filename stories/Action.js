@@ -23,5 +23,10 @@ storiesOf('Action', module)
 				{...myAction}
 				hideLabel
 			/>
+			<p>In progress</p>
+			<Action
+				{...myAction}
+				inProgress
+			/>
 		</div>
 	));

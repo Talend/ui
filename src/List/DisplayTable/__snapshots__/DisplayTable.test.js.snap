@@ -52,7 +52,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             role="link"
             type="button">
             <i
-              className="fa fa-edit" />
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null} />
           </button>
           <button
             aria-describedby={42}
@@ -66,7 +68,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             role="link"
             type="button">
             <i
-              className="fa fa-trash-o" />
+              aria-hidden="true"
+              className="fa fa-trash-o"
+              title={null} />
           </button>
         </div>
       </td>
@@ -191,7 +195,9 @@ exports[`DisplayTable should render with defined title property 1`] = `
             role="link"
             type="button">
             <i
-              className="fa fa-edit" />
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null} />
           </button>
           <button
             aria-describedby={42}
@@ -205,7 +211,9 @@ exports[`DisplayTable should render with defined title property 1`] = `
             role="link"
             type="button">
             <i
-              className="fa fa-trash-o" />
+              aria-hidden="true"
+              className="fa fa-trash-o"
+              title={null} />
           </button>
         </div>
       </td>

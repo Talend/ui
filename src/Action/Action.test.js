@@ -16,6 +16,7 @@ describe('Action', () => {
 		const wrapper = renderer.create(<Action {...myAction} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should click on the button trigger the onclick props', () => {
 		const wrapper = renderer.create(
 			<Action extra="extra" {...myAction} />).toJSON();
@@ -27,11 +28,22 @@ describe('Action', () => {
 		expect(args[0]).toBe();
 		expect(args[1].action.extra).toBe('extra');
 	});
+
 	it('should pass all props to the Button', () => {
 		const wrapper = renderer.create(
 			<Action
 				className="navbar-btn"
 				notExisting
+				{...myAction}
+			/>).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should display a Progress indicator if set', () => {
+		const wrapper = renderer.create(
+			<Action
+				className="navbar-btn"
+				inProgress
 				{...myAction}
 			/>).toJSON();
 		expect(wrapper).toMatchSnapshot();

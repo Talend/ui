@@ -227,7 +227,9 @@ exports[`Toolbar should render add btn 1`] = `
         role={null}
         type="button">
         <i
-          className="fa fa-plus" />
+          aria-hidden="true"
+          className="fa fa-plus"
+          title={null} />
         <span>
           Add
         </span>
