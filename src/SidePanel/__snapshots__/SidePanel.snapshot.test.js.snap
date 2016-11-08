@@ -9,7 +9,9 @@ exports[`SidePanel should render docked menu 1`] = `
     title="Toggle side panel"
     type="button">
     <i
-      className="fa fa-arrow-left" />
+      aria-hidden="true"
+      className="fa fa-arrow-left"
+      title={null} />
   </button>
   <ul
     className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
@@ -23,7 +25,9 @@ exports[`SidePanel should render docked menu 1`] = `
         title="Display Preparations"
         type="button">
         <i
-          className="fa fa-asterisk" />
+          aria-hidden="true"
+          className="fa fa-asterisk"
+          title={null} />
       </button>
     </li>
     <li
@@ -36,7 +40,9 @@ exports[`SidePanel should render docked menu 1`] = `
         title="Display Datasets"
         type="button">
         <i
-          className="fa fa-file-excel-o" />
+          aria-hidden="true"
+          className="fa fa-file-excel-o"
+          title={null} />
       </button>
     </li>
     <li
@@ -49,7 +55,9 @@ exports[`SidePanel should render docked menu 1`] = `
         title="Display Favorites"
         type="button">
         <i
-          className="fa fa-star" />
+          aria-hidden="true"
+          className="fa fa-star"
+          title={null} />
       </button>
     </li>
   </ul>
@@ -67,7 +75,9 @@ exports[`SidePanel should render expanded menu 1`] = `
     title="Toggle side panel"
     type="button">
     <i
-      className="fa fa-arrow-left" />
+      aria-hidden="true"
+      className="fa fa-arrow-left"
+      title={null} />
   </button>
   <ul
     className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
@@ -81,7 +91,9 @@ exports[`SidePanel should render expanded menu 1`] = `
         title="Display Preparations"
         type="button">
         <i
-          className="fa fa-asterisk" />
+          aria-hidden="true"
+          className="fa fa-asterisk"
+          title={null} />
         <span>
           Preparations
         </span>
@@ -97,7 +109,9 @@ exports[`SidePanel should render expanded menu 1`] = `
         title="Display Datasets"
         type="button">
         <i
-          className="fa fa-file-excel-o" />
+          aria-hidden="true"
+          className="fa fa-file-excel-o"
+          title={null} />
         <span>
           Datasets
         </span>
@@ -113,7 +127,9 @@ exports[`SidePanel should render expanded menu 1`] = `
         title="Display Favorites"
         type="button">
         <i
-          className="fa fa-star" />
+          aria-hidden="true"
+          className="fa fa-star"
+          title={null} />
         <span>
           Favorites
         </span>

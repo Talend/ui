@@ -69,6 +69,7 @@ const sidePanel = (<SidePanel
 	actions={actions}
 	onToggleDock={action('Toggle dock clicked')}
 	docked={false}
+	toggleIcon={ 'fa fa-arrow-left' }
 />);
 const header = {
 	app: 'Example App Name',
@@ -114,6 +115,7 @@ storiesOf('Layout', module)
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 			docked
+			toggleIcon={ 'fa fa-arrow-left' }
 		/>);
 
 		return (

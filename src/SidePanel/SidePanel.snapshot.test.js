@@ -15,7 +15,7 @@ describe('SidePanel', () => {
 		const docked = false;
 
 		// when
-		const sidePanel = <SidePanel actions={actions} docked={docked} />;
+		const sidePanel = <SidePanel actions={actions} docked={docked} toggleIcon={'fa fa-arrow-left'} />;
 		const wrapper = renderer.create(sidePanel).toJSON();
 
 		// then
@@ -32,7 +32,7 @@ describe('SidePanel', () => {
 		const docked = true;
 
 		// when
-		const sidePanel = <SidePanel actions={actions} docked={docked} />;
+		const sidePanel = <SidePanel actions={actions} docked={docked} toggleIcon={'fa fa-arrow-left'} />;
 		const wrapper = renderer.create(sidePanel).toJSON();
 
 		// then

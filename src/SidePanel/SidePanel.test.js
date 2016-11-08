@@ -20,6 +20,7 @@ describe('SidePanel', () => {
 				actions={actions}
 				onToggleDock={onToggleDock}
 				docked={docked}
+				toggleIcon={'fa fa-arrow-left'}
 			/>
 		);
 		const wrapper = mount(sidePanel);
@@ -46,6 +47,7 @@ describe('SidePanel', () => {
 			<SidePanel
 				actions={actions}
 				docked={docked}
+				toggleIcon={'fa fa-arrow-left'}
 			/>
 		);
 		const wrapper = mount(sidePanel);

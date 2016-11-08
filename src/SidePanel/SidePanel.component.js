@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
 import theme from './SidePanel.scss';
+import Icon from '../Icon';
 
 /* eslint-disable jsx-a11y/href-no-hash */
 
@@ -19,6 +20,7 @@ import theme from './SidePanel.scss';
 	 actions={ actions }
 	 onToggleDock={ action('Toggle dock clicked') }
 	 docked={ isDocked }
+     toggleIcon={ 'fa fa-arrow-left' }
  />
  *
  */
@@ -36,6 +38,7 @@ function SidePanel(props) {
 		'tc-side-panel-list',
 		theme['action-list']
 	);
+
 	return (
 		<nav className={navCSS}>
 			<Button
@@ -45,7 +48,7 @@ function SidePanel(props) {
 				aria-hidden="true"
 				title="Toggle side panel"
 			>
-				<i className="fa fa-arrow-left" />
+				<Icon name={props.toggleIcon || 'fa-arrow-left'} />
 			</Button>
 			<ul className={listCSS}>
 				{actions.map(action => (
@@ -63,7 +66,7 @@ function SidePanel(props) {
 							className={theme.link}
 							onClick={action.onClick}
 						>
-							{ action.icon ? <i className={action.icon} /> : null }
+							{ action.icon ? <Icon name={action.icon} /> : null }
 							{ props.docked ? null : <span>{action.label}</span> }
 						</Button>
 					</li>
@@ -83,6 +86,7 @@ SidePanel.propTypes = {
 	),
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
+	toggleIcon: React.PropTypes.string,
 };
 
 export default SidePanel;

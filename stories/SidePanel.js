@@ -34,6 +34,7 @@ storiesOf('Side Panel', module)
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
 					docked={false}
+					toggleIcon={ 'fa fa-arrow-left' }
 				/>
 			</div>
 		);
@@ -68,6 +69,7 @@ storiesOf('Side Panel', module)
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
 					docked={true}
+					toggleIcon={ 'fa fa-arrow-left' }
 				/>
 			</div>
 		);
