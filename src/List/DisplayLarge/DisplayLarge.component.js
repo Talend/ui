@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import Actions from '../../Actions';
+import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 import theme from './DisplayLarge.scss';
 

@@ -66,8 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
-import Action from './Action';
-import Actions from './Actions';
+import { Action, ActionDropdown, Actions } from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -76,9 +75,11 @@ import IconsProvider from './IconsProvider';
 import Layout from './Layout';
 import List from './List';
 import SidePanel from './SidePanel';
+import TooltipTrigger from './TooltipTrigger';
 
 export {
 	Action,
+	ActionDropdown,
 	Actions,
 	AppHeaderBar,
 	Breadcrumbs,
@@ -88,6 +89,7 @@ export {
 	Layout,
 	List,
 	SidePanel,
+	TooltipTrigger,
 
 	Alert,
 	Badge,

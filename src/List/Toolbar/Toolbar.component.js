@@ -3,7 +3,7 @@ import { MenuItem, Nav, Navbar, ButtonGroup, DropdownButton } from 'react-bootst
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
 import Filter from './Filter';
-import Action from '../../Action';
+import Action from '../../Actions/Action';
 import Icon from '../../Icon';
 
 export function getSubProps(props, component) {

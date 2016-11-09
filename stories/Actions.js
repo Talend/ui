@@ -5,21 +5,39 @@ import { Actions } from '../src/index';
 
 const actions = [
 	{
+		type: 'action',
 		label: 'Preparations',
 		icon: 'fa fa-asterisk',
 		onClick: action('Preparations clicked'),
 		bsStyle: 'primary',
 	},
 	{
+		type: 'action',
 		label: 'Datasets',
 		icon: 'fa fa-file-excel-o',
 		onClick: action('Datasets clicked'),
 	},
 	{
+		type: 'action',
 		label: 'Favorites',
 		icon: 'fa fa-star',
 		onClick: action('Favorites clicked'),
 		inProgress: true,
+	},
+	{
+		type: 'dropdown',
+		label: 'related items',
+		icon: 'fa fa-file-excel-o',
+		items: [
+			{
+				label: 'document 1',
+				onClick: action('document 1 click'),
+			},
+			{
+				label: 'document 2',
+				onClick: action('document 2 click'),
+			},
+		],
 	},
 ];
 storiesOf('Actions', module)

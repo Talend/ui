@@ -28,7 +28,6 @@ exports[`Action should pass all props to the Button 1`] = `
 <button
   className="navbar-btn btn btn-default"
   disabled={false}
-  notExisting={true}
   onClick={[Function]}
   role={null}
   type="button">

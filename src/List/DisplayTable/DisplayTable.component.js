@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Button } from 'react-bootstrap';
-import Actions from '../../Actions';
+import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 
 import theme from './DisplayTable.scss';
