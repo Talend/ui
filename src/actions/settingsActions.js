@@ -18,6 +18,7 @@ export function receiveSettings(json) {
 		receivedAt: Date.now(),
 	};
 }
+
 export function errorWithSettings(error) {
 	return {
 		type: REQUEST_KO,
@@ -28,13 +29,14 @@ export function errorWithSettings(error) {
 /**
  * get the settings on the server and dispatch the corresponding actions
  * this should be executed during the bootstrap of the App.
+ * @param path Path of the settings.json file to fetch. Default 'settings.json'
  * @return {function} with the fetch process results
  */
-export function fetchSettings() {
+export function fetchSettings(path = 'settings.json') {
 	return (dispatch) => {
 		dispatch(requestSettings());
-		return fetch('settings.json')
-			.then((response) => response.json())
+		return fetch(path)
+			.then(response => response.json())
 			.then((json) => {
 				dispatch(receiveSettings(json));
 			}, (error) => {
