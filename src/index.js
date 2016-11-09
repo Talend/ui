@@ -9,7 +9,7 @@ import Icon from './Icon';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import history from './history';
-import initializeStore from './store';
+import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';
 
@@ -33,7 +33,7 @@ export {
 	App,
 	Dispatcher,
 	history,
-	initializeStore,
+	store,
 	Icon,
 	reducers,
 	RegistryProvider,
