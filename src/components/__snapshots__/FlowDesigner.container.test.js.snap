@@ -1,6 +1,5 @@
 exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1`] = `
 <svg
-  height="800"
   width="100%">
   <defs>
     <filter
