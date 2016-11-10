@@ -14,14 +14,14 @@ import { Provider } from 'react-cmf/lib/mock';
 import AppMenu from './AppMenu.component';
 
 describe('AppMenu', () => {
-    it('should render its name', () => {
-        const wrapper = renderer.create(
-            <Provider>
-                <AppMenu />
-            </Provider>
-        ).toJSON();
-        expect(wrapper).toMatchSnapshot();
-    });
+	it('should render', () => {
+		const wrapper = renderer.create(
+			<Provider registry={customRegistry} router={customRouter}>
+				<AppMenu />
+			</Provider>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });
  */
 class MockProvider extends React.Component {
@@ -33,13 +33,11 @@ class MockProvider extends React.Component {
 		if (this.props.state) {
 			st.state = this.props.state;
 		}
-		let context = { store: st };
-		if (this.props.extraContext) {
-			context = {
-				store,
-				...this.props.extraContext,
-			};
-		}
+		const context = {
+			store: st,
+			router: this.props.router || {},
+			registry: this.props.registry || {},
+		};
 		return context;
 	}
 	render() {
@@ -55,11 +53,14 @@ MockProvider.propTypes = {
 	children: PropTypes.node.isRequired,
 	store: PropTypes.object,
 	state: PropTypes.object,
-	extraContext: PropTypes.object,
+	router: PropTypes.object,
+	registry: PropTypes.object,
 };
 
 MockProvider.childContextTypes = {
 	store: PropTypes.object,
+	router: PropTypes.object,
+	registry: PropTypes.object,
 };
 
 export default MockProvider;
