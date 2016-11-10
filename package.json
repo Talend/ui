@@ -37,7 +37,7 @@
     "babel-cli": "6.14.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "6.1.2",
-    "babel-jest": "^15.0.0",
+    "babel-jest": "^17.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.0",
     "invariant": "^2.2.1",
-    "jest": "^16.0.1",
+    "jest": "^17.0.0",
     "node-sass": "^3.10.1",
     "react": "^15.3.2",
     "react-a11y": "^0.3.3",
@@ -72,7 +72,7 @@
     "webpack": "1.13.1"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
     "testRegex": "src/.*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
