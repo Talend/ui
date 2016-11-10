@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import mock from './store';
 
 const store = mock.store();
@@ -25,9 +25,6 @@ describe('AppMenu', () => {
 });
  */
 class MockProvider extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 	getChildContext() {
 		let st = this.props.store;
 		if (!st) {
@@ -36,7 +33,14 @@ class MockProvider extends React.Component {
 		if (this.props.state) {
 			st.state = this.props.state;
 		}
-		return { store: st };
+		let context = { store: st };
+		if (this.props.extraContext) {
+			context = {
+				store,
+				...this.props.extraContext,
+			};
+		}
+		return context;
 	}
 	render() {
 		return (
@@ -48,12 +52,14 @@ class MockProvider extends React.Component {
 }
 
 MockProvider.propTypes = {
-	store: React.PropTypes.object,
-	state: React.PropTypes.object,
+	children: PropTypes.node.isRequired,
+	store: PropTypes.object,
+	state: PropTypes.object,
+	extraContext: PropTypes.object,
 };
 
 MockProvider.childContextTypes = {
-	store: React.PropTypes.object,
+	store: PropTypes.object,
 };
 
 export default MockProvider;
