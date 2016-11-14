@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { List } from '../src/index';
+import { List, IconsProvider } from '../src/index';
 
 const props = {
 	items: [
@@ -13,16 +13,16 @@ const props = {
 			author: 'Jean-Pierre DUPONT',
 			actions: [{
 				label: 'edit',
-				icon: 'fa fa-edit',
+				icon: 'talend-edit',
 				onClick: action('onEdit'),
 			}, {
 				label: 'delete',
-				icon: 'fa fa-trash-o',
+				icon: 'talend-delete',
 				onClick: action('onDelete'),
 			}, {
 				displayMode: 'dropdown',
 				label: 'related items',
-				icon: 'fa fa-file-excel-o',
+				icon: 'talend-folder',
 				items: [
 					{
 						label: 'document 1',
@@ -57,7 +57,7 @@ const props = {
 	listActions: [
 		{
 			label: 'Delete selection',
-			icon: 'fa fa-trash-o',
+			icon: 'talend-delete',
 			onClick: action('delete'),
 		},
 	],
@@ -88,6 +88,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
 			<h2>Examples</h2>
+			<IconsProvider />
 			<List {...props} />
 		</div>
 	))
@@ -98,6 +99,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
+				<IconsProvider />
 				<List {...eprops} />
 			</div>
 		);
@@ -109,6 +111,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
+				<IconsProvider />
 				<List {...tprops} />
 			</div>
 		);
