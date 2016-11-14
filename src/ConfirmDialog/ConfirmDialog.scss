@@ -1,0 +1,13 @@
+// ConfirmDialog styles
+.tc-confirm-dialog {
+	:global(.modal-footer) {
+		display: flex;
+		justify-content: flex-start;
+
+		> button {
+			&:last-child {
+				margin-left: auto;
+			}
+		}
+	}
+}

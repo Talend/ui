@@ -11,7 +11,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 /**
  * @param {object} props react props
  * @example
-const props = {
+ const props = {
 	type: 'action',
 	label: 'edit',
 	icon: 'fa fa-edit',
@@ -34,7 +34,7 @@ function Action(props) {
 		onClick,
 		tooltipPlacement,
 		...rest,
-	} = props;
+		} = props;
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;

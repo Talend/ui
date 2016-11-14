@@ -66,7 +66,7 @@ function Tile({ columns, item, onElementSelect, onTitleClick, titleKey, iconKey 
 		onSelect = event => onElementSelect(item, event);
 	}
 	return (
-		<div
+		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			className={theme.tile}
 			onClick={onSelect}
 			onDoubleClick={onClick}
@@ -93,7 +93,7 @@ Tile.propTypes = {
 /**
  * @param {object} props react props
  * @example
-<DisplayTile name="Hello world"></DisplayTile>
+ <DisplayTile name="Hello world"></DisplayTile>
  */
 function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, iconKey, width }) {
 	return (

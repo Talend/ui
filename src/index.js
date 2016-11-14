@@ -70,6 +70,7 @@ import { Action, ActionDropdown, Actions } from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
+import ConfirmDialog from './ConfirmDialog';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Layout from './Layout';
@@ -84,6 +85,7 @@ export {
 	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
+	ConfirmDialog,
 	Icon,
 	IconsProvider,
 	Layout,

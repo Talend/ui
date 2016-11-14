@@ -10,7 +10,7 @@ import Icon from '../../Icon';
 /**
  * @param {object} props react props
  * @example
-const props = {
+ const props = {
 	label: 'related items',
 	icon: 'fa fa-file-excel-o',
 	items: [
@@ -27,7 +27,7 @@ const props = {
 	hideLabel: true,
 	link: true,
 };
-<ActionDropdown {...props} />
+ <ActionDropdown {...props} />
  */
 function ActionDropdown(props) {
 	const {
@@ -39,7 +39,7 @@ function ActionDropdown(props) {
 		link,
 		tooltipPlacement,
 		...rest,
-	} = props;
+		} = props;
 
 	const title = (
 		<span>
@@ -59,8 +59,13 @@ function ActionDropdown(props) {
 		>
 			{
 				items.length ?
-				items.map((item, index) => (<MenuItem {...item} key={index}>{item.label}</MenuItem>)) :
-					<MenuItem disabled>No options</MenuItem>
+					items.map((item, index) => (
+						<MenuItem {...item} key={index}>
+							{item.label}
+						</MenuItem>
+					)) : (
+						<MenuItem disabled>No options</MenuItem>
+					)
 			}
 		</DropdownButton>
 	);
