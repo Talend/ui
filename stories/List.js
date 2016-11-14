@@ -12,17 +12,15 @@ const props = {
 			modified: '2016-09-22',
 			author: 'Jean-Pierre DUPONT',
 			actions: [{
-				type: 'action',
 				label: 'edit',
 				icon: 'fa fa-edit',
 				onClick: action('onEdit'),
 			}, {
-				type: 'action',
 				label: 'delete',
 				icon: 'fa fa-trash-o',
 				onClick: action('onDelete'),
 			}, {
-				type: 'dropdown',
+				displayMode: 'dropdown',
 				label: 'related items',
 				icon: 'fa fa-file-excel-o',
 				items: [

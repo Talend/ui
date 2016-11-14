@@ -12,7 +12,6 @@ import getPropsFrom from '../../utils/getPropsFrom';
  * @param {object} props react props
  * @example
  const props = {
-	type: 'action',
 	label: 'edit',
 	icon: 'fa fa-edit',
 	onClick: action('onEdit'),

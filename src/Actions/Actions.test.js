@@ -7,27 +7,24 @@ jest.mock('react-dom');
 
 const actions = [
 	{
-		type: 'action',
 		label: 'Preparations',
 		icon: 'fa fa-asterisk',
 		onClick: jest.fn(),
 		bsStyle: 'primary',
 	},
 	{
-		type: 'action',
 		label: 'Datasets',
 		icon: 'fa fa-file-excel-o',
 		onClick: jest.fn(),
 	},
 	{
-		type: 'action',
 		label: 'Favorites',
 		icon: 'fa fa-star',
 		onClick: jest.fn(),
 	},
 	{
 		id: 'dropdown-id',
-		type: 'dropdown',
+		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'fa fa-file-excel-o',
 		items: [

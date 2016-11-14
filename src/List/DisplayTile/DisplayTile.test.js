@@ -13,12 +13,10 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		actions: [{
-			type: 'action',
 			label: 'edit',
 			icon: 'fa fa-edit',
 			onClick: jest.fn(),
 		}, {
-			type: 'action',
 			label: 'delete',
 			icon: 'fa fa-trash-o',
 			onClick: jest.fn(),

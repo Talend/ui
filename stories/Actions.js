@@ -5,27 +5,24 @@ import { Actions } from '../src/index';
 
 const actions = [
 	{
-		type: 'action',
 		label: 'Preparations',
 		icon: 'fa fa-asterisk',
 		onClick: action('Preparations clicked'),
 		bsStyle: 'primary',
 	},
 	{
-		type: 'action',
 		label: 'Datasets',
 		icon: 'fa fa-file-excel-o',
 		onClick: action('Datasets clicked'),
 	},
 	{
-		type: 'action',
 		label: 'Favorites',
 		icon: 'fa fa-star',
 		onClick: action('Favorites clicked'),
 		inProgress: true,
 	},
 	{
-		type: 'dropdown',
+		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'fa fa-file-excel-o',
 		items: [

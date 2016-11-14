@@ -3,7 +3,6 @@ import { ButtonGroup } from 'react-bootstrap';
 import Action from './Action';
 import ActionDropdown from './ActionDropdown';
 
-const TYPE_ACTION = 'action';
 const TYPE_DROPDOWN = 'dropdown';
 
 function getButtonGroupProps(props) {
@@ -21,19 +20,17 @@ function getButtonGroupProps(props) {
  * @example
 const actions: [
     {
-		type: 'action',
 		label: 'edit',
 		icon: 'fa fa-edit',
 		onClick: action('onEdit'),
 	},
     {
-		type: 'action',
 		label: 'delete',
 		icon: 'fa fa-trash-o',
 		onClick: action('onDelete'),
 	},
     {
-		type: 'dropdown',
+		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'fa fa-file-excel-o',
 		items: [
@@ -55,18 +52,8 @@ function Actions(props) {
 	return (
 		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
-				const { type, ...rest } = action;
-				switch (type) {
-				case TYPE_ACTION:
-					return (
-						<Action
-							hideLabel={props.hideLabel}
-							key={index}
-							link={props.link}
-							tooltipPlacement={props.tooltipPlacement}
-							{...rest}
-						/>
-					);
+				const { displayMode, ...rest } = action;
+				switch (displayMode) {
 				case TYPE_DROPDOWN:
 					return (
 						<ActionDropdown
@@ -78,7 +65,15 @@ function Actions(props) {
 						/>
 					);
 				default:
-					return null;
+					return (
+						<Action
+							hideLabel={props.hideLabel}
+							key={index}
+							link={props.link}
+							tooltipPlacement={props.tooltipPlacement}
+							{...rest}
+						/>
+					);
 				}
 			})}
 		</ButtonGroup>
@@ -88,12 +83,9 @@ function Actions(props) {
 Actions.propTypes = {
 	actions: PropTypes.arrayOf(
 		PropTypes.oneOfType([
+			Action.propTypes,
 			PropTypes.shape({
-				type: PropTypes.oneOf([TYPE_ACTION, TYPE_DROPDOWN]),
-				...Action.propTypes,
-			}),
-			PropTypes.shape({
-				type: PropTypes.oneOf([TYPE_ACTION, TYPE_DROPDOWN]),
+				displayMode: PropTypes.oneOf([TYPE_DROPDOWN]),
 				...ActionDropdown.propTypes,
 			}),
 		])
