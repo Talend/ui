@@ -67,7 +67,7 @@
     "sass-loader": "^4.0.2",
     "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
-    "talend-icons": "^0.0.1",
+    "talend-icons": "^0.3.0",
     "uuid": "^2.0.3",
     "webpack": "1.13.1"
   },
@@ -83,7 +83,7 @@
     "invariant": "^2.2.1",
     "react": "^15.3.2",
     "react-bootstrap": "0",
-    "talend-icons": "^0.0.1",
+    "talend-icons": "^0.3.0",
     "uuid": "^2.0.3"
   }
 }

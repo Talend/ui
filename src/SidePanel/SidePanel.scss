@@ -34,6 +34,10 @@ $tc-side-panel-docked-spacing: 15px !default;
 		color: $tc-side-panel-toggle-color;
 		box-shadow: -2px 0 0 $tc-side-panel-toggle-color;
 
+		& :global(.tc-svg-icon) {
+			fill: $tc-side-panel-toggle-color;
+		}
+
 		&:hover,
 		&:focus,
 		&:active {
@@ -41,7 +45,8 @@ $tc-side-panel-docked-spacing: 15px !default;
 			outline: 0;
 		}
 
-		i {
+		i,
+		:global(.tc-svg-icon) {
 			transition: 0.2s transform ease-out;
 		}
 
@@ -63,8 +68,13 @@ $tc-side-panel-docked-spacing: 15px !default;
 		font-size: 1.2em;
 		text-transform: uppercase;
 
-		i + span {
+		i + span,
+		:global(.tc-svg-icon) + span {
 			padding-left: 20px;
+		}
+
+		:global(.tc-svg-icon) {
+			fill: currentColor;
 		}
 
 		span {
@@ -75,7 +85,8 @@ $tc-side-panel-docked-spacing: 15px !default;
 	&.docked {
 		padding: 0 $tc-side-panel-docked-spacing;
 
-		.toggle-btn i {
+		.toggle-btn i,
+		.toggle-btn :global(.tc-svg-icon) {
 			transform: rotate(-180deg);
 		}
 
