@@ -88,7 +88,7 @@
     "d3-selection": "1.0.2",
     "d3-shape": "1.0.3",
     "d3-zoom": "1.0.2",
-    "invariant": "2.2.1",
+    "invariant": "2.2.2",
     "lodash": "4.17.1",
     "react-immutable-proptypes": "2.1.0"
   }
