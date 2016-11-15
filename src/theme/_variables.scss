@@ -126,7 +126,7 @@ $caret-width-large:         5px !default;
 //
 //## This variables are used only for rewriting bootstrap variables
 
-$padding-base-vertical:     $padding-smaller !default;
+$padding-base-vertical:     $padding-small !default;
 $padding-base-horizontal:   $padding-normal !default;
 $padding-large-vertical:    $padding-small !default;
 $padding-large-horizontal:  $padding-large !default;
@@ -164,12 +164,20 @@ $table-border-color:            #DDD !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
-$btn-default-bg:                 #FFF !default;
+$btn-default-bg:                 #DEDEDE !default;
 $btn-default-border:             #CCC !default;
 
 $btn-primary-color:              #FFF !default;
 $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-secondary-color:            #FFF !default;
+$btn-secondary-bg:               $brand-secondary !default;
+$btn-secondary-border:           darken($btn-secondary-bg, 5%) !default;
+
+$btn-validation-color:            #FFF !default;
+$btn-validation-bg:               $rio-grande !default;
+$btn-validation-border:           darken($btn-validation-bg, 5%) !default;
 
 $btn-success-color:              #FFF !default;
 $btn-success-bg:                 $brand-success !default;

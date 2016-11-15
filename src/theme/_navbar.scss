@@ -7,6 +7,10 @@
 /// @type Number (Unit)
 $navbar-brand-logo-width: 90px !default;
 
+/// Navbar form top and bottom width
+/// @type Number (Unit)
+$navbar-form-margin: 4px !default;
+
 .navbar {
 	&-default,
 	&-inverse {
@@ -24,5 +28,10 @@ $navbar-brand-logo-width: 90px !default;
 				background-size: contain;
 			}
 		}
+	}
+
+	&-form {
+		margin-top: $navbar-form-margin;
+		margin-bottom: $navbar-form-margin;
 	}
 }

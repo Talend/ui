@@ -2,6 +2,7 @@
 
 @import './colors';
 @import './fonts';
+
 // Core variables and mixins
 @import './variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
@@ -18,6 +19,7 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/code';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/grid';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/tables';
+@import './tables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/forms';
 @import './forms';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/buttons';
@@ -28,6 +30,7 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/button-groups';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/input-groups';
+@import './input-groups';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navs';
 @import './navs';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/navbar';

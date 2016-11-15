@@ -1,0 +1,26 @@
+////
+/// Bootstrap input groups customization
+/// @group Input groups
+////
+
+/// Input group button padding
+/// @type Number (Unit)
+$input-group-btn-padding: 5px !default;
+
+/// Input group add-on padding
+/// @type Number (Unit)
+$input-group-addon-padding: 8px !default;
+
+.input-group {
+	&-btn {
+		> .btn {
+			padding-top: $input-group-btn-padding;
+			padding-bottom: $input-group-btn-padding;
+		}
+	}
+
+	&-addon {
+		padding-top: $input-group-addon-padding;
+		padding-bottom: $input-group-addon-padding;
+	}
+}

@@ -53,7 +53,7 @@ $btn-background-tint-percent: 10 !default;
 	}
 
 	&-primary {
-		@include btn-colors($btn-primary-bg);
+		@include button-variant($btn-validation-color, $btn-validation-bg, $btn-validation-border);
 	}
 
 	&-success {
@@ -79,5 +79,9 @@ $btn-background-tint-percent: 10 !default;
 			background: none;
 			box-shadow: none;
 		}
+	}
+
+	&-lg {
+		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 	}
 }
