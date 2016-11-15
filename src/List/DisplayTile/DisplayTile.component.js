@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
+import DisplayPropTypes from '../Display/Display.propTypes';
 import Icon from '../../Icon';
 
 import theme from './DisplayTile.scss';
@@ -115,19 +117,7 @@ function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, 
 	);
 }
 
-DisplayTile.propTypes = {
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.object
-	),
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.object
-	),
-	width: PropTypes.string,
-	iconKey: PropTypes.string,
-	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
-	onElementSelect: PropTypes.func,
-};
+DisplayTile.propTypes = DisplayPropTypes;
 
 DisplayTile.defaultProps = {
 	items: [],

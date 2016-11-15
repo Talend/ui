@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+import DisplayPropTypes from '../Display/Display.propTypes';
 import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 import theme from './DisplayLarge.scss';
@@ -109,17 +110,7 @@ function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick }) {
 	);
 }
 
-DisplayLarge.propTypes = {
-	items: PropTypes.arrayOf(
-		PropTypes.object
-	),
-	columns: PropTypes.arrayOf(
-		PropTypes.object
-	),
-	titleKey: PropTypes.string,
-	iconKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
-};
+DisplayLarge.propTypes = DisplayPropTypes;
 
 DisplayLarge.defaultProps = {
 	items: [],

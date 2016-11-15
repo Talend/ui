@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Button } from 'react-bootstrap';
+
+import DisplayPropTypes from '../Display/Display.propTypes';
 import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 
@@ -102,17 +104,7 @@ function DisplayTable({ items, columns, iconKey, titleKey, onTitleClick }) {
 	);
 }
 
-DisplayTable.propTypes = {
-	items: PropTypes.arrayOf(
-		PropTypes.object
-	),
-	columns: PropTypes.arrayOf(
-		PropTypes.object
-	),
-	iconKey: PropTypes.string,
-	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
-};
+DisplayTable.propTypes = DisplayPropTypes;
 
 DisplayTable.defaultProps = {
 	items: [],

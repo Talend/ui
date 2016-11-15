@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Toolbar from './Toolbar';
+import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
 import DisplayTable from './DisplayTable';
 import DisplayTile from './DisplayTile';
@@ -8,55 +9,50 @@ import DisplayTile from './DisplayTile';
  * @param {object} props react props
  * @example
 const props = {
-	items: [{}, {}, ...],
 	displayMode: 'table' / 'large' / 'tile' / component
-	onChangeDisplay: function,
-	filter: {
-		placeholder: 'find xx',
-		onChangeFilter: function,
+	list: {
+		items: [{}, {}, ...],
+		columns: [
+			{key, label},
+			{key, label},
+		]
 	},
-	sortBy: [
-		{key, label},
-	],
-	sortDesc: true / false,
-	onSelectSortBy: function,
-	columns: [
-		{key, label},
-		{key, label},
-	]
+	toolbar: {
+		onChangeDisplay: function,
+		filter: {
+			placeholder: 'find xx',
+			onChangeFilter: function,
+		},
+		sortBy: [
+			{key, label},
+		],
+		sortDesc: true / false,
+		onSelectSortBy: function,
+	}
 }
 <List {...props}></List>
  */
-function List(props) {
-	const toolbar = {};
-	const displayProps = {};
-	Object.keys(Toolbar.propTypes).forEach((id) => {
-		if (props[id] !== undefined) {
-			toolbar[id] = props[id];
-		}
-	});
-	let displayModePropTypes = DisplayTable.propTypes;
-	let displayModeComponent = DisplayTable;
-	if (props.displayMode === 'tile') {
-		displayModePropTypes = DisplayTile.propTypes;
+function List({ displayMode, toolbar, list }) {
+	let displayModeComponent;
+	switch (displayMode) {
+	case 'tile':
 		displayModeComponent = DisplayTile;
-	}
-	if (props.displayMode === 'large') {
-		displayModePropTypes = DisplayLarge.propTypes;
+		break;
+	case 'large':
 		displayModeComponent = DisplayLarge;
-	}
-	if (typeof props.displayMode === 'function') {
-		displayModePropTypes = props.displayMode.propTypes;
-		displayModeComponent = props.displayMode;
-	}
-	Object.keys(displayModePropTypes).forEach((id) => {
-		if (props[id] !== undefined) {
-			displayProps[id] = props[id];
+		break;
+	default:
+		if (typeof displayMode === 'function') {
+			displayModeComponent = displayMode;
+		} else {
+			displayModeComponent = DisplayTable;
 		}
-	});
+		break;
+	}
+
 	const content = React.createElement(
 		displayModeComponent,
-		displayProps
+		list
 	);
 	return (
 		<div className="tc-list">
@@ -66,9 +62,10 @@ function List(props) {
 	);
 }
 
-List.propTypes = Object.assign(
-	{},
-	Toolbar.propTypes,
-);
+List.propTypes = {
+	displayMode: PropTypes.string,
+	list: PropTypes.shape(DisplayPropTypes),
+	toolbar: PropTypes.shape(Toolbar.propTypes),
+};
 
 export default List;
