@@ -5,7 +5,7 @@ import a11y from 'react-a11y';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
-import { Well } from 'react-bootstrap';
+import Well from 'react-bootstrap/lib/Well';
 
 import Form from '../src/Form';
 
@@ -28,7 +28,7 @@ storiesOf('Form', module)
 		</div>
 	))
 	.addWithInfo('Simple', () => {
-		const simple = require('json!./json/simple.json');
+		const simple = require('./json/simple.json');
 
 		return (
 			<Form
@@ -38,7 +38,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Nested', () => {
-		const nested = require('json!./json/nested.json');
+		const nested = require('./json/nested.json');
 
 		return (
 			<Form
@@ -48,7 +48,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Arrays', () => {
-		const arrays = require('json!./json/arrays.json');
+		const arrays = require('./json/arrays.json');
 
 		return (
 			<Form
@@ -58,7 +58,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Numbers', () => {
-		const numbers = require('json!./json/numbers.json');
+		const numbers = require('./json/numbers.json');
 
 		return (
 			<Form
@@ -68,7 +68,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Widgets', () => {
-		const widgets = require('json!./json/widgets.json');
+		const widgets = require('./json/widgets.json');
 
 		return (
 			<Form
@@ -78,7 +78,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Ordering', () => {
-		const ordering = require('json!./json/ordering.json');
+		const ordering = require('./json/ordering.json');
 
 		return (
 			<Form
@@ -88,7 +88,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('References', () => {
-		const references = require('json!./json/references.json');
+		const references = require('./json/references.json');
 
 		return (
 			<Form
@@ -98,7 +98,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Errors', () => {
-		const errors = require('json!./json/errors.json');
+		const errors = require('./json/errors.json');
 
 		return (
 			<Form
@@ -108,7 +108,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Large', () => {
-		const large = require('json!./json/large.json');
+		const large = require('./json/large.json');
 
 		return (
 			<Form
@@ -118,7 +118,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Date & time', () => {
-		const date = require('json!./json/date.json');
+		const date = require('./json/date.json');
 
 		return (
 			<Form
@@ -128,7 +128,7 @@ storiesOf('Form', module)
 		);
 	})
 	.addWithInfo('Files', () => {
-		const files = require('json!./json/files.json');
+		const files = require('./json/files.json');
 
 		return (
 			<Form

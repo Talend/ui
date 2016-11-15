@@ -1,10 +1,10 @@
 import React from 'react';
 
-import RJSForm from 'react-jsonschema-form';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import RJSForm from 'rjsf-material-design/lib/index';
 
 import Button from 'react-bootstrap/lib/Button';
-
-import CustomFieldTemplate from './templates/CustomFieldTemplate';
 
 import RadioOrSelectWidget from './widgets/RadioOrSelectWidget';
 
@@ -52,23 +52,24 @@ class Form extends React.Component {
 				onClick={action.onClick}
 				title={action.title}
 			>
-				{action.icon ? <i className={action.icon} /> : null }
+				{action.icon ? <i className={action.icon}/> : null }
 				{action.label}
 			</Button>
 		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
 		return (
-			<RJSForm
-				{...this.props}
-				schema={schema}
-				uiSchema={uiSchema}
-				formData={formData}
-				FieldTemplate={CustomFieldTemplate}
-				widgets={customWidgets}
-				onChange={this.handleSchemaChange}
-				onSubmit={this.handleSchemaSubmit}
-			>
-				{actions}
-			</RJSForm>
+			<MuiThemeProvider>
+				<RJSForm
+					{...this.props}
+					schema={schema}
+					uiSchema={uiSchema}
+					formData={formData}
+					widgets={customWidgets}
+					onChange={this.handleSchemaChange}
+					onSubmit={this.handleSchemaSubmit}
+				>
+					{actions}
+				</RJSForm>
+			</MuiThemeProvider>
 		);
 	}
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import {
-	FormControl,
-	Checkbox,
-} from 'react-bootstrap';
+
+import Input from 'rjsf-material-design/lib/widgets/TextWidget';
+import Checkbox from 'rjsf-material-design/lib/widgets/CheckboxWidget';
+import Select from 'rjsf-material-design/lib/widgets/SelectWidget';
+
 import Form from '../src/Form';
 
 const data = {
@@ -36,18 +37,21 @@ describe('<Form/>', () => {
 	const onChange = jest.fn();
 
 	beforeEach(() => {
-		wrapper = mount(<Form data={data} onSubmit={onSubmit} onChange={onChange} />);
+		wrapper = mount(<Form data={data}
+		                      onChange={onChange}
+		                      onSubmit={onSubmit}/>);
 	});
 
-	xit('Renders the <FormControl/> component', () => {
-		expect(wrapper.containsMatchingElement(<FormControl />)).toBe(true);
-	});
-	xit('Renders the <Checkbox/> component', () => {
-		expect(wrapper.containsMatchingElement(<Checkbox />)).toBe(true);
+	it('Renders the <Input/> component', () => {
+		expect(wrapper.containsMatchingElement(<Input/>)).toBe(true);
 	});
 
-	xit('Renders the <FormControl/> component', () => {
-		expect(wrapper.containsMatchingElement(<FormControl />)).toBe(true);
+	it('Renders the <Checkbox/> component', () => {
+		expect(wrapper.containsMatchingElement(<Checkbox/>)).toBe(true);
+	});
+
+	it('Renders the <Select/> component', () => {
+		expect(wrapper.containsMatchingElement(<Select/>)).toBe(true);
 	});
 
 	// TODO: Follow what's happeing on https://github.com/airbnb/enzyme/issues/364
@@ -60,6 +64,7 @@ describe('<Form/>', () => {
 		expect(input.props().value).toEqual('Test');
 		// expect(onChange.mock.calls.length).toEqual(1);
 	});
+
 	it('Handles submit', () => {
 		wrapper.simulate('submit');
 		expect(onSubmit.mock.calls.length).toEqual(1);
@@ -71,6 +76,7 @@ describe('<Form/>', () => {
 			expect(actions.length).toEqual(1);
 			expect(actions.first().props().type).toEqual('submit');
 		});
+
 		it('Renders pass-in form actions', () => {
 			const onClickReset = jest.fn();
 			const formActions = [
