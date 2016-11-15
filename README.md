@@ -33,6 +33,12 @@ Please look at our [CONTRIBUTING](https://github.com/Talend/react-talend-compone
 
 Please read our [style guidelines](http://guidelines.talend.com) first.
 
+## Supported browsers
+
+<img src="https://camo.githubusercontent.com/46a1f6891a7e0d7f74956a056b19d6ba5b76a3be/68747470733a2f2f7777772e62726f77736572737461636b2e636f6d2f696d616765732f6c61796f75742f62726f77736572737461636b2d6c6f676f2d363030783331352e706e67" alt="BrowserStack logo" width="120" height="63">
+
+Thanks to [BrowserStack](https://www.browserstack.com/) for providing real browser testing infrastructure.
+
 ### How to create a new component
 
 All components are created using the [yeoman talend generator](https://github.com/Talend/generator-talend) using stateless option.
