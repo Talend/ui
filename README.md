@@ -29,9 +29,18 @@ class MyForm extends React.Component {
 
 	render() {
 		return (
-			<Form schema={this.props.schema} onSubmit={this.onSubmit} />
+			<Form data={this.props.data} onSubmit={this.onSubmit} />
 		);
 	}
+}
+```
+
+Here is the archetype of the data property required to render the form:
+```javascript
+{
+	jsonSchema: {},
+	uiSchema: {},
+	properties: {}
 }
 ```
 
