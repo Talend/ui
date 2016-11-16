@@ -83,7 +83,7 @@ function Actions(props) {
 Actions.propTypes = {
 	actions: PropTypes.arrayOf(
 		PropTypes.oneOfType([
-			Action.propTypes,
+			PropTypes.shape(Action.propTypes),
 			PropTypes.shape({
 				displayMode: PropTypes.oneOf([TYPE_DROPDOWN]),
 				...ActionDropdown.propTypes,
