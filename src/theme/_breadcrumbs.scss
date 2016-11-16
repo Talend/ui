@@ -72,6 +72,7 @@ $breadcrumb-separator-padding: $padding-large !default;
 
 			&.active span {
 				box-shadow: 0 1px 0 $breadcrumb-items-color;
+				color: $breadcrumb-active-color;
 			}
 		}
 	}
