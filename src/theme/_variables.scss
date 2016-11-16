@@ -567,7 +567,7 @@ $popover-bg:                          #FFF !default;
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
-$popover-border-color:                rgba(0, 0, 0, 0.2) !default;
+$popover-border-color:                $shadow !default;
 //** Popover fallback border color
 $popover-fallback-border-color:       #CCC !default;
 
@@ -625,7 +625,7 @@ $modal-title-line-height:     $line-height-base !default;
 //** Background color of modal content area
 $modal-content-bg:                             #FFF !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0, 0, 0, 0.2) !default;
+$modal-content-border-color:                   $shadow !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999 !default;
 
