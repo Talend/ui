@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import <%= props.name %> from '<%= props.purePath %>';
+import { <%= props.name %> } from '<%= props.purePath %>';
 import Connected, { mapDispatchToProps, mapStateToProps } from './<%= props.name %>.component';
 
 describe('Connected <%= props.name %>', () => {

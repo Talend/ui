@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-/**
- * @param {object} props react props
- * @example
-<<%= props.name %> name="Hello world"></<%= props.name %>>
- */
 const <%= props.name %> = (props) => {
-	return (<div>{props.name}</div>);
+	return (
+		<div>{props.name}</div>
+	);
 };
 
 <%= props.name %>.propTypes = {
-	name: React.PropTypes.string,
+	name: PropTypes.string,
 };
 
 export default <%= props.name %>;

@@ -29,7 +29,7 @@ module.exports = yeoman.Base.extend({
 			type: 'input',
 			name: 'purePath',
 			message: 'pure component import path',
-			default: './',
+			default: 'react-talend-components',
 			when(answers) {
 				return answers.type === 'connect';
 			},
@@ -45,6 +45,17 @@ module.exports = yeoman.Base.extend({
 					return false;
 				}
 				return true;
+			},
+		}, {
+			type: 'list',
+			name: 'css',
+			message: 'css',
+			default(answers) {
+				return answers.type === 'connect' ? 'n' : 'y';
+			},
+			choices: ['y', 'n'],
+			when(answers) {
+				return answers.type !== 'connect';
 			},
 		}, {
 			type: 'input',
@@ -71,14 +82,16 @@ module.exports = yeoman.Base.extend({
 			this
 		);
 		this.fs.copyTpl(
-			this.templatePath(`src/scss`),
-			this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
-			this
-		);
-		this.fs.copyTpl(
 			this.templatePath('src/index.js'),
 			this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
 			this
 		);
+		if (this.props.css === 'y') {
+			this.fs.copyTpl(
+				this.templatePath(`src/scss`),
+				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
+				this
+			);
+		}
 	},
 });
