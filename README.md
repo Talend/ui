@@ -26,10 +26,15 @@ class MyForm extends React.Component {
 	onSubmit(formData) {
 		console.log(formData);
 	}
+	
+	onCancel() {
+		console.log('Cancelled');
+	}
 
 	render() {
+		const actions = [{ style: 'link', onClick: this.onCancel, type: 'button', label: 'CANCEL' }];
 		return (
-			<Form data={this.props.data} onSubmit={this.onSubmit} />
+			<Form data={this.props.data} onSubmit={this.onSubmit} actions={actions} />
 		);
 	}
 }
