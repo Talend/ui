@@ -2,24 +2,21 @@ language: node_js
 cache:
   directories:
     - node_modules
-    - /home/travis/.cache/
+    - $HOME/.cache
+    - $HOME/.yarn-cache
 notifications:
   email: false
 node_js:
-  - '4'
   - '6'
-before_script:
-  - npm prune
-  - npm update
-  - mkdir -p /home/travis/.cache/node-yeoman-remote-cache/Talend/tools
-  - rm -rf /home/travis/.cache/node-yeoman-remote-cache/Talend/tools/master
+install:
+  - npm install -g yarn
+  - yarn
+  - mkdir -p $HOME/.cache/node-yeoman-remote-cache/Talend/tools
+  - rm -rf $HOME/.cache/node-yeoman-remote-cache/Talend/tools/master
   - curl -Lo master.zip https://github.com/Talend/tools/archive/master.zip
   - unzip master.zip
-  - mv tools-master /home/travis/.cache/node-yeoman-remote-cache/Talend/tools/master
+  - mv tools-master $HOME/.cache/node-yeoman-remote-cache/Talend/tools/master
 after_success:
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
   - npm run semantic-release
 branches:
   except:
