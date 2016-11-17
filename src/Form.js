@@ -1,5 +1,11 @@
 import React from 'react';
 
+import {
+	black as color1,
+	lightBlack as color2,
+	lime800 as color3,
+} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RJSForm from 'rjsf-material-design/lib/index';
@@ -56,8 +62,19 @@ class Form extends React.Component {
 				{action.label}
 			</Button>
 		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
+		const defaultMuiTheme = {
+			palette: {
+				textColor: color1,
+				primary1Color: color2,
+				accent1Color: color3,
+			}
+		};
+		const muiTheme = getMuiTheme({
+			...defaultMuiTheme,
+			...this.props.theme,
+		});
 		return (
-			<MuiThemeProvider>
+			<MuiThemeProvider muiTheme={muiTheme}>
 				<RJSForm
 					{...this.props}
 					schema={schema}
@@ -80,6 +97,7 @@ Form.propTypes = {
 		uiSchema: React.PropTypes.object,
 		properties: React.PropTypes.object,
 	}).isRequired,
+	theme: React.PropTypes.object,
 	onChange: React.PropTypes.func,
 	onSubmit: React.PropTypes.func,
 	actions: React.PropTypes.arrayOf(React.PropTypes.shape({
