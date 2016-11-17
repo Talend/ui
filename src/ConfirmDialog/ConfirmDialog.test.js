@@ -1,16 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import classNames from 'classnames';
 import ConfirmDialog from './ConfirmDialog.component';
+
+
+function getFakeComponent(name) {
+	const fakeComponent = ({ children, className, ...rest }) => {
+		const mergedClassName = classNames(className, name);
+		return (<div {...rest} className={mergedClassName}>{children}</div>);
+	};
+	fakeComponent.propTypes = {
+		children: React.PropTypes.oneOfType([React.PropTypes.any]),
+		className: React.PropTypes.string,
+	};
+	return fakeComponent;
+}
 
 jest.mock('react-dom');
 jest.mock('react-bootstrap/lib/Modal', () => {
-	function getFakeComponent(name) {
-		return ({ children, className, ...rest }) => { // eslint-disable-line
-			const mergedClassName = `${className || ''} ${name}`;
-			return (<div {...rest} className={mergedClassName}>{children}</div>);
-		};
-	}
-
 	const Modal = getFakeComponent('Modal');
 	Modal.Header = getFakeComponent('Header');
 	Modal.Title = getFakeComponent('Title');
@@ -19,6 +26,7 @@ jest.mock('react-bootstrap/lib/Modal', () => {
 
 	return Modal;
 });
+jest.mock('react-bootstrap/lib/ProgressBar', () => getFakeComponent('ProgressBar'));
 
 const children = (<div>BODY</div>);
 
@@ -97,6 +105,26 @@ describe('ConfirmDialog', () => {
 			size: 'large',
 			validateAction,
 			cancelAction,
+		};
+
+		// when
+		const wrapper = renderer.create(
+			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
+		).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with a progress bar', () => {
+		// given
+		const properties = {
+			show: true,
+			header: 'Hello world',
+			size: 'large',
+			validateAction,
+			cancelAction,
+			progressValue: 25,
 		};
 
 		// when

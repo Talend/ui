@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Modal from 'react-bootstrap/lib/Modal';
+import { ProgressBar, Modal } from 'react-bootstrap';
 import theme from './ConfirmDialog.scss';
 import Action from '../Actions/Action';
 
@@ -12,6 +12,7 @@ import Action from '../Actions/Action';
  * @param children react's components children
  * @param validateAction object, describe the validate action
  * @param cancelAction object, describe the cancel action
+ * @param progressValue number, if set shows progressbar with progress of progressValue
  *
  const defaultProps = {
 	header: 'Hello world',
@@ -36,6 +37,7 @@ function ConfirmDialog({
 	children,
 	validateAction,
 	cancelAction,
+	progressValue,
 }) {
 	return (
 		<Modal
@@ -50,6 +52,7 @@ function ConfirmDialog({
 				</Modal.Header>
 			) : null}
 			<Modal.Body>
+				{progressValue ? (<ProgressBar now={progressValue} />) : null}
 				{children}
 			</Modal.Body>
 			<Modal.Footer className={classNames(theme['modal-footer'])}>
@@ -68,6 +71,7 @@ ConfirmDialog.propTypes = {
 	show: PropTypes.bool,
 	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
 	validateAction: PropTypes.shape(Action.propTypes).isRequired,
+	progressValue: PropTypes.number,
 };
 
 export default ConfirmDialog;

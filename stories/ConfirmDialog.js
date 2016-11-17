@@ -60,6 +60,22 @@ const largeProps = {
 	},
 };
 
+const withProgressBarProps = {
+	show: true,
+	header: 'Hello world',
+	size: 'large',
+	validateAction: {
+		label: 'OK',
+		onClick: action('ok'),
+		bsStyle: 'primary',
+	},
+	cancelAction: {
+		label: 'CANCEL',
+		onClick: action('cancel'),
+	},
+	progressValue: 66,
+};
+
 const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
@@ -86,5 +102,11 @@ storiesOf('ConfirmDialog', module)
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...largeProps}>{children}</ConfirmDialog>
+		</div>
+	))
+	.addWithInfo('with progress bar', () => (
+		<div>
+			<h1>Dialog</h1>
+			<ConfirmDialog {...withProgressBarProps}>{children}</ConfirmDialog>
 		</div>
 	));
