@@ -44,11 +44,14 @@
     "semantic-release": "^4.3.5",
     "webpack": "^1.13.1"
   },
+  "dependencies": {
+    "rjsf-material-design": "^1.0.1",
+    "react-jsonschema-form": "^0.41.1"
+  },
   "peerDependencies": {
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.3",
-    "react-dom": "^15.3.1",
-    "rjsf-material-design": "^1.0.1"
+    "react-dom": "^15.3.1"
   },
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
