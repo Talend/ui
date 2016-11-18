@@ -45,6 +45,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "material-ui": "^0.16.1",
     "rjsf-material-design": "^1.0.1",
     "react-jsonschema-form": "^0.41.1"
   },

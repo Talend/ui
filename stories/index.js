@@ -11,7 +11,7 @@ import Form from '../src/Form';
 
 a11y(React);
 
-storiesOf('Form', module)
+const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
 		<div
@@ -26,114 +26,28 @@ storiesOf('Form', module)
 				</Well>
 			</div>
 		</div>
-	))
-	.addWithInfo('Simple', () => {
-		const simple = require('./json/simple.json');
+	));
 
-		return (
-			<Form
-				data={object('Simple', simple)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Nested', () => {
-		const nested = require('./json/nested.json');
+const capitalizeFirstLetter =
+	string => string.charAt(0).toUpperCase() + string.slice(1);
 
-		return (
-			<Form
-				data={object('Nested', nested)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Arrays', () => {
-		const arrays = require('./json/arrays.json');
+const sampleFilenames = require.context('./json', true, /.json$/);
 
-		return (
-			<Form
-				data={object('Arrays', arrays)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Numbers', () => {
-		const numbers = require('./json/numbers.json');
+const sampleFilenameRegex = /^.\/(.*).json$/;
 
-		return (
-			<Form
-				data={object('Numbers', numbers)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Widgets', () => {
-		const widgets = require('./json/widgets.json');
+sampleFilenames
+	.keys()
+	.forEach(
+		filename => {
+			const sampleNameMatches = filename.match(sampleFilenameRegex);
+			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
+			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
+			decoratedStories.add(capitalizedSampleName, () => (
+				<Form
+					data={object(capitalizedSampleName, sampleFilenames(filename))}
+					onChange={action('Change')}
+					onSubmit={action('Submit')}
+				/>
+			));
+		});
 
-		return (
-			<Form
-				data={object('Widgets', widgets)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Ordering', () => {
-		const ordering = require('./json/ordering.json');
-
-		return (
-			<Form
-				data={object('Ordering', ordering)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('References', () => {
-		const references = require('./json/references.json');
-
-		return (
-			<Form
-				data={object('References', references)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Errors', () => {
-		const errors = require('./json/errors.json');
-
-		return (
-			<Form
-				data={object('Errors', errors)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Large', () => {
-		const large = require('./json/large.json');
-
-		return (
-			<Form
-				data={object('Large', large)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Date & time', () => {
-		const date = require('./json/date.json');
-
-		return (
-			<Form
-				data={object('Date', date)}
-				onSubmit={action('submit')}
-			/>
-		);
-	})
-	.addWithInfo('Files', () => {
-		const files = require('./json/files.json');
-
-		return (
-			<Form
-				data={object('Files', files)}
-				onSubmit={action('submit')}
-			/>
-		);
-	});

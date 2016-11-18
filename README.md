@@ -6,7 +6,7 @@
 
 This library is designed to be used on top of [react-jsonschema-form](https://mozilla-services.github.io/react-jsonschema-form/), a React component for building Web forms from JSONSchema.
 
-In addition of Mozilla lib, this wrapper uses [react-bootstrap](https://react-bootstrap.github.io/) to not have to maintain Bootstrap markup.  
+In addition of Mozilla lib, this wrapper uses [react-bootstrap](https://react-bootstrap.github.io/) to not have to maintain Bootstrap markup.
 
 ## Installation
 
@@ -26,7 +26,7 @@ class MyForm extends React.Component {
 	onSubmit(formData) {
 		console.log(formData);
 	}
-	
+
 	onCancel() {
 		console.log('Cancelled');
 	}
@@ -41,11 +41,68 @@ class MyForm extends React.Component {
 ```
 
 Here is the archetype of the data property required to render the form:
-```javascript
+```json
 {
-	jsonSchema: {},
-	uiSchema: {},
-	properties: {}
+	"jsonSchema": {},
+	"uiSchema": {},
+	"properties": {}
+}
+```
+
+
+### Handlers
+
+If uiSchema has some triggers like
+
+```json
+{
+  "jsonSchema": {
+    "id": "ListExample",
+    "type": "object",
+    "properties": {
+      "propertyName": {
+        "type": "string",
+        "enum": [
+          "option 0",
+          "option 1",
+          "option 2"
+        ]
+      }
+    }
+  },
+  "uiSchema": {
+    "propertyName": {
+      "ui:trigger": [ "after" ]
+    }
+  },
+  "properties": {}
+}
+```
+
+Then `onChange` will be triggered when `propertyName` field value has changed.
+
+```javascript
+import Form from 'react-talend-forms';
+
+class MyForm extends React.Component {
+
+	onChange(formData, formId, propertyName, propertyValue) {
+		console.log(formData, formId, propertyName, propertyValue);
+	}
+
+	onSubmit(formData) {
+		console.log(formData);
+	}
+
+	render() {
+		return (
+			<Form
+			    data={this.props.data}
+			    onChange={this.onChange}
+			    onSubmit={this.onSubmit}
+			/>
+		);
+	}
 }
 ```
 
