@@ -3,6 +3,15 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import { List, IconsProvider } from '../src/index';
 
+const selected = [
+	{
+		id: 2,
+		name: 'Foo',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-pdf-o',
+	}];
 const props = {
 	displayMode: 'table',
 	list: {
@@ -65,6 +74,18 @@ const props = {
 		iconKey: 'icon',
 		onTitleClick: action('onClick'),
 		onElementSelect: action('onSelect'),
+		onToggleAll: action('onToggleAll'),
+		onToggleSingle: action('onToggleSingle'),
+		ifSelected: (item)=> {
+			let found = false;
+			for (let i = 0; i < selected.length; i++) {
+				if (selected[i].id === item.id) {
+					found = true;
+					break;
+				}
+			}
+			return found;
+		}
 	},
 	toolbar: {
 		onClickAdd: action('onClickAdd'),
@@ -76,13 +97,13 @@ const props = {
 			},
 		],
 		onFilter: action('onFilter'),
-		onSelectSortBy: action('onSelectSortBy'),
 		onSelectDisplayMode: action('onSelectDisplayMode'),
 		sortBy: [
 			{ id: 'id', name: 'Id' },
 			{ id: 'name', name: 'Name', selected: true },
 		],
 	},
+		onSelectSortBy: action('onSelectSortBy'),
 };
 
 storiesOf('List', module)

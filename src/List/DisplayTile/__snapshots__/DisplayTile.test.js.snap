@@ -1,515 +1,521 @@
 exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
-<ul
-  className={undefined}>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          title={null} />
-        <span
-          className="">
-          1
-        </span>
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-excel-o"
+            title={null} />
+          <span
+            className="">
+            1
+          </span>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Name
+          </dt>
+          <dd
+            className={undefined}
+            title="Hello world">
+            Hello world
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-pdf-o"
+            title={null} />
+          <span
+            className="">
+            2
+          </span>
+        </div>
+        <dl
           className={undefined}>
-          Name
-        </dt>
-        <dd
-          className={undefined}
-          title="Hello world">
-          Hello world
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-pdf-o"
-          title={null} />
-        <span
-          className="">
-          2
-        </span>
+          <dt
+            className={undefined}>
+            Name
+          </dt>
+          <dd
+            className={undefined}
+            title="Foo">
+            Foo
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <span
+            className="">
+            2
+          </span>
+        </div>
+        <dl
           className={undefined}>
-          Name
-        </dt>
-        <dd
-          className={undefined}
-          title="Foo">
-          Foo
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <span
-          className="">
-          2
-        </span>
+          <dt
+            className={undefined}>
+            Name
+          </dt>
+          <dd
+            className={undefined}
+            title="Bar">
+            Bar
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
-          className={undefined}>
-          Name
-        </dt>
-        <dd
-          className={undefined}
-          title="Bar">
-          Bar
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
-<ul
-  className={undefined}>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          title={null} />
-        <span
-          className="">
-          Hello world
-        </span>
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-excel-o"
+            title={null} />
+          <span
+            className="">
+            Hello world
+          </span>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={1}>
+            1
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-pdf-o"
+            title={null} />
+          <span
+            className="">
+            Foo
+          </span>
+        </div>
+        <dl
           className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={1}>
-          1
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-pdf-o"
-          title={null} />
-        <span
-          className="">
-          Foo
-        </span>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div>
+          <span
+            className="">
+            Bar
+          </span>
+        </div>
+        <dl
           className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={2}>
-          2
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={undefined}>
-      <div>
-        <span
-          className="">
-          Bar
-        </span>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
-          className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={2}>
-          2
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`DisplayTile should render 3 tiles with render a title buttons 1`] = `
-<ul
-  className={undefined}>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={[Function]}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          onClick={[Function]}
-          role="link">
-          Hello world
-        </button>
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={[Function]}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-excel-o"
+            title={null} />
+          <button
+            className="btn btn-link"
+            onClick={[Function]}
+            role="link">
+            Hello world
+          </button>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={1}>
+            1
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={[Function]}>
+        <div>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-pdf-o"
+            title={null} />
+          <button
+            className="btn btn-link"
+            onClick={[Function]}
+            role="link">
+            Foo
+          </button>
+        </div>
+        <dl
           className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={1}>
-          1
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={[Function]}>
-      <div>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-pdf-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          onClick={[Function]}
-          role="link">
-          Foo
-        </button>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
+    </li>
+    <li>
+      <div
+        className={undefined}
+        onClick={undefined}
+        onDoubleClick={[Function]}>
+        <div>
+          <button
+            className="btn btn-link"
+            onClick={[Function]}
+            role="link">
+            Bar
+          </button>
+        </div>
+        <dl
           className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={2}>
-          2
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-  <li>
-    <div
-      className={undefined}
-      onClick={undefined}
-      onDoubleClick={[Function]}>
-      <div>
-        <button
-          className="btn btn-link"
-          onClick={[Function]}
-          role="link">
-          Bar
-        </button>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
       </div>
-      <dl
-        className={undefined}>
-        <dt
-          className={undefined}>
-          Id
-        </dt>
-        <dd
-          className={undefined}
-          title={2}>
-          2
-        </dd>
-        <dt
-          className={undefined}>
-          Author
-        </dt>
-        <dd
-          className={undefined}
-          title="Jean-Pierre DUPONT">
-          Jean-Pierre DUPONT
-        </dd>
-        <dt
-          className={undefined}>
-          Created
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-        <dt
-          className={undefined}>
-          Modified
-        </dt>
-        <dd
-          className={undefined}
-          title="2016-09-22">
-          2016-09-22
-        </dd>
-      </dl>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>
 `;

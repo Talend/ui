@@ -8,4 +8,7 @@ export default {
 	onTitleClick: PropTypes.func,
 	onElementSelect: PropTypes.func,
 	width: PropTypes.string,
+	onToggleSingle: PropTypes.func,
+	onToggleAll: PropTypes.func,
+	ifSelected: PropTypes.func,
 };

@@ -24,12 +24,20 @@ function tileItem(column, value) {
 /**
  * Render a tile title
  */
-function renderTitle(item, onTitleClick, titleKey, iconKey) {
+function renderTitle(item, onTitleClick, titleKey, iconKey, onToggleSingle, ifSelected) {
 	const classes = classNames(
 		theme.title,
 		theme.titlelink,
 		{ btn: onTitleClick, 'btn-link': onTitleClick }
 	);
+
+	const checkbox = onToggleSingle && ifSelected ?
+		<input
+			type="checkbox"
+			onChange={(e) => { onToggleSingle(e, item); }}
+			checked={ifSelected(item)}
+		/> :
+		null;
 
 	const iconName = iconKey && item[iconKey];
 	const icon = iconName ?
@@ -51,13 +59,14 @@ function renderTitle(item, onTitleClick, titleKey, iconKey) {
 	} else {
 		title = (<span className={classes}>{item[titleKey]}</span>);
 	}
-	return (<div>{icon}{title}</div>);
+	return (<div>{checkbox}{icon}{title}</div>);
 }
 
 /**
  * Render a tile
  */
-function Tile({ columns, item, onElementSelect, onTitleClick, titleKey, iconKey }) {
+function Tile({ columns, item, onElementSelect, onTitleClick, titleKey, iconKey, onToggleSingle,
+	ifSelected }) {
 	const filteredColumns = columns.filter(column => column.key !== titleKey);
 	let onClick;
 	let onSelect;
@@ -73,7 +82,7 @@ function Tile({ columns, item, onElementSelect, onTitleClick, titleKey, iconKey 
 			onClick={onSelect}
 			onDoubleClick={onClick}
 		>
-			{renderTitle(item, onTitleClick, titleKey, iconKey)}
+			{renderTitle(item, onTitleClick, titleKey, iconKey, onToggleSingle, ifSelected)}
 			<dl className={theme.itemlist}>
 				{[].concat(filteredColumns.map(column =>
 					tileItem(column, item[column.key])
@@ -90,6 +99,8 @@ Tile.propTypes = {
 	titleKey: PropTypes.string.isRequired,
 	onTitleClick: PropTypes.func,
 	onElementSelect: PropTypes.func,
+	onToggleSingle: PropTypes.func,
+	ifSelected: PropTypes.func,
 };
 
 /**
@@ -97,23 +108,47 @@ Tile.propTypes = {
  * @example
  <DisplayTile name="Hello world"></DisplayTile>
  */
-function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, iconKey, width }) {
+function DisplayTile({ columns, items, onElementSelect, onTitleClick, titleKey, iconKey, width,
+	onToggleAll, onToggleSingle, ifSelected }) {
+	const ifAllSelected = () => {
+		let selected = 0;
+		items.forEach((item) => {
+			if (ifSelected(item)) {
+				selected += 1;
+			}
+		});
+		return selected === items.length;
+	};
+	const checkbox = onToggleAll && ifSelected ?
+		<div className={theme.container}>
+			<input
+				type="checkbox"
+				onChange={(e) => { onToggleAll(e, items); }}
+				checked={ifAllSelected()}
+			/>Select All
+		</div> :
+		null;
 	return (
-		<ul className={theme.tiles}>
-			{items.map((item, index) =>
-				<li key={index}>
-					<Tile
-						columns={columns}
-						item={item}
-						onElementSelect={onElementSelect}
-						onTitleClick={onTitleClick}
-						style={{ width }}
-						titleKey={titleKey}
-						iconKey={iconKey}
-					/>
-				</li>
-			)}
-		</ul>
+		<div>
+			{checkbox}
+			<ul className={theme.tiles}>
+				{items.map((item, index) =>
+					<li key={index}>
+						<Tile
+							columns={columns}
+							item={item}
+							onElementSelect={onElementSelect}
+							onTitleClick={onTitleClick}
+							style={{ width }}
+							titleKey={titleKey}
+							iconKey={iconKey}
+							onToggleSingle={onToggleSingle}
+							ifSelected={ifSelected}
+						/>
+					</li>
+				)}
+			</ul>
+		</div>
 	);
 }
 

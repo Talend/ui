@@ -33,7 +33,8 @@ function getTwoDim(columnsData) {
 		});
 }
 
-function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey }) {
+function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey, onToggleSingle,
+	ifSelected }) {
 	const columnsData = getColumnsData({ columns, item, titleKey });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
@@ -47,8 +48,16 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey }) 
 		theme.title,
 	);
 	const iconName = iconKey && item[iconKey];
+	const checkboxColumn = onToggleSingle && ifSelected ?
+		<input
+			type="checkbox"
+			onChange={(e) => { onToggleSingle(e, item); }}
+			checked={ifSelected(item)}
+		/> :
+		null;
 	return (
 		<div className={panel} key={index}>
+			{checkboxColumn}
 			<button
 				className={title}
 				role="link"
@@ -87,6 +96,8 @@ rowRenderer.propTypes = {
 	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
+	onToggleSingle: PropTypes.func,
+	ifSelected: PropTypes.func,
 };
 
 /**
@@ -95,9 +106,29 @@ rowRenderer.propTypes = {
 
 <DisplayLarge items={items} columns={columns} elementTitle={title} />
  */
-function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick }) {
+function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick, onToggleAll,
+		onToggleSingle, ifSelected }) {
+	const ifAllSelected = () => {
+		let selected = 0;
+		items.forEach((item) => {
+			if (ifSelected(item)) {
+				selected += 1;
+			}
+		});
+		return selected === items.length;
+	};
+	const checkbox = onToggleAll && ifSelected ?
+		<div>
+			<input
+				type="checkbox"
+				onChange={(e) => { onToggleAll(e, items); }}
+				checked={ifAllSelected()}
+			/>Select All
+		</div> :
+		null;
 	return (
 		<div className={theme.container}>
+			{checkbox}
 			{items.map((item, index) => rowRenderer({
 				item,
 				index,
@@ -105,6 +136,8 @@ function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick }) {
 				onTitleClick,
 				iconKey,
 				titleKey,
+				onToggleSingle,
+				ifSelected,
 			}))}
 		</div>
 	);

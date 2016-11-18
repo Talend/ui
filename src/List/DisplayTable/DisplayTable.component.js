@@ -9,9 +9,19 @@ import Icon from '../../Icon';
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
-	const { titleKey, onTitleClick, item } = props;
+	const { titleKey, onTitleClick, item, onToggleSingle, ifSelected } = props;
+	const checkboxColumn = onToggleSingle && ifSelected ?
+		<td>
+			<input
+				type="checkbox"
+				onChange={(e) => { onToggleSingle(e, item); }}
+				checked={ifSelected(item)}
+			/>
+		</td> :
+		null;
 	return (
 		<tr>
+			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				if (column.key === titleKey) {
 					const onClick = event => onTitleClick(
@@ -52,11 +62,32 @@ RowRenderer.propTypes = {
 	iconKey: PropTypes.string,
 	titleKey: PropTypes.string,
 	onTitleClick: PropTypes.func,
+	onToggleSingle: PropTypes.func,
+	ifSelected: PropTypes.func,
 };
 
 function ListHeader(props) {
+	const ifAllSelected = () => {
+		let selected = 0;
+		props.items.forEach((item) => {
+			if (props.ifSelected(item)) {
+				selected += 1;
+			}
+		});
+		return selected === props.items.length;
+	};
+	const checkbox = props.onToggleAll && props.ifSelected ?
+		<th>
+			<input
+				type="checkbox"
+				onChange={(e) => { props.onToggleAll(e, props.items); }}
+				checked={ifAllSelected()}
+			/>
+		</th> :
+		null;
 	return (
 		<tr>
+			{checkbox}
 			{props.columns.map((column, index) => (<th key={index}>{column.label}</th>))}
 		</tr>
 	);
@@ -67,6 +98,11 @@ ListHeader.propTypes = {
 			{ label: PropTypes.string },
 		)
 	),
+	items: PropTypes.arrayOf(
+			PropTypes.object
+	),
+	ifSelected: PropTypes.func,
+	onToggleAll: PropTypes.func,
 };
 
 
@@ -75,7 +111,9 @@ ListHeader.propTypes = {
  * @example
  <DisplayTable name="Hello world"></DisplayTable>
  */
-function DisplayTable({ items, columns, iconKey, titleKey, onTitleClick }) {
+function DisplayTable({
+	items, columns, iconKey, titleKey, onTitleClick, onToggleAll, onToggleSingle, ifSelected,
+	}) {
 	const className = classnames(
 		'table',
 		'tc-list-display-table',
@@ -84,7 +122,12 @@ function DisplayTable({ items, columns, iconKey, titleKey, onTitleClick }) {
 	return (
 		<table className={className}>
 			<thead>
-				<ListHeader columns={columns} />
+				<ListHeader
+					columns={columns}
+					onToggleAll={onToggleAll}
+					items={items}
+					ifSelected={ifSelected}
+				/>
 			</thead>
 			<tbody>
 				{items.map(
@@ -96,6 +139,8 @@ function DisplayTable({ items, columns, iconKey, titleKey, onTitleClick }) {
 							iconKey={iconKey}
 							titleKey={titleKey}
 							onTitleClick={onTitleClick}
+							onToggleSingle={onToggleSingle}
+							ifSelected={ifSelected}
 						/>
 					)
 				)}
