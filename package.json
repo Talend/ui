@@ -68,7 +68,7 @@
     "reselect": "2.5.4",
     "rimraf": "2.5.4",
     "sass-loader": "4.0.2",
-    "semantic-release": "4.3.5",
+    "semantic-release": "6.3.2",
     "style-loader": "0.13.1",
     "webpack": "2.1.0-beta.25"
   },
