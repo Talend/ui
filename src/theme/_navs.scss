@@ -30,13 +30,11 @@
 				margin: 0;
 			}
 
-			&.active {
-				color: $navbar-inverse-color;
-				background-color: $brand-primary-darker;
-			}
-
 			&:focus,
-			&:hover {
+			&:active,
+			&:hover,
+			&.active,
+			&.open {
 				color: $navbar-inverse-color;
 				background-color: $brand-primary-dark;
 			}

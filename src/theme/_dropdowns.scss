@@ -1,0 +1,60 @@
+////
+/// Bootstrap dropdowns customization
+/// @group Dropdowns
+////
+
+/// Dropdown caret size
+/// @type Number (Unit)
+$dropdown-caret-size: $caret-width-large !default;
+
+/// Dropdown caret default color
+/// @access public
+/// @content Borders and box-shadow color variation
+/// @param {Color} dropdown-caret-color - Caret color
+@mixin dropdown-caret-color($dropdown-caret-color) {
+	border-top-color: $dropdown-caret-color;
+	border-right-color: $dropdown-caret-color;
+	box-shadow: 1px -1px 0 $dropdown-caret-color;
+}
+
+.dropdown {
+	&-toggle {
+		padding-left: $padding-normal;
+		padding-right: $padding-normal;
+		transition: 0.1s background-color ease-out;
+
+		.caret {
+			@include dropdown-caret-color($dropdown-caret-color);
+			margin: 0;
+			margin-left: $dropdown-caret-size;
+			margin-bottom: $dropdown-caret-size;
+			height: $dropdown-caret-size;
+			width: $dropdown-caret-size;
+			border: 1px solid;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			transform: rotate(135deg);
+			transition: 0.1s transform ease-out;
+		}
+	}
+
+	&-menu {
+		margin: 0;
+		padding: $padding-small 0;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+
+		li > a {
+			padding: $padding-small $padding-normal;
+			transition: 0.1s background-color ease-out;
+		}
+	}
+}
+
+.open {
+	.dropdown-toggle {
+		.caret {
+			margin-bottom: 0;
+			transform: rotate(-45deg);
+		}
+	}
+}

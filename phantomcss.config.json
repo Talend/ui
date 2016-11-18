@@ -71,7 +71,7 @@
     },
     {
       "name": "breadcrumbs",
-      "selector": "#nav-breadcrumbs + div"
+      "selector": "#breadcrumbs + div"
     },
     {
       "name": "pagination",
