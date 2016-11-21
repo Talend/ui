@@ -64,6 +64,8 @@ Create a Pull Request and be smart.
 
 Just add the icon svg file inside the `src/svg` folder.
 
+On the name of the icon we are following same rule as [fontawesome project](http://fontawesome.io/icons/).
+
 # How svg code should look like
 ## No style embed
 Styles are defined outside the svg via CSS
