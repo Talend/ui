@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import Input from 'rjsf-material-design/lib/widgets/TextWidget';
 import Checkbox from 'rjsf-material-design/lib/widgets/CheckboxWidget';
@@ -108,6 +109,52 @@ describe('<Form/>', () => {
 
 			reset.simulate('click');
 			expect(onClickReset.mock.calls.length).toEqual(1);
+		});
+
+		it('Renders form with custom css', () => {
+			const customData = {
+				jsonSchema: {
+					title: 'TestForm',
+					type: 'object',
+					properties: {
+						name: {
+							type: 'string',
+							title: 'Name',
+							default: 'John Doe',
+						},
+						roles: {
+							type: 'string',
+							enum: ['dev', 'pm'],
+							enumName: ['Developer', 'Project Manager'],
+						},
+					},
+				},
+			};
+
+			const onClickReset = jest.fn();
+			const formActions = [
+				{
+					style: 'primary',
+					type: 'submit',
+					onClick: onSubmit,
+					label: 'Submit',
+				},
+				{
+					style: 'link',
+					type: 'reset',
+					onClick: onClickReset,
+					label: 'Reset',
+				},
+			];
+			const form = renderer.create(<Form
+				className="form"
+				buttonBlockClass="buttons"
+				data={customData}
+				onSubmit={onSubmit}
+				onChange={onChange}
+				actions={formActions}
+			/>).toJSON();
+			expect(form).toMatchSnapshot();
 		});
 	});
 });

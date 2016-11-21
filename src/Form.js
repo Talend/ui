@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import {
 	black as color1,
@@ -115,7 +115,9 @@ class Form extends React.Component {
 					onChange={undefined}
 					onSubmit={this.handleSchemaSubmit}
 				>
-					{actions}
+					<div className={this.props.buttonBlockClass}>
+						{actions}
+					</div>
 				</RJSForm>
 			</MuiThemeProvider>
 		);
@@ -123,10 +125,10 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-	data: React.PropTypes.shape({
-		jsonSchema: React.PropTypes.object.isRequired,
-		uiSchema: React.PropTypes.object,
-		properties: React.PropTypes.object,
+	data: PropTypes.shape({
+		jsonSchema: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object,
+		properties: PropTypes.object,
 	}).isRequired,
 	theme: React.PropTypes.object,
 	onChange: React.PropTypes.func,
@@ -139,6 +141,11 @@ Form.propTypes = {
 		icon: React.PropTypes.string,
 		title: React.PropTypes.string,
 	})),
+	buttonBlockClass: PropTypes.string,
+};
+
+Form.defaultProps = {
+	buttonBlockClass: 'form-actions',
 };
 
 export default Form;
