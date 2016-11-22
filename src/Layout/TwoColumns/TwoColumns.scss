@@ -5,7 +5,7 @@
 
 /// Layout first columns in two columns background color
 /// @type Color
-$tc-layout-two-columns-sidemenu-bg: #4F8992 !default;
+$tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
 
 .container {
 	display: flex;
