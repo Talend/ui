@@ -9,9 +9,10 @@ $navbar-brand-logo-width: 90px !default;
 
 /// Navbar form top and bottom width
 /// @type Number (Unit)
-$navbar-form-margin: 4px !default;
+$navbar-form-margin: 0 !default;
 
 .navbar {
+	border: 0;
 	&-default,
 	&-inverse {
 		.navbar-brand {

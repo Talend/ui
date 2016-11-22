@@ -6,7 +6,7 @@
 /// Navbar search text and border bottom color
 ///
 /// @type Color
-$navbar-search-btn-color: #FFF !default;
+$navbar-search-btn-color: #000 !default;
 
 /// Navbar search btn width
 /// @type Number (Unit)
@@ -18,20 +18,8 @@ $navbar-search-btn-width: 40px !default;
 			padding-right: $navbar-search-btn-width;
 			font-style: italic;
 			color: $navbar-search-btn-color;
-			background: none;
-			border: none;
-			border-bottom: 1px solid $navbar-search-btn-color;
 			border-radius: 0;
-		}
-
-		.btn-link {
-			margin-left: -$navbar-search-btn-width;
-
-			&:hover,
-			&:focus,
-			&:active {
-				text-decoration: none;
-			}
+			height: $navbar-height;
 		}
 	}
 }
