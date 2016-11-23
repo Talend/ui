@@ -5721,9 +5721,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^1.0.1"
 
-talend-icons@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.3.0.tgz#f123036d4afe7034fcf90d69837901bf3671b71c"
+talend-icons@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.5.5.tgz#1fe28d922c774018be3c89ab7319d0f8b1e86e11"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

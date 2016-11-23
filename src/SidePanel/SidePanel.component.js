@@ -48,7 +48,7 @@ function SidePanel(props) {
 				aria-hidden="true"
 				title="Toggle side panel"
 			>
-				<Icon name={props.toggleIcon || 'talend-arrowleft'} />
+				<Icon name={props.toggleIcon || 'talend-arrow-left'} />
 			</Button>
 			<ul className={listCSS}>
 				{actions.map(action => (

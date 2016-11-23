@@ -12,12 +12,12 @@ const actions = [
 	},
 	{
 		label: 'Datasets',
-		icon: 'talend-add_dataset',
+		icon: 'talend-download',
 		onClick: action('Datasets clicked'),
 	},
 	{
 		label: 'Favorites',
-		icon: 'talend-favorite',
+		icon: 'talend-star',
 		onClick: action('Favorites clicked'),
 	},
 ];
