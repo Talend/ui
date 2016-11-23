@@ -15,6 +15,9 @@ const selected = [
 const props = {
 	displayMode: 'table',
 	list: {
+		titleKey: 'name',
+		onTitleClick: action('onClick'),
+		iconKey: 'icon',
 		columns: [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
@@ -70,22 +73,19 @@ const props = {
 				author: 'Jean-Pierre DUPONT with super long name',
 			},
 		],
-		titleKey: 'name',
-		iconKey: 'icon',
-		onTitleClick: action('onClick'),
 		onElementSelect: action('onSelect'),
 		onToggleAll: action('onToggleAll'),
 		onToggleSingle: action('onToggleSingle'),
-		ifSelected: (item)=> {
+		ifSelected: (item) => {
 			let found = false;
-			for (let i = 0; i < selected.length; i++) {
+			for (let i = 0; i < selected.length; i += 1) {
 				if (selected[i].id === item.id) {
 					found = true;
 					break;
 				}
 			}
 			return found;
-		}
+		},
 	},
 	toolbar: {
 		onClickAdd: action('onClickAdd'),
@@ -102,8 +102,8 @@ const props = {
 			{ id: 'id', name: 'Id' },
 			{ id: 'name', name: 'Name', selected: true },
 		],
-	},
 		onSelectSortBy: action('onSelectSortBy'),
+	},
 };
 
 storiesOf('List', module)
