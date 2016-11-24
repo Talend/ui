@@ -12,7 +12,8 @@ $navbar-brand-logo-width: 90px !default;
 $navbar-form-margin: 0 !default;
 
 .navbar {
-	border: 0;
+	border: none;
+
 	&-default,
 	&-inverse {
 		.navbar-brand {
