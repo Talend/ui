@@ -60,6 +60,7 @@
     "jest": "^17.0.0",
     "node-sass": "^3.10.1",
     "react": "^15.3.2",
+    "react-autowhatever": "^7.0.0",
     "react-a11y": "^0.3.3",
     "react-addons-test-utils": "^15.3.2",
     "react-bootstrap": "0",
@@ -89,6 +90,7 @@
     "react": "^15.3.2",
     "react-bootstrap": "0",
     "talend-icons": "^0.5.5",
-    "uuid": "^2.0.3"
+    "uuid": "^2.0.3",
+    "react-autowhatever": "^7.0.0"
   }
 }

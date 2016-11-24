@@ -77,6 +77,7 @@ import Layout from './Layout';
 import List from './List';
 import SidePanel from './SidePanel';
 import TooltipTrigger from './TooltipTrigger';
+import Typeahead from './Typeahead';
 
 export {
 	Action,
@@ -92,6 +93,7 @@ export {
 	List,
 	SidePanel,
 	TooltipTrigger,
+	Typeahead,
 
 	Alert,
 	Badge,

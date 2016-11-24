@@ -1,0 +1,655 @@
+exports[`Only icon should render only zoom icon 1`] = `
+<button
+  aria-describedby={42}
+  className="btn btn-default"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  role={null}
+  type="button">
+  <i
+    aria-hidden="true"
+    className="fa fa-search"
+    title={null} />
+</button>
+`;
+
+exports[`Typeahead icon should render typeahead with icon 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+    <div
+      className={undefined}>
+      <i
+        aria-hidden="true"
+        className="fa fa-search"
+        title="icon" />
+    </div>
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}} />
+</div>
+`;
+
+exports[`Typeahead icon should render typeahead without icon 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}} />
+</div>
+`;
+
+exports[`Typeahead items should render typeahead items with match 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}}>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-filter"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 1
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-0-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 1
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+            </p>
+          </div>
+        </li>
+        <li
+          id="react-autowhatever-component-id-section-0-item-1"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 2 
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                s e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                phants e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                mentaires ont des ai
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-asterisk"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 2
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-1-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 3
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead with items 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}}>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-filter"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 1
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-0-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 1
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+            </p>
+          </div>
+        </li>
+        <li
+          id="react-autowhatever-component-id-section-0-item-1"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 2 
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                s e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                phants e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                mentaires ont des ai
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-asterisk"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 2
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-1-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 3
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead without items 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}} />
+</div>
+`;
+
+exports[`Typeahead position should render typeahead (LEFT ==> RIGHT) 1`] = `
+<div
+  style={Object {}}>
+  <div
+    className={undefined}>
+    <input
+      aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+      aria-autocomplete="list"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="react-autowhatever-component-id"
+      autoComplete="off"
+      className="form-control"
+      id={undefined}
+      onKeyDown={undefined}
+      placeholder="Search anything"
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value="le" />
+  </div>
+  <div
+    id="react-autowhatever-component-id"
+    style={Object {}}>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-filter"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 1
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-0-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 1
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+            </p>
+          </div>
+        </li>
+        <li
+          id="react-autowhatever-component-id-section-0-item-1"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 2 
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                s e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                phants e
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                mentaires ont des ai
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      style={Object {}}>
+      <div
+        style={Object {}}>
+        <div
+          className={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-asterisk"
+            title="icon" />
+          <span
+            className={undefined}>
+            category 2
+          </span>
+        </div>
+      </div>
+      <ul
+        role="listbox"
+        style={Object {}}>
+        <li
+          id="react-autowhatever-component-id-section-1-item-0"
+          role="option"
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <span
+              className={undefined}>
+              <span>
+                tit
+                <em
+                  className={undefined}>
+                  le
+                </em>
+              </span>
+              <span>
+                 3
+                
+              </span>
+            </span>
+            <p
+              className={undefined}>
+              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

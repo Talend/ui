@@ -10,3 +10,4 @@ import './Layout';
 import './List';
 import './SidePanel';
 import './TooltipTrigger';
+import './Typeahead';
