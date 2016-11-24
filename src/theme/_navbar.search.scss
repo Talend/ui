@@ -19,7 +19,7 @@ $navbar-search-btn-width: 40px !default;
 			font-style: italic;
 			color: $navbar-search-btn-color;
 			border-radius: 0;
-			height: $navbar-height;
+			min-height: $navbar-height;
 		}
 	}
 }
