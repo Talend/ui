@@ -54,6 +54,10 @@
       "selector": "#nav-tabs + div"
     },
     {
+      "name": "nav-tabs-justified",
+      "selector": "#nav-tabs-justified + div"
+    },
+    {
       "name": "nav_pills-default",
       "selector": "#nav-pills + div"
     },
