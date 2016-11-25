@@ -204,6 +204,151 @@ exports[`Toolbar should render 1`] = `
         </button>
       </div>
     </form>
+    <ul
+      className="nav navbar-nav"
+      role={null}>
+      <label
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-text"
+        htmlFor="pagination-size"
+        onSelect={null}>
+        Show:
+      </label>
+      <li
+        className="dropdown"
+        style={undefined}>
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href=""
+          id="pagination-size"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button">
+          5
+           
+          <span
+            className="caret" />
+        </a>
+        <ul
+          aria-labelledby="pagination-size"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              5
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              10
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              20
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              50
+            </a>
+          </li>
+        </ul>
+      </li>
+      <div
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-btn btn-group"
+        onSelect={null}>
+        <button
+          className="btn btn-link"
+          disabled={true}
+          id="nav-to-first"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-backward"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
+          disabled={true}
+          id="nav-to-prev"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <span
+          className="btn btn-link">
+          1
+          /
+          4
+        </span>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-next"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-last"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-forward"
+            title={null} />
+        </button>
+      </div>
+    </ul>
   </div>
 </div>
 `;
@@ -438,6 +583,151 @@ exports[`Toolbar should render add btn 1`] = `
         </button>
       </div>
     </form>
+    <ul
+      className="nav navbar-nav"
+      role={null}>
+      <label
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-text"
+        htmlFor="pagination-size"
+        onSelect={null}>
+        Show:
+      </label>
+      <li
+        className="dropdown"
+        style={undefined}>
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href=""
+          id="pagination-size"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button">
+          5
+           
+          <span
+            className="caret" />
+        </a>
+        <ul
+          aria-labelledby="pagination-size"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              5
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              10
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              20
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              50
+            </a>
+          </li>
+        </ul>
+      </li>
+      <div
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-btn btn-group"
+        onSelect={null}>
+        <button
+          className="btn btn-link"
+          disabled={true}
+          id="nav-to-first"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-backward"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
+          disabled={true}
+          id="nav-to-prev"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <span
+          className="btn btn-link">
+          1
+          /
+          4
+        </span>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-next"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-last"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-forward"
+            title={null} />
+        </button>
+      </div>
+    </ul>
   </div>
 </div>
 `;
@@ -698,6 +988,151 @@ exports[`Toolbar should render listActions 1`] = `
         </button>
       </div>
     </form>
+    <ul
+      className="nav navbar-nav"
+      role={null}>
+      <label
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-text"
+        htmlFor="pagination-size"
+        onSelect={null}>
+        Show:
+      </label>
+      <li
+        className="dropdown"
+        style={undefined}>
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href=""
+          id="pagination-size"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button">
+          5
+           
+          <span
+            className="caret" />
+        </a>
+        <ul
+          aria-labelledby="pagination-size"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              5
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              10
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              20
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href=""
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              50
+            </a>
+          </li>
+        </ul>
+      </li>
+      <div
+        active={undefined}
+        activeHref={undefined}
+        activeKey={undefined}
+        className="navbar-btn btn-group"
+        onSelect={null}>
+        <button
+          className="btn btn-link"
+          disabled={true}
+          id="nav-to-first"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-backward"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
+          disabled={true}
+          id="nav-to-prev"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <span
+          className="btn btn-link">
+          1
+          /
+          4
+        </span>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-next"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-play"
+            title={null} />
+        </button>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="nav-to-last"
+          onClick={[Function]}
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-forward"
+            title={null} />
+        </button>
+      </div>
+    </ul>
   </div>
 </div>
 `;

@@ -14,6 +14,8 @@ const props = {
 		{ id: 'name', name: 'Name' },
 	],
 	sortDesc: true,
+	itemsLength: 17,
+	onChangePagination: jest.fn(),
 };
 
 describe('Toolbar', () => {

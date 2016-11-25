@@ -2,6 +2,7 @@ import React from 'react';
 import { MenuItem, Nav, Navbar, ButtonGroup, DropdownButton } from 'react-bootstrap';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
+import Pagination from './Pagination';
 import Filter from './Filter';
 import Action from '../../Actions/Action';
 import Icon from '../../Icon';
@@ -25,6 +26,7 @@ function Toolbar(props) {
 	const displayProps = getSubProps(props, SelectDisplayMode);
 	const sortProps = getSubProps(props, SelectSortBy);
 	const filterProps = getSubProps(props, Filter);
+	const paginationProps = getSubProps(props, Pagination);
 	let add;
 	if (props.onClickAdd) {
 		add = {
@@ -72,6 +74,9 @@ function Toolbar(props) {
 				{...sortProps}
 			/>
 			<Filter key="3" {...filterProps} />
+			{Object.keys(paginationProps).length > 0 ? (
+				<Pagination key="4" {...paginationProps} />
+			) : null}
 		</Navbar>
 	);
 }

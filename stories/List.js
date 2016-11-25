@@ -103,6 +103,8 @@ const props = {
 			{ id: 'name', name: 'Name', selected: true },
 		],
 		onSelectSortBy: action('onSelectSortBy'),
+		itemsLength: 3,
+		onChangePagination: action('onChangePagination'),
 	},
 };
 
