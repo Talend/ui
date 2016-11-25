@@ -5,7 +5,7 @@
 
 /// Layout height of the header
 /// @type Number (Unit)
-$tc-layout-header-height: 49px;
+$tc-layout-header-height: $navbar-height;
 
 body {
 	margin: 0;
