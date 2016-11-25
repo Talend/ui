@@ -1,17 +1,3 @@
-////
-/// Bootstrap modal customization
-/// @group Modals
-////
-
-/// Modal header background color
-///
-/// @type Color
-$modal-header-bg:             $brand-primary !default;
-
-/// Modal header color
-///
-/// @type Color
-$modal-header-color:          $white !default;
 
 .modal {
 	&-header {

@@ -1,16 +1,3 @@
-////
-/// Bootstrap navbars search component customization
-/// @group Navbar
-////
-
-/// Navbar search text and border bottom color
-///
-/// @type Color
-$navbar-search-btn-color: #000 !default;
-
-/// Navbar search btn width
-/// @type Number (Unit)
-$navbar-search-btn-width: 40px !default;
 
 .navbar {
 	[role='search'] {

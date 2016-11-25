@@ -1,3 +1,8 @@
+////
+/// Talend colors
+/// @group Colors
+////
+
 /// Primary color, mostly used for the selected elements
 /// and to draw attention to the important elements of interaction.
 ///
@@ -19,6 +24,11 @@ $scooter: #3DB0D6;
 /// @type Color
 $limeade: #8ABC00;
 
+/// Used for validation message in inputs
+///
+/// @type Color
+$pirate-gold: #B78001;
+
 /// Used to notify invalid elements or warning information.
 ///
 /// @type Color
@@ -33,6 +43,11 @@ $chestnut-rose: #CE6464;
 ///
 /// @type Color
 $black: #000;
+
+/// Used for some labels
+///
+/// @type Color
+$mine-shaft: #333;
 
 /// Used for subtitles.
 ///
@@ -68,3 +83,4 @@ $smalt-blue:    #4F8992;
 ///
 /// @type Color
 $shadow: rgba(0, 0, 0, 0.2);
+

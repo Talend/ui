@@ -3,22 +3,6 @@
 /// @group Breadcrumbs
 ////
 
-/// Breadcrumb not selected items color
-/// @type Color
-$breadcrumb-items-color: $brand-primary !default;
-
-/// Breadcrumb items max width
-/// @type Number
-$breadcrumb-items-max-width: 250px !default;
-
-/// Breadcrumb separator color
-/// @type Color
-$breadcrumb-separator-color: $breadcrumb-color !default;
-
-/// Breadcrumb separator padding
-/// @type Number
-$breadcrumb-separator-padding: $padding-larger !default;
-
 .breadcrumb {
 	display: flex;
 	flex-direction: row;

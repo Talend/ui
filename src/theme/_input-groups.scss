@@ -3,14 +3,6 @@
 /// @group Input groups
 ////
 
-/// Input group button padding
-/// @type Number (Unit)
-$input-group-btn-padding: 5px !default;
-
-/// Input group add-on padding
-/// @type Number (Unit)
-$input-group-addon-padding: 8px !default;
-
 .input-group {
 	&-btn {
 		> .btn {

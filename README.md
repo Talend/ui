@@ -26,34 +26,45 @@ But we have decided to rewrite the build using webpack and bootstrap-sass.
 npm install --save bootstrap-talend-theme
 ```
 
-## Define your color set
+## Configure your project
 
-Create your `_colors.scss` file and fill it with your own color set.
+In every project, we use webpack with sass-loader + css modules.
 
-```sass
-/// My primary App color
-///
-/// @type Color
-$lizard:    #112A2D;
+Create your webpack file and fill it with your own configuration.
+You should at least just change the `$brand-primary` first to get your own colors;
+
+```javascript
+const SASS_DATA = `
+  $brand-primary: #77828A;
+  @import '~bootstrap-talend-theme/src/theme/guidelines';
+`;
+
+module.exports = {
+	plugins: [
+		// your custom plugins
+	],
+	module: {
+		loaders: [
+			{
+				test: /\.scss$/,
+				exclude: /bootstrap.scss/,
+				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
+			},
+		],
+	},
+	sassLoader: {
+		data: SASS_DATA,
+	},
+};
 ```
 
-## Fork bootstrap-sass variables
+and in your app you can do the following
 
-Open [this file](https://github.com/Talend/bootstrap-theme/blob/master/src/theme/_variables.scss) in order to override what you need to a `_variables.scss` file.
-
-```sass
-$brand-primary:         $lizard;
+```javascript
+import '!style!css!sass!bootstrap-talend-theme/src/theme/theme.scss';
 ```
 
-## Set up Talend bootstrap theme
-
-Edit your Sass entry file.
-
-```sass
-@import 'colors';
-@import 'variables';
-@import '~bootstrap-talend-theme/src/theme/bootstrap';
-```
+sassLoader data is a sassLib params which inject the content on every @import directive.
 
 You can now add [Bootstrap](http://getbootstrap.com/) markup!
 

@@ -1,3 +1,5 @@
+// This is a fork but try to keep it as close to the original as possible
+
 $bootstrap-sass-asset-helper: false !default;
 //
 // Variables
@@ -15,12 +17,11 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 85%) !default;   // #bfbfbf
 
-$brand-primary:         $smalt-blue !default;
+$brand-primary:         $st-tropaz !default;
 $brand-primary-lighter: tint($brand-primary, 25) !default;
 $brand-primary-light:   tint($brand-primary, 12) !default;
 $brand-primary-dark:    shade($brand-primary, 12) !default;
 $brand-primary-darker:  shade($brand-primary, 25) !default;
-
 $brand-secondary:       $rio-grande !default;
 $brand-success:         $limeade !default;
 $brand-info:            $scooter !default;
@@ -98,11 +99,17 @@ $icon-font-svg-id:        'glyphicons_halflingsregular' !default;
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-$padding-smaller: 5px !default;
-$padding-small:  10px !default;
-$padding-normal: 15px !default;
-$padding-large:  20px !default;
-$padding-larger: 30px !default;
+$padding-base-vertical:     $padding-small !default;
+$padding-base-horizontal:   $padding-normal !default;
+
+$padding-large-vertical:    $padding-small !default;
+$padding-large-horizontal:  $padding-large !default;
+
+$padding-small-vertical:    $padding-smaller !default;
+$padding-small-horizontal:  $padding-small !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     $padding-smaller !default;
 
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;
@@ -120,20 +127,6 @@ $component-active-bg:       tint($brand-primary, 95) !default;
 $caret-width-base:          4px !default;
 //** Carets increase slightly in size for larger components.
 $caret-width-large:         5px !default;
-
-
-//== Rewrite
-//
-//## This variables are used only for rewriting bootstrap variables
-
-$padding-base-vertical:     $padding-small !default;
-$padding-base-horizontal:   $padding-normal !default;
-$padding-large-vertical:    $padding-small !default;
-$padding-large-horizontal:  $padding-large !default;
-$padding-small-vertical:    $padding-smaller !default;
-$padding-small-horizontal:  $padding-small !default;
-$padding-xs-vertical:       1px !default;
-$padding-xs-horizontal:     $padding-smaller !default;
 
 
 //== Tables
