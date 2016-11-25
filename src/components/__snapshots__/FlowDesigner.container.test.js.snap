@@ -3,11 +3,11 @@ exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1
   width="100%">
   <defs>
     <filter
-      height="200"
+      height="1.5"
       id="blur-filter"
-      width="200"
-      x="-1"
-      y="-1">
+      width="1.5"
+      x="-.25"
+      y="-.25">
       <feFlood
         floodColor="#01A7CF"
         result="COLOR" />

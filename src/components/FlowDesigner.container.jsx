@@ -93,7 +93,7 @@ export const FlowDesigner = React.createClass({
 		return (
 			<svg ref={c => (this.node = c)} width="100%">
 				<defs>
-					<filter id="blur-filter" x="-1" y="-1" width="200" height="200">
+					<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
 						<feFlood floodColor="#01A7CF" result="COLOR" />
 						<feComposite in="COLOR" in2="SourceGraphic" operator="in" result="shadow" />
 						<feGaussianBlur in="shadow" stdDeviation="3" />
