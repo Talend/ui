@@ -20,11 +20,19 @@ module.exports = yeoman.Base.extend({
 				return true;
 			},
 		}, {
+			type: 'confirm',
+			name: 'isFull',
+			message: 'full component (component + container + connect)',
+			default: false,
+		}, {
 			type: 'list',
 			name: 'type',
 			message: 'type',
 			default: 'es6.class',
 			choices: ['es6.class', 'es6.arrow', 'stateless', 'createClass', 'connect'],
+			when(answers) {
+				return !answers.isFull;
+			},
 		}, {
 			type: 'input',
 			name: 'purePath',
@@ -44,16 +52,15 @@ module.exports = yeoman.Base.extend({
 					answers.test = 'connect';
 					return false;
 				}
-				return true;
+				return !answers.isFull;
 			},
 		}, {
-			type: 'list',
+			type: 'confirm',
 			name: 'css',
 			message: 'css',
-			default(answers) {
-				return answers.type === 'connect' ? 'n' : 'y';
+			default(a) {
+				return a.isFull || a.type !== 'connect';
 			},
-			choices: ['y', 'n'],
 			when(answers) {
 				return answers.type !== 'connect';
 			},
@@ -71,22 +78,42 @@ module.exports = yeoman.Base.extend({
 	},
 
 	writing() {
-		this.fs.copyTpl(
-			this.templatePath(`src/${this.props.type}.component.js`),
-			this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.component.js`),
-			this
-		);
-		this.fs.copyTpl(
-			this.templatePath(`src/${this.props.test}.test.js`),
-			this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
-			this
-		);
-		this.fs.copyTpl(
-			this.templatePath('src/index.js'),
-			this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
-			this
-		);
-		if (this.props.css === 'y') {
+		if (!this.props.isFull) {
+			this.fs.copyTpl(
+				this.templatePath(`src/${this.props.type}.component.js`),
+				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.component.js`),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath(`src/${this.props.test}.test.js`),
+				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/index.js'),
+				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
+				this
+			);
+		} else {
+			['component', 'container', 'connect'].forEach((t) => {
+				this.fs.copyTpl(
+					this.templatePath(`src/full.${t}.js`),
+					this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.${t}.js`),
+					this
+				);
+			});
+			this.fs.copyTpl(
+				this.templatePath('src/full.index.js'),
+				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath(`src/full.test.js`),
+				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
+				this
+			);
+		}
+		if (this.props.css) {
 			this.fs.copyTpl(
 				this.templatePath(`src/scss`),
 				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
