@@ -1,4 +1,8 @@
 // DisplayTable styles
+$tc-list-table-hover-bg: $concrete !default;
+$tc-list-table-color: $dove-gray !default;
+$tc-list-table-hover-color: $black !default;
+
 .table :global(.btn-group) {
 	visibility: hidden;
 }
@@ -6,3 +10,21 @@
 .table tr:hover :global(.btn-group) {
 	visibility: visible;
 }
+
+.table :global(.btn-link) {
+	color: $tc-list-table-color;
+	font-size: inherit;
+	letter-spacing: inherit;
+	font-weight: 600;
+}
+
+.table :global(tbody tr:hover){
+	color: $tc-list-table-hover-color;
+	background-color: $tc-list-table-hover-bg;
+}
+
+.table :global(.btn-link:hover) {
+	color: $tc-list-table-hover-color;
+	text-decoration: none;
+}
+
