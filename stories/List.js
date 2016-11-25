@@ -15,9 +15,14 @@ const selected = [
 const props = {
 	displayMode: 'table',
 	list: {
-		titleKey: 'name',
-		onTitleClick: action('onClick'),
-		iconKey: 'icon',
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onClick'),
+			onCancel: action('onCancel'),
+			onChange: action('onChange'),
+		},
 		columns: [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
@@ -28,7 +33,7 @@ const props = {
 		items: [
 			{
 				id: 1,
-				name: 'Hello world',
+				name: 'Title with actions',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
@@ -56,14 +61,16 @@ const props = {
 					],
 				}],
 				icon: 'fa fa-file-excel-o',
+				display: 'text',
 			},
 			{
 				id: 2,
-				name: 'Foo',
+				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				icon: 'fa fa-file-pdf-o',
+				display: 'input',
 			},
 			{
 				id: 2,

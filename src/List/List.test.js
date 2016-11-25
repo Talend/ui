@@ -19,7 +19,9 @@ describe('List', () => {
 					{ id: 2, name: 'Foo' },
 					{ id: 3, name: 'Bar' },
 				],
-				onTitleClick: jest.fn(),
+				titleProps: {
+					onClick: jest.fn(),
+				},
 			},
 			toolbar: {
 				onFilter: jest.fn(),

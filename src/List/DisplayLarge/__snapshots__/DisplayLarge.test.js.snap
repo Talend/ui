@@ -3,50 +3,54 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
   className={undefined}>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      <i
-        aria-hidden="true"
-        className="fa fa-file-excel-o"
-        title={null} />
-      Hello world
-    </button>
     <div
-      className="tc-actions btn-group">
-      <button
-        aria-describedby={42}
-        className="btn btn-link"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-        type="button">
-        <i
-          aria-hidden="true"
-          className="fa fa-edit"
-          title={null} />
-      </button>
-      <button
-        aria-describedby={42}
-        className="btn btn-link"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-        type="button">
-        <i
-          aria-hidden="true"
-          className="fa fa-trash-o"
-          title={null} />
-      </button>
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}>
+          Hello world
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group">
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-edit"
+            title={null} />
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-trash-o"
+            title={null} />
+        </button>
+      </div>
     </div>
     <div
       className={undefined}>
@@ -98,18 +102,22 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
   </div>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      <i
-        aria-hidden="true"
-        className="fa fa-file-pdf-o"
-        title={null} />
-      Foo
-    </button>
     <div
-      className="tc-actions btn-group" />
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}>
+          Foo
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
     <div
       className={undefined}>
       <ul>
@@ -160,14 +168,22 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
   </div>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      Bar
-    </button>
     <div
-      className="tc-actions btn-group" />
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}>
+          Bar
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
     <div
       className={undefined}>
       <ul>
@@ -224,50 +240,62 @@ exports[`DisplayLarge should render with defined title property 1`] = `
   className={undefined}>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      <i
-        aria-hidden="true"
-        className="fa fa-file-excel-o"
-        title={null} />
-      1
-    </button>
     <div
-      className="tc-actions btn-group">
-      <button
-        aria-describedby={42}
-        className="btn btn-link"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-        type="button">
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
         <i
           aria-hidden="true"
-          className="fa fa-edit"
+          className="fa fa-file-excel-o"
           title={null} />
-      </button>
-      <button
-        aria-describedby={42}
-        className="btn btn-link"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-        type="button">
-        <i
-          aria-hidden="true"
-          className="fa fa-trash-o"
-          title={null} />
-      </button>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          role="link"
+          type="button">
+          1
+        </button>
+      </div>
+      <div
+        className="tc-actions btn-group">
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-edit"
+            title={null} />
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-trash-o"
+            title={null} />
+        </button>
+      </div>
     </div>
     <div
       className={undefined}>
@@ -319,18 +347,30 @@ exports[`DisplayLarge should render with defined title property 1`] = `
   </div>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      <i
-        aria-hidden="true"
-        className="fa fa-file-pdf-o"
-        title={null} />
-      2
-    </button>
     <div
-      className="tc-actions btn-group" />
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <i
+          aria-hidden="true"
+          className="fa fa-file-pdf-o"
+          title={null} />
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          role="link"
+          type="button">
+          2
+        </button>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
     <div
       className={undefined}>
       <ul>
@@ -381,14 +421,26 @@ exports[`DisplayLarge should render with defined title property 1`] = `
   </div>
   <div
     className="panel panel-default">
-    <button
-      className="btn btn-link"
-      onClick={[Function]}
-      role="link">
-      2
-    </button>
     <div
-      className="tc-actions btn-group" />
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          role="link"
+          type="button">
+          2
+        </button>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
     <div
       className={undefined}>
       <ul>

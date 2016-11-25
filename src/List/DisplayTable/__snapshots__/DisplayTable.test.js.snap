@@ -26,18 +26,17 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         1
       </td>
       <td>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          Hello world
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}>
+            Hello world
+          </span>
+        </div>
         <div
           className="tc-actions btn-group">
           <button
@@ -89,18 +88,17 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         2
       </td>
       <td>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-pdf-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          Foo
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}>
+            Foo
+          </span>
+        </div>
         <div
           className="tc-actions btn-group" />
       </td>
@@ -119,14 +117,17 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         2
       </td>
       <td>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          Bar
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}>
+            Bar
+          </span>
+        </div>
         <div
           className="tc-actions btn-group" />
       </td>
@@ -169,18 +170,25 @@ exports[`DisplayTable should render with defined title property 1`] = `
   <tbody>
     <tr>
       <td>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          1
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-excel-o"
+            title={null} />
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            role="link"
+            type="button">
+            1
+          </button>
+        </div>
         <div
           className="tc-actions btn-group">
           <button
@@ -232,18 +240,25 @@ exports[`DisplayTable should render with defined title property 1`] = `
     </tr>
     <tr>
       <td>
-        <i
-          aria-hidden="true"
-          className="fa fa-file-pdf-o"
-          title={null} />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          2
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <i
+            aria-hidden="true"
+            className="fa fa-file-pdf-o"
+            title={null} />
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            role="link"
+            type="button">
+            2
+          </button>
+        </div>
         <div
           className="tc-actions btn-group" />
       </td>
@@ -262,14 +277,21 @@ exports[`DisplayTable should render with defined title property 1`] = `
     </tr>
     <tr>
       <td>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button">
-          2
-        </button>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            role="link"
+            type="button">
+            2
+          </button>
+        </div>
         <div
           className="tc-actions btn-group" />
       </td>

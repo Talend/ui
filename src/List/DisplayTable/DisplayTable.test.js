@@ -50,14 +50,12 @@ const columns = [
 ];
 
 describe('DisplayTable', () => {
-	it('should render with defined title property', () => {
+	it('should render with default title property (name)', () => {
 		// given
 		const props = {
 			items,
 			columns,
-			titleKey: 'id', // title key defined
-			iconKey: 'icon',
-			onTitleClick: jest.fn(),
+			titleProps: undefined, // no title key defined
 		};
 
 		// when
@@ -67,14 +65,16 @@ describe('DisplayTable', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with default title property (name)', () => {
+	it('should render with defined title property', () => {
 		// given
 		const props = {
 			items,
 			columns,
-			titleKey: undefined, // no title key defined
-			iconKey: 'icon',
-			onTitleClick: jest.fn(),
+			titleProps: {
+				key: 'id', // title key defined
+				iconKey: 'icon',
+				onClick: jest.fn(),
+			},
 		};
 
 		// when

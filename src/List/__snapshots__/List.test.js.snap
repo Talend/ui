@@ -226,16 +226,7 @@ exports[`List should render its name 1`] = `
           1
         </td>
         <td>
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="link"
-            type="button">
-            Hello world
-          </button>
-          <div
-            className="tc-actions btn-group" />
+          Hello world
         </td>
       </tr>
       <tr>
@@ -243,16 +234,7 @@ exports[`List should render its name 1`] = `
           2
         </td>
         <td>
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="link"
-            type="button">
-            Foo
-          </button>
-          <div
-            className="tc-actions btn-group" />
+          Foo
         </td>
       </tr>
       <tr>
@@ -260,16 +242,7 @@ exports[`List should render its name 1`] = `
           3
         </td>
         <td>
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            role="link"
-            type="button">
-            Bar
-          </button>
-          <div
-            className="tc-actions btn-group" />
+          Bar
         </td>
       </tr>
     </tbody>

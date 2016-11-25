@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import { Button } from 'react-bootstrap';
+import { Actions } from '../../Actions';
+import ItemTitle from '../ItemTitle';
 
 import DisplayPropTypes from '../Display/Display.propTypes';
-import { Actions } from '../../Actions';
-import Icon from '../../Icon';
 
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
-	const { titleKey, onTitleClick, item, onToggleSingle, ifSelected } = props;
+	const { titleProps, item, onToggleSingle, ifSelected } = props;
 	const checkboxColumn = onToggleSingle && ifSelected ?
 		<td>
 			<input
@@ -23,31 +22,32 @@ function RowRenderer(props) {
 		<tr>
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
-				if (column.key === titleKey) {
-					const onClick = event => onTitleClick(
-						event,
-						item,
-					);
-					const iconName = props.iconKey && props.item[props.iconKey];
-					return (
-						<td key={index}>
-							{iconName && <Icon name={iconName} />}
-							<Button
-								bsStyle="link"
-								onClick={onClick}
-								role="link"
-							>
-								{item[column.key]}
-							</Button>
-							<Actions
-								actions={item.actions || []}
-								hideLabel
-								link
-							/>
-						</td>
-					);
-				}
-				return (<td key={index}>{item[column.key]}</td>);
+				const isTitle = column.key === titleProps.key;
+				const cell = isTitle ?
+					<ItemTitle
+						item={item}
+						titleProps={titleProps}
+					/> :
+					item[column.key];
+
+				// actions are only on title and on 'text' display mode
+				const displayActions =
+					isTitle &&
+					(!titleProps.displayModeKey || item[titleProps.displayModeKey] === 'text');
+				const actions = displayActions ?
+					<Actions
+						actions={item.actions || []}
+						hideLabel
+						link
+					/> :
+					null;
+
+				return (
+					<td key={index}>
+						{cell}
+						{actions}
+					</td>
+				);
 			})}
 		</tr>
 	);
@@ -55,32 +55,34 @@ function RowRenderer(props) {
 RowRenderer.propTypes = {
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(
-		PropTypes.shape({
-			key: PropTypes.string.isRequired,
-		})
+		PropTypes.shape({ key: PropTypes.string.isRequired })
 	).isRequired,
-	iconKey: PropTypes.string,
-	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
-	onToggleSingle: PropTypes.func,
 	ifSelected: PropTypes.func,
+	onToggleSingle: PropTypes.func,
+	titleProps: ItemTitle.propTypes.titleProps,
 };
 
 function ListHeader(props) {
+	const {
+		columns,
+		items,
+		ifSelected,
+		onToggleAll,
+	} = props;
 	const ifAllSelected = () => {
 		let selected = 0;
-		props.items.forEach((item) => {
-			if (props.ifSelected(item)) {
+		items.forEach((item) => {
+			if (ifSelected(item)) {
 				selected += 1;
 			}
 		});
-		return selected === props.items.length;
+		return selected === items.length;
 	};
-	const checkbox = props.onToggleAll && props.ifSelected ?
+	const checkbox = onToggleAll && ifSelected ?
 		<th>
 			<input
 				type="checkbox"
-				onChange={(e) => { props.onToggleAll(e, props.items); }}
+				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
 			/>
 		</th> :
@@ -88,32 +90,77 @@ function ListHeader(props) {
 	return (
 		<tr>
 			{checkbox}
-			{props.columns.map((column, index) => (<th key={index}>{column.label}</th>))}
+			{columns.map((column, index) => (<th key={index}>{column.label}</th>))}
 		</tr>
 	);
 }
 ListHeader.propTypes = {
 	columns: PropTypes.arrayOf(
-		PropTypes.shape(
-			{ label: PropTypes.string },
-		)
+		PropTypes.shape({ label: PropTypes.string })
 	),
-	items: PropTypes.arrayOf(
-			PropTypes.object
-	),
+	items: PropTypes.arrayOf(PropTypes.object),
 	ifSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 };
 
-
 /**
- * @param {object} props react props
+ * @param {array} columns the array of column definitions
+ * @param {array} items the array of items to display
+ * @param {object} titleProps the title configuration props
  * @example
- <DisplayTable name="Hello world"></DisplayTable>
+ const props = {
+	items: [
+		{
+			id: 1,
+			name: 'Title with actions',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			actions: [{
+				label: 'edit',
+				icon: 'fa fa-edit',
+				onClick: action('onEdit'),
+			}],
+			icon: 'fa fa-file-excel-o',
+			display: 'text',
+		},
+		{
+			id: 2,
+			name: 'Title in input mode',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			icon: 'fa fa-file-pdf-o',
+			display: 'input',
+		},
+	],
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'name', label: 'Name' },
+		{ key: 'author', label: 'Author' },
+		{ key: 'created', label: 'Created' },
+		{ key: 'modified', label: 'Modified' },
+	],
+	titleProps: {
+		key: 'name',
+		iconKey: 'icon',
+		displayModeKey: 'display',
+		onClick: action('onClick'),
+		onCancel: action('onCancel'),
+		onChange: action('onChange'),
+	},
+};
+<DisplayTable {...props} />
  */
-function DisplayTable({
-	items, columns, iconKey, titleKey, onTitleClick, onToggleAll, onToggleSingle, ifSelected,
-	}) {
+function DisplayTable(props) {
+	const {
+		columns,
+		items,
+		titleProps,
+		ifSelected,
+		onToggleAll,
+		onToggleSingle,
+	} = props;
 	const className = classnames(
 		'table',
 		'tc-list-display-table',
@@ -136,9 +183,7 @@ function DisplayTable({
 							key={index}
 							item={item}
 							columns={columns}
-							iconKey={iconKey}
-							titleKey={titleKey}
-							onTitleClick={onTitleClick}
+							titleProps={titleProps}
 							onToggleSingle={onToggleSingle}
 							ifSelected={ifSelected}
 						/>
@@ -153,7 +198,7 @@ DisplayTable.propTypes = DisplayPropTypes;
 
 DisplayTable.defaultProps = {
 	items: [],
-	titleKey: 'name',
+	titleProps: { key: 'name' },
 };
 
 export default DisplayTable;

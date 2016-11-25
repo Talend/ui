@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import DisplayPropTypes from '../Display/Display.propTypes';
 import { Actions } from '../../Actions';
-import Icon from '../../Icon';
+import ItemTitle from '../ItemTitle';
 import theme from './DisplayLarge.scss';
 
 function getColumnsData({ columns, item, titleKey }) {
@@ -33,21 +33,15 @@ function getTwoDim(columnsData) {
 		});
 }
 
-function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey, onToggleSingle,
-	ifSelected }) {
-	const columnsData = getColumnsData({ columns, item, titleKey });
+function rowRenderer({ item, index, columns, titleProps, onToggleSingle, ifSelected }) {
+	const columnsData = getColumnsData({ columns, item, titleKey: titleProps.key });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
 		'panel',
 		'panel-default',
 		theme.panel
 	);
-	const title = classNames(
-		'btn',
-		'btn-link',
-		theme.title,
-	);
-	const iconName = iconKey && item[iconKey];
+
 	const checkboxColumn = onToggleSingle && ifSelected ?
 		<input
 			type="checkbox"
@@ -55,22 +49,29 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey, on
 			checked={ifSelected(item)}
 		/> :
 		null;
+
+	const displayActions =
+		!titleProps.displayModeKey ||
+		item[titleProps.displayModeKey] === 'text';
+	const actions = displayActions ?
+		<Actions
+			actions={item.actions || []}
+			hideLabel
+			link
+		/> :
+		null;
+
 	return (
 		<div className={panel} key={index}>
 			{checkboxColumn}
-			<button
-				className={title}
-				role="link"
-				onClick={event => onTitleClick(item, event)}
-			>
-				{iconName && <Icon name={iconName} />}
-				{item[titleKey]}
-			</button>
-			<Actions
-				actions={item.actions ? item.actions : []}
-				hideLabel
-				link
-			/>
+			<div className={theme.head}>
+				<ItemTitle
+					className={theme.title}
+					item={item}
+					titleProps={titleProps}
+				/>
+				{actions}
+			</div>
 			<div className={theme.columns}>
 				{info.map((group, i) => (
 					<ul key={i}>
@@ -88,26 +89,72 @@ function rowRenderer({ item, index, columns, titleKey, onTitleClick, iconKey, on
 }
 
 rowRenderer.propTypes = {
-	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	index: PropTypes.number,
-	columns: PropTypes.arrayOf(
-		PropTypes.object
-	),
-	iconKey: PropTypes.string,
-	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
-	onToggleSingle: PropTypes.func,
+	columns: PropTypes.arrayOf(PropTypes.object),
+	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	ifSelected: PropTypes.func,
+	onToggleSingle: PropTypes.func,
+	titleProps: ItemTitle.propTypes.titleProps,
 };
 
 /**
- * @param {object} props react props
+ * @param {array} columns the array of column definitions
+ * @param {array} items the array of items to display
+ * @param {object} titleProps the title configuration props
  * @example
-
-<DisplayLarge items={items} columns={columns} elementTitle={title} />
+const props = {
+	items: [
+		{
+			id: 1,
+			name: 'Title with actions',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			actions: [{
+				label: 'edit',
+				icon: 'fa fa-edit',
+				onClick: action('onEdit'),
+			}],
+			icon: 'fa fa-file-excel-o',
+			display: 'text',
+		},
+		{
+			id: 2,
+			name: 'Title in input mode',
+			created: '2016-09-22',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			icon: 'fa fa-file-pdf-o',
+			display: 'input',
+		},
+	],
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'name', label: 'Name' },
+		{ key: 'author', label: 'Author' },
+		{ key: 'created', label: 'Created' },
+		{ key: 'modified', label: 'Modified' },
+	],
+	titleProps: {
+		key: 'name',
+		iconKey: 'icon',
+		displayModeKey: 'display',
+		onClick: action('onClick'),
+		onCancel: action('onCancel'),
+		onChange: action('onChange'),
+	},
+};
+<DisplayLarge {...props} />
  */
-function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick, onToggleAll,
-		onToggleSingle, ifSelected }) {
+function DisplayLarge(props) {
+	const {
+		columns,
+		items,
+		titleProps,
+		ifSelected,
+		onToggleAll,
+		onToggleSingle,
+	} = props;
 	const ifAllSelected = () => {
 		let selected = 0;
 		items.forEach((item) => {
@@ -130,14 +177,12 @@ function DisplayLarge({ items, columns, iconKey, titleKey, onTitleClick, onToggl
 		<div className={theme.container}>
 			{checkbox}
 			{items.map((item, index) => rowRenderer({
-				item,
 				index,
 				columns,
-				onTitleClick,
-				iconKey,
-				titleKey,
-				onToggleSingle,
+				item,
 				ifSelected,
+				onToggleSingle,
+				titleProps,
 			}))}
 		</div>
 	);
@@ -147,7 +192,7 @@ DisplayLarge.propTypes = DisplayPropTypes;
 
 DisplayLarge.defaultProps = {
 	items: [],
-	titleKey: 'name',
+	titleProps: { key: 'name' },
 };
 
 export default DisplayLarge;

@@ -1,14 +1,13 @@
 import { PropTypes } from 'react';
+import ItemTitle from '../ItemTitle';
 
 export default {
-	items: PropTypes.arrayOf(PropTypes.object),
 	columns: PropTypes.arrayOf(PropTypes.object),
-	iconKey: PropTypes.string,
-	titleKey: PropTypes.string,
-	onTitleClick: PropTypes.func,
+	items: PropTypes.arrayOf(PropTypes.object),
+	ifSelected: PropTypes.func,
 	onElementSelect: PropTypes.func,
-	width: PropTypes.string,
 	onToggleSingle: PropTypes.func,
 	onToggleAll: PropTypes.func,
-	ifSelected: PropTypes.func,
+	titleProps: ItemTitle.propTypes.titleProps,
+	width: PropTypes.string,
 };

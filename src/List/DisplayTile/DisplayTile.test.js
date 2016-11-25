@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 
 import DisplayTile from './DisplayTile.component';
 
+jest.mock('react-dom');
 jest.mock('uuid');
 
 const items = [
@@ -54,8 +55,6 @@ describe('DisplayTile', () => {
 		const props = {
 			items,
 			columns,
-			titleKey: undefined, // no title key defined
-			iconKey: 'icon',
 		};
 
 		// when
@@ -70,8 +69,10 @@ describe('DisplayTile', () => {
 		const props = {
 			items,
 			columns,
-			titleKey: 'id', // title key defined
-			iconKey: 'icon',
+			titleProps: {
+				key: 'id', // title key defined
+				iconKey: 'icon',
+			},
 		};
 
 		// when
@@ -81,13 +82,16 @@ describe('DisplayTile', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render 3 tiles with render a title buttons', () => {
+	it('should render 3 tiles which render a title buttons', () => {
 		// given
 		const props = {
 			items,
 			columns,
-			iconKey: 'icon',
-			onTitleClick: jest.fn(), // title click callback defined
+			titleProps: {
+				key: 'name',
+				iconKey: 'icon',
+				onClick: jest.fn(), // title click callback defined
+			},
 		};
 
 		// when
