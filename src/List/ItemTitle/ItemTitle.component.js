@@ -8,34 +8,36 @@ const TITLE_MODE_INPUT = 'input';
 const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
-function renderButton({ value, className, item, onClick }) {
+function renderButton({ id, value, className, item, onClick }) {
 	const click = (event) => {
 		event.stopPropagation();
 		onClick(event, item);
 	};
 
 	return (
-		<Button className={className} onClick={click} role="link" bsStyle="link">
+		<Button id={id} className={className} onClick={click} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);
 }
 renderButton.propTypes = {
+	id: PropTypes.string,
 	value: PropTypes.string,
 	className: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func,
 };
 
-function renderText({ value, className }) {
-	return (<span className={className}>{value}</span>);
+function renderText({ id, value, className }) {
+	return (<span id={id} className={className}>{value}</span>);
 }
 renderText.propTypes = {
+	id: PropTypes.string,
 	value: PropTypes.string,
 	className: PropTypes.string,
 };
 
-function renderInput({ value, item, onChange, onCancel }) {
+function renderInput({ id, value, item, onChange, onCancel }) {
 	const cancel = event => onCancel(event, item);
 	const validate = event => onChange(event, item);
 	const onKeyUp = (event) => {
@@ -51,9 +53,10 @@ function renderInput({ value, item, onChange, onCancel }) {
 		}
 	};
 
-	return (<input value={value} onKeyUp={onKeyUp} onBlur={validate} autoFocus />);
+	return (<input id={id} value={value} onKeyUp={onKeyUp} onBlur={validate} autoFocus />);
 }
 renderInput.propTypes = {
+	id: PropTypes.string,
 	value: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onChange: PropTypes.func,
@@ -80,7 +83,7 @@ const props = {
 }
 <ItemTitle {...props} />
  */
-function ItemTitle({ className, item, titleProps }) {
+function ItemTitle({ id, className, item, titleProps }) {
 	const {
 		key,
 		iconKey,
@@ -97,10 +100,10 @@ function ItemTitle({ className, item, titleProps }) {
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
 		titleElement = onClick ?
-			renderButton({ value, className, item, onClick }) :
-			renderText({ value, className });
+			renderButton({ id, value, className, item, onClick }) :
+			renderText({ id, value, className });
 	} else if (displayMode === TITLE_MODE_INPUT) {
-		titleElement = renderInput({ value, item, onChange, onCancel });
+		titleElement = renderInput({ id, value, item, onChange, onCancel });
 	}
 
 	const style = { display: 'inline' };
@@ -113,6 +116,7 @@ function ItemTitle({ className, item, titleProps }) {
 }
 
 ItemTitle.propTypes = {
+	id: PropTypes.string,
 	className: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	titleProps: PropTypes.shape({

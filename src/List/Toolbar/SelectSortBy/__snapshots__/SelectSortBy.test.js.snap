@@ -7,7 +7,7 @@ exports[`SelectSortBy should render 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-sort-by"
+    htmlFor={undefined}
     onSelect={null}>
     Sort by:
   </label>
@@ -19,7 +19,7 @@ exports[`SelectSortBy should render 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-sort-by"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -29,7 +29,7 @@ exports[`SelectSortBy should render 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-sort-by"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -38,6 +38,7 @@ exports[`SelectSortBy should render 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -51,6 +52,7 @@ exports[`SelectSortBy should render 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -65,6 +67,90 @@ exports[`SelectSortBy should render 1`] = `
     activeKey={undefined}
     className="navbar-btn btn btn-link"
     disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onSelect={null}
+    role="button"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-sort-asc"
+      title={null} />
+    ASCENDING
+  </button>
+</ul>
+`;
+
+exports[`SelectSortBy should render id if provided 1`] = `
+<ul
+  className="nav"
+  role={null}>
+  <label
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-text"
+    htmlFor="toolbar-sort-by"
+    onSelect={null}>
+    Sort by:
+  </label>
+  <li
+    className="dropdown"
+    style={undefined}>
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href=""
+      id="toolbar-sort-by"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button">
+      Name
+       
+      <span
+        className="caret" />
+    </a>
+    <ul
+      aria-labelledby="toolbar-sort-by"
+      className="dropdown-menu"
+      role="menu">
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          id="toolbar-sort-by-item-Name"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          Name
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          id="toolbar-sort-by-item-Name"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          Name
+        </a>
+      </li>
+    </ul>
+  </li>
+  <button
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-btn btn btn-link"
+    disabled={false}
+    id="toolbar-sort-order"
     onClick={[Function]}
     onSelect={null}
     role="button"
@@ -87,7 +173,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-sort-by"
+    htmlFor={undefined}
     onSelect={null}>
     Sort by:
   </label>
@@ -99,7 +185,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-sort-by"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -109,7 +195,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-sort-by"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -118,6 +204,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -131,6 +218,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -145,6 +233,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
     activeKey={undefined}
     className="navbar-btn btn btn-link"
     disabled={false}
+    id={undefined}
     onClick={[Function]}
     onSelect={null}
     role="button"

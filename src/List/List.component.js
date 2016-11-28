@@ -32,7 +32,7 @@ const props = {
 }
 <List {...props}></List>
  */
-function List({ displayMode, toolbar, list }) {
+function List({ id, displayMode, toolbar, list }) {
 	let displayModeComponent;
 	switch (displayMode) {
 	case 'tile':
@@ -52,17 +52,18 @@ function List({ displayMode, toolbar, list }) {
 
 	const content = React.createElement(
 		displayModeComponent,
-		list
+		{ id, ...list }
 	);
 	return (
 		<div className="tc-list">
-			<Toolbar {...toolbar} />
+			<Toolbar id={id} displayMode={displayMode} {...toolbar} />
 			{content}
 		</div>
 	);
 }
 
 List.propTypes = {
+	id: PropTypes.string,
 	displayMode: PropTypes.string,
 	list: PropTypes.shape(DisplayPropTypes),
 	toolbar: PropTypes.shape(Toolbar.propTypes),

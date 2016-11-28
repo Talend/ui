@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import uuid from 'uuid';
 import Icon from '../../../Icon';
 
 function getIcon(selected) {
@@ -22,18 +23,27 @@ function getLabel(selected) {
 
 const displayModes = ['table', 'large', 'tile'];
 
-function SelectDisplayMode({ displayMode, onSelectDisplayMode }) {
+function SelectDisplayMode({ id, displayMode, onSelectDisplayMode }) {
 	const selected = displayMode || 'table';
 	const displayIcon = (<Icon name={getIcon(selected)} />);
 	const onSelectMode = (value, e) => {
 		onSelectDisplayMode(e, value);
 	};
+	const displayModeId = id && `${id}-display-mode`;
 	return (
 		<Nav>
-			<label className="navbar-text" htmlFor="tc-list-toolbar-display-mode">Display:</label>
-			<NavDropdown title={displayIcon} id="tc-list-toolbar-display-mode" onSelect={onSelectMode}>
+			<label className="navbar-text" htmlFor={displayModeId}>Display:</label>
+			<NavDropdown
+				id={displayModeId || uuid.v4()} 
+				title={displayIcon} 
+				onSelect={onSelectMode}
+			>
 				{displayModes.map(mode => (
-					<MenuItem key={mode} eventKey={mode}>
+					<MenuItem
+						id={id && `${displayModeId}-${mode}`}
+						key={mode}
+						eventKey={mode}
+					>
 						<Icon name={getIcon(mode)} /> {getLabel(mode)}
 					</MenuItem>
 				))}
@@ -42,8 +52,9 @@ function SelectDisplayMode({ displayMode, onSelectDisplayMode }) {
 	);
 }
 SelectDisplayMode.propTypes = {
-	onSelectDisplayMode: PropTypes.func,
+	id: PropTypes.string,
 	displayMode: PropTypes.string,
+	onSelectDisplayMode: PropTypes.func,
 };
 
 export default SelectDisplayMode;

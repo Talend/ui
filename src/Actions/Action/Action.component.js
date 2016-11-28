@@ -70,6 +70,7 @@ Action.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	inProgress: PropTypes.bool,
+	id: PropTypes.string,
 };
 
 Action.defaultProps = {

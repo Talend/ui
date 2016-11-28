@@ -32,6 +32,7 @@ storiesOf('Side Panel', module)
 				<h2>Examples</h2>
 				<IconsProvider />
 				<SidePanel
+					id="context"
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
 					docked={false}

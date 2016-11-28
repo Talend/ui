@@ -55,7 +55,6 @@ describe('DisplayTable', () => {
 		const props = {
 			items,
 			columns,
-			titleProps: undefined, // no title key defined
 		};
 
 		// when
@@ -75,6 +74,21 @@ describe('DisplayTable', () => {
 				iconKey: 'icon',
 				onClick: jest.fn(),
 			},
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with id if provided', () => {
+		// given
+		const props = {
+			id: 'table-list',
+			items,
+			columns,
 		};
 
 		// when

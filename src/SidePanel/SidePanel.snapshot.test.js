@@ -38,4 +38,21 @@ describe('SidePanel', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render id when props.id provided', () => {
+		// given
+		const actions = [
+			{ label: 'Preparations', icon: 'fa fa-asterisk' },
+			{ label: 'Datasets', icon: 'fa fa-file-excel-o' },
+			{ label: 'Favorites', icon: 'fa fa-star', active: true },
+		];
+		const docked = true;
+
+		// when
+		const sidePanel = <SidePanel id="context" actions={actions} docked={docked} toggleIcon={'fa fa-arrow-left'} />;
+		const wrapper = renderer.create(sidePanel).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

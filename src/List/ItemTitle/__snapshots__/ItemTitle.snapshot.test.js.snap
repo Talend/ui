@@ -8,6 +8,7 @@ exports[`ItemTitle should render button title 1`] = `
   <button
     className="my-title btn btn-link"
     disabled={false}
+    id="title"
     onClick={[Function]}
     role="link"
     type="button">
@@ -28,7 +29,8 @@ exports[`ItemTitle should render icon 1`] = `
     className="fa fa-file-excel-o"
     title={null} />
   <span
-    className="my-title">
+    className="my-title"
+    id={undefined}>
     Hello world
   </span>
 </div>
@@ -43,6 +45,7 @@ exports[`ItemTitle should render input title 1`] = `
   }>
   <input
     autoFocus={true}
+    id="title"
     onBlur={[Function]}
     onKeyUp={[Function]}
     value="Hello world" />
@@ -57,7 +60,8 @@ exports[`ItemTitle should render text title 1`] = `
     }
   }>
   <span
-    className="my-title">
+    className="my-title"
+    id="title">
     Hello world
   </span>
 </div>

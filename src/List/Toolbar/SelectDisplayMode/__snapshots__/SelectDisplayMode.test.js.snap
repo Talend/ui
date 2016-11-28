@@ -7,7 +7,7 @@ exports[`SelectDisplayMode should render 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-display-mode"
+    htmlFor={undefined}
     onSelect={null}>
     Display:
   </label>
@@ -19,7 +19,7 @@ exports[`SelectDisplayMode should render 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-display-mode"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -32,7 +32,7 @@ exports[`SelectDisplayMode should render 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-display-mode"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -41,6 +41,7 @@ exports[`SelectDisplayMode should render 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -59,6 +60,7 @@ exports[`SelectDisplayMode should render 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -77,6 +79,106 @@ exports[`SelectDisplayMode should render 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            aria-hidden="true"
+            className="fa fa-th-large"
+            title={null} />
+           
+          Tile
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`SelectDisplayMode should render id if provided 1`] = `
+<ul
+  className="nav"
+  role={null}>
+  <label
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-text"
+    htmlFor="toolbar-display-mode"
+    onSelect={null}>
+    Display:
+  </label>
+  <li
+    className="dropdown"
+    style={undefined}>
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href=""
+      id="toolbar-display-mode"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-bars"
+        title={null} />
+       
+      <span
+        className="caret" />
+    </a>
+    <ul
+      aria-labelledby="toolbar-display-mode"
+      className="dropdown-menu"
+      role="menu">
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          id="toolbar-display-mode-table"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            aria-hidden="true"
+            className="fa fa-bars"
+            title={null} />
+           
+          Table
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          id="toolbar-display-mode-large"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1">
+          <i
+            aria-hidden="true"
+            className="fa fa-list-alt"
+            title={null} />
+           
+          Expanded
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}>
+        <a
+          href=""
+          id="toolbar-display-mode-tile"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -103,7 +205,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-display-mode"
+    htmlFor={undefined}
     onSelect={null}>
     Display:
   </label>
@@ -115,7 +217,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-display-mode"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -128,7 +230,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-display-mode"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -137,6 +239,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -155,6 +258,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -173,6 +277,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -199,7 +304,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-display-mode"
+    htmlFor={undefined}
     onSelect={null}>
     Display:
   </label>
@@ -211,7 +316,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-display-mode"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -224,7 +329,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-display-mode"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -233,6 +338,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -251,6 +357,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -269,6 +376,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -295,7 +403,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
     activeHref={undefined}
     activeKey={undefined}
     className="navbar-text"
-    htmlFor="tc-list-toolbar-display-mode"
+    htmlFor={undefined}
     onSelect={null}>
     Display:
   </label>
@@ -307,7 +415,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       aria-haspopup={true}
       className="dropdown-toggle"
       href=""
-      id="tc-list-toolbar-display-mode"
+      id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
@@ -320,7 +428,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         className="caret" />
     </a>
     <ul
-      aria-labelledby="tc-list-toolbar-display-mode"
+      aria-labelledby={42}
       className="dropdown-menu"
       role="menu">
       <li
@@ -329,6 +437,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -347,6 +456,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -365,6 +475,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         style={undefined}>
         <a
           href=""
+          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

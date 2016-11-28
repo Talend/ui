@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import uuid from 'uuid';
 import { Nav, NavDropdown, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 import Icon from '../../../Icon';
 
@@ -10,7 +11,7 @@ import css from './Pagination.scss';
  <Pagination {...props}></Pagination>
  */
 
-function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePagination, id }) {
+function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChangePagination }) {
 	if (!pageSize || sizeOptions.indexOf(pageSize) < 0) {
 		pageSize = sizeOptions[0];
 	}
@@ -61,12 +62,12 @@ function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePa
 		}
 		onChangePagination(from * pageSize, pageSize);
 	};
-	const context = id ? `${id}-` : '';
+	const paginationSizeId = id && `${id}-pagination-size`;
 	return (
 		<Nav>
-			<label className="navbar-text" htmlFor={`${context}pagination-size`}>Show:</label>
+			<label className="navbar-text" htmlFor={paginationSizeId}>Show:</label>
 			<NavDropdown
-				id={`${context}pagination-size`}
+				id={paginationSizeId || uuid.v4()}
 				title={pageSize}
 				onSelect={changeSize}
 			>
@@ -76,7 +77,7 @@ function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePa
 			</NavDropdown>
 			<ButtonGroup className="navbar-btn">
 				<Button
-					id={`${context}nav-to-first`}
+					id={id && `${id}-nav-to-first`}
 					bsStyle="link"
 					onClick={() => navTo(FIRST)}
 					disabled={activePage === 0}
@@ -84,7 +85,7 @@ function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePa
 					<Icon name="fa fa-backward" />
 				</Button>
 				<Button
-					id={`${context}nav-to-prev`}
+					id={id && `${id}-nav-to-prev`}
 					bsClass={classNames('btn btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
 					onClick={() => navTo(PREV)} disabled={activePage === 0}
 				>
@@ -92,14 +93,14 @@ function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePa
 				</Button>
 				<span className="btn btn-link">{activePage + 1}/{total}</span>
 				<Button
-					id={`${context}nav-to-next`}
+					id={id && `${id}-nav-to-next`}
 					bsStyle="link"
 					onClick={() => navTo(NEXT)} disabled={activePage === (total - 1)}
 				>
 					<Icon name="fa fa-play" />
 				</Button>
 				<Button
-					id={`${context}nav-to-last`}
+					id={id && `${id}-nav-to-last`}
 					bsStyle="link"
 					onClick={() => navTo(LAST)} disabled={activePage === (total - 1)}
 				>
@@ -111,17 +112,17 @@ function Pagination({ itemsLength, sizeOptions, pageSize, activePage, onChangePa
 }
 
 Pagination.propTypes = {
-	itemsLength: PropTypes.number.isRequired,
-	sizeOptions: PropTypes.arrayOf(PropTypes.number),
-	pageSize: PropTypes.number,
-	activePage: PropTypes.number,
-	onChangePagination: PropTypes.func.isRequired,
 	id: PropTypes.string,
+	activePage: PropTypes.number,
+	itemsLength: PropTypes.number.isRequired,
+	onChangePagination: PropTypes.func.isRequired,
+	pageSize: PropTypes.number,
+	sizeOptions: PropTypes.arrayOf(PropTypes.number),
 };
 
 Pagination.defaultProps = {
-	sizeOptions: [5, 10, 20, 50],
 	activePage: 0,
+	sizeOptions: [5, 10, 20, 50],
 };
 
 export default Pagination;

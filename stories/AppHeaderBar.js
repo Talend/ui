@@ -6,6 +6,7 @@ import { AppHeaderBar } from '../src';
 const props = {
 	app: 'Example App Name',
 	brandLink: {
+		id: 'context-brand-link',
 		onClick: action('brandonClick'),
 	},
 	content: [
@@ -15,7 +16,7 @@ const props = {
 					navItems: [
 						{
 							type: 'navItem',
-							item: { icon: 'fa fa-bars', name: 'hello', onClick: action('onClick bars') },
+							item: { id: 'context-nav-item-bars', icon: 'fa fa-bars', name: 'hello', onClick: action('onClick bars') },
 						},
 					],
 				},
@@ -24,18 +25,18 @@ const props = {
 					navItems: [
 						{
 							type: 'navItem',
-							item: { icon: 'fa fa-heart', name: 'world', onClick: action('onClick heart') },
+							item: { id: 'context-nav-item-heart', icon: 'fa fa-heart', name: 'world', onClick: action('onClick heart') },
 						},
 						{
 							type: 'dropdown',
 							item: {
 								dropdown: {
-									id: 'myDropdown',
+									id: 'context-dropdown-user-1',
 									title: 'user 1',
 									onSelect: action('dropdown onSelect'),
 								},
 								items: [
-									{ icon: 'fa fa-fw fa-cog', name: 'settings', onClick: action('onClick settings') },
+									{ id: 'context-nav-item-settings', icon: 'fa fa-fw fa-cog', name: 'settings', onClick: action('onClick settings') },
 								],
 							},
 						},
@@ -53,9 +54,10 @@ const props = {
 				formgroups: [
 					{
 						formgroup: {
-							controlId: 'globalSearch',
+							controlId: 'context-global-search',
 						},
 						formcontrol: {
+							id: 'context-search-input',
 							type: 'text',
 							placeholder: 'search anything',
 							onChange: action('onChange in search'),
@@ -63,6 +65,7 @@ const props = {
 					},
 				],
 				button: {
+					id: 'context-search-submit',
 					onClick: action('onClick form'),
 					bsStyle: 'link',
 				},

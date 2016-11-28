@@ -42,6 +42,7 @@ function SidePanel(props) {
 	return (
 		<nav className={navCSS}>
 			<Button
+				id={props.id && `${props.id}-toggle-dock`}
 				className={theme['toggle-btn']}
 				bsStyle="link"
 				onClick={props.onToggleDock}
@@ -60,6 +61,7 @@ function SidePanel(props) {
 							)}
 					>
 						<Button
+							id={props.id && `${props.id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
 							title={`Display ${action.label}`}
 							bsStyle="link"
 							role="link"
@@ -77,6 +79,7 @@ function SidePanel(props) {
 }
 
 SidePanel.propTypes = {
+	id: React.PropTypes.string,
 	actions: React.PropTypes.arrayOf(
 		React.PropTypes.shape({
 			label: React.PropTypes.string,

@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
  * @example
  <Filter name="Hello world"></Filter>
  */
-function Filter({ onFilter }) {
+function Filter({ id, onFilter }) {
 	function onFilterHandler(event) {
 		return onFilter(event.target.value, event);
 	}
@@ -25,6 +25,7 @@ function Filter({ onFilter }) {
 			<div className="form-group">
 				<div className="input-group">
 					<input
+						id={id && `${id}-filter-input`}
 						type="search"
 						className="form-control"
 						placeholder="Filter"
@@ -34,6 +35,7 @@ function Filter({ onFilter }) {
 					/>
 				</div>
 				<Button
+					id={id && `${id}-filter-submit`}
 					bsStyle="link"
 					type="submit"
 					title="Filter"
@@ -47,6 +49,7 @@ function Filter({ onFilter }) {
 }
 
 Filter.propTypes = {
+	id: PropTypes.string,
 	onFilter: PropTypes.func,
 };
 

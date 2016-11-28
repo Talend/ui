@@ -100,4 +100,19 @@ describe('DisplayTile', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render with id if provided', () => {
+		// given
+		const props = {
+			id: 'tile-list',
+			items,
+			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTile {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

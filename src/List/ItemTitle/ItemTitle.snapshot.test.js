@@ -19,6 +19,7 @@ describe('ItemTitle', () => {
 	it('should render text title', () => {
 		// given
 		const props = {
+			id: 'title',
 			className: 'my-title',
 			item,
 			titleProps: {
@@ -38,6 +39,7 @@ describe('ItemTitle', () => {
 	it('should render button title', () => {
 		// given
 		const props = {
+			id: 'title',
 			className: 'my-title',
 			item,
 			titleProps: {
@@ -57,6 +59,7 @@ describe('ItemTitle', () => {
 	it('should render input title', () => {
 		// given
 		const props = {
+			id: 'title',
 			className: 'my-title',
 			item,
 			titleProps: {

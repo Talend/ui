@@ -21,7 +21,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         1
       </td>
@@ -33,7 +34,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             }
           }>
           <span
-            className={undefined}>
+            className={undefined}
+            id={undefined}>
             Hello world
           </span>
         </div>
@@ -83,7 +85,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         2016-09-22
       </td>
     </tr>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         2
       </td>
@@ -95,7 +98,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             }
           }>
           <span
-            className={undefined}>
+            className={undefined}
+            id={undefined}>
             Foo
           </span>
         </div>
@@ -112,7 +116,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         2016-09-22
       </td>
     </tr>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         2
       </td>
@@ -124,7 +129,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             }
           }>
           <span
-            className={undefined}>
+            className={undefined}
+            id={undefined}>
             Bar
           </span>
         </div>
@@ -168,7 +174,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         <div
           style={
@@ -183,6 +190,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
           <button
             className="btn btn-link"
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             role="link"
             type="button">
@@ -238,7 +246,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
         2016-09-22
       </td>
     </tr>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         <div
           style={
@@ -253,6 +262,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
           <button
             className="btn btn-link"
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             role="link"
             type="button">
@@ -275,7 +285,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
         2016-09-22
       </td>
     </tr>
-    <tr>
+    <tr
+      id={undefined}>
       <td>
         <div
           style={
@@ -286,6 +297,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
           <button
             className="btn btn-link"
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             role="link"
             type="button">
@@ -297,6 +309,159 @@ exports[`DisplayTable should render with defined title property 1`] = `
       </td>
       <td>
         Bar
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`DisplayTable should render with id if provided 1`] = `
+<table
+  className="table tc-list-display-table">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Created
+      </th>
+      <th>
+        Modified
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="table-list-0">
+      <td>
+        1
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-0-title">
+            Hello world
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group">
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null} />
+          </button>
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-trash-o"
+              title={null} />
+          </button>
+        </div>
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      id="table-list-1">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-1-title">
+            Foo
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      id="table-list-2">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-2-title">
+            Bar
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
       </td>
       <td>
         Jean-Pierre DUPONT

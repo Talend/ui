@@ -33,7 +33,7 @@ function getTwoDim(columnsData) {
 		});
 }
 
-function rowRenderer({ item, index, columns, titleProps, onToggleSingle, ifSelected }) {
+function rowRenderer({ id, item, index, columns, titleProps, onToggleSingle, ifSelected }) {
 	const columnsData = getColumnsData({ columns, item, titleKey: titleProps.key });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
@@ -43,29 +43,31 @@ function rowRenderer({ item, index, columns, titleProps, onToggleSingle, ifSelec
 	);
 
 	const checkboxColumn = onToggleSingle && ifSelected ?
-		<input
+		(<input
+			id={id && `${id}-check`}
 			type="checkbox"
 			onChange={(e) => { onToggleSingle(e, item); }}
 			checked={ifSelected(item)}
-		/> :
+		/>) :
 		null;
 
 	const displayActions =
 		!titleProps.displayModeKey ||
 		item[titleProps.displayModeKey] === 'text';
 	const actions = displayActions ?
-		<Actions
+		(<Actions
 			actions={item.actions || []}
 			hideLabel
 			link
-		/> :
+		/>) :
 		null;
 
 	return (
-		<div className={panel} key={index}>
+		<div id={id} className={panel} key={index}>
 			{checkboxColumn}
 			<div className={theme.head}>
 				<ItemTitle
+					id={id && `${id}-title`}
 					className={theme.title}
 					item={item}
 					titleProps={titleProps}
@@ -89,6 +91,7 @@ function rowRenderer({ item, index, columns, titleProps, onToggleSingle, ifSelec
 }
 
 rowRenderer.propTypes = {
+	id: PropTypes.string,
 	index: PropTypes.number,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -148,6 +151,7 @@ const props = {
  */
 function DisplayLarge(props) {
 	const {
+		id,
 		columns,
 		items,
 		titleProps,
@@ -165,19 +169,21 @@ function DisplayLarge(props) {
 		return selected === items.length;
 	};
 	const checkbox = onToggleAll && ifSelected ?
-		<div>
+		(<div>
 			<input
+				id={id && `${id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
 			/>Select All
-		</div> :
+		</div>) :
 		null;
 	return (
 		<div className={theme.container}>
 			{checkbox}
 			{items.map((item, index) => rowRenderer({
 				index,
+				id: id && `${id}-${index}`,
 				columns,
 				item,
 				ifSelected,

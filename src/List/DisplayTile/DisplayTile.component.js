@@ -22,7 +22,7 @@ function tileItem(column, value) {
 /**
  * Render a tile
  */
-function Tile({ columns, item, onElementSelect, titleProps, onToggleSingle, ifSelected }) {
+function Tile({ id, columns, item, onElementSelect, titleProps, onToggleSingle, ifSelected }) {
 	let onDoubleClick;
 	let onSelect;
 	if (titleProps.onClick) {
@@ -33,11 +33,12 @@ function Tile({ columns, item, onElementSelect, titleProps, onToggleSingle, ifSe
 	}
 
 	const checkbox = onToggleSingle && ifSelected ?
-		<input
+		(<input
+			id={id && `${id}-check`}
 			type="checkbox"
 			onChange={(e) => { onToggleSingle(e, item); }}
 			checked={ifSelected(item)}
-		/> :
+		/>) :
 		null;
 
 	const titleClasses = classNames(
@@ -47,12 +48,14 @@ function Tile({ columns, item, onElementSelect, titleProps, onToggleSingle, ifSe
 
 	return (
 		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+			id={id}
 			className={theme.tile}
 			onClick={onSelect}
 			onDoubleClick={onDoubleClick}
 		>
 			{checkbox}
 			<ItemTitle
+				id={id && `${id}-title`}
 				className={titleClasses}
 				item={item}
 				titleProps={titleProps}
@@ -69,6 +72,7 @@ function Tile({ columns, item, onElementSelect, titleProps, onToggleSingle, ifSe
 }
 
 Tile.propTypes = {
+	id: PropTypes.string,
 	columns: PropTypes.arrayOf(columnPropType).isRequired,
 	item: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 	ifSelected: PropTypes.func,
@@ -132,6 +136,7 @@ const props = {
  */
 function DisplayTile(props) {
 	const {
+		id,
 		columns,
 		items,
 		titleProps,
@@ -151,13 +156,14 @@ function DisplayTile(props) {
 		return selected === items.length;
 	};
 	const checkbox = onToggleAll && ifSelected ?
-		<div className={theme.container}>
+		(<div className={theme.container}>
 			<input
+				id={id && `${id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
 			/>Select All
-		</div> :
+		</div>) :
 		null;
 	return (
 		<div>
@@ -166,6 +172,7 @@ function DisplayTile(props) {
 				{items.map((item, index) =>
 					<li key={index}>
 						<Tile
+							id={id && `${id}-${index}`}
 							columns={columns}
 							item={item}
 							ifSelected={ifSelected}

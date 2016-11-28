@@ -8,26 +8,28 @@ import DisplayPropTypes from '../Display/Display.propTypes';
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
-	const { titleProps, item, onToggleSingle, ifSelected } = props;
+	const { id, titleProps, item, onToggleSingle, ifSelected } = props;
 	const checkboxColumn = onToggleSingle && ifSelected ?
-		<td>
+		(<td>
 			<input
+				id={id && `${id}-check`}
 				type="checkbox"
 				onChange={(e) => { onToggleSingle(e, item); }}
 				checked={ifSelected(item)}
-			/>
-		</td> :
+			/>)
+		</td>) :
 		null;
 	return (
-		<tr>
+		<tr id={id}>
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				const isTitle = column.key === titleProps.key;
 				const cell = isTitle ?
-					<ItemTitle
+					(<ItemTitle
+						id={id && `${id}-title`}
 						item={item}
 						titleProps={titleProps}
-					/> :
+					/>) :
 					item[column.key];
 
 				// actions are only on title and on 'text' display mode
@@ -35,11 +37,11 @@ function RowRenderer(props) {
 					isTitle &&
 					(!titleProps.displayModeKey || item[titleProps.displayModeKey] === 'text');
 				const actions = displayActions ?
-					<Actions
+					(<Actions
 						actions={item.actions || []}
 						hideLabel
 						link
-					/> :
+					/>) :
 					null;
 
 				return (
@@ -53,6 +55,7 @@ function RowRenderer(props) {
 	);
 }
 RowRenderer.propTypes = {
+	id: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ key: PropTypes.string.isRequired })
@@ -79,13 +82,14 @@ function ListHeader(props) {
 		return selected === items.length;
 	};
 	const checkbox = onToggleAll && ifSelected ?
-		<th>
+		(<th>
 			<input
+				id={props.id && `${props.id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
 			/>
-		</th> :
+		</th>) :
 		null;
 	return (
 		<tr>
@@ -95,6 +99,7 @@ function ListHeader(props) {
 	);
 }
 ListHeader.propTypes = {
+	id: PropTypes.string,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string })
 	),
@@ -154,6 +159,7 @@ ListHeader.propTypes = {
  */
 function DisplayTable(props) {
 	const {
+		id,
 		columns,
 		items,
 		titleProps,
@@ -167,19 +173,21 @@ function DisplayTable(props) {
 		theme.table,
 	);
 	return (
-		<table className={className}>
+		<table className={className} >
 			<thead>
 				<ListHeader
 					columns={columns}
 					onToggleAll={onToggleAll}
 					items={items}
 					ifSelected={ifSelected}
+					id={id}
 				/>
 			</thead>
 			<tbody>
 				{items.map(
 					(item, index) => (
 						<RowRenderer
+							id={id && `${id}-${index}`}
 							key={index}
 							item={item}
 							columns={columns}

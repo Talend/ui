@@ -13,6 +13,7 @@ const selected = [
 		icon: 'fa fa-file-pdf-o',
 	}];
 const props = {
+	id: 'talend',
 	displayMode: 'table',
 	list: {
 		titleProps: {
@@ -116,7 +117,7 @@ const props = {
 };
 
 storiesOf('List', module)
-	.add('default', () => (
+	.add('table (default)', () => (
 		<div>
 			<h1>List</h1>
 			<h2>Definition</h2>

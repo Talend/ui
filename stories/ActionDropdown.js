@@ -4,14 +4,17 @@ import { storiesOf, action } from '@kadira/storybook';
 import { ActionDropdown } from '../src/index';
 
 const myAction = {
+	id: 'context-dropdown-related-items',
 	label: 'related items',
 	icon: 'fa fa-file-excel-o',
 	items: [
 		{
+			id: 'context-dropdown-item-document-1',
 			label: 'document 1',
 			onClick: action('document 1 click'),
 		},
 		{
+			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
 			onClick: action('document 2 click'),
 		},

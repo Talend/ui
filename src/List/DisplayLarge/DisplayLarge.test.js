@@ -82,4 +82,19 @@ describe('DisplayLarge', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render with id if provided', () => {
+		// given
+		const props = {
+			id: 'large-list',
+			items,
+			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayLarge {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });
