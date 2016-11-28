@@ -11,7 +11,6 @@
 	color: $breadcrumb-items-color;
 	text-transform: uppercase;
 	border-radius: 0;
-	overflow: hidden;
 
 	> li {
 		display: flex;
@@ -20,7 +19,9 @@
 		& > a,
 		& > span,
 		& > .btn {
-			flex: 0 1 auto;
+			flex: 1;
+			padding: $breadcrumb-padding-vertical 0;
+			max-width: $breadcrumb-items-max-width;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
@@ -72,9 +73,6 @@
 	a,
 	span,
 	.btn {
-		display: inline-block;
-		padding: $breadcrumb-padding-vertical 0;
-		max-width: $breadcrumb-items-max-width;
 		color: $breadcrumb-items-color;
 
 		&:focus,
