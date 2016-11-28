@@ -16,7 +16,7 @@ function RowRenderer(props) {
 				type="checkbox"
 				onChange={(e) => { onToggleSingle(e, item); }}
 				checked={ifSelected(item)}
-			/>)
+			/>
 		</td>) :
 		null;
 	return (
