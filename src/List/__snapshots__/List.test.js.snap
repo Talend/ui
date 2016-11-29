@@ -193,17 +193,13 @@ exports[`List should render id if provided 1`] = `
         <button
           activeHref={undefined}
           activeKey={undefined}
-          className="navbar-btn btn btn-link"
+          className="navbar-btn btn btn btn-link"
           disabled={false}
           id="context-sort-order"
           onClick={[Function]}
           onSelect={null}
           role="button"
           type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-sort-asc"
-            title={null} />
           ASCENDING
         </button>
       </ul>
@@ -480,17 +476,13 @@ exports[`List should render its name 1`] = `
         <button
           activeHref={undefined}
           activeKey={undefined}
-          className="navbar-btn btn btn-link"
+          className="navbar-btn btn btn btn-link"
           disabled={false}
           id={undefined}
           onClick={[Function]}
           onSelect={null}
           role="button"
           type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-sort-asc"
-            title={null} />
           ASCENDING
         </button>
       </ul>

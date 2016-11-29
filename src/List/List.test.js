@@ -37,21 +37,21 @@ describe('List', () => {
 	it('should render its name', () => {
 		// when
 		const wrapper = renderer.create(<List {...props} />).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+
 	it('should render id if provided', () => {
 		// given
 		const tProps = {
 			id: 'context',
 			...props,
 		};
-		
+
 		// when
 		const wrapper = renderer.create(<List {...tProps} />).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

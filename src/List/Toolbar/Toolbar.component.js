@@ -8,6 +8,8 @@ import Filter from './Filter';
 import Action from '../../Actions/Action';
 import Icon from '../../Icon';
 
+import theme from './Toolbar.scss';
+
 export function getSubProps(props, component) {
 	const subProps = {};
 	Object.keys(component.propTypes)
@@ -40,7 +42,7 @@ function Toolbar(props) {
 	}
 	const dropdownId = id && `${id}-actions-dropdown`;
 	return (
-		<Navbar componentClass="div" role="toolbar" fluid>
+		<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 			{add || listActions ? (
 				<Nav>
 					{add ? (<Action

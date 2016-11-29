@@ -15,16 +15,16 @@ describe('SelectSortBy', () => {
 				{ id: 'name', name: 'Name' },
 			],
 		};
-		
+
 		// when
 		const wrapper = renderer.create(
 			<SelectSortBy {...props} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+
 	it('should render without sortBy selected', () => {
 		// given
 		const props = {
@@ -34,12 +34,12 @@ describe('SelectSortBy', () => {
 				{ id: 'label', name: 'Label' },
 			],
 		};
-		
+
 		// when
 		const wrapper = renderer.create(
 			<SelectSortBy {...props} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

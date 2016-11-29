@@ -34,8 +34,8 @@ function SelectDisplayMode({ id, displayMode, onSelectDisplayMode }) {
 		<Nav>
 			<label className="navbar-text" htmlFor={displayModeId}>Display:</label>
 			<NavDropdown
-				id={displayModeId || uuid.v4()} 
-				title={displayIcon} 
+				id={displayModeId || uuid.v4()}
+				title={displayIcon}
 				onSelect={onSelectMode}
 			>
 				{displayModes.map(mode => (
