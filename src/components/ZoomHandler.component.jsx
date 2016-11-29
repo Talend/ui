@@ -7,15 +7,16 @@ import { setZoom } from '../actions/flow.actions';
 
 export const ZoomHandler = React.createClass({
     selection: undefined,
+    zoom: undefined,
     propTypes: {
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     },
     componentDidMount() {
         this.selection = select(this.zoomCatcher);
-        this.selection.call(zoom()
+        this.zoom = zoom()
           .scaleExtent([1 / 4, 2])
-          .on('zoom', this.onZoom)
-        );
+          .on('zoom', this.onZoom);
+        this.selection.call(this.zoom);
     },
     onZoom() {
 		  this.props.setZoom(event.transform);
@@ -23,7 +24,7 @@ export const ZoomHandler = React.createClass({
     componentWillReceiveProps(nextProps){
       if(nextProps.transformToApply){
         if(nextProps.transformToApply !== this.props.transformToApply){
-          this.selection.transition().duration(113).call(nextProps.transformToApply, zoomIdentity);
+          this.selection.transition().duration(750).call(this.zoom.transform, nextProps.transformToApply);
         }
       }
     },
