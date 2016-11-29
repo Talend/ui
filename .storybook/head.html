@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://talend.github.io/bootstrap-theme/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<!-- Storybook is wrapping our content into three divs
-So to fix Layout components which handle scrool,
-we have to set the flex things
--->
+<!-- Storybook should have visible overflow since we have Action Logger -->
+<style>
+    body {
+        overflow-y: auto !important;
+    }
+</style>
