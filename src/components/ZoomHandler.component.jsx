@@ -11,8 +11,8 @@ export const ZoomHandler = React.createClass({
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     },
     componentDidMount() {
-        this.selection = select(this.zoomCatcher)
-        .call(zoom()
+        this.selection = select(this.zoomCatcher);
+        this.selection.call(zoom()
           .scaleExtent([1 / 4, 2])
           .on('zoom', this.onZoom)
         );
@@ -23,7 +23,7 @@ export const ZoomHandler = React.createClass({
     componentWillReceiveProps(nextProps){
       if(nextProps.transformToApply){
         if(nextProps.transformToApply !== this.props.transformToApply){
-          this.selection.transition().duration(113).call(nextProps.transformToApply, d3.zoomIdentity);
+          this.selection.transition().duration(113).call(nextProps.transformToApply, zoomIdentity);
         }
       }
     },
