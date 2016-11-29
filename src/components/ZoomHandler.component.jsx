@@ -1,23 +1,31 @@
 import React, { PropTypes } from 'react';
 import { select, event } from 'd3-selection';
-import { zoom } from 'd3-zoom';
+import { zoom, zoomIdentity } from 'd3-zoom';
 import { connect } from 'react-redux';
 
 import { setZoom } from '../actions/flow.actions';
 
 export const ZoomHandler = React.createClass({
+    selection: undefined,
     propTypes: {
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     },
     componentDidMount() {
-        select(this.zoomCatcher)
+        this.selection = select(this.zoomCatcher)
         .call(zoom()
-          .scaleExtent([1 / 8, 4])
+          .scaleExtent([1 / 4, 2])
           .on('zoom', this.onZoom)
         );
     },
     onZoom() {
-		this.props.setZoom(event.transform);
+		  this.props.setZoom(event.transform);
+    },
+    componentWillReceiveProps(nextProps){
+      if(nextProps.transformToApply){
+        if(nextProps.transformToApply !== this.props.transformToApply){
+          this.selection.transition().duration(113).call(nextProps.transformToApply, d3.zoomIdentity);
+        }
+      }
     },
     render() {
         return (
@@ -35,7 +43,8 @@ export const ZoomHandler = React.createClass({
 
 function mapStateToProps(state){
 	return {
-		transform: state.flowDesigner.get('transform')
+		transform: state.flowDesigner.get('transform'),
+    transformToApply: state.flowDesigner.get('transformToApply'),
 	}
 }
 
