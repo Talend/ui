@@ -4,6 +4,7 @@
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { enableBatching } from 'redux-batched-actions';
 import thunk from 'redux-thunk';
 import invariant from 'invariant';
 
@@ -82,7 +83,7 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 	const store = compose(
 		applyMiddleware(...middlewares),
 		...enhancers
-	)(createStore)(rootReducer, preloadedState);
+	)(createStore)(enableBatching(rootReducer), preloadedState);
 
 	return store;
 }
