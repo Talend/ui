@@ -1,5 +1,6 @@
 import { Map, OrderedMap } from 'immutable';
 import invariant from 'invariant';
+import { zoomIdentity } from 'd3-zoom';
 import {
 	FLOWDESIGNER_FLOW_ADD_ELEMENTS,
 	FLOWDESIGNER_FLOW_RESET,
