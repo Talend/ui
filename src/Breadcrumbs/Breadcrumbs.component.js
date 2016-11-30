@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
+import uuid from 'uuid';
 import theme from './Breadcrumbs.scss';
+import { ActionDropdown } from '../Actions';
 
 /**
  * Default max items to display without starting by ellipsis
@@ -24,7 +26,14 @@ function Breadcrumbs(props) {
 	const maxItemsToDisplay = props.maxItems || DEFAULT_MAX_ITEMS;
 	const maxItemsReached = nbItems > maxItemsToDisplay;
 	const ellipsisIndex = (nbItems - 1) - maxItemsToDisplay;
-
+	const hiddenItems = items.slice(0, ellipsisIndex + 1)
+		.map(hiddenItem => (
+			{
+				label: hiddenItem.text,
+				title: hiddenItem.title,
+				onClick: hiddenItem.onClick,
+			})
+		);
 	/**
 	 * Render breadcrumb item
 	 * @param item Plain object representative of breadcrumb item
@@ -61,19 +70,14 @@ function Breadcrumbs(props) {
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return (
-				<li className={classNames(theme.dots)} key={index}>
-					{onClick ?
-						<Button
-							className="sr-only"
-							bsStyle="link"
-							role="link"
-							title={title}
-							onClick={wrappedOnClick}
-						>{text}</Button> : <span className="sr-only">{text}</span>
-					}
-					<span aria-hidden="true">
-						&hellip;
-					</span>
+				<li className={classNames(theme.dots)} key={index} aria-hidden="true">
+					<ActionDropdown
+						items={hiddenItems}
+						label="&hellip;"
+						link
+						noCaret
+						id={uuid.v4()}
+					/>
 				</li>
 			);
 		}

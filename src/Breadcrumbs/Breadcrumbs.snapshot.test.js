@@ -28,18 +28,6 @@ describe('Breadcrumbs', () => {
 
 	it('should render small list of items without ellipsis', () => {
 		const customItems = [
-			{ text: 'Text A' },
-			{ text: 'Text B' },
-			{ text: 'Text C' },
-		];
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={customItems} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
-	});
-
-	it('should render small list of items without ellipsis', () => {
-		const customItems = [
 			{ text: 'Text A', title: 'Text tile A' },
 			{ text: 'Text B', title: 'Text tile B' },
 			{ text: 'Text C' },
@@ -60,6 +48,34 @@ describe('Breadcrumbs', () => {
 		];
 		const breadcrumbs = renderer.create(
 			<Breadcrumbs items={customItems} maxItems={5} />
+		).toJSON();
+		expect(breadcrumbs).toMatchSnapshot();
+	});
+
+	it('should render dropdown containing 3 items', () => {
+		const customItems = [
+			{ text: 'Text A' },
+			{ text: 'Text B' },
+			{ text: 'Text C' },
+			{ text: 'Text D' },
+			{ text: 'Text E' },
+		];
+		const breadcrumbs = renderer.create(
+			<Breadcrumbs items={customItems} maxItems={2} />
+		).toJSON();
+		expect(breadcrumbs).toMatchSnapshot();
+	});
+
+	it('should not render dropdown because all items are shown', () => {
+		const customItems = [
+			{ text: 'Text A' },
+			{ text: 'Text B' },
+			{ text: 'Text C' },
+			{ text: 'Text D' },
+			{ text: 'Text E' },
+		];
+		const breadcrumbs = renderer.create(
+			<Breadcrumbs items={customItems} maxItems={customItems.length} />
 		).toJSON();
 		expect(breadcrumbs).toMatchSnapshot();
 	});
