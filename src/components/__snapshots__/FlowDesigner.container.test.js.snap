@@ -1,5 +1,6 @@
 exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1`] = `
 <svg
+  onClick={undefined}
   width="100%">
   <defs>
     <filter

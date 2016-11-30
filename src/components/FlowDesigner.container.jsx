@@ -91,7 +91,7 @@ export const FlowDesigner = React.createClass({
 	render() {
 		const grid = this.props.grid || <Grid />;
 		return (
-			<svg ref={c => (this.node = c)} width="100%">
+			<svg onClick={this.props.onClick} ref={c => (this.node = c)} width="100%">
 				<defs>
 					<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
 						<feFlood floodColor="#01A7CF" result="COLOR" />
