@@ -71,6 +71,7 @@ import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import ConfirmDialog from './ConfirmDialog';
+import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Layout from './Layout';
@@ -87,6 +88,7 @@ export {
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
+	TreeView,
 	Icon,
 	IconsProvider,
 	Layout,
