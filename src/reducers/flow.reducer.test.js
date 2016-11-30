@@ -114,6 +114,18 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 	});
 });
 
+describe('FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply', () => {
+	it('', () => {
+		expect(reducer(defaultState,
+			{
+				type: 'FLOWDESIGNER_PAN_TO',
+				x: 400,
+				y: 400,
+			}
+		)).toMatchSnapshot();
+	});
+});
+
 
 describe('calculatePortsPosition behavior', () => {
 	const state = defaultState

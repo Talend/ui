@@ -95,3 +95,26 @@ Object {
   "transformToApply": undefined,
 }
 `;
+
+exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply  1`] = `
+Object {
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {},
+  "out": Object {},
+  "ports": Object {},
+  "preds": Object {},
+  "sucs": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": Transform {
+    "k": 1,
+    "x": -325,
+    "y": -260,
+  },
+}
+`;
