@@ -64,6 +64,9 @@ export class Dispatcher extends React.Component {
 	 * @param  {string} eventName the name of the event
 	 */
 	onEvent(event, eventName) {
+		if (this.props.stopPropagation) {
+			event.stopPropagation();
+		}
 		if (this.props[eventName]) {
 			this.props[eventName](event, this.props, this.context);
 		}
@@ -89,8 +92,13 @@ export class Dispatcher extends React.Component {
 	}
 }
 
+Dispatcher.defaultProps = {
+	stopPropagation: false,
+};
+
 Dispatcher.propTypes = {
 	children: PropTypes.node.isRequired,
+	stopPropagation: PropTypes.bool,
 };
 
 Dispatcher.contextTypes = {

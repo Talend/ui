@@ -5,7 +5,9 @@ import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
 jest.mock('../src/api', () => ({
 	action: {
 		getActionInfo(context, id) {
-			if (id !== 'existingActionCreator:id') {
+			if (id !== 'existingActionCreator:id'
+				&& id !== 'actionCreator:id'
+				&& id !== 'another:actionCreator:id') {
 				throw new Error(`action not found id: ${id}`);
 			}
 		},
@@ -26,7 +28,7 @@ describe('Testing <Dispatcher />', () => {
 	const noOp = () => { };
 
 	it('should inject dispatchable on(event) props into its children', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Dispatcher onClick="actionCreator:id" onStuff="another:actionCreator:id">
 				<button />
 			</Dispatcher>
@@ -42,7 +44,7 @@ describe('Testing <Dispatcher />', () => {
 			id: 'test',
 			name: 'Test',
 			type: 'TEST_ACTION',
-		}};
+		} };
 		const check = () => {
 			checkIfActionInfoExist(props, {});
 		};
@@ -54,7 +56,7 @@ describe('Testing <Dispatcher />', () => {
 				<button />
 			</Dispatcher>
 		);
-		const buttonWrapper = wrapper.find('button');
+		const buttonWrapper = wrapper.find('button').at(0);
 		const instance = wrapper.instance();
 		spyOn(instance, 'onEvent');
 		buttonWrapper.simulate('click');
@@ -66,11 +68,11 @@ describe('Testing <Dispatcher />', () => {
 		+ 'if action info bind onto on[eventName] can\'t be found in settings', () => {
 		expect(() => {
 			mount(
-				<Dispatcher onClick="actionCreator:id" onStuff="another:actionCreator:id">
+				<Dispatcher onClick="error:actionCreator:id" onStuff="another:actionCreator:id">
 					<button />
 				</Dispatcher>
 			);
-		}).toThrowError('action not found id: actionCreator:id');
+		}).toThrowError('action not found id: error:actionCreator:id');
 	});
 
 	it('should call getActionInfo and reThrow at willreceivePropsTime'
@@ -81,7 +83,33 @@ describe('Testing <Dispatcher />', () => {
 			</Dispatcher>
 		);
 		expect(() => {
-			wrapper.setProps({ onClick: 'another:actionCreator:id' });
-		}).toThrowError('action not found id: another:actionCreator:id');
+			wrapper.setProps({ onClick: 'error:another:actionCreator:id' });
+		}).toThrowError('action not found id: error:another:actionCreator:id');
+	});
+
+	it('should not prevent event propagation by default', () => {
+		const onClick = jest.fn();
+		const wrapper = mount(
+			<div onClick={onClick}>
+				<Dispatcher onClick={noOp} onStuff="existingActionCreator:id">
+					<a />
+				</Dispatcher>
+			</div>
+		);
+		wrapper.find('a').simulate('click');
+		expect(onClick).toHaveBeenCalled();
+	});
+
+	it('should prevent event propagation if stopPropagation is set', () => {
+		const onClick = jest.fn();
+		const wrapper = mount(
+			<div onClick={onClick}>
+				<Dispatcher stopPropagation onClick={noOp} onStuff="existingActionCreator:id">
+					<a />
+				</Dispatcher>
+			</div>
+		);
+		wrapper.find('a').simulate('click');
+		expect(onClick).not.toHaveBeenCalled();
 	});
 });
