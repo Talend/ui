@@ -5,6 +5,7 @@ import {
 	FLOWDESIGNER_FLOW_RESET,
 	FLOWDESIGNER_FLOW_LOAD,
 	FLOWDESIGNER_FLOW_SET_ZOOM,
+	FLOWDESIGNER_PAN_TO,
 } from '../constants/flowdesigner.constants';
 import nodesReducer from './node.reducer';
 import linksReducer from './link.reducer';
@@ -21,6 +22,7 @@ export const defaultState = new Map({
 	preds: new Map(),
 	nodeTypes: new Map(),
 	transform: { k: 1, x: 0, y: 0 },
+	transformToApply: undefined,
 });
 
 const combinedReducer = (state = defaultState, action) => (
@@ -62,6 +64,16 @@ export const reducer = (state, action) => {
 		}
 	case FLOWDESIGNER_FLOW_SET_ZOOM:
 		return state.set('transform', action.transform);
+	case FLOWDESIGNER_PAN_TO:
+		return state.update('transformToApply', (value) => (
+			zoomIdentity
+				.translate(state.get('transform').x, state.get('transform').y)
+				.scale(state.get('transform').k)
+				.scale(1 / state.get('transform').k).translate(
+					-((state.get('transform').x + action.x - 75)),
+					-((state.get('transform').y + action.y - 140))
+				)
+		));
 	default:
 		return combinedReducer(state, action);
 	}

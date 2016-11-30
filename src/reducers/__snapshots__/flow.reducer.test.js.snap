@@ -13,6 +13,7 @@ Object {
     "x": 0,
     "y": 0,
   },
+  "transformToApply": undefined,
 }
 `;
 
@@ -53,6 +54,7 @@ Object {
     "x": 0,
     "y": 0,
   },
+  "transformToApply": undefined,
 }
 `;
 
@@ -71,6 +73,7 @@ Object {
     "x": 0,
     "y": 0,
   },
+  "transformToApply": undefined,
 }
 `;
 
@@ -89,5 +92,6 @@ Object {
     "x": 0,
     "y": 0,
   },
+  "transformToApply": undefined,
 }
 `;
