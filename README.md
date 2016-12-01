@@ -27,6 +27,11 @@ It provides a set of base components and patterns.
 [quality-url]: http://packagequality.com/#?package=react-cmf
 
 
+## Breaking changes log
+
+Before 1.0, `react-cmf` do NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
+
 ## Definition
 
 *CMF* definition from wikipedia:
