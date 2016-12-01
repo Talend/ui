@@ -9,9 +9,11 @@ import thunk from 'redux-thunk';
 import invariant from 'invariant';
 
 import cmfReducers from './reducers';
+import httpMiddleware from './middlewares/http';
+import cmfMiddleware from './middlewares/cmf';
 
 const enhancers = [];
-const middlewares = [thunk];
+const middlewares = [thunk, httpMiddleware, cmfMiddleware];
 if (window) {
 	if (window.devToolsExtension) {
 		enhancers.push(window.devToolsExtension());

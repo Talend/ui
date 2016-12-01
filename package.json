@@ -68,7 +68,10 @@
     "semantic-release": "4.3.5"
   },
   "jest": {
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"}
+    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "setupFiles": [
+      "env__tests.js"
+    ]
   },
   "peerDependencies": {
     "classnames": "2",

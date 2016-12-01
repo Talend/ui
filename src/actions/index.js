@@ -7,7 +7,7 @@
 import * as collectionsActions from './collectionsActions';
 import * as componentsActions from './componentsActions';
 import * as settingsActions from './settingsActions';
-
+import http from './http';
 
 /**
  * exported API
@@ -23,4 +23,5 @@ export default {
 	collectionsActions,
 	componentsActions,
 	settingsActions,
+	http,
 };

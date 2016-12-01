@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 const components = {
 	componentName: {
 		componentKey: {
@@ -7,4 +8,5 @@ const components = {
 		},
 	},
 };
+
 export default fromJS(components);

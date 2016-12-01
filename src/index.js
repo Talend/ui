@@ -12,6 +12,7 @@ import history from './history';
 import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';
+import getErrorMiddleware from './middlewares/error';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -38,4 +39,5 @@ export {
 	reducers,
 	RegistryProvider,
 	UIRouter,
+	getErrorMiddleware, // (slug) => middleware to post error
 };
