@@ -79,7 +79,7 @@ function ListHeader(props) {
 				selected += 1;
 			}
 		});
-		return selected === items.length;
+		return selected > 0 && selected === items.length;
 	};
 	const checkbox = onToggleAll && ifSelected ?
 		(<th>
@@ -88,6 +88,7 @@ function ListHeader(props) {
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
+				disabled={items.length === 0}
 			/>
 		</th>) :
 		null;

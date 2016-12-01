@@ -153,7 +153,7 @@ function DisplayTile(props) {
 				selected += 1;
 			}
 		});
-		return selected === items.length;
+		return items.length > 0 && selected === items.length;
 	};
 	const checkbox = onToggleAll && ifSelected ?
 		(<div className={theme.container}>
@@ -162,6 +162,7 @@ function DisplayTile(props) {
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
 				checked={ifAllSelected()}
+				disabled={items.length === 0}
 			/>Select All
 		</div>) :
 		null;
