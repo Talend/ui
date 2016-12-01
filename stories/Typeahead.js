@@ -97,7 +97,7 @@ const props = {
 		},
 		onInputIconClick: action('icon clicked'),
 	},
-	items: []
+	items: [],
 };
 
 storiesOf('Typeahead', module)
@@ -105,9 +105,7 @@ storiesOf('Typeahead', module)
 		return (
 			<div>
 				<h2>Below is an example of a Typeahead</h2>
-				<Nav>
-					<Typeahead {...props} />
-				</Nav>
+				<Typeahead {...props} />
 			</div>
 		);
 	})

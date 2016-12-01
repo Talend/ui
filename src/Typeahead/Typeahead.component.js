@@ -60,39 +60,48 @@ function Typeahead({ config, ...eprops }) {
 }
 Typeahead.propTypes = {
 	config: PropTypes.shape({
+		// When set to true, the typeahead component renders only the button
 		isOnlyIcon: PropTypes.boolean,
+		// the icon of the button if isOnlyIcon === true, otherwise it's the icon of the input
 		icon: PropTypes.shape({
-			name: PropTypes.string,
-			title: PropTypes.string,
-			actionStyle: PropTypes.string,
+			name: PropTypes.string, // name of the icon ex: fa fa-search
+			title: PropTypes.string, // title of the icon ex: icon
+			actionStyle: PropTypes.string, // the style of the button
 		}),
-		onInputIconClick: PropTypes.func,
-		isOnTheRight: PropTypes.boolean,
+		onInputIconClick: PropTypes.func, // the callback to trigger when isOnlyIcon === true
+		isOnTheRight: PropTypes.boolean, // the position of the typeahead when RIGHT ===> LEFT
 	}),
+	// it's used in conjunction with focusedSectionIndex to specify the focused item
 	focusedItemIndex: PropTypes.number,
+	// it's used in conjunction with focusedItemIndex to specify the focused item
 	focusedSectionIndex: PropTypes.number,
-	id: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		title: PropTypes.string,
-		description: PropTypes.string,
-		suggestions: PropTypes.arrayOf(PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
+	id: PropTypes.string, // id of the component
+	items: PropTypes.arrayOf(PropTypes.shape({ // List of categories in the list
+		title: PropTypes.string, // title of the category
+		description: PropTypes.string, // description of the category
+		suggestions: PropTypes.arrayOf(PropTypes.shape({ // list of the suggestions per category
+			title: PropTypes.string, // title of the item
+			description: PropTypes.string, // description of the item
 		})),
 	})),
 	inputProps: PropTypes.shape({
-		value: PropTypes.string.isRequired,
-		placeholder: PropTypes.string,
-		onBlur: PropTypes.func,
-		onKeyDown: PropTypes.func,
+		value: PropTypes.string.isRequired, // value of the input
+		placeholder: PropTypes.string, // placeholder of the input
+		onBlur: PropTypes.func, // is used to hide the suggestions items
+		onKeyDown: PropTypes.func,  // is used to update the value or to start focusing on the items
 	}),
 	itemProps: PropTypes.shape({
-		onBlur: PropTypes.func,
-		onKeyDown: PropTypes.func,
+		onBlur: PropTypes.func, // is only used to update focusedItemIndex & focusedSectionIndex
+		// is only used to update focusedItemIndex & focusedSectionIndex
 		onMouseEnter: PropTypes.func,
-		onClick: PropTypes.func,
+		// is used to select the item or to change the focus by updating
+		// (focusedItemIndex & focusedSectionIndex)
+		onKeyDown: PropTypes.func,
+		onClick: PropTypes.func, // is used to select the item
 	}),
 	renderItemData: PropTypes.shape({
+		// Actually it's the same value as inputProps.value, it's used to highlight the matches
+		// between the entered value and items
 		value: PropTypes.string,
 	}),
 };

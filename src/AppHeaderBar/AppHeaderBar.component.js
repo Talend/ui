@@ -10,6 +10,7 @@ import {
 	NavItem,
 } from 'react-bootstrap';
 import Icon from '../Icon';
+import Typeahead from '../Typeahead';
 
 const NAV_ITEM = 'navItem';
 const DROPDOWN = 'dropdown';
@@ -125,12 +126,24 @@ renderForm.propTypes = {
 	buttonLabel: React.PropTypes.string,
 };
 
-export function renderContent(props) {
+export function renderTypeahead(search, index) {
+	return (
+		<Navbar.Form pullRight role="search" key={index}>
+			<Typeahead {...search} />
+		</Navbar.Form>
+	);
+}
+renderTypeahead.propTypes = React.PropTypes.shape(Typeahead.propTypes);
+
+export function renderContent(props, index) {
 	if (props.navs) {
 		return props.navs.map(renderNav);
 	}
 	if (props.forms) {
 		return props.forms.map(renderForm);
+	}
+	if (props.search) {
+		return renderTypeahead(props.search, index);
 	}
 	return null;
 }
@@ -141,6 +154,7 @@ renderContent.propTypes = {
 	forms: React.PropTypes.arrayOf(
 		React.PropTypes.shape(renderForm.propTypes)
 	),
+	search: React.PropTypes.shape(Typeahead.propTypes),
 };
 
 /**

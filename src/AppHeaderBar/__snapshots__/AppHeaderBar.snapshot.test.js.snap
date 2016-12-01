@@ -111,28 +111,142 @@ exports[`AppHeaderBar should render 1`] = `
           </ul>
         </li>
       </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeaderBar should render with Typeahead Icon 1`] = `
+<nav
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <button
+        className="my-brand-class navbar-brand btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="link"
+        title="my brand title"
+        type="button">
+        Example App Name
+      </button>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-fw fa-cog"
+                  title={null} />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
       <div
         className="navbar-form navbar-right"
-        onSubmit={[Function]}>
-        <div
-          className="form-group">
-          <input
-            className="form-control"
-            id="globalSearch"
-            onChange={[Function]}
-            placeholder="search anything"
-            type="text" />
-        </div>
+        role="search">
         <button
-          className="btn btn-default"
+          aria-describedby={42}
+          className="btn btn-link"
           disabled={false}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role={null}
           type="button">
           <i
             aria-hidden="true"
             className="fa fa-search"
             title={null} />
-          Save
         </button>
       </div>
     </div>
@@ -140,17 +254,331 @@ exports[`AppHeaderBar should render 1`] = `
 </nav>
 `;
 
-exports[`AppHeaderBar should render wihtout brandLink 1`] = `
+exports[`AppHeaderBar should render with Typeahead items 1`] = `
 <nav
   className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
   <div
     className="container-fluid">
     <div
       className="navbar-header">
-      <span
-        className="navbar-brand">
+      <button
+        className="my-brand-class navbar-brand btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="link"
+        title="my brand title"
+        type="button">
         Example App Name
-      </span>
+      </button>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-fw fa-cog"
+                  title={null} />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        className="navbar-form navbar-right"
+        role="search">
+        <div
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <input
+              aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+              aria-autocomplete="list"
+              aria-expanded={true}
+              aria-haspopup={true}
+              aria-owns="react-autowhatever-component-id"
+              autoComplete="off"
+              className="form-control"
+              id={undefined}
+              onKeyDown={undefined}
+              placeholder="Search anything"
+              role="combobox"
+              style={Object {}}
+              type="text"
+              value="le" />
+            <div
+              className={undefined}>
+              <i
+                aria-hidden="true"
+                className="fa fa-search"
+                title="icon" />
+            </div>
+          </div>
+          <div
+            id="react-autowhatever-component-id"
+            style={Object {}}>
+            <div
+              style={Object {}}>
+              <div
+                style={Object {}}>
+                <div
+                  className={undefined}>
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-filter"
+                    title="icon" />
+                  <span
+                    className={undefined}>
+                    category 1
+                  </span>
+                </div>
+              </div>
+              <ul
+                role="listbox"
+                style={Object {}}>
+                <li
+                  id="react-autowhatever-component-id-section-0-item-0"
+                  role="option"
+                  style={Object {}}>
+                  <div
+                    className={undefined}>
+                    <span
+                      className={undefined}>
+                      <span>
+                        
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                         tit
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                         1
+                        
+                      </span>
+                    </span>
+                    <p
+                      className={undefined}>
+                      description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                    </p>
+                  </div>
+                </li>
+                <li
+                  id="react-autowhatever-component-id-section-0-item-1"
+                  role="option"
+                  style={Object {}}>
+                  <div
+                    className={undefined}>
+                    <span
+                      className={undefined}>
+                      <span>
+                        tit
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                         2 
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                        s e
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                        phants e
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                        mentaires ont des ai
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                         
+                        
+                      </span>
+                    </span>
+                    <p
+                      className={undefined}>
+                      description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div
+              style={Object {}}>
+              <div
+                style={Object {}}>
+                <div
+                  className={undefined}>
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-asterisk"
+                    title="icon" />
+                  <span
+                    className={undefined}>
+                    category 2
+                  </span>
+                </div>
+              </div>
+              <ul
+                role="listbox"
+                style={Object {}}>
+                <li
+                  id="react-autowhatever-component-id-section-1-item-0"
+                  role="option"
+                  style={Object {}}>
+                  <div
+                    className={undefined}>
+                    <span
+                      className={undefined}>
+                      <span>
+                        tit
+                        <em
+                          className={undefined}>
+                          le
+                        </em>
+                      </span>
+                      <span>
+                         3
+                        
+                      </span>
+                    </span>
+                    <p
+                      className={undefined}>
+                      description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeaderBar should render with form 1`] = `
+<nav
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <button
+        className="my-brand-class navbar-brand btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="link"
+        title="my brand title"
+        type="button">
+        Example App Name
+      </button>
       <button
         className="navbar-toggle collapsed"
         onClick={[Function]}
@@ -265,13 +693,275 @@ exports[`AppHeaderBar should render wihtout brandLink 1`] = `
           disabled={false}
           onClick={[Function]}
           type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-search"
-            title={null} />
           Save
         </button>
       </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeaderBar should render with only Typeahead input 1`] = `
+<nav
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <button
+        className="my-brand-class navbar-brand btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="link"
+        title="my brand title"
+        type="button">
+        Example App Name
+      </button>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-fw fa-cog"
+                  title={null} />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        className="navbar-form navbar-right"
+        role="search">
+        <div
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <input
+              aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+              aria-autocomplete="list"
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-owns="react-autowhatever-component-id"
+              autoComplete="off"
+              className="form-control"
+              id={undefined}
+              onKeyDown={undefined}
+              placeholder="Search anything"
+              role="combobox"
+              style={Object {}}
+              type="text"
+              value="le" />
+            <div
+              className={undefined}>
+              <i
+                aria-hidden="true"
+                className="fa fa-search"
+                title="icon" />
+            </div>
+          </div>
+          <div
+            id="react-autowhatever-component-id"
+            style={Object {}} />
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`AppHeaderBar should render without brandLink 1`] = `
+<nav
+  className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+  <div
+    className="container-fluid">
+    <div
+      className="navbar-header">
+      <span
+        className="navbar-brand">
+        Example App Name
+      </span>
+      <button
+        className="navbar-toggle collapsed"
+        onClick={[Function]}
+        type="button">
+        <span
+          className="sr-only">
+          Toggle navigation
+        </span>
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+        <span
+          className="icon-bar" />
+      </button>
+    </div>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="hello"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="nav navbar-nav navbar-right"
+        role={null}>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            name="world"
+            onClick={[Function]}
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-heart"
+              title={null} />
+          </a>
+        </li>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="myDropdown"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            user 1
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="myDropdown"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-fw fa-cog"
+                  title={null} />
+                settings
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
