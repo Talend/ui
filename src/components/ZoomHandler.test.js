@@ -8,7 +8,7 @@ import { ZoomHandler } from './ZoomHandler.component';
 describe('<ZoomHandler /> renders correctly', () => {
 	it('<ZoomHandler /> renders correctly', () => {
 		const tree = renderer.create(
-			<ZoomHandler>
+			<ZoomHandler transform={{ x: 0, y: 0, k: 1 }}>
 				<rect />
 			</ZoomHandler>
 		).toJSON();

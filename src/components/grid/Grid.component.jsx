@@ -51,10 +51,4 @@ const Grid = ({ transform }) => {
 	)
 };
 
-function mapStateToProps(state, ownProps) {
-	return {
-		transform: state.flowDesigner.get('transform'),
-	};
-}
-
-export default connect(mapStateToProps)(Grid);
+export default Grid;

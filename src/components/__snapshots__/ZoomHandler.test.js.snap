@@ -15,8 +15,58 @@ exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`]
     width="100%"
     x="0"
     y="0" />
+  <g>
+    <defs>
+      <pattern
+        fill="none"
+        height={10}
+        id="smallGrid"
+        patternUnits="userSpaceOnUse"
+        stroke="#BFBDBD"
+        strokeWidth="0.5"
+        width={10}>
+        <path
+          d="M 10 0 L 0 0 0 10" />
+      </pattern>
+      <pattern
+        fill="none"
+        height={50}
+        id="grid"
+        patternUnits="userSpaceOnUse"
+        stroke="#BFBDBD"
+        strokeWidth="0.5"
+        width={50}
+        x={0}
+        y={0}>
+        <rect
+          fill="url(#smallGrid)"
+          fillOpacity={1}
+          height={50}
+          width={50} />
+        <path
+          d="M 50 0 L 0 0 0 50" />
+      </pattern>
+    </defs>
+    <rect
+      fill="url(#grid)"
+      height="100%"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      width="100%"
+      x="0"
+      y="0" />
+  </g>
   <g
-    transform={undefined}>
+    transform={
+      Object {
+        "k": 1,
+        "x": 0,
+        "y": 0,
+      }
+    }>
     <rect />
   </g>
 </g>

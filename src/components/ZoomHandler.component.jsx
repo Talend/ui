@@ -4,6 +4,7 @@ import { zoom, zoomIdentity } from 'd3-zoom';
 import { connect } from 'react-redux';
 
 import { setZoom } from '../actions/flow.actions';
+import Grid from '../components/grid/Grid.component';
 
 export const ZoomHandler = React.createClass({
     selection: undefined,
@@ -15,11 +16,18 @@ export const ZoomHandler = React.createClass({
         this.selection = select(this.zoomCatcher);
         this.zoom = zoom()
           .scaleExtent([1 / 4, 2])
-          .on('zoom', this.onZoom);
+          .on('zoom', this.onZoom)
+          .on('end', this.onZoomEnd);
         this.selection.call(this.zoom);
     },
     onZoom() {
-		  this.props.setZoom(event.transform);
+      this.setState({transform: event.transform});
+    },
+    onZoomEnd() {
+      this.props.setZoom(event.transform);
+    },
+    componentWillMount(){
+      this.setState({transform: this.props.transform});
     },
     componentWillReceiveProps(nextProps){
       if(nextProps.transformToApply){
@@ -36,7 +44,8 @@ export const ZoomHandler = React.createClass({
               style={{ fill: 'none', pointerEvents: 'all' }}
               x="0" y="0" width="100%" height="100%"
             />
-            <g transform={this.props.transform}>{this.props.children}</g>
+            <Grid transform={this.state.transform} />
+            <g transform={this.state.transform}>{this.props.children}</g>
           </g>
         );
     },

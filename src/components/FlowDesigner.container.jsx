@@ -5,7 +5,6 @@ import invariant from 'invariant';
 
 
 import ZoomHandler from './ZoomHandler.component';
-import Grid from './grid/Grid.component';
 import { NodeType, PortType } from '../constants/flowdesigner.proptypes';
 import NodesRenderer from './node/NodesRenderer.component';
 import LinksRenderer from './link/LinksRenderer.component';
@@ -89,7 +88,6 @@ export const FlowDesigner = React.createClass({
 		this.setState({ nodeTypeMap, linkTypeMap, portTypeMap });
 	},
 	render() {
-		const grid = this.props.grid || <Grid />;
 		return (
 			<svg onClick={this.props.onClick} ref={c => (this.node = c)} width="100%">
 				<defs>
@@ -104,7 +102,6 @@ export const FlowDesigner = React.createClass({
 						</feMerge>
 					</filter>
 				</defs>
-				{grid}
 				<ZoomHandler>
 					<NodesRenderer
 						nodeTypeMap={this.state.nodeTypeMap}

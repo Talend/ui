@@ -30,6 +30,5 @@ exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1
       </feMerge>
     </filter>
   </defs>
-  <g />
 </svg>
 `;
