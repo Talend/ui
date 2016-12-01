@@ -13,7 +13,7 @@ plugins:
   - cleanupAttrs
   - minifyStyles
   - convertStyleToAttrs
-  - cleanupIDs: false
+  - cleanupIDs
   - removeRasterImages
   - removeUselessDefs
   - cleanupNumericValues
