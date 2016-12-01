@@ -71,8 +71,8 @@ export const reducer = (state, action) => {
 				.translate(state.get('transform').x, state.get('transform').y)
 				.scale(state.get('transform').k)
 				.scale(1 / state.get('transform').k).translate(
-					-((state.get('transform').x + action.x - 75)),
-					-((state.get('transform').y + action.y - 140))
+					-((state.get('transform').x + action.x)),
+					-((state.get('transform').y + action.y))
 				)
 		));
 	default:

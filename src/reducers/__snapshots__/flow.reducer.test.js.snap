@@ -113,8 +113,8 @@ Object {
   },
   "transformToApply": Transform {
     "k": 1,
-    "x": -325,
-    "y": -260,
+    "x": -400,
+    "y": -400,
   },
 }
 `;
