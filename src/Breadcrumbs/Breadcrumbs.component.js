@@ -31,7 +31,7 @@ function Breadcrumbs(props) {
 			{
 				label: hiddenItem.text,
 				title: hiddenItem.title,
-				onClick: hiddenItem.onClick,
+				onClick: event => hiddenItem.onClick(event, hiddenItem),
 			})
 		);
 	/**
