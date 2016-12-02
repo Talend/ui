@@ -18,7 +18,11 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "prepublish": "src/**/*.js"
   },
   "keywords": [
     "react",
@@ -44,8 +48,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
-    "bootstrap-talend-theme": "^0.12.1",
     "bootstrap-sass": "^3.3.7",
+    "bootstrap-talend-theme": "^0.12.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
@@ -59,10 +63,11 @@
     "invariant": "^2.2.1",
     "jest": "^17.0.0",
     "node-sass": "^3.10.1",
+    "npm-watch": "^0.1.6",
     "react": "^15.3.2",
-    "react-autowhatever": "^7.0.0",
     "react-a11y": "^0.3.3",
     "react-addons-test-utils": "^15.3.2",
+    "react-autowhatever": "^7.0.0",
     "react-bootstrap": "0",
     "react-dom": "^15.3.2",
     "react-test-renderer": "15",
@@ -76,21 +81,23 @@
     "webpack": "1.13.1"
   },
   "jest": {
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "testRegex": "src/.*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
   },
   "peerDependencies": {
-    "bootstrap-talend-theme": "^0.12.1",
     "bootstrap-sass": "^3.3.7",
+    "bootstrap-talend-theme": "^0.12.1",
     "classnames": "^2.2.5",
     "invariant": "^2.2.1",
     "react": "^15.3.2",
+    "react-autowhatever": "^7.0.0",
     "react-bootstrap": "0",
     "talend-icons": "^0.5.5",
-    "uuid": "^2.0.3",
-    "react-autowhatever": "^7.0.0"
+    "uuid": "^2.0.3"
   }
 }
