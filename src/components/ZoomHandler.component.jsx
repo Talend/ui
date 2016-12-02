@@ -34,10 +34,7 @@ export const ZoomHandler = React.createClass({
         if(nextProps.transformToApply !== this.props.transformToApply){
           this.selection.transition().duration(750).call(
             this.zoom.transform,
-            nextProps.transformToApply.translate(
-              this.zoomCatcher.width.baseVal.value / 2,
-              this.zoomCatcher.height.baseVal.value / 2
-            )
+            nextProps.transformToApply
           );
         }
       }
