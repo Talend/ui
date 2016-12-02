@@ -20,6 +20,18 @@ const actions = [
 		onClick: action('Favorites clicked'),
 	},
 ];
+
+const drawers = [
+	(<div style={{ width: 500 }}>
+		<h1>Hello drawers</h1>
+		<p>You should not being able to read this because I'm first</p>
+	</div>),
+	(<div style={{ width: 400 }}>
+		<h1>Hello drawers</h1>
+		<p>The content dictate the width</p>
+	</div>),
+];
+
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
@@ -127,4 +139,14 @@ storiesOf('Layout', module)
 				{content}
 			</Layout>
 		);
-	});
+	})
+	.addWithInfo('TwoColumns with drawers', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			drawers={drawers}
+		>
+			{content}
+		</Layout>
+	));

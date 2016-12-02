@@ -1,0 +1,42 @@
+// Drawers styles
+
+$tc-drawer-initial-offset: 1000px !default;
+$tc-drawer-bgcolor: #FFF !default;
+$tc-drawer-transition-duration: 1s !default;
+$tc-drawer-transition-easing: ease-in !default;
+
+.container {
+
+	.drawer {
+		background-color: $tc-drawer-bgcolor;
+		position: fixed;
+		top: $navbar-height;
+		right: 0;
+		bottom: 0;
+		box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+	}
+
+	:global(.tc-layout-drawer-enter),
+	:global(.tc-layout-drawer-appear),
+	:global(.tc-layout-drawer-leave) {
+		transition: right $tc-drawer-transition-duration $tc-drawer-transition-easing;
+	}
+
+	:global(.tc-layout-drawer-enter),
+	:global(.tc-layout-drawer-appear) {
+		right: -$tc-drawer-initial-offset;
+
+		&:global(.tc-layout-drawer-enter-active),
+		&:global(.tc-layout-drawer-appear-active) {
+			right: 0;
+		}
+	}
+
+	:global(.tc-layout-drawer-leave) {
+		right: 0;
+
+		&:global(.tc-layout-drawer-leave-active) {
+			right: -$tc-drawer-initial-offset;
+		}
+	}
+}

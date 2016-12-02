@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
+import Drawers from './Drawers';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -25,7 +26,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, mode, children, ...rest }) {
+function Layout({ header, mode, drawers, children, ...rest }) {
 	const appCSS = classnames(
 		'tc-layout',
 		theme.layout
@@ -55,14 +56,16 @@ function Layout({ header, mode, children, ...rest }) {
 					{children}
 				</Component>
 			) : null}
+			{drawers && (<Drawers drawers={drawers} />)}
 		</div>
 	);
 }
 
 Layout.propTypes = {
-	header: React.PropTypes.shape(AppHeaderBar.propTypes),
-	mode: React.PropTypes.oneOf(DISPLAY_MODES),
-	children: React.PropTypes.element,
+	header: PropTypes.shape(AppHeaderBar.propTypes),
+	mode: PropTypes.oneOf(DISPLAY_MODES),
+	drawers: PropTypes.arrayOf(PropTypes.element),
+	children: PropTypes.element,
 };
 
 export default Layout;

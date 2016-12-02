@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { Action } from '../index';
+import Action from '../Actions/Action';
 
 import TreeViewItem from './TreeViewItem/';
 import getClassNames from './getClassNames';
