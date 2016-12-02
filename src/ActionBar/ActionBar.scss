@@ -1,0 +1,20 @@
+.tc-actionbar-container {
+	padding: 0 $padding-normal;
+	background: $concrete;
+
+	.tc-actionbar-selected-count {
+		margin-right: $padding-larger;
+	}
+
+	button {
+		margin: $padding-small $padding-larger $padding-small 0;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+	}
+}

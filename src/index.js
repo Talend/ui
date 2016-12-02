@@ -67,6 +67,7 @@ import {
 } from 'react-bootstrap';
 
 import { Action, ActionDropdown, Actions } from './Actions';
+import ActionBar from './ActionBar';
 import AppHeaderBar from './AppHeaderBar';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -82,6 +83,7 @@ import Typeahead from './Typeahead';
 
 export {
 	Action,
+	ActionBar,
 	ActionDropdown,
 	Actions,
 	AppHeaderBar,

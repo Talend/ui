@@ -12,16 +12,14 @@ describe('Pagination', () => {
 			itemsLength: 17,
 			onChangePagination: jest.fn(),
 		};
-		
 		// when
 		const wrapper = renderer.create(
 			<Pagination {...props} />
 		).toJSON();
-		
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+
 	it('should render id if provided', () => {
 		// given
 		const props = {
@@ -29,12 +27,10 @@ describe('Pagination', () => {
 			itemsLength: 17,
 			onChangePagination: jest.fn(),
 		};
-		
 		// when
 		const wrapper = renderer.create(
 			<Pagination {...props} />
 		).toJSON();
-		
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
