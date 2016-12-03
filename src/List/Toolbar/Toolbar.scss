@@ -5,6 +5,6 @@ $tc-list-toolbar-display-color: $silver !default;
 	:global(.navbar-text) {
 		color: $tc-list-toolbar-display-color;
 		font-weight: 400;
-		margin-right: 0px;
+		margin-right: 0;
 	}
 }

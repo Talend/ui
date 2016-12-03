@@ -10,7 +10,7 @@ exports[`Drawers should render 1`] = `
           Hello drawers
         </h1>
         <p>
-          You should not being able to read this because I\\\'m first
+          You should not being able to read this because I\'m first
         </p>
       </div>
     </div>

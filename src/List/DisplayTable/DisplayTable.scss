@@ -18,7 +18,7 @@ $tc-list-table-hover-color: $black !default;
 	font-weight: 600;
 }
 
-.table :global(tbody tr:hover){
+.table :global(tbody tr:hover) {
 	color: $tc-list-table-hover-color;
 	background-color: $tc-list-table-hover-bg;
 }

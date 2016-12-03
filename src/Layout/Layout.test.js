@@ -4,11 +4,7 @@ import renderer from 'react-test-renderer';
 import Layout from './Layout.component';
 
 jest.mock('react-dom');
-jest.mock('react-addons-css-transition-group', () => props => (
-	<div className="react-addons-css-transition-group">
-		{props.children}
-	</div>
-));
+jest.mock('react-addons-css-transition-group');
 
 describe('Layout', () => {
 	it('should render Layout OneColumn', () => {
@@ -48,7 +44,7 @@ describe('Layout', () => {
 		const drawers = [
 			(<div style={{ width: 500 }}>
 				<h1>Hello drawers</h1>
-				<p>You should not being able to read this because I'm first</p>
+				<p>You should not being able to read this because I&#39;m first</p>
 			</div>),
 			(<div style={{ width: 400 }}>
 				<h1>Hello drawers</h1>

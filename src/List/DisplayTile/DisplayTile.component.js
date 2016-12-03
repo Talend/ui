@@ -47,7 +47,7 @@ function Tile({ id, columns, item, onElementSelect, titleProps, onToggleSingle, 
 	);
 
 	return (
-		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+		<div
 			id={id}
 			className={theme.tile}
 			onClick={onSelect}

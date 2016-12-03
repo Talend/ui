@@ -57,7 +57,7 @@ $tc-treeview-depth-max: 10;
 			width: $tc-treeview-small-padding;
 			margin-left: -$tc-treeview-small-padding;
 			position: relative;
-			left: -.5 * ($tc-treeview-large-padding - $tc-treeview-small-padding);
+			left: -0.5 * ($tc-treeview-large-padding - $tc-treeview-small-padding);
 
 			&[data-tc-treeview-toggled=false] {
 				:global(.tc-svg-icon) {
@@ -69,7 +69,7 @@ $tc-treeview-depth-max: 10;
 				padding-right: 0;
 				padding-left: 0;
 				outline: none;
-				border: 0;
+				border: none;
 
 				:global(.tc-svg-icon) {
 					width: $tc-treeview-small-padding;

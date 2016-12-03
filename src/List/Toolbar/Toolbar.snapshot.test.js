@@ -24,27 +24,27 @@ describe('Toolbar', () => {
 		const wrapper = renderer.create(
 			<Toolbar {...props} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+
 	it('should getSubProps', () => {
 		// given
 		const propTypes = {
 			onSelectDisplayMode: 'func',
 			sortBy: 'bool',
 		};
-		
+
 		// when
 		const subProps = getSubProps(props, { propTypes });
-		
+
 		// then
 		expect(subProps.onSelectDisplayMode).toBe(props.onSelectDisplayMode);
 		expect(subProps.sortBy).toBe(props.sortBy);
 		expect(Object.keys(subProps).length).toBe(2);
 	});
-	
+
 	it('should render listActions', () => {
 		// given
 		const tprops = Object.assign({}, props);
@@ -60,21 +60,21 @@ describe('Toolbar', () => {
 		const wrapper = renderer.create(
 			<Toolbar {...tprops} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+
 	it('should render add btn', () => {
 		// given
 		const tprops = Object.assign({}, props);
 		tprops.onClickAdd = jest.fn();
-		
+
 		// when
 		const wrapper = renderer.create(
 			<Toolbar {...tprops} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -86,19 +86,19 @@ describe('Toolbar', () => {
 			id: 'toolbar',
 			onClickAdd: jest.fn(),
 			listActions: [
-			{
-				label: 'Delete selection',
-				icon: 'fa fa-trash-o',
-				onClick: jest.fn(),
-			},
-		],
+				{
+					label: 'Delete selection',
+					icon: 'fa fa-trash-o',
+					onClick: jest.fn(),
+				},
+			],
 		};
-		
+
 		// when
 		const wrapper = renderer.create(
 			<Toolbar {...tprops} />
 		).toJSON();
-		
+
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

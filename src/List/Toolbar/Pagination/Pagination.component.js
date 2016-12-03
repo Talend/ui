@@ -12,10 +12,11 @@ import css from './Pagination.scss';
  */
 
 function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChangePagination }) {
+	let realPageSize = pageSize;
 	if (!pageSize || sizeOptions.indexOf(pageSize) < 0) {
-		pageSize = sizeOptions[0];
+		realPageSize = sizeOptions[0];
 	}
-	const total = Math.ceil(itemsLength / pageSize);
+	const total = Math.ceil(itemsLength / realPageSize);
 
 	const changeSize = (value) => {
 		onChangePagination(0, value);
@@ -60,7 +61,7 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 		default:
 			return;
 		}
-		onChangePagination(from * pageSize, pageSize);
+		onChangePagination(from * realPageSize, realPageSize);
 	};
 	const paginationSizeId = id && `${id}-pagination-size`;
 	return (
@@ -68,7 +69,7 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 			<label className="navbar-text" htmlFor={paginationSizeId}>Show:</label>
 			<NavDropdown
 				id={paginationSizeId || uuid.v4()}
-				title={pageSize}
+				title={realPageSize}
 				onSelect={changeSize}
 			>
 				{sizeOptions.map((option, index) => (

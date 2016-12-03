@@ -3,16 +3,12 @@ import renderer from 'react-test-renderer';
 
 import Drawers from './Drawers.component';
 
-jest.mock('react-addons-css-transition-group', () => props => (
-	<div className="react-addons-css-transition-group">
-		{props.children}
-	</div>
-));
+jest.mock('react-addons-css-transition-group');
 
 const drawers = [
 	(<div>
 		<h1>Hello drawers</h1>
-		<p>You should not being able to read this because I\'m first</p>
+		<p>You should not being able to read this because I&#39;m first</p>
 	</div>),
 	(<div>
 		<h1>Hello drawers</h1>
