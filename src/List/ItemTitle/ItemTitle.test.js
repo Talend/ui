@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
 
 import ItemTitle from './ItemTitle.component';
@@ -29,7 +29,7 @@ describe('ItemTitle', () => {
 		const titleInstance = <ItemTitle {...props} />;
 
 		// when
-		const wrapper = shallow(titleInstance);
+		const wrapper = mount(titleInstance);
 		wrapper.find(Button).simulate('click', { stopPropagation: () => {} });
 
 		// then
@@ -45,21 +45,21 @@ describe('ItemTitle', () => {
 			item,
 			titleProps: {
 				key: 'name',
-				displayModeKey: 'displayMode', // input display mode
-				onChange: jest.fn(), // provided change callback
-				onCancel: jest.fn(), // provided cancel callback
+				displayModeKey: 'displayMode',
+				onEditSubmit: jest.fn(),
+				onEditCancel: jest.fn(),
 			},
 		};
 		const titleInstance = <ItemTitle {...props} />;
 
 		// when
-		const wrapper = shallow(titleInstance);
-		wrapper.find('input').simulate('blur');
+		const wrapper = mount(titleInstance);
+		wrapper.find('input').simulate('blur', { target: { value: 'my new title' } });
 
 		// then
-		expect(props.titleProps.onChange).toBeCalled();
-		const callArgs = props.titleProps.onChange.mock.calls[0];
-		expect(callArgs[1]).toBe(item);
+		expect(props.titleProps.onEditSubmit).toBeCalled();
+		const callArgs = props.titleProps.onEditSubmit.mock.calls[0];
+		expect(callArgs[1]).toEqual({ value: 'my new title', model: item });
 	});
 
 	it('should trigger callback on input title ENTER', () => {
@@ -69,21 +69,21 @@ describe('ItemTitle', () => {
 			item,
 			titleProps: {
 				key: 'name',
-				displayModeKey: 'displayMode', // input display mode
-				onChange: jest.fn(), // provided change callback
-				onCancel: jest.fn(), // provided cancel callback
+				displayModeKey: 'displayMode',
+				onEditSubmit: jest.fn(),
+				onEditCancel: jest.fn(),
 			},
 		};
 		const titleInstance = <ItemTitle {...props} />;
 
 		// when
-		const wrapper = shallow(titleInstance);
-		wrapper.find('input').simulate('keyUp', { keyCode: 13 });
+		const wrapper = mount(titleInstance);
+		wrapper.find('input').simulate('keyUp', { keyCode: 13, target: { value: 'my new title' } });
 
 		// then
-		expect(props.titleProps.onChange).toBeCalled();
-		const callArgs = props.titleProps.onChange.mock.calls[0];
-		expect(callArgs[1]).toBe(item);
+		expect(props.titleProps.onEditSubmit).toBeCalled();
+		const callArgs = props.titleProps.onEditSubmit.mock.calls[0];
+		expect(callArgs[1]).toEqual({ value: 'my new title', model: item });
 	});
 
 	it('should trigger callback on input title ESC', () => {
@@ -93,20 +93,20 @@ describe('ItemTitle', () => {
 			item,
 			titleProps: {
 				key: 'name',
-				displayModeKey: 'displayMode', // input display mode
-				onChange: jest.fn(), // provided change callback
-				onCancel: jest.fn(), // provided cancel callback
+				displayModeKey: 'displayMode',
+				onEditSubmit: jest.fn(),
+				onEditCancel: jest.fn(),
 			},
 		};
 		const titleInstance = <ItemTitle {...props} />;
 
 		// when
-		const wrapper = shallow(titleInstance);
+		const wrapper = mount(titleInstance);
 		wrapper.find('input').simulate('keyUp', { keyCode: 27 });
 
 		// then
-		expect(props.titleProps.onCancel).toBeCalled();
-		const callArgs = props.titleProps.onCancel.mock.calls[0];
+		expect(props.titleProps.onEditCancel).toBeCalled();
+		const callArgs = props.titleProps.onEditCancel.mock.calls[0];
 		expect(callArgs[1]).toBe(item);
 	});
 });

@@ -21,8 +21,8 @@ const props = {
 			iconKey: 'icon',
 			displayModeKey: 'display',
 			onClick: action('onClick'),
-			onCancel: action('onCancel'),
-			onChange: action('onChange'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
 		},
 		columns: [
 			{ key: 'id', label: 'Id' },
@@ -40,11 +40,11 @@ const props = {
 				author: 'Jean-Pierre DUPONT',
 				actions: [{
 					label: 'edit',
-					icon: 'talend-edit',
+					icon: 'talend-pencil',
 					onClick: action('onEdit'),
 				}, {
 					label: 'delete',
-					icon: 'talend-delete',
+					icon: 'talend-trash',
 					onClick: action('onDelete'),
 				}, {
 					displayMode: 'dropdown',
@@ -100,7 +100,7 @@ const props = {
 		listActions: [
 			{
 				label: 'Delete selection',
-				icon: 'talend-delete',
+				icon: 'talend-trash',
 				onClick: action('delete'),
 			},
 		],

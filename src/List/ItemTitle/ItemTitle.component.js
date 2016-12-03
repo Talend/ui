@@ -37,30 +37,57 @@ renderText.propTypes = {
 	className: PropTypes.string,
 };
 
-function renderInput({ id, value, item, onChange, onCancel }) {
-	const cancel = event => onCancel(event, item);
-	const validate = event => onChange(event, item);
-	const onKeyUp = (event) => {
+class TitleInput extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onKeyUp = this.onKeyUp.bind(this);
+		this.submit = this.submit.bind(this);
+	}
+
+	componentDidMount() {
+		this.titleInput.value = this.props.value;
+	}
+
+	onKeyUp(event) {
 		switch (event.keyCode) {
 		case ESC_KEY:
-			cancel(event);
+			this.cancel(event);
 			break;
 		case ENTER_KEY:
-			validate(event);
+			this.submit(event);
 			break;
 		default:
 			break;
 		}
-	};
+	}
 
-	return (<input id={id} value={value} onKeyUp={onKeyUp} onBlur={validate} autoFocus />);
+	cancel(event) {
+		return this.props.onEditCancel(event, this.props.item);
+	}
+
+	submit(event) {
+		return this.props.onEditSubmit(event, {
+			value: event.target.value,
+			model: this.props.item,
+		});
+	}
+
+	render() {
+		return (<input
+			id={this.props.id}
+			ref={(input) => { this.titleInput = input; }}
+			onKeyUp={this.onKeyUp}
+			onBlur={this.submit}
+			autoFocus
+		/>);
+	}
 }
-renderInput.propTypes = {
+TitleInput.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	onChange: PropTypes.func,
-	onCancel: PropTypes.func,
+	onEditSubmit: PropTypes.func,
+	onEditCancel: PropTypes.func,
 };
 
 /**
@@ -77,8 +104,8 @@ const props = {
 		iconKey: 'icon',                    // item.icon is the icon
 		displayModeKey: 'display',          // item.display ('text' | 'input') set the display mode
 		onClick: (event, item) => {},       // title click callback
-		onChange: (event, item) => {},      // input mode validation callback
-		onCancel: (event, item) => {},      // input mode cancellation callback
+		onEditSubmit: (event, item) => {},    // input mode validation callback
+		onEditCancel: (event, item) => {},      // input mode cancellation callback
 	}
 }
 <ItemTitle {...props} />
@@ -89,8 +116,8 @@ function ItemTitle({ id, className, item, titleProps }) {
 		iconKey,
 		displayModeKey,
 		onClick,
-		onChange,
-		onCancel,
+		onEditSubmit,
+		onEditCancel,
 	} = titleProps;
 	const value = item[key];
 	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
@@ -103,7 +130,8 @@ function ItemTitle({ id, className, item, titleProps }) {
 			renderButton({ id, value, className, item, onClick }) :
 			renderText({ id, value, className });
 	} else if (displayMode === TITLE_MODE_INPUT) {
-		titleElement = renderInput({ id, value, item, onChange, onCancel });
+		const props = { id, value, item, onEditSubmit, onEditCancel };
+		titleElement = <TitleInput {...props} />;
 	}
 
 	const style = { display: 'inline' };
@@ -124,15 +152,9 @@ ItemTitle.propTypes = {
 		iconKey: PropTypes.string,
 		displayModeKey: PropTypes.string,
 		onClick: PropTypes.func,
-		onChange: PropTypes.func,
-		onCancel: PropTypes.func,
+		onEditSubmit: PropTypes.func,
+		onEditCancel: PropTypes.func,
 	}).isRequired,
-};
-
-ItemTitle.defaultProps = {
-	title: {
-		key: 'name',
-	},
 };
 
 export default ItemTitle;

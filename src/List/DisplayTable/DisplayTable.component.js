@@ -33,9 +33,10 @@ function RowRenderer(props) {
 					item[column.key];
 
 				// actions are only on title and on 'text' display mode
+				const { displayModeKey } = titleProps;
 				const displayActions =
 					isTitle &&
-					(!titleProps.displayModeKey || item[titleProps.displayModeKey] === 'text');
+					(!displayModeKey || !item[displayModeKey] || item[displayModeKey] === 'text');
 				const actions = displayActions ?
 					(<Actions
 						actions={item.actions || []}
@@ -152,8 +153,8 @@ ListHeader.propTypes = {
 		iconKey: 'icon',
 		displayModeKey: 'display',
 		onClick: action('onClick'),
-		onCancel: action('onCancel'),
-		onChange: action('onChange'),
+		onEditCancel: action('onEditCancel'),
+		onEditValidate: action('onEditValidate'),
 	},
 };
 <DisplayTable {...props} />

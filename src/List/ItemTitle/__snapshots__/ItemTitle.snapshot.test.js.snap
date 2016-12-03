@@ -47,8 +47,7 @@ exports[`ItemTitle should render input title 1`] = `
     autoFocus={true}
     id="title"
     onBlur={[Function]}
-    onKeyUp={[Function]}
-    value="Hello world" />
+    onKeyUp={[Function]} />
 </div>
 `;
 

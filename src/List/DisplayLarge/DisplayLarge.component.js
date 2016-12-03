@@ -143,8 +143,8 @@ const props = {
 		iconKey: 'icon',
 		displayModeKey: 'display',
 		onClick: action('onClick'),
-		onCancel: action('onCancel'),
-		onChange: action('onChange'),
+		onEditCancel: action('onEditCancel'),
+		onEditValidate: action('onEditValidate'),
 	},
 };
 <DisplayLarge {...props} />

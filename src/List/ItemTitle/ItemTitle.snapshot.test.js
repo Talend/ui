@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 
 import ItemTitle from './ItemTitle.component';
 
-jest.mock('react-dom');
-
 const item = {
 	id: 1,
 	name: 'Hello world',
@@ -65,13 +63,18 @@ describe('ItemTitle', () => {
 			titleProps: {
 				key: 'name',
 				displayModeKey: 'displayMode', // item.displayMode is the provided display mode
-				onChange: jest.fn(),
-				onCancel: jest.fn(),
 			},
 		};
+		function createNodeMock(element) {
+			if (element.type === 'input') {
+				return {};
+			}
+			return null;
+		}
+		const rendererOptions = { createNodeMock };
 
 		// when
-		const wrapper = renderer.create(<ItemTitle {...props} />).toJSON();
+		const wrapper = renderer.create(<ItemTitle {...props} />, rendererOptions).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
