@@ -17,6 +17,11 @@ This document aims to ease the WIP migration from a version to another by provid
 |---|---|---|
 | react | ^15.3.2 | ^15.4.0 |
 
+## v0.23.0
+* Component: Drawer
+* PR : [feat: add drawers to Layout](https://github.com/Talend/react-talend-components/pull/138)
+* Changes: new PEER dependency `"react-addons-css-transition-group": "^15.4.1"`
+
 ## v0.18.0
 * Component: List
 * PR : [feat(list): allow title input mode](https://github.com/Talend/react-talend-components/pull/90)
