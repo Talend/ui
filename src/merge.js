@@ -1,8 +1,8 @@
 import {stringify, parse} from './sfPath';
-import canonicalTitleMap from './canonicalTitleMap';
+import { canonicalTitleMap } from './canonicalTitleMap';
 
 //export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
-export function merge(lookup, form, options, readonly, asyncTemplates) {
+const merge = function (lookup, form, options, readonly, asyncTemplates) {
   form  = form || [];
   options = options || {};
 
@@ -76,3 +76,4 @@ export function merge(lookup, form, options, readonly, asyncTemplates) {
     return obj;
   });
 }
+export { merge };

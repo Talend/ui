@@ -1,5 +1,5 @@
 
-import sfPath from './sfPath';
+import { parse } from './sfPath';
 
 const numRe = /^\d+$/;
 
@@ -19,12 +19,12 @@ const numRe = /^\d+$/;
   * @returns {Any|undefined} returns the value at the end of the projection path
   *                          or undefined if there is none.
   */
-export function select(projection, obj, valueToSet) {
+const select = (projection, obj, valueToSet) => {
   if (!obj) {
     obj = this;
   }
   //Support [] array syntax
-  var parts = typeof projection === 'string' ? sfPath.parse(projection) : projection;
+  var parts = typeof projection === 'string' ? parse(projection) : projection;
 
   if (typeof valueToSet !== 'undefined' && parts.length === 1) {
     //special case, just setting one variable
@@ -67,3 +67,5 @@ export function select(projection, obj, valueToSet) {
   }
   return value;
 }
+
+export { select };

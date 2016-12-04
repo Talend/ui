@@ -10,7 +10,7 @@ import tv4 from 'tv4';
  * @param {Any} value the value to validate.
  * @return {Object} a tv4js result object.
  */
-export function validate(form, value) {
+const validate = function (form, value) {
   if (!form) {
     return { valid: true };
   };
@@ -51,3 +51,5 @@ export function validate(form, value) {
 
   return tv4.validateResult(valueWrap, wrap);
 };
+
+export { validate };

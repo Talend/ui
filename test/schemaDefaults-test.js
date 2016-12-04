@@ -1,7 +1,7 @@
 
 import chai from 'chai';
-import {describe, it} from 'mocha';
-import {defaultForm, createDefaults } from '../lib/schemaDefaults';
+import { describe, it} from 'mocha';
+import { defaultForm, createDefaults } from '../src/schemaDefaults';
 
 chai.should();
 

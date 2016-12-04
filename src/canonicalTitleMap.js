@@ -1,6 +1,6 @@
 // Takes a titleMap in either object or list format and returns one in
 // in the list format.
-export default function(titleMap, originalEnum) {
+const canonicalTitleMap = function (titleMap, originalEnum) {
   if (!Array.isArray(titleMap)) {
     const canonical = [];
     if (originalEnum) {
@@ -16,3 +16,5 @@ export default function(titleMap, originalEnum) {
   }
   return titleMap;
 }
+
+export { canonicalTitleMap };

@@ -2,7 +2,7 @@
  * Traverse a schema, applying a function(schema,path) on every sub schema
  * i.e. every property of an object.
  */
-export function traverseSchema(schema, fn, path, ignoreArrays) {
+const traverseSchema = function (schema, fn, path, ignoreArrays) {
   ignoreArrays = ignoreArrays === undefined ? true : ignoreArrays;
 
   path = path || [];
@@ -45,3 +45,4 @@ export function traverseForm(form, fn) {
     });
   }
 }
+export { traverseSchema };

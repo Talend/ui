@@ -1,12 +1,7 @@
-import * as schemaDefaultsImp from './lib/schemaDefaults';
-import * as sfPathImp from './lib/sfPath';
-import canonicalTitleMapImp from './lib/canonicalTitleMap';
-
-export * from './lib/merge.js';
-export * from './lib/select.js';
-export * from './lib/traverse.js';
-export * from './lib/validate.js';
-
-export const sfPath = sfPathImp;
-export const schemaDefaults = schemaDefaultsImp;
-export const canonicalTitleMap = canonicalTitleMapImp;
+export { schemaDefaults } from './src/schemaDefaults';
+export { canonicalTitleMap } from './src/canonicalTitleMap';
+export { sfPath } from './src/sfPath';
+export { merge } from './src/merge';
+export { select } from './src/select';
+export { traverse } from './src/traverse';
+export { validate } from './src/validate';
