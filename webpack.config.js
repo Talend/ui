@@ -6,32 +6,51 @@ var library = 'JSONSchemaFormCore';
 console.log('JSON Schema Form Core v' + pjson.version);
 
 module.exports = {
-  entry: [ './index.js' ],
+  entry: {
+    "app": './src/app/index'
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'json-schema-form-core.js',
-    library: library,
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    filename: 'json-schema-form-core.js'
   },
-  resolve: { extensions: [ '', '.js' ] },
+  resolve: {
+    modules: [
+      path.join(__dirname, "src"),
+      path.join(__dirname, "src/app"),
+      "node_modules"
+    ],
+    extensions: [ '.ts', '.js' ]
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        include: [ __dirname ],
-        exclude: [ 'node_modules' ],
-        loader: 'babel',
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ["es2015", { "modules": false }]
+            ]
+          }
+        }],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.ts/,
+        use: [ 'ts-loader' ],
+        exclude: /node_modules/
       }
     ]
   },
+  devtool: 'source-map',
   externals: {
     'tv4': 'var tv4',
   },
   plugins: [
     new webpack.BannerPlugin(
       'json-schema-form-core\n' +
-      '@version ' + pjson.version + '\n' +
+      '@version ' +
+      pjson.version + '\n' +
       '@link https://github.com/json-schema-form/json-schema-form-core\n' +
       '@license MIT\n' +
       'Copyright (c) 2016 JSON Schema Form')

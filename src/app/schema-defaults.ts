@@ -1,9 +1,9 @@
-import { stringify } from './sfPath';
-import { canonicalTitleMap } from './canonicalTitleMap';
+import { stringify } from './sf-path';
+import canonicalTitleMap from './canonical-title-map';
 
 /* Utils */
 const stripNullType = (type) => {
-  if (Array.isArray(type) && type.length == 2) {
+  if (Array.isArray(type) && type.length === 2) {
     if (type[0] === 'null') {
       return type[1];
     };
@@ -14,9 +14,9 @@ const stripNullType = (type) => {
   return type;
 };
 
-//Creates an default titleMap list from an enum, i.e. a list of strings.
+// Creates an default titleMap list from an enum, i.e. a list of strings.
 const enumToTitleMap = (enm) => {
-  const titleMap = []; //canonical titleMap format is a list.
+  const titleMap = []; // canonical titleMap format is a list.
   enm.forEach((name) => {
     titleMap.push({ name, value: name });
   });
@@ -36,7 +36,7 @@ export function defaultFormDefinition(schemaTypes, name, schema, options) {
     for (let i = 0; i < rules.length; i++) {
       def = rules[i](name, schema, options, innerDefaultFormDefinition);
 
-      //first handler in list that actually returns something is our handler!
+      // first handler in list that actually returns something is our handler!
       if (def) {
 
         // Do we have form defaults in the schema under the x-schema-form-attribute?
@@ -97,8 +97,8 @@ export function text(name, schema, options) {
   }
 }
 
-//default in json form for number and integer is a text field
-//input type="number" would be more suitable don't ya think?
+// default in json form for number and integer is a text field
+// input type="number" would be more suitable don't ya think?
 export function number(name, schema, options) {
   if (stripNullType(schema.type) === 'number') {
     const f = stdFormObj(name, schema, options);
@@ -163,7 +163,7 @@ export function fieldset(name, schema, options, defaultFormDef) {
     f.items = [];
     options.lookup[stringify(options.path)] = f;
 
-    //recurse down into properties
+    // recurse down into properties
     if (schema.properties) {
       Object.keys(schema.properties).forEach((key) => {
         const value = schema.properties[key];
@@ -222,8 +222,8 @@ export function array(name, schema, options, defaultFormDef) {
 }
 
 export function createDefaults() {
-  //First sorted by schema type then a list.
-  //Order has importance. First handler returning an form snippet will be used.
+  // First sorted by schema type then a list.
+  // Order has importance. First handler returning an form snippet will be used.
   return {
     string:  [ select, text ],
     object:  [ fieldset ],
@@ -237,9 +237,9 @@ export function createDefaults() {
 /**
  * Create form defaults from schema
  */
-export function defaultForm(schema, defaultSchemaTypes, ignore, globalOptions) {
+export function defaultForm(schema: any, defaultSchemaTypes: any, ignore?: any, globalOptions?: any) {
   const form   = [];
-  const lookup = {}; //Map path => form obj for fast lookup in merging
+  const lookup = {}; // Map path => form obj for fast lookup in merging
   ignore = ignore || {};
   globalOptions = globalOptions || {};
   defaultSchemaTypes = defaultSchemaTypes || createDefaults();
