@@ -4,7 +4,7 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const lib = require('../src');
 
-const BODY_TPL = (icons) => `
+const BODY_TPL = (icons, style) => `
 <!doctype html>
 <html>
 	<head>
@@ -26,6 +26,7 @@ const BODY_TPL = (icons) => `
 				display: block;
 				margin-top: 10px;
 			}
+			${style}
 		</style>
 	</head>
 	<body>
@@ -45,5 +46,8 @@ const buff = Object.keys(lib.svgs).map((key) => {
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);
 
+const stylePath = path.join(__dirname, '../src/talendicons.css');
+const style = fs.readFileSync(stylePath, "utf8");
+
 const icons = buff.join('\n');
-fs.writeFileSync(path.join(dist, 'index.html'), BODY_TPL(icons));
+fs.writeFileSync(path.join(dist, 'index.html'), BODY_TPL(icons, style));

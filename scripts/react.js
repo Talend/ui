@@ -22,3 +22,7 @@ const options = {
 };
 const code = require("babel-core").transform(buff.join('\n'), options);
 fs.writeFileSync(path.join(dist, 'react.js'), code.code);
+
+const styleSrc = path.join(__dirname, '../src/talendicons.css');
+const styleDist = path.join(__dirname, '../dist/talendicons.css');
+fs.createReadStream(styleSrc).pipe(fs.createWriteStream(styleDist));

@@ -92,7 +92,7 @@ All classes set on complete icon or part of icon should be defined by hand and s
 <path class="screwdriver-tip" d="M650,85.5H150L0,435.5v250H800v-250Zm100,550H50v-150H750Z" transform="translate(0 -85.5)"/>
 </g>
 ```
-## Use shape elemetn whenever its possible
+## Use shape element whenever its possible
 polygon, circles, ellipse should be used instead of path.
 
 ## No display="none" elements

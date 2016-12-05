@@ -1,5 +1,15 @@
-.ticon {
-  display: inline-block;
-  vertical-align: text-top;
-  fill: currentColor;
+.ti-beam-light {
+	opacity: 0.5;
+}
+
+.ti-elastic-light {
+	opacity:0.8;
+}
+
+.ti-elastic-lighter {
+	opacity:0.6;
+}
+
+.ti-elastic-lightest {
+	opacity:0.4;
 }
