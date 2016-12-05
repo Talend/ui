@@ -3,6 +3,11 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.25.0
+* Module: react-autowhatever
+* PR : [refactor(autowhatever_module): move to dependencies instead of devDependencies](https://github.com/Talend/react-talend-components/pull/134)
+* Changes: We will not need to add manually react-autowhatever module to your projects' dependency anymore.
+
 ## v0.24.0
 * Component: List
 * PR : [feat(list): title input change management](https://github.com/Talend/react-talend-components/pull/136)

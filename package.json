@@ -34,7 +34,9 @@
     "type": "git",
     "url": "https://github.com/Talend/react-talend-components"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-autowhatever": "^7.0.0"
+  },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.2",
     "@kadira/storybook": "^2.21.0",
@@ -68,7 +70,6 @@
     "react-a11y": "^0.3.3",
     "react-addons-css-transition-group": "^15.4.1",
     "react-addons-test-utils": "^15.4.0",
-    "react-autowhatever": "^7.0.0",
     "react-bootstrap": "0",
     "react-dom": "^15.4.0",
     "react-test-renderer": "^15.4.0",
@@ -97,7 +98,6 @@
     "invariant": "^2.2.1",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.1",
-    "react-autowhatever": "^7.0.0",
     "react-bootstrap": "0",
     "talend-icons": "^0.5.5",
     "uuid": "^2.0.3"
