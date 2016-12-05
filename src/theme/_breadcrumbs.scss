@@ -20,6 +20,7 @@
 		& > span,
 		& > .btn {
 			flex: 1;
+			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
 			padding: $breadcrumb-padding-vertical 0;
 			max-width: $breadcrumb-items-max-width;
 			text-overflow: ellipsis;
