@@ -56,7 +56,7 @@ function List({ id, displayMode, toolbar, list }) {
 	);
 	return (
 		<div className="tc-list">
-			<Toolbar id={id} displayMode={displayMode} {...toolbar} />
+			{toolbar && (<Toolbar id={id} displayMode={displayMode} {...toolbar} />)}
 			{content}
 		</div>
 	);

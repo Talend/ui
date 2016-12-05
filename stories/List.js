@@ -150,4 +150,18 @@ storiesOf('List', module)
 				<List {...tprops} />
 			</div>
 		);
+	})
+	.add('Without toolbar', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list without toolbar</p>
+				<IconsProvider />
+				<List {...tprops} />
+			</div>
+		);
 	});
