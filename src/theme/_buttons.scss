@@ -7,6 +7,8 @@
 	@include btn-colors;
 	font-size: $btn-font-size;
 	letter-spacing: 1px;
+	padding: 0 $padding-normal;
+	line-height: 3.3rem;
 	text-transform: uppercase;
 
 	&-primary,
@@ -52,14 +54,31 @@
 		}
 	}
 
+	&-icon-only {
+		svg {
+			margin: -0.3em -10px 0 -10px;
+		}
+	}
+
+	&-xs {
+		line-height: 1.5rem;
+		padding: 0 $padding-xs-horizontal;
+	}
+
+	&-sm {
+		line-height: 2rem;
+		padding: 0 $padding-small-horizontal;
+	}
+
 	&-lg {
 		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 	}
 
 	svg {
+		display: inline-block;
 		fill: currentColor;
-		float: left;
 		height: 2em;
-		margin: -4px $padding-small -6px 0;
+		margin-top: -0.4rem;
+		vertical-align: middle;
 	}
 }

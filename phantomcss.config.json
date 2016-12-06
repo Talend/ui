@@ -26,6 +26,18 @@
       "selector": "#btn-dropdown"
     },
     {
+      "name": "buttons-left-icons",
+      "selector": "#buttons-left-icons"
+    },
+    {
+      "name": "buttons-no-icons",
+      "selector": "#buttons-no-icons"
+    },
+    {
+      "name": "buttons-right-icons",
+      "selector": "#buttons-right-icons"
+    },
+    {
       "name": "button-sizes",
       "selector": "#btn-sizes"
     },
