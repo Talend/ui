@@ -33,9 +33,12 @@ class MyForm extends React.Component {
 	}
 
 	render() {
-		const actions = [{ style: 'link', onClick: this.onCancel, type: 'button', label: 'CANCEL' }];
+		const actions = [
+			{ style: 'link', onClick: this.onCancel, type: 'button', label: 'CANCEL' },
+			{ style: 'primary', onClick: this.onSubmit, type: 'button', label: 'VALIDATE' },
+		];
 		return (
-			<Form data={this.props.data} onSubmit={this.onSubmit} actions={actions} />
+			<Form data={this.props.data} actions={actions} />
 		);
 	}
 }
