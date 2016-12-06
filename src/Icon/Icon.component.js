@@ -10,19 +10,32 @@ import theme from './Icon.scss';
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ name, title }) {
+function Icon({ className, name, title }) {
 	const accessibility = {
 		'aria-hidden': 'true',
 		title: title || null,
 	};
 	if (name.startsWith('fa-')) {
-		return (<i className={`fa ${name}`} {...accessibility} />);
+		const classes = classnames(
+			'fa',
+			name,
+			className,
+		);
+		return (<i className={classes} {...accessibility} />);
 	}
 	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-		return (<i className={name} {...accessibility} />);
+		const classes = classnames(
+			name,
+			className,
+		);
+		return (<i className={classes} {...accessibility} />);
 	}
 	if (name) {
-		const classname = classnames(theme['svg-icon'], 'tc-svg-icon');
+		const classname = classnames(
+			theme['svg-icon'],
+			'tc-svg-icon',
+			className,
+		);
 		return (
 			<svg className={classname} {...accessibility}>
 				<use xlinkHref={`#${name}`} />
@@ -33,6 +46,7 @@ function Icon({ name, title }) {
 }
 
 Icon.propTypes = {
+	className: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	title: React.PropTypes.string,
 };

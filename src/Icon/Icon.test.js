@@ -8,16 +8,24 @@ describe('Icon', () => {
 		const wrapper = renderer.create(<Icon name="fa-bars" />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render from custom font', () => {
 		const wrapper = renderer.create(<Icon name="icon-test" />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render from svg', () => {
 		const wrapper = renderer.create(<Icon name="svg-dd" />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should fails if no id found', () => {
 		const render = () => renderer.create(<Icon />);
 		expect(render).toThrowError(Error, 'Invariant Violation: no id provided');
+	});
+
+	it('should render with provided className', () => {
+		const wrapper = renderer.create(<Icon name="svg-dd" className="custom-class" />).toJSON();
+		expect(wrapper).toMatchSnapshot();
 	});
 });

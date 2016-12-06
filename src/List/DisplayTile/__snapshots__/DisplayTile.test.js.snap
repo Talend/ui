@@ -4,7 +4,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
     className={undefined}>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}>
@@ -16,7 +16,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           }>
           <i
             aria-hidden="true"
-            className="fa fa-file-excel-o"
+            className="fa fa-file-excel-o tc-list-icon"
             title={null} />
           <button
             className="btn btn-link"
@@ -71,7 +71,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}>
@@ -83,7 +83,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           }>
           <i
             aria-hidden="true"
-            className="fa fa-file-pdf-o"
+            className="fa fa-file-pdf-o tc-list-icon"
             title={null} />
           <button
             className="btn btn-link"
@@ -138,7 +138,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}>
@@ -209,7 +209,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
     className={undefined}>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -221,7 +221,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           }>
           <i
             aria-hidden="true"
-            className="fa fa-file-excel-o"
+            className="fa fa-file-excel-o tc-list-icon"
             title={null} />
           <span
             className=""
@@ -272,7 +272,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -284,7 +284,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           }>
           <i
             aria-hidden="true"
-            className="fa fa-file-pdf-o"
+            className="fa fa-file-pdf-o tc-list-icon"
             title={null} />
           <span
             className=""
@@ -335,7 +335,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -402,7 +402,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
     className={undefined}>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -461,7 +461,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -520,7 +520,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -587,7 +587,7 @@ exports[`DisplayTile should render with id if provided 1`] = `
     className={undefined}>
     <li>
       <div
-        className={undefined}
+        className=""
         id="tile-list-0"
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -646,7 +646,7 @@ exports[`DisplayTile should render with id if provided 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
         id="tile-list-1"
         onClick={undefined}
         onDoubleClick={undefined}>
@@ -705,7 +705,192 @@ exports[`DisplayTile should render with id if provided 1`] = `
     </li>
     <li>
       <div
-        className={undefined}
+        className=""
+        id="tile-list-2"
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className=""
+            id="tile-list-2-title">
+            Bar
+          </span>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`DisplayTile should render with item custom className if provided 1`] = `
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      <div
+        className="item-0-class"
+        id="tile-list-0"
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className=""
+            id="tile-list-0-title">
+            Hello world
+          </span>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={1}>
+            1
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
+      </div>
+    </li>
+    <li>
+      <div
+        className="item-1-class"
+        id="tile-list-1"
+        onClick={undefined}
+        onDoubleClick={undefined}>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className=""
+            id="tile-list-1-title">
+            Foo
+          </span>
+        </div>
+        <dl
+          className={undefined}>
+          <dt
+            className={undefined}>
+            Id
+          </dt>
+          <dd
+            className={undefined}
+            title={2}>
+            2
+          </dd>
+          <dt
+            className={undefined}>
+            Author
+          </dt>
+          <dd
+            className={undefined}
+            title="Jean-Pierre DUPONT">
+            Jean-Pierre DUPONT
+          </dd>
+          <dt
+            className={undefined}>
+            Created
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+          <dt
+            className={undefined}>
+            Modified
+          </dt>
+          <dd
+            className={undefined}
+            title="2016-09-22">
+            2016-09-22
+          </dd>
+        </dl>
+      </div>
+    </li>
+    <li>
+      <div
+        className=""
         id="tile-list-2"
         onClick={undefined}
         onDoubleClick={undefined}>

@@ -26,7 +26,7 @@ exports[`ItemTitle should render icon 1`] = `
   }>
   <i
     aria-hidden="true"
-    className="fa fa-file-excel-o"
+    className="fa fa-file-excel-o tc-list-icon"
     title={null} />
   <span
     className="my-title"

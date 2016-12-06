@@ -30,31 +30,36 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
-				actions: [{
-					label: 'edit',
-					icon: 'talend-pencil',
-					onClick: action('onEdit'),
-				}, {
-					label: 'delete',
-					icon: 'talend-trash',
-					onClick: action('onDelete'),
-				}, {
-					displayMode: 'dropdown',
-					label: 'related items',
-					icon: 'talend-folder',
-					items: [
-						{
-							label: 'document 1',
-							onClick: action('document 1 click'),
-						},
-						{
-							label: 'document 2',
-							onClick: action('document 2 click'),
-						},
-					],
-				}],
+				actions: [
+					{
+						label: 'edit',
+						icon: 'talend-pencil',
+						onClick: action('onEdit'),
+					},
+					{
+						label: 'delete',
+						icon: 'talend-trash',
+						onClick: action('onDelete'),
+					},
+					{
+						displayMode: 'dropdown',
+						label: 'related items',
+						icon: 'talend-folder',
+						items: [
+							{
+								label: 'document 1',
+								onClick: action('document 1 click'),
+							},
+							{
+								label: 'document 2',
+								onClick: action('document 2 click'),
+							},
+						],
+					},
+				],
 				icon: 'fa fa-file-excel-o',
 				display: 'text',
+				className: 'item-0-class',
 			},
 			{
 				id: 2,
@@ -64,9 +69,10 @@ const props = {
 				author: 'Jean-Pierre DUPONT',
 				icon: 'fa fa-file-pdf-o',
 				display: 'input',
+				className: 'item-1-class',
 			},
 			{
-				id: 2,
+				id: 3,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -82,6 +88,7 @@ const props = {
 			onEditSubmit: action('onEditSubmit'),
 		},
 		itemProps: {
+			classNameKey: 'className',
 			isSelected: item => selected.find(next => next.id === item.id),
 			onSelect: action('onSelect'),
 			onToggle: action('onToggle'),

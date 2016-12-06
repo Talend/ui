@@ -23,6 +23,7 @@ const items = [
 			onClick: jest.fn(),
 		}],
 		icon: 'fa fa-file-excel-o',
+		className: 'item-0-class',
 	},
 	{
 		id: 2,
@@ -31,6 +32,7 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-pdf-o',
+		className: 'item-1-class',
 	},
 	{
 		id: 2,
@@ -89,6 +91,22 @@ describe('DisplayTable', () => {
 			id: 'table-list',
 			items,
 			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with item custom className if provided', () => {
+		// given
+		const props = {
+			id: 'table-list',
+			items,
+			columns,
+			itemProps: { classNameKey: 'className' },
 		};
 
 		// when

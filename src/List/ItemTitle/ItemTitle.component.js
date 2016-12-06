@@ -122,7 +122,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 	const value = item[key];
 	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
 	const iconName = iconKey && item[iconKey];
-	const icon = iconName ? <Icon name={iconName} /> : null;
+	const icon = iconName ? <Icon className="tc-list-icon" name={iconName} /> : null;
 
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {

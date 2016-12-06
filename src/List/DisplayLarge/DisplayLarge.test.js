@@ -13,16 +13,20 @@ const items = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
-		actions: [{
-			label: 'edit',
-			icon: 'fa fa-edit',
-			onClick: jest.fn(),
-		}, {
-			label: 'delete',
-			icon: 'fa fa-trash-o',
-			onClick: jest.fn(),
-		}],
+		actions: [
+			{
+				label: 'edit',
+				icon: 'fa fa-edit',
+				onClick: jest.fn(),
+			},
+			{
+				label: 'delete',
+				icon: 'fa fa-trash-o',
+				onClick: jest.fn(),
+			},
+		],
 		icon: 'fa fa-file-excel-o',
+		className: 'item-0-class',
 	},
 	{
 		id: 2,
@@ -31,6 +35,7 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-pdf-o',
+		className: 'item-1-class',
 	},
 	{
 		id: 2,
@@ -89,6 +94,22 @@ describe('DisplayLarge', () => {
 			id: 'large-list',
 			items,
 			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayLarge {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with item custom className if provided', () => {
+		// given
+		const props = {
+			id: 'large-list',
+			items,
+			columns,
+			itemProps: { classNameKey: 'className' },
 		};
 
 		// when

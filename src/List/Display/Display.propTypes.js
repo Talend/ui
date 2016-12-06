@@ -6,6 +6,7 @@ export default {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	items: PropTypes.arrayOf(PropTypes.object),
 	itemProps: PropTypes.shape({
+		classNameKey: PropTypes.string,
 		isSelected: PropTypes.func,
 		onSelect: PropTypes.func,
 		onToggle: PropTypes.func,
