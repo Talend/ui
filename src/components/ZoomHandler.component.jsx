@@ -32,7 +32,7 @@ export const ZoomHandler = React.createClass({
     componentWillReceiveProps(nextProps){
       if(nextProps.transformToApply){
         if(nextProps.transformToApply !== this.props.transformToApply){
-          this.selection.transition().duration(750).call(
+          this.selection.transition().duration(230).call(
             this.zoom.transform,
             nextProps.transformToApply
           );
