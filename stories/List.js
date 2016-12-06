@@ -99,10 +99,11 @@ const props = {
 		],
 		onFilter: action('onFilter'),
 		onSelectDisplayMode: action('onSelectDisplayMode'),
-		sortBy: [
+		sortOptions: [
 			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name', selected: true },
+			{ id: 'name', name: 'Name' },
 		],
+		sortBy: 'name',
 		onSelectSortBy: action('onSelectSortBy'),
 		itemsLength: 3,
 		onChangePagination: action('onChangePagination'),

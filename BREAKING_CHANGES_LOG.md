@@ -3,6 +3,16 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v.0.25.5
+* Component: SelectSortBy
+* PR: [refactor(SelectSortBy): change selection process of SortBy](https://github.com/Talend/react-talend-components/pull/149)
+* Changes
+
+| Old Properties | New Properties|
+|---|---|
+| props.sortBy | props.sortOptions |
+| - | props.sortBy |
+
 ## v0.25.4
 * Module: List
 * PR : [fix(list): reorganize props](https://github.com/Talend/react-talend-components/pull/147)

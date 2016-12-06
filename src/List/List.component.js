@@ -23,9 +23,10 @@ const props = {
 			placeholder: 'find xx',
 			onChangeFilter: function,
 		},
-		sortBy: [
+		sortOptions: [
 			{key, label},
 		],
+		sortBy: key,
 		sortDesc: true / false,
 		onSelectSortBy: function,
 	}

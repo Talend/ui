@@ -11,11 +11,9 @@ import theme from './SelectSortBy.scss';
  */
 function SelectSortBy(props) {
 	let selected;
-	props.sortBy.forEach((sortBy) => {
-		if (sortBy.selected) {
-			selected = sortBy;
-		}
-	});
+	if (props.sortBy) {
+		selected = props.sortOptions.find(item => item.id === props.sortBy);
+	}
 	let onSelectSortBy = props.onSelectSortBy;
 	if (onSelectSortBy) {
 		onSelectSortBy = (key, event) => props.onSelectSortBy(
@@ -46,13 +44,13 @@ function SelectSortBy(props) {
 				title={selected ? selected.name : 'N.C'}
 				onSelect={onSelectSortBy}
 			>
-				{props.sortBy.map((sortBy, index) => (
+				{props.sortOptions.map((option, index) => (
 					<MenuItem
-						id={props.id && `${props.id}-sort-by-item-${sortBy.name}`}
+						id={props.id && `${props.id}-sort-by-item-${option.name}`}
 						key={index}
-						eventKey={sortBy}
+						eventKey={option}
 					>
-						{sortBy.name}
+						{option.name}
 					</MenuItem>
 				))}
 			</NavDropdown>
@@ -72,13 +70,13 @@ function SelectSortBy(props) {
 SelectSortBy.propTypes = {
 	id: PropTypes.string,
 	onSelectSortBy: PropTypes.func,
-	sortBy: PropTypes.arrayOf(
+	sortOptions: PropTypes.arrayOf(
 		PropTypes.shape({
-			id: PropTypes.string,
+			id: PropTypes.string.isRequired,
 			name: PropTypes.string,
-			selected: PropTypes.bool,
 		})
 	),
+	sortBy: PropTypes.string,
 	sortDesc: PropTypes.bool,
 };
 

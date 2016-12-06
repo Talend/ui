@@ -7,10 +7,11 @@ const props = {
 	onSelectDisplayMode: jest.fn(),
 	onSelectSortBy: jest.fn(),
 	onFilter: jest.fn(),
-	sortBy: [
-		{ id: 'id', name: 'Name', selected: true },
+	sortOptions: [
+		{ id: 'id', name: 'Name' },
 		{ id: 'name', name: 'Name' },
 	],
+	sortBy: 'id',
 	sortDesc: true,
 };
 

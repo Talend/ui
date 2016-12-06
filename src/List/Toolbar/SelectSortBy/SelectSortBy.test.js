@@ -10,10 +10,11 @@ describe('SelectSortBy', () => {
 		// given
 		const props = {
 			onSelectSortBy: jest.fn(),
-			sortBy: [
-				{ id: 'id', name: 'Name', selected: true },
+			sortOptions: [
+				{ id: 'id', name: 'Name' },
 				{ id: 'name', name: 'Name' },
 			],
+			sortBy: 'id',
 		};
 
 		// when
@@ -29,7 +30,7 @@ describe('SelectSortBy', () => {
 		// given
 		const props = {
 			onSelectSortBy: jest.fn(),
-			sortBy: [
+			sortOptions: [
 				{ id: 'id', name: 'Name' },
 				{ id: 'label', name: 'Label' },
 			],
@@ -50,10 +51,11 @@ describe('SelectSortBy', () => {
 		const props = {
 			id: 'toolbar',
 			onSelectSortBy: jest.fn(),
-			sortBy: [
-				{ id: 'id', name: 'Name', selected: true },
+			sortOptions: [
+				{ id: 'id', name: 'Name' },
 				{ id: 'name', name: 'Name' },
 			],
+			sortBy: 'id',
 		};
 
 		// when

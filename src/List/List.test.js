@@ -25,10 +25,11 @@ const toolbarProps = {
 	onFilter: jest.fn(),
 	onSelectSortBy: jest.fn(),
 	onSelectDisplayMode: jest.fn(),
-	sortBy: [
-		{ name: 'Id' },
-		{ name: 'Name', selected: true },
+	sortOptions: [
+		{ id: 'id', name: 'Id' },
+		{ id: 'name', name: 'Name' },
 	],
+	sortBy: 'name',
 };
 
 const props = {
