@@ -3,8 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 import theme from './Drawer.scss';
 
-function Drawer({ className, style, children }) {
-	const drawerClasses = classnames(theme.drawer, className, 'tc-drawer');
+function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
 			transitionName="tc-drawer"
@@ -12,12 +11,25 @@ function Drawer({ className, style, children }) {
 			transitionAppearTimeout={1000}
 			transitionLeaveTimeout={1000}
 		>
-			<div className={drawerClasses} style={style}>
-				{children}
-			</div>
+			{children}
 		</ReactCSSTransitionGroup>
 	);
 }
+
+DrawerAnimation.propTypes = {
+	children: PropTypes.node,
+};
+
+function Drawer({ className, style, children }) {
+	const drawerClasses = classnames(theme.drawer, className, 'tc-drawer');
+	return (
+		<div className={drawerClasses} style={style}>
+			{children}
+		</div>
+	);
+}
+
+Drawer.Animation = DrawerAnimation;
 
 Drawer.propTypes = {
 	children: PropTypes.node,

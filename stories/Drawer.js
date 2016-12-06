@@ -57,24 +57,28 @@ storiesOf('Drawer', module)
 	.addWithInfo('Default', () => (
 		<div>
 			<h1>Hello world</h1>
-			<Drawer>
-				<h1>I am a drawer</h1>
-			</Drawer>
-			<Drawer>
-				<h1>I am an other drawer</h1>
-			</Drawer>
+			<Drawer.Animation>
+				<Drawer>
+					<h1>I am a drawer</h1>
+				</Drawer>
+				<Drawer>
+					<h1>I am an other drawer</h1>
+				</Drawer>
+			</Drawer.Animation>
 		</div>
 	))
 	.addWithInfo('custom classname', () => (
 		<div>
 			<h1>Hello world</h1>
-			<Drawer className="drawer-custom">
-				<h1>I am a customized drawer</h1>
-				<p>Using className props</p>
-			</Drawer>
+			<Drawer.Animation>
+				<Drawer className="drawer-custom">
+					<h1>I am a customized drawer</h1>
+					<p>Using className props</p>
+				</Drawer>
+			</Drawer.Animation>
 		</div>
 	))
-	.addWithInfo('custom styles', () => (
+	.addWithInfo('custom styles without animation', () => (
 		<div>
 			<h1>Hello world</h1>
 			<Drawer style={{ width: 400, backgroundColor: '#ddd' }}>

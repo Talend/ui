@@ -37,6 +37,8 @@ exports[`Layout should render Layout OneColumn 1`] = `
   </div>
   <div
     className="tc-layout-one-column" />
+  <div
+    className="react-addons-css-transition-group" />
 </div>
 `;
 
@@ -88,6 +90,8 @@ exports[`Layout should render Layout TwoColumns 1`] = `
     <div
       className="tc-layout-two-columns-main" />
   </div>
+  <div
+    className="react-addons-css-transition-group" />
 </div>
 `;
 
@@ -158,9 +162,6 @@ exports[`Layout should render layout with Drawer component 1`] = `
         </p>
       </div>
     </div>
-  </div>
-  <div
-    className="react-addons-css-transition-group">
     <div
       className="tc-drawer"
       style={undefined}>

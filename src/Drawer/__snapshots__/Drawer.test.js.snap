@@ -1,42 +1,33 @@
 exports[`Drawer should render 1`] = `
 <div
-  className="react-addons-css-transition-group">
-  <div
-    className="tc-drawer"
-    style={undefined}>
-    <h1>
-      Hello world
-    </h1>
-  </div>
+  className="tc-drawer"
+  style={undefined}>
+  <h1>
+    Hello world
+  </h1>
 </div>
 `;
 
 exports[`Drawer should render using custom className 1`] = `
 <div
-  className="react-addons-css-transition-group">
-  <div
-    className="my-custom-drawer tc-drawer"
-    style={undefined}>
-    <h1>
-      Hello world
-    </h1>
-  </div>
+  className="my-custom-drawer tc-drawer"
+  style={undefined}>
+  <h1>
+    Hello world
+  </h1>
 </div>
 `;
 
 exports[`Drawer should render using custom styles 1`] = `
 <div
-  className="react-addons-css-transition-group">
-  <div
-    className="tc-drawer"
-    style={
-      Object {
-        "top": 45,
-      }
-    }>
-    <h1>
-      Hello world
-    </h1>
-  </div>
+  className="tc-drawer"
+  style={
+    Object {
+      "top": 45,
+    }
+  }>
+  <h1>
+    Hello world
+  </h1>
 </div>
 `;

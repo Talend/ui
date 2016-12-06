@@ -56,11 +56,13 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 					{children}
 				</Component>
 			) : null}
-			{drawers && drawers.map((drawer, key) => (
-				<Drawer key={key} className={theme.drawer}>
-					{drawer}
-				</Drawer>
-			))}
+			<Drawer.Animation>
+				{drawers && drawers.map((drawer, key) => (
+					<Drawer key={key} className={theme.drawer}>
+						{drawer}
+					</Drawer>
+				))}
+			</Drawer.Animation>
 		</div>
 	);
 }
