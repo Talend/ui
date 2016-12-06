@@ -1,0 +1,40 @@
+// Drawer styles
+
+$tc-drawer-initial-offset: 1000px !default;
+$tc-drawer-bgcolor: #FFF !default;
+$tc-drawer-transition-duration: 0.23s !default;
+$tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
+
+.drawer {
+	background-color: $tc-drawer-bgcolor;
+	position: fixed;
+	top: 0;
+	transform: translateX(0%);
+	right: 0;
+	bottom: 0;
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+
+	&:global(.tc-drawer-enter),
+	&:global(.tc-drawer-appear),
+	&:global(.tc-drawer-leave) {
+		transition: transform $tc-drawer-transition-duration $tc-drawer-transition-easing;
+	}
+
+	&:global(.tc-drawer-enter),
+	&:global(.tc-drawer-appear) {
+		transform: translateX(100%);
+
+		&:global(.tc-drawer-enter-active),
+		&:global(.tc-drawer-appear-active) {
+			transform: translateX(0%);
+		}
+	}
+
+	&:global(.tc-drawer-leave) {
+		transform: translateX(0%);
+
+		&:global(.tc-drawer-leave-active) {
+			transform: translateX(100%);
+		}
+	}
+}

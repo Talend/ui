@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
-import Drawers from './Drawers';
+import Drawer from '../Drawer';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -56,7 +56,11 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 					{children}
 				</Component>
 			) : null}
-			{drawers && (<Drawers drawers={drawers} />)}
+			{drawers && drawers.map((drawer, key) => (
+				<Drawer key={key} className={theme.drawer}>
+					{drawer}
+				</Drawer>
+			))}
 		</div>
 	);
 }

@@ -140,40 +140,42 @@ exports[`Layout should render layout with Drawer component 1`] = `
       className="tc-layout-two-columns-main" />
   </div>
   <div
-    className="tc-layout-drawers">
+    className="react-addons-css-transition-group">
     <div
-      className="react-addons-css-transition-group">
+      className="tc-drawer"
+      style={undefined}>
       <div
-        className="tc-layout-drawers-drawer">
-        <div
-          style={
-            Object {
-              "width": 500,
-            }
-          }>
-          <h1>
-            Hello drawers
-          </h1>
-          <p>
-            You should not being able to read this because I\'m first
-          </p>
-        </div>
+        style={
+          Object {
+            "width": 500,
+          }
+        }>
+        <h1>
+          Hello drawers
+        </h1>
+        <p>
+          You should not being able to read this because I\'m first
+        </p>
       </div>
+    </div>
+  </div>
+  <div
+    className="react-addons-css-transition-group">
+    <div
+      className="tc-drawer"
+      style={undefined}>
       <div
-        className="tc-layout-drawers-drawer">
-        <div
-          style={
-            Object {
-              "width": 400,
-            }
-          }>
-          <h1>
-            Hello drawers
-          </h1>
-          <p>
-            The content dictate the width
-          </p>
-        </div>
+        style={
+          Object {
+            "width": 400,
+          }
+        }>
+        <h1>
+          Hello drawers
+        </h1>
+        <p>
+          The content dictate the width
+        </p>
       </div>
     </div>
   </div>
