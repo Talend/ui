@@ -5,10 +5,12 @@ export default {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	items: PropTypes.arrayOf(PropTypes.object),
-	ifSelected: PropTypes.func,
-	onElementSelect: PropTypes.func,
-	onToggleSingle: PropTypes.func,
-	onToggleAll: PropTypes.func,
+	itemProps: PropTypes.shape({
+		isSelected: PropTypes.func,
+		onSelect: PropTypes.func,
+		onToggle: PropTypes.func,
+		onToggleAll: PropTypes.func,
+		width: PropTypes.string,
+	}),
 	titleProps: ItemTitle.propTypes.titleProps,
-	width: PropTypes.string,
 };

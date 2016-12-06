@@ -33,7 +33,8 @@ function getTwoDim(columnsData) {
 		});
 }
 
-function rowRenderer({ id, item, index, columns, titleProps, onToggleSingle, ifSelected }) {
+function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
+	const { onToggle, isSelected } = itemProps || {};
 	const columnsData = getColumnsData({ columns, item, titleKey: titleProps.key });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
@@ -42,12 +43,12 @@ function rowRenderer({ id, item, index, columns, titleProps, onToggleSingle, ifS
 		theme.panel
 	);
 
-	const checkboxColumn = onToggleSingle && ifSelected ?
+	const checkboxColumn = onToggle && isSelected ?
 		(<input
 			id={id && `${id}-check`}
 			type="checkbox"
-			onChange={(e) => { onToggleSingle(e, item); }}
-			checked={ifSelected(item)}
+			onChange={(e) => { onToggle(e, item); }}
+			checked={isSelected(item)}
 		/>) :
 		null;
 
@@ -95,8 +96,7 @@ rowRenderer.propTypes = {
 	index: PropTypes.number,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	ifSelected: PropTypes.func,
-	onToggleSingle: PropTypes.func,
+	itemProps: DisplayPropTypes.itemProps,
 	titleProps: ItemTitle.propTypes.titleProps,
 };
 
@@ -154,27 +154,26 @@ function DisplayLarge(props) {
 		id,
 		columns,
 		items,
+		itemProps,
 		titleProps,
-		ifSelected,
-		onToggleAll,
-		onToggleSingle,
 	} = props;
-	const ifAllSelected = () => {
-		let selected = 0;
-		items.forEach((item) => {
-			if (ifSelected(item)) {
-				selected += 1;
+	const { isSelected, onToggleAll } = itemProps || {};
+	const isAllSelected = () => {
+		const selected = items.reduce((sum, item) => {
+			if (isSelected(item)) {
+				return sum + 1;
 			}
-		});
+			return sum;
+		}, 0);
 		return items.length > 0 && selected === items.length;
 	};
-	const checkbox = onToggleAll && ifSelected ?
+	const checkbox = onToggleAll && isSelected ?
 		(<div>
 			<input
 				id={id && `${id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
-				checked={ifAllSelected()}
+				checked={isAllSelected()}
 				disabled={items.length === 0}
 			/>Select All
 		</div>) :
@@ -187,8 +186,7 @@ function DisplayLarge(props) {
 				id: id && `${id}-${index}`,
 				columns,
 				item,
-				ifSelected,
-				onToggleSingle,
+				itemProps,
 				titleProps,
 			}))}
 		</div>

@@ -16,14 +16,6 @@ const props = {
 	id: 'talend',
 	displayMode: 'table',
 	list: {
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
 		columns: [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
@@ -81,18 +73,19 @@ const props = {
 				author: 'Jean-Pierre DUPONT with super long name',
 			},
 		],
-		onElementSelect: action('onSelect'),
-		onToggleAll: action('onToggleAll'),
-		onToggleSingle: action('onToggleSingle'),
-		ifSelected: (item) => {
-			let found = false;
-			for (let i = 0; i < selected.length; i += 1) {
-				if (selected[i].id === item.id) {
-					found = true;
-					break;
-				}
-			}
-			return found;
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			isSelected: item => selected.find(next => next.id === item.id),
+			onSelect: action('onSelect'),
+			onToggle: action('onToggle'),
+			onToggleAll: action('onToggleAll'),
 		},
 	},
 	toolbar: {

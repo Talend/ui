@@ -8,14 +8,15 @@ import DisplayPropTypes from '../Display/Display.propTypes';
 import theme from './DisplayTable.scss';
 
 function RowRenderer(props) {
-	const { id, titleProps, item, onToggleSingle, ifSelected } = props;
-	const checkboxColumn = onToggleSingle && ifSelected ?
+	const { id, item, itemProps, titleProps } = props;
+	const { onToggle, isSelected } = itemProps || {};
+	const checkboxColumn = onToggle && isSelected ?
 		(<td>
 			<input
 				id={id && `${id}-check`}
 				type="checkbox"
-				onChange={(e) => { onToggleSingle(e, item); }}
-				checked={ifSelected(item)}
+				onChange={(e) => { onToggle(e, item); }}
+				checked={isSelected(item)}
 			/>
 		</td>) :
 		null;
@@ -61,8 +62,7 @@ RowRenderer.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ key: PropTypes.string.isRequired })
 	).isRequired,
-	ifSelected: PropTypes.func,
-	onToggleSingle: PropTypes.func,
+	itemProps: DisplayPropTypes.itemProps,
 	titleProps: ItemTitle.propTypes.titleProps,
 };
 
@@ -70,25 +70,25 @@ function ListHeader(props) {
 	const {
 		columns,
 		items,
-		ifSelected,
+		isSelected,
 		onToggleAll,
 	} = props;
-	const ifAllSelected = () => {
-		let selected = 0;
-		items.forEach((item) => {
-			if (ifSelected(item)) {
-				selected += 1;
+	const isAllSelected = () => {
+		const selected = items.reduce((sum, item) => {
+			if (isSelected(item)) {
+				return sum + 1;
 			}
-		});
-		return selected > 0 && selected === items.length;
+			return sum;
+		}, 0);
+		return items.length > 0 && selected === items.length;
 	};
-	const checkbox = onToggleAll && ifSelected ?
+	const checkbox = onToggleAll && isSelected ?
 		(<th>
 			<input
 				id={props.id && `${props.id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
-				checked={ifAllSelected()}
+				checked={isAllSelected()}
 				disabled={items.length === 0}
 			/>
 		</th>) :
@@ -106,7 +106,7 @@ ListHeader.propTypes = {
 		PropTypes.shape({ label: PropTypes.string })
 	),
 	items: PropTypes.arrayOf(PropTypes.object),
-	ifSelected: PropTypes.func,
+	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 };
 
@@ -164,11 +164,10 @@ function DisplayTable(props) {
 		id,
 		columns,
 		items,
+		itemProps,
 		titleProps,
-		ifSelected,
-		onToggleAll,
-		onToggleSingle,
 	} = props;
+	const { isSelected, onToggleAll } = itemProps || {};
 	const className = classnames(
 		'table',
 		'tc-list-display-table',
@@ -181,7 +180,7 @@ function DisplayTable(props) {
 					columns={columns}
 					onToggleAll={onToggleAll}
 					items={items}
-					ifSelected={ifSelected}
+					isSelected={isSelected}
 					id={id}
 				/>
 			</thead>
@@ -191,11 +190,10 @@ function DisplayTable(props) {
 						<RowRenderer
 							id={id && `${id}-${index}`}
 							key={index}
-							item={item}
 							columns={columns}
+							item={item}
+							itemProps={itemProps}
 							titleProps={titleProps}
-							onToggleSingle={onToggleSingle}
-							ifSelected={ifSelected}
 						/>
 					)
 				)}

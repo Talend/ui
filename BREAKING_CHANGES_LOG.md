@@ -3,6 +3,19 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.25.4
+* Module: List
+* PR : [fix(list): reorganize props](https://github.com/Talend/react-talend-components/pull/147)
+* Changes:
+
+| Old Props | New props |
+|---|---|
+| props.ifSelected | props.itemProps.isSelected |
+| props.onElementSelect | props.itemProps.onSelect |
+| props.onToggleSingle | props.itemProps.onToggle |
+| props.onToggleAll | props.itemProps.onToggleAll |
+| props.width | props.itemProps.width |
+
 ## v0.25.0
 * Module: react-autowhatever
 * PR : [refactor(autowhatever_module): move to dependencies instead of devDependencies](https://github.com/Talend/react-talend-components/pull/134)

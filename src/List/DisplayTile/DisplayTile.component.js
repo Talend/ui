@@ -22,22 +22,23 @@ function tileItem(column, value) {
 /**
  * Render a tile
  */
-function Tile({ id, columns, item, onElementSelect, titleProps, onToggleSingle, ifSelected }) {
+function Tile({ id, columns, item, itemProps, titleProps }) {
 	let onDoubleClick;
-	let onSelect;
+	let onItemSelect;
+	const { onSelect, onToggle, isSelected } = itemProps || {};
 	if (titleProps.onClick) {
 		onDoubleClick = event => titleProps.onClick(event, item);
 	}
-	if (onElementSelect) {
-		onSelect = event => onElementSelect(item, event);
+	if (onSelect) {
+		onItemSelect = event => onSelect(item, event);
 	}
 
-	const checkbox = onToggleSingle && ifSelected ?
+	const checkbox = onToggle && isSelected ?
 		(<input
 			id={id && `${id}-check`}
 			type="checkbox"
-			onChange={(e) => { onToggleSingle(e, item); }}
-			checked={ifSelected(item)}
+			onChange={(e) => { onToggle(e, item); }}
+			checked={isSelected(item)}
 		/>) :
 		null;
 
@@ -50,7 +51,7 @@ function Tile({ id, columns, item, onElementSelect, titleProps, onToggleSingle, 
 		<div
 			id={id}
 			className={theme.tile}
-			onClick={onSelect}
+			onClick={onItemSelect}
 			onDoubleClick={onDoubleClick}
 		>
 			{checkbox}
@@ -75,18 +76,15 @@ Tile.propTypes = {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(columnPropType).isRequired,
 	item: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-	ifSelected: PropTypes.func,
-	onElementSelect: PropTypes.func,
-	onToggleSingle: PropTypes.func,
+	itemProps: DisplayPropTypes.itemProps,
 	titleProps: ItemTitle.propTypes.titleProps,
 };
 
 /**
  * @param {array} columns the array of column definitions
  * @param {array} items the array of items to display
- * @param {function} onElementSelect the tile click callback
+ * @param {object} itemProps the item configuration props
  * @param {object} titleProps the title configuration props
- * @param {object} width the tile width
  * @example
 const props = {
 	items: [
@@ -121,7 +119,6 @@ const props = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	onElementSelect: action('onSelect'),
 	titleProps: {
 		key: 'name',
 		iconKey: 'icon',
@@ -130,7 +127,10 @@ const props = {
 		onEditCancel: action('onEditCancel'),
 		onEditValidate: action('onEditValidate'),
 	},
-	width: '250px'
+	itemProps: {
+		onSelect: action('onSelect'),
+		width: '250px'
+	}
 };
 <DisplayTile {...props} />
  */
@@ -139,29 +139,26 @@ function DisplayTile(props) {
 		id,
 		columns,
 		items,
+		itemProps,
 		titleProps,
-		onElementSelect,
-		ifSelected,
-		onToggleAll,
-		onToggleSingle,
-		width,
 	} = props;
-	const ifAllSelected = () => {
-		let selected = 0;
-		items.forEach((item) => {
-			if (ifSelected(item)) {
-				selected += 1;
+	const { isSelected, onToggleAll, width } = itemProps || {};
+	const isAllSelected = () => {
+		const selected = items.reduce((sum, item) => {
+			if (isSelected(item)) {
+				return sum + 1;
 			}
-		});
+			return sum;
+		}, 0);
 		return items.length > 0 && selected === items.length;
 	};
-	const checkbox = onToggleAll && ifSelected ?
+	const checkbox = onToggleAll && isSelected ?
 		(<div className={theme.container}>
 			<input
 				id={id && `${id}-check-all`}
 				type="checkbox"
 				onChange={(e) => { onToggleAll(e, items); }}
-				checked={ifAllSelected()}
+				checked={isAllSelected()}
 				disabled={items.length === 0}
 			/>Select All
 		</div>) :
@@ -176,11 +173,9 @@ function DisplayTile(props) {
 							id={id && `${id}-${index}`}
 							columns={columns}
 							item={item}
-							ifSelected={ifSelected}
-							onElementSelect={onElementSelect}
-							onToggleSingle={onToggleSingle}
-							style={{ width }}
+							itemProps={itemProps}
 							titleProps={titleProps}
+							style={{ width: width || '250px' }}
 						/>
 					</li>
 				)}
@@ -194,7 +189,6 @@ DisplayTile.propTypes = DisplayPropTypes;
 DisplayTile.defaultProps = {
 	items: [],
 	titleProps: { key: 'name' },
-	width: '250px',
 };
 
 export default DisplayTile;
