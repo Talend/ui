@@ -32,6 +32,7 @@ class MockProvider extends React.Component {
 		}
 		if (this.props.state) {
 			st.state = this.props.state;
+			st.getState = () => this.props.state;
 		}
 		const context = {
 			store: st,
