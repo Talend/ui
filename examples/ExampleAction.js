@@ -1,7 +1,7 @@
 import React from 'react';
-import { ButtonAction } from '../src';
+import { Action } from '../src';
 
-export default function ExampleButtonAction() {
+export default function ExampleAction() {
 
 	const action = {
 		id: 'example',
@@ -14,11 +14,11 @@ export default function ExampleButtonAction() {
 	}
 	return (
 		<div>
-			<h1>ButtonAction</h1>
+			<h1>Action</h1>
 			<h2>Definition</h2>
 			<p>This is a normal button which support the same API as Button.</p>
 			<p>It takes an action to display name and icon. It takes a onClick property to know what to do on the click event.</p>
-			<ButtonAction action={action} onClick={onClick} icon />
+			<Action action={action} onClick={onClick} icon />
 		</div>
 	);
 }

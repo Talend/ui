@@ -1,51 +1,15 @@
-exports[`SidePanel should render provided actions 1`] = `
+exports[`SidePanel should render 1`] = `
 <div
   className="mock-provider">
-  <nav
-    className="tc-side-panel">
-    <button
-      aria-hidden="true"
-      className="btn btn-link"
-      disabled={false}
-      onClick={[Function onToggleDock]}
-      title="Toggle side panel"
-      type="button">
-      <i
-        className="fa fa-arrow-left" />
-    </button>
-    <ul
-      className="nav nav-pills nav-inverse nav-stacked">
-      <li>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function onClick]}
-          role="link"
-          title="Display My article"
-          type="button">
-          <i
-            className="icon-article" />
-          <span>
-            My article
-          </span>
-        </button>
-      </li>
-      <li>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function onClick]}
-          role="link"
-          title="Display Menu"
-          type="button">
-          <i
-            className="fa-bars" />
-          <span>
-            Menu
-          </span>
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <div
+    className="tc-side-panel" />
+</div>
+`;
+
+exports[`SidePanel should render provided actions as string 1`] = `
+<div
+  className="mock-provider">
+  <div
+    className="tc-side-panel" />
 </div>
 `;

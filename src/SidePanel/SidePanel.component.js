@@ -13,7 +13,8 @@ class SidePanel extends React.Component {
 	}
 
 	render() {
-		const resolvedActions = this.props.actions.map((action) => {
+		const actions = this.props.actions || [];
+		const resolvedActions = actions.map((action) => {
 			const info = api.action.getActionInfo(this.context, action);
 			return {
 				label: info.name,
@@ -45,4 +46,5 @@ SidePanel.propTypes = {
 SidePanel.contextTypes = {
 	store: React.PropTypes.object,
 };
+
 export default SidePanel;
