@@ -8,8 +8,8 @@ function DrawerAnimation({ children }) {
 		<ReactCSSTransitionGroup
 			transitionName="tc-drawer"
 			transitionAppear
-			transitionAppearTimeout={1000}
-			transitionLeaveTimeout={1000}
+			transitionAppearTimeout={230}
+			transitionLeaveTimeout={230}
 		>
 			{children}
 		</ReactCSSTransitionGroup>
