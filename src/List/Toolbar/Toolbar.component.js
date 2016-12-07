@@ -31,6 +31,13 @@ function Toolbar(props) {
 	const filterProps = getSubProps(props, Filter);
 	const paginationProps = getSubProps(props, Pagination);
 	const { id, listActions, onClickAdd } = props;
+
+	const hasProps = p => Object.keys(p).length > 0;
+	const hasDisplayMode = hasProps(displayProps);
+	const hasSortProps = hasProps(sortProps);
+	const hasFilterProps = hasProps(filterProps);
+	const hasPaginationProps = hasProps(paginationProps);
+
 	let add;
 	if (onClickAdd) {
 		add = {
@@ -43,15 +50,15 @@ function Toolbar(props) {
 	const dropdownId = id && `${id}-actions-dropdown`;
 	return (
 		<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-			{add || listActions ? (
+			{(add || listActions) && (
 				<Nav>
-					{add ? (<Action
+					{add && (<Action
 						className="navbar-btn"
 						bsStyle="success"
 						{...add}
-					/>) : null}
-					<ButtonGroup className="navbar-btn">
-						{listActions ? (
+					/>)}
+					{listActions && (
+						<ButtonGroup className="navbar-btn">
 							<DropdownButton
 								id={dropdownId || uuid.v4()}
 								bsStyle="link"
@@ -73,18 +80,14 @@ function Toolbar(props) {
 									);
 								})}
 							</DropdownButton>
-						) : null}
-					</ButtonGroup>
+						</ButtonGroup>
+					)}
 				</Nav>
-			) : null}
-			<SelectDisplayMode {...displayProps} />
-			<SelectSortBy {...sortProps} />
-			<Filter {...filterProps} />
-			{
-				Object.keys(paginationProps).length > 1 ?
-					(<Pagination {...paginationProps} />) :
-					null
-			}
+			)}
+			{hasDisplayMode && (<SelectDisplayMode {...displayProps} />)}
+			{hasSortProps && (<SelectSortBy {...sortProps} />)}
+			{hasFilterProps && (<Filter {...filterProps} />)}
+			{hasPaginationProps && (<Pagination {...paginationProps} />)}
 		</Navbar>
 	);
 }

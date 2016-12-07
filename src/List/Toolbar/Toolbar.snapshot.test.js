@@ -103,4 +103,50 @@ describe('Toolbar', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render empty without props', () => {
+		const wrapper = renderer.create(
+			<Toolbar />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with onClickAdd props', () => {
+		const wrapper = renderer.create(
+			<Toolbar onClickAdd={props.onClickAdd} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with listActions props', () => {
+		const wrapper = renderer.create(
+			<Toolbar listActions={props.listActions}/>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with sortOptions', () => {
+		const wrapper = renderer.create(
+			<Toolbar
+				sortOptions={props.sortOptions}
+				sortBy={props.sortBy}
+				sortDesc={props.sortDesc}
+			/>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with displayMode props', () => {
+		const wrapper = renderer.create(
+			<Toolbar onSelectDisplayMode={props.onSelectDisplayMode} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with filter props', () => {
+		const wrapper = renderer.create(
+			<Toolbar onFilter={props.onFilter} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });
