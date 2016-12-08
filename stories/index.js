@@ -50,3 +50,31 @@ sampleFilenames
 				/>
 			));
 		});
+
+decoratedStories.add('Multiple actions', () => {
+	const actions = [{
+		style: 'link',
+		onClick: action('CANCEL'),
+		type: 'button',
+		label: 'CANCEL',
+	}, {
+		style: 'primary',
+		type: 'submit',
+		label: 'VALIDATE',
+	}];
+	const schema = {
+		jsonSchema: {
+			title: 'Please select a datastore',
+			type: 'string',
+			enum: ['one', 'two', 'three'],
+			enumNames: ['One', 'Two', 'Three'],
+		},
+	};
+	return (
+		<Form
+			data={schema}
+			onSubmit={action('VALIDATE')}
+			actions={actions}
+		/>
+	);
+});
