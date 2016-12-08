@@ -115,4 +115,36 @@ describe('DisplayTable', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('shoudl render selected list element with defaut \'active\' class', () => {
+		// given
+		const props = {
+			id: 'table-list',
+			items,
+			columns,
+			itemProps: { isSelected: () => true },
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('shoudl render selected list element with custom selectedClass if set', () => {
+		// given
+		const props = {
+			id: 'table-list',
+			items,
+			columns,
+			itemProps: { isSelected: () => true, selectedClass: 'something' },
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

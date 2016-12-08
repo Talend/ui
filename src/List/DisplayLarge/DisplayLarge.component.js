@@ -34,7 +34,7 @@ function getTwoDim(columnsData) {
 }
 
 function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
-	const { classNameKey, onToggle, isSelected } = itemProps || {};
+	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
 	const columnsData = getColumnsData({ columns, item, titleKey: titleProps.key });
 	const info = getTwoDim(columnsData);
 	const panel = classNames(
@@ -42,6 +42,7 @@ function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
 		'panel-default',
 		theme.panel,
 		classNameKey && item[classNameKey],
+		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
 
 	const checkboxColumn = onToggle && isSelected ?

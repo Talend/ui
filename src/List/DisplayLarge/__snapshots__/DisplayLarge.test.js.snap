@@ -1,3 +1,489 @@
+exports[`DisplayLarge shoudl render selected list element with custom selectedClass if set 1`] = `
+<div
+  className={undefined}>
+  <div
+    className="panel panel-default something"
+    id="large-list-0">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-0-title">
+          Hello world
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group">
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-edit"
+            title={null} />
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-trash-o"
+            title={null} />
+        </button>
+      </div>
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            1
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="panel panel-default something"
+    id="large-list-1">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-1-title">
+          Foo
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            2
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="panel panel-default something"
+    id="large-list-2">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-2-title">
+          Bar
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            2
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DisplayLarge shoudl render selected list element with defaut 'active' class 1`] = `
+<div
+  className={undefined}>
+  <div
+    className="panel panel-default active"
+    id="large-list-0">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-0-title">
+          Hello world
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group">
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-edit"
+            title={null} />
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-trash-o"
+            title={null} />
+        </button>
+      </div>
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            1
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="panel panel-default active"
+    id="large-list-1">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-1-title">
+          Foo
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            2
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="panel panel-default active"
+    id="large-list-2">
+    <div
+      className={undefined}>
+      <div
+        style={
+          Object {
+            "display": "inline",
+          }
+        }>
+        <span
+          className={undefined}
+          id="large-list-2-title">
+          Bar
+        </span>
+      </div>
+      <div
+        className="tc-actions btn-group" />
+    </div>
+    <div
+      className={undefined}>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Id
+          </span>
+          <span
+            className={undefined}>
+            2
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Author
+          </span>
+          <span
+            className={undefined}>
+            Jean-Pierre DUPONT
+          </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span
+            className={undefined}>
+            Created
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}>
+            Modified
+          </span>
+          <span
+            className={undefined}>
+            2016-09-22
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`DisplayLarge should render with default title property (name) 1`] = `
 <div
   className={undefined}>

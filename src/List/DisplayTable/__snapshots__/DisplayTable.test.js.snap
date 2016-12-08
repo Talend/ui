@@ -1,3 +1,315 @@
+exports[`DisplayTable shoudl render selected list element with custom selectedClass if set 1`] = `
+<table
+  className="table tc-list-display-table">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Created
+      </th>
+      <th>
+        Modified
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="something"
+      id="table-list-0">
+      <td>
+        1
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-0-title">
+            Hello world
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group">
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null} />
+          </button>
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-trash-o"
+              title={null} />
+          </button>
+        </div>
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      className="something"
+      id="table-list-1">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-1-title">
+            Foo
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      className="something"
+      id="table-list-2">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-2-title">
+            Bar
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`DisplayTable shoudl render selected list element with defaut 'active' class 1`] = `
+<table
+  className="table tc-list-display-table">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Created
+      </th>
+      <th>
+        Modified
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="active"
+      id="table-list-0">
+      <td>
+        1
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-0-title">
+            Hello world
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group">
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null} />
+          </button>
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-trash-o"
+              title={null} />
+          </button>
+        </div>
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      className="active"
+      id="table-list-1">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-1-title">
+            Foo
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+    <tr
+      className="active"
+      id="table-list-2">
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          style={
+            Object {
+              "display": "inline",
+            }
+          }>
+          <span
+            className={undefined}
+            id="table-list-2-title">
+            Bar
+          </span>
+        </div>
+        <div
+          className="tc-actions btn-group" />
+      </td>
+      <td>
+        Jean-Pierre DUPONT
+      </td>
+      <td>
+        2016-09-22
+      </td>
+      <td>
+        2016-09-22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
 exports[`DisplayTable should render with default title property (name) 1`] = `
 <table
   className="table tc-list-display-table">
@@ -22,7 +334,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
   </thead>
   <tbody>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         1
@@ -87,7 +399,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         2
@@ -119,7 +431,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         2
@@ -178,7 +490,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
   </thead>
   <tbody>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         <div
@@ -251,7 +563,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         <div
@@ -291,7 +603,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id={undefined}>
       <td>
         <div
@@ -354,7 +666,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
   </thead>
   <tbody>
     <tr
-      className={undefined}
+      className=""
       id="table-list-0">
       <td>
         1
@@ -419,7 +731,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id="table-list-1">
       <td>
         2
@@ -451,7 +763,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id="table-list-2">
       <td>
         2
@@ -607,7 +919,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       </td>
     </tr>
     <tr
-      className={undefined}
+      className=""
       id="table-list-2">
       <td>
         2

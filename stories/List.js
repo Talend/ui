@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-
+import Immutable from 'immutable';
 import { List, IconsProvider } from '../src/index';
 
 const selected = [
@@ -128,6 +128,20 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('table with custom selected class', () => {
+		const selectedClassProps = Immutable.fromJS(props).toJS();
+		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
+		return (
+			<div>
+				<h1>List</h1>
+				<h2>Definition</h2>
+				<p>Display a list by defining your.</p>
+				<h2>Examples</h2>
+				<IconsProvider />
+				<List {...selectedClassProps} />
+			</div>
+		);
+	})
 	.add('large', () => {
 		const eprops = Object.assign({}, props);
 		eprops.displayMode = 'large';

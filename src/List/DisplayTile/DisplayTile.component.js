@@ -25,7 +25,7 @@ function tileItem(column, value) {
 function Tile({ id, columns, item, itemProps, titleProps }) {
 	let onDoubleClick;
 	let onItemSelect;
-	const { classNameKey, onSelect, onToggle, isSelected } = itemProps || {};
+	const { classNameKey, onSelect, onToggle, isSelected, selectedClass } = itemProps || {};
 	if (titleProps.onClick) {
 		onDoubleClick = event => titleProps.onClick(event, item);
 	}
@@ -49,6 +49,7 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 	const tileClasses = classNames(
 		theme.tile,
 		classNameKey && item[classNameKey],
+		isSelected && isSelected(item) && (selectedClass || 'active')
 	);
 
 	return (

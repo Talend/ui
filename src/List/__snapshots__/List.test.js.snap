@@ -15,7 +15,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
     </thead>
     <tbody>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           1
@@ -25,7 +25,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           2
@@ -35,7 +35,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           3
@@ -295,7 +295,7 @@ exports[`List should render 1`] = `
     </thead>
     <tbody>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           1
@@ -305,7 +305,7 @@ exports[`List should render 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           2
@@ -315,7 +315,7 @@ exports[`List should render 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id={undefined}>
         <td>
           3
@@ -721,7 +721,7 @@ exports[`List should render id if provided 1`] = `
     </thead>
     <tbody>
       <tr
-        className={undefined}
+        className=""
         id="context-0">
         <td>
           1
@@ -731,7 +731,7 @@ exports[`List should render id if provided 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id="context-1">
         <td>
           2
@@ -741,7 +741,7 @@ exports[`List should render id if provided 1`] = `
         </td>
       </tr>
       <tr
-        className={undefined}
+        className=""
         id="context-2">
         <td>
           3
