@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 import Layout from './Layout.component';
 
 jest.mock('react-dom');
-jest.mock('react-addons-css-transition-group');
 
 describe('Layout', () => {
 	it('should render Layout OneColumn', () => {

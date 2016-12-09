@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 import DisplayTile from './DisplayTile.component';
 
 jest.mock('react-dom');
-jest.mock('uuid');
 
 const items = [
 	{
