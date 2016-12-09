@@ -253,25 +253,26 @@ exports[`List should render 1`] = `
         role="search">
         <div
           className="form-group">
-          <div
-            className="input-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id={undefined}
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-          </div>
+          <input
+            aria-label="Filter"
+            className="form-control"
+            id={undefined}
+            onChange={[Function]}
+            placeholder="Filter"
+            type="search" />
           <button
             className="btn btn-link"
             disabled={false}
             id={undefined}
             title="Filter"
             type="submit">
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-search" />
+              className="tc-svg-icon"
+              title={null}>
+              <use
+                xlinkHref="#talend-search" />
+            </svg>
             <span
               className="sr-only">
               Filter
@@ -534,25 +535,26 @@ exports[`List should render id if provided 1`] = `
         role="search">
         <div
           className="form-group">
-          <div
-            className="input-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id="context-filter-input"
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-          </div>
+          <input
+            aria-label="Filter"
+            className="form-control"
+            id="context-filter-input"
+            onChange={[Function]}
+            placeholder="Filter"
+            type="search" />
           <button
             className="btn btn-link"
             disabled={false}
             id="context-filter-submit"
             title="Filter"
             type="submit">
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-search" />
+              className="tc-svg-icon"
+              title={null}>
+              <use
+                xlinkHref="#talend-search" />
+            </svg>
             <span
               className="sr-only">
               Filter

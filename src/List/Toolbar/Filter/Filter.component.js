@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
+import Icon from '../../../Icon';
 
 /**
  * @param {object} props react props
@@ -23,24 +24,22 @@ function Filter({ id, onFilter }) {
 			onSubmit={onSubmit}
 		>
 			<div className="form-group">
-				<div className="input-group">
-					<input
-						id={id && `${id}-filter-input`}
-						type="search"
-						className="form-control"
-						placeholder="Filter"
-						aria-label="Filter"
-						onChange={onFilterHandler}
-						ref={c => onSubmit.bind(c)}
-					/>
-				</div>
+				<input
+					id={id && `${id}-filter-input`}
+					type="search"
+					className="form-control"
+					placeholder="Filter"
+					aria-label="Filter"
+					onChange={onFilterHandler}
+					ref={c => onSubmit.bind(c)}
+				/>
 				<Button
 					id={id && `${id}-filter-submit`}
 					bsStyle="link"
 					type="submit"
 					title="Filter"
 				>
-					<i className="fa fa-search" aria-hidden="true" />
+					<Icon name="talend-search" />
 					<span className="sr-only">Filter</span>
 				</Button>
 			</div>

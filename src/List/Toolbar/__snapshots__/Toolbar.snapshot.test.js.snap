@@ -182,25 +182,26 @@ exports[`Toolbar should render 1`] = `
       role="search">
       <div
         className="form-group">
-        <div
-          className="input-group">
-          <input
-            aria-label="Filter"
-            className="form-control"
-            id={undefined}
-            onChange={[Function]}
-            placeholder="Filter"
-            type="search" />
-        </div>
+        <input
+          aria-label="Filter"
+          className="form-control"
+          id={undefined}
+          onChange={[Function]}
+          placeholder="Filter"
+          type="search" />
         <button
           className="btn btn-link"
           disabled={false}
           id={undefined}
           title="Filter"
           type="submit">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-search" />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
           <span
             className="sr-only">
             Filter
@@ -559,25 +560,26 @@ exports[`Toolbar should render add btn 1`] = `
       role="search">
       <div
         className="form-group">
-        <div
-          className="input-group">
-          <input
-            aria-label="Filter"
-            className="form-control"
-            id={undefined}
-            onChange={[Function]}
-            placeholder="Filter"
-            type="search" />
-        </div>
+        <input
+          aria-label="Filter"
+          className="form-control"
+          id={undefined}
+          onChange={[Function]}
+          placeholder="Filter"
+          type="search" />
         <button
           className="btn btn-link"
           disabled={false}
           id={undefined}
           title="Filter"
           type="submit">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-search" />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
           <span
             className="sr-only">
             Filter
@@ -994,25 +996,26 @@ exports[`Toolbar should render id if provided 1`] = `
       role="search">
       <div
         className="form-group">
-        <div
-          className="input-group">
-          <input
-            aria-label="Filter"
-            className="form-control"
-            id="toolbar-filter-input"
-            onChange={[Function]}
-            placeholder="Filter"
-            type="search" />
-        </div>
+        <input
+          aria-label="Filter"
+          className="form-control"
+          id="toolbar-filter-input"
+          onChange={[Function]}
+          placeholder="Filter"
+          type="search" />
         <button
           className="btn btn-link"
           disabled={false}
           id="toolbar-filter-submit"
           title="Filter"
           type="submit">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-search" />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
           <span
             className="sr-only">
             Filter
@@ -1405,25 +1408,26 @@ exports[`Toolbar should render listActions 1`] = `
       role="search">
       <div
         className="form-group">
-        <div
-          className="input-group">
-          <input
-            aria-label="Filter"
-            className="form-control"
-            id={undefined}
-            onChange={[Function]}
-            placeholder="Filter"
-            type="search" />
-        </div>
+        <input
+          aria-label="Filter"
+          className="form-control"
+          id={undefined}
+          onChange={[Function]}
+          placeholder="Filter"
+          type="search" />
         <button
           className="btn btn-link"
           disabled={false}
           id={undefined}
           title="Filter"
           type="submit">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-search" />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
           <span
             className="sr-only">
             Filter
@@ -1698,25 +1702,26 @@ exports[`Toolbar should render with filter props 1`] = `
       role="search">
       <div
         className="form-group">
-        <div
-          className="input-group">
-          <input
-            aria-label="Filter"
-            className="form-control"
-            id={undefined}
-            onChange={[Function]}
-            placeholder="Filter"
-            type="search" />
-        </div>
+        <input
+          aria-label="Filter"
+          className="form-control"
+          id={undefined}
+          onChange={[Function]}
+          placeholder="Filter"
+          type="search" />
         <button
           className="btn btn-link"
           disabled={false}
           id={undefined}
           title="Filter"
           type="submit">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-search" />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
           <span
             className="sr-only">
             Filter
