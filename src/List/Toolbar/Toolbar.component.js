@@ -20,6 +20,10 @@ export function getSubProps(props, component) {
 	return subProps;
 }
 
+function hasProps(props) {
+	return Object.keys(props).find(key => key !== 'id');
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -32,7 +36,6 @@ function Toolbar(props) {
 	const paginationProps = getSubProps(props, Pagination);
 	const { id, listActions, onClickAdd } = props;
 
-	const hasProps = p => Object.keys(p).length > 0;
 	const hasDisplayMode = hasProps(displayProps);
 	const hasSortProps = hasProps(sortProps);
 	const hasFilterProps = hasProps(filterProps);
