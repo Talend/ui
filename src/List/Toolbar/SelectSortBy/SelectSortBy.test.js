@@ -1,9 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import SelectSortBy from './SelectSortBy.component';
-
-jest.mock('react-dom');
 
 describe('SelectSortBy', () => {
 	it('should render', () => {
@@ -45,7 +44,6 @@ describe('SelectSortBy', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-
 	it('should render id if provided', () => {
 		// given
 		const props = {
@@ -65,5 +63,29 @@ describe('SelectSortBy', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should call toggle callback on sort-order click', () => {
+		// given
+		const props = {
+			id: 'toolbar',
+			onSelectSortBy: jest.fn(),
+			sortOptions: [
+				{ id: 'id', name: 'Name' },
+				{ id: 'name', name: 'Name' },
+			],
+			sortBy: 'id',
+		};
+		const event = { target: {} };
+
+		// when
+		const wrapper = shallow(<SelectSortBy {...props} />);
+		wrapper.find('#toolbar-sort-order').simulate('click', event);
+
+		// then
+		expect(props.onSelectSortBy).toBeCalledWith(event, {
+			sortBy: 'id',
+			sortDesc: true,
+		});
 	});
 });

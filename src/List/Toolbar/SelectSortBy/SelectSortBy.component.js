@@ -24,7 +24,7 @@ function SelectSortBy(props) {
 			}
 		);
 	}
-	const toggleSortOrder = () => {
+	const toggleSortOrder = (event) => {
 		if (props.onSelectSortBy) {
 			props.onSelectSortBy(
 				event,
