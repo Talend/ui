@@ -7,20 +7,23 @@ console.log('JSON Schema Form Core v' + pjson.version);
 
 module.exports = {
   entry: {
-    "app": './src/app/index'
+    "lib": './src/lib/index'
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'json-schema-form-core.js'
+    filename: 'json-schema-form-core.js',
+    library: library,
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     modules: [
       path.join(__dirname, "src"),
-      path.join(__dirname, "src/app"),
+      path.join(__dirname, "src/lib"),
       "node_modules"
     ],
     extensions: [ '.ts', '.js' ]
   },
+  target: 'node',
   module: {
     rules: [
       {
@@ -37,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.ts/,
-        use: [ 'ts-loader' ],
+        use: [ 'babel-loader', 'ts-loader' ],
         exclude: /node_modules/
       }
     ]
@@ -49,8 +52,8 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin(
       'json-schema-form-core\n' +
-      '@version ' +
-      pjson.version + '\n' +
+      '@version ' + pjson.version + '\n' +
+      '@date ' + new Date().toUTCString() + '\n' +
       '@link https://github.com/json-schema-form/json-schema-form-core\n' +
       '@license MIT\n' +
       'Copyright (c) 2016 JSON Schema Form')

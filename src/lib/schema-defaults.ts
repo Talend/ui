@@ -61,7 +61,8 @@ export function stdFormObj(name, schema, options) {
           Object.assign({}, options.global.formDefaults) : {};
   if (options.global && options.global.supressPropertyTitles === true) {
     f.title = schema.title;
-  } else {
+  }
+  else {
     f.title = schema.title || name;
   }
 

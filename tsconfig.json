@@ -4,7 +4,7 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [ "es6" ],
     "mapRoot": "./",
     "module": "commonjs",
     "moduleResolution": "classic",
@@ -18,7 +18,7 @@
     ]
   },
   "files": [
-    "src/app/index.ts"
+    "src/lib/index.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false

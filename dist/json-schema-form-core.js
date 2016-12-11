@@ -1,10 +1,12 @@
 /*!
  * json-schema-form-core
- * @version 1.0.0-alpha.4
+ * @version 1.0.0-alpha.5
+ * @date Sat, 10 Dec 2016 10:00:44 GMT
  * @link https://github.com/json-schema-form/json-schema-form-core
  * @license MIT
  * Copyright (c) 2016 JSON Schema Form
  */
+module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -96,8 +98,12 @@
  * @return {string}                    I am the formatted key
  */
 function name(key, separator, formName, omitNumbers) {
-    if (formName === void 0) { formName = ''; }
-    if (omitNumbers === void 0) { omitNumbers = false; }
+    if (formName === void 0) {
+        formName = '';
+    }
+    if (omitNumbers === void 0) {
+        omitNumbers = false;
+    }
     if (key) {
         var fieldKey = key.slice();
         var fieldSeparator = separator || '-';
@@ -107,15 +113,12 @@ function name(key, separator, formName, omitNumbers) {
             });
         }
         ;
-        return ((formName.length !== 0)
-            ? formName + fieldSeparator
-            : '') + fieldKey.join(fieldSeparator);
+        return (formName.length !== 0 ? formName + fieldSeparator : '') + fieldKey.join(fieldSeparator);
     }
     ;
     return '';
 }
 ;
-
 
 /***/ },
 /* 1 */
@@ -131,8 +134,7 @@ function name(key, separator, formName, omitNumbers) {
             originalEnum.forEach(function (value) {
                 canonical_1.push({ name: titleMap[value], value: value });
             });
-        }
-        else {
+        } else {
             Object.keys(titleMap).forEach(function (value) {
                 canonical_1.push({ name: titleMap[value], value: value });
             });
@@ -141,7 +143,6 @@ function name(key, separator, formName, omitNumbers) {
     }
     return titleMap;
 };
-
 
 /***/ },
 /* 2 */
@@ -226,7 +227,6 @@ function merge(lookup, form, options, readonly, asyncTemplates) {
     });
 }
 
-
 /***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
@@ -249,7 +249,7 @@ function merge(lookup, form, options, readonly, asyncTemplates) {
 
 
 /* Utils */
-var stripNullType = function (type) {
+var stripNullType = function stripNullType(type) {
     if (Array.isArray(type) && type.length === 2) {
         if (type[0] === 'null') {
             return type[1];
@@ -264,7 +264,7 @@ var stripNullType = function (type) {
     return type;
 };
 // Creates an default titleMap list from an enum, i.e. a list of strings.
-var enumToTitleMap = function (enm) {
+var enumToTitleMap = function enumToTitleMap(enm) {
     var titleMap = []; // canonical titleMap format is a list.
     enm.forEach(function (name) {
         titleMap.push({ name: name, value: name });
@@ -277,9 +277,9 @@ var enumToTitleMap = function (enm) {
 function defaultFormDefinition(schemaTypes, name, schema, options) {
     var rules = schemaTypes[stripNullType(schema.type)];
     if (rules) {
-        var def;
+        var def = void 0;
         // We give each rule a possibility to recurse it's children.
-        var innerDefaultFormDefinition = function (childName, childSchema, childOptions) {
+        var innerDefaultFormDefinition = function innerDefaultFormDefinition(childName, childSchema, childOptions) {
             return defaultFormDefinition(schemaTypes, childName, childSchema, childOptions);
         };
         for (var i = 0; i < rules.length; i++) {
@@ -301,12 +301,10 @@ function defaultFormDefinition(schemaTypes, name, schema, options) {
 function stdFormObj(name, schema, options) {
     options = options || {};
     // The Object.assign used to be a angular.copy. Should work though.
-    var f = options.global && options.global.formDefaults ?
-        Object.assign({}, options.global.formDefaults) : {};
+    var f = options.global && options.global.formDefaults ? Object.assign({}, options.global.formDefaults) : {};
     if (options.global && options.global.supressPropertyTitles === true) {
         f.title = schema.title;
-    }
-    else {
+    } else {
         f.title = schema.title || name;
     }
     if (schema.description) {
@@ -445,23 +443,20 @@ function array(name, schema, options, defaultFormDef) {
         f.type = 'array';
         f.key = options.path;
         options.lookup[__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__sf_path__["stringify"])(options.path)] = f;
-        var required = schema.required &&
-            schema.required.indexOf(options.path[options.path.length - 1]) !== -1;
+        var required = schema.required && schema.required.indexOf(options.path[options.path.length - 1]) !== -1;
         // The default is to always just create one child. This works since if the
         // schemas items declaration is of type: "object" then we get a fieldset.
         // We also follow json form notatation, adding empty brackets "[]" to
         // signify arrays.
         var arrPath = options.path.slice();
         arrPath.push('');
-        f.items = [
-            defaultFormDef(name, schema.items, {
-                path: arrPath,
-                required: required || false,
-                lookup: options.lookup,
-                ignore: options.ignore,
-                global: options.global
-            })
-        ];
+        f.items = [defaultFormDef(name, schema.items, {
+            path: arrPath,
+            required: required || false,
+            lookup: options.lookup,
+            ignore: options.ignore,
+            global: options.global
+        })];
         return f;
     }
 }
@@ -503,13 +498,11 @@ function defaultForm(schema, defaultSchemaTypes, ignore, globalOptions) {
                 }
             }
         });
-    }
-    else {
+    } else {
         throw new Error('Not implemented. Only type "object" allowed at root level of schema.');
     }
     return { form: form, lookup: lookup };
 }
-
 
 /***/ },
 /* 5 */
@@ -549,8 +542,7 @@ function select(projection, obj, valueToSet) {
         return obj;
     }
     ;
-    if (typeof valueToSet !== 'undefined' &&
-        typeof obj[parts[0]] === 'undefined') {
+    if (typeof valueToSet !== 'undefined' && typeof obj[parts[0]] === 'undefined') {
         // We need to look ahead to check if array is appropriate
         obj[parts[0]] = parts.length > 2 && numRe.test(parts[1]) ? [] : {};
     }
@@ -567,8 +559,7 @@ function select(projection, obj, valueToSet) {
                 // last step. Let's set the value
                 value[parts[i]] = valueToSet;
                 return valueToSet;
-            }
-            else {
+            } else {
                 // Make sure to create new objects on the way if they are not there.
                 // We need to look ahead to check if array is appropriate
                 var tmp = value[parts[i]];
@@ -578,15 +569,13 @@ function select(projection, obj, valueToSet) {
                 }
                 value = tmp;
             }
-        }
-        else if (value) {
+        } else if (value) {
             // Just get nex value.
             value = value[parts[i]];
         }
     }
     return value;
 }
-
 
 /***/ },
 /* 6 */
@@ -602,7 +591,7 @@ function select(projection, obj, valueToSet) {
 function traverseSchema(schema, fn, path, ignoreArrays) {
     ignoreArrays = ignoreArrays === undefined ? true : ignoreArrays;
     path = path || [];
-    var traverse = function (schemaObject, processorFunction, pathArray) {
+    var traverse = function traverse(schemaObject, processorFunction, pathArray) {
         processorFunction(schemaObject, pathArray);
         if (schemaObject.properties) {
             Object.keys(schemaObject.properties).forEach(function (name) {
@@ -637,7 +626,6 @@ function traverseForm(form, fn) {
         });
     }
 }
-
 
 /***/ },
 /* 7 */
@@ -698,7 +686,6 @@ function validate(form, value) {
     return __WEBPACK_IMPORTED_MODULE_0_tv4___default.a.validateResult(valueWrap, wrap);
 }
 ;
-
 
 /***/ },
 /* 8 */
@@ -845,7 +832,6 @@ module.exports = tv4;
 var sfPath = __WEBPACK_IMPORTED_MODULE_1__sf_path__;
 var schemaDefaults = __WEBPACK_IMPORTED_MODULE_0__schema_defaults__;
 var canonicalTitleMap = __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__["a" /* default */];
-
 
 /***/ }
 /******/ ]);
