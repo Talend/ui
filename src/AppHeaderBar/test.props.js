@@ -1,14 +1,4 @@
 /** TYPEAHEAD */
-export const exampleId = 'component-id';
-export const focusedItemIndex = 1;
-export const focusedSectionIndex = 0;
-const value = 'le';
-export const renderItemData = { value };
-export const inputProps = {
-	value,
-	placeholder: 'Search anything',
-};
-export const itemProps = {};
 const typeaheadItems = [
 	{
 		title: 'category 1',
@@ -27,7 +17,6 @@ const typeaheadItems = [
 			},
 		],
 	},
-
 	{
 		title: 'category 2',
 		icon: {
@@ -44,19 +33,14 @@ const typeaheadItems = [
 ];
 
 export const search = {
-	id: exampleId,
-	config: {
-		icon: {
-			name: 'fa fa-search',
-			title: 'icon',
-		},
+	id: 'my-search',
+	icon: {
+		name: 'fa fa-search',
+		title: 'icon',
 	},
+	value: 'le',
+	placeholder: 'Search anything',
 	items: typeaheadItems,
-	inputProps,
-	itemProps,
-	focusedItemIndex,
-	focusedSectionIndex,
-	renderItemData,
 };
 
 /** FORM */

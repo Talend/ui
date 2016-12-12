@@ -2,12 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import AppHeaderBar from './AppHeaderBar.component';
 import {
-	exampleId,
-	focusedItemIndex,
-	focusedSectionIndex,
-	renderItemData,
-	inputProps,
-	itemProps,
 	search,
 	inputForm,
 	props,
@@ -57,16 +51,13 @@ describe('AppHeaderBar', () => {
 		props.content[1] =
 		{
 			search: {
-				id: exampleId,
-				config: {
-					isOnlyIcon: true,
-					icon: {
-						name: 'fa fa-search',
-						title: 'icon',
-						actionStyle: 'link',
-					},
-					onInputIconClick: jest.fn(),
+				id: 'my-search',
+				icon: {
+					name: 'fa fa-search',
+					title: 'icon',
+					bsStyle: 'link',
 				},
+				onToggle: jest.fn(),
 			},
 		};
 		const appBar = <AppHeaderBar {...props} />;
@@ -82,18 +73,15 @@ describe('AppHeaderBar', () => {
 		// given
 		props.content[1] = {
 			search: {
-				id: exampleId,
+				id: 'my-search',
 				config: {
 					icon: {
 						name: 'fa fa-search',
 						title: 'icon',
 					},
 				},
-				inputProps,
-				itemProps,
-				focusedItemIndex,
-				focusedSectionIndex,
-				renderItemData,
+				value: 'le',
+				placeholder: 'Search anything',
 			},
 		};
 		const appBar = <AppHeaderBar {...props} />;

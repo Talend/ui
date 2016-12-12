@@ -4,18 +4,6 @@ import Typeahead from './Typeahead.component';
 
 jest.mock('react-dom');
 
-const exampleId = 'component-id';
-const focusedItemIndex = 1;
-const focusedSectionIndex = 0;
-const value = 'le';
-const renderItemData = { value };
-const inputProps = {
-	value,
-	placeholder: 'Search anything',
-};
-
-const itemProps = {};
-
 const items = [
 	{
 		title: 'category 1',
@@ -34,7 +22,6 @@ const items = [
 			},
 		],
 	},
-
 	{
 		title: 'category 2',
 		icon: {
@@ -47,70 +34,26 @@ const items = [
 				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 			},
 		],
-	}];
-
-const onlyIconProps = {
-	id: exampleId,
-	config: {
-		isOnlyIcon: true,
-		icon: {
-			name: 'fa fa-search',
-			title: 'icon',
-		},
-		onInputIconClick: jest.fn(),
 	},
-	items: [],
-};
-
-const typeaheadProps = {
-	id: exampleId,
-	config: {
-		icon: {
-			name: 'fa fa-search',
-			title: 'icon',
-			actionStyle: 'link',
-		},
-	},
-	inputProps,
-	itemProps,
-	focusedItemIndex,
-	focusedSectionIndex,
-	renderItemData,
-};
-
-
-describe('Only icon', () => {
-	it('should render only zoom icon', () => {
-		// given
-		const wrapper = renderer
-			.create(<Typeahead {...onlyIconProps} />)
-			.toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-});
+];
 
 describe('Typeahead', () => {
-	describe('icon', () => {
-		it('should render typeahead with icon', () => {
-			// when
-			const wrapper = renderer
-				.create(<Typeahead {...typeaheadProps} />)
-				.toJSON();
-
-			// then
-			expect(wrapper).toMatchSnapshot();
-		});
-
-		it('should render typeahead without icon', () => {
+	describe('with toggle', () => {
+		it('should render button', () => {
 			// given
-			const myProps = Object.assign({}, typeaheadProps);
-			myProps.config = {};
+			const props = {
+				id: 'my-search',
+				onToggle: jest.fn(),
+				icon: {
+					name: 'fa fa-search',
+					title: 'Toggle search bar',
+					bsStyle: 'link',
+				},
+			};
 
 			// when
 			const wrapper = renderer
-				.create(<Typeahead {...myProps} />)
+				.create(<Typeahead {...props} />)
 				.toJSON();
 
 			// then
@@ -119,64 +62,66 @@ describe('Typeahead', () => {
 	});
 
 	describe('position', () => {
-		it('should render typeahead (LEFT ==> RIGHT)', () => {
+		it('should render search bar on the right', () => {
 			// given
-			const myProps = Object.assign({}, typeaheadProps);
-			myProps.config = {};
-			myProps.items = items;
+			const props = {
+				id: 'my-search',
+				position: 'right',
+			};
 
 			// when
 			const wrapper = renderer
-				.create(<Typeahead {...myProps} />)
+				.create(<Typeahead {...props} />)
 				.toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
 		});
-		// The case when the Typeahead is from RIGHT ==> LEFT is not covered by snapshots,
-		// because currently it is not possible to import theme in snapshots.
 	});
 
 	describe('items', () => {
-		it('should render typeahead with items', () => {
+		it('should render typeahead with results', () => {
 			// given
-			const myProps = Object.assign({}, typeaheadProps);
-			myProps.config = {};
-			myProps.items = items;
-
+			const props = {
+				id: 'my-search',
+				items,
+			};
 			// when
 			const wrapper = renderer
-				.create(<Typeahead {...myProps} />)
+				.create(<Typeahead {...props} />)
 				.toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render typeahead without items', () => {
+		it('should render typeahead without results', () => {
 			// given
-			const myProps = Object.assign({}, typeaheadProps);
-			myProps.config = {};
+			const props = {
+				id: 'my-search',
+				items: [],
+			};
 
 			// when
 			const wrapper = renderer
-				.create(<Typeahead {...myProps} />)
+				.create(<Typeahead {...props} />)
 				.toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render typeahead items with match', () => {
+		it('should render typeahead results with match', () => {
 			// given
-			const myProps = Object.assign({}, typeaheadProps);
-			myProps.config = {};
-			myProps.items = items;
-			myProps.renderItemData = renderItemData;
+			const props = {
+				id: 'my-search',
+				value: 'le',
+				items,
+			};
 
 			// when
 			const wrapper = renderer
-				.create(<Typeahead {...myProps} />)
+				.create(<Typeahead {...props} />)
 				.toJSON();
 
 			// then

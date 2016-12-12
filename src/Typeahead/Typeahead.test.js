@@ -1,20 +1,16 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Typeahead from './Typeahead.component';
 
-
-describe('Typeahead events', () => {
-	const exampleId = 'component-id';
-	const focusedItemIndex = 1;
-	const focusedSectionIndex = 0;
-	const value = '';
-	const renderItemData = { value };
-	const inputProps = {
-		value,
-		placeholder: 'Search anything',
+describe('Typeahead', () => {
+	const initialProps = {
+		id: 'my-search',
+		icon: {
+			name: 'fa fa-search',
+			title: 'icon',
+			bsStyle: 'link',
+		},
 	};
-
-	const itemProps = {};
 
 	const items = [
 		{
@@ -48,140 +44,78 @@ describe('Typeahead events', () => {
 			],
 		}];
 
-	const onlyIconProps = {
-		id: exampleId,
-		config: {
-			isOnlyIcon: true,
-			icon: {
-				name: 'fa fa-search',
-				title: 'icon',
-				actionStyle: 'link',
-			},
-			onInputIconClick: jest.fn(),
-		},
-		items: [],
-	};
-
-	const typeaheadProps = {
-		id: exampleId,
-		config: {
-			icon: {
-				name: 'fa fa-search',
-				title: 'icon',
-			},
-		},
-		items,
-		inputProps,
-		itemProps,
-		focusedItemIndex,
-		focusedSectionIndex,
-		renderItemData,
-	};
-
-	describe('only icon', () => {
-		it('should call onClick event', () => {
+	describe('toggle button', () => {
+		it('should call onToggle', () => {
 			// given
-			const myProps = Object.assign({}, onlyIconProps);
-			const iconClick = jest.fn();
-			myProps.config.onInputIconClick = iconClick;
-			const typeaheadIcon = <Typeahead {...myProps} />;
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+			};
+			const typeahead = <Typeahead {...props} />;
 
 			// when
-			const typeaheadIconInstance = shallow(typeaheadIcon);
-			typeaheadIconInstance.simulate('click');
+			const typeaheadInstance = mount(typeahead);
+			typeaheadInstance.find('Action').at(0).simulate('click');
 
 			// then
-			expect(iconClick).toBeCalled();
+			expect(props.onToggle).toBeCalled();
 		});
 	});
 
-	describe('Autowhatever', () => {
-		describe('input events:', () => {
-			it('should call onKeydown event', () => {
-				// given
-				const onKeyDown = jest.fn();
-				typeaheadProps.inputProps = { onKeyDown, ...inputProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
+	describe('input', () => {
+		it('should call onChange', () => {
+			// given
+			const onChange = jest.fn();
+			const props = {
+				...initialProps,
+				onChange,
+			};
+			const typeahead = <Typeahead {...props} />;
+			const event = { target: { value: 'toto' } };
 
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('input').simulate('keydown');
+			// when
+			const typeaheadInstance = mount(typeahead);
+			typeaheadInstance.find('input').simulate('change', event);
 
-				// then
-				expect(onKeyDown).toBeCalled();
-			});
-
-			it('should call onBlur event', () => {
-				// given
-				const onBlur = jest.fn();
-				typeaheadProps.inputProps = { onBlur, ...inputProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
-
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('input').simulate('blur');
-
-				// then
-				expect(onBlur).toBeCalled();
-			});
+			// then
+			expect(onChange).toBeCalled();
 		});
 
-		describe('item events:', () => {
-			it('should call onMouseEnter event', () => {
-				// given
-				const onMouseEnter = jest.fn();
-				typeaheadProps.itemProps = { onMouseEnter, ...itemProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
+		it('should call onBlur', () => {
+			// given
+			const onBlur = jest.fn();
+			const props = {
+				...initialProps,
+				onBlur,
+			};
+			const typeahead = <Typeahead {...props} />;
 
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('Item').at(0).simulate('mouseenter');
+			// when
+			const typeaheadInstance = mount(typeahead);
+			typeaheadInstance.find('input').simulate('blur');
 
-				// then
-				expect(onMouseEnter).toBeCalled();
-			});
+			// then
+			expect(onBlur).toBeCalled();
+		});
+	});
 
-			it('should call onMouseLeave event', () => {
-				// given
-				const onMouseLeave = jest.fn();
-				typeaheadProps.itemProps = { onMouseLeave, ...itemProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
+	describe('item', () => {
+		it('should call onSelect', () => {
+			// given
+			const onSelect = jest.fn();
+			const props = {
+				...initialProps,
+				onSelect,
+				items,
+			};
+			const typeahead = <Typeahead {...props} />;
 
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('Item').at(0).simulate('mouseleave');
+			// when
+			const typeaheadInstance = mount(typeahead);
+			typeaheadInstance.find('Item').at(0).simulate('click');
 
-				// then
-				expect(onMouseLeave).toBeCalled();
-			});
-
-			it('should call onClick event', () => {
-				// given
-				const onClick = jest.fn();
-				typeaheadProps.itemProps = { onClick, ...itemProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
-
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('Item').at(0).simulate('click');
-
-				// then
-				expect(onClick).toBeCalled();
-			});
-
-			it('should call onKeyDown event', () => {
-				// given
-				const onKeyDown = jest.fn();
-				typeaheadProps.itemProps = { onKeyDown, ...itemProps };
-				const typeaheadLeft = <Typeahead {...typeaheadProps} />;
-
-				// when
-				const typeaheadLeftInstance = mount(typeaheadLeft);
-				typeaheadLeftInstance.find('Item').at(0).simulate('keydown');
-
-				// then
-				expect(onKeyDown).toBeCalled();
-			});
+			// then
+			expect(onSelect).toBeCalled();
 		});
 	});
 });

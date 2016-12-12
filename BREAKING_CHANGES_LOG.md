@@ -3,6 +3,30 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.29.0
+* Component: Typeahead
+* PR: [refactor(typeahead): Simplify API](https://github.com/Talend/react-talend-components/pull/144)
+* Changes
+
+| Old Props | New props |
+|---|---|
+| props.config.isOnlyIcon | props.hasToggle |
+| props.config.icon | props.icon |
+| props.config.icon.actionStyle | props.icon.bsStyle |
+| props.config.onInputIconClick | props.onToggle |
+| props.config.isOnTheRight | props.position |
+| props.focusedItemIndex | ~~deleted~~ |
+| props.focusedSectionIndex | ~~deleted~~ |
+| props.inputProps.value | props.value|
+| props.inputProps.placeholder | props.placeholder |
+| props.inputProps.onBlur | props.onBlur |
+| props.inputProps.onKeyDown | props.onChange |
+| props.itemProps.onBlur | ~~deleted~~ |
+| props.itemProps.onMouseEnter | ~~deleted~~ |
+| props.itemProps.onKeyDown | ~~deleted~~ |
+| props.itemProps.onClick | props.onSelect |
+| props.renderItemData |~~deleted~~ |
+
 ## v0.28.0
 * Component: List > Toolbar
 * PR: [feat(List): actions bar](https://github.com/Talend/react-talend-components/pull/159)
@@ -30,7 +54,6 @@ props.actions = {
     }]
 }
 ```
-
 
 ## v0.25.5
 * Component: Drawer

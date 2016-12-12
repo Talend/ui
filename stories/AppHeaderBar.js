@@ -3,23 +3,12 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import { AppHeaderBar } from '../src';
 
-/*************************************** TYPEAHEAD ************************************************/
-const exampleId = 'component-id';
-const focusedItemIndex = 1;
-const focusedSectionIndex = 0;
-const value = 'le';
-const renderItemData = { value };
-const inputProps = {
-	value,
-	placeholder: 'Search anything',
-};
-const itemProps = {};
 const typeaheadItems = [
 	{
 		title: 'category 1',
 		icon: {
 			name: 'fa fa-filter',
-			title: 'icon'
+			title: 'icon',
 		},
 		suggestions: [
 			{
@@ -32,7 +21,6 @@ const typeaheadItems = [
 			},
 		],
 	},
-
 	{
 		title: 'category 2',
 		icon: {
@@ -46,7 +34,6 @@ const typeaheadItems = [
 			},
 		],
 	},
-
 	{
 		title: 'category 3',
 		icon: {
@@ -69,23 +56,6 @@ const typeaheadItems = [
 		],
 	}];
 
-const search = {
-	id: exampleId,
-	config: {
-		icon: {
-			name: 'fa fa-search',
-			title: 'icon',
-		},
-	},
-	items: typeaheadItems,
-	inputProps,
-	itemProps,
-	focusedItemIndex,
-	focusedSectionIndex,
-	renderItemData,
-};
-
-/****************************************** FORM **************************************************/
 const inputForm = {
 	forms: [{
 		form: {
@@ -114,7 +84,6 @@ const inputForm = {
 	}],
 };
 
-/************************************** AppHeaderBar Props ****************************************/
 const props = {
 	app: 'Example App Name',
 	brandLink: {
@@ -130,7 +99,7 @@ const props = {
 							item: {
 								icon: 'fa fa-bars',
 								name: 'hello',
-								onClick: action('onClick bars')
+								onClick: action('onClick bars'),
 							},
 						},
 					],
@@ -143,7 +112,7 @@ const props = {
 							item: {
 								icon: 'fa fa-heart',
 								name: 'world',
-								onClick: action('onClick heart')
+								onClick: action('onClick heart'),
 							},
 						},
 						{
@@ -158,7 +127,7 @@ const props = {
 									{
 										icon: 'fa fa-fw fa-cog',
 										name: 'settings',
-										onClick: action('onClick settings')
+										onClick: action('onClick settings'),
 									},
 								],
 							},
@@ -170,126 +139,76 @@ const props = {
 	],
 };
 
-storiesOf('App Header Bar', module)
-	.addWithInfo('default', () => {
-		props.content[1] && delete props.content[1];
-		return (
+const decoratedStories = storiesOf('App Header Bar', module)
+	.addDecorator(story => (
 		<div>
-			<AppHeaderBar {...props} />
+			{story()}
 			<div className="container" style={{ paddingTop: 40 }}>
 				<h1>AppHeaderBar</h1>
 				<h2>Definition</h2>
 				<p>Display a navigation bar on top of the page.</p>
-				<h2>Examples</h2>
 				<p>Look on top</p>
-				<pre>{JSON.stringify(props, null, 2)}</pre>
 			</div>
-		</div>);
-	})
+		</div>
+	));
 
-	.addWithInfo('Without brandLink', () => {
-		const myprops = Object.assign({}, props);
-		delete myprops.brandLink;
-		myprops.content[1] && delete myprops.content[1];
-		return (
-			<div>
-				<AppHeaderBar {...myprops} />
-				<div className="container" style={{ paddingTop: 40 }}>
-					<h1>AppHeaderBar</h1>
-					<h2>Definition</h2>
-					<p>Display a navigation bar on top of the page.</p>
-					<p>Look on top</p>
-				</div>
-			</div>
-		);
+decoratedStories
+	.addWithInfo('default', () => {
+		if (props.content[1]) {
+			delete props.content[1];
+		}
+		return <AppHeaderBar {...props} />;
 	})
-
-	.addWithInfo('With form', () => {
+	.addWithInfo('without brand link', () => {
+		delete props.brandLink;
+		if (props.content[1]) {
+			delete props.content[1];
+		}
+		return <AppHeaderBar {...props} />;
+	})
+	.addWithInfo('with simple form', () => {
 		props.content[1] = inputForm;
-		return (
-			<div>
-				<AppHeaderBar {...props} />
-				<div className="container" style={{ paddingTop: 40 }}>
-					<h1>AppHeaderBar</h1>
-					<h2>Definition</h2>
-					<p>Display a navigation bar on top of the page.</p>
-					<p>Look on top</p>
-				</div>
-			</div>
-		);
+		return <AppHeaderBar {...props} />;
 	})
-
-	.addWithInfo('With Typeahead Icon', () => {
-		props.content[1] =
-			{
-				search: {
-					id: exampleId,
-					config: {
-						isOnlyIcon: true,
-						icon: {
-							name: 'fa fa-search',
-							title: 'icon',
-							actionStyle: 'link',
-						},
-						onInputIconClick: action('icon clicked'),
-					},
-				},
-			};
-		return (
-			<div>
-				<AppHeaderBar {...props} />
-				<div className="container" style={{ paddingTop: 40 }}>
-					<h1>AppHeaderBar</h1>
-					<h2>Definition</h2>
-					<p>Display a navigation bar on top of the page.</p>
-					<p>Look on top</p>
-				</div>
-			</div>
-		);
-	})
-
-	.addWithInfo('With Typeahead only input', () => {
+	.addWithInfo('with search button', () => {
 		props.content[1] = {
 			search: {
-				id: exampleId,
-				config: {
-					icon: {
-						name: 'fa fa-search',
-						title: 'icon',
-					},
+				icon: {
+					name: 'fa fa-search',
+					title: 'icon',
+					bsStyle: 'link',
 				},
-				inputProps: inputProps,
-				itemProps: itemProps,
-				focusedItemIndex: focusedItemIndex,
-				focusedSectionIndex: focusedSectionIndex,
-				renderItemData: renderItemData,
-			}
+				onToggle: action('icon clicked'),
+			},
 		};
-		return (
-			<div>
-				<AppHeaderBar {...props} />
-				<div className="container" style={{ paddingTop: 40 }}>
-					<h1>AppHeaderBar</h1>
-					<h2>Definition</h2>
-					<p>Display a navigation bar on top of the page.</p>
-					<p>Look on top</p>
-				</div>
-			</div>
-		);
+		return <AppHeaderBar {...props} />;
 	})
-
-	.addWithInfo('With Typeahead items', () => {
-		props.content[1] = { search };
-		return (
-			<div>
-				<AppHeaderBar {...props} />
-				<div className="container" style={{ paddingTop: 40 }}>
-					<h1>AppHeaderBar</h1>
-					<h2>Definition</h2>
-					<p>Display a navigation bar on top of the page.</p>
-					<p>Look on top</p>
-				</div>
-			</div>
-		);
+	.addWithInfo('with search input', () => {
+		props.content[1] = {
+			search: {
+				icon: {
+					name: 'fa fa-search',
+				},
+				placeholder: 'Search...',
+				onBlur: action('onBlur'),
+				onChange: action('onChange'),
+			},
+		};
+		return <AppHeaderBar {...props} />;
 	})
-;
+	.addWithInfo('with search results', () => {
+		props.content[1] = {
+			search: {
+				icon: {
+					name: 'fa fa-search',
+				},
+				position: 'right',
+				value: 'le',
+				items: typeaheadItems,
+				onBlur: action('onBlur'),
+				onChange: action('onChange'),
+				onSelect: action('onSelect'),
+			},
+		};
+		return <AppHeaderBar {...props} />;
+	});

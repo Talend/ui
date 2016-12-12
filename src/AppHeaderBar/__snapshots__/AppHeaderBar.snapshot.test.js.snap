@@ -375,14 +375,16 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
           <div
             className={undefined}>
             <input
-              aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+              aria-activedescendant={null}
               aria-autocomplete="list"
               aria-expanded={true}
               aria-haspopup={true}
-              aria-owns="react-autowhatever-component-id"
+              aria-owns="react-autowhatever-my-search"
               autoComplete="off"
               className="form-control"
               id={undefined}
+              onBlur={undefined}
+              onChange={undefined}
               onKeyDown={undefined}
               placeholder="Search anything"
               role="combobox"
@@ -398,7 +400,7 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
             </div>
           </div>
           <div
-            id="react-autowhatever-component-id"
+            id="react-autowhatever-my-search"
             style={Object {}}>
             <div
               style={Object {}}>
@@ -420,7 +422,8 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                 role="listbox"
                 style={Object {}}>
                 <li
-                  id="react-autowhatever-component-id-section-0-item-0"
+                  id="react-autowhatever-my-search-section-0-item-0"
+                  onClick={undefined}
                   role="option"
                   style={Object {}}>
                   <div
@@ -443,7 +446,6 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                       </span>
                       <span>
                          1
-                        
                       </span>
                     </span>
                     <p
@@ -453,7 +455,8 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                   </div>
                 </li>
                 <li
-                  id="react-autowhatever-component-id-section-0-item-1"
+                  id="react-autowhatever-my-search-section-0-item-1"
+                  onClick={undefined}
                   role="option"
                   style={Object {}}>
                   <div
@@ -497,7 +500,6 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                       </span>
                       <span>
                          
-                        
                       </span>
                     </span>
                     <p
@@ -528,7 +530,8 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                 role="listbox"
                 style={Object {}}>
                 <li
-                  id="react-autowhatever-component-id-section-1-item-0"
+                  id="react-autowhatever-my-search-section-1-item-0"
+                  onClick={undefined}
                   role="option"
                   style={Object {}}>
                   <div
@@ -544,7 +547,6 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
                       </span>
                       <span>
                          3
-                        
                       </span>
                     </span>
                     <p
@@ -822,30 +824,25 @@ exports[`AppHeaderBar should render with only Typeahead input 1`] = `
           <div
             className={undefined}>
             <input
-              aria-activedescendant="react-autowhatever-component-id-section-0-item-1"
+              aria-activedescendant={null}
               aria-autocomplete="list"
               aria-expanded={false}
               aria-haspopup={false}
-              aria-owns="react-autowhatever-component-id"
+              aria-owns="react-autowhatever-my-search"
               autoComplete="off"
               className="form-control"
               id={undefined}
+              onBlur={undefined}
+              onChange={undefined}
               onKeyDown={undefined}
               placeholder="Search anything"
               role="combobox"
               style={Object {}}
               type="text"
               value="le" />
-            <div
-              className={undefined}>
-              <i
-                aria-hidden="true"
-                className="fa fa-search"
-                title="icon" />
-            </div>
           </div>
           <div
-            id="react-autowhatever-component-id"
+            id="react-autowhatever-my-search"
             style={Object {}} />
         </div>
       </div>

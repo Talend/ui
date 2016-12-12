@@ -1,21 +1,14 @@
-import Autowhatever from 'react-autowhatever';
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { FormControl, Nav } from 'react-bootstrap';
 import { Typeahead } from '../src';
-
-const exampleId = 'component-id';
-const focusedItemIndex = 1;
-const focusedSectionIndex = 0;
-const value = 'le';
-const renderItemData = { value };
+import IconProvider from '../src/IconsProvider';
 
 const items = [
 	{
 		title: 'category 1',
 		icon: {
-			name: 'fa fa-filter',
-			title: 'icon'
+			name: 'talend-filter',
+			title: 'icon',
 		},
 		suggestions: [
 			{
@@ -26,28 +19,26 @@ const items = [
 				title: 'title 2 les elephants elementaires ont des aile ',
 				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
-		]
+		],
 	},
-
 	{
 		title: 'category 2',
 		icon: {
 			name: 'fa fa-asterisk',
-			title: 'icon'
+			title: 'icon',
 		},
 		suggestions: [
 			{
 				title: 'title 3',
 				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 			},
-		]
+		],
 	},
-
 	{
 		title: 'category 3',
 		icon: {
 			name: 'fa fa-asterisk',
-			title: 'icon'
+			title: 'icon',
 		},
 		suggestions: [
 			{
@@ -62,147 +53,76 @@ const items = [
 				title: 'title 6',
 				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
-		]
-	}];
+		],
+	}
+];
 
-let inputProps = {
-	value,
-	placeholder: 'Search anything',
-};
+const decoratedStories = storiesOf('Typeahead', module)
+	.addDecorator(story => (
+		<div>
+			<h2>Below is an example of a Typeahead</h2>
+			{story()}
+		</div>
+	));
 
-// Input actions
-const inputActionsList = ['onBlur', 'onKeyDown']; // TODO it is nice to have onChange event when the value is already given
-inputProps = inputActionsList.reduce(
-	(accumulator, funcName) =>
-		Object.assign(accumulator, { [funcName]: action(`${funcName} event on input is triggered`) })
-	, inputProps
-);
-
-// Item actions
-const itemActionsList = ['onMouseEnter', 'onMouseLeave', 'onClick', 'onKeyDown'];
-const itemProps = itemActionsList.reduce(
-	(accumulator, funcName) =>
-		Object.assign(accumulator, { [funcName]: action(`${funcName} event on item in the list is triggered`) })
-	, {}
-);
-
-const props = {
-	id: exampleId,
-	config: {
-		isOnlyIcon: true,
-		icon: {
-			name: 'fa fa-search',
-			title: 'icon',
-			actionStyle: 'link',
-		},
-		onInputIconClick: action('icon clicked'),
-	},
-	items: [],
-};
-
-storiesOf('Typeahead', module)
-	.addWithInfo('Only Icon', () => {
+decoratedStories
+	.addWithInfo('default', () => {
+		const props = {
+			placeholder: 'Search...',
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
+	.addWithInfo('on the right', () => {
+		const props = {
+			placeholder: 'Search...',
+			position: 'right',
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
+	.addWithInfo('with results', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
+	.addWithInfo('without results', () => {
+		const props = {
+			value: 'Text without results',
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			items: [],
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
+	.addWithInfo('with toggle button', () => {
+		const props = {
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+				bsStyle: 'link',
+			},
+			onToggle: action('onToggle'),
+		};
 		return (
 			<div>
-				<h2>Below is an example of a Typeahead</h2>
+				<IconProvider />
 				<Typeahead {...props} />
 			</div>
 		);
-	})
-
-	.addWithInfo('Typeahead With Icon (LEFT ==> RIGHT)', () => {
-		const myProps = Object.assign({}, props);
-		myProps.config = {
-			icon: {
-				name: 'fa fa-search',
-				title: 'icon',
-			},
-		};
-		myProps.items = items;
-		myProps.inputProps = inputProps;
-		myProps.itemProps = itemProps;
-		myProps.focusedItemIndex = focusedItemIndex;
-		myProps.focusedSectionIndex = focusedSectionIndex;
-		myProps.renderItemData = renderItemData;
-		return (
-			<div>
-				<h2>Below is an example of a Typeahead</h2>
-				<Typeahead {...myProps} />
-			</div>
-		);
-	})
-
-	.addWithInfo('Typeahead With Icon (RIGHT ==> LEFT)', () => {
-		const myProps = Object.assign({}, props);
-		myProps.config = {
-			isOnTheRight: true,
-			icon: {
-				name: 'fa fa-search',
-				title: 'icon',
-			}
-		};
-		myProps.items = items;
-		myProps.inputProps = inputProps;
-		myProps.itemProps = itemProps;
-		myProps.focusedItemIndex = focusedItemIndex;
-		myProps.focusedSectionIndex = focusedSectionIndex;
-		myProps.renderItemData = renderItemData;
-		return (
-			<div>
-				<h2>Below is an example of a Typeahead</h2>
-				<Typeahead {...myProps} />
-			</div>
-		);
-	})
-
-	.addWithInfo('Typeahead Without Icon (LEFT ==> RIGHT)', () => {
-		const myProps = Object.assign({}, props);
-		myProps.config = {};
-		myProps.items = items;
-		myProps.inputProps = inputProps;
-		myProps.itemProps = itemProps;
-		myProps.focusedItemIndex = focusedItemIndex;
-		myProps.focusedSectionIndex = focusedSectionIndex;
-		myProps.renderItemData = renderItemData;
-		return (
-			<div>
-				<h2>Below is an example of a Typeahead</h2>
-				<Typeahead {...myProps} />
-			</div>
-		);
-	})
-
-	.addWithInfo('Typeahead Without Icon (RIGHT ==> LEFT)', () => {
-		const myProps = Object.assign({}, props);
-		myProps.config = { isOnTheRight: true };
-		myProps.items = items;
-		myProps.inputProps = inputProps;
-		myProps.itemProps = itemProps;
-		myProps.focusedItemIndex = focusedItemIndex;
-		myProps.focusedSectionIndex = focusedSectionIndex;
-		myProps.renderItemData = renderItemData;
-		return (
-			<div>
-				<h2>Below is an example of a Typeahead</h2>
-				<Typeahead {...myProps} />
-			</div>
-		);
-	})
-
-	.addWithInfo('Typeahead With Icon & no items', () => {
-		const myProps = Object.assign({}, props);
-		myProps.config = {
-			icon: {
-				name: 'fa fa-search',
-				title: 'icon',
-			}
-		};
-		myProps.inputProps = inputProps;
-		return (
-			<div>
-				<h2>Below is an example of a Typeahead</h2>
-				<Typeahead {...myProps} />
-			</div>
-		);
-	})
-;
+	});
