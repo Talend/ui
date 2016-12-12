@@ -27,8 +27,9 @@ function Breadcrumbs(props) {
 	const maxItemsReached = nbItems > maxItemsToDisplay;
 	const ellipsisIndex = (nbItems - 1) - maxItemsToDisplay;
 	const hiddenItems = items.slice(0, ellipsisIndex + 1)
-		.map(hiddenItem => (
+		.map((hiddenItem, index) => (
 			{
+				id: `${props.id}-item-${index}`,
 				label: hiddenItem.text,
 				title: hiddenItem.title,
 				onClick: event => hiddenItem.onClick(event, hiddenItem),
@@ -43,6 +44,7 @@ function Breadcrumbs(props) {
 	const renderBreadcrumbItem = (item, index) => {
 		const { text, title, onClick } = item;
 		const isActive = index === (nbItems - 1);
+		const id = `${props.id}-item-${index}`;
 
 		/**
 		 * Wrapper for onClick in order to return item
@@ -59,6 +61,7 @@ function Breadcrumbs(props) {
 				<li className="sr-only" key={index}>
 					{onClick ?
 						<Button
+							id={id}
 							bsStyle="link"
 							role="link"
 							title={title}
@@ -72,11 +75,11 @@ function Breadcrumbs(props) {
 			return (
 				<li className={classNames(theme.dots)} key={index} aria-hidden="true">
 					<ActionDropdown
+						id={`${props.id}-ellipsis`}
 						items={hiddenItems}
 						label="&hellip;"
 						link
 						noCaret
-						id={uuid.v4()}
 					/>
 				</li>
 			);
@@ -85,24 +88,26 @@ function Breadcrumbs(props) {
 			<li className={isActive ? 'active' : ''} key={index}>
 				{(!isActive && onClick) ?
 					<Button
+						id={id}
 						bsStyle="link"
 						role="link"
 						title={title}
 						onClick={wrappedOnClick}
-					>{text}</Button> : <span>{text}</span>
+					>{text}</Button> : <span id={id}>{text}</span>
 				}
 			</li>
 		);
 	};
 
 	return (
-		<ol className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
+		<ol id={props.id} className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
 			{items.map(renderBreadcrumbItem)}
 		</ol>
 	);
 }
 
 Breadcrumbs.propTypes = {
+	id: React.PropTypes.string,
 	items: React.PropTypes.arrayOf(
 		React.PropTypes.shape({
 			text: React.PropTypes.string.isRequired,
@@ -111,6 +116,10 @@ Breadcrumbs.propTypes = {
 		})
 	),
 	maxItems: React.PropTypes.number,
+};
+
+Breadcrumbs.defaultProps = {
+	id: `${uuid.v4()}`,
 };
 
 export default Breadcrumbs;

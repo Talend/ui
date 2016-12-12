@@ -79,4 +79,11 @@ describe('Breadcrumbs', () => {
 		).toJSON();
 		expect(breadcrumbs).toMatchSnapshot();
 	});
+
+	it('should render items ids when provided', () => {
+		const breadcrumbs = renderer.create(
+			<Breadcrumbs id="my-breadcrumb" items={items} />
+		).toJSON();
+		expect(breadcrumbs).toMatchSnapshot();
+	});
 });

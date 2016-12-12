@@ -1,38 +1,45 @@
 exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb" />
+  className="breadcrumb tc-breadcrumb"
+  id="42" />
 `;
 
 exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb">
+  className="breadcrumb tc-breadcrumb"
+  id="42">
   <li
     className="">
-    <span>
+    <span
+      id="42-item-0">
       Text A
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-1">
       Text B
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-2">
       Text C
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-3">
       Text D
     </span>
   </li>
   <li
     className="active">
-    <span>
+    <span
+      id="42-item-4">
       Text E
     </span>
   </li>
@@ -41,7 +48,8 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
 
 exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb">
+  className="breadcrumb tc-breadcrumb"
+  id="42">
   <li
     className="sr-only">
     <span>
@@ -64,7 +72,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
         aria-haspopup={true}
         className="dropdown-toggle btn btn-link"
         disabled={false}
-        id={42}
+        id="42-ellipsis"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="button"
@@ -76,7 +84,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
         </span>
       </button>
       <ul
-        aria-labelledby={42}
+        aria-labelledby="42-ellipsis"
         className="dropdown-menu"
         role="menu">
         <li
@@ -85,6 +93,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}>
           <a
             href=""
+            id="42-item-0"
             label="Text A"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -100,6 +109,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}>
           <a
             href=""
+            id="42-item-1"
             label="Text B"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -115,6 +125,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}>
           <a
             href=""
+            id="42-item-2"
             label="Text C"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -129,22 +140,25 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-3">
       Text D
     </span>
   </li>
   <li
     className="active">
-    <span>
+    <span
+      id="42-item-4">
       Text E
     </span>
   </li>
 </ol>
 `;
 
-exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
+exports[`Breadcrumbs should render items ids when provided 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb">
+  className="breadcrumb tc-breadcrumb"
+  id="my-breadcrumb">
   <li
     aria-hidden="true"
     className="">
@@ -155,7 +169,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
         aria-haspopup={true}
         className="dropdown-toggle btn btn-link"
         disabled={false}
-        id={42}
+        id="my-breadcrumb-ellipsis"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="button"
@@ -167,7 +181,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
         </span>
       </button>
       <ul
-        aria-labelledby={42}
+        aria-labelledby="my-breadcrumb-ellipsis"
         className="dropdown-menu"
         role="menu">
         <li
@@ -176,6 +190,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
           style={undefined}>
           <a
             href=""
+            id="my-breadcrumb-item-0"
             label="Text A"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -190,19 +205,94 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="my-breadcrumb-item-1">
       Text B
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="my-breadcrumb-item-2">
       Text C
     </span>
   </li>
   <li
     className="active">
-    <span>
+    <span
+      id="my-breadcrumb-item-3">
+      Text D
+    </span>
+  </li>
+</ol>
+`;
+
+exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
+<ol
+  className="breadcrumb tc-breadcrumb"
+  id="42">
+  <li
+    aria-hidden="true"
+    className="">
+    <div
+      className="dropdown btn-group btn-group-link">
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="dropdown-toggle btn btn-link"
+        disabled={false}
+        id="42-ellipsis"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+        <span>
+          <span>
+            …
+          </span>
+        </span>
+      </button>
+      <ul
+        aria-labelledby="42-ellipsis"
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href=""
+            id="42-item-0"
+            label="Text A"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+            title={undefined}>
+            Text A
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="">
+    <span
+      id="42-item-1">
+      Text B
+    </span>
+  </li>
+  <li
+    className="">
+    <span
+      id="42-item-2">
+      Text C
+    </span>
+  </li>
+  <li
+    className="active">
+    <span
+      id="42-item-3">
       Text D
     </span>
   </li>
@@ -211,34 +301,40 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
 
 exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb">
+  className="breadcrumb tc-breadcrumb"
+  id="42">
   <li
     className="">
-    <span>
+    <span
+      id="42-item-0">
       Text A
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-1">
       Text B
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-2">
       Text C
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-3">
       Text D
     </span>
   </li>
   <li
     className="active">
-    <span>
+    <span
+      id="42-item-4">
       Text E
     </span>
   </li>
@@ -247,22 +343,26 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
 
 exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb">
+  className="breadcrumb tc-breadcrumb"
+  id="42">
   <li
     className="">
-    <span>
+    <span
+      id="42-item-0">
       Text A
     </span>
   </li>
   <li
     className="">
-    <span>
+    <span
+      id="42-item-1">
       Text B
     </span>
   </li>
   <li
     className="active">
-    <span>
+    <span
+      id="42-item-2">
       Text C
     </span>
   </li>
