@@ -1,6 +1,8 @@
+$tc-action-bar-background-color: $concrete !default;
+
 .tc-actionbar-container {
 	padding: 0 $padding-normal;
-	background: $concrete;
+	background: $tc-action-bar-background-color;
 
 	.tc-actionbar-selected-count {
 		margin-right: $padding-larger;

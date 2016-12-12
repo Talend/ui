@@ -21,15 +21,22 @@ const listProps = {
 };
 
 const toolbarProps = {
-	onClickAdd: jest.fn(),
 	onFilter: jest.fn(),
 	onSelectSortBy: jest.fn(),
 	onSelectDisplayMode: jest.fn(),
+
+	// sort props
 	sortOptions: [
 		{ id: 'id', name: 'Id' },
 		{ id: 'name', name: 'Name' },
 	],
 	sortBy: 'name',
+
+	// pagination props
+	activePage: 5,
+	itemsLength: 10,
+	onChangePagination: jest.fn(),
+	pageSize: 8,
 };
 
 const props = {

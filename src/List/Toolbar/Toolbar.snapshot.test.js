@@ -5,148 +5,151 @@ import Toolbar, { getSubProps } from './Toolbar.component';
 
 jest.mock('react-dom');
 
-const props = {
-	onSelectDisplayMode: jest.fn(),
-	onSelectSortBy: jest.fn(),
+const props = { id: 'my-toolbar' };
+
+const actionBarProps = {
+	actions: {
+		left: [
+			{
+				id: 'add',
+				label: 'Add',
+				bsStyle: 'primary',
+				icon: 'talend-plus',
+				onClick: jest.fn(),
+			},
+			{
+				id: 'delete',
+				label: 'Delete selection',
+				icon: 'talend-trash',
+				onClick: jest.fn(),
+			},
+		],
+	},
+};
+
+const filterProps = {
 	onFilter: jest.fn(),
+};
+
+const displayModeProps = {
+	displayMode: 'table',
+	onSelectDisplayMode: jest.fn(),
+};
+
+const sortByProps = {
+	onSelectSortBy: jest.fn(),
 	sortOptions: [
-		{ id: 'id', name: 'Name' },
+		{ id: 'id', name: 'Id' },
 		{ id: 'name', name: 'Name' },
 	],
 	sortBy: 'id',
 	sortDesc: true,
-	itemsLength: 17,
+};
+
+const paginationProps = {
+	activePage: 5,
+	itemsLength: 10,
 	onChangePagination: jest.fn(),
+	pageSize: 8,
 };
 
 describe('Toolbar', () => {
-	it('should render', () => {
-		// when
-		const wrapper = renderer.create(
-			<Toolbar {...props} />
-		).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
 	it('should getSubProps', () => {
 		// given
+		const tProps = {
+			...props,
+			...displayModeProps,
+			...sortByProps,
+		};
 		const propTypes = {
 			onSelectDisplayMode: 'func',
 			sortBy: 'bool',
 		};
 
 		// when
-		const subProps = getSubProps(props, { propTypes });
+		const subProps = getSubProps(tProps, { propTypes });
 
 		// then
-		expect(subProps.onSelectDisplayMode).toBe(props.onSelectDisplayMode);
-		expect(subProps.sortBy).toBe(props.sortBy);
 		expect(Object.keys(subProps).length).toBe(2);
+		expect(subProps.onSelectDisplayMode).toBe(displayModeProps.onSelectDisplayMode);
+		expect(subProps.sortBy).toBe(sortByProps.sortBy);
 	});
 
-	it('should render listActions', () => {
-		// given
-		const tprops = Object.assign({}, props);
-		tprops.listActions = [
-			{
-				label: 'Delete selection',
-				icon: 'fa fa-trash-o',
-				onClick: jest.fn(),
-			},
-		];
-
+	it('should render empty toolbar', () => {
 		// when
-		const wrapper = renderer.create(
-			<Toolbar {...tprops} />
-		).toJSON();
+		const wrapper = renderer.create(<Toolbar />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render add btn', () => {
+	it('should render actions toolbar', () => {
 		// given
-		const tprops = Object.assign({}, props);
-		tprops.onClickAdd = jest.fn();
-
-		// when
-		const wrapper = renderer.create(
-			<Toolbar {...tprops} />
-		).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render id if provided', () => {
-		// given
-		const tprops = {
+		const tProps = {
 			...props,
-			id: 'toolbar',
-			onClickAdd: jest.fn(),
-			listActions: [
-				{
-					label: 'Delete selection',
-					icon: 'fa fa-trash-o',
-					onClick: jest.fn(),
-				},
-			],
+			...actionBarProps,
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Toolbar {...tprops} />
-		).toJSON();
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render empty without props', () => {
-		const wrapper = renderer.create(
-			<Toolbar />
-		).toJSON();
+	it('should render display mode selector', () => {
+		// given
+		const tProps = {
+			...props,
+			...displayModeProps,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with onClickAdd props', () => {
-		const wrapper = renderer.create(
-			<Toolbar onClickAdd={props.onClickAdd} />
-		).toJSON();
+	it('should render sort selector', () => {
+		// given
+		const tProps = {
+			...props,
+			...sortByProps,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with listActions props', () => {
-		const wrapper = renderer.create(
-			<Toolbar listActions={props.listActions}/>
-		).toJSON();
+	it('should render filter form', () => {
+		// given
+		const tProps = {
+			...props,
+			...filterProps,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with sortOptions', () => {
-		const wrapper = renderer.create(
-			<Toolbar
-				sortOptions={props.sortOptions}
-				sortBy={props.sortBy}
-				sortDesc={props.sortDesc}
-			/>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
+	it('should render pagination', () => {
+		// given
+		const tProps = {
+			...props,
+			...paginationProps,
+		};
 
-	it('should render with displayMode props', () => {
-		const wrapper = renderer.create(
-			<Toolbar onSelectDisplayMode={props.onSelectDisplayMode} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
 
-	it('should render with filter props', () => {
-		const wrapper = renderer.create(
-			<Toolbar onFilter={props.onFilter} />
-		).toJSON();
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 });

@@ -1,799 +1,97 @@
-exports[`Toolbar should render 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Display:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-bars"
-                title={null} />
-               
-              Table
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-list-alt"
-                title={null} />
-               
-              Expanded
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-th-large"
-                title={null} />
-               
-              Tile
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Sort by:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          Name
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-        </ul>
-      </li>
+exports[`Toolbar should render actions toolbar 1`] = `
+<div>
+  <nav
+    className="tc-actionbar-container nav">
+    <div
+      className="navbar-left">
       <button
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn btn btn-link"
+        className="btn btn-primary"
         disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onSelect={null}
-        role="button"
-        type="button">
-        DESCENDING
-      </button>
-    </ul>
-    <form
-      className="navbar-form navbar-right"
-      onSubmit={[Function]}
-      role="search">
-      <div
-        className="form-group">
-        <input
-          aria-label="Filter"
-          className="form-control"
-          id={undefined}
-          onChange={[Function]}
-          placeholder="Filter"
-          type="search" />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          title="Filter"
-          type="submit">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-search" />
-          </svg>
-          <span
-            className="sr-only">
-            Filter
-          </span>
-        </button>
-      </div>
-    </form>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Show:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          5
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              5
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              10
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              20
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              50
-            </a>
-          </li>
-        </ul>
-      </li>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
-        <button
-          className="btn btn-link"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-backward"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <span
-          className="btn btn-link">
-          1
-          /
-          4
-        </span>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-forward"
-            title={null} />
-        </button>
-      </div>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`Toolbar should render add btn 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <button
-        className="navbar-btn btn btn-success"
-        disabled={false}
+        id="my-toolbar-add"
         onClick={[Function]}
         role={null}
         type="button">
-        <i
+        <svg
           aria-hidden="true"
-          className="fa fa-plus"
-          title={null} />
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-plus" />
+        </svg>
         <span>
           Add
         </span>
       </button>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Display:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-bars"
-                title={null} />
-               
-              Table
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-list-alt"
-                title={null} />
-               
-              Expanded
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-th-large"
-                title={null} />
-               
-              Tile
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Sort by:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          Name
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-        </ul>
-      </li>
       <button
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn btn btn-link"
+        className="btn btn-default"
         disabled={false}
-        id={undefined}
+        id="my-toolbar-delete"
         onClick={[Function]}
-        onSelect={null}
-        role="button"
+        role={null}
         type="button">
-        DESCENDING
-      </button>
-    </ul>
-    <form
-      className="navbar-form navbar-right"
-      onSubmit={[Function]}
-      role="search">
-      <div
-        className="form-group">
-        <input
-          aria-label="Filter"
-          className="form-control"
-          id={undefined}
-          onChange={[Function]}
-          placeholder="Filter"
-          type="search" />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          title="Filter"
-          type="submit">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-search" />
-          </svg>
-          <span
-            className="sr-only">
-            Filter
-          </span>
-        </button>
-      </div>
-    </form>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Show:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          5
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              5
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              10
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              20
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              50
-            </a>
-          </li>
-        </ul>
-      </li>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
-        <button
-          className="btn btn-link"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-backward"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <span
-          className="btn btn-link">
-          1
-          /
-          4
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-trash" />
+        </svg>
+        <span>
+          Delete selection
         </span>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-forward"
-            title={null} />
-        </button>
-      </div>
-    </ul>
+      </button>
+    </div>
+  </nav>
+  <div
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid" />
   </div>
 </div>
 `;
 
-exports[`Toolbar should render empty without props 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
+exports[`Toolbar should render display mode selector 1`] = `
+<div>
   <div
-    className="container-fluid" />
-</div>
-`;
-
-exports[`Toolbar should render id if provided 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <button
-        className="navbar-btn btn btn-success"
-        disabled={false}
-        id="toolbar-add-btn"
-        onClick={[Function]}
-        role={null}
-        type="button">
-        <i
-          aria-hidden="true"
-          className="fa fa-plus"
-          title={null} />
-        <span>
-          Add
-        </span>
-      </button>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
-        <div
-          className="dropdown btn-group btn-group-link">
-          <button
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <label
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-text"
+          htmlFor="my-toolbar-display-mode"
+          onSelect={null}>
+          Display:
+        </label>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
-            disabled={false}
-            id="toolbar-actions-dropdown"
+            className="dropdown-toggle"
+            href=""
+            id="my-toolbar-display-mode"
             onClick={[Function]}
             onKeyDown={[Function]}
-            role="button"
-            type="button">
-            actions
+            role="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-bars"
+              title={null} />
              
             <span
               className="caret" />
-          </button>
+          </a>
           <ul
-            aria-labelledby="toolbar-actions-dropdown"
+            aria-labelledby="my-toolbar-display-mode"
             className="dropdown-menu"
             role="menu">
             <li
@@ -802,410 +100,159 @@ exports[`Toolbar should render id if provided 1`] = `
               style={undefined}>
               <a
                 href=""
-                id="toolbar-0-actions-delete-selection"
+                id="my-toolbar-display-mode-table"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1">
                 <i
                   aria-hidden="true"
-                  className="fa fa-trash-o"
+                  className="fa fa-bars"
                   title={null} />
-                Delete selection
+                 
+                Table
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                id="my-toolbar-display-mode-large"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-list-alt"
+                  title={null} />
+                 
+                Expanded
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                id="my-toolbar-display-mode-tile"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-th-large"
+                  title={null} />
+                 
+                Tile
               </a>
             </li>
           </ul>
-        </div>
-      </div>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor="toolbar-display-mode"
-        onSelect={null}>
-        Display:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id="toolbar-display-mode"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby="toolbar-display-mode"
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id="toolbar-display-mode-table"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-bars"
-                title={null} />
-               
-              Table
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id="toolbar-display-mode-large"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-list-alt"
-                title={null} />
-               
-              Expanded
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id="toolbar-display-mode-tile"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-th-large"
-                title={null} />
-               
-              Tile
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor="toolbar-sort-by"
-        onSelect={null}>
-        Sort by:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id="toolbar-sort-by"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          Name
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby="toolbar-sort-by"
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id="toolbar-sort-by-item-Name"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id="toolbar-sort-by-item-Name"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-        </ul>
-      </li>
-      <button
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn btn btn-link"
-        disabled={false}
-        id="toolbar-sort-order"
-        onClick={[Function]}
-        onSelect={null}
-        role="button"
-        type="button">
-        DESCENDING
-      </button>
-    </ul>
-    <form
-      className="navbar-form navbar-right"
-      onSubmit={[Function]}
-      role="search">
-      <div
-        className="form-group">
-        <input
-          aria-label="Filter"
-          className="form-control"
-          id="toolbar-filter-input"
-          onChange={[Function]}
-          placeholder="Filter"
-          type="search" />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="toolbar-filter-submit"
-          title="Filter"
-          type="submit">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-search" />
-          </svg>
-          <span
-            className="sr-only">
-            Filter
-          </span>
-        </button>
-      </div>
-    </form>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor="toolbar-pagination-size"
-        onSelect={null}>
-        Show:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id="toolbar-pagination-size"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          5
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby="toolbar-pagination-size"
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              5
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              10
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              20
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              50
-            </a>
-          </li>
-        </ul>
-      </li>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
-        <button
-          className="btn btn-link"
-          disabled={true}
-          id="toolbar-nav-to-first"
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-backward"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-          disabled={true}
-          id="toolbar-nav-to-prev"
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <span
-          className="btn btn-link">
-          1
-          /
-          4
-        </span>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="toolbar-nav-to-next"
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="toolbar-nav-to-last"
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-forward"
-            title={null} />
-        </button>
-      </div>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
 
-exports[`Toolbar should render listActions 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
+exports[`Toolbar should render empty toolbar 1`] = `
+<div>
   <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid" />
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render filter form 1`] = `
+<div>
+  <div
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid">
+      <form
+        className="navbar-form navbar-right"
+        onSubmit={[Function]}
+        role="search">
         <div
-          className="dropdown btn-group btn-group-link">
+          className="form-group">
+          <input
+            aria-label="Filter"
+            className="form-control"
+            id="my-toolbar-filter-input"
+            onChange={[Function]}
+            placeholder="Filter"
+            type="search" />
           <button
+            className="btn btn-link"
+            disabled={false}
+            id="my-toolbar-filter-submit"
+            title="Filter"
+            type="submit">
+            <svg
+              aria-hidden="true"
+              className="tc-svg-icon"
+              title={null}>
+              <use
+                xlinkHref="#talend-search" />
+            </svg>
+            <span
+              className="sr-only">
+              Filter
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render pagination 1`] = `
+<div>
+  <div
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <label
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-text"
+          htmlFor="my-toolbar-pagination-size"
+          onSelect={null}>
+          Show:
+        </label>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
-            disabled={false}
-            id={42}
+            className="dropdown-toggle"
+            href=""
+            id="my-toolbar-pagination-size"
             onClick={[Function]}
             onKeyDown={[Function]}
-            role="button"
-            type="button">
-            actions
+            role="button">
+            5
              
             <span
               className="caret" />
-          </button>
+          </a>
           <ul
-            aria-labelledby={42}
+            aria-labelledby="my-toolbar-pagination-size"
             className="dropdown-menu"
             role="menu">
             <li
@@ -1214,625 +261,201 @@ exports[`Toolbar should render listActions 1`] = `
               style={undefined}>
               <a
                 href=""
-                id={undefined}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1">
-                <i
-                  aria-hidden="true"
-                  className="fa fa-trash-o"
-                  title={null} />
-                Delete selection
+                5
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                10
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                20
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                50
               </a>
             </li>
           </ul>
+        </li>
+        <div
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-btn btn-group"
+          onSelect={null}>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="my-toolbar-nav-to-first"
+            onClick={[Function]}
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-backward"
+              title={null} />
+          </button>
+          <button
+            className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
+            disabled={false}
+            id="my-toolbar-nav-to-prev"
+            onClick={[Function]}
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-play"
+              title={null} />
+          </button>
+          <span
+            className="btn btn-link">
+            6
+            /
+            2
+          </span>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="my-toolbar-nav-to-next"
+            onClick={[Function]}
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-play"
+              title={null} />
+          </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="my-toolbar-nav-to-last"
+            onClick={[Function]}
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-forward"
+              title={null} />
+          </button>
         </div>
-      </div>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Display:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-bars"
-                title={null} />
-               
-              Table
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-list-alt"
-                title={null} />
-               
-              Expanded
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-th-large"
-                title={null} />
-               
-              Tile
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Sort by:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          Name
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-        </ul>
-      </li>
-      <button
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn btn btn-link"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onSelect={null}
-        role="button"
-        type="button">
-        DESCENDING
-      </button>
-    </ul>
-    <form
-      className="navbar-form navbar-right"
-      onSubmit={[Function]}
-      role="search">
-      <div
-        className="form-group">
-        <input
-          aria-label="Filter"
-          className="form-control"
-          id={undefined}
-          onChange={[Function]}
-          placeholder="Filter"
-          type="search" />
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          title="Filter"
-          type="submit">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-search" />
-          </svg>
-          <span
-            className="sr-only">
-            Filter
-          </span>
-        </button>
-      </div>
-    </form>
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Show:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          5
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              5
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              10
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              20
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              50
-            </a>
-          </li>
-        </ul>
-      </li>
-      <div
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn-group"
-        onSelect={null}>
-        <button
-          className="btn btn-link"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-backward"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-          disabled={true}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <span
-          className="btn btn-link">
-          1
-          /
-          4
-        </span>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-play"
-            title={null} />
-        </button>
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id={undefined}
-          onClick={[Function]}
-          type="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-forward"
-            title={null} />
-        </button>
-      </div>
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
 `;
 
-exports[`Toolbar should render with displayMode props 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
+exports[`Toolbar should render sort selector 1`] = `
+<div>
   <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Display:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          <i
-            aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-bars"
-                title={null} />
-               
-              Table
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-list-alt"
-                title={null} />
-               
-              Expanded
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="fa fa-th-large"
-                title={null} />
-               
-              Tile
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`Toolbar should render with filter props 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid">
-    <form
-      className="navbar-form navbar-right"
-      onSubmit={[Function]}
-      role="search">
-      <div
-        className="form-group">
-        <input
-          aria-label="Filter"
-          className="form-control"
-          id={undefined}
-          onChange={[Function]}
-          placeholder="Filter"
-          type="search" />
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid">
+      <ul
+        className="nav navbar-nav"
+        role={null}>
+        <label
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-text"
+          htmlFor="my-toolbar-sort-by"
+          onSelect={null}>
+          Sort by:
+        </label>
+        <li
+          className="dropdown"
+          style={undefined}>
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href=""
+            id="my-toolbar-sort-by"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button">
+            Id
+             
+            <span
+              className="caret" />
+          </a>
+          <ul
+            aria-labelledby="my-toolbar-sort-by"
+            className="dropdown-menu"
+            role="menu">
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                id="my-toolbar-sort-by-item-Id"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                Id
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}>
+              <a
+                href=""
+                id="my-toolbar-sort-by-item-Name"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1">
+                Name
+              </a>
+            </li>
+          </ul>
+        </li>
         <button
-          className="btn btn-link"
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-btn btn btn btn-link"
           disabled={false}
-          id={undefined}
-          title="Filter"
-          type="submit">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-search" />
-          </svg>
-          <span
-            className="sr-only">
-            Filter
-          </span>
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Toolbar should render with listActions props 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid" />
-</div>
-`;
-
-exports[`Toolbar should render with onClickAdd props 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid" />
-</div>
-`;
-
-exports[`Toolbar should render with sortOptions 1`] = `
-<div
-  className="navbar navbar-default"
-  role="toolbar">
-  <div
-    className="container-fluid">
-    <ul
-      className="nav navbar-nav"
-      role={null}>
-      <label
-        active={undefined}
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-text"
-        htmlFor={undefined}
-        onSelect={null}>
-        Sort by:
-      </label>
-      <li
-        className="dropdown"
-        style={undefined}>
-        <a
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle"
-          href=""
-          id={42}
+          id="my-toolbar-sort-order"
           onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button">
-          Name
-           
-          <span
-            className="caret" />
-        </a>
-        <ul
-          aria-labelledby={42}
-          className="dropdown-menu"
-          role="menu">
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href=""
-              id={undefined}
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              Name
-            </a>
-          </li>
-        </ul>
-      </li>
-      <button
-        activeHref={undefined}
-        activeKey={undefined}
-        className="navbar-btn btn btn btn-link"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onSelect={null}
-        role="button"
-        type="button">
-        DESCENDING
-      </button>
-    </ul>
+          onSelect={null}
+          role="button"
+          type="button">
+          DESCENDING
+        </button>
+      </ul>
+    </div>
   </div>
 </div>
 `;

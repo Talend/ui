@@ -1,7 +1,11 @@
 // Toolbar styles
 $tc-list-toolbar-display-color: $silver !default;
+$tc-list-toolbar-background-color: $concrete !default;
+
 
 .tc-list-toolbar {
+	background: $tc-list-toolbar-background-color;
+
 	:global(.navbar-text) {
 		color: $tc-list-toolbar-display-color;
 		font-weight: 400;

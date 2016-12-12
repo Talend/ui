@@ -3,6 +3,35 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.28.0
+* Component: List > Toolbar
+* PR: [feat(List): actions bar](https://github.com/Talend/react-talend-components/pull/159)
+* Changes
+
+| Old Properties | New Properties|
+|---|---|
+| props.onClickAdd | The Add button can be replaced by an action to set in props.actions properly (see below) |
+| props.listActions | props.actions that follow ActionBar.propTypes |
+
+```javascript
+props.onClickAdd = () => addFn()
+```
+
+is now :
+
+```javascript
+props.actions = {
+    left: [{
+        id: 'add',
+        label: 'Add',
+        bsStyle: 'primary',
+        icon: 'talend-plus',
+        onClick: () => addFn()
+    }]
+}
+```
+
+
 ## v0.25.5
 * Component: Drawer
 * PR: [fix(Drawer): Animation on leave is now possible](https://github.com/Talend/react-talend-components/pull/150)

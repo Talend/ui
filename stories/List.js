@@ -96,14 +96,23 @@ const props = {
 		},
 	},
 	toolbar: {
-		onClickAdd: action('onClickAdd'),
-		listActions: [
-			{
-				label: 'Delete selection',
-				icon: 'talend-trash',
-				onClick: action('delete'),
-			},
-		],
+		actions: {
+			left: [
+				{
+					id: 'add',
+					label: 'Add',
+					bsStyle: 'primary',
+					icon: 'talend-plus',
+					onClick: action('add'),
+				},
+				{
+					id: 'delete',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('delete'),
+				},
+			],
+		},
 		onFilter: action('onFilter'),
 		onSelectDisplayMode: action('onSelectDisplayMode'),
 		sortOptions: [
