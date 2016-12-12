@@ -4,12 +4,12 @@ import renderer from 'react-test-renderer';
 import IconsProvider from './IconsProvider.component';
 
 describe('IconsProvider', () => {
-	xit('should render default talend-icons', () => {
+	it('should render default talend-icons', () => {
 		const wrapper = renderer.create(<IconsProvider />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	xit('should render default talend-icons and custom icons defined on icons prop', () => {
+	it('should render default talend-icons and custom icons defined on icons prop', () => {
 		const customIcons = {
 			custom: (<svg id="customIcon" />),
 		};
