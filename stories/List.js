@@ -89,7 +89,6 @@ const props = {
 		},
 		itemProps: {
 			classNameKey: 'className',
-			isSelected: item => selected.find(next => next.id === item.id),
 			onSelect: action('onSelect'),
 			onToggle: action('onToggle'),
 			onToggleAll: action('onToggleAll'),
@@ -104,12 +103,6 @@ const props = {
 					bsStyle: 'primary',
 					icon: 'talend-plus',
 					onClick: action('add'),
-				},
-				{
-					id: 'delete',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('delete'),
 				},
 			],
 		},
@@ -137,9 +130,35 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('table with selected items', () => {
+		const selectedItemsProps = Immutable.fromJS(props).toJS();
+		selectedItemsProps.toolbar.selected = 1;
+		selectedItemsProps.toolbar.multiSelectActions = {
+			left: [
+				{
+					id: 'delete',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('delete'),
+				},
+			]
+		};
+		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		return(
+			<div>
+				<h1>List</h1>
+				<h2>Definition</h2>
+				<p>Display a list by defining your.</p>
+				<h2>Examples</h2>
+				<IconsProvider />
+				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
 	.add('table with custom selected class', () => {
 		const selectedClassProps = Immutable.fromJS(props).toJS();
 		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
 		return (
 			<div>
 				<h1>List</h1>

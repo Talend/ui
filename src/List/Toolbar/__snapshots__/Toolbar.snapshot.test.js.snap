@@ -22,6 +22,28 @@ exports[`Toolbar should render actions toolbar 1`] = `
           Add
         </span>
       </button>
+    </div>
+  </nav>
+  <div
+    className="navbar navbar-default"
+    role="toolbar">
+    <div
+      className="container-fluid" />
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render actions toolbar with selected items 1`] = `
+<div>
+  <nav
+    className="tc-actionbar-container nav">
+    <div
+      className="navbar-left">
+      <span
+        className="tc-actionbar-selected-count">
+        1
+         selected
+      </span>
       <button
         className="btn btn-default"
         disabled={false}

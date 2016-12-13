@@ -8,6 +8,7 @@ jest.mock('react-dom');
 const props = { id: 'my-toolbar' };
 
 const actionBarProps = {
+	selected: 1,
 	actions: {
 		left: [
 			{
@@ -17,6 +18,10 @@ const actionBarProps = {
 				icon: 'talend-plus',
 				onClick: jest.fn(),
 			},
+		],
+	},
+	multiSelectActions: {
+		left: [
 			{
 				id: 'delete',
 				label: 'Delete selection',
@@ -84,6 +89,20 @@ describe('Toolbar', () => {
 	});
 
 	it('should render actions toolbar', () => {
+		// given
+		const tProps = {
+			actions: actionBarProps.actions,
+			...props,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render actions toolbar with selected items', () => {
 		// given
 		const tProps = {
 			...props,

@@ -41,29 +41,38 @@ function hasProps(props) {
  <Toolbar name="Hello world"></Toolbar>
  */
 function Toolbar(props) {
-	const displayProps = getSubProps(props, SelectDisplayMode);
+	const actionBarProps = getSubProps(props, ActionBar);
+	const displayModeProps = getSubProps(props, SelectDisplayMode);
 	const sortProps = getSubProps(props, SelectSortBy);
 	const filterProps = getSubProps(props, Filter);
 	const paginationProps = getSubProps(props, Pagination);
 
-	let actions = props.actions;
-	if (props.id && actions) {
-		actions = {
-			left: adaptActionsIds(actions.left, props.id),
-			right: adaptActionsIds(actions.right, props.id),
-		};
-	}
-
-	const hasDisplayMode = hasProps(displayProps);
+	const hasActionBarProps = hasProps(actionBarProps);
+	const hasDisplayModeProps = hasProps(displayModeProps);
 	const hasSortProps = hasProps(sortProps);
 	const hasFilterProps = hasProps(filterProps);
 	const hasPaginationProps = hasProps(paginationProps);
 
+	if (props.id && hasActionBarProps) {
+		if (actionBarProps.actions) {
+			actionBarProps.actions = {
+				left: adaptActionsIds(actionBarProps.actions.left, props.id),
+				right: adaptActionsIds(actionBarProps.actions.right, props.id),
+			};
+		}
+		if (actionBarProps.multiSelectActions) {
+			actionBarProps.multiSelectActions = {
+				left: adaptActionsIds(actionBarProps.multiSelectActions.left, props.id),
+				right: adaptActionsIds(actionBarProps.multiSelectActions.right, props.id),
+			};
+		}
+	}
+
 	return (
 		<div>
-			{actions && (<ActionBar actions={actions} />)}
+			{hasActionBarProps && (<ActionBar {...actionBarProps} />)}
 			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-				{hasDisplayMode && (<SelectDisplayMode {...displayProps} />)}
+				{hasDisplayModeProps && (<SelectDisplayMode {...displayModeProps} />)}
 				{hasSortProps && (<SelectSortBy {...sortProps} />)}
 				{hasFilterProps && (<Filter {...filterProps} />)}
 				{hasPaginationProps && (<Pagination {...paginationProps} />)}
@@ -74,6 +83,7 @@ function Toolbar(props) {
 
 Toolbar.propTypes = {
 	id: React.PropTypes.string,
+	...ActionBar.propTypes,
 	...Filter.propTypes,
 	...SelectDisplayMode.propTypes,
 	...SelectSortBy.propTypes,

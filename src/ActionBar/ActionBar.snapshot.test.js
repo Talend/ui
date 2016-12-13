@@ -19,6 +19,13 @@ const secondaryAction = {
 };
 
 describe('ActionBar', () => {
+	it('should render without actions', () => {
+		// when
+		const wrapper = renderer.create(<ActionBar />).toJSON();
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render no-selected actions, all on left ', () => {
 		// given
 		const props = {

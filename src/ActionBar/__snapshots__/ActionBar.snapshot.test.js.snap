@@ -1,3 +1,8 @@
+exports[`ActionBar should render without actions 1`] = `
+<nav
+  className="tc-actionbar-container nav" />
+`;
+
 exports[`ActionBar should render no-selected actions, all on left  1`] = `
 <nav
   className="tc-actionbar-container nav">

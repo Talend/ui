@@ -15,6 +15,9 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 		</span>;
 
 	const renderActionBar = () => {
+		if (!getActionsToRender()) {
+			return null;
+		}
 		const { left, right } = getActionsToRender();
 		const actionBar = [];
 		if (left) {
@@ -36,7 +39,6 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 		return actionBar;
 	};
 
-
 	return (
 		<nav className={classNames(css['tc-actionbar-container'], 'tc-actionbar-container', 'nav')}>
 			{ renderActionBar() }
@@ -51,7 +53,7 @@ const actionsShape = {
 
 ActionBar.propTypes = {
 	selected: PropTypes.number,
-	actions: PropTypes.shape(actionsShape).isRequired,
+	actions: PropTypes.shape(actionsShape),
 	multiSelectActions: PropTypes.shape(actionsShape),
 };
 
