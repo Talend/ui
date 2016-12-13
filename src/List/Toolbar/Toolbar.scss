@@ -6,6 +6,11 @@ $tc-list-toolbar-background-color: $concrete !default;
 .tc-list-toolbar {
 	background: $tc-list-toolbar-background-color;
 
+	:global(.navbar-btn) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
 	:global(.navbar-text) {
 		color: $tc-list-toolbar-display-color;
 		font-weight: 400;

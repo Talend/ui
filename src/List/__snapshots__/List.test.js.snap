@@ -378,12 +378,9 @@ exports[`List should render 1`] = `
                 className="fa fa-play"
                 title={null} />
             </button>
-            <span
-              className="btn btn-link">
-              6
-              /
-              2
-            </span>
+            6
+            /
+            2
             <button
               className="btn btn-link"
               disabled={false}
@@ -788,12 +785,9 @@ exports[`List should render id if provided 1`] = `
                 className="fa fa-play"
                 title={null} />
             </button>
-            <span
-              className="btn btn-link">
-              6
-              /
-              2
-            </span>
+            6
+            /
+            2
             <button
               className="btn btn-link"
               disabled={false}

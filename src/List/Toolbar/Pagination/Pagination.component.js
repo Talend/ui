@@ -76,7 +76,7 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 					<MenuItem key={index} eventKey={option}>{option}</MenuItem>
 				))}
 			</NavDropdown>
-			<ButtonGroup className="navbar-btn">
+			<ButtonGroup className={classNames('navbar-btn', css['tc-pagination-actions'])} >
 				<Button
 					id={id && `${id}-nav-to-first`}
 					bsStyle="link"
@@ -92,7 +92,7 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 				>
 					<Icon name="fa fa-play" />
 				</Button>
-				<span className="btn btn-link">{activePage + 1}/{total}</span>
+				{activePage + 1}/{total}
 				<Button
 					id={id && `${id}-nav-to-next`}
 					bsStyle="link"

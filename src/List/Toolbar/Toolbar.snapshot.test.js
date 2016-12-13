@@ -171,4 +171,11 @@ describe('Toolbar', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render with listActions props', () => {
+		const wrapper = renderer.create(
+			<Toolbar listActions={props.listActions} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });

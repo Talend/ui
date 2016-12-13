@@ -114,12 +114,9 @@ exports[`Pagination should render 1`] = `
         className="fa fa-play"
         title={null} />
     </button>
-    <span
-      className="btn btn-link">
-      1
-      /
-      4
-    </span>
+    1
+    /
+    4
     <button
       className="btn btn-link"
       disabled={false}
@@ -262,12 +259,9 @@ exports[`Pagination should render id if provided 1`] = `
         className="fa fa-play"
         title={null} />
     </button>
-    <span
-      className="btn btn-link">
-      1
-      /
-      4
-    </span>
+    1
+    /
+    4
     <button
       className="btn btn-link"
       disabled={false}
