@@ -53,12 +53,14 @@ function SelectSortBy(props) {
 					</MenuItem>
 				))}
 			</NavDropdown>
-			<NavItem
-				id={props.id && `${props.id}-sort-order`}
-				onClick={toggleSortOrder}
-			>
-				{props.sortDesc ? 'DESCENDING' : 'ASCENDING'}
-			</NavItem>
+			{selected && (
+				<NavItem
+					id={props.id && `${props.id}-sort-order`}
+					onClick={toggleSortOrder}
+				>
+					{props.sortDesc ? 'DESCENDING' : 'ASCENDING'}
+				</NavItem>
+			)}
 		</Nav>
 	);
 }

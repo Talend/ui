@@ -193,17 +193,5 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
       </li>
     </ul>
   </li>
-  <li
-    className=""
-    role="presentation"
-    style={undefined}>
-    <a
-      href=""
-      id={undefined}
-      onClick={[Function]}
-      role="button">
-      ASCENDING
-    </a>
-  </li>
 </ul>
 `;
