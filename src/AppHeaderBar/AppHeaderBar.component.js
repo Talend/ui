@@ -18,6 +18,7 @@ export function mapDispatchToProps(dispatch) {
 		},
 	};
 }
+
 /**
  * map the the settings views.appheaderbar
  * @param  {[type]} state [description]
@@ -28,6 +29,6 @@ export function mapStateToProps(state) {
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(AppHeaderBar);

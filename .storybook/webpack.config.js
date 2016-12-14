@@ -6,8 +6,9 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
+const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
+
 module.exports = {
-	resolve: ['', '.scss', '.css', 'js', 'jsx'],
 	plugins: [
 		// your custom plugins
 	],
@@ -18,5 +19,8 @@ module.exports = {
 				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
 			},
 		],
+	},
+	sassLoader: {
+		data: SASS_DATA,
 	},
 };

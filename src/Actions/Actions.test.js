@@ -8,7 +8,7 @@ describe('Actions', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider>
-				<Actions />
+				<Actions actions={['menu:demo']}/>
 			</Provider>).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});

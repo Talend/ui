@@ -2,8 +2,6 @@ exports[`Action should render its name 1`] = `
 <div
   className="mock-provider">
   <button
-    className="tc-action">
-    My article
-  </button>
+    className="tc-action" />
 </div>
 `;

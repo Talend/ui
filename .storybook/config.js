@@ -4,7 +4,7 @@ import infoAddon from '@kadira/react-storybook-addon-info';
 import mock from 'react-cmf/lib/mock';
 import examples from '../examples';
 
-setAddon(infoAddon);
+//setAddon(infoAddon);
 setAddon({ addWithCMF: cmf.addWithCMF });
 
 

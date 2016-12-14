@@ -7,34 +7,25 @@ import { Actions as PureActions } from 'react-talend-components';
  * @example
 <Actions name="Hello world"></Actions>
  */
-function Actions({
-	category,
-	contentType,
-	hideLabel,
-	tooltipPlacement,
-	link,
-}, context) {
-	const actions = api.action.getContentTypeActions(
-		context,
-		contentType,
-		category
-	);
+function Actions({ names, ...rest }, context) {
+	const onClick = (event, payload) => {
+		context.store.dispatch(payload.action);
+	};
+	const actions = names ? names.map(
+		name => api.action.getActionInfo(context, name)
+	) : null;
+
 	return (
 		<PureActions
 			actions={actions}
-			hideLabel={hideLabel || false}
-			tooltipPlacement={tooltipPlacement}
-			link={link || false}
+			{...rest}
+			onClick={onClick}
 		/>
 	);
 }
 
 Actions.propTypes = {
-	contentType: PropTypes.string.isRequired,
-	category: PropTypes.string.isRequired,
-	hideLabel: PropTypes.boolean,
-	link: PropTypes.boolean,
-	tooltipPlacement: PropTypes.string,
+	names: PropTypes.arrayOf(PropTypes.string),
 };
 
 Actions.contextTypes = {
