@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Button, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import theme from './SelectSortBy.scss';
@@ -38,7 +38,6 @@ function SelectSortBy(props) {
 	const sortById = props.id && `${props.id}-sort-by`;
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
-			<label className="navbar-text" htmlFor={sortById}>Sort by:</label>
 			<NavDropdown
 				id={sortById || uuid.v4()}
 				title={selected ? selected.name : 'N.C'}
@@ -54,15 +53,12 @@ function SelectSortBy(props) {
 					</MenuItem>
 				))}
 			</NavDropdown>
-			<Button
+			<NavItem
 				id={props.id && `${props.id}-sort-order`}
-				className="navbar-btn btn"
-				bsStyle="link"
-				role="button"
 				onClick={toggleSortOrder}
 			>
 				{props.sortDesc ? 'DESCENDING' : 'ASCENDING'}
-			</Button>
+			</NavItem>
 		</Nav>
 	);
 }

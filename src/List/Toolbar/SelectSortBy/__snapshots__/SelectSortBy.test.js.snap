@@ -2,15 +2,6 @@ exports[`SelectSortBy should render 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Sort by:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -62,18 +53,18 @@ exports[`SelectSortBy should render 1`] = `
       </li>
     </ul>
   </li>
-  <button
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-btn btn btn btn-link"
-    disabled={false}
-    id={undefined}
-    onClick={[Function]}
-    onSelect={null}
-    role="button"
-    type="button">
-    ASCENDING
-  </button>
+  <li
+    className=""
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
+      id={undefined}
+      onClick={[Function]}
+      role="button">
+      ASCENDING
+    </a>
+  </li>
 </ul>
 `;
 
@@ -81,15 +72,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor="toolbar-sort-by"
-    onSelect={null}>
-    Sort by:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -141,18 +123,18 @@ exports[`SelectSortBy should render id if provided 1`] = `
       </li>
     </ul>
   </li>
-  <button
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-btn btn btn btn-link"
-    disabled={false}
-    id="toolbar-sort-order"
-    onClick={[Function]}
-    onSelect={null}
-    role="button"
-    type="button">
-    ASCENDING
-  </button>
+  <li
+    className=""
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
+      id="toolbar-sort-order"
+      onClick={[Function]}
+      role="button">
+      ASCENDING
+    </a>
+  </li>
 </ul>
 `;
 
@@ -160,15 +142,6 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Sort by:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -220,17 +193,17 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
       </li>
     </ul>
   </li>
-  <button
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-btn btn btn btn-link"
-    disabled={false}
-    id={undefined}
-    onClick={[Function]}
-    onSelect={null}
-    role="button"
-    type="button">
-    ASCENDING
-  </button>
+  <li
+    className=""
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
+      id={undefined}
+      onClick={[Function]}
+      role="button">
+      ASCENDING
+    </a>
+  </li>
 </ul>
 `;

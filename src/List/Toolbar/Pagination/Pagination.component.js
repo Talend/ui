@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
-import { Nav, NavDropdown, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
+import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import Icon from '../../../Icon';
 
 import css from './Pagination.scss';
@@ -65,8 +65,7 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 	};
 	const paginationSizeId = id && `${id}-pagination-size`;
 	return (
-		<Nav>
-			<label className="navbar-text" htmlFor={paginationSizeId}>Show:</label>
+		<Nav onSelect={selectedKey => navTo(selectedKey)}>
 			<NavDropdown
 				id={paginationSizeId || uuid.v4()}
 				title={realPageSize}
@@ -76,38 +75,41 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 					<MenuItem key={index} eventKey={option}>{option}</MenuItem>
 				))}
 			</NavDropdown>
-			<ButtonGroup className={classNames('navbar-btn', css['tc-pagination-actions'])} >
-				<Button
-					id={id && `${id}-nav-to-first`}
-					bsStyle="link"
-					onClick={() => navTo(FIRST)}
-					disabled={activePage === 0}
-				>
-					<Icon name="fa fa-backward" />
-				</Button>
-				<Button
-					id={id && `${id}-nav-to-prev`}
-					bsClass={classNames('btn btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
-					onClick={() => navTo(PREV)} disabled={activePage === 0}
-				>
-					<Icon name="fa fa-play" />
-				</Button>
-				{activePage + 1}/{total}
-				<Button
-					id={id && `${id}-nav-to-next`}
-					bsStyle="link"
-					onClick={() => navTo(NEXT)} disabled={activePage === (total - 1)}
-				>
-					<Icon name="fa fa-play" />
-				</Button>
-				<Button
-					id={id && `${id}-nav-to-last`}
-					bsStyle="link"
-					onClick={() => navTo(LAST)} disabled={activePage === (total - 1)}
-				>
-					<Icon name="fa fa-forward" />
-				</Button>
-			</ButtonGroup>
+			<NavItem
+				eventKey={FIRST}
+				id={id && `${id}-nav-to-first`}
+				className="btn-link"
+				disabled={activePage === 0}
+			>
+				<Icon name="fa fa-backward" />
+			</NavItem>
+			<NavItem
+				eventKey={PREV}
+				id={id && `${id}-nav-to-prev`}
+				className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
+				disabled={activePage === 0}
+			>
+				<Icon name="fa fa-play" />
+			</NavItem>
+			<NavItem disabled>
+				<span className="btn-link">{activePage + 1}/{total}</span>
+			</NavItem>
+			<NavItem
+				eventKey={NEXT}
+				id={id && `${id}-nav-to-next`}
+				className="btn-link"
+				disabled={activePage === (total - 1)}
+			>
+				<Icon name="fa fa-play" />
+			</NavItem>
+			<NavItem
+				eventKey={LAST}
+				id={id && `${id}-nav-to-last`}
+				className="btn-link"
+				disabled={activePage === (total - 1)}
+			>
+				<Icon name="fa fa-forward" />
+			</NavItem>
 		</Nav>
 	);
 }

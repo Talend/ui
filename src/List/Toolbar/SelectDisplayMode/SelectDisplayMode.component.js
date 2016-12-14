@@ -32,7 +32,6 @@ function SelectDisplayMode({ id, displayMode, onSelectDisplayMode }) {
 	const displayModeId = id && `${id}-display-mode`;
 	return (
 		<Nav>
-			<label className="navbar-text" htmlFor={displayModeId}>Display:</label>
 			<NavDropdown
 				id={displayModeId || uuid.v4()}
 				title={displayIcon}
@@ -44,7 +43,8 @@ function SelectDisplayMode({ id, displayMode, onSelectDisplayMode }) {
 						key={mode}
 						eventKey={mode}
 					>
-						<Icon name={getIcon(mode)} /> {getLabel(mode)}
+						<Icon name={getIcon(mode)} />
+						{getLabel(mode)}
 					</MenuItem>
 				))}
 			</NavDropdown>

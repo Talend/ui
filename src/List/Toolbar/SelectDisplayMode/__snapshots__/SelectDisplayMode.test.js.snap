@@ -2,15 +2,6 @@ exports[`SelectDisplayMode should render 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Display:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -50,7 +41,6 @@ exports[`SelectDisplayMode should render 1`] = `
             aria-hidden="true"
             className="fa fa-bars"
             title={null} />
-           
           Table
         </a>
       </li>
@@ -69,7 +59,6 @@ exports[`SelectDisplayMode should render 1`] = `
             aria-hidden="true"
             className="fa fa-list-alt"
             title={null} />
-           
           Expanded
         </a>
       </li>
@@ -88,7 +77,6 @@ exports[`SelectDisplayMode should render 1`] = `
             aria-hidden="true"
             className="fa fa-th-large"
             title={null} />
-           
           Tile
         </a>
       </li>
@@ -101,15 +89,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor="toolbar-display-mode"
-    onSelect={null}>
-    Display:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -149,7 +128,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
             aria-hidden="true"
             className="fa fa-bars"
             title={null} />
-           
           Table
         </a>
       </li>
@@ -168,7 +146,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
             aria-hidden="true"
             className="fa fa-list-alt"
             title={null} />
-           
           Expanded
         </a>
       </li>
@@ -187,7 +164,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
             aria-hidden="true"
             className="fa fa-th-large"
             title={null} />
-           
           Tile
         </a>
       </li>
@@ -200,15 +176,6 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Display:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -248,7 +215,6 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
             aria-hidden="true"
             className="fa fa-bars"
             title={null} />
-           
           Table
         </a>
       </li>
@@ -267,7 +233,6 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
             aria-hidden="true"
             className="fa fa-list-alt"
             title={null} />
-           
           Expanded
         </a>
       </li>
@@ -286,7 +251,6 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
             aria-hidden="true"
             className="fa fa-th-large"
             title={null} />
-           
           Tile
         </a>
       </li>
@@ -299,15 +263,6 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Display:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -347,7 +302,6 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
             aria-hidden="true"
             className="fa fa-bars"
             title={null} />
-           
           Table
         </a>
       </li>
@@ -366,7 +320,6 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
             aria-hidden="true"
             className="fa fa-list-alt"
             title={null} />
-           
           Expanded
         </a>
       </li>
@@ -385,7 +338,6 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
             aria-hidden="true"
             className="fa fa-th-large"
             title={null} />
-           
           Tile
         </a>
       </li>
@@ -398,15 +350,6 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Display:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -446,7 +389,6 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
             aria-hidden="true"
             className="fa fa-bars"
             title={null} />
-           
           Table
         </a>
       </li>
@@ -465,7 +407,6 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
             aria-hidden="true"
             className="fa fa-list-alt"
             title={null} />
-           
           Expanded
         </a>
       </li>
@@ -484,7 +425,6 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
             aria-hidden="true"
             className="fa fa-th-large"
             title={null} />
-           
           Tile
         </a>
       </li>

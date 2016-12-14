@@ -2,15 +2,6 @@ exports[`Pagination should render 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor={undefined}
-    onSelect={null}>
-    Show:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -86,60 +77,100 @@ exports[`Pagination should render 1`] = `
       </li>
     </ul>
   </li>
-  <div
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-btn btn-group"
-    onSelect={null}>
-    <button
-      className="btn btn-link"
-      disabled={true}
+  <li
+    className="btn-link disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id={undefined}
       onClick={[Function]}
-      type="button">
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
       <i
         aria-hidden="true"
         className="fa fa-backward"
         title={null} />
-    </button>
-    <button
-      className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-      disabled={true}
+    </a>
+  </li>
+  <li
+    className="btn-link tc-pagination-ctrl-prev disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id={undefined}
       onClick={[Function]}
-      type="button">
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
       <i
         aria-hidden="true"
         className="fa fa-play"
         title={null} />
-    </button>
-    1
-    /
-    4
-    <button
-      className="btn btn-link"
-      disabled={false}
+    </a>
+  </li>
+  <li
+    className="disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
+      onClick={[Function]}
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
+      <span
+        className="btn-link">
+        1
+        /
+        4
+      </span>
+    </a>
+  </li>
+  <li
+    className="btn-link"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id={undefined}
       onClick={[Function]}
-      type="button">
+      role="button">
       <i
         aria-hidden="true"
         className="fa fa-play"
         title={null} />
-    </button>
-    <button
-      className="btn btn-link"
-      disabled={false}
+    </a>
+  </li>
+  <li
+    className="btn-link"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id={undefined}
       onClick={[Function]}
-      type="button">
+      role="button">
       <i
         aria-hidden="true"
         className="fa fa-forward"
         title={null} />
-    </button>
-  </div>
+    </a>
+  </li>
 </ul>
 `;
 
@@ -147,15 +178,6 @@ exports[`Pagination should render id if provided 1`] = `
 <ul
   className="nav"
   role={null}>
-  <label
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-text"
-    htmlFor="toolbar-pagination-size"
-    onSelect={null}>
-    Show:
-  </label>
   <li
     className="dropdown"
     style={undefined}>
@@ -231,59 +253,99 @@ exports[`Pagination should render id if provided 1`] = `
       </li>
     </ul>
   </li>
-  <div
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
-    className="navbar-btn btn-group"
-    onSelect={null}>
-    <button
-      className="btn btn-link"
-      disabled={true}
+  <li
+    className="btn-link disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id="toolbar-nav-to-first"
       onClick={[Function]}
-      type="button">
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
       <i
         aria-hidden="true"
         className="fa fa-backward"
         title={null} />
-    </button>
-    <button
-      className="btn btn-link tc-pagination-ctrl-prev btn btn-link tc-pagination-ctrl-prev-default"
-      disabled={true}
+    </a>
+  </li>
+  <li
+    className="btn-link tc-pagination-ctrl-prev disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id="toolbar-nav-to-prev"
       onClick={[Function]}
-      type="button">
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
       <i
         aria-hidden="true"
         className="fa fa-play"
         title={null} />
-    </button>
-    1
-    /
-    4
-    <button
-      className="btn btn-link"
-      disabled={false}
+    </a>
+  </li>
+  <li
+    className="disabled"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
+      onClick={[Function]}
+      role="button"
+      style={
+        Object {
+          "pointerEvents": "none",
+        }
+      }
+      tabIndex={-1}>
+      <span
+        className="btn-link">
+        1
+        /
+        4
+      </span>
+    </a>
+  </li>
+  <li
+    className="btn-link"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id="toolbar-nav-to-next"
       onClick={[Function]}
-      type="button">
+      role="button">
       <i
         aria-hidden="true"
         className="fa fa-play"
         title={null} />
-    </button>
-    <button
-      className="btn btn-link"
-      disabled={false}
+    </a>
+  </li>
+  <li
+    className="btn-link"
+    role="presentation"
+    style={undefined}>
+    <a
+      href=""
       id="toolbar-nav-to-last"
       onClick={[Function]}
-      type="button">
+      role="button">
       <i
         aria-hidden="true"
         className="fa fa-forward"
         title={null} />
-    </button>
-  </div>
+    </a>
+  </li>
 </ul>
 `;
