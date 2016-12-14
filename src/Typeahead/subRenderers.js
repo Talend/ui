@@ -1,23 +1,52 @@
 import React from 'react';
-import { FormControl } from 'react-bootstrap';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import DebounceInput from 'react-debounce-input';
 import Icon from '../Icon';
 import theme from './Typeahead.scss';
 
-export const renderInputComponent = icon => (
-	(props) => {
-		const renderedIcon = icon && (
-			<div className={theme['icon-cls']}>
-				<Icon name={icon.name} title={icon.title} />
-			</div>
-		);
-		return (
-			<div className={theme['typeahead-input-icon']}>
-				<FormControl {...props} />
-				{renderedIcon}
-			</div>
-		);
-	}
-);
+export const renderInputComponent = (props) => {
+	const {
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		icon,
+		...rest,
+	} = props;
+
+	const renderedIcon = icon && (
+		<div className={theme['icon-cls']}>
+			<Icon name={icon.name} title={icon.title}/>
+		</div>
+	);
+
+	return (
+		<div className={theme['typeahead-input-icon']}>
+			<ControlLabel srOnly htmlFor={key}>Search</ControlLabel>
+			{(debounceMinLength || debounceTimeout) ?
+				<DebounceInput
+					id={key}
+					{...rest}
+					element={FormControl}
+					minLength={debounceMinLength}
+					debounceTimeout={debounceTimeout}
+				/> : <FormControl
+					id={key}
+					{...rest}
+				/> }
+			{renderedIcon}
+		</div>
+	);
+};
+renderInputComponent.propTypes = {
+	key: React.PropTypes.string,
+	debounceMinLength: React.PropTypes.number,
+	debounceTimeout: React.PropTypes.number,
+	icon: React.PropTypes.shape({
+		name: React.PropTypes.string,
+		title: React.PropTypes.string,
+	}),
+};
 
 export const renderSectionTitle = (section) => {
 	if (section) {

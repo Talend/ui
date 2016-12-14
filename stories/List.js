@@ -112,6 +112,7 @@ const props = {
 			{ id: 'id', name: 'Id' },
 			{ id: 'name', name: 'Name' },
 		],
+		debounceTimeout: 300,
 		sortBy: 'name',
 		onSelectSortBy: action('onSelectSortBy'),
 		itemsLength: 3,

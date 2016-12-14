@@ -40,12 +40,15 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			placeholder: rest.placeholder,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
+			debounceMinLength: rest.debounceMinLength,
+			debounceTimeout: rest.debounceTimeout,
+			icon,
 		},
 		itemProps: {
 			onClick: rest.onSelect,
 		},
 		renderItem,
-		renderInputComponent: renderInputComponent(icon),
+		renderInputComponent,
 		multiSection: true,
 		renderSectionTitle,
 		getSectionItems: section => section.suggestions,
@@ -99,6 +102,8 @@ Typeahead.propTypes = {
 			),
 		}),
 	),
+	debounceMinLength: PropTypes.number,
+	debounceTimeout: PropTypes.number,
 };
 
 export default Typeahead;

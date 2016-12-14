@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Button } from 'react-bootstrap';
+import DebounceInput from 'react-debounce-input';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 import Icon from '../../../Icon';
 
 /**
@@ -7,7 +9,7 @@ import Icon from '../../../Icon';
  * @example
  <Filter name="Hello world"></Filter>
  */
-function Filter({ id, onFilter }) {
+function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
 	function onFilterHandler(event) {
 		return onFilter(event.target.value, event);
 	}
@@ -17,6 +19,15 @@ function Filter({ id, onFilter }) {
 		return onFilter(this.value, event);
 	}
 
+	const inputProps = {
+		id: id && `${id}-filter-input`,
+		type: 'search',
+		placeholder: 'Filter',
+		'aria-label': 'Filter',
+		onChange: onFilterHandler,
+		ref: c => onSubmit.bind(c),
+	};
+
 	return (
 		<form
 			className="navbar-form navbar-right"
@@ -24,15 +35,15 @@ function Filter({ id, onFilter }) {
 			onSubmit={onSubmit}
 		>
 			<div className="form-group">
-				<input
-					id={id && `${id}-filter-input`}
-					type="search"
-					className="form-control"
-					placeholder="Filter"
-					aria-label="Filter"
-					onChange={onFilterHandler}
-					ref={c => onSubmit.bind(c)}
-				/>
+				{(debounceMinLength || debounceTimeout) ?
+					<DebounceInput
+						{...inputProps}
+						element={FormControl}
+						minLength={debounceMinLength}
+						debounceTimeout={debounceTimeout}
+					/> : <FormControl
+						{...inputProps}
+					/> }
 				<Button
 					id={id && `${id}-filter-submit`}
 					bsStyle="link"
@@ -50,6 +61,8 @@ function Filter({ id, onFilter }) {
 Filter.propTypes = {
 	id: PropTypes.string,
 	onFilter: PropTypes.func,
+	debounceMinLength: PropTypes.number,
+	debounceTimeout: PropTypes.number,
 };
 
 export default Filter;

@@ -54,7 +54,7 @@ const items = [
 				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
 		],
-	}
+	},
 ];
 
 const decoratedStories = storiesOf('Typeahead', module)
@@ -66,11 +66,12 @@ const decoratedStories = storiesOf('Typeahead', module)
 	));
 
 decoratedStories
-	.addWithInfo('default', () => {
+	.addWithInfo('default with debounce input', () => {
 		const props = {
 			placeholder: 'Search...',
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
+			debounceTimeout: 300,
 		};
 		return (
 			<Typeahead {...props} />

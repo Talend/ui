@@ -374,6 +374,11 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
           style={Object {}}>
           <div
             className={undefined}>
+            <label
+              className="control-label sr-only"
+              htmlFor="react-autowhatever-my-search-input">
+              Search
+            </label>
             <input
               aria-activedescendant={null}
               aria-autocomplete="list"
@@ -382,7 +387,7 @@ exports[`AppHeaderBar should render with Typeahead items 1`] = `
               aria-owns="react-autowhatever-my-search"
               autoComplete="off"
               className="form-control"
-              id={undefined}
+              id="react-autowhatever-my-search-input"
               onBlur={undefined}
               onChange={undefined}
               onKeyDown={undefined}
@@ -823,6 +828,11 @@ exports[`AppHeaderBar should render with only Typeahead input 1`] = `
           style={Object {}}>
           <div
             className={undefined}>
+            <label
+              className="control-label sr-only"
+              htmlFor="react-autowhatever-my-search-input">
+              Search
+            </label>
             <input
               aria-activedescendant={null}
               aria-autocomplete="list"
@@ -831,7 +841,7 @@ exports[`AppHeaderBar should render with only Typeahead input 1`] = `
               aria-owns="react-autowhatever-my-search"
               autoComplete="off"
               className="form-control"
-              id={undefined}
+              id="react-autowhatever-my-search-input"
               onBlur={undefined}
               onChange={undefined}
               onKeyDown={undefined}

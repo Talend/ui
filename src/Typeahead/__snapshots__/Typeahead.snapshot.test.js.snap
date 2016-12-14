@@ -3,6 +3,11 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
   style={Object {}}>
   <div
     className={undefined}>
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input">
+      Search
+    </label>
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -11,7 +16,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       className="form-control"
-      id={undefined}
+      id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
       onKeyDown={undefined}
@@ -188,6 +193,11 @@ exports[`Typeahead items should render typeahead with results 1`] = `
   style={Object {}}>
   <div
     className={undefined}>
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input">
+      Search
+    </label>
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -196,7 +206,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       className="form-control"
-      id={undefined}
+      id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
       onKeyDown={undefined}
@@ -317,6 +327,11 @@ exports[`Typeahead items should render typeahead without results 1`] = `
   style={Object {}}>
   <div
     className={undefined}>
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input">
+      Search
+    </label>
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -325,7 +340,7 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       className="form-control"
-      id={undefined}
+      id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
       onKeyDown={undefined}
@@ -346,6 +361,11 @@ exports[`Typeahead position should render search bar on the right 1`] = `
   className="undefined">
   <div
     className={undefined}>
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input">
+      Search
+    </label>
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -354,7 +374,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       className="form-control"
-      id={undefined}
+      id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
       onKeyDown={undefined}
