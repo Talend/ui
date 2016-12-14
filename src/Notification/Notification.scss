@@ -1,0 +1,156 @@
+$tc-notification-info-color: #3C763D !default;
+$tc-notification-info-bgcolor: #E8F2CC !default;
+
+$tc-notification-warning-color: #8A6D3B !default;
+$tc-notification-warning-bgcolor: #FDEECC !default;
+
+$tc-notification-error-color: #A94442 !default;
+$tc-notification-error-bgcolor: #F5E0E0 !default;
+
+$tc-notification-animation-duration: 0.3s;
+
+$notification-width: 450px;
+$icon-size: 16px;
+
+.tc-notification-container {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 11000;
+
+	.tc-notification {
+		position: relative;
+		width: $notification-width;
+		margin-top: $padding-larger;
+		padding: $padding-normal $padding-normal $padding-large;
+		border-radius: $border-radius-base;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+		z-index: 2;
+		overflow: hidden;
+
+		&-info {
+			background: $tc-notification-info-bgcolor;
+			color: $tc-notification-info-color;
+		}
+
+		&-warning {
+			background: $tc-notification-warning-bgcolor;
+			color: $tc-notification-warning-color;
+		}
+
+		&-error {
+			background: $tc-notification-error-bgcolor;
+			color: $tc-notification-error-color;
+		}
+
+		.tc-notification-close {
+			font-size: $icon-size;
+			float: right;
+		}
+
+		.tc-notification-action {
+			background-color: transparent;
+			border: none;
+		}
+
+		.tc-notification-message {
+			margin: 0 ($padding-larger + $icon-size) 0 0;
+
+			&-action {
+				color: #1BABCD;
+				padding: 0 $padding-small;
+
+				svg {
+					vertical-align: text-top;
+				}
+
+				span {
+					font-weight: bold;
+					text-transform: uppercase;
+					margin-left: $padding-smaller;
+				}
+			}
+		}
+
+		.tc-notification-timer-bar {
+			border-width: 2px 0 1px;
+			border-radius: 2px;
+			border-style: solid;
+			position: absolute;
+			bottom: 0;
+			margin: 0 (-$padding-normal);
+			animation: timer-bar 4s linear;
+		}
+
+		&:hover > .tc-notification-timer-bar {
+			width: 100%;
+			animation: none;
+		}
+	}
+
+	.tc-notification[pin='true'] {
+		.tc-notification-timer-bar {
+			animation: none;
+			width: 100%;
+		}
+	}
+}
+
+@keyframes  timer-bar {
+	from {
+		width: 100%;
+	}
+
+	to {
+		width: 0;
+	}
+}
+
+:global(.tc-notification-enter) {
+	animation: tc-notification-slide-in $tc-notification-animation-duration linear;
+}
+
+:global(.tc-notification-leave) {
+	animation: tc-notification-slide-out $tc-notification-animation-duration linear;
+}
+
+:global {
+	@keyframes tc-notification-slide-in {
+		from {
+			margin-top: 0;
+			transform: translateY(-100%);
+			opacity: 0;
+			z-index: 1;
+		}
+
+		to {
+			margin-top: $padding-larger;
+			transform: translateY(0);
+			opacity: 1;
+			z-index: 1;
+		}
+	}
+
+	@keyframes tc-notification-slide-out {
+		from {
+			margin-top: $padding-larger;
+			padding-top: $padding-normal;
+			padding-bottom: $padding-large;
+			transform: translateY(0);
+			max-height: 400px;
+			opacity: 1;
+			z-index: 1;
+		}
+
+		to {
+			margin-top: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			transform: translateY(-100%);
+			max-height: 0;
+			opacity: 0;
+			z-index: 1;
+		}
+	}
+}

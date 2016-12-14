@@ -65,7 +65,7 @@ const basicProps = {
 	actions,
 	multiSelectActions,
 };
-console.log(Object.assign({}, basicProps, { selected: 0 }));
+
 storiesOf('Actionbar', module)
 	.addWithInfo('default', () => (
 		<nav>

@@ -7,6 +7,7 @@ import './Breadcrumbs';
 import './CircularProgress';
 import './ConfirmDialog';
 import './Drawer';
+import './Notification';
 import './TreeView';
 import './Icon';
 import './Layout';
