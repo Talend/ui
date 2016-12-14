@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
-import Immutable from 'immutable';
+import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
+import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import { List, IconsProvider } from '../src/index';
 
 const selected = [
