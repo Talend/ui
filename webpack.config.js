@@ -15,7 +15,7 @@ const extractBootstrapMin = new ExtractTextPlugin('bootstrap.min.css', {
 	allChunks: true,
 });
 
-const autoprefixerConfig = autoprefixer({ browsers: ['not ie <= 9'] });
+const autoprefixerConfig = autoprefixer({ browsers: ['last 2 versions'] });
 
 const BASE_CONF = {
 	entry: './src/index.js',
