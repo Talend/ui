@@ -95,28 +95,38 @@ const props = {
 		},
 	},
 	toolbar: {
-		actions: {
-			left: [
-				{
-					id: 'add',
-					label: 'Add',
-					bsStyle: 'primary',
-					icon: 'talend-plus',
-					onClick: action('add'),
-				},
+		actionBar: {
+			actions: {
+				left: [
+					{
+						id: 'add',
+						label: 'Add',
+						bsStyle: 'primary',
+						icon: 'talend-plus',
+						onClick: action('add.onClick'),
+					},
+				],
+			},
+		},
+		display: {
+			onChange: action('display.onChange'),
+		},
+		sort: {
+			field: 'name',
+			onChange: action('sort.onChange'),
+			options: [
+				{ id: 'id', name: 'Id' },
+				{ id: 'name', name: 'Name' },
 			],
 		},
-		onFilter: action('onFilter'),
-		onSelectDisplayMode: action('onSelectDisplayMode'),
-		sortOptions: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name' },
-		],
-		debounceTimeout: 300,
-		sortBy: 'name',
-		onSelectSortBy: action('onSelectSortBy'),
-		itemsLength: 3,
-		onChangePagination: action('onChangePagination'),
+		pagination: {
+			itemsLength: 10,
+			onChange: action('pagination.onChange'),
+		},
+		filter: {
+			onFilter: action('filter.onFilter'),
+			debounceTimeout: 300,
+		},
 	},
 };
 
@@ -133,8 +143,8 @@ storiesOf('List', module)
 	))
 	.add('table with selected items', () => {
 		const selectedItemsProps = Immutable.fromJS(props).toJS();
-		selectedItemsProps.toolbar.selected = 1;
-		selectedItemsProps.toolbar.multiSelectActions = {
+		selectedItemsProps.toolbar.actionBar.selected = 1;
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
 				{
 					id: 'delete',

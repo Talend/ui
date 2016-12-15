@@ -10,53 +10,32 @@ import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
 
-export function getSubProps(props, component) {
-	const subProps = {};
-	Object.keys(component.propTypes)
-		.filter(key => props[key] !== undefined)
-		.forEach((key) => {
-			subProps[key] = props[key];
-		});
-	return subProps;
-}
-
 function adaptActionsIds(actions, parentId) {
 	return actions &&
 		actions.map((action) => {
 			if (action.id) {
 				return {
 					...action,
-					id: `${parentId}-${action.id}`,
+					id: `${parentId}-actions-${action.id}`,
 				};
 			}
 			return action;
 		});
 }
 
-function hasProps(props) {
-	return Object.keys(props).find(key => key !== 'id');
-}
-
 /**
- * @param {object} props react props
+ * @param {string} id the id of Toolbar
+ * @param {object} actionBar the ActionBar properties
+ * @param {object} display the SelectDisplayMode properties
+ * @param {object} sort the SelectSortBy properties
+ * @param {object} pagination the Pagination properties
+ * @param {object} filter the Filter properties
  * @example
- <Toolbar name="Hello world"></Toolbar>
+ <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar(props) {
-	const actionBarProps = getSubProps(props, ActionBar);
-	const displayModeProps = getSubProps(props, SelectDisplayMode);
-	const sortProps = getSubProps(props, SelectSortBy);
-	const filterProps = getSubProps(props, Filter);
-	const paginationProps = getSubProps(props, Pagination);
-	const id = props.id;
-
-	const hasActionBarProps = hasProps(actionBarProps);
-	const hasDisplayModeProps = hasProps(displayModeProps);
-	const hasSortProps = hasProps(sortProps);
-	const hasFilterProps = hasProps(filterProps);
-	const hasPaginationProps = hasProps(paginationProps);
-
-	if (id && hasActionBarProps) {
+function Toolbar({ id, actionBar, display, sort, pagination, filter }) {
+	const actionBarProps = actionBar;
+	if (id && actionBarProps) {
 		if (actionBarProps.actions) {
 			actionBarProps.actions = {
 				left: adaptActionsIds(actionBarProps.actions.left, id),
@@ -70,18 +49,19 @@ function Toolbar(props) {
 			};
 		}
 	}
+	const displayModeId = id && `${id}-display-mode`;
 
 	return (
 		<div>
-			{hasActionBarProps && (<ActionBar {...actionBarProps} />)}
+			{actionBar && (<ActionBar {...actionBarProps} />)}
 			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-				{hasDisplayModeProps && (<Label text="Display:" htmlFor={id && `${id}-display-mode`} />)}
-				{hasDisplayModeProps && (<SelectDisplayMode {...displayModeProps} />)}
-				{hasSortProps && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
-				{hasSortProps && (<SelectSortBy {...sortProps} />)}
-				{hasPaginationProps && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
-				{hasPaginationProps && (<Pagination {...paginationProps} />)}
-				{hasFilterProps && (<Filter {...filterProps} />)}
+				{display && (<Label text="Display:" htmlFor={displayModeId} />)}
+				{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
+				{sort && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
+				{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
+				{pagination && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
+				{pagination && (<Pagination id={id && `${id}-pagination`} {...pagination} />)}
+				{filter && (<Filter id={id && `${id}-filter`} {...filter} />)}
 			</Navbar>
 		</div>
 	);
@@ -89,11 +69,11 @@ function Toolbar(props) {
 
 Toolbar.propTypes = {
 	id: React.PropTypes.string,
-	...ActionBar.propTypes,
-	...SelectDisplayMode.propTypes,
-	...SelectSortBy.propTypes,
-	...Pagination.propTypes,
-	...Filter.propTypes,
+	actionBar: React.PropTypes.shape(ActionBar.propTypes),
+	display: React.PropTypes.shape(SelectDisplayMode.propTypes),
+	sort: React.PropTypes.shape(SelectSortBy.propTypes),
+	pagination: React.PropTypes.shape(Pagination.propTypes),
+	filter: React.PropTypes.shape(Filter.propTypes),
 };
 
 export default Toolbar;

@@ -259,7 +259,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}>
     <a
       href=""
-      id="toolbar-nav-to-first"
+      id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
       role="button"
       style={
@@ -280,7 +280,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}>
     <a
       href=""
-      id="toolbar-nav-to-prev"
+      id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
       role="button"
       style={
@@ -323,7 +323,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}>
     <a
       href=""
-      id="toolbar-nav-to-next"
+      id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
       role="button">
       <i
@@ -338,7 +338,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}>
     <a
       href=""
-      id="toolbar-nav-to-last"
+      id="toolbar-pagination-nav-to-last"
       onClick={[Function]}
       role="button">
       <i

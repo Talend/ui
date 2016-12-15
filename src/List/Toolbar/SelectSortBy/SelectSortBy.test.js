@@ -4,16 +4,22 @@ import { shallow } from 'enzyme';
 
 import SelectSortBy from './SelectSortBy.component';
 
+const id = 'toolbar-sort';
+const field = 'id';
+const requiredProps = {
+	onChange: jest.fn(),
+	options: [
+		{ id: 'id', name: 'Id' },
+		{ id: 'name', name: 'Name' },
+	],
+};
+
 describe('SelectSortBy', () => {
 	it('should render', () => {
 		// given
 		const props = {
-			onSelectSortBy: jest.fn(),
-			sortOptions: [
-				{ id: 'id', name: 'Name' },
-				{ id: 'name', name: 'Name' },
-			],
-			sortBy: 'id',
+			field,
+			...requiredProps,
 		};
 
 		// when
@@ -25,19 +31,10 @@ describe('SelectSortBy', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render without sortBy selected', () => {
-		// given
-		const props = {
-			onSelectSortBy: jest.fn(),
-			sortOptions: [
-				{ id: 'id', name: 'Name' },
-				{ id: 'label', name: 'Label' },
-			],
-		};
-
+	it('should render without field selected', () => {
 		// when
 		const wrapper = renderer.create(
-			<SelectSortBy {...props} />
+			<SelectSortBy {...requiredProps} />
 		).toJSON();
 
 		// then
@@ -47,13 +44,9 @@ describe('SelectSortBy', () => {
 	it('should render id if provided', () => {
 		// given
 		const props = {
-			id: 'toolbar',
-			onSelectSortBy: jest.fn(),
-			sortOptions: [
-				{ id: 'id', name: 'Name' },
-				{ id: 'name', name: 'Name' },
-			],
-			sortBy: 'id',
+			id,
+			field,
+			...requiredProps,
 		};
 
 		// when
@@ -68,13 +61,9 @@ describe('SelectSortBy', () => {
 	it('should call toggle callback on sort-order click', () => {
 		// given
 		const props = {
-			id: 'toolbar',
-			onSelectSortBy: jest.fn(),
-			sortOptions: [
-				{ id: 'id', name: 'Name' },
-				{ id: 'name', name: 'Name' },
-			],
-			sortBy: 'id',
+			id,
+			field,
+			...requiredProps,
 		};
 		const event = { target: {} };
 
@@ -83,9 +72,9 @@ describe('SelectSortBy', () => {
 		wrapper.find('#toolbar-sort-order').simulate('click', event);
 
 		// then
-		expect(props.onSelectSortBy).toBeCalledWith(event, {
-			sortBy: 'id',
-			sortDesc: true,
+		expect(props.onChange).toBeCalledWith(event, {
+			field: 'id',
+			isDescending: true,
 		});
 	});
 });

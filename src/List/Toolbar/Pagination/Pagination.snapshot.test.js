@@ -10,7 +10,7 @@ describe('Pagination', () => {
 		// given
 		const props = {
 			itemsLength: 17,
-			onChangePagination: jest.fn(),
+			onChange: jest.fn(),
 		};
 		// when
 		const wrapper = renderer.create(
@@ -23,9 +23,9 @@ describe('Pagination', () => {
 	it('should render id if provided', () => {
 		// given
 		const props = {
-			id: 'toolbar',
+			id: 'toolbar-pagination',
 			itemsLength: 17,
-			onChangePagination: jest.fn(),
+			onChange: jest.fn(),
 		};
 		// when
 		const wrapper = renderer.create(

@@ -20,7 +20,7 @@ function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
 	}
 
 	const inputProps = {
-		id: id && `${id}-filter-input`,
+		id: id && `${id}-input`,
 		type: 'search',
 		placeholder: 'Filter',
 		'aria-label': 'Filter',
@@ -45,7 +45,7 @@ function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
 						{...inputProps}
 					/> }
 				<Button
-					id={id && `${id}-filter-submit`}
+					id={id && `${id}-submit`}
 					bsStyle="link"
 					type="submit"
 					title="Filter"
@@ -60,7 +60,7 @@ function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
 
 Filter.propTypes = {
 	id: PropTypes.string,
-	onFilter: PropTypes.func,
+	onFilter: PropTypes.func.isRequired,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 };

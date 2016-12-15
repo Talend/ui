@@ -7,7 +7,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       <button
         className="btn btn-primary"
         disabled={false}
-        id="my-toolbar-add"
+        id="my-toolbar-actions-add"
         onClick={[Function]}
         role={null}
         type="button">
@@ -47,7 +47,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       <button
         className="btn btn-default"
         disabled={false}
-        id="my-toolbar-delete"
+        id="my-toolbar-actions-delete"
         onClick={[Function]}
         role={null}
         type="button">
@@ -330,7 +330,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}>
           <a
             href=""
-            id="my-toolbar-nav-to-first"
+            id="my-toolbar-pagination-nav-to-first"
             onClick={[Function]}
             role="button">
             <i
@@ -345,7 +345,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}>
           <a
             href=""
-            id="my-toolbar-nav-to-prev"
+            id="my-toolbar-pagination-nav-to-prev"
             onClick={[Function]}
             role="button">
             <i
@@ -382,7 +382,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}>
           <a
             href=""
-            id="my-toolbar-nav-to-next"
+            id="my-toolbar-pagination-nav-to-next"
             onClick={[Function]}
             role="button">
             <i
@@ -397,7 +397,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}>
           <a
             href=""
-            id="my-toolbar-nav-to-last"
+            id="my-toolbar-pagination-nav-to-last"
             onClick={[Function]}
             role="button">
             <i
@@ -456,7 +456,7 @@ exports[`Toolbar should render sort selector 1`] = `
               style={undefined}>
               <a
                 href=""
-                id="my-toolbar-sort-by-item-Id"
+                id="my-toolbar-sort-by-item-id"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="menuitem"
@@ -470,7 +470,7 @@ exports[`Toolbar should render sort selector 1`] = `
               style={undefined}>
               <a
                 href=""
-                id="my-toolbar-sort-by-item-Name"
+                id="my-toolbar-sort-by-item-name"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="menuitem"
@@ -494,17 +494,6 @@ exports[`Toolbar should render sort selector 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Toolbar should render with listActions props 1`] = `
-<div>
-  <div
-    className="navbar navbar-default"
-    role="toolbar">
-    <div
-      className="container-fluid" />
   </div>
 </div>
 `;

@@ -1,64 +1,50 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import theme from './SelectSortBy.scss';
 
-/**
- * @param {object} props react props
- * @example
- <SelectSortBy name="Hello world"></SelectSortBy>
- */
-function SelectSortBy(props) {
-	let selected;
-	if (props.sortBy) {
-		selected = props.sortOptions.find(item => item.id === props.sortBy);
-	}
-	let onSelectSortBy = props.onSelectSortBy;
-	if (onSelectSortBy) {
-		onSelectSortBy = (key, event) => props.onSelectSortBy(
-			event,
-			{
-				sortBy: key.id,
-				sortDesc: !!props.sortDesc,
-			}
-		);
-	}
-	const toggleSortOrder = (event) => {
-		if (props.onSelectSortBy) {
-			props.onSelectSortBy(
-				event,
-				{
-					sortBy: selected.id,
-					sortDesc: !props.sortDesc,
-				}
-			);
+function SelectSortBy({ field, id, isDescending, onChange, options }) {
+	const order = isDescending || false;
+	const selected = field && options.find(item => item.id === field);
+	const onChangeField = (newField, event) => onChange(
+		event,
+		{
+			field: newField.id,
+			isDescending: order,
 		}
-	};
-	const sortById = props.id && `${props.id}-sort-by`;
+	);
+	const onChangeOrder = event => onChange(
+		event,
+		{
+			field: selected.id,
+			isDescending: !order,
+		}
+	);
+	const getMenuItem = (option, index) => (
+		<MenuItem
+			id={id && `${id}-by-item-${option.id}`}
+			key={index}
+			eventKey={option}
+		>
+			{option.name || option.id}
+		</MenuItem>
+	);
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			<NavDropdown
-				id={sortById || uuid.v4()}
-				title={selected ? selected.name : 'N.C'}
-				onSelect={onSelectSortBy}
+				id={id ? `${id}-by` : uuid.v4()}
+				title={selected ? (selected.name || selected.id) : 'N.C'}
+				onSelect={onChangeField}
 			>
-				{props.sortOptions.map((option, index) => (
-					<MenuItem
-						id={props.id && `${props.id}-sort-by-item-${option.name}`}
-						key={index}
-						eventKey={option}
-					>
-						{option.name}
-					</MenuItem>
-				))}
+				{options.map((option, index) => getMenuItem(option, index, id))}
 			</NavDropdown>
 			{selected && (
 				<NavItem
-					id={props.id && `${props.id}-sort-order`}
-					onClick={toggleSortOrder}
+					id={id && `${id}-order`}
+					onClick={onChangeOrder}
 				>
-					{props.sortDesc ? 'DESCENDING' : 'ASCENDING'}
+					{order ? 'DESCENDING' : 'ASCENDING'}
 				</NavItem>
 			)}
 		</Nav>
@@ -66,16 +52,16 @@ function SelectSortBy(props) {
 }
 
 SelectSortBy.propTypes = {
-	id: PropTypes.string,
-	onSelectSortBy: PropTypes.func,
-	sortOptions: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.string.isRequired,
-			name: PropTypes.string,
+	field: React.PropTypes.string,
+	id: React.PropTypes.string,
+	isDescending: React.PropTypes.bool,
+	onChange: React.PropTypes.func.isRequired,
+	options: React.PropTypes.arrayOf(
+		React.PropTypes.shape({
+			id: React.PropTypes.string.isRequired,
+			name: React.PropTypes.string,
 		})
-	),
-	sortBy: PropTypes.string,
-	sortDesc: PropTypes.bool,
+	).isRequired,
 };
 
 export default SelectSortBy;

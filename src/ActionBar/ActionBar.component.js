@@ -15,9 +15,6 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 		</span>;
 
 	const renderActionBar = () => {
-		if (!getActionsToRender()) {
-			return null;
-		}
 		const { left, right } = getActionsToRender();
 		const actionBar = [];
 		if (left) {
@@ -53,7 +50,7 @@ const actionsShape = {
 
 ActionBar.propTypes = {
 	selected: PropTypes.number,
-	actions: PropTypes.shape(actionsShape),
+	actions: PropTypes.shape(actionsShape).isRequired,
 	multiSelectActions: PropTypes.shape(actionsShape),
 };
 

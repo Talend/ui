@@ -14,7 +14,7 @@ exports[`SelectSortBy should render 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      Name
+      Id
        
       <span
         className="caret" />
@@ -34,7 +34,7 @@ exports[`SelectSortBy should render 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          Name
+          Id
         </a>
       </li>
       <li
@@ -84,7 +84,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      Name
+      Id
        
       <span
         className="caret" />
@@ -99,12 +99,12 @@ exports[`SelectSortBy should render id if provided 1`] = `
         style={undefined}>
         <a
           href=""
-          id="toolbar-sort-by-item-Name"
+          id="toolbar-sort-by-item-id"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          Name
+          Id
         </a>
       </li>
       <li
@@ -113,7 +113,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
         style={undefined}>
         <a
           href=""
-          id="toolbar-sort-by-item-Name"
+          id="toolbar-sort-by-item-name"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -138,7 +138,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
 </ul>
 `;
 
-exports[`SelectSortBy should render without sortBy selected 1`] = `
+exports[`SelectSortBy should render without field selected 1`] = `
 <ul
   className="nav"
   role={null}>
@@ -174,7 +174,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          Name
+          Id
         </a>
       </li>
       <li
@@ -188,7 +188,7 @@ exports[`SelectSortBy should render without sortBy selected 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          Label
+          Name
         </a>
       </li>
     </ul>

@@ -18,17 +18,24 @@ const props = {
 		]
 	},
 	toolbar: {
-		onChangeDisplay: function,
-		filter: {
-			placeholder: 'find xx',
-			onChangeFilter: function,
+		display: {
+			onChange: function,
 		},
-		sortOptions: [
-			{key, label},
-		],
-		sortBy: key,
-		sortDesc: true / false,
-		onSelectSortBy: function,
+		sort: {
+			field: key,
+			options: [
+				{key, label},
+			],
+			isDescending: true / false,
+			onChange: function,
+		},
+		pagination: {
+			onChange: function,
+			itemsLength: number,
+		},
+		filter: {
+			onFilter: function,
+		},
 	}
 }
 <List {...props}></List>

@@ -5,16 +5,15 @@ import SelectDisplayMode from './SelectDisplayMode.component';
 
 jest.mock('react-dom');
 
+const requiredProps = {
+	onChange: jest.fn(),
+};
+
 describe('SelectDisplayMode', () => {
 	it('should render', () => {
-		// given
-		const props = {
-			onSelectDisplayMode: jest.fn(),
-		};
-
 		// when
 		const wrapper = renderer.create(
-			<SelectDisplayMode {...props} />
+			<SelectDisplayMode {...requiredProps} />
 		).toJSON();
 
 		// then
@@ -22,25 +21,18 @@ describe('SelectDisplayMode', () => {
 	});
 
 	it('should render with displayMode = table', () => {
-		const props = {
-			onSelectDisplayMode: jest.fn(),
-			displayMode: 'table',
-		};
+		// when
 		const wrapper = renderer.create(
-			<SelectDisplayMode {...props} />
+			<SelectDisplayMode mode="table" {...requiredProps} />
 		).toJSON();
+
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render with displayMode = large', () => {
-		// given
-		const props = {
-			onSelectDisplayMode: jest.fn(),
-			displayMode: 'large',
-		};
-
 		// when
 		const wrapper = renderer.create(
-			<SelectDisplayMode {...props} />
+			<SelectDisplayMode mode="large" {...requiredProps} />
 		).toJSON();
 
 		// then
@@ -48,15 +40,9 @@ describe('SelectDisplayMode', () => {
 	});
 
 	it('should render with displayMode = tile', () => {
-		// given
-		const props = {
-			onSelectDisplayMode: jest.fn(),
-			displayMode: 'tile',
-		};
-
 		// when
 		const wrapper = renderer.create(
-			<SelectDisplayMode {...props} />
+			<SelectDisplayMode mode="tile" {...requiredProps} />
 		).toJSON();
 
 		// then
@@ -65,15 +51,9 @@ describe('SelectDisplayMode', () => {
 
 
 	it('should render id if provided', () => {
-		// given
-		const props = {
-			id: 'toolbar',
-			onSelectDisplayMode: jest.fn(),
-		};
-
 		// when
 		const wrapper = renderer.create(
-			<SelectDisplayMode {...props} />
+			<SelectDisplayMode id="toolbar-display-mode" {...requiredProps} />
 		).toJSON();
 
 		// then

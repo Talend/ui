@@ -21,40 +21,40 @@ function getLabel(selected) {
 	}
 }
 
-const displayModes = ['table', 'large', 'tile'];
+const options = ['table', 'large', 'tile'];
 
-function SelectDisplayMode({ id, displayMode, onSelectDisplayMode }) {
-	const selected = displayMode || 'table';
+function SelectDisplayMode({ id, mode, onChange }) {
+	const selected = mode || 'table';
 	const displayIcon = (<Icon name={getIcon(selected)} />);
-	const onSelectMode = (value, e) => {
-		onSelectDisplayMode(e, value);
+	const onChangeMode = (value, event) => {
+		onChange(event, value);
 	};
-	const displayModeId = id && `${id}-display-mode`;
+	const getMenuItem = option => (
+		<MenuItem
+			id={id && `${id}-${option}`}
+			key={option}
+			eventKey={option}
+		>
+			<Icon name={getIcon(option)} />
+			{getLabel(option)}
+		</MenuItem>
+	);
 	return (
 		<Nav>
 			<NavDropdown
-				id={displayModeId || uuid.v4()}
+				id={id || uuid.v4()}
 				title={displayIcon}
-				onSelect={onSelectMode}
+				onSelect={onChangeMode}
 			>
-				{displayModes.map(mode => (
-					<MenuItem
-						id={id && `${displayModeId}-${mode}`}
-						key={mode}
-						eventKey={mode}
-					>
-						<Icon name={getIcon(mode)} />
-						{getLabel(mode)}
-					</MenuItem>
-				))}
+				{options.map(option => getMenuItem(option))}
 			</NavDropdown>
 		</Nav>
 	);
 }
 SelectDisplayMode.propTypes = {
 	id: PropTypes.string,
-	displayMode: PropTypes.string,
-	onSelectDisplayMode: PropTypes.func,
+	mode: PropTypes.string,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default SelectDisplayMode;

@@ -16,7 +16,7 @@ describe('Filter', () => {
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = renderer.create(<Filter id="toolbar" name="Hello world" />).toJSON();
+		const wrapper = renderer.create(<Filter id="toolbar-filter" name="Hello world" />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

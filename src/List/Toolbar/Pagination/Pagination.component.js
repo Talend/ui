@@ -5,28 +5,18 @@ import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import Icon from '../../../Icon';
 
 import css from './Pagination.scss';
-/**
- * @param {object} props react props
- * @example
- <Pagination {...props}></Pagination>
- */
 
-function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChangePagination }) {
-	let realPageSize = pageSize;
-	if (!pageSize || sizeOptions.indexOf(pageSize) < 0) {
-		realPageSize = sizeOptions[0];
-	}
+const NEXT = 'next';
+const PREV = 'prev';
+const FIRST = 'first';
+const LAST = 'last';
+
+function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChange }) {
+	const realPageSize = (pageSize && sizeOptions.indexOf(pageSize) > -1) ? pageSize : sizeOptions[0];
 	const total = Math.ceil(itemsLength / realPageSize);
-
-	const changeSize = (value) => {
-		onChangePagination(0, value);
+	const onChangeSize = (value) => {
+		onChange(0, value);
 	};
-
-	const NEXT = 'next';
-	const PREV = 'prev';
-	const FIRST = 'first';
-	const LAST = 'last';
-
 	const navTo = (type) => {
 		let from = activePage;
 		switch (type) {
@@ -61,15 +51,14 @@ function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChan
 		default:
 			return;
 		}
-		onChangePagination(from * realPageSize, realPageSize);
+		onChange(from * realPageSize, realPageSize);
 	};
-	const paginationSizeId = id && `${id}-pagination-size`;
 	return (
 		<Nav onSelect={selectedKey => navTo(selectedKey)}>
 			<NavDropdown
-				id={paginationSizeId || uuid.v4()}
+				id={id ? `${id}-size` : uuid.v4()}
 				title={realPageSize}
-				onSelect={changeSize}
+				onSelect={onChangeSize}
 			>
 				{sizeOptions.map((option, index) => (
 					<MenuItem key={index} eventKey={option}>{option}</MenuItem>
@@ -118,7 +107,7 @@ Pagination.propTypes = {
 	id: PropTypes.string,
 	activePage: PropTypes.number,
 	itemsLength: PropTypes.number.isRequired,
-	onChangePagination: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	pageSize: PropTypes.number,
 	sizeOptions: PropTypes.arrayOf(PropTypes.number),
 };

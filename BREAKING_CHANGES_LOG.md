@@ -3,6 +3,31 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.34.0
+* Component: List > Toolbar
+* PR: [feat(Toolbar): refactor Toolbar properties](https://github.com/Talend/react-talend-components/pull/171)
+* Changes
+
+| Old Props | New props |
+|---|---|
+| props.actions | props.actionBar.actions |
+| props.selected | props.actionBar.selected |
+| props.multiSelectedActions | props.actionBar.multiSelectedActions |
+| props.displayMode | props.display.mode |
+| props.onSelectDisplayMode | props.display.onChange |
+| props.sortBy | props.sort.field |
+| props.sortDesc | props.sort.isDescending |
+| props.sortOptions | props.sort.options |
+| props.onSelectSortBy | props.sort.onChange |
+| props.activePage | props.pagination.activePage |
+| props.itemsLength | props.pagination.itemsLength |
+| props.onChangePagination | props.pagination.onChange |
+| props.pageSize | props.pagination.pageSize |
+| props.sizeOptions | props.pagination.sizeOptions |
+| props.onFilter | props.filter.onFilter |
+| props.debounceMinLength | props.filter.debounceMinLength |
+| props.debounceTimeout | props.pagination.debounceTimeout |
+
 ## v0.29.0
 * Component: Typeahead
 * PR: [refactor(typeahead): Simplify API](https://github.com/Talend/react-talend-components/pull/144)
