@@ -7,7 +7,7 @@ notifications:
 node_js:
   - "6"
 before_install:
-  - npm i -g sassdoc http-server
+  - npm i -g sassdoc http-server casperjs
 before_script:
   - npm prune
 script:
