@@ -1,0 +1,61 @@
+{
+  "jsonSchema": {
+        "title": "talend tabs",
+        "type": "TabsField",
+        "items": [
+          {
+            "tabTitle": "main",
+            "type": "object",
+            "properties":{
+              "tab1f1":{
+                "type": "string"
+              },
+              "listOfStrings": {
+                "type": "array",
+                "title": "A list of strings",
+                "items": {
+                  "type": "string",
+                  "default": "bazinga"
+                }
+              },
+              "alternative": {
+                "title": "Alternative",
+                "description": "These work on most platforms.",
+                "type": "object",
+                "properties": {
+                  "alt-datetime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "alt-date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "tabTitle": "info",
+            "type": "object",
+            "properties": {
+              "tab2f1": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+  },
+  "uiSchema": {
+    "ui:field":"TabsField"
+  },
+  "properties": {
+    "items": [
+      {
+        "tab1f1": "tab1 fieled1 Value",
+        "listOfStrings": ["foo", "bar"]
+      },
+      {"tab2f1": "tab2 fieled1 Value"}
+    ]
+  }
+}

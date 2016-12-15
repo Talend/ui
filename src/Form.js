@@ -11,6 +11,7 @@ import RJSForm from 'rjsf-material-design/lib/index';
 import Button from 'react-bootstrap/lib/Button';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
+import TabsField from './fields/TabsField';
 import RadioOrSelectWidget from './widgets/RadioOrSelectWidget';
 
 /**
@@ -23,7 +24,7 @@ const customWidgets = {
 };
 
 const customUiSchema = {
-	'ui:widget': 'radioOrSelect',
+	'ui:widget': ['radioOrSelect'],
 };
 
 class Form extends React.Component {
@@ -71,6 +72,7 @@ class Form extends React.Component {
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
+			TabsField,
 			ObjectField,
 			StringField,
 		};
@@ -91,6 +93,7 @@ class Form extends React.Component {
 				{action.label}
 			</Button>
 		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
+
 		const defaultMuiTheme = {
 			palette: {
 				textColor: color1,
