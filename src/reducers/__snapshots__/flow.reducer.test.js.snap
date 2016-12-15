@@ -1,13 +1,13 @@
 exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch many elements creation 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
   "nodes": Object {},
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -19,6 +19,9 @@ Object {
 
 exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch one element creation 1`] = `
 Object {
+  "childrens": Object {
+    "nodeId": Object {},
+  },
   "in": Object {
     "nodeId": Object {},
   },
@@ -42,13 +45,10 @@ Object {
   "out": Object {
     "nodeId": Object {},
   },
+  "parents": Object {
+    "nodeId": Object {},
+  },
   "ports": Object {},
-  "preds": Object {
-    "nodeId": Object {},
-  },
-  "sucs": Object {
-    "nodeId": Object {},
-  },
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -60,14 +60,14 @@ Object {
 
 exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should handle throwing sub reducer by returning old state 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
   "nodes": Object {},
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -79,14 +79,14 @@ Object {
 
 exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
   "nodes": Object {},
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -98,14 +98,14 @@ Object {
 
 exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply  1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
   "nodes": Object {},
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,

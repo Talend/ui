@@ -31,7 +31,7 @@ describe('Check that link action creators generate proper' +
 		});
 
 		store.dispatch(
-				linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', { selected: true })
+				linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', { selected: true }),
 			);
 		expect(store.getActions()).toEqual(expectedActions);
 	});

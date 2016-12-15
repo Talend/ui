@@ -1,0 +1,42 @@
+exports[`Testing node selectors node1 should have 7 successors 1`] = `
+Array [
+  "id8",
+  "id7",
+  "id5",
+  "id3",
+  "id6",
+  "id4",
+  "id2",
+]
+`;
+
+exports[`Testing node selectors node1 should not have any predecessors 1`] = `Array []`;
+
+exports[`Testing node selectors node4 should have node1, node2 as predecessors 1`] = `
+Array [
+  "id1",
+  "id2",
+]
+`;
+
+exports[`Testing node selectors node4 should have node6, node7, node8 as successors 1`] = `
+Array [
+  "id8",
+  "id7",
+  "id6",
+]
+`;
+
+exports[`Testing node selectors node8 should have 7 predecessors 1`] = `
+Array [
+  "id1",
+  "id2",
+  "id3",
+  "id5",
+  "id4",
+  "id6",
+  "id7",
+]
+`;
+
+exports[`Testing node selectors node8 should not have any successors 1`] = `Array []`;

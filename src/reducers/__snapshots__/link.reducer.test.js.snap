@@ -1,5 +1,12 @@
 exports[`check linkreducer FLOWDESIGNER_LINK_ADD should add a new link to the state 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {
     "id2": Object {
       "id2": Object {
@@ -41,12 +48,172 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {
     "id1": Object {
       "id1": Object {
         "id2": "id2",
       },
+    },
+  },
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
+  "ports": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "attributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_ADD should add a new link to the state 2`] = `
+Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {
+      "id3": "id3",
+    },
+    "id3": Object {},
+  },
+  "in": Object {
+    "id2": Object {
+      "id2": Object {
+        "id2": "id2",
+      },
+    },
+    "id3": Object {
+      "id5": Object {
+        "id3": "id3",
+      },
+    },
+  },
+  "links": Object {
+    "id1": Object {
+      "attributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+    "id2": Object {
+      "attributes": Object {},
+      "id": "id2",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+    "id3": Object {
+      "attributes": Object {},
+      "id": "id3",
+      "linkType": undefined,
+      "sourceId": "id3",
+      "targetId": "id5",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "attributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {
+    "id1": Object {
+      "id1": Object {
+        "id2": "id2",
+      },
+    },
+    "id2": Object {
+      "id3": Object {
+        "id3": "id3",
+      },
+    },
+  },
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {
+      "id2": "id2",
     },
   },
   "ports": Object {
@@ -78,15 +245,19 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
-  },
-  "preds": Object {
-    "id2": Object {
-      "id1": "id1",
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
     },
-  },
-  "sucs": Object {
-    "id1": Object {
-      "id2": "id2",
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
     },
   },
   "transform": Object {
@@ -100,6 +271,11 @@ Object {
 
 exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE should remove link from state 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {},
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -118,8 +294,20 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {},
+    "id3": Object {},
+  },
   "ports": Object {
     "id1": Object {
       "attributes": undefined,
@@ -149,9 +337,21 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
   },
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -163,6 +363,13 @@ Object {
 
 exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {},
   "links": Object {
     "id1": Object {
@@ -189,8 +396,22 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
   "ports": Object {
     "id1": Object {
       "attributes": undefined,
@@ -220,9 +441,21 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
   },
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -234,6 +467,13 @@ Object {
 
 exports[`check linkreducer FLOWDESIGNER_LINK_SET_ATTR should merge attributes within link attr property 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {},
   "links": Object {
     "id1": Object {
@@ -263,8 +503,22 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
   "ports": Object {
     "id1": Object {
       "attributes": undefined,
@@ -294,9 +548,21 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
   },
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -308,6 +574,13 @@ Object {
 
 exports[`check linkreducer FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {},
   "links": Object {
     "id1": Object {
@@ -336,6 +609,13 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {
     "id1": Object {
@@ -343,6 +623,13 @@ Object {
         "id1": "id1",
       },
     },
+  },
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": undefined,
+    },
+    "id3": Object {},
   },
   "ports": Object {
     "id1": Object {
@@ -373,13 +660,21 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
-  },
-  "preds": Object {
-    "id2": Object {
-      "id1": undefined,
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
     },
   },
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -391,9 +686,16 @@ Object {
 
 exports[`check linkreducer FLOWDESIGNER_LINK_SET_TARGET switch target to correct port if it exist 1`] = `
 Object {
+  "childrens": Object {
+    "id1": Object {
+      "id3": undefined,
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
   "in": Object {
-    "id2": Object {
-      "id3": Object {
+    "id3": Object {
+      "id5": Object {
         "id1": "id1",
       },
     },
@@ -406,7 +708,7 @@ Object {
       "id": "id1",
       "linkType": undefined,
       "sourceId": "id1",
-      "targetId": "id3",
+      "targetId": "id5",
     },
   },
   "nodeTypes": Object {},
@@ -425,8 +727,22 @@ Object {
       "nodeType": undefined,
       "position": undefined,
     },
+    "id3": Object {
+      "attributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
   },
   "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
   "ports": Object {
     "id1": Object {
       "attributes": undefined,
@@ -456,11 +772,19 @@ Object {
       "portType": undefined,
       "position": undefined,
     },
-  },
-  "preds": Object {},
-  "sucs": Object {
-    "id1": Object {
-      "id2": undefined,
+    "id5": Object {
+      "attributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "attributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
     },
   },
   "transform": Object {

@@ -1,5 +1,8 @@
 exports[`Check node reducer FLOWDESIGNER_NODE_ADD add a new node to the node collection with the right type 1`] = `
 Object {
+  "childrens": Object {
+    "id": Object {},
+  },
   "in": Object {
     "id": Object {},
   },
@@ -25,13 +28,10 @@ Object {
   "out": Object {
     "id": Object {},
   },
+  "parents": Object {
+    "id": Object {},
+  },
   "ports": Object {},
-  "preds": Object {
-    "id": Object {},
-  },
-  "sucs": Object {
-    "id": Object {},
-  },
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -43,6 +43,9 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_ADD properly add a new node to the node collection 1`] = `
 Object {
+  "childrens": Object {
+    "id": Object {},
+  },
   "in": Object {
     "id": Object {},
   },
@@ -66,13 +69,10 @@ Object {
   "out": Object {
     "id": Object {},
   },
+  "parents": Object {
+    "id": Object {},
+  },
   "ports": Object {},
-  "preds": Object {
-    "id": Object {},
-  },
-  "sucs": Object {
-    "id": Object {},
-  },
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -84,6 +84,7 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_MOVE update node position 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -114,9 +115,8 @@ Object {
     },
   },
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -128,6 +128,7 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE should remove node from node collection 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -146,9 +147,8 @@ Object {
     },
   },
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -160,6 +160,7 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -188,9 +189,8 @@ Object {
     },
   },
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -202,6 +202,7 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_SET_ATTR should add attribute to node attribute map 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -232,9 +233,8 @@ Object {
     },
   },
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -246,6 +246,7 @@ Object {
 
 exports[`Check node reducer FLOWDESIGNER_NODE_SET_SIZE update node size property 1`] = `
 Object {
+  "childrens": Object {},
   "in": Object {},
   "links": Object {},
   "nodeTypes": Object {},
@@ -279,9 +280,8 @@ Object {
     },
   },
   "out": Object {},
+  "parents": Object {},
   "ports": Object {},
-  "preds": Object {},
-  "sucs": Object {},
   "transform": Object {
     "k": 1,
     "x": 0,

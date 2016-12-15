@@ -12,6 +12,7 @@ import * as nodeActions from './actions/node.actions';
 import * as portActions from './actions/port.actions';
 import * as linkActions from './actions/link.actions';
 import * as portSelectors from './selectors/portSelectors';
+import * as nodeSelectors from './selectors/nodeSelectors';
 import * as flowPropTypes from './constants/flowdesigner.proptypes';
 import * as flowModels from './constants/flowdesigner.model';
 
@@ -31,6 +32,7 @@ export {
     portActions,
     linkActions,
     portSelectors,
+    nodeSelectors,
     flowPropTypes,
     flowModels,
 };

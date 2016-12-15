@@ -13,6 +13,9 @@ describe('check linkreducer', () => {
 			.set('id2', new NodeRecord({
 				id: 'id2',
 			}))
+			.set('id3', new NodeRecord({
+				id: 'id3',
+			})),
 		)
 		.set('links', new Map()
 			.set('id1', new LinkRecord({
@@ -20,7 +23,7 @@ describe('check linkreducer', () => {
 				sourceId: 'id1',
 				targetId: 'id2',
 				attributes: new Map().set('attr', 'attr'),
-			}))
+			})),
 		).set('ports', new Map()
 			.set('id1', new PortRecord({
 				id: 'id1',
@@ -38,14 +41,43 @@ describe('check linkreducer', () => {
 				id: 'id4',
 				nodeId: 'id1',
 			}))
+			.set('id5', new PortRecord({
+				id: 'id5',
+				nodeId: 'id3',
+			}))
+			.set('id6', new PortRecord({
+				id: 'id6',
+				nodeID: 'id3',
+			})),
+		)
+		.set('parents', new Map()
+			.set('id1', new Map())
+			.set('id2', new Map()
+				.set('id1', 'id1'),
+			)
+			.set('id3', new Map()),
+		)
+		.set('childrens', new Map()
+			.set('id1', new Map()
+				.set('id2', 'id2'),
+			)
+			.set('id2', new Map())
+			.set('id3', new Map()),
 		);
 
 	it('FLOWDESIGNER_LINK_ADD should add a new link to the state', () => {
-		expect(linkReducer(initialState, {
+		const newState = linkReducer(initialState, {
 			type: 'FLOWDESIGNER_LINK_ADD',
 			linkId: 'id2',
 			sourceId: 'id1',
 			targetId: 'id2',
+		});
+		expect(newState).toMatchSnapshot();
+		expect(linkReducer(newState, {
+			type: 'FLOWDESIGNER_LINK_ADD',
+			linkId: 'id3',
+			sourceId: 'id3',
+			targetId: 'id5',
 		})).toMatchSnapshot();
 	});
 
@@ -57,13 +89,13 @@ describe('check linkreducer', () => {
 
 	it('FLOWDESIGNER_LINK_SET_TARGET switch target to correct port if it exist', () => {
 		expect(linkReducer(initialState,
-			{ type: 'FLOWDESIGNER_LINK_SET_TARGET', linkId: 'id1', targetId: 'id3' }
+			{ type: 'FLOWDESIGNER_LINK_SET_TARGET', linkId: 'id1', targetId: 'id5' },
 		)).toMatchSnapshot();
 	});
 
 	it('FLOWDESIGNER_LINK_SET_SOURCE switch source to correct port if it exist', () => {
 		expect(linkReducer(initialState,
-			{ type: 'FLOWDESIGNER_LINK_SET_SOURCE', linkId: 'id1', sourceId: 'id4' }
+			{ type: 'FLOWDESIGNER_LINK_SET_SOURCE', linkId: 'id1', sourceId: 'id4' },
 		)).toMatchSnapshot();
 	});
 
@@ -73,7 +105,8 @@ describe('check linkreducer', () => {
 			linkId: 'id1',
 			attributes: { selected: false },
 		})).toMatchSnapshot()
-;	});
+;
+});
 
 	it('FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map', () => {
 		expect(linkReducer(initialState, {

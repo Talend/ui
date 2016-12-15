@@ -33,8 +33,8 @@ const nodeReducer = (state = defaultState, action) => {
 		}))
 		.setIn(['out', action.nodeId], new Map())
 		.setIn(['in', action.nodeId], new Map())
-		.setIn(['sucs', action.nodeId], new Map())
-		.setIn(['preds', action.nodeId], new Map());
+		.setIn(['childrens', action.nodeId], new Map())
+		.setIn(['parents', action.nodeId], new Map());
 	case FLOWDESIGNER_NODE_MOVE || FLOWDESIGNER_NODE_MOVE_END:
 		if (!state.getIn('nodes', action.nodeId)) {
 			invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
@@ -75,8 +75,8 @@ const nodeReducer = (state = defaultState, action) => {
 		.deleteIn(['nodes', action.nodeId])
 		.deleteIn(['out', action.nodeId])
 		.deleteIn(['in', action.nodeId])
-		.deleteIn(['sucs', action.nodeId])
-		.deleteIn(['preds', action.nodeId]);
+		.deleteIn(['childrens', action.nodeId])
+		.deleteIn(['parents', action.nodeId]);
 	default:
 		return state;
 	}
