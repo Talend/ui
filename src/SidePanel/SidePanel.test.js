@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
-import SidePanel from './SidePanel.component';
+import SidePanel from './SidePanel.container';
 
 jest.mock('react-talend-components');
 jest.mock('react-dom');
