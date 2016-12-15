@@ -66,7 +66,7 @@ function getActionInfo(context, id) {
 	if (!action) {
 		throw new Error(`action not found id: ${id}`);
 	}
-	return action;
+	return Object.assign({}, action);
 }
 
 /**

@@ -55,6 +55,12 @@ describe('CMF action', () => {
 		expect(action.name).toBe('My article');
 		expect(action.icon).toBe('icon-article');
 	});
+	it('getActionInfo should return a copy', () => {
+		const id = 'menu:article';
+		const action1 = actionAPI.getActionInfo(context, id);
+		const action2 = actionAPI.getActionInfo(context, id);
+		expect(action1).not.toBe(action2);
+	});
 	it('getActionInfo should throw an error', () => {
 		const id = 'notfound';
 		const test = () => actionAPI.getActionInfo(context, id);
