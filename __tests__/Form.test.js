@@ -2,9 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import Input from 'rjsf-material-design/lib/widgets/TextWidget';
-import Checkbox from 'rjsf-material-design/lib/widgets/CheckboxWidget';
-import Select from 'rjsf-material-design/lib/widgets/SelectWidget';
+import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
+import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
+import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
 import Form from '../src/Form';
 
@@ -44,22 +44,22 @@ describe('<Form/>', () => {
 	});
 
 	it('Renders the <Input/> component', () => {
-		expect(wrapper.containsMatchingElement(<Input/>)).toBe(true);
+		expect(wrapper.containsMatchingElement(<Input/>)).toBeTruthy();
 	});
 
 	it('Renders the <Checkbox/> component', () => {
-		expect(wrapper.containsMatchingElement(<Checkbox/>)).toBe(true);
+		expect(wrapper.containsMatchingElement(<Checkbox/>)).toBeTruthy();
 	});
 
 	it('Renders the <Select/> component', () => {
-		expect(wrapper.containsMatchingElement(<Select/>)).toBe(true);
+		expect(wrapper.containsMatchingElement(<Select/>)).toBeTruthy();
 	});
 
-	// TODO: Follow what's happeing on https://github.com/airbnb/enzyme/issues/364
+	// TODO: Follow what's happening on https://github.com/airbnb/enzyme/issues/364
 	// and update accordingly.
 	// So far it's not possible to get the onChange method to be bubbled up to the
 	// form
-	xit('Handles changes', () => {
+	it('Handles changes', () => {
 		const input = wrapper.find('input').first();
 		input.simulate('change', { target: { value: 'Test' } });
 		expect(input.props().value).toEqual('Test');

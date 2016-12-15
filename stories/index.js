@@ -44,6 +44,7 @@ sampleFilenames
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 			decoratedStories.add(capitalizedSampleName, () => (
 				<Form
+					autocomplete='off'
 					data={object(capitalizedSampleName, sampleFilenames(filename))}
 					onChange={action('Change')}
 					onSubmit={action('Submit')}

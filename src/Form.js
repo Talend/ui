@@ -1,18 +1,14 @@
 import React, { PropTypes } from 'react';
 
-import {
-	black as color1,
-	lightBlack as color2,
-	lime800 as color3,
-} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RJSForm from 'rjsf-material-design/lib/index';
+import RJSForm from 'react-jsonschema-form/lib/index';
+
 import Button from 'react-bootstrap/lib/Button';
+
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
+import FieldTemplate from './templates/FieldTemplate';
+import SwitchWidget from './widgets/SwitchWidget';
 import TabsField from './fields/TabsField';
-import RadioOrSelectWidget from './widgets/RadioOrSelectWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -20,11 +16,11 @@ import RadioOrSelectWidget from './widgets/RadioOrSelectWidget';
 const TRIGGER_AFTER = 'after';
 
 const customWidgets = {
-	radioOrSelect: RadioOrSelectWidget,
+	toggle: SwitchWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['radioOrSelect'],
+	'ui:widget': ['toggle'],
 };
 
 class Form extends React.Component {
@@ -89,40 +85,27 @@ class Form extends React.Component {
 				onClick={action.onClick}
 				title={action.title}
 			>
-				{action.icon ? <i className={action.icon} /> : null }
+				{action.icon ? <i className={action.icon}/> : null }
 				{action.label}
 			</Button>
 		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
-
-		const defaultMuiTheme = {
-			palette: {
-				textColor: color1,
-				primary1Color: color2,
-				accent1Color: color3,
-			},
-		};
-		const muiTheme = getMuiTheme({
-			...defaultMuiTheme,
-			...this.props.theme,
-		});
 		return (
-			<MuiThemeProvider muiTheme={muiTheme}>
-				<RJSForm
-					{...this.props}
-					schema={schema}
-					uiSchema={uiSchema}
-					formData={formData}
-					formContext={customFormContext}
-					fields={customFields}
-					widgets={customWidgets}
-					onChange={undefined}
-					onSubmit={this.handleSchemaSubmit}
-				>
-					<div className={this.props.buttonBlockClass}>
-						{actions}
-					</div>
-				</RJSForm>
-			</MuiThemeProvider>
+			<RJSForm
+				{...this.props}
+				schema={schema}
+				uiSchema={uiSchema}
+				formData={formData}
+				formContext={customFormContext}
+				fields={customFields}
+				FieldTemplate={FieldTemplate}
+				widgets={customWidgets}
+				onChange={undefined}
+				onSubmit={this.handleSchemaSubmit}
+			>
+				<div className={this.props.buttonBlockClass}>
+					{actions}
+				</div>
+			</RJSForm>
 		);
 	}
 }

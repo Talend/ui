@@ -57,10 +57,8 @@
       "ui:widget": "updown"
     },
     "numberEnumRadio2": {
-      "ui:widget": "radioOrSelect"
     },
     "numberEnumRadio3": {
-      "ui:widget": "radioOrSelect"
     },
     "integerRange": {
       "ui:widget": "range"

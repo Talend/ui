@@ -32,23 +32,17 @@
     "jest": "^15.1.1",
     "jest-cli": "^17.0.3",
     "json-loader": "^0.5.4",
-    "material-ui": "^0.16.1",
     "react": "^15.4.0",
     "react-a11y": "^0.3.3",
     "react-addons-test-utils": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-tap-event-plugin": "^2.0.0",
     "react-test-renderer": "15.4.0",
-    "rjsf-material-design": "^1.0.1",
     "semantic-release": "^4.3.5",
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "material-ui": "^0.16.1",
-    "rjsf-material-design": "^1.0.1",
-    "react-jsonschema-form": "^0.41.1",
-    "react-tap-event-plugin": "^2.0.0"
+    "react-jsonschema-form": "^0.41.1"
   },
   "peerDependencies": {
     "react": "^15.4.0",

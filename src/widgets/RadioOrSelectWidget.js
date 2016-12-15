@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Radio from 'rjsf-material-design/lib/widgets/RadioWidget';
-import Select from 'rjsf-material-design/lib/widgets/SelectWidget';
+import Radio from 'react-jsonschema-form/lib/components/widgets/RadioWidget';
+import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
 const MAX_TO_RADIO = 2;
 
