@@ -5,10 +5,12 @@
 
 .btn {
 	@include btn-colors;
+	display: inline-flex;
+	align-items: center;
 	font-size: $btn-font-size;
 	letter-spacing: 1px;
-	padding: 0 $padding-normal;
 	line-height: 3.3rem;
+	padding: 0 $padding-normal;
 	text-transform: uppercase;
 
 	&-primary,
@@ -55,9 +57,7 @@
 	}
 
 	&-icon-only {
-		svg {
-			margin: -0.3em -10px 0 -10px;
-		}
+		padding: $padding-smaller;
 	}
 
 	&-xs {
@@ -75,10 +75,8 @@
 	}
 
 	svg {
-		display: inline-block;
 		fill: currentColor;
 		height: 2em;
-		margin-top: -0.4rem;
-		vertical-align: middle;
+		width: 2em;
 	}
 }

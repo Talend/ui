@@ -4,6 +4,8 @@
 ////
 
 .btn-group {
+	display: inline-flex;
+
 	.btn {
 		&-primary,
 		&-success,
