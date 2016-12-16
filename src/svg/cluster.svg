@@ -1,7 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-	<title>
-		cluster
-	</title>
-	<path class="cls-1" d="M650 0H150L0 350v250h800V350zm100 550H50V400h700z"/>
-	<path class="cls-1" d="M650 450h50v50h-50zm-550 0h50v50h-50zm100 0h50v50h-50zm100 0h50v50h-50z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0,4v8H16V4Zm15,7H1V5H15ZM14,9H12V7h2ZM4,9H2V7H4ZM7,9H5V7H7Z"/></svg>
+
