@@ -9,4 +9,10 @@
 			min-height: $navbar-height;
 		}
 	}
+
+	.navbar-form {
+		.form-group {
+			padding: 0;
+		}
+	}
 }
