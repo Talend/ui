@@ -45,6 +45,7 @@ class SidePanel extends React.Component {
 				this.props.updateState({ docked: !state.get('docked') });
 			},
 		});
+
 		return (<Component {...rest} {...props} />);
 	}
 }
