@@ -5,6 +5,8 @@ $tc-list-toolbar-background-color: $concrete !default;
 
 .tc-list-toolbar {
 	background: $tc-list-toolbar-background-color;
+	border-top: 1px solid $alto;
+	border-bottom: 1px solid $alto;
 
 	:global(.navbar-btn) {
 		margin-top: 0;
@@ -13,7 +15,14 @@ $tc-list-toolbar-background-color: $concrete !default;
 
 	:global(.navbar-text) {
 		color: $tc-list-toolbar-display-color;
-		font-weight: 400;
 		margin-right: 0;
+
+		label {
+			font-weight: 400;
+		}
+	}
+
+	:global(.navbar-nav) li a {
+		color: $black;
 	}
 }

@@ -24,7 +24,9 @@
   },
   "watch": {
     "prepublish": {
-      "patterns": ["src/**/*"],
+      "patterns": [
+        "src/**/*"
+      ],
       "extensions": "js,scss"
     }
   },
@@ -56,7 +58,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.12.1",
+    "bootstrap-talend-theme": "^0.13.4",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",

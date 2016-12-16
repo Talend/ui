@@ -3,28 +3,34 @@ $tc-list-table-hover-bg: $concrete !default;
 $tc-list-table-color: $dove-gray !default;
 $tc-list-table-hover-color: $black !default;
 
-.table :global(.btn-group) {
-	visibility: hidden;
-}
+.table {
+	:global(.btn-group) {
+		visibility: hidden;
+	}
 
-.table tr:hover :global(.btn-group) {
-	visibility: visible;
-}
+	:global(.btn-link) {
+		color: $tc-list-table-color;
+		font-size: inherit;
+		letter-spacing: inherit;
+		font-weight: 600;
+	}
 
-.table :global(.btn-link) {
-	color: $tc-list-table-color;
-	font-size: inherit;
-	letter-spacing: inherit;
-	font-weight: 600;
-}
+	:global(.btn-link:hover) {
+		color: $tc-list-table-hover-color;
+		text-decoration: none;
+	}
 
-.table :global(tbody tr:hover) {
-	color: $tc-list-table-hover-color;
-	background-color: $tc-list-table-hover-bg;
-}
+	tr:hover :global(.btn-group) {
+		visibility: visible;
+	}
 
-.table :global(.btn-link:hover) {
-	color: $tc-list-table-hover-color;
-	text-decoration: none;
-}
+	thead tr {
+		text-transform: uppercase;
+	}
 
+	tbody tr:hover {
+		color: $tc-list-table-hover-color;
+		background-color: $tc-list-table-hover-bg;
+	}
+
+}

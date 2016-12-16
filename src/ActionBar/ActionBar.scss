@@ -1,7 +1,7 @@
 $tc-action-bar-background-color: $concrete !default;
 
 .tc-actionbar-container {
-	padding: 0 $padding-normal;
+	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
 
 	.tc-actionbar-selected-count {
