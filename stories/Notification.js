@@ -27,7 +27,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-2',
 					type: 'error',
-					message: 'This is a feedback of your operation2, This is a feedback of your operation1, This is a feedback of your operation1',
+					message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
 					action: {
 						label: 'undo',
 						icon: 'talend-undo',
@@ -42,7 +42,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-3',
 					type: 'warning',
-					message: 'This is a feedback of your operation3',
+					message: ['This is a feedback of your operation3', 'details'],
 				},
 			]);
 			this.setState({	b: 'B' });
@@ -81,7 +81,15 @@ storiesOf('Notification', module)
 			<h1>Notification</h1>
 			<IconsProvider />
 			<h2>Definition</h2>
-			<p>The Notification component display </p>
+			<p>
+				The Notification component display notification
+				<ul>
+					<li>Type: info, error, warning</li>
+					<li>Slide in, auto slide out after timeout(except error)</li>
+					<li>Timerbar show remaining time before slide out</li>
+					<li>Hover or click to pin</li>
+				</ul>
+			</p>
 			<h2>Examples</h2>
 			<NotificationWrapper />
 		</nav>

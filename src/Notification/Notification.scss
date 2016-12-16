@@ -55,7 +55,11 @@ $icon-size: 16px;
 		}
 
 		.tc-notification-message {
-			margin: 0 ($padding-larger + $icon-size) 0 0;
+			margin-right: $padding-larger + $icon-size;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
 
 			&-action {
 				color: #1BABCD;

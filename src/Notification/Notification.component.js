@@ -55,7 +55,7 @@ function CloseButton({notification, leaveFn}){
 		<Action
 			onClick={() => leaveFn(notification)}
 			label={''}
-			icon={'talend-cross-big'}
+			icon={'talend-crossbig'}
 			bsClass={classNames(
 				theme['tc-notification-action'], 'tc-notification-action',
 				theme['tc-notification-close'], '.tc-notification-close'
@@ -77,12 +77,21 @@ function MessageAction({ action }) {
 
 function Message({ notification }) {
 	const { message, action } = notification;
-	return (
-		<p className={classNames(theme['tc-notification-message'], 'tc-notification-message')}>
+	const messageClass = classNames(theme['tc-notification-message'], 'tc-notification-message');
+	return Array.isArray(message) ?
+		<article>
+			{message.map((paragraph, index) => (
+				<p key={index} className={messageClass}>
+					{paragraph}
+					{ index === (message.length - 1) && <MessageAction action={action} /> }
+				</p>
+			))}
+		</article>
+		 :
+		<p className={messageClass}>
 			{message}
 			<MessageAction action={action} />
 		</p>
-	);
 }
 
 function TimerBar({ type }) {
@@ -156,7 +165,10 @@ function NotificationsContainer({ enterTimeout, leaveTimeout, notifications, lea
 const notificationShape = {
 	id: PropTypes.any.isRequired,
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
-	message: PropTypes.string.isRequired,
+	message: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.arrayOf(PropTypes.string)
+	]).isRequired,
 	action: PropTypes.shape(Action.propTypes),
 };
 
@@ -181,7 +193,7 @@ Notification.propTypes = {
 	notification: PropTypes.shape(notificationShape).isRequired,
 	leaveFn: PropTypes.func.isRequired,
 	autoLeaveTimeout: PropTypes.number,
-}
+};
 
 NotificationsContainer.propTypes = {
 	enterTimeout: PropTypes.number,

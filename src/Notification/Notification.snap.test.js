@@ -7,38 +7,33 @@ describe('Notification', () => {
 	it('should render', () => {
 		const notifications = [
 			{
-				id: 0,
-				message: 'This is a feedback of your operation0, This is a feedback of your operation0',
-				action: {
-					label: 'UNDO',
-					icon: 'talend-undo',
-					onClick: () => {},
-				},
-			},
-			{
-				id: 1,
-				type: 'info',
+				id: 'story-1',
 				message: 'This is a feedback of your operation1, This is a feedback of your operation1',
 				action: {
-					label: 'UNDO',
+					label: 'Haha',
 					icon: 'talend-undo',
 					onClick: () => {},
 				},
 			},
 			{
-				id: 2,
+				id: 'story-2',
 				type: 'error',
-				message: 'This is a feedback of your operation2, This is a feedback of your operation2',
-			},
-			{
-				id: 3,
-				type: 'warning',
-				message: 'This is a feedback of your operation3, This is a feedback of your operation3',
+				message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
 				action: {
-					label: 'UNDO',
+					label: 'undo',
 					icon: 'talend-undo',
 					onClick: () => {},
 				},
+			},
+			{
+				id: 'story-3',
+				type: 'warning',
+				message: ['This is a feedback of your operation3', 'details'],
+			},
+			{
+				id: 'story-4',
+				type: 'warning',
+				message: 'This is a feedback of your operation4',
 			},
 		];
 		const wrapper = renderer.create(
