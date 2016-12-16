@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { ZoomHandler } from './ZoomHandler.component';
+import ZoomHandler from './ZoomHandler.component';
 
 
 describe('<ZoomHandler /> renders correctly', () => {

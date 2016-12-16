@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { mapOf, orderedMapOf } from 'react-immutable-proptypes';
 import invariant from 'invariant';
 
-
+import { setZoom } from '../actions/flow.actions';
 import ZoomHandler from './ZoomHandler.component';
 import { NodeType, PortType } from '../constants/flowdesigner.proptypes';
 import NodesRenderer from './node/NodesRenderer.component';
@@ -102,7 +102,11 @@ export const FlowDesigner = React.createClass({
 						</feMerge>
 					</filter>
 				</defs>
-				<ZoomHandler>
+				<ZoomHandler
+					transform={this.props.transform}
+					transformToApply={this.props.transformToApply}
+					setZoom={this.props.setZoom}
+				>
 					<NodesRenderer
 						nodeTypeMap={this.state.nodeTypeMap}
 						moveNodeTo={this.props.moveNodeTo}
@@ -128,13 +132,16 @@ const mapStateToProps = state => ({
 	nodes: state.flowDesigner.get('nodes'),
 	links: state.flowDesigner.get('links'),
 	ports: state.flowDesigner.get('ports'),
+	transform: state.flowDesigner.get('transform'),
+	transformToApply: state.flowDesigner.get('transformToApply'),
 });
 
 
 const mapDispatchToProps = dispatch => ({
-	setNodeTypes: (nodeTypeMap) => dispatch(setNodeTypes(nodeTypeMap)),
+	setNodeTypes: nodeTypeMap => dispatch(setNodeTypes(nodeTypeMap)),
 	moveNodeTo: (nodId, nodePosition) => (dispatch(moveNodeTo(nodId, nodePosition))),
 	moveNodeToEnd: (nodId, nodePosition) => (dispatch(moveNodeToEnd(nodId, nodePosition))),
+	setZoom: transform => dispatch(setZoom(transform)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlowDesigner);
