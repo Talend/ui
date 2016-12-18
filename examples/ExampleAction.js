@@ -1,5 +1,6 @@
 import React from 'react';
 import { action as stAction } from '@kadira/storybook';
+import { IconsProvider } from 'react-talend-components';
 import { Action } from '../src';
 
 const myAction = {
@@ -13,8 +14,9 @@ export default function ExampleAction() {
 
 	return (
 		<div>
+			<IconsProvider />
 			<p>Using names</p>
-			<Action name="menu:article" />
+			<Action name="menu:first" />
 			<p>Using actions</p>
 			<Action {...myAction} />
 		</div>

@@ -40,8 +40,12 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 This library is architectured around one concept:
 Connect components provided by react-talend-components which implement our [style guide](http://guidelines.talend.com)
 
-A component here should never write HTML or CSS.
+A component here should never embed HTML or CSS.
 Only connection to the store and behavior should be done.
+
+All the state should be synchronised with redux using react-cmf API.
+
+Every component do not change the API of the stateless componet which is behind. They add some APIs to let you use react-cmf's actions.
 
 ## How to contribute
 

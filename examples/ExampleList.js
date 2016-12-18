@@ -7,7 +7,7 @@ const props = {
 	list: {
 		columns: [
 			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
+			{ key: 'label', label: 'Name' },
 			{ key: 'author', label: 'Author' },
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
@@ -21,7 +21,7 @@ const props = {
 			field: 'id',
 			options: [
 				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
+				{ id: 'label', name: 'Name' },
 			],
 		},
 		filter: {
@@ -29,16 +29,16 @@ const props = {
 		},
 	},
 	actions: {
-		//title: 'object:view',
-		//left: ['object:add'],
-		//items: ['object:delete'],
+		title: 'object:view',
+		left: ['object:add'],
+		items: ['object:delete'],
 	},
 };
 
 const items = Immutable.fromJS([
 	{
 		id: 1,
-		name: 'Title with actions',
+		label: 'Title with actions',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -48,7 +48,7 @@ const items = Immutable.fromJS([
 	},
 	{
 		id: 2,
-		name: 'Title in input mode',
+		label: 'Title in input mode',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -58,7 +58,7 @@ const items = Immutable.fromJS([
 	},
 	{
 		id: 3,
-		name: 'Super long title to trigger overflow on tile rendering',
+		label: 'Super long title to trigger overflow on tile rendering',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',

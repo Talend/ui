@@ -41,7 +41,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-channel/-/storybook-channel-1.1.0.tgz#806d1cdf2498d11cce09871a6fd27bbb41ed3564"
 
-"@kadira/storybook-ui@^3.10.0":
+"@kadira/storybook-ui@^3.10.1":
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-ui/-/storybook-ui-3.10.1.tgz#d0ab3b00fce419fff11c45d386104e74765f953c"
   dependencies:
@@ -62,16 +62,16 @@
     react-modal "^1.2.1"
     redux "^3.5.2"
 
-"@kadira/storybook@^2.34.0":
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@kadira/storybook/-/storybook-2.34.0.tgz#89b8e0dae1a9cc6158e5eab60b4aa4a9f54b129a"
+"@kadira/storybook@^2.35.0":
+  version "2.35.0"
+  resolved "https://registry.yarnpkg.com/@kadira/storybook/-/storybook-2.35.0.tgz#51519d223c6a6b2ab40b898080f1923518e3b271"
   dependencies:
     "@kadira/react-split-pane" "^1.4.0"
     "@kadira/storybook-addon-actions" "^1.0.2"
     "@kadira/storybook-addon-links" "^1.0.0"
     "@kadira/storybook-addons" "^1.5.0"
     "@kadira/storybook-channel-postmsg" "^2.0.1"
-    "@kadira/storybook-ui" "^3.10.0"
+    "@kadira/storybook-ui" "^3.10.1"
     airbnb-js-shims "^1.0.1"
     autoprefixer "^6.3.7"
     babel-core "^6.11.4"
@@ -84,7 +84,7 @@
     commander "^2.9.0"
     common-tags "^1.3.1"
     configstore "^2.0.0"
-    css-loader "0.25.0"
+    css-loader "^0.26.1"
     express "^4.13.3"
     file-loader "^0.9.0"
     find-cache-dir "^0.1.1"
@@ -446,15 +446,7 @@ babel-cli@^6.18.0:
   optionalDependencies:
     chokidar "^1.0.0"
 
-babel-code-frame@^6.11.0, babel-code-frame@^6.16.0:
-  version "6.16.0"
-  resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.16.0.tgz#f90e60da0862909d3ce098733b5d3987c97cb8de"
-  dependencies:
-    chalk "^1.1.0"
-    esutils "^2.0.2"
-    js-tokens "^2.0.0"
-
-babel-code-frame@^6.20.0:
+babel-code-frame@^6.11.0, babel-code-frame@^6.20.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.20.0.tgz#b968f839090f9a8bc6d41938fb96cb84f7387b26"
   dependencies:
@@ -496,19 +488,7 @@ babel-eslint@6.1.2:
     lodash.assign "^4.0.0"
     lodash.pickby "^4.0.0"
 
-babel-generator@^6.11.3:
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.19.0.tgz#9b2f244204777a3d6810ec127c673c87b349fac5"
-  dependencies:
-    babel-messages "^6.8.0"
-    babel-runtime "^6.9.0"
-    babel-types "^6.19.0"
-    detect-indent "^4.0.0"
-    jsesc "^1.3.0"
-    lodash "^4.2.0"
-    source-map "^0.5.0"
-
-babel-generator@^6.20.0:
+babel-generator@^6.11.3, babel-generator@^6.20.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.20.0.tgz#fee63614e0449390103b3097f3f6a118016c6766"
   dependencies:
@@ -1142,14 +1122,14 @@ babel-register@^6.18.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@6.11.6, babel-runtime@^6.5.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1, babel-runtime@^6.9.2:
+babel-runtime@6.11.6, babel-runtime@^6.5.0, babel-runtime@^6.9.0, babel-runtime@^6.9.2:
   version "6.11.6"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.11.6.tgz#6db707fef2d49c49bfa3cb64efdb436b518b8222"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.9.5"
 
-babel-runtime@6.x.x, babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.20.0:
+babel-runtime@6.x.x, babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.20.0, babel-runtime@^6.9.1:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
   dependencies:
@@ -1166,21 +1146,7 @@ babel-template@^6.14.0, babel-template@^6.15.0, babel-template@^6.16.0, babel-te
     babylon "^6.11.0"
     lodash "^4.2.0"
 
-babel-traverse@^6.0.20, babel-traverse@^6.16.0, babel-traverse@^6.18.0, babel-traverse@^6.8.0, babel-traverse@^6.9.0:
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.19.0.tgz#68363fb821e26247d52a519a84b2ceab8df4f55a"
-  dependencies:
-    babel-code-frame "^6.16.0"
-    babel-messages "^6.8.0"
-    babel-runtime "^6.9.0"
-    babel-types "^6.19.0"
-    babylon "^6.11.0"
-    debug "^2.2.0"
-    globals "^9.0.0"
-    invariant "^2.2.0"
-    lodash "^4.2.0"
-
-babel-traverse@^6.20.0:
+babel-traverse@^6.0.20, babel-traverse@^6.16.0, babel-traverse@^6.18.0, babel-traverse@^6.20.0, babel-traverse@^6.8.0, babel-traverse@^6.9.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.20.0.tgz#5378d1a743e3d856e6a52289994100bbdfd9872a"
   dependencies:
@@ -1194,16 +1160,7 @@ babel-traverse@^6.20.0:
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-babel-types@^6.0.19, babel-types@^6.10.2, babel-types@^6.15.0, babel-types@^6.16.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.8.0, babel-types@^6.9.0:
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.19.0.tgz#8db2972dbed01f1192a8b602ba1e1e4c516240b9"
-  dependencies:
-    babel-runtime "^6.9.1"
-    esutils "^2.0.2"
-    lodash "^4.2.0"
-    to-fast-properties "^1.0.1"
-
-babel-types@^6.20.0:
+babel-types@^6.0.19, babel-types@^6.10.2, babel-types@^6.15.0, babel-types@^6.16.0, babel-types@^6.18.0, babel-types@^6.20.0, babel-types@^6.8.0, babel-types@^6.9.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.20.0.tgz#3869ecb98459533b37df809886b3f7f3b08d2baa"
   dependencies:
@@ -1280,9 +1237,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.13.0.tgz#97c13a9e575f26bfa3b2e24c774dcbe3531d81da"
+bootstrap-talend-theme@^0.13.4:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.13.4.tgz#83695d53792e3b196362b968325cea89c0b38ec1"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -1767,23 +1724,6 @@ crypto-browserify@3.3.0:
 css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
-
-css-loader@0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.25.0.tgz#c3febc8ce28f4c83576b6b13707f47f90c390223"
-  dependencies:
-    babel-code-frame "^6.11.0"
-    css-selector-tokenizer "^0.6.0"
-    cssnano ">=2.6.1 <4"
-    loader-utils "~0.2.2"
-    lodash.camelcase "^3.0.1"
-    object-assign "^4.0.1"
-    postcss "^5.0.6"
-    postcss-modules-extract-imports "^1.0.0"
-    postcss-modules-local-by-default "^1.0.1"
-    postcss-modules-scope "^1.0.0"
-    postcss-modules-values "^1.1.0"
-    source-list-map "^0.1.4"
 
 css-loader@^0.26.1:
   version "0.26.1"
@@ -3765,13 +3705,6 @@ lodash._createassigner@^3.0.0:
     lodash._isiterateecall "^3.0.0"
     lodash.restparam "^3.0.0"
 
-lodash._createcompounder@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._createcompounder/-/lodash._createcompounder-3.0.0.tgz#5dd2cb55372d6e70e0e2392fb2304d6631091075"
-  dependencies:
-    lodash.deburr "^3.0.0"
-    lodash.words "^3.0.0"
-
 lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
@@ -3779,10 +3712,6 @@ lodash._getnative@^3.0.0:
 lodash._isiterateecall@^3.0.0:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz#5203ad7ba425fae842460e696db9cf3e6aac057c"
-
-lodash._root@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._root/-/lodash._root-3.0.1.tgz#fba1c4524c19ee9a5f8136b4609f017cf4ded692"
 
 lodash.assign@^3.0.0, lodash.assign@^3.2.0:
   version "3.2.0"
@@ -3803,12 +3732,6 @@ lodash.assignin@^4.0.9:
 lodash.bind@^4.1.4:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/lodash.bind/-/lodash.bind-4.2.1.tgz#7ae3017e939622ac31b7d7d7dcb1b34db1690d35"
-
-lodash.camelcase@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-3.0.1.tgz#932c8b87f8a4377897c67197533282f97aeac298"
-  dependencies:
-    lodash._createcompounder "^3.0.0"
 
 lodash.camelcase@^4.3.0:
   version "4.3.0"
@@ -3832,12 +3755,6 @@ lodash.cond@^4.3.0:
 "lodash.debounce@^3 || ^4":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-
-lodash.deburr@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.deburr/-/lodash.deburr-3.2.0.tgz#6da8f54334a366a7cf4c4c76ef8d80aa1b365ed5"
-  dependencies:
-    lodash._root "^3.0.0"
 
 lodash.defaults@^4.0.1:
   version "4.2.0"
@@ -3930,12 +3847,6 @@ lodash.restparam@^3.0.0:
 lodash.some@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
-
-lodash.words@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.words/-/lodash.words-3.2.0.tgz#4e2a8649bc08745b17c695b1a3ce8fee596623b3"
-  dependencies:
-    lodash._root "^3.0.0"
 
 lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.16.4"
@@ -5105,12 +5016,6 @@ react-cmf@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.11.2.tgz#60c7231851fe5cff70524f8c94ce1294a6cb7629"
 
-react-css-themr@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/react-css-themr/-/react-css-themr-1.6.1.tgz#928f38d96f02f28f5b00f46a0bf160ff43d91bad"
-  dependencies:
-    invariant "^2.2.1"
-
 react-debounce-input@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/react-debounce-input/-/react-debounce-input-2.4.2.tgz#dd7b75f5671fed5e9312f8aaa105dfc4eec75cc8"
@@ -5230,9 +5135,9 @@ react-simple-di@^1.2.0:
     babel-runtime "6.x.x"
     hoist-non-react-statics "1.x.x"
 
-react-storybook-cmf@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-storybook-cmf/-/react-storybook-cmf-0.1.1.tgz#4bfe3950f63d8c18543d60c59c3785f7f1c66088"
+react-storybook-cmf@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-storybook-cmf/-/react-storybook-cmf-0.1.3.tgz#5351c581330d05417e5a5503ded0603831576d60"
   dependencies:
     "@kadira/storybook-addons" "^1.5.0"
 
@@ -5246,9 +5151,9 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.34.0:
-  version "0.34.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.34.0.tgz#2a0c71a1b3ef24ad008bf5e428814b5cdf972343"
+react-talend-components@^0.34.2:
+  version "0.34.2"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.34.2.tgz#34912157f91ffa3d09be2e3ff5fac9a09e011cb4"
   dependencies:
     react-autowhatever "^7.0.0"
     react-debounce-input "^2.4.2"
@@ -5985,9 +5890,9 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-talend-icons@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.10.0.tgz#b8ced4b30fa8b9e85887cdff0a820ecd969dbd9f"
+talend-icons@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.11.1.tgz#7c7275c8ae11035676dfcca2a5c074b75acc8052"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

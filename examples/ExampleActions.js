@@ -43,7 +43,7 @@ export default function ExampleActions() {
 		<div>
 			<IconsProvider />
 			<p>using action ids</p>
-			<Actions names={['menu:article']} />
+			<Actions names={['menu:first', 'menu:second', 'menu:third']} />
 			<p>Using pure component props</p>
 			<Actions actions={infos} />
 		</div>

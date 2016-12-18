@@ -6,7 +6,7 @@ export default function ExampleSidePanel() {
 	return (
 		<div>
 			<IconsProvider />
-			<SidePanel actionIds={['menu:demo']} />
+			<SidePanel actionIds={['menu:first', 'menu:second', 'menu:third']} />
 		</div>
 	);
 }
