@@ -1,9 +1,10 @@
 # json-schema-form-core
-Core library that doesn't depend on a framework.
-
+Core library for working with JSON-Schema with a UI-Schema (Form) definition that doesn't depend on a framework.
 
 Work-In-Progress!
 
+This library, through the use of its merge module, combines the schema and ui-schema
+into a canonical schema for use by its services and external libraries.
 
 ## Testing it
 
