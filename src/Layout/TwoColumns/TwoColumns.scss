@@ -15,15 +15,6 @@ $tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
 
 .sidemenu {
 	background-color: $tc-layout-two-columns-sidemenu-bg;
-
-	:global(.nav-pills) :global(.btn-link) {
-		color: #FFF;
-		width: 100%;
-	}
-
-	:global(.btn-link):hover {
-		background-color: darken($tc-layout-two-columns-sidemenu-bg, 12%);
-	}
 }
 
 .main {

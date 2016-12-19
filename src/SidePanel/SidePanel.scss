@@ -7,60 +7,18 @@
 /// @type Color
 $tc-side-panel-toggle-color: #DDD !default;
 
-/// Side panel default spacing
-/// @type Number (Unit)
-$tc-side-panel-spacing: 20px !default;
-
 /// Docked side panel spacing
 /// @type Number (Unit)
 $tc-side-panel-docked-spacing: 15px !default;
 
 .tc-side-panel {
 	overflow-x: hidden;
-	padding: 0 $tc-side-panel-spacing;
+	padding: 0 $padding-large;
 	transition: 0.2s padding ease-out;
 
 	.action-list {
-		margin: 0 (-$tc-side-panel-spacing);
+		margin: 0 (-$padding-large);
 		transition: 0.2s margin ease-out;
-	}
-
-	.toggle-btn {
-		position: relative;
-		display: block;
-		padding: 0;
-		margin: $tc-side-panel-spacing 0;
-		line-height: 0.75;
-		color: $tc-side-panel-toggle-color;
-		box-shadow: -2px 0 0 $tc-side-panel-toggle-color;
-
-		& :global(.tc-svg-icon) {
-			fill: $tc-side-panel-toggle-color;
-		}
-
-		&:hover,
-		&:focus,
-		&:active {
-			color: inherit;
-			outline: 0;
-		}
-
-		i,
-		:global(.tc-svg-icon) {
-			transition: 0.2s transform ease-out;
-		}
-
-		// Increase click area
-		:after {
-			position: absolute;
-			content: '';
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			margin: -1rem;
-			border-radius: 50%;
-		}
 	}
 
 	.link {
@@ -70,11 +28,7 @@ $tc-side-panel-docked-spacing: 15px !default;
 
 		i + span,
 		:global(.tc-svg-icon) + span {
-			padding-left: 20px;
-		}
-
-		:global(.tc-svg-icon) {
-			fill: currentColor;
+			padding-left: $padding-large;
 		}
 
 		span {
@@ -82,8 +36,17 @@ $tc-side-panel-docked-spacing: 15px !default;
 		}
 	}
 
+	//override nav-pill a bit
+	:global(.nav-pills .btn.btn-link) {
+		padding: 12px 90px 12px $padding-large;
+	}
+
+	:global(.btn-link):hover {
+		background-color: darken($brand-primary, 12%);
+	}
+
 	&.docked {
-		padding: 0 $tc-side-panel-docked-spacing;
+		padding: 0 $padding-normal;
 
 		.toggle-btn i,
 		.toggle-btn :global(.tc-svg-icon) {
@@ -93,5 +56,30 @@ $tc-side-panel-docked-spacing: 15px !default;
 		.link span {
 			opacity: 0;
 		}
+
+		//override nav-pill a bit
+		:global(.nav-pills .btn.btn-link) {
+			padding-left: $padding-normal;
+			padding-right: $padding-normal;
+		}
 	}
+
+	.toggle-btn {
+		margin-left: 3px;
+
+		& :global(.tc-svg-icon) {
+			fill: $tc-side-panel-toggle-color;
+			width: 1.5em;
+			height: 1.5em;
+			transition: 0.2s transform ease-out;
+		}
+
+		&:before {
+			content: '';
+			height: 1.1em;
+			margin-right: -2px;
+			border-left: 2px solid $tc-side-panel-toggle-color;
+		}
+	}
+
 }

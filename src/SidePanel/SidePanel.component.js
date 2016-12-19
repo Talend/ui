@@ -20,7 +20,6 @@ import Icon from '../Icon';
 	 actions={ actions }
 	 onToggleDock={ action('Toggle dock clicked') }
 	 docked={ isDocked }
-     toggleIcon={ 'fa fa-arrow-left' }
  />
  *
  */
@@ -41,24 +40,29 @@ function SidePanel(props) {
 
 	return (
 		<nav className={navCSS}>
-			<Button
-				id={props.id && `${props.id}-toggle-dock`}
-				className={theme['toggle-btn']}
-				bsStyle="link"
-				onClick={props.onToggleDock}
-				aria-hidden="true"
-				title="Toggle side panel"
-			>
-				<Icon name={props.toggleIcon || 'talend-arrow-left'} />
-			</Button>
 			<ul className={listCSS}>
+				<li className="tc-side-panel-list-item">
+					<Button
+						id={props.id && `${props.id}-toggle-dock`}
+						className={classNames(
+							theme['toggle-btn'],
+							theme.link
+						)}
+						bsStyle="link"
+						onClick={props.onToggleDock}
+						aria-hidden="true"
+						title="Toggle side panel"
+					>
+						<Icon name="talend-arrow-left" />
+					</Button>
+				</li>
 				{actions.map(action => (
 					<li
 						key={action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
 							{ active: !!action.active }
-							)}
+						)}
 					>
 						<Button
 							id={props.id && `${props.id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
@@ -89,7 +93,6 @@ SidePanel.propTypes = {
 	),
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
-	toggleIcon: React.PropTypes.string,
 };
 
 export default SidePanel;

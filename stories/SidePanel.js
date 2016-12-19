@@ -55,21 +55,5 @@ storiesOf('Side Panel', module)
 				/>
 			</div>
 		)
-	)
-	.addWithInfo('custom toggle icon', () =>
-		(
-			<div>
-				<h1>SidePanel</h1>
-				<h2>Definition</h2>
-				<a href="http://guidelines.talend.com/document/92132#/ui-controls/side-panel">Spec</a>
-				<h2>Examples</h2>
-				<IconsProvider />
-				<SidePanel
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					toggleIcon="fa-arrow-left"
-					docked
-				/>
-			</div>
-		)
 	);
+

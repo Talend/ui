@@ -1,21 +1,27 @@
 exports[`SidePanel should render docked menu 1`] = `
 <nav
   className="undefined tc-side-panel">
-  <button
-    aria-hidden="true"
-    className="btn btn-link"
-    disabled={false}
-    id={undefined}
-    onClick={undefined}
-    title="Toggle side panel"
-    type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-arrow-left"
-      title={null} />
-  </button>
   <ul
     className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+    <li
+      className="tc-side-panel-list-item">
+      <button
+        aria-hidden="true"
+        className="btn btn-link"
+        disabled={false}
+        id={undefined}
+        onClick={undefined}
+        title="Toggle side panel"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-arrow-left" />
+        </svg>
+      </button>
+    </li>
     <li
       className="tc-side-panel-list-item">
       <button
@@ -71,21 +77,27 @@ exports[`SidePanel should render docked menu 1`] = `
 exports[`SidePanel should render expanded menu 1`] = `
 <nav
   className="tc-side-panel">
-  <button
-    aria-hidden="true"
-    className="btn btn-link"
-    disabled={false}
-    id={undefined}
-    onClick={undefined}
-    title="Toggle side panel"
-    type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-arrow-left"
-      title={null} />
-  </button>
   <ul
     className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+    <li
+      className="tc-side-panel-list-item">
+      <button
+        aria-hidden="true"
+        className="btn btn-link"
+        disabled={false}
+        id={undefined}
+        onClick={undefined}
+        title="Toggle side panel"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-arrow-left" />
+        </svg>
+      </button>
+    </li>
     <li
       className="tc-side-panel-list-item">
       <button
@@ -150,21 +162,27 @@ exports[`SidePanel should render expanded menu 1`] = `
 exports[`SidePanel should render id when props.id provided 1`] = `
 <nav
   className="undefined tc-side-panel">
-  <button
-    aria-hidden="true"
-    className="btn btn-link"
-    disabled={false}
-    id="context-toggle-dock"
-    onClick={undefined}
-    title="Toggle side panel"
-    type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-arrow-left"
-      title={null} />
-  </button>
   <ul
     className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+    <li
+      className="tc-side-panel-list-item">
+      <button
+        aria-hidden="true"
+        className="btn btn-link"
+        disabled={false}
+        id="context-toggle-dock"
+        onClick={undefined}
+        title="Toggle side panel"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-arrow-left" />
+        </svg>
+      </button>
+    </li>
     <li
       className="tc-side-panel-list-item">
       <button

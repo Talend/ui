@@ -3,6 +3,15 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.35.1
+* Component: SidePanel
+* PR: [fix(sidepanel): review + refactor](https://github.com/Talend/react-talend-components/pull/178)
+* Changes
+
+| Old Props | New props |
+|---|---|
+| props.toggleIcon | ~~removed~~ |
+
 ## v0.34.0
 * Component: List > Toolbar
 * PR: [feat(Toolbar): refactor Toolbar properties](https://github.com/Talend/react-talend-components/pull/171)

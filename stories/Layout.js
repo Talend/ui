@@ -1,22 +1,22 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Layout, SidePanel } from '../src/index';
+import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 const actions = [
 	{
 		label: 'Preparations',
-		icon: 'fa fa-asterisk',
+		icon: 'talend-dataprep',
 		onClick: action('Preparations clicked'),
 	},
 	{
 		label: 'Datasets',
-		icon: 'fa fa-file-excel-o',
+		icon: 'talend-folder',
 		onClick: action('Datasets clicked'),
 	},
 	{
 		label: 'Favorites',
-		icon: 'fa fa-star',
+		icon: 'talend-star',
 		onClick: action('Favorites clicked'),
 	},
 ];
@@ -81,7 +81,6 @@ const sidePanel = (<SidePanel
 	actions={actions}
 	onToggleDock={action('Toggle dock clicked')}
 	docked={false}
-	toggleIcon={ 'fa fa-arrow-left' }
 />);
 const header = {
 	app: 'Example App Name',
@@ -94,6 +93,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			<h1>Hello world</h1>
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with scroll', () => (
@@ -102,6 +102,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			{content}
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
@@ -111,6 +112,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			<h1>Hello world</h1>
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with scroll', () => (
@@ -120,6 +122,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			{content}
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => {
@@ -127,7 +130,6 @@ storiesOf('Layout', module)
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 			docked
-			toggleIcon={ 'fa fa-arrow-left' }
 		/>);
 
 		return (
@@ -137,6 +139,7 @@ storiesOf('Layout', module)
 				one={dockedSidePanel}
 			>
 				{content}
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -148,5 +151,6 @@ storiesOf('Layout', module)
 			drawers={drawers}
 		>
 			{content}
+			<IconsProvider />
 		</Layout>
 	));
