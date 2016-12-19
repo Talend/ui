@@ -7,13 +7,10 @@
     "source": {
         "include": [
           "src/index.js",
+          "src/Action/Action.component.js",
+          "src/Actions/Actions.component.js",
           "src/AppHeaderBar/AppHeaderBar.component.js",
-          "src/ButtonAction/ButtonAction.js",
-          "src/ButtonDispatcher/ButtonDispatcher.js",
-          "src/ButtonsDispatcher/ButtonsDispatcher.js",
-          "src/LinkAction/LinkAction.js",
-          "src/LinkDispatcher/LinkDispatcher.js",
-          "src/LinksDispatcher/LinksDispatcher.js"
+          "src/List/List.connect.js"
         ],
         "excludePattern": "(node_modules/*|docs/*|lib/*)"
     },
@@ -21,7 +18,7 @@
     "templates": {
         "license": "MIT",
         "outputSourceFiles"     : true,
-        "systemName"            : "React CMF",
+        "systemName"            : "React Talend Containers",
         "navType"               : "vertical",
         "theme"                 : "cerulean",
         "linenums"              : true,

@@ -3,7 +3,7 @@ import { api } from 'react-cmf';
 import { Actions as PureActions } from 'react-talend-components';
 
 /**
- * @param {object} props react props
+ * @param {Object} props react props
  * @example
 <Actions name="Hello world"></Actions>
  */

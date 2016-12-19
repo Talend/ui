@@ -21,8 +21,8 @@ export function mapDispatchToProps(dispatch) {
 
 /**
  * map the the settings views.appheaderbar
- * @param  {[type]} state [description]
- * @return {[type]}       [description]
+ * @param  {Object} state [description]
+ * @return {Object}       [description]
  */
 export function mapStateToProps(state) {
 	return state.cmf.settings.views.appheaderbar || {};

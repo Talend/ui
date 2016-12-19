@@ -15,6 +15,13 @@ export const DEFAULT_STATE = new Map({
 	sortAsc: true,
 });
 
+
+/**
+ * merge props.items with actions
+ * @param  {Object} context [description]
+ * @param  {Object} props   [description]
+ * @return {Array}          [description]
+ */
 export function getItems(context, props) {
 	return props.items.map(
 		item => Object.assign({}, item, {

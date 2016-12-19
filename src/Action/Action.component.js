@@ -4,7 +4,7 @@ import { api } from 'react-cmf';
 import invariant from 'invariant';
 
 /**
- * @param {object} props react props
+ * @param {Object} props react props
  * @example
 <Action name="menu:demo"></Action>
  */
