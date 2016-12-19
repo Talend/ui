@@ -15,6 +15,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
       aria-haspopup={true}
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
+      autoFocus={true}
       className="form-control"
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
@@ -205,6 +206,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
       aria-haspopup={true}
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
+      autoFocus={true}
       className="form-control"
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
@@ -339,6 +341,7 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       aria-haspopup={false}
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
+      autoFocus={true}
       className="form-control"
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
@@ -351,14 +354,20 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       value={undefined} />
   </div>
   <div
+    className="undefined undefined"
     id="react-autowhatever-my-search"
-    style={Object {}} />
+    style={Object {}}>
+    <span
+      className="no-result">
+      No result.
+    </span>
+  </div>
 </div>
 `;
 
 exports[`Typeahead position should render search bar on the right 1`] = `
 <div
-  className="undefined">
+  style={Object {}}>
   <div
     className={undefined}>
     <label
@@ -373,6 +382,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       aria-haspopup={false}
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
+      autoFocus={true}
       className="form-control"
       id="react-autowhatever-my-search-input"
       onBlur={undefined}

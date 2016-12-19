@@ -196,6 +196,21 @@ decoratedStories
 		};
 		return <AppHeaderBar {...props} />;
 	})
+	.addWithInfo('while searching', () => {
+		props.content[1] = {
+			search: {
+				icon: {
+					name: 'fa fa-search',
+				},
+				position: 'right',
+				value: 'le',
+				searching: true,
+				onBlur: action('onBlur'),
+				onChange: action('onChange'),
+			},
+		};
+		return <AppHeaderBar {...props} />;
+	})
 	.addWithInfo('with search results', () => {
 		props.content[1] = {
 			search: {
@@ -208,6 +223,21 @@ decoratedStories
 				onBlur: action('onBlur'),
 				onChange: action('onChange'),
 				onSelect: action('onSelect'),
+			},
+		};
+		return <AppHeaderBar {...props} />;
+	})
+	.addWithInfo('with no search result', () => {
+		props.content[1] = {
+			search: {
+				icon: {
+					name: 'fa fa-search',
+				},
+				position: 'right',
+				value: 'le',
+				items: [],
+				onBlur: action('onBlur'),
+				onChange: action('onChange'),
 			},
 		};
 		return <AppHeaderBar {...props} />;

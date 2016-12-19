@@ -88,6 +88,17 @@ decoratedStories
 			<Typeahead {...props} />
 		);
 	})
+	.addWithInfo('searching', () => {
+		const props = {
+			value: 'Lorem ipsum',
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			searching: true,
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
 	.addWithInfo('with results', () => {
 		const props = {
 			value: 'le',

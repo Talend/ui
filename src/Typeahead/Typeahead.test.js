@@ -25,11 +25,10 @@ describe('Typeahead', () => {
 				title: 'le title 1',
 				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
-				{
-					title: 'title 2 les elephants elementaires ont des aile ',
-					description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
-				},
-			],
+			{
+				title: 'title 2 les elephants elementaires ont des aile ',
+				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+			}],
 		},
 
 		{
