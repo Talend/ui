@@ -8,8 +8,7 @@ exports[`Notification should render 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
-      tabIndex={2}>
+      role="status">
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
@@ -56,8 +55,7 @@ exports[`Notification should render 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
-      tabIndex={2}>
+      role="status">
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
@@ -108,8 +106,7 @@ exports[`Notification should render 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
-      tabIndex={2}>
+      role="status">
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
@@ -145,8 +142,7 @@ exports[`Notification should render 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
-      tabIndex={2}>
+      role="status">
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}

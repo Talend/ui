@@ -50,7 +50,7 @@ export const onManuallyClose = (event, notification, leaveFn) => {
 	leaveFn(notification);
 };
 
-function CloseButton({notification, leaveFn}){
+function CloseButton({ notification, leaveFn }) {
 	return (
 		<Action
 			onClick={() => leaveFn(notification)}
@@ -86,12 +86,10 @@ function Message({ notification }) {
 					{ index === (message.length - 1) && <MessageAction action={action} /> }
 				</p>
 			))}
-		</article>
-		 :
-		<p className={messageClass}>
+		</article> : <p className={messageClass}>
 			{message}
 			<MessageAction action={action} />
-		</p>
+		</p>;
 }
 
 function TimerBar({ type }) {
@@ -99,7 +97,7 @@ function TimerBar({ type }) {
 		className={classNames(
 			theme['tc-notification-timer-bar'], 'tc-notification-timer-bar'
 		)}
-	/>
+	/>;
 }
 
 function Notification({ notification, leaveFn, autoLeaveTimeout }) {
@@ -117,7 +115,6 @@ function Notification({ notification, leaveFn, autoLeaveTimeout }) {
 		'tc-notification-error': notification.type === 'error',
 	};
 	const classes = classNames(notificationClasses);
-	let tabIndex = 1;
 	return (
 		<div
 			role="status"
@@ -125,9 +122,8 @@ function Notification({ notification, leaveFn, autoLeaveTimeout }) {
 			onMouseEnter={() => onMouseEnter(notification)}
 			onMouseLeave={event => onMouseOut(event, notification, leaveFn, autoLeaveTimeout)}
 			onClick={event => onClick(event, notification)}
-			tabIndex={tabIndex += 1}
 		>
-			<CloseButton {...{notification, leaveFn}} />
+			<CloseButton {...{ notification, leaveFn }} />
 			<Message notification={notification} />
 			<TimerBar type={notification.type} />
 		</div>
@@ -143,12 +139,23 @@ function renderNotifications({ notifications, leaveFn, autoLeaveTimeout }) {
 					setTimeout(() => leaveFn(notification), autoLeaveTimeout)
 				);
 			}
-			return <Notification key={notification.id} {...{notification, leaveFn, autoLeaveTimeout}} />;
+			return (
+				<Notification
+					key={notification.id}
+					{...{ notification, leaveFn, autoLeaveTimeout }}
+				/>
+			);
 		}
 	);
 }
 
-function NotificationsContainer({ enterTimeout, leaveTimeout, notifications, leaveFn, autoLeaveTimeout }) {
+function NotificationsContainer({
+	enterTimeout,
+	leaveTimeout,
+	notifications,
+	leaveFn,
+	autoLeaveTimeout,
+}) {
 	return (
 		<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
 			<ReactCSSTransitionGroup
@@ -156,7 +163,7 @@ function NotificationsContainer({ enterTimeout, leaveTimeout, notifications, lea
 				transitionEnterTimeout={enterTimeout}
 				transitionLeaveTimeout={leaveTimeout}
 			>
-				{renderNotifications({notifications, leaveFn, autoLeaveTimeout})}
+				{renderNotifications({ notifications, leaveFn, autoLeaveTimeout })}
 			</ReactCSSTransitionGroup>
 		</div>
 	);
@@ -167,7 +174,7 @@ const notificationShape = {
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
 	message: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.string)
+		PropTypes.arrayOf(PropTypes.string),
 	]).isRequired,
 	action: PropTypes.shape(Action.propTypes),
 };
@@ -178,15 +185,15 @@ CloseButton.propTypes = {
 };
 
 MessageAction.propTypes = {
-	action: PropTypes.shape(Action.propTypes)
+	action: PropTypes.shape(Action.propTypes),
 };
 
 Message.propTypes = {
-	notification: PropTypes.shape(notificationShape).isRequired
+	notification: PropTypes.shape(notificationShape).isRequired,
 };
 
 TimerBar.propTypes = {
-	type: PropTypes.oneOf(['info', 'warning', 'error'])
+	type: PropTypes.oneOf(['info', 'warning', 'error']),
 };
 
 Notification.propTypes = {
