@@ -66,7 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
-import { Action, ActionDropdown, Actions } from './Actions';
+import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
@@ -87,6 +87,7 @@ export {
 	Action,
 	ActionBar,
 	ActionDropdown,
+	ActionSplitDropdown,
 	Actions,
 	AppHeaderBar,
 	Breadcrumbs,

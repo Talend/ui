@@ -1,0 +1,275 @@
+exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <i
+        aria-hidden="true"
+        className="fa fa-plus"
+        title={null} />
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+        	var accessibility = {
+        		'aria-hidden': 'true',
+        		title: title || null };
+        
+        	if (name.startsWith('fa-')) {
+        		var classes = /* istanbul ignore next */(0, _classnames2.default)(
+        		'fa',
+        		name,
+        		className);
+        
+        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
+        	}
+        	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
+        		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
+        		name,
+        		className);
+        
+        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
+        	}
+        	if (name) {
+        		var classname = /* istanbul ignore next */(0, _classnames2.default)(
+        		/* istanbul ignore next */_Icon2.default['svg-icon'],
+        		'tc-svg-icon',
+        		className);
+        
+        		return (
+        			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
+        				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
+        
+        
+        	}
+        	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
+        }
+          name="fa fa-plus" />
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className="disabled"
+      role="presentation"
+      style={undefined}>
+      <a
+        href=""
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        No option
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <i
+        aria-hidden="true"
+        className="fa fa-plus"
+        title={null} />
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+        	var accessibility = {
+        		'aria-hidden': 'true',
+        		title: title || null };
+        
+        	if (name.startsWith('fa-')) {
+        		var classes = /* istanbul ignore next */(0, _classnames2.default)(
+        		'fa',
+        		name,
+        		className);
+        
+        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
+        	}
+        	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
+        		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
+        		name,
+        		className);
+        
+        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
+        	}
+        	if (name) {
+        		var classname = /* istanbul ignore next */(0, _classnames2.default)(
+        		/* istanbul ignore next */_Icon2.default['svg-icon'],
+        		'tc-svg-icon',
+        		className);
+        
+        		return (
+        			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
+        				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
+        
+        
+        	}
+        	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
+        }
+          name="fa fa-plus" />
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href=""
+        label="From Local"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Local
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href=""
+        label="From Remote"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Remote
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionSplitDropdown should render a button with label 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href=""
+        label="From Local"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Local
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href=""
+        label="From Remote"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Remote
+      </a>
+    </li>
+  </ul>
+</div>
+`;

@@ -1,6 +1,7 @@
 import './Action';
 import './ActionBar';
 import './ActionDropdown';
+import './ActionSplitDropdown';
 import './Actions';
 import './AppHeaderBar';
 import './Breadcrumbs';
