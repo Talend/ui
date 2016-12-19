@@ -80,6 +80,7 @@ import IconsProvider from './IconsProvider';
 import Layout from './Layout';
 import List from './List';
 import SidePanel from './SidePanel';
+import Status from './Status';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 
@@ -101,6 +102,7 @@ export {
 	List,
 	Notification,
 	SidePanel,
+	Status,
 	TooltipTrigger,
 	Typeahead,
 

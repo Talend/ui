@@ -10,14 +10,14 @@ $tc-circular-progress-large: 4rem;
 
 	& .path {
 		animation: dash 1.3s ease-in-out infinite;
-		stroke: rgba($tc-circular-progress-dark-fill, 0.4);
+		stroke: currentColor;
 		stroke-linecap: round;
 	}
 }
 
 .loaderlight {
 	& .path {
-		stroke: rgba($tc-circular-progress-light-fill, 0.6);
+		stroke: currentColor;
 	}
 }
 
@@ -47,15 +47,6 @@ $tc-circular-progress-large: 4rem;
 .small {
 	width: $tc-circular-progress-small;
 	height: $tc-circular-progress-small;
-
-	.path {
-		stroke: $tc-circular-progress-dark-fill;
-	}
-
-	&.loaderlight .path {
-		stroke: $tc-circular-progress-light-fill;
-	}
-
 }
 
 .default {

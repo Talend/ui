@@ -1,0 +1,18 @@
+.tc-status {
+	&-label {
+		visibility: visible;
+	}
+	&-actions {
+		visibility: hidden;
+	}
+
+	&:hover {
+		.tc-status-label {
+			position: absolute;
+			visibility: hidden;
+		}
+		.tc-status-actions {
+			visibility: visible;
+		}
+	}
+}

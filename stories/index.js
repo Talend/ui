@@ -14,6 +14,7 @@ import './Icon';
 import './Layout';
 import './List';
 import './SidePanel';
+import './Status';
 import './TooltipTrigger';
 import './Typeahead';
 

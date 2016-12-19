@@ -1,0 +1,96 @@
+exports[`Status should render a label 1`] = `
+<div
+  className="text-success">
+  
+  <span
+    className={undefined}>
+     
+    Successful
+     
+  </span>
+  <span
+    className={undefined}>
+    <div
+      className="tc-actions btn-group">
+      <button
+        className="btn btn-sm btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-cancel"
+          title={null} />
+        <span>
+          cancel
+        </span>
+      </button>
+      <button
+        className="btn btn-sm btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-delete"
+          title={null} />
+        <span>
+          delete
+        </span>
+      </button>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Status should render a label with Icon 1`] = `
+<div
+  className="text-success">
+  <i
+    aria-hidden="true"
+    className="fa fa-check"
+    title={null} />
+  <span
+    className={undefined}>
+     
+    Successful
+     
+  </span>
+  <span
+    className={undefined}>
+    <div
+      className="tc-actions btn-group">
+      <button
+        className="btn btn-sm btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-cancel"
+          title={null} />
+        <span>
+          cancel
+        </span>
+      </button>
+      <button
+        className="btn btn-sm btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-delete"
+          title={null} />
+        <span>
+          delete
+        </span>
+      </button>
+    </div>
+  </span>
+</div>
+`;
