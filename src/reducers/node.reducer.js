@@ -45,7 +45,7 @@ const nodeReducer = (state = defaultState, action) => {
 				new PositionRecord(action.nodePosition),
 			);
 	case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
-		return state.get('nodes').map((node) => {
+		return state.update('nodes', nodes => nodes.map((node) => {
 			if (action.nodesId.find(id => id === node.id)) {
 				return node.set('position', node.position
 					.set('x', node.position.x + action.movement.x)
@@ -53,7 +53,7 @@ const nodeReducer = (state = defaultState, action) => {
 				);
 			}
 			return node;
-		});
+		}));
 	case FLOWDESIGNER_NODE_SET_SIZE:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't set size on node ${action.nodeId} since it doesn't exist`);

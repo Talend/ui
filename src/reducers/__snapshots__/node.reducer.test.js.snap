@@ -293,41 +293,56 @@ Object {
 
 exports[`FLOWDESIGNER_NODE_APPLY_MOVEMENT should apply the same relative movement to each node listed 1`] = `
 Object {
-  "id1": Object {
-    "attributes": Object {
-      "selected": true,
+  "childrens": Object {},
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "attributes": Object {
+        "selected": true,
+      },
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 20,
+        "y": 15,
+      },
     },
-    "id": "id1",
-    "nodeSize": undefined,
-    "nodeType": "type1",
-    "position": Object {
-      "x": 20,
-      "y": 15,
+    "id2": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 20,
+        "y": 15,
+      },
+    },
+    "id3": Object {
+      "attributes": Object {
+        "selected": false,
+      },
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
     },
   },
-  "id2": Object {
-    "attributes": Object {
-      "selected": false,
-    },
-    "id": "id2",
-    "nodeSize": undefined,
-    "nodeType": "type2",
-    "position": Object {
-      "x": 20,
-      "y": 15,
-    },
+  "out": Object {},
+  "parents": Object {},
+  "ports": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
   },
-  "id3": Object {
-    "attributes": Object {
-      "selected": false,
-    },
-    "id": "id3",
-    "nodeSize": undefined,
-    "nodeType": "type2",
-    "position": Object {
-      "x": 10,
-      "y": 10,
-    },
-  },
+  "transformToApply": undefined,
 }
 `;
