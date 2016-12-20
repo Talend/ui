@@ -74,3 +74,30 @@ describe('Check node reducer', () => {
 		})).toMatchSnapshot();
 	});
 });
+
+describe('FLOWDESIGNER_NODE_APPLY_MOVEMENT', () => {
+
+	const initialState = defaultState.setIn(['nodes', 'id1'], new NodeRecord({
+		id: 'id1',
+		nodeType: 'type1',
+		position: new PositionRecord({ x: 10, y: 10 }),
+		attributes: new Map({ selected: true }),
+	})).setIn(['nodes', 'id2'], new NodeRecord({
+		id: 'id2',
+		nodeType: 'type2',
+		position: new PositionRecord({ x: 10, y: 10 }),
+		attributes: new Map({ selected: false }),
+	})).setIn(['nodes', 'id3'], new NodeRecord({
+		id: 'id3',
+		nodeType: 'type2',
+		position: new PositionRecord({ x: 10, y: 10 }),
+		attributes: new Map({ selected: false }),
+	}));
+	it('should apply the same relative movement to each node listed', () => {
+		expect(nodeReducer(initialState, {
+			type: 'FLOWDESIGNER_NODE_APPLY_MOVEMENT',
+			nodesId: ['id1', 'id2'],
+			movement: { x: 10, y: 5 },
+		})).toMatchSnapshot();
+	});
+});

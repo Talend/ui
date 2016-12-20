@@ -7,6 +7,7 @@ import { outPort, inPort } from '../selectors/portSelectors';
 import {
 	FLOWDESIGNER_NODE_ADD,
 	FLOWDESIGNER_NODE_MOVE,
+	FLOWDESIGNER_NODE_APPLY_MOVEMENT,
 	FLOWDESIGNER_NODE_MOVE_END,
 	FLOWDESIGNER_NODE_SET_ATTR,
 	FLOWDESIGNER_NODE_REMOVE_ATTR,
@@ -41,15 +42,25 @@ const nodeReducer = (state = defaultState, action) => {
 		}
 		return state.setIn(
 				['nodes', action.nodeId, 'position'],
-				new PositionRecord(action.nodePosition)
+				new PositionRecord(action.nodePosition),
 			);
+	case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
+		return state.get('nodes').map((node) => {
+			if (action.nodesId.find(id => id === node.id)) {
+				return node.set('position', node.position
+					.set('x', node.position.x + action.movement.x)
+					.set('y', node.position.y + action.movement.y),
+				);
+			}
+			return node;
+		});
 	case FLOWDESIGNER_NODE_SET_SIZE:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't set size on node ${action.nodeId} since it doesn't exist`);
 		}
 		return state.setIn(
 				['nodes', action.nodeId, 'nodeSize'],
-				new SizeRecord(action.nodeSize)
+				new SizeRecord(action.nodeSize),
 			);
 	case FLOWDESIGNER_NODE_SET_ATTR:
 		if (!state.getIn(['nodes', action.nodeId])) {
@@ -69,8 +80,8 @@ const nodeReducer = (state = defaultState, action) => {
 			(cumulativeState, port, key) => portReducer(cumulativeState, removePort(key)),
 			outPort(state, action.nodeId).reduce(
 				(cumulativeState, port, key) => portReducer(cumulativeState, removePort(key)),
-				state
-			)
+				state,
+			),
 		)
 		.deleteIn(['nodes', action.nodeId])
 		.deleteIn(['out', action.nodeId])

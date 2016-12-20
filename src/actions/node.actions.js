@@ -1,4 +1,5 @@
 import {
+	FLOWDESIGNER_NODE_APPLY_MOVEMENT,
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_MOVE_END,
 	FLOWDESIGNER_NODE_ADD,
@@ -37,6 +38,19 @@ export const moveNodeTo = (nodeId, nodePosition) => ({
 	type: FLOWDESIGNER_NODE_MOVE,
 	nodeId,
 	nodePosition,
+});
+
+/**
+ * Ask to apply the same movement to multiples nodesId
+ * @param nodesId {array<string>} list of nodeId
+ * @param movement {Object} relative movement to apply on all nodes
+ *
+ * @return {Object}
+ */
+export const applyMovementTo = (nodesId, movement) => ({
+	type: FLOWDESIGNER_NODE_APPLY_MOVEMENT,
+	nodesId,
+	movement,
 });
 
 /**

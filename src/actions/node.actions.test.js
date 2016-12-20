@@ -128,3 +128,10 @@ describe('Check that node action creators generate proper' +
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
+
+
+describe('applyMovementTo', () => {
+	it('generate proper action', () => {
+		expect(nodeActions.applyMovementTo([1, 2, 3], { x: 10, y: 5 })).toMatchSnapshot();
+	});
+});

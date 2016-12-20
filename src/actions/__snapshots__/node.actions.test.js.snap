@@ -1,0 +1,14 @@
+exports[`applyMovementTo generate proper action 1`] = `
+Object {
+  "movement": Object {
+    "x": 10,
+    "y": 5,
+  },
+  "nodesId": Array [
+    1,
+    2,
+    3,
+  ],
+  "type": "FLOWDESIGNER_NODE_APPLY_MOVEMENT",
+}
+`;
