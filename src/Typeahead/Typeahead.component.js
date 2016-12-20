@@ -43,6 +43,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			placeholder: rest.placeholder,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
+			onKeyDown: rest.onKeyDown,
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
 			icon,
@@ -58,6 +59,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		multiSection: true,
 		getSectionItems: section => section.suggestions,
 		theme: {
+			...rest.theme,
 			container: containerClass,
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
@@ -67,6 +69,8 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			itemsList: theme.items,
 			sectionContainer: theme['section-container'],
 		},
+		focusedSectionIndex: rest.focusedSectionIndex,
+		focusedItemIndex: rest.focusedItemIndex,
 		items: rest.items || [],
 		renderItemData: { value: rest.value },
 	};
@@ -99,6 +103,9 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onSelect: PropTypes.func,
+	onKeyDown: PropTypes.func,
+	focusedSectionIndex: PropTypes.number,
+	focusedItemIndex: PropTypes.number,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			title: PropTypes.string,
