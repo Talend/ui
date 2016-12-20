@@ -62,9 +62,12 @@ function List({ id, displayMode, toolbar, list }) {
 		displayModeComponent,
 		{ id, ...list }
 	);
+	if (toolbar && toolbar.display) {
+		toolbar.display.mode = displayMode;
+	}
 	return (
 		<div className="tc-list">
-			{toolbar && (<Toolbar id={id} displayMode={displayMode} {...toolbar} />)}
+			{toolbar && (<Toolbar id={id} {...toolbar} />)}
 			{content}
 		</div>
 	);
