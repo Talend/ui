@@ -1,13 +1,13 @@
 {
   "jsonSchema": {
-    "title": "talend tabs",
+    "title": "tabs",
     "type": "object",
     "properties": {
       "talendTab": {
         "type": "object",
         "properties": {
           "main":{
-            "title": "main",
+            "title": "mainTab",
             "type": "object",
             "properties": {
               "login": {
@@ -33,7 +33,6 @@
             }
           },
           "info":{
-            "title": "info",
             "type": "object",
             "properties": {
               "tab2f1": {
