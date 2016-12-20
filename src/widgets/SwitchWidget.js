@@ -9,7 +9,7 @@ import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidge
  * @constructor
  */
 const SwitchWidget = (props) => {
-	const propsWithHiddenLabel = {...props, displayLabel: false};
+	const propsWithHiddenLabel = { ...props, displayLabel: false };
 	return (
 		<div className="switch">
 			<Checkbox {...propsWithHiddenLabel} />

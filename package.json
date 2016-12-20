@@ -62,6 +62,8 @@
     "build-storybook": "build-storybook"
   },
   "jest": {
-     "transform": {".*": "<rootDir>/node_modules/babel-jest"}
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    }
   }
 }

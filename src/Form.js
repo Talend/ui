@@ -8,8 +8,7 @@ import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
 import FieldTemplate from './templates/FieldTemplate';
 import SwitchWidget from './widgets/SwitchWidget';
-import TabsField from './fields/TabsField';
-
+import TabsWidget from './widgets/TabsWidget';
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -17,10 +16,11 @@ const TRIGGER_AFTER = 'after';
 
 const customWidgets = {
 	toggle: SwitchWidget,
+	tabs: TabsWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle'],
+	'ui:widget': ['toggle', 'tabs'],
 };
 
 class Form extends React.Component {
@@ -68,7 +68,6 @@ class Form extends React.Component {
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
-			TabsField,
 			ObjectField,
 			StringField,
 		};
@@ -85,7 +84,7 @@ class Form extends React.Component {
 				onClick={action.onClick}
 				title={action.title}
 			>
-				{action.icon ? <i className={action.icon}/> : null }
+				{action.icon ? <i className={action.icon} /> : null }
 				{action.label}
 			</Button>
 		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
@@ -127,7 +126,6 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 
 Form.propTypes = {
 	data: DataPropTypes.isRequired,
-	theme: PropTypes.object,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,

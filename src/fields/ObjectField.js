@@ -8,6 +8,8 @@ import {
 	shouldRender,
 	getDefaultRegistry,
 	setState,
+	getUiOptions,
+	getWidget,
 } from 'react-jsonschema-form/lib/utils';
 
 
@@ -91,11 +93,30 @@ class ObjectField extends Component {
 			required,
 			disabled,
 			readonly,
+			formData,
+			onChange,
 		} = this.props;
 
-		const { definitions, fields, formContext } = this.props.registry;
+		const { definitions, fields, formContext, widgets } = this.props.registry;
 		const { SchemaField, TitleField, DescriptionField } = fields;
 		const schema = retrieveSchema(this.props.schema, definitions);
+		const { widget, ...options } = getUiOptions(uiSchema);
+		// widget
+		if (typeof widget === 'string') {
+			const Widget = getWidget(schema, widget, widgets);
+			const onChangeHandler = (value) => {
+				onChange(value, options);
+			};
+			return (<Widget
+				id={idSchema && idSchema.$id}
+				onChange={onChangeHandler}
+				schema={schema}
+				formData={formData}
+				uiSchema={uiSchema}
+				registry={this.props.registry}
+				definitions={definitions}
+			/>);
+		}
 
 		const title = (schema.title === undefined) ? name : schema.title;
 		let orderedProperties;
@@ -113,6 +134,7 @@ class ObjectField extends Component {
 				</div>
 			);
 		}
+
 		return (
 			<fieldset>
 				{title ? <TitleField

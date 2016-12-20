@@ -1,42 +1,39 @@
 {
   "jsonSchema": {
-        "title": "talend tabs",
-        "type": "TabsField",
-        "items": [
-          {
-            "tabTitle": "main",
+    "title": "talend tabs",
+    "type": "object",
+    "properties": {
+      "talendTab": {
+        "type": "object",
+        "properties": {
+          "main":{
+            "title": "main",
             "type": "object",
-            "properties":{
-              "tab1f1":{
+            "properties": {
+              "login": {
+                "title": "Login *",
                 "type": "string"
               },
-              "listOfStrings": {
-                "type": "array",
-                "title": "A list of strings",
-                "items": {
-                  "type": "string",
-                  "default": "bazinga"
-                }
+              "firstName": {
+                "title": "First Name *",
+                "type": "string"
               },
-              "alternative": {
-                "title": "Alternative",
-                "description": "These work on most platforms.",
-                "type": "object",
-                "properties": {
-                  "alt-datetime": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "alt-date": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                }
+              "lastName": {
+                "title": "Last Name *",
+                "type": "string"
+              },
+              "password": {
+                "title": "Password",
+                "type": "string"
+              },
+              "password2": {
+                "title": "Repeat Password",
+                "type": "string"
               }
             }
           },
-          {
-            "tabTitle": "info",
+          "info":{
+            "title": "info",
             "type": "object",
             "properties": {
               "tab2f1": {
@@ -44,18 +41,33 @@
               }
             }
           }
-        ]
+        }
+      }
+    }
   },
   "uiSchema": {
-    "ui:field":"TabsField"
+    "talendTab": {
+      "ui:widget": "tabs",
+      "main": {
+          "password": {
+            "ui:widget": "password"
+          },
+          "password2":{
+            "ui:widget": "password"
+          }
+      }
+    }
   },
   "properties": {
-    "items": [
-      {
-        "tab1f1": "tab1 fieled1 Value",
-        "listOfStrings": ["foo", "bar"]
+    "talendTab": {
+      "main":{
+        "login": "jill@talend",
+        "firstName": "zhiying",
+        "lastName": "yan"
       },
-      {"tab2f1": "tab2 fieled1 Value"}
-    ]
+      "info":{
+        "tab2f1": "tab2 fieled1 Value"
+      }
+    }
   }
 }

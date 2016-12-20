@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { toIdSchema } from 'react-jsonschema-form/lib/utils';
-import ObjectField from './ObjectField';
+import ObjectField from '../fields/ObjectField';
 
 class TabsField extends Component {
 	constructor(props) {
@@ -9,44 +9,51 @@ class TabsField extends Component {
 		this.state = { ...props.formData };
 	}
 
+
 	render() {
 		const {
 		schema,
 		uiSchema,
-		idSchema,
 		formData,
 		registry,
+		definitions,
+		id,
 		onChange,
 		} = this.props;
-		const { definitions } = registry;
 
 		return (
-			<Tabs defaultActiveKey={0} id="uncontrolled-tab-example">
-				{schema.items.map((tabSchema, index) => {
-					const itemIdPrefix = `${idSchema.$id}_${index}`;
-					const itemIdSchema = toIdSchema(tabSchema, itemIdPrefix, definitions);
-					return (<Tab eventKey={index} title={tabSchema.tabTitle} key={index}>
+			<Tabs defaultActiveKey={0} id={id}>
+				{Object.keys(schema.properties).map((tabKey, index) => {
+					const tabSchema = schema.properties[tabKey];
+					const itemIdSchema = toIdSchema(tabSchema, tabKey, definitions);
+					const saveToFormData = (state) => {
+						const formDataCopy = Object.assign({}, formData);
+						formDataCopy[tabKey] = state;
+						onChange(formDataCopy);
+					};
+					return (<Tab
+						eventKey={index}
+						title={tabSchema.title ? tabSchema.title : tabKey} key={index}
+					>
 						<ObjectField
 							idSchema={itemIdSchema}
-							schema={tabSchema}
-							uiSchema={uiSchema}
-							formData={formData ? formData.items[index] : null}
-							onChange={() => onChange()}
+							formData={formData[tabKey]}
+							onChange={(newState => saveToFormData(newState))}
 							registry={registry}
+							schema={Object.assign({}, tabSchema, { title: '' })}
+							uiSchema={uiSchema[tabKey]}
 						/>
 					</Tab>);
 				})}
 			</Tabs>
-
-
 		);
 	}
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	TabsField.propTypes = {
+		id: PropTypes.string,
 		formData: PropTypes.object,
-		idSchema: PropTypes.object,
 		onChange: PropTypes.func.isRequired,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
@@ -59,6 +66,7 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		schema: PropTypes.object.isRequired,
 		uiSchema: PropTypes.object,
+		definitions: PropTypes.object,
 	};
 }
 

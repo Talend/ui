@@ -5,16 +5,13 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-
-var path = require("path");
-
 module.exports = {
 	plugins: [
 		// your custom plugins
 	],
 	module: {
 		loaders: [
-			{ test: /\.json$/, loader: 'json' }
+			{ test: /\.json$/, loader: 'json' },
 		],
 	},
 };
