@@ -12,12 +12,13 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				)
 			);
 		},
-		initState() {
+		initState(initialState) {
+			const state = DEFAULT_STATE.merge(initialState);
 			dispatch(
 				actions.componentsActions.addComponentState(
 					name,
 					id,
-					DEFAULT_STATE
+					state
 				)
 			);
 		},
@@ -32,12 +33,13 @@ export function getStateProps(state, name, id) {
 
 export function stateWillMount(props) {
 	if (!props.state && props.initState) {
-		props.initState();
+		props.initState(props.initialState);
 	}
 }
 
 export const statePropTypes = {
 	state: PropTypes.object,
+	initialState: PropTypes.object,
 	updateState: PropTypes.func,
 	initState: PropTypes.func,
 };
