@@ -1,6 +1,7 @@
 sudo: false
 language: node_js
 cache:
+  yarn: true
   directories:
     - $HOME/.cache
     - $HOME/.yarn-cache
@@ -9,10 +10,6 @@ notifications:
   email: false
 node_js:
   - '6'
-before_install:
-  - npm install -g yarn
-install:
-  - yarn
 after_success:
   - npm run test:cov
   - cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage
