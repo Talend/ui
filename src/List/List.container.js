@@ -35,7 +35,7 @@ export function getItems(context, props) {
 class List extends React.Component {
 	static displayName = 'Container(List)';
 	static propTypes = {
-		actions: PropTypes.arrayOf(PropTypes.string),
+		actions: PropTypes.object,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -85,36 +85,48 @@ class List extends React.Component {
 		// list
 		const items = getItems(this.context, this.props);
 		const titleProps = this.props.list.titleProps;
-		titleProps.onClick = (e, p) => {
-			this.props.dispatch(
-				api.action.getActionCreatorFunction(
-					this.context,
-					this.props.actions.title
-				)(p.id)
-			);
-		};
+		if (titleProps) {
+			titleProps.onClick = (e, p) => {
+				this.props.dispatch(
+					api.action.getActionCreatorFunction(
+						this.context,
+						this.props.actions.title
+					)(p.id)
+				);
+			};
+		}
 
 		// toolbar
 		const sort = this.props.toolbar.sort;
-		sort.isDescending = !state.sortAsc;
-		sort.field = state.sortOn;
-		sort.onChange = (e, p) => {
-			this.onSelectSortBy(e, p);
-		};
+		if (sort) {
+			sort.isDescending = !state.sortAsc;
+			sort.field = state.sortOn;
+			sort.onChange = (e, p) => {
+				this.onSelectSortBy(e, p);
+			};
+		}
 
 		const filter = this.props.toolbar.filter;
-		filter.onFilter = (e, p) => {
-			this.onFilter(e, p);
-		};
+		if (filter) {
+			filter.onFilter = (e, p) => {
+				this.onFilter(e, p);
+			};
+		}
 
-		const actionBar = {};
+		const actionBar = { actions: {} };
 		const actions = this.props.actions;
 		if (actions) {
 			if (actions.left) {
-				actionBar.left = getActionsProps(actions.left);
+				actionBar.actions.left = getActionsProps(
+					this.context,
+					actions.left
+				);
 			}
 			if (actions.right) {
-				actionBar.right = getActionsProps(actions.right);
+				actionBar.actions.right = getActionsProps(
+					this.context,
+					actions.right
+				);
 			}
 		}
 
@@ -133,7 +145,7 @@ class List extends React.Component {
 						this.onSelectDisplayMode(e, p);
 					},
 				},
-				//actionBar,
+				actionBar,
 			},
 		};
 		return (<Component {...props} />);

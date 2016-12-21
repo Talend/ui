@@ -2,16 +2,28 @@ import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
 import cmf from 'react-storybook-cmf';
 import infoAddon from '@kadira/react-storybook-addon-info';
 import mock from 'react-cmf/lib/mock';
+import { api } from 'react-cmf';
 import examples from '../examples';
 
 //setAddon(infoAddon);
 setAddon({ addWithCMF: cmf.addWithCMF });
 
 const actionLogger = action('dispatch');
-const reducer = (state={}, action) => {
-	actionLogger(action);
+const reducer = (state = {}, a) => {
+	actionLogger(a);
 	return state;
+};
+
+function objectView(...args) {
+	return {
+		type: 'OBJECT_VIEW',
+		args,
+	};
 }
+
+const registerActionCreator = api.action.registerActionCreator;
+registerActionCreator('object:view', objectView);
+
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {
@@ -39,6 +51,7 @@ function loadStories() {
 			label: 'Add',
 			icon: 'talend-plus',
 			type: 'APP_OBJECT_ADD',
+			bsStyle: 'success',
 		};
 		actions['object:edit'] = {
 			label: 'Edit',

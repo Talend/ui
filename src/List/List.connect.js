@@ -13,7 +13,9 @@ export function getContainerInfo(ownProps) {
 
 export function mapDispatchToProps(dispatch, ownProps) {
 	const { name, id } = getContainerInfo(ownProps);
-	return getStateAccessors(dispatch, name, id, DEFAULT_STATE);
+	const props = getStateAccessors(dispatch, name, id, DEFAULT_STATE);
+	props.dispatch = dispatch;
+	return props;
 }
 
 export function mapStateToProps(state, ownProps) {

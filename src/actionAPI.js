@@ -3,9 +3,13 @@ import { api } from 'react-cmf';
 export function getActionProps(context, id) {
 	const info = api.action.getActionInfo(context, id);
 	info.onClick = (event, data) => {
-		context.store.dispatch(
-			api.action.getActionObject(context, a.id, event, data)
-		);
+		if (info.actionCreator) {
+			context.store.dispatch(
+				api.action.getActionObject(context, id, event, data)
+			);
+		} else {
+			context.store.dispatch(info);
+		}
 	};
 	return info;
 }
@@ -18,9 +22,13 @@ export function getActionsProps(context, ids, model) {
 	infos.forEach((a) => {
 		a.model = model; // eslint-disable-line no-param-reassign
 		a.onClick = (event, data) => { // eslint-disable-line no-param-reassign
-			context.store.dispatch(
-				api.action.getActionObject(context, a.id, event, data)
-			);
+			if (a.actionCreator) {
+				context.store.dispatch(
+					api.action.getActionObject(context, a.id, event, data)
+				);
+			} else {
+				context.store.dispatch(a);
+			}
 		};
 	});
 	return infos;
