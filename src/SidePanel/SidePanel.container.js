@@ -25,6 +25,7 @@ class SidePanel extends React.Component {
 	};
 	static contextTypes = {
 		store: React.PropTypes.object,
+		router: React.PropTypes.object,
 	};
 
 	componentWillMount() {
@@ -36,6 +37,15 @@ class SidePanel extends React.Component {
 		const actions = actionIds.map((id) => {
 			const info = api.action.getActionInfo(this.context, id);
 			info.onClick = () => this.context.store.dispatch(info);
+			if (info.cmf) {
+				if (info.cmf.routerReplace) {
+					const route = info.cmf.routerReplace;
+					const currentRoute = this.context.router.location.pathname;
+					if (currentRoute.indexOf(route) !== -1) {
+						info.active = true;
+					}
+				}
+			}
 			return info;
 		});
 		const props = Object.assign({
