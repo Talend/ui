@@ -9,6 +9,7 @@ export const defaultState = {
 	actions: {},
 	views: {},
 	routes: {},
+	ref: {},
 };
 
 /**

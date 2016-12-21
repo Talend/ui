@@ -2,6 +2,10 @@
  * All stuff related to the routing in CMF
  * @module react-cmf/lib/route
  */
+
+/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
+import invariant from 'invariant';
+
 import { connect } from 'react-redux';
 import registry from './registry';
 
@@ -52,6 +56,93 @@ function getFunction(id) {
 	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
 }
 
+export function attachRef(state, obj) {
+	let props = obj;
+	if (props._ref) {
+		const ref = state.cmf.settings.ref[props._ref];
+		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
+		props = Object.assign(
+			{},
+			state.cmf.settings.ref[props._ref],
+			obj
+		);
+		delete props._ref;
+	}
+	return props;
+}
+
+/**
+ * return props for a given view with reference and override support
+ *
+ * @example
+
+// state.cmf.settings should look like this
+
+  "views":{
+	"homepage": {
+	  "sidemenu": {
+		"_ref": "SidePanel#default"
+	  },
+	  "listview": {
+		"_ref": "List#default",
+		"collectionId": "streams"
+	  }
+	}
+  },
+  "ref": {
+	 "SidePanel#default": {
+	   "actions": ["menu:1", "menu:2", ...]
+	 }
+  }
+
+//in that case you will have the following props for the homepage view
+
+  {
+	sidemenu: {
+	  "actions": ["menu:1", "menu:2", ...]
+	},
+	listview: {
+	  ...
+	}
+  }
+
+ *
+ * @param  {Object} state     redux state
+ * @param  {Object} context   React context with store. It's optional
+ * @param  {function} component React component
+ * @param  {String} view      id of the view
+ * @return {Object}           React props for the component
+ */
+export function mapStateToViewProps(state, context, view) {
+	const settings = state.cmf.settings;
+	let props = Object.assign(
+		{},
+		settings.views[view],
+	);
+	if (context && context.store) {
+		props.dispatch = context.store.dispatch;
+	}
+	props = attachRef(state, props);
+	Object.keys(props).forEach(
+		key => {
+			props[key] = attachRef(state, props[key]);
+		}
+	);
+	return props;
+}
+
+/**
+ * return
+ * @param  {[type]} state [description]
+ * @param  {[type]} view  [description]
+ * @return {[type]}       [description]
+ */
+export function connectView(context, component, view) {
+	return connect(
+		(state) => mapStateToViewProps(state, context, view)
+	)(component);
+}
+
 /**
  * internal. Is here to replace all 'component' from an object by their
  * value in the registry
@@ -63,20 +154,7 @@ function loadComponents(context, item) {
 	if (item.component) {
 		item.component = getComponentFromRegistry(context, item.component);
 		if (item.view) {
-			if (context.store) {
-				item.component = connect(
-					(state) =>
-						Object.assign(
-							{},
-							state.cmf.settings.views[item.view],
-							{ dispatch: context.store.dispatch }
-						)
-				)(item.component);
-			} else {
-				item.component = connect(
-					(state) => state.cmf.settings.views[item.view]
-				)(item.component);
-			}
+			item.component = connectView(context, item.component, item.view);
 		}
 	}
 	if (item.components) {
