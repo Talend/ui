@@ -5,6 +5,7 @@ import { Map } from 'immutable';
 import {
 	addOrReplaceCollection,
 	removeCollection,
+	mutateCollection,
 } from '../../src/actions/collectionsActions';
 
 const middlewares = [thunk];
@@ -44,5 +45,22 @@ describe('test collection management action creators', () => {
 		expect(() => {
 			store.dispatch(removeCollection('unknown collection'));
 		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t already exist.');
+	});
+});
+
+describe('mutateCollection', () => {
+	it('dispatch well formed action object', () => {
+		const operations = {
+			add: [0, 1, 2],
+			delete: [1],
+			update: {
+				key: {},
+			},
+		};
+		expect(mutateCollection('collectionid', operations)).toEqual({
+			type: 'REACT_CMF.COLLECTION_MUTATE',
+			id: 'collectionid',
+			operations,
+		});
 	});
 });

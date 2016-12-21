@@ -5,6 +5,7 @@ import invariant from 'invariant';
 
 export const COLLECTION_ADD_OR_REPLACE = 'REACT_CMF.COLLECTION_ADD_OR_REPLACE';
 export const COLLECTION_REMOVE = 'REACT_CMF.COLLECTION_REMOVE';
+export const COLLECTION_MUTATE = 'REACT_CMF.COLLECTION_MUTATE';
 
 /**
  * Add or replace collection data in store
@@ -39,3 +40,20 @@ export const removeCollection = collectionId => (
 		}
 	}
 );
+
+/**
+ * mutateCollection let's you apply operations on a given collection
+ *
+ * @param {string} collectionId collection identifier
+ * @param {object} operations operations to be applied on the collection
+ * {
+ * 		add: [],
+ * 		update: {},
+ * 		delete: []
+ * }
+ */
+export const mutateCollection = (id, operations) => ({
+	type: COLLECTION_MUTATE,
+	id,
+	operations,
+});
