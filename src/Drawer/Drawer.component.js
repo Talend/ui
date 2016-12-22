@@ -7,7 +7,6 @@ function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
 			transitionName="tc-drawer"
-			transitionAppear
 			transitionEnterTimeout={230}
 			transitionLeaveTimeout={230}
 		>
