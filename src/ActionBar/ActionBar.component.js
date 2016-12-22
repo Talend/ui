@@ -1,13 +1,27 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Action from '../Actions/Action';
+import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import css from './ActionBar.scss';
+
+const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
 function ActionBar({ selected, actions, multiSelectActions }) {
 	const getActionsToRender = () => (selected > 0 ? multiSelectActions : actions);
 
 	const renderActions = actionsToRender =>
-		actionsToRender.map((action, index) => <Action key={index} {...action} />);
+		actionsToRender.map((action, index) => {
+			const { displayMode, ...rest } = action;
+			if (displayMode === TYPE_SPLIT_DROPDOWN) {
+				return (
+					<ActionSplitDropdown key={index} {...rest} />
+				);
+			}
+
+			return (
+				<Action key={index} {...rest} />
+			);
+		});
 
 	const renderSelectedCount = () =>
 		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
@@ -19,7 +33,7 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 		const actionBar = [];
 		if (left) {
 			actionBar.push(
-				<div key={0} className={classNames('navbar-left')}>
+				<div key={0} className={classNames(css['navbar-left'], 'navbar-left')}>
 					{ selected > 0 ? renderSelectedCount() : null}
 					{ renderActions(left) }
 				</div>
@@ -44,8 +58,14 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 }
 
 const actionsShape = {
-	left: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-	right: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+	left: PropTypes.arrayOf(PropTypes.oneOfType([
+		PropTypes.shape(Action.propTypes),
+		PropTypes.shape(ActionSplitDropdown.propTypes),
+	])),
+	right: PropTypes.arrayOf(PropTypes.oneOfType([
+		PropTypes.shape(Action.propTypes),
+		PropTypes.shape(ActionSplitDropdown.propTypes),
+	])),
 };
 
 ActionBar.propTypes = {

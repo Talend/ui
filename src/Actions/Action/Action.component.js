@@ -32,8 +32,8 @@ function Action(props) {
 		model,
 		onClick,
 		tooltipPlacement,
-		...rest,
-		} = props;
+		...rest
+	} = props;
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;

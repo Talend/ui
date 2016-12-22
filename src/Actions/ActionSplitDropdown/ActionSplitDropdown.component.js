@@ -38,19 +38,19 @@ function ActionSplitDropdown(props) {
 		model,
 		onClick,
 		emptyDropdownLabel,
-		...rest,
-		} = props;
+		...rest
+	} = props;
 
 	const Title = (
 		<span>
-			{icon && <Icon name={icon}/>}
+			{icon && <Icon name={icon} />}
 			<span>{label}</span>
 		</span>
 	);
 
 	return (
 		<SplitButton
-			onClick={(event) => rClick(event, onClick, { label, ...rest }, model) }
+			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
 			{...rest}
 		>
@@ -73,6 +73,7 @@ ActionSplitDropdown.propTypes = {
 		...MenuItem.propTypes,
 	})).isRequired,
 	label: PropTypes.string.isRequired,
+	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
 	emptyDropdownLabel: PropTypes.string,
 };

@@ -37,6 +37,7 @@ const actions = [
 		],
 	},
 ];
+
 storiesOf('Actions', module)
 	.addWithInfo('default', () => (
 		<div>

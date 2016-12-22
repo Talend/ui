@@ -4,14 +4,13 @@ $tc-action-bar-background-color: $concrete !default;
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
 
-	.tc-actionbar-selected-count {
-		margin-right: $padding-larger;
-	}
+	.navbar-left,
+	.navbar-right {
+		> * {
+			margin: $padding-small $padding-larger $padding-small 0;
+		}
 
-	button {
-		margin: $padding-small $padding-larger $padding-small 0;
-
-		&:last-of-type {
+		> :last-child {
 			margin-right: 0;
 		}
 	}

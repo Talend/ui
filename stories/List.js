@@ -100,10 +100,27 @@ const props = {
 				left: [
 					{
 						id: 'add',
-						label: 'Add',
+						label: 'Add Folder',
 						bsStyle: 'primary',
 						icon: 'talend-plus',
 						onClick: action('add.onClick'),
+					},
+					{
+						displayMode: 'splitDropdown',
+						label: 'Add File',
+						icon: 'fa fa-plus',
+						onClick: action('onAdd'),
+						items: [
+							{
+								label: 'From Local',
+								onClick: action('From Local click'),
+							},
+							{
+								label: 'From Remote',
+								onClick: action('From Remote click'),
+							},
+						],
+						emptyDropdownLabel: 'No option',
 					},
 				],
 			},

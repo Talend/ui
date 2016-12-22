@@ -18,15 +18,32 @@ const actions = {
 			icon: 'fa fa-asterisk',
 			onClick: action('You clicked me'),
 		},
+		{
+			displayMode: 'splitDropdown',
+			label: 'Secondary3',
+			icon: 'fa fa-plus',
+			onClick: action('on split button click'),
+			items: [
+				{
+					label: 'From Local',
+					onClick: action('From Local click'),
+				},
+				{
+					label: 'From Remote',
+					onClick: action('From Remote click'),
+				},
+			],
+			emptyDropdownLabel: 'No option',
+		},
 	],
 	right: [
 		{
-			label: 'Secondary2',
+			label: 'Secondary4',
 			icon: 'fa fa-asterisk',
 			onClick: action('You clicked me'),
 		},
 		{
-			label: 'Secondary3',
+			label: 'Secondary5',
 			icon: 'fa fa-asterisk',
 			onClick: action('You clicked me'),
 		},
@@ -66,7 +83,7 @@ const basicProps = {
 	multiSelectActions,
 };
 
-storiesOf('Actionbar', module)
+storiesOf('ActionBar', module)
 	.addWithInfo('default', () => (
 		<nav>
 			<h1>Actionbar</h1>

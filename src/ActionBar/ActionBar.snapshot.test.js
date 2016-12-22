@@ -18,13 +18,31 @@ const secondaryAction = {
 	onClick: jest.fn(),
 };
 
+const splitAction = {
+	displayMode: 'splitDropdown',
+	label: 'Add File',
+	icon: 'fa fa-plus',
+	onClick: jest.fn(),
+	items: [
+		{
+			label: 'From Local',
+			onClick: jest.fn(),
+		},
+		{
+			label: 'From Remote',
+			onClick: jest.fn(),
+		},
+	],
+	emptyDropdownLabel: 'No option',
+};
+
 describe('ActionBar', () => {
 	it('should render no-selected actions, all on left ', () => {
 		// given
 		const props = {
 			selected: 0,
 			actions: {
-				left: [primaryAction, secondaryAction],
+				left: [primaryAction, secondaryAction, splitAction],
 			},
 		};
 		// when
@@ -41,7 +59,7 @@ describe('ActionBar', () => {
 			selected: 0,
 			actions: {
 				left: [primaryAction],
-				right: [secondaryAction],
+				right: [secondaryAction, splitAction],
 			},
 		};
 		// when
@@ -57,7 +75,7 @@ describe('ActionBar', () => {
 		const props = {
 			selected: 0,
 			actions: {
-				right: [primaryAction, secondaryAction],
+				right: [primaryAction, secondaryAction, splitAction],
 			},
 		};
 		// when
@@ -74,7 +92,7 @@ describe('ActionBar', () => {
 			selected: 1,
 			actions: {},
 			multiSelectActions: {
-				left: [secondaryAction, secondaryAction],
+				left: [secondaryAction, secondaryAction, splitAction],
 			},
 		};
 		// when
@@ -93,7 +111,7 @@ describe('ActionBar', () => {
 			actions: {},
 			multiSelectActions: {
 				left: [secondaryAction],
-				right: [secondaryAction],
+				right: [secondaryAction, splitAction],
 			},
 		};
 		// when
@@ -110,7 +128,7 @@ describe('ActionBar', () => {
 			selected: 1,
 			actions: {},
 			multiSelectActions: {
-				right: [secondaryAction, secondaryAction],
+				right: [secondaryAction, secondaryAction, splitAction],
 			},
 		};
 		// when

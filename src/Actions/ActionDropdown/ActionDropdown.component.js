@@ -38,8 +38,8 @@ function ActionDropdown(props) {
 		label,
 		link,
 		tooltipPlacement,
-		...rest,
-		} = props;
+		...rest
+	} = props;
 
 	const title = (
 		<span>
@@ -63,9 +63,7 @@ function ActionDropdown(props) {
 						<MenuItem {...item} key={index}>
 							{item.label}
 						</MenuItem>
-					)) : (
-						<MenuItem disabled>No options</MenuItem>
-					)
+					)) : (<MenuItem disabled>No options</MenuItem>)
 			}
 		</DropdownButton>
 	);
