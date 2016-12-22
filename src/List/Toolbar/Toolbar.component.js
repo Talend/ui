@@ -23,6 +23,13 @@ function adaptActionsIds(actions, parentId) {
 		});
 }
 
+function adaptLeftAndRightActions(actions, parentId) {
+	return actions && {
+		left: adaptActionsIds(actions.left, parentId),
+		right: adaptActionsIds(actions.right, parentId),
+	};
+}
+
 /**
  * @param {string} id the id of Toolbar
  * @param {object} actionBar the ActionBar properties
@@ -34,20 +41,14 @@ function adaptActionsIds(actions, parentId) {
  <Toolbar id="my-toolbar"></Toolbar>
  */
 function Toolbar({ id, actionBar, display, sort, pagination, filter }) {
-	const actionBarProps = actionBar;
-	if (id && actionBarProps) {
-		if (actionBarProps.actions) {
-			actionBarProps.actions = {
-				left: adaptActionsIds(actionBarProps.actions.left, id),
-				right: adaptActionsIds(actionBarProps.actions.right, id),
-			};
-		}
-		if (actionBarProps.multiSelectActions) {
-			actionBarProps.multiSelectActions = {
-				left: adaptActionsIds(actionBarProps.multiSelectActions.left, id),
-				right: adaptActionsIds(actionBarProps.multiSelectActions.right, id),
-			};
-		}
+	let actionBarProps = actionBar;
+	if (id && actionBar) {
+		const { actions, multiSelectActions } = actionBar;
+		actionBarProps = {
+			...actionBar,
+			actions: adaptLeftAndRightActions(actions, id),
+			multiSelectActions: adaptLeftAndRightActions(multiSelectActions, id),
+		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
 
