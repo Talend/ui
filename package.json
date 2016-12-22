@@ -101,7 +101,7 @@
   },
   "peerDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.12.1",
+    "bootstrap-talend-theme": "^0.13.4",
     "classnames": "^2.2.5",
     "invariant": "^2.2.1",
     "react": "^15.4.0",
