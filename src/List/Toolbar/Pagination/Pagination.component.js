@@ -41,7 +41,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 			break;
 		}
 		case LAST: {
-			from = pagesLength;
+			from = (pagesLength * (itemsPerPage - 1)) + 1;
 			break;
 		}
 		default:
