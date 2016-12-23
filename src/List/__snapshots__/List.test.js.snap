@@ -354,9 +354,9 @@ exports[`List should render 1`] = `
               tabIndex={-1}>
               <span
                 className="btn-link">
-                6
-                /
                 2
+                /
+                3
               </span>
             </a>
           </li>
@@ -780,9 +780,9 @@ exports[`List should render id if provided 1`] = `
               tabIndex={-1}>
               <span
                 className="btn-link">
-                6
-                /
                 2
+                /
+                3
               </span>
             </a>
           </li>

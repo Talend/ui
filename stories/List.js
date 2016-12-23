@@ -137,7 +137,8 @@ const props = {
 			],
 		},
 		pagination: {
-			itemsLength: 10,
+			itemsPerPage: 5,
+			totalResults: 10,
 			onChange: action('pagination.onChange'),
 		},
 		filter: {

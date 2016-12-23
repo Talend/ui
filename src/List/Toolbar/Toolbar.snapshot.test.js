@@ -48,10 +48,10 @@ const sort = {
 };
 
 const pagination = {
-	activePage: 5,
-	itemsLength: 10,
+	startIndex: 6,
+	totalResults: 13,
 	onChangePagination: jest.fn(),
-	pageSize: 8,
+	itemsPerPage: 5,
 };
 
 const filter = {

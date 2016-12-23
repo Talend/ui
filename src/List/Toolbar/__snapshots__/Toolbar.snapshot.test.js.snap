@@ -370,9 +370,9 @@ exports[`Toolbar should render pagination 1`] = `
             tabIndex={-1}>
             <span
               className="btn-link">
-              6
-              /
               2
+              /
+              3
             </span>
           </a>
         </li>

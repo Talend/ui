@@ -33,10 +33,10 @@ const toolbarProps = {
 		],
 	},
 	pagination: {
-		activePage: 5,
-		itemsLength: 10,
+		startIndex: 6,
+		totalResults: 13,
 		onChange: jest.fn(),
-		pageSize: 8,
+		itemsPerPage: 5,
 	},
 	filter: {
 		onFilter: jest.fn(),

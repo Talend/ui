@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -6,115 +6,120 @@ import Icon from '../../../Icon';
 
 import css from './Pagination.scss';
 
-const NEXT = 'next';
-const PREV = 'prev';
 const FIRST = 'first';
+const PREV = 'prev';
+const NEXT = 'next';
 const LAST = 'last';
 
-function Pagination({ id, itemsLength, sizeOptions, pageSize, activePage, onChange }) {
-	const realPageSize = (pageSize && sizeOptions.indexOf(pageSize) > -1) ? pageSize : sizeOptions[0];
-	const total = Math.ceil(itemsLength / realPageSize);
-	const onChangeSize = (value) => {
-		onChange(0, value);
+const getItemsPerPageTitle = option => (option > 0 ? option : 'All');
+
+const getMenuItem = (option, index) => (
+	<MenuItem key={index} eventKey={option}>
+		{getItemsPerPageTitle(option)}
+	</MenuItem>
+);
+
+function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOptions, onChange }) {
+	const currentPage = Math.ceil(startIndex / itemsPerPage);
+	const pagesLength = Math.ceil(totalResults / itemsPerPage);
+	const onChangeItemsPerPage = (value) => {
+		onChange(1, value);
 	};
-	const navTo = (type) => {
-		let from = activePage;
+	const changePageTo = (type) => {
+		let from;
 		switch (type) {
+		case FIRST: {
+			from = 1;
+			break;
+		}
 		case PREV: {
-			if (from === 0) {
-				return;
-			}
-			from -= 1;
+			from = startIndex - itemsPerPage;
 			break;
 		}
 		case NEXT: {
-			if (from === total - 1) {
-				return;
-			}
-			from += 1;
-			break;
-		}
-		case FIRST: {
-			if (from === 0) {
-				return;
-			}
-			from = 0;
+			from = startIndex + itemsPerPage;
 			break;
 		}
 		case LAST: {
-			if (from === total - 1) {
-				return;
-			}
-			from = total - 1;
+			from = pagesLength;
 			break;
 		}
 		default:
 			return;
 		}
-		onChange(from * realPageSize, realPageSize);
+		onChange(from, itemsPerPage);
 	};
 	return (
-		<Nav onSelect={selectedKey => navTo(selectedKey)}>
+		<Nav onSelect={selectedKey => changePageTo(selectedKey)}>
 			<NavDropdown
 				id={id ? `${id}-size` : uuid.v4()}
-				title={realPageSize}
-				onSelect={onChangeSize}
+				title={getItemsPerPageTitle(itemsPerPage)}
+				onSelect={onChangeItemsPerPage}
 			>
-				{sizeOptions.map((option, index) => (
-					<MenuItem key={index} eventKey={option}>{option}</MenuItem>
-				))}
+				{itemsPerPageOptions.map((option, index) => getMenuItem(option, index))}
 			</NavDropdown>
-			<NavItem
-				eventKey={FIRST}
-				id={id && `${id}-nav-to-first`}
-				className="btn-link"
-				disabled={activePage === 0}
-			>
-				<Icon name="fa fa-backward" />
-			</NavItem>
-			<NavItem
-				eventKey={PREV}
-				id={id && `${id}-nav-to-prev`}
-				className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
-				disabled={activePage === 0}
-			>
-				<Icon name="fa fa-play" />
-			</NavItem>
-			<NavItem disabled>
-				<span className="btn-link">{activePage + 1}/{total}</span>
-			</NavItem>
-			<NavItem
-				eventKey={NEXT}
-				id={id && `${id}-nav-to-next`}
-				className="btn-link"
-				disabled={activePage === (total - 1)}
-			>
-				<Icon name="fa fa-play" />
-			</NavItem>
-			<NavItem
-				eventKey={LAST}
-				id={id && `${id}-nav-to-last`}
-				className="btn-link"
-				disabled={activePage === (total - 1)}
-			>
-				<Icon name="fa fa-forward" />
-			</NavItem>
+			{itemsPerPage > 0 && (
+				<NavItem
+					eventKey={FIRST}
+					id={id && `${id}-nav-to-first`}
+					className="btn-link"
+					disabled={startIndex === 1}
+				>
+					<Icon name="fa fa-backward" />
+				</NavItem>
+			)}
+			{itemsPerPage > 0 && (
+				<NavItem
+					eventKey={PREV}
+					id={id && `${id}-nav-to-prev`}
+					className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
+					disabled={startIndex === 1}
+				>
+					<Icon name="fa fa-play" />
+				</NavItem>
+			)}
+			{itemsPerPage > 0 && (
+				<NavItem disabled>
+					<span className="btn-link">{currentPage}/{pagesLength}</span>
+				</NavItem>
+			)}
+			{itemsPerPage > 0 && (
+				<NavItem
+					eventKey={NEXT}
+					id={id && `${id}-nav-to-next`}
+					className="btn-link"
+					disabled={startIndex + itemsPerPage > totalResults}
+				>
+					<Icon name="fa fa-play" />
+				</NavItem>
+			)}
+			{itemsPerPage > 0 && (
+				<NavItem
+					eventKey={LAST}
+					id={id && `${id}-nav-to-last`}
+					className="btn-link"
+					disabled={startIndex + itemsPerPage > totalResults}
+				>
+					<Icon name="fa fa-forward" />
+				</NavItem>
+			)}
 		</Nav>
 	);
 }
 
 Pagination.propTypes = {
-	id: PropTypes.string,
-	activePage: PropTypes.number,
-	itemsLength: PropTypes.number.isRequired,
-	onChange: PropTypes.func.isRequired,
-	pageSize: PropTypes.number,
-	sizeOptions: PropTypes.arrayOf(PropTypes.number),
+	id: React.PropTypes.string,
+	startIndex: React.PropTypes.number,
+	itemsPerPage: React.PropTypes.number,
+	totalResults: React.PropTypes.number.isRequired,
+	itemsPerPageOptions: React.PropTypes.arrayOf(React.PropTypes.number),
+	onChange: React.PropTypes.func.isRequired,
 };
 
 Pagination.defaultProps = {
-	activePage: 0,
-	sizeOptions: [5, 10, 20, 50],
+	itemsPerPage: 5,
+	startIndex: 1,
+	itemsPerPageOptions: [5, 10, 20, 50],
 };
 
 export default Pagination;
