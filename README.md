@@ -110,6 +110,14 @@ class MyForm extends React.Component {
 }
 ```
 
+### PropTypes
+
+The data and actions PropTypes are exported for easy reuse.
+You can use them by importing the DataPropTypes and ActionsPropTypes functions.
+```javascript
+import Form, { DataPropTypes, ActionsPropTypes } from 'react-talend-forms'
+```
+
 ## LICENSE
 
 Copyright (c) 2006-2016 Talend
