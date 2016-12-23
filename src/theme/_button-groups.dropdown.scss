@@ -16,5 +16,11 @@
 				@include dropdown-caret-color($navbar-inverse-link-color);
 			}
 		}
+
+		+ .btn {
+			.caret.caret {
+				margin-left: 0;
+			}
+		}
 	}
 }

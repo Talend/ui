@@ -74,9 +74,18 @@
 		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 	}
 
+	.caret.caret {
+		margin-left: $padding-smaller;
+	}
+
 	svg {
 		fill: currentColor;
-		height: 2em;
-		width: 2em;
+		height: 2rem;
+		width: 2rem;
+	}
+
+	svg + span,
+	span + svg {
+		padding-left: $padding-smaller;
 	}
 }
