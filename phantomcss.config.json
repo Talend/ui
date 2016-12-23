@@ -42,6 +42,10 @@
       "selector": "#btn-sizes"
     },
     {
+      "name": "btn-sizes-icons",
+      "selector": "#btn-sizes-icons"
+    },
+    {
       "name": "button-groups",
       "selector": "#btn-groups"
     },

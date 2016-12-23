@@ -13,6 +13,13 @@
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
 
+	svg {
+		fill: currentColor;
+		height: $btn-md-svg-size;
+		width: $btn-md-svg-size;
+		margin: 0 .4rem;
+	}
+
 	&-primary,
 	&-success,
 	&-info,
@@ -61,27 +68,38 @@
 	}
 
 	&-xs {
-		line-height: 1.5rem;
+		align-items: baseline;
 		padding: 0 $padding-xs-horizontal;
+		font-size: 1rem;
+		line-height: 1.5rem;
+
+		svg {
+			height: $btn-xs-svg-size;
+			width: $btn-xs-svg-size;
+		}
 	}
 
 	&-sm {
-		line-height: 2rem;
 		padding: 0 $padding-small-horizontal;
+		line-height: 2rem;
+
+		svg {
+			height: $btn-sm-svg-size;
+			width: $btn-sm-svg-size;
+		}
 	}
 
 	&-lg {
 		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+
+		svg {
+			height: $btn-lg-svg-size;
+			width: $btn-lg-svg-size;
+		}
 	}
 
 	.caret.caret {
 		margin-left: $padding-smaller;
-	}
-
-	svg {
-		fill: currentColor;
-		height: 2rem;
-		width: 2rem;
 	}
 
 	svg + span,
