@@ -73,43 +73,20 @@ RowRenderer.propTypes = {
 function ListHeader(props) {
 	const {
 		columns,
-		items,
 		isSelected,
 		onToggleAll,
 	} = props;
-	const isAllSelected = () => {
-		const selected = items.reduce((sum, item) => {
-			if (isSelected(item)) {
-				return sum + 1;
-			}
-			return sum;
-		}, 0);
-		return items.length > 0 && selected === items.length;
-	};
-	const checkbox = onToggleAll && isSelected ?
-		(<th>
-			<input
-				id={props.id && `${props.id}-check-all`}
-				type="checkbox"
-				onChange={(e) => { onToggleAll(e, items); }}
-				checked={isAllSelected()}
-				disabled={items.length === 0}
-			/>
-		</th>) :
-		null;
 	return (
 		<tr>
-			{checkbox}
+			{(isSelected && onToggleAll) && (<th />)}
 			{columns.map((column, index) => (<th key={index}>{column.label}</th>))}
 		</tr>
 	);
 }
 ListHeader.propTypes = {
-	id: PropTypes.string,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string })
 	),
-	items: PropTypes.arrayOf(PropTypes.object),
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 };

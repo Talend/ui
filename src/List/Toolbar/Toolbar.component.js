@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
+import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
 import Pagination from './Pagination';
@@ -40,7 +41,7 @@ function adaptLeftAndRightActions(actions, parentId) {
  * @example
  <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar({ id, actionBar, display, sort, pagination, filter }) {
+function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, filter }) {
 	let actionBarProps = actionBar;
 	if (id && actionBar) {
 		const { actions, multiSelectActions } = actionBar;
@@ -56,6 +57,7 @@ function Toolbar({ id, actionBar, display, sort, pagination, filter }) {
 		<div>
 			{actionBar && (<ActionBar {...actionBarProps} />)}
 			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+				{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
 				{display && (<Label text="Display:" htmlFor={displayModeId} />)}
 				{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
 				{sort && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
@@ -71,6 +73,7 @@ function Toolbar({ id, actionBar, display, sort, pagination, filter }) {
 Toolbar.propTypes = {
 	id: React.PropTypes.string,
 	actionBar: React.PropTypes.shape(ActionBar.propTypes),
+	selectAllCheckbox: React.PropTypes.shape(SelectAll.propTypes),
 	display: React.PropTypes.shape(SelectDisplayMode.propTypes),
 	sort: React.PropTypes.shape(SelectSortBy.propTypes),
 	pagination: React.PropTypes.shape(Pagination.propTypes),

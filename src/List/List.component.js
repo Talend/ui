@@ -62,12 +62,24 @@ function List({ id, displayMode, toolbar, list }) {
 		displayModeComponent,
 		{ id, ...list }
 	);
-	if (toolbar && toolbar.display) {
-		toolbar.display.mode = displayMode;
+	let toolbarProps;
+	if (toolbar) {
+		toolbarProps = Object.assign({}, toolbar, { id });
+		if (toolbar.display) {
+			toolbarProps.display.mode = displayMode;
+		}
+		if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+			toolbarProps.selectAllCheckbox = {
+				id,
+				items: list.items,
+				isSelected: list.itemProps.isSelected,
+				onToggleAll: list.itemProps.onToggleAll,
+			};
+		}
 	}
 	return (
 		<div className="tc-list">
-			{toolbar && (<Toolbar id={id} {...toolbar} />)}
+			{toolbar && (<Toolbar {...toolbarProps} />)}
 			{content}
 		</div>
 	);

@@ -32,6 +32,12 @@ const actionBar = {
 	},
 };
 
+const selectAllCheckbox = {
+	items: [{ id: 1 }, { id: 2 }],
+	isSelected: jest.fn(),
+	onToggleAll: jest.fn(),
+};
+
 const display = {
 	displayMode: 'table',
 	onSelectDisplayMode: jest.fn(),
@@ -88,6 +94,20 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			actionBar,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render select all checkbox', () => {
+		// given
+		const tProps = {
+			id,
+			selectAllCheckbox,
 		};
 
 		// when

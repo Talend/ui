@@ -147,32 +147,11 @@ function DisplayTile(props) {
 		itemProps,
 		titleProps,
 	} = props;
-	const { isSelected, onToggleAll, width } = itemProps || {};
-	const isAllSelected = () => {
-		const selected = items.reduce((sum, item) => {
-			if (isSelected(item)) {
-				return sum + 1;
-			}
-			return sum;
-		}, 0);
-		return items.length > 0 && selected === items.length;
-	};
-	const checkbox = onToggleAll && isSelected ?
-		(<div className={theme.container}>
-			<input
-				id={id && `${id}-check-all`}
-				type="checkbox"
-				onChange={(e) => { onToggleAll(e, items); }}
-				checked={isAllSelected()}
-				disabled={items.length === 0}
-			/>Select All
-		</div>) :
-		null;
+	const { width } = itemProps || {};
 	return (
 		<div>
-			{checkbox}
 			<ul className={theme.tiles}>
-				{items.map((item, index) =>
+				{items.map((item, index) => (
 					<li key={index}>
 						<Tile
 							id={id && `${id}-${index}`}
@@ -183,7 +162,7 @@ function DisplayTile(props) {
 							style={{ width: width || '250px' }}
 						/>
 					</li>
-				)}
+				))}
 			</ul>
 		</div>
 	);

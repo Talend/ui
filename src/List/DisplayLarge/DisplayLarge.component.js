@@ -159,30 +159,8 @@ function DisplayLarge(props) {
 		itemProps,
 		titleProps,
 	} = props;
-	const { isSelected, onToggleAll } = itemProps || {};
-	const isAllSelected = () => {
-		const selected = items.reduce((sum, item) => {
-			if (isSelected(item)) {
-				return sum + 1;
-			}
-			return sum;
-		}, 0);
-		return items.length > 0 && selected === items.length;
-	};
-	const checkbox = onToggleAll && isSelected ?
-		(<div>
-			<input
-				id={id && `${id}-check-all`}
-				type="checkbox"
-				onChange={(e) => { onToggleAll(e, items); }}
-				checked={isAllSelected()}
-				disabled={items.length === 0}
-			/>Select All
-		</div>) :
-		null;
 	return (
 		<div className={theme.container}>
-			{checkbox}
 			{items.map((item, index) => rowRenderer({
 				index,
 				id: id && `${id}-${index}`,

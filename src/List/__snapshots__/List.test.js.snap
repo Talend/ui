@@ -5,6 +5,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
     className="table tc-list-display-table">
     <thead>
       <tr>
+        <th />
         <th>
           Id
         </th>
@@ -18,6 +19,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         className=""
         id={undefined}>
         <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           1
         </td>
         <td>
@@ -28,6 +36,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         className=""
         id={undefined}>
         <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           2
         </td>
         <td>
@@ -37,6 +52,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
       <tr
         className=""
         id={undefined}>
+        <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
         <td>
           3
         </td>
@@ -58,6 +80,23 @@ exports[`List should render 1`] = `
       role="toolbar">
       <div
         className="container-fluid">
+        <form
+          className="navbar-form navbar-left">
+          <div
+            className="navbar-text">
+            <input
+              checked={false}
+              disabled={false}
+              id={undefined}
+              onChange={[Function]}
+              type="checkbox" />
+            <label
+              className="tc-list-toolbar-select-all"
+              htmlFor={undefined}>
+              Select All
+            </label>
+          </div>
+        </form>
         <p
           className="navbar-text">
           <label
@@ -431,6 +470,7 @@ exports[`List should render 1`] = `
     className="table tc-list-display-table">
     <thead>
       <tr>
+        <th />
         <th>
           Id
         </th>
@@ -444,6 +484,13 @@ exports[`List should render 1`] = `
         className=""
         id={undefined}>
         <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           1
         </td>
         <td>
@@ -454,6 +501,13 @@ exports[`List should render 1`] = `
         className=""
         id={undefined}>
         <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           2
         </td>
         <td>
@@ -463,6 +517,13 @@ exports[`List should render 1`] = `
       <tr
         className=""
         id={undefined}>
+        <td>
+          <input
+            checked={false}
+            id={undefined}
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
         <td>
           3
         </td>
@@ -484,6 +545,23 @@ exports[`List should render id if provided 1`] = `
       role="toolbar">
       <div
         className="container-fluid">
+        <form
+          className="navbar-form navbar-left">
+          <div
+            className="navbar-text">
+            <input
+              checked={false}
+              disabled={false}
+              id="context-check-all"
+              onChange={[Function]}
+              type="checkbox" />
+            <label
+              className="tc-list-toolbar-select-all"
+              htmlFor="context-check-all">
+              Select All
+            </label>
+          </div>
+        </form>
         <p
           className="navbar-text">
           <label
@@ -857,6 +935,7 @@ exports[`List should render id if provided 1`] = `
     className="table tc-list-display-table">
     <thead>
       <tr>
+        <th />
         <th>
           Id
         </th>
@@ -870,6 +949,13 @@ exports[`List should render id if provided 1`] = `
         className=""
         id="context-0">
         <td>
+          <input
+            checked={false}
+            id="context-0-check"
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           1
         </td>
         <td>
@@ -880,6 +966,13 @@ exports[`List should render id if provided 1`] = `
         className=""
         id="context-1">
         <td>
+          <input
+            checked={false}
+            id="context-1-check"
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
+        <td>
           2
         </td>
         <td>
@@ -889,6 +982,13 @@ exports[`List should render id if provided 1`] = `
       <tr
         className=""
         id="context-2">
+        <td>
+          <input
+            checked={false}
+            id="context-2-check"
+            onChange={[Function]}
+            type="checkbox" />
+        </td>
         <td>
           3
         </td>
