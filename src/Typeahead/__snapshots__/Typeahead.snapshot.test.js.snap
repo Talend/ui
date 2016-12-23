@@ -30,160 +30,162 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
   <div
     id="react-autowhatever-my-search"
     style={Object {}}>
-    <div
-      style={Object {}}>
+    <div>
       <div
         style={Object {}}>
         <div
-          className={undefined}>
-          <i
-            aria-hidden="true"
-            className="fa fa-filter"
-            title="icon" />
-          <span
+          style={Object {}}>
+          <div
             className={undefined}>
-            category 1
-          </span>
+            <i
+              aria-hidden="true"
+              className="fa fa-filter"
+              title="icon" />
+            <span
+              className={undefined}>
+              category 1
+            </span>
+          </div>
         </div>
+        <ul
+          role="listbox"
+          style={Object {}}>
+          <li
+            id="react-autowhatever-my-search-section-0-item-0"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                   tit
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                   1
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+              </p>
+            </div>
+          </li>
+          <li
+            id="react-autowhatever-my-search-section-0-item-1"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  tit
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                   2 
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                  s e
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                  phants e
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                  mentaires ont des ai
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                   
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul
-        role="listbox"
-        style={Object {}}>
-        <li
-          id="react-autowhatever-my-search-section-0-item-0"
-          onClick={undefined}
-          role="option"
-          style={Object {}}>
-          <div
-            className={undefined}>
-            <span
-              className={undefined}>
-              <span>
-                
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                 tit
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                 1
-              </span>
-            </span>
-            <p
-              className={undefined}>
-              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
-            </p>
-          </div>
-        </li>
-        <li
-          id="react-autowhatever-my-search-section-0-item-1"
-          onClick={undefined}
-          role="option"
-          style={Object {}}>
-          <div
-            className={undefined}>
-            <span
-              className={undefined}>
-              <span>
-                tit
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                 2 
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                s e
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                phants e
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                mentaires ont des ai
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                 
-              </span>
-            </span>
-            <p
-              className={undefined}>
-              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div
-      style={Object {}}>
       <div
         style={Object {}}>
         <div
-          className={undefined}>
-          <i
-            aria-hidden="true"
-            className="fa fa-asterisk"
-            title="icon" />
-          <span
-            className={undefined}>
-            category 2
-          </span>
-        </div>
-      </div>
-      <ul
-        role="listbox"
-        style={Object {}}>
-        <li
-          id="react-autowhatever-my-search-section-1-item-0"
-          onClick={undefined}
-          role="option"
           style={Object {}}>
           <div
             className={undefined}>
+            <i
+              aria-hidden="true"
+              className="fa fa-asterisk"
+              title="icon" />
             <span
               className={undefined}>
-              <span>
-                tit
-                <em
-                  className={undefined}>
-                  le
-                </em>
-              </span>
-              <span>
-                 3
-              </span>
+              category 2
             </span>
-            <p
-              className={undefined}>
-              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
-            </p>
           </div>
-        </li>
-      </ul>
+        </div>
+        <ul
+          role="listbox"
+          style={Object {}}>
+          <li
+            id="react-autowhatever-my-search-section-1-item-0"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  tit
+                  <em
+                    className={undefined}>
+                    le
+                  </em>
+                </span>
+                <span>
+                   3
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -221,104 +223,106 @@ exports[`Typeahead items should render typeahead with results 1`] = `
   <div
     id="react-autowhatever-my-search"
     style={Object {}}>
-    <div
-      style={Object {}}>
+    <div>
       <div
         style={Object {}}>
         <div
-          className={undefined}>
-          <i
-            aria-hidden="true"
-            className="fa fa-filter"
-            title="icon" />
-          <span
+          style={Object {}}>
+          <div
             className={undefined}>
-            category 1
-          </span>
+            <i
+              aria-hidden="true"
+              className="fa fa-filter"
+              title="icon" />
+            <span
+              className={undefined}>
+              category 1
+            </span>
+          </div>
         </div>
+        <ul
+          role="listbox"
+          style={Object {}}>
+          <li
+            id="react-autowhatever-my-search-section-0-item-0"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  le title 1
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+              </p>
+            </div>
+          </li>
+          <li
+            id="react-autowhatever-my-search-section-0-item-1"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  title 2 les elephants elementaires ont des aile 
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul
-        role="listbox"
-        style={Object {}}>
-        <li
-          id="react-autowhatever-my-search-section-0-item-0"
-          onClick={undefined}
-          role="option"
-          style={Object {}}>
-          <div
-            className={undefined}>
-            <span
-              className={undefined}>
-              <span>
-                le title 1
-              </span>
-            </span>
-            <p
-              className={undefined}>
-              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
-            </p>
-          </div>
-        </li>
-        <li
-          id="react-autowhatever-my-search-section-0-item-1"
-          onClick={undefined}
-          role="option"
-          style={Object {}}>
-          <div
-            className={undefined}>
-            <span
-              className={undefined}>
-              <span>
-                title 2 les elephants elementaires ont des aile 
-              </span>
-            </span>
-            <p
-              className={undefined}>
-              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div
-      style={Object {}}>
       <div
         style={Object {}}>
         <div
-          className={undefined}>
-          <i
-            aria-hidden="true"
-            className="fa fa-asterisk"
-            title="icon" />
-          <span
-            className={undefined}>
-            category 2
-          </span>
-        </div>
-      </div>
-      <ul
-        role="listbox"
-        style={Object {}}>
-        <li
-          id="react-autowhatever-my-search-section-1-item-0"
-          onClick={undefined}
-          role="option"
           style={Object {}}>
           <div
             className={undefined}>
+            <i
+              aria-hidden="true"
+              className="fa fa-asterisk"
+              title="icon" />
             <span
               className={undefined}>
-              <span>
-                title 3
-              </span>
+              category 2
             </span>
-            <p
-              className={undefined}>
-              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
-            </p>
           </div>
-        </li>
-      </ul>
+        </div>
+        <ul
+          role="listbox"
+          style={Object {}}>
+          <li
+            id="react-autowhatever-my-search-section-1-item-0"
+            onClick={undefined}
+            role="option"
+            style={Object {}}>
+            <div
+              className={undefined}>
+              <span
+                className={undefined}>
+                <span>
+                  title 3
+                </span>
+              </span>
+              <p
+                className={undefined}>
+                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -354,13 +358,15 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       value={undefined} />
   </div>
   <div
-    className="undefined undefined"
     id="react-autowhatever-my-search"
     style={Object {}}>
-    <span
-      className="no-result">
-      No result.
-    </span>
+    <div
+      className="undefined undefined">
+      <span
+        className="no-result">
+        No result.
+      </span>
+    </div>
   </div>
 </div>
 `;
@@ -396,7 +402,9 @@ exports[`Typeahead position should render search bar on the right 1`] = `
   </div>
   <div
     id="react-autowhatever-my-search"
-    style={Object {}} />
+    style={Object {}}>
+    <div />
+  </div>
 </div>
 `;
 

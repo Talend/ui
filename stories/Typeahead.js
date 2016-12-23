@@ -137,4 +137,23 @@ decoratedStories
 				<Typeahead {...props} />
 			</div>
 		);
+	})
+	.addWithInfo('with focused item', () => {
+		const props = {
+			icon: {
+				name: 'talend-search',
+				title: 'Toggle search input',
+				bsStyle: 'link',
+			},
+			onKeyDown: action('onKeyDown'),
+			items,
+			focusedSectionIndex: 1,
+			focusedItemIndex: 0,
+		};
+		return (
+			<div>
+				<IconProvider />
+				<Typeahead {...props} />
+			</div>
+		);
 	});

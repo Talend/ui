@@ -89,15 +89,29 @@ ItemContainer.propTypes = {
 	searchingText: PropTypes.string,
 };
 
-export const renderItemsContainer = (items, noResultText, searching, searchingText) => props => (
-	<ItemContainer
-		{...props}
-		items={items}
-		noResultText={noResultText}
-		searching={searching}
-		searchingText={searchingText}
-	/>
-);
+export const renderItemsContainerFactory = (items, noResultText, searching, searchingText) => {
+	const renderItemsContainerComponent = (props) => {
+		const { children, ...containerProps } = props;
+		return (
+			<div {...containerProps}>
+				<ItemContainer
+					items={items}
+					noResultText={noResultText}
+					searching={searching}
+					searchingText={searchingText}
+				>
+					{children}
+				</ItemContainer>
+			</div>
+		);
+	};
+
+	renderItemsContainerComponent.propTypes = {
+		children: PropTypes.element,
+	};
+
+	return renderItemsContainerComponent;
+};
 
 export const renderSectionTitle = (section) => {
 	if (section) {

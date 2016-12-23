@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import theme from './Typeahead.scss';
 import {
-	renderItemsContainer,
+	renderItemsContainerFactory,
 	renderInputComponent,
 	renderSectionTitle,
 	renderItem,
@@ -52,7 +52,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			onClick: rest.onSelect,
 		},
 		renderInputComponent,
-		renderItemsContainer: renderItemsContainer(
+		renderItemsContainer: renderItemsContainerFactory(
 			rest.items, rest.noResultText, rest.searching, rest.searchingText),
 		renderSectionTitle,
 		renderItem,
