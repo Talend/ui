@@ -14,6 +14,7 @@
 
 	> li {
 		display: flex;
+		align-items: center;
 		min-width: 0;
 
 		& > a,
@@ -40,7 +41,7 @@
 					position: absolute;
 					content: '';
 					padding: 0;
-					top: 40%;
+					top: 47.5%;
 					left: -($breadcrumb-separator-padding + 7px);
 					height: 5px;
 					width: 5px;
