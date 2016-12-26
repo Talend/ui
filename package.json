@@ -8,9 +8,11 @@
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prepublish": "webpack",
-    "start": "webpack-dev-server",
-    "test": "babel -d .tmp/test test/ && casperjs test .tmp/test/screenshots.spec.js",
-    "test:rebase": "babel -d .tmp/test test/ && casperjs test .tmp/test/screenshots.spec.js --rebase",
+    "start": "webpack-dev-server --port 1337",
+    "test": "yarn test:slimerjs",
+    "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
+    "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
+    "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
     "lint:sass": "sass-lint -q -v"
   },
   "repository": {
@@ -41,6 +43,7 @@
     "sass-lint": "^1.9.1",
     "sass-loader": "^4.0.0",
     "semantic-release": "4.3.5",
+    "slimerjs": "^0.10.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",

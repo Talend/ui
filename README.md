@@ -1,22 +1,16 @@
 # Talend Bootstrap Theme
 
-STATUS: this is a Work In Progress.
-
+[![npm version](https://badge.fury.io/js/bootstrap-talend-theme.svg)](https://badge.fury.io/js/bootstrap-talend-theme)
 [![Build Status](https://travis-ci.org/Talend/bootstrap-theme.svg?branch=travis)](https://travis-ci.org/Talend/bootstrap-theme)
 [![dependencies Status](https://david-dm.org/Talend/bootstrap-theme/status.svg)](https://david-dm.org/Talend/bootstrap-theme)
 
-This theme is a base theme free of colors that must be configured to be used.
+Base theme following Talend Style Guidelines.
 
-It provides layout that follow Talend Style Guidelines.
-
-Note: The example has been taken from the excellent project Bootstwatch.
-But we have decided to rewrite the build using webpack and bootstrap-sass.
+Note: The example has been taken from the excellent project [Bootstwatch](https://bootswatch.com/).
 
 # Docs & Help
 * [Example page](https://talend.github.io/bootstrap-theme)
 * [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
-
-<!---* Frontify (soon &trade;))-->
 
 # How to use
 
@@ -24,6 +18,10 @@ But we have decided to rewrite the build using webpack and bootstrap-sass.
 
 ```bash
 npm install --save bootstrap-talend-theme
+```
+or
+```bash
+yarn add --dev bootstrap-talend-theme
 ```
 
 ## Configure your project
@@ -71,7 +69,6 @@ You can now add [Bootstrap](http://getbootstrap.com/) markup!
 # How to contribute
 
 ```bash
-npm install
-npm start
+yarn && yarn start
 ```
-Open [http://localhost:8080/](http://localhost:8080/) to see your changes.
+Open [http://localhost:1337/](http://localhost:1337/) to see your changes.

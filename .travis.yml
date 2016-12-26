@@ -6,10 +6,20 @@ notifications:
   email: false
 node_js:
   - "6"
-before_install:
-  - npm i -g sassdoc http-server casperjs
+env:
+  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/slimerjs:$PATH
+addons:
+  firefox: "50.0"
 before_script:
-  - npm prune
+  - "sh -e /etc/init.d/xvfb start"
+  - "curl https://slimerjs.org/slimerjs-pubkey.gpg | gpg --import"
+  - "wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip"
+  - "wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip.asc"
+  - "gpg --verify-files *.asc"
+  - "unzip slimerjs-0.10.2.zip"
+  - "mv slimerjs-0.10.2 ./slimerjs"
+  - "yarn global add sassdoc http-server"
+sudo: required
 script:
   - sassdoc src/theme -d docs/sassdoc
 after_success:

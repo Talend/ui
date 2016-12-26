@@ -4,8 +4,8 @@ if [ -n "$GITHUB_API_KEY" ]; then
     cd "$TRAVIS_BUILD_DIR"
     if [ "$TRAVIS_PULL_REQUEST" == false ] && [ "$TRAVIS_BRANCH" == 'master' ]; then
         echo "Build branch master"
-        npm run semantic-release
-        echo "✓ Run NPM semantic-release script"
+        yarn run semantic-release
+        echo "✓ Run yarn semantic-release script"
         # This generates a `docs` directory containing demo and sassdoc
         mkdir docs
         echo "✓ Create docs directory"
@@ -25,14 +25,14 @@ if [ -n "$GITHUB_API_KEY" ]; then
         echo "Building PR #$TRAVIS_PULL_REQUEST from branch $TRAVIS_BRANCH"
         cp example/index.html dist/
         echo "✓ Copy HTML example to dist/"
-        nohup http-server dist/ -p 8080 >/dev/null 2>&1 &
+        nohup http-server dist/ -p 1337 >/dev/null 2>&1 &
         echo "✓ Start static server"
-        npm run test:rebase
-        echo "✓ Run NPM test:rebase script"
+        yarn run test:slimerjs
+        echo "✓ Run yarn test:slimerjs script"
         if [ "$TRAVIS_BRANCH" != 'master' ]; then
             git checkout $TRAVIS_BRANCH
             git add screenshots/
-            git -c user.name='travis' -c user.email='travis' commit -m 'Update screenshots generated from PhantomCSS'
+            git -c user.name='travis' -c user.email='travis' commit -m 'Update screenshots from CI'
             git push -f -q https://frassinier:$GITHUB_API_KEY@github.com/Talend/bootstrap-theme $TRAVIS_BRANCH &> /dev/null
             echo "✓ Push screenshots to $TRAVIS_BRANCH"
         fi

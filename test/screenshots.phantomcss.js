@@ -1,6 +1,6 @@
 const phantomcss = require('phantomcss');
 
-const { url, viewport, mapping } = require('./../phantomcss.config.json');
+const { url, viewport, mapping } = require('./../screenshots.config.json');
 
 casper.test.begin('Screenshots', mapping.length, () => {
     phantomcss.init({
