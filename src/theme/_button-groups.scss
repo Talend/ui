@@ -23,4 +23,11 @@
 			}
 		}
 	}
+
+	&-justified {
+		> .btn,
+		> .btn-group {
+			width: auto;
+		}
+	}
 }
