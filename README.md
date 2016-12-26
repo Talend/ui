@@ -18,9 +18,9 @@ It provides a set of base components and patterns.
 [travis-ci-image]: https://travis-ci.org/Talend/react-cmf.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-cmf
 
-[dependencies-image]: https://david-dm.org/Talend/react-cmf.png
+[dependencies-image]: https://david-dm.org/Talend/react-cmf/status.svg
 [dependencies-url]: https://david-dm.org/Talend/react-cmf
-[devdependencies-image]: https://david-dm.org/Talend/react-cmf/dev-status.png
+[devdependencies-image]: https://david-dm.org/Talend/react-cmf/dev-status.svg
 [devdependencies-url]: https://david-dm.org/Talend/react-cmf#info=devDependencies
 
 [quality-badge]: http://npm.packagequality.com/shield/react-cmf.svg
@@ -104,3 +104,62 @@ cmf store structure is the following
     * collections
     * components
     * settings
+
+## Middlewares
+
+### CMF
+
+You can put params in existing action object to trigger some other actions from react-cmf. For example control the router:
+
+```javascript
+export function cancelMyForm(nextRoute) {
+	return {
+		type: 'CLUSTER_CANCEL',
+		cmf: {
+			routerReplace: nextRoute || '/clusters',
+		},
+	};
+}
+```
+
+Existing commands:
+
+* cmf.routerReplace (string or function)
+* cmf.routerPush (string or function)
+* response + cmf.collectionId -> addOrReplaceCollection
+
+### HTTP
+
+CMF init a middleware which is able to handle http requests for you.
+
+It attach the response to the action object.
+
+```javascript
+import { actions } from 'react-cmf';
+
+const url = '/foo/bar';
+
+return actions.http.get(url, {
+		onSend: 'ACTION_TYPE_DISPATCHED_ON_SEND',
+		onError: 'ACTION_TYPE_DISPATCHED_ON_ERROR',
+		cmf: {
+			collectionId: 'clusters', // saved in this collection
+		},
+		transform(data) { // called onResponse
+			return data.map((row) => {
+				const { id, label, engine, tags, created, updated, properties, ...rest } = row;
+				return {
+					id,
+					label,
+					type: properties.type,
+					engine: engine.type,
+					created: moment(created).format(DATE_TIME_FORMAT),
+					updated: moment(updated).fromNow(),
+					tags: tags ? tags.join(', ') : '',
+					...rest,
+				};
+			});
+		},
+	});
+}
+```
