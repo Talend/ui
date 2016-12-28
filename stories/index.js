@@ -6,6 +6,7 @@ import './Actions';
 import './AppHeaderBar';
 import './Breadcrumbs';
 import './CircularProgress';
+import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Drawer';
 import './Notification';

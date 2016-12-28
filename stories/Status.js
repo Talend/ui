@@ -57,6 +57,8 @@ storiesOf('Status', module)
 				label={'Canceled'}
 				icon={'fa fa-close'}
 			/>
+			<h3>Status without actions</h3>
+			<Status {...{ ...myStatus, actions: [] }} />
 			<br />
 		</div>
 	));

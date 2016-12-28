@@ -1,0 +1,115 @@
+$tc-collapsible-panel-padding-normal: $padding-normal !default;
+$tc-collapsible-panel-padding-larger: $padding-larger !default;
+
+@mixin typeCol($width: 100%) {
+	flex-basis: $width;
+	:global(.label) {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
+
+@mixin colStyle() {
+	display: flex;
+	flex-shrink: 1;
+	flex-grow: 0;
+	flex-basis: 100%;
+	margin: 0 $tc-collapsible-panel-padding-normal;
+	overflow: hidden;
+
+	&.col-5 {
+		@include typeCol(20%);
+	}
+
+	&.col-6 {
+		@include typeCol(calc(100%/6));
+	}
+
+	&.col-7 {
+		@include typeCol(calc(100%/7));
+	}
+
+	&.col-8 {
+		@include typeCol(calc(100%/8));
+	}
+
+	&.col-9 {
+		@include typeCol(calc(100%/9));
+	}
+
+	&.col-10 {
+		@include typeCol(calc(10%));
+	}
+}
+
+@mixin actionsStyle() {
+	.tc-panel-action {
+		visibility: hidden;
+	}
+
+	&:hover {
+		.tc-panel-action {
+			visibility: visible;
+		}
+	}
+}
+
+@mixin headerStyle() {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: $tc-collapsible-panel-padding-larger;
+
+	& > * {
+		@include colStyle();
+	}
+}
+
+.tc-panel {
+	@include actionsStyle();
+	font-size: 1.3em;
+
+	:global(.panel-heading) {
+		@include headerStyle();
+		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
+	}
+}
+
+.tc-collapsible-panel {
+	@include actionsStyle();
+	position: relative;
+
+	&-caret-down {
+		position: absolute;
+		right: $tc-collapsible-panel-padding-normal;
+	}
+
+	:global(.panel-heading) {
+		font-size: 1.3em;
+		line-height: 1em;
+	}
+
+	:global(.panel-title) {
+		font-size: 1em;
+
+		a {
+			@include headerStyle();
+			text-decoration: none;
+
+			&[aria-expanded="true"] .tc-collapsible-panel-caret-down {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	:global(.panel-body) {
+		max-height: 50vh;
+		overflow: auto;
+		word-break: break-all;
+
+		.tc-collapsible-panel-description {
+			padding: $tc-collapsible-panel-padding-normal;
+		}
+	}
+}

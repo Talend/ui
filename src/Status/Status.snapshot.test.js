@@ -45,4 +45,11 @@ describe('Status', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render a label with Icon without actions', () => {
+		// when
+		const wrapper = renderer.create(<Status {...currentStatus} actions={[]} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

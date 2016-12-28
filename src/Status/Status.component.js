@@ -62,10 +62,17 @@ function Status(props) {
 		actions,
 	} = props;
 
+	const rootClassnames = classNames(
+		css['tc-status'],
+		'tc-status',
+		`text-${getbsStyleFromStatus(status)}`,
+		{ [css.action]: actions && actions.length }
+	);
+
 	return (
-		<div className={classNames(css['tc-status'], `text-${getbsStyleFromStatus(status)}`)}>
-			{renderIcon(status, icon)}
-			<span className={css['tc-status-label']}> {label} </span>
+		<div className={rootClassnames} >
+			<span className={css['tc-status-icon']}> {renderIcon(status, icon)} </span>
+			<span className={classNames(css['tc-status-label'], 'tc-status-label')}> {label} </span>
 			<span className={css['tc-status-actions']}>
 				<Actions actions={actions} />
 			</span>
@@ -82,9 +89,7 @@ Status.propTypes = {
 	]),
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,
-	actions: PropTypes.shape(
-		Actions.propTypes.actions
-	),
+	actions: Actions.propTypes.actions,
 };
 
 Status.defaultProps = {

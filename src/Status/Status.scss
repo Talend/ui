@@ -1,15 +1,22 @@
+$tc-status-icon-size: 20px !default;
+
 .tc-status {
-	&-label {
-		visibility: visible;
+	position: relative;
+
+	&-icon {
+		width: $tc-status-icon-size;
+		height: $tc-status-icon-size;
 	}
 
 	&-actions {
 		visibility: hidden;
+		position: absolute;
+		left: $tc-status-icon-size;
+		top: 0;
 	}
 
-	&:hover {
+	&.action:hover {
 		.tc-status-label {
-			position: absolute;
 			visibility: hidden;
 		}
 
