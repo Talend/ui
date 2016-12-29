@@ -80,6 +80,7 @@ import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Layout from './Layout';
 import List from './List';
+import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
 import TooltipTrigger from './TooltipTrigger';
@@ -103,6 +104,7 @@ export {
 	Layout,
 	List,
 	Notification,
+	Progress,
 	SidePanel,
 	Status,
 	TooltipTrigger,

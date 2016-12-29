@@ -9,13 +9,14 @@ import './CircularProgress';
 import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Drawer';
-import './Notification';
-import './TreeView';
 import './Icon';
 import './Layout';
 import './List';
+import './Notification';
+import './Progress';
 import './SidePanel';
 import './Status';
 import './TooltipTrigger';
+import './TreeView';
 import './Typeahead';
 
