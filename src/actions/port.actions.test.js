@@ -11,14 +11,6 @@ const mockStore = configureMockStore(middlewares);
 describe('Check that port action creators generate proper' +
 	' action objects and perform checking', () => {
 	it('addPort', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_PORT_ADD',
-			nodeId: 'nodeId',
-			portId: 'portId',
-			portType: 'portType',
-			attributes: { selected: true },
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
@@ -26,53 +18,67 @@ describe('Check that port action creators generate proper' +
 			},
 		});
 
-		store.dispatch(portActions.addPort('nodeId', 'portId', 'portType', { selected: true }));
-		expect(store.getActions()).toEqual(expectedActions);
+		store.dispatch(
+			portActions.addPort(
+				'nodeId',
+				'portId',
+				'portType',
+				{ graphicalAttributes: { selected: true } },
+			),
+		);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 
-	it('setPortAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_PORT_SET_ATTR',
-			portId: 'id',
-			attributes: { selected: true },
-		}];
-
+	it('setPortGraphicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
 				ports: new Map({ id: { id: 'portId', portType: 'type' } }),
 			},
 		});
 
-		store.dispatch(portActions.setPortAttribute('id', { selected: true }));
+		store.dispatch(portActions.setPortGraphicalAttribute('id', { selected: true }));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('removePortAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_PORT_REMOVE_ATTR',
-			portId: 'id',
-			attributesKey: 'selected',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				ports: new Map({ id: { id: 'portId' } }),
 			},
 		});
 
-		store.dispatch(portActions.removePortAttribute('id', 'selected'));
+		store.dispatch(portActions.removePortGraphicalAttribute('id', 'selected'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('setPortData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				ports: new Map({ id: { id: 'portId', portType: 'type' } }),
+			},
+		});
+
+		store.dispatch(portActions.setPortdata('id', { type: 'test' }));
+
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('removePortData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				ports: new Map({ id: { id: 'portId' }, data: new Map({ type: 'test' }) }),
+			},
+		});
+
+		store.dispatch(portActions.removePortData('id', 'type'));
+
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('removePort', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_PORT_REMOVE',
-			portId: 'portId',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				ports: new Map({ portId: { id: 'portId' } }),
@@ -80,6 +86,6 @@ describe('Check that port action creators generate proper' +
 		});
 
 		store.dispatch(portActions.removePort('portId'));
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 });

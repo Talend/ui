@@ -10,7 +10,8 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id": Object {
-      "attributes": Object {
+      "data": Object {},
+      "graphicalAttributes": Object {
         "name": "test",
       },
       "id": "id",
@@ -53,7 +54,8 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id": Object {
-      "attributes": Object {},
+      "data": Object {},
+      "graphicalAttributes": Object {},
       "id": "id",
       "nodeSize": Object {
         "height": undefined,
@@ -90,7 +92,10 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": true,
       },
       "id": "id1",
@@ -102,7 +107,10 @@ Object {
       },
     },
     "id2": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -134,7 +142,10 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id2": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -158,7 +169,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_DATA should add attribute to node attribute map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -166,7 +177,12 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": Object {},
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
+        "selected": true,
+      },
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": "type1",
@@ -176,7 +192,10 @@ Object {
       },
     },
     "id2": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -200,7 +219,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_SET_ATTR should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -208,7 +227,108 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {},
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "parents": Object {},
+  "ports": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_DATA should add attribute to node attribute map 1`] = `
+Object {
+  "childrens": Object {},
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "data": Object {
+        "type": "string",
+      },
+      "graphicalAttributes": Object {
+        "selected": true,
+      },
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": "type1",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+    "id2": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
+        "selected": false,
+      },
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": "type2",
+      "position": Object {
+        "x": 10,
+        "y": 10,
+      },
+    },
+  },
+  "out": Object {},
+  "parents": Object {},
+  "ports": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map 1`] = `
+Object {
+  "childrens": Object {},
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id1",
@@ -220,7 +340,10 @@ Object {
       },
     },
     "id2": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -252,7 +375,10 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": true,
       },
       "id": "id1",
@@ -267,7 +393,10 @@ Object {
       },
     },
     "id2": Object {
-      "attributes": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -299,7 +428,8 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": undefined,
+      "graphicalAttributes": Object {
         "selected": true,
       },
       "id": "id1",
@@ -311,7 +441,8 @@ Object {
       },
     },
     "id2": Object {
-      "attributes": Object {
+      "data": undefined,
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id2",
@@ -323,7 +454,8 @@ Object {
       },
     },
     "id3": Object {
-      "attributes": Object {
+      "data": undefined,
+      "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id3",

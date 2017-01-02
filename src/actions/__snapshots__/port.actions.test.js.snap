@@ -1,0 +1,68 @@
+exports[`Check that port action creators generate proper action objects and perform checking addPort 1`] = `
+Array [
+  Object {
+    "attributes": Object {
+      "graphicalAttributes": Object {
+        "selected": true,
+      },
+    },
+    "nodeId": "nodeId",
+    "portId": "portId",
+    "portType": "portType",
+    "type": "FLOWDESIGNER_PORT_ADD",
+  },
+]
+`;
+
+exports[`Check that port action creators generate proper action objects and perform checking removePort 1`] = `
+Array [
+  Object {
+    "portId": "portId",
+    "type": "FLOWDESIGNER_PORT_REMOVE",
+  },
+]
+`;
+
+exports[`Check that port action creators generate proper action objects and perform checking removePortAttribute 1`] = `
+Array [
+  Object {
+    "graphicalAttributesKey": "selected",
+    "portId": "id",
+    "type": "FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES",
+  },
+]
+`;
+
+exports[`Check that port action creators generate proper action objects and perform checking removePortData 1`] = `
+Array [
+  Object {
+    "dataKey": "type",
+    "portId": "id",
+    "type": "FLOWDESIGNER_PORT_REMOVE_DATA",
+  },
+]
+`;
+
+exports[`Check that port action creators generate proper action objects and perform checking setPortData 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "type": "test",
+    },
+    "portId": "id",
+    "type": "FLOWDESIGNER_PORT_SET_DATA",
+  },
+]
+`;
+
+exports[`Check that port action creators generate proper action objects and perform checking setPortGraphicalAttribute 1`] = `
+Array [
+  Object {
+    "graphicalAttributes": Object {
+      "selected": true,
+    },
+    "portId": "id",
+    "type": "FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES",
+  },
+]
+`;

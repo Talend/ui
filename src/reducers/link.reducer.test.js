@@ -22,7 +22,8 @@ describe('check linkreducer', () => {
 				id: 'id1',
 				sourceId: 'id1',
 				targetId: 'id2',
-				attributes: new Map().set('attr', 'attr'),
+				data: new Map().set('attr', 'attr'),
+				graphicalAttributes: new Map().set('attr', 'attr'),
 			})),
 		).set('ports', new Map()
 			.set('id1', new PortRecord({
@@ -99,20 +100,35 @@ describe('check linkreducer', () => {
 		)).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_LINK_SET_ATTR should merge attributes within link attr property', () => {
+	it('FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES should merge attributes within link attr property', () => {
 		expect(linkReducer(initialState, {
-			type: 'FLOWDESIGNER_LINK_SET_ATTR',
+			type: 'FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES',
 			linkId: 'id1',
-			attributes: { selected: false },
-		})).toMatchSnapshot()
-;
-});
+			graphicalAttributes: { selected: false },
+		})).toMatchSnapshot();
+	});
 
-	it('FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map', () => {
+	it('FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES should remove a specific attributes from attr map', () => {
 		expect(linkReducer(initialState, {
-			type: 'FLOWDESIGNER_LINK_REMOVE_ATTR',
+			type: 'FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES',
 			linkId: 'id1',
-			attributesKey: 'attr',
+			graphicalAttributesKey: 'attr',
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_LINK_SET_DATA should add a data attribute type: \'test\' from data map', () => {
+		expect(linkReducer(initialState, {
+			type: 'FLOWDESIGNER_LINK_SET_DATA',
+			linkId: 'id1',
+			data: { type: 'test' },
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_LINK_REMOVE_DATA should remove \'attr\'from data map', () => {
+		expect(linkReducer(initialState, {
+			type: 'FLOWDESIGNER_LINK_SET_DATA',
+			linkId: 'id1',
+			datakey: 'attr',
 		})).toMatchSnapshot();
 	});
 });

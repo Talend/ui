@@ -6,8 +6,10 @@ import {
 	FLOWDESIGNER_LINK_SET_TARGET,
 	FLOWDESIGNER_LINK_SET_SOURCE,
 	FLOWDESIGNER_LINK_REMOVE,
-	FLOWDESIGNER_LINK_SET_ATTR,
-	FLOWDESIGNER_LINK_REMOVE_ATTR,
+	FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_LINK_SET_DATA,
+	FLOWDESIGNER_LINK_REMOVE_DATA,
 } from '../constants/flowdesigner.constants';
 
 import { LinkRecord } from '../constants/flowdesigner.model';
@@ -39,7 +41,8 @@ export default function linkReducer(state = defaultState, action) {
 			sourceId: action.sourceId,
 			targetId: action.targetId,
 			linkType: action.linkType,
-			attributes: new Map(action.attributes),
+			data: new Map(action.data),
+			graphicalAttributes: new Map(action.graphicalAttributes),
 		}))
 		// parcourir l'ensemble des parents et set le composant cible en tant que sucessors '
 		.setIn(['childrens', state.getIn(['ports', action.sourceId]).nodeId, state.getIn(['ports', action.targetId]).nodeId], state.getIn(['ports', action.targetId]).nodeId)
@@ -110,20 +113,36 @@ export default function linkReducer(state = defaultState, action) {
 			state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
 		])
 			.deleteIn(['links', action.linkId]);
-	case FLOWDESIGNER_LINK_SET_ATTR:
+	case FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['links', action.linkId])) {
 			invariant(
 					false,
 					`Can't set an attribute on non existing link ${action.linkId}`);
 		}
-		return state.mergeIn(['links', action.linkId, 'attributes'], new Map(action.attributes));
-	case FLOWDESIGNER_LINK_REMOVE_ATTR:
+		return state.mergeIn(['links', action.linkId, 'graphicalAttributes'], new Map(action.graphicalAttributes));
+	case FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['links', action.linkId])) {
 			invariant(
 					false,
 					`Can't remove an attribute on non existing link ${action.linkId}`);
 		}
-		return state.deleteIn(['links', action.linkId, 'attributes', action.attributesKey]);
+		return state.deleteIn(['links', action.linkId, 'graphicalAttributes', action.graphicalAttributesKey]);
+
+	case FLOWDESIGNER_LINK_SET_DATA:
+		if (!state.getIn(['links', action.linkId])) {
+			invariant(
+					false,
+					`Can't set an attribute on non existing link ${action.linkId}`);
+		}
+		return state.mergeIn(['links', action.linkId, 'data'], new Map(action.data));
+	case FLOWDESIGNER_LINK_REMOVE_DATA:
+		if (!state.getIn(['links', action.linkId])) {
+			invariant(
+					false,
+					`Can't remove an attribute on non existing link ${action.linkId}`);
+		}
+		return state.deleteIn(['links', action.linkId, 'data', action.dataKey]);
+
 	default:
 		return state;
 	}

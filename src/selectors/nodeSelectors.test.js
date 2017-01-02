@@ -124,50 +124,50 @@ describe('Testing node selectors', () => {
 		id: 'id1',
 		sourceId: 'id1',
 		targetId: 'id2',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 
 	const link2 = new LinkRecord({
 		id: 'id2',
 		sourceId: 'id3',
 		targetId: 'id5',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link3 = new LinkRecord({
 		id: 'id3',
 		sourceId: 'id6',
 		targetId: 'id9',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link4 = new LinkRecord({
 		id: 'id4',
 		sourceId: 'id10',
 		targetId: 'id13',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link5 = new LinkRecord({
 		id: 'id5',
 		sourceId: 'id15',
 		targetId: 'id16',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link6 = new LinkRecord({
 		id: 'id6',
 		sourceId: 'id4',
 		targetId: 'id7',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link7 = new LinkRecord({
 		id: 'id7',
 		sourceId: 'id8',
 		targetId: 'id11',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 	const link8 = new LinkRecord({
 		id: 'id8',
 		sourceId: 'id12',
 		targetId: 'id14',
-		attributes: new Map().set('attr', 'attr'),
+		graphicalAttributes: new Map().set('attr', 'attr'),
 	});
 
 	const givenState = new Map({

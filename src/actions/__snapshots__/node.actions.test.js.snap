@@ -1,3 +1,102 @@
+exports[`Check that node action creators generate proper action objects and perform checking addNode generate action with 0 configuration 1`] = `
+Array [
+  Object {
+    "data": undefined,
+    "graphicalAttributes": undefined,
+    "nodeId": "id",
+    "nodePosition": Object {
+      "x": 75,
+      "y": 75,
+    },
+    "nodeSize": Object {
+      "heigth": 50,
+      "width": 50,
+    },
+    "nodeType": "nodeType",
+    "type": "FLOWDESIGNER_NODE_ADD",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking moveNode generate a proper action object witch nodeId and nodePosition parameter 1`] = `
+Array [
+  Object {
+    "nodeId": "nodeId",
+    "nodePosition": Object {
+      "x": 10,
+      "y": 20,
+    },
+    "type": "FLOWDESIGNER_NODE_MOVE",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking removeNode 1`] = `
+Array [
+  Object {
+    "nodeId": "id",
+    "type": "FLOWDESIGNER_NODE_REMOVE",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking removeNodeData 1`] = `
+Array [
+  Object {
+    "dataKey": "type",
+    "nodeId": "id",
+    "type": "FLOWDESIGNER_NODE_REMOVE_DATA",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking removeNodeGraphicalAttribute 1`] = `
+Array [
+  Object {
+    "graphicalAttributesKey": "selected",
+    "nodeId": "id",
+    "type": "FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking setNodeData 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "type": "test",
+    },
+    "nodeId": "id",
+    "type": "FLOWDESIGNER_NODE_SET_DATA",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking setNodeGraphicalAttributes 1`] = `
+Array [
+  Object {
+    "graphicalAttributes": Object {
+      "selected": true,
+    },
+    "nodeId": "id",
+    "type": "FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES",
+  },
+]
+`;
+
+exports[`Check that node action creators generate proper action objects and perform checking setNodeSize 1`] = `
+Array [
+  Object {
+    "nodeId": "nodeId",
+    "nodeSize": Object {
+      "height": 100,
+      "width": 100,
+    },
+    "type": "FLOWDESIGNER_NODE_SET_SIZE",
+  },
+]
+`;
+
 exports[`applyMovementTo generate proper action 1`] = `
 Object {
   "movement": Object {

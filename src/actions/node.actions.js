@@ -3,8 +3,10 @@ import {
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_MOVE_END,
 	FLOWDESIGNER_NODE_ADD,
-	FLOWDESIGNER_NODE_SET_ATTR,
-	FLOWDESIGNER_NODE_REMOVE_ATTR,
+	FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_NODE_SET_DATA,
+	FLOWDESIGNER_NODE_REMOVE_DATA,
 	FLOWDESIGNER_NODE_SET_SIZE,
 	FLOWDESIGNER_NODE_REMOVE,
 } from '../constants/flowdesigner.constants';
@@ -19,13 +21,14 @@ import {
  * @param {Object} attr
  * @return {Object}
  */
-export const addNode = (nodeId, nodePosition, nodeSize, nodeType, attributes) => ({
+export const addNode = (nodeId, nodePosition, nodeSize, nodeType, { data, graphicalAttributes }) => ({
 	type: FLOWDESIGNER_NODE_ADD,
 	nodeId,
 	nodePosition,
 	nodeSize,
 	nodeType,
-	attributes,
+	data,
+	graphicalAttributes,
 });
 
 /**
@@ -78,25 +81,47 @@ export const setNodeSize = (nodeId, nodeSize) => ({
 });
 
 /**
- * Give the ability to set any data onto the node
+ * Give the ability to a graphical attribute onto the node
  * @param {string} nodeId
- * @param {Object} attr
+ * @param {Object} graphicalAttributes
  */
-export const setNodeAttribute = (nodeId, attributes) => ({
-	type: FLOWDESIGNER_NODE_SET_ATTR,
+export const setNodeGraphicalAttributes = (nodeId, graphicalAttributes) => ({
+	type: FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES,
 	nodeId,
-	attributes,
+	graphicalAttributes,
 });
 
 /**
- * Ask to remove an attribute on target node
+ * Ask to remove a graphical attribute on target node
  * @param {string} nodeId
- * @param {string} attrKey - the key of the attribute to be removed
+ * @param {string} graphicalAttributesKey - the key of the attribute to be removed
  */
-export const removeNodeAttribute = (nodeId, attributesKey) => ({
-	type: FLOWDESIGNER_NODE_REMOVE_ATTR,
+export const removeNodeGraphicalAttribute = (nodeId, graphicalAttributesKey) => ({
+	type: FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES,
 	nodeId,
-	attributesKey,
+	graphicalAttributesKey,
+});
+
+/**
+ * Give the ability to set data onto a node
+ * @param {string} nodeId
+ * @param {Object} data
+ */
+export const setNodeData = (nodeId, data) => ({
+	type: FLOWDESIGNER_NODE_SET_DATA,
+	nodeId,
+	data,
+});
+
+/**
+ * Ask to remove a graphical attribute on target node
+ * @param {string} nodeId
+ * @param {string} dataKey - the key of the data to be removed
+ */
+export const removeNodeData = (nodeId, dataKey) => ({
+	type: FLOWDESIGNER_NODE_REMOVE_DATA,
+	nodeId,
+	dataKey,
 });
 
 /**

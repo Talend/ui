@@ -10,8 +10,10 @@ import { portOutLink, portInLink } from '../selectors/linkSelectors';
 import {
 	FLOWDESIGNER_PORT_ADD,
 	FLOWDESIGNER_PORT_ADDS,
-	FLOWDESIGNER_PORT_SET_ATTR,
-	FLOWDESIGNER_PORT_REMOVE_ATTR,
+	FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES,
+	FLOWDESIGNER_PORT_SET_DATA,
+	FLOWDESIGNER_PORT_REMOVE_DATA,
 	FLOWDESIGNER_PORT_REMOVE,
 } from '../constants/flowdesigner.constants';
 
@@ -22,16 +24,17 @@ const setPort = (state, port) => {
 		id: port.id,
 		nodeId: port.nodeId,
 		portType: port.portType,
-		attributes: new Map(port.attributes),
+		data: new Map(port.data),
+		graphicalAttributes: new Map(port.graphicalAttributes),
 	}));
-	if (port.attributes.get('type') === 'EMITTER') {
+	if (port.data.get('type') === 'EMITTER') {
 		return newState.setIn(['out', port.nodeId, port.id], new Map());
-	} else if (port.attributes.get('type') === 'SINK') {
+	} else if (port.data.get('type') === 'SINK') {
 		return newState.setIn(['in', port.nodeId, port.id], new Map());
 	}
 	invariant(false,
-		`Can't set a new port ${port.id} if its attribute.type !== EMITTER || SINK,
-		given ${port.attributes.get('type')}`);
+		`Can't set a new port ${port.id} if its data.type !== EMITTER || SINK,
+		given ${port.data.get('type')}`);
 	return state;
 };
 
@@ -46,7 +49,8 @@ export default function portReducer(state = defaultState, action) {
 			id: action.portId,
 			nodeId: action.nodeId,
 			portType: action.portType,
-			attributes: new Map(action.attributes),
+			data: new Map(action.data),
+			grahicalAttributes: new Map(action.grahicalAttributes),
 		});
 	case FLOWDESIGNER_PORT_ADDS:
 		if (!state.getIn(['nodes', action.nodeId])) {
@@ -59,21 +63,34 @@ export default function portReducer(state = defaultState, action) {
 						id: port.portId,
 						nodeId: action.nodeId,
 						portType: port.portType,
-						attributes: new Map(port.attributes),
+						data: new Map(port.data),
+						graphicalAttributes: new Map(port.graphicalAttributes),
 					})
 				, state);
-	case FLOWDESIGNER_PORT_SET_ATTR:
+	case FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
-					`Can't set an attribute on non existing port ${action.portId}`);
+					`Can't set an graphical attribute on non existing port ${action.portId}`);
 		}
-		return state.mergeIn(['ports', action.portId, 'attributes'], new Map(action.attributes));
-	case FLOWDESIGNER_PORT_REMOVE_ATTR:
+		return state.mergeIn(['ports', action.portId, 'graphicalAttributes'], new Map(action.graphicalAttributes));
+	case FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
-					`Can't remove an attribute on non existing port ${action.portId}`);
+					`Can't remove a graphical attribute on non existing port ${action.portId}`);
 		}
-		return state.deleteIn(['ports', action.portId, 'attributes', action.attributesKey]);
+		return state.deleteIn(['ports', action.portId, 'graphicalAttributes', action.graphicalAttributesKey]);
+	case FLOWDESIGNER_PORT_SET_DATA:
+		if (!state.getIn(['ports', action.portId])) {
+			invariant(false,
+					`Can't set a data on non existing port ${action.portId}`);
+		}
+		return state.mergeIn(['ports', action.portId, 'data'], new Map(action.data));
+	case FLOWDESIGNER_PORT_REMOVE_DATA:
+		if (!state.getIn(['ports', action.portId])) {
+			invariant(false,
+					`Can't remove a data on non existing port ${action.portId}`);
+		}
+		return state.deleteIn(['ports', action.portId, 'data', action.dataKey]);
 	case FLOWDESIGNER_PORT_REMOVE:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
@@ -83,8 +100,8 @@ export default function portReducer(state = defaultState, action) {
 				(cumulativeState, link) => linkReducer(cumulativeState, removeLink(link.id)),
 				portOutLink(state, action.portId).reduce(
 					(cumulativeState, link) => linkReducer(cumulativeState, removeLink(link.id)),
-					state
-				)
+					state,
+				),
 			)
 			.deleteIn(['ports', action.portId])
 			.deleteIn(['out', state.getIn(['ports', action.portId]).nodeId, action.portId])

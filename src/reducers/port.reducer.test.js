@@ -9,7 +9,8 @@ describe('Check port reducer', () => {
 		.set('id1', new PortRecord({
 			id: 'id1',
 			position: new PositionRecord({ x: 10, y: 10 }),
-			attributes: new Map().set('attr', 'attr'),
+			data: new Map({ type: 'test' }),
+			graphicalAttributes: new Map().set('attr', 'attr'),
 		}))
 		.set('id2', new PortRecord({
 			id: 'id2',
@@ -27,7 +28,8 @@ describe('Check port reducer', () => {
 			nodeId: 'nodeId',
 			portId: 'portId',
 			portType: 'portType',
-			attributes: { clicked: true, type: 'EMITTER' },
+			data: { type: 'EMITTER' },
+			attributes: { clicked: true },
 		})).toMatchSnapshot();
 	});
 
@@ -38,28 +40,44 @@ describe('Check port reducer', () => {
 			ports: [{
 				portId: 'portId1',
 				portType: 'portType',
-				attributes: { type: 'EMITTER' },
+				data: { type: 'EMITTER' },
 			}, {
 				portId: 'portId2',
 				portType: 'portType',
-				attributes: { type: 'SINK' },
+				data: { type: 'SINK' },
 			}],
 		})).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_PORT_SET_ATTR to merge a new attributes in attribute collection', () => {
+	it('FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES to merge a new attributes in attribute collection', () => {
 		expect(portReducer(initialState, {
-			type: 'FLOWDESIGNER_PORT_SET_ATTR',
+			type: 'FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES',
 			portId: 'id1',
-			attributes: { selected: true },
+			graphicalAttributes: { selected: true },
 		})).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_PORT_REMOVE_ATTR to remove attr from attr map', () => {
+	it('FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES to remove attr from attr map', () => {
 		expect(portReducer(initialState, {
-			type: 'FLOWDESIGNER_PORT_REMOVE_ATTR',
+			type: 'FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES',
 			portId: 'id1',
-			attributesKey: 'attr',
+			graphicalAttributesKey: 'attr',
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_PORT_SET_DATA to merge a new data in data map', () => {
+		expect(portReducer(initialState, {
+			type: 'FLOWDESIGNER_PORT_SET_DATA',
+			portId: 'id1',
+			data: { type: 'string' },
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_PORT_REMOVE_DATA on data map', () => {
+		expect(portReducer(initialState, {
+			type: 'FLOWDESIGNER_PORT_REMOVE_DATA',
+			portId: 'id1',
+			dataKey: 'type',
 		})).toMatchSnapshot();
 	});
 

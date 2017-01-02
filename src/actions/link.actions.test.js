@@ -11,15 +11,6 @@ const mockStore = configureMockStore(middlewares);
 describe('Check that link action creators generate proper' +
 	' action objects and perform checking', () => {
 	it('addLink', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_ADD',
-			linkId: 'linkId',
-			sourceId: 'sourceId',
-			targetId: 'targetId',
-			linkType: 'linkType',
-			attributes: { selected: true },
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map(),
@@ -31,18 +22,18 @@ describe('Check that link action creators generate proper' +
 		});
 
 		store.dispatch(
-				linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', { selected: true }),
-			);
-		expect(store.getActions()).toEqual(expectedActions);
+			linkActions.addLink(
+				'linkId',
+				'sourceId',
+				'targetId',
+				'linkType',
+				{ graphicalAttributes: { selected: true } },
+			),
+		);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('setLinkTarget', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_TARGET',
-			linkId: 'linkId',
-			targetId: 'portId',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map({ linkId: { id: 'linkId' } }),
@@ -52,16 +43,10 @@ describe('Check that link action creators generate proper' +
 
 		store.dispatch(linkActions.setLinkTarget('linkId', 'portId'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('setLinkSource', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_SOURCE',
-			linkId: 'linkId',
-			sourceId: 'portId',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map({ linkId: { id: 'linkId' } }),
@@ -71,51 +56,58 @@ describe('Check that link action creators generate proper' +
 
 		store.dispatch(linkActions.setLinkSource('linkId', 'portId'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
-	it('setLinkAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_SET_ATTR',
-			linkId: 'id',
-			attributes: { selected: true },
-		}];
-
+	it('setLinkGraphicalAttributes', () => {
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
-		store.dispatch(linkActions.setLinkAttribute('id', { selected: true }));
+		store.dispatch(linkActions.setLinkGraphicalAttributes('id', { selected: true }));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
-	it('removeLinkAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_REMOVE_ATTR',
-			linkId: 'id',
-			attributesKey: 'selected',
-		}];
-
+	it('removeLinkGrahicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
 			},
 		});
 
-		store.dispatch(linkActions.removeLinkAttribute('id', 'selected'));
+		store.dispatch(linkActions.removeLinkGraphicalAttribute('id', 'selected'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('setLinkData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+			},
+		});
+
+		store.dispatch(linkActions.setLinkData('id', { type: 'test' }));
+
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('removeLinkData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+			},
+		});
+
+		store.dispatch(linkActions.removeLinkData('id', 'type'));
+
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('removeLink', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_LINK_REMOVE',
-			linkId: 'id',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				links: new Map({ id: { id: 'linkId' } }),
@@ -123,6 +115,6 @@ describe('Check that link action creators generate proper' +
 		});
 
 		store.dispatch(linkActions.removeLink('id'));
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 });

@@ -9,12 +9,14 @@ describe('Check node reducer', () => {
 		id: 'id1',
 		nodeType: 'type1',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attributes: new Map({ selected: true }),
+		data: new Map({ type: 'test' }),
+		graphicalAttributes: new Map({ selected: true }),
 	})).setIn(['nodes', 'id2'], new NodeRecord({
 		id: 'id2',
 		nodeType: 'type2',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attributes: new Map({ selected: false }),
+		data: new Map({ type: 'test' }),
+		graphicalAttributes: new Map({ selected: false }),
 	}));
 
 	it('FLOWDESIGNER_NODE_ADD properly add a new node to the node collection', () => {
@@ -31,7 +33,7 @@ describe('Check node reducer', () => {
 			nodeId: 'id',
 			nodeType: 'MY_NODE_TYPE',
 			nodePosition: { x: 10, y: 10 },
-			attributes: { name: 'test' },
+			graphicalAttributes: { name: 'test' },
 		})).toMatchSnapshot();
 	});
 
@@ -51,19 +53,35 @@ describe('Check node reducer', () => {
 		})).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_NODE_SET_ATTR should add attribute to node attribute map', () => {
+	it('FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map', () => {
 		expect(nodeReducer(initialState, {
-			type: 'FLOWDESIGNER_NODE_SET_ATTR',
+			type: 'FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES',
 			nodeId: 'id1',
-			attributes: { selected: false },
+			graphicalAttributes: { selected: false },
 		})).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_NODE_REMOVE_ATTR should add attribute to node attribute map', () => {
+	it('FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map', () => {
 		expect(nodeReducer(initialState, {
-			type: 'FLOWDESIGNER_NODE_REMOVE_ATTR',
+			type: 'FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES',
 			nodeId: 'id1',
-			attributesKey: 'selected',
+			graphicalAttributesKey: 'selected',
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_NODE_SET_DATA should add attribute to node attribute map', () => {
+		expect(nodeReducer(initialState, {
+			type: 'FLOWDESIGNER_NODE_SET_DATA',
+			nodeId: 'id1',
+			data: { type: 'string' },
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_NODE_REMOVE_DATA should add attribute to node attribute map', () => {
+		expect(nodeReducer(initialState, {
+			type: 'FLOWDESIGNER_NODE_REMOVE_DATA',
+			nodeId: 'id1',
+			data: 'type',
 		})).toMatchSnapshot();
 	});
 
@@ -81,17 +99,17 @@ describe('FLOWDESIGNER_NODE_APPLY_MOVEMENT', () => {
 		id: 'id1',
 		nodeType: 'type1',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attributes: new Map({ selected: true }),
+		graphicalAttributes: new Map({ selected: true }),
 	})).setIn(['nodes', 'id2'], new NodeRecord({
 		id: 'id2',
 		nodeType: 'type2',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attributes: new Map({ selected: false }),
+		graphicalAttributes: new Map({ selected: false }),
 	})).setIn(['nodes', 'id3'], new NodeRecord({
 		id: 'id3',
 		nodeType: 'type2',
 		position: new PositionRecord({ x: 10, y: 10 }),
-		attributes: new Map({ selected: false }),
+		graphicalAttributes: new Map({ selected: false }),
 	}));
 	it('should apply the same relative movement to each node listed', () => {
 		expect(nodeReducer(initialState, {

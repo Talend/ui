@@ -16,7 +16,10 @@ Object {
   },
   "links": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
         "attr": "attr",
       },
       "id": "id1",
@@ -25,7 +28,8 @@ Object {
       "targetId": "id2",
     },
     "id2": Object {
-      "attributes": Object {},
+      "data": Object {},
+      "graphicalAttributes": Object {},
       "id": "id2",
       "linkType": undefined,
       "sourceId": "id1",
@@ -35,21 +39,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -72,42 +79,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -148,7 +161,10 @@ Object {
   },
   "links": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
         "attr": "attr",
       },
       "id": "id1",
@@ -157,14 +173,16 @@ Object {
       "targetId": "id2",
     },
     "id2": Object {
-      "attributes": Object {},
+      "data": Object {},
+      "graphicalAttributes": Object {},
       "id": "id2",
       "linkType": undefined,
       "sourceId": "id1",
       "targetId": "id2",
     },
     "id3": Object {
-      "attributes": Object {},
+      "data": Object {},
+      "graphicalAttributes": Object {},
       "id": "id3",
       "linkType": undefined,
       "sourceId": "id3",
@@ -174,21 +192,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -218,42 +239,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -281,21 +308,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -310,42 +340,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -361,7 +397,7 @@ Object {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_ATTR should remove a specific attributes from attr map 1`] = `
+exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_DATA should remove 'attr'from data map 1`] = `
 Object {
   "childrens": Object {
     "id1": Object {
@@ -373,7 +409,12 @@ Object {
   "in": Object {},
   "links": Object {
     "id1": Object {
-      "attributes": Object {},
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
+        "attr": "attr",
+      },
       "id": "id1",
       "linkType": undefined,
       "sourceId": "id1",
@@ -383,21 +424,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -414,42 +458,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -465,7 +515,7 @@ Object {
 }
 `;
 
-exports[`check linkreducer FLOWDESIGNER_LINK_SET_ATTR should merge attributes within link attr property 1`] = `
+exports[`check linkreducer FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES should remove a specific attributes from attr map 1`] = `
 Object {
   "childrens": Object {
     "id1": Object {
@@ -477,7 +527,245 @@ Object {
   "in": Object {},
   "links": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {},
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
+  "ports": Object {
+    "id1": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id5": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_SET_DATA should add a data attribute type: 'test' from data map 1`] = `
+Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
+  "in": Object {},
+  "links": Object {
+    "id1": Object {
+      "data": Object {
+        "attr": "attr",
+        "type": "test",
+      },
+      "graphicalAttributes": Object {
+        "attr": "attr",
+      },
+      "id": "id1",
+      "linkType": undefined,
+      "sourceId": "id1",
+      "targetId": "id2",
+    },
+  },
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id1",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id2",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id3",
+      "nodeSize": undefined,
+      "nodeType": undefined,
+      "position": undefined,
+    },
+  },
+  "out": Object {},
+  "parents": Object {
+    "id1": Object {},
+    "id2": Object {
+      "id1": "id1",
+    },
+    "id3": Object {},
+  },
+  "ports": Object {
+    "id1": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id1",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id2": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id2",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id3": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id3",
+      "nodeId": "id2",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id4": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id4",
+      "nodeId": "id1",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id5": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id5",
+      "nodeId": "id3",
+      "portType": undefined,
+      "position": undefined,
+    },
+    "id6": Object {
+      "data": undefined,
+      "graphicalAttributes": undefined,
+      "id": "id6",
+      "nodeId": undefined,
+      "portType": undefined,
+      "position": undefined,
+    },
+  },
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
+exports[`check linkreducer FLOWDESIGNER_LINK_SET_GRAPHICAL_ATTRIBUTES should merge attributes within link attr property 1`] = `
+Object {
+  "childrens": Object {
+    "id1": Object {
+      "id2": "id2",
+    },
+    "id2": Object {},
+    "id3": Object {},
+  },
+  "in": Object {},
+  "links": Object {
+    "id1": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
         "attr": "attr",
         "selected": false,
       },
@@ -490,21 +778,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -521,42 +812,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -584,7 +881,10 @@ Object {
   "in": Object {},
   "links": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
         "attr": "attr",
       },
       "id": "id1",
@@ -596,21 +896,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -633,42 +936,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,
@@ -702,7 +1011,10 @@ Object {
   },
   "links": Object {
     "id1": Object {
-      "attributes": Object {
+      "data": Object {
+        "attr": "attr",
+      },
+      "graphicalAttributes": Object {
         "attr": "attr",
       },
       "id": "id1",
@@ -714,21 +1026,24 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeSize": undefined,
       "nodeType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeSize": undefined,
       "nodeType": undefined,
@@ -745,42 +1060,48 @@ Object {
   },
   "ports": Object {
     "id1": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id1",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id2": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id2",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id3": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id3",
       "nodeId": "id2",
       "portType": undefined,
       "position": undefined,
     },
     "id4": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id4",
       "nodeId": "id1",
       "portType": undefined,
       "position": undefined,
     },
     "id5": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id5",
       "nodeId": "id3",
       "portType": undefined,
       "position": undefined,
     },
     "id6": Object {
-      "attributes": undefined,
+      "data": undefined,
+      "graphicalAttributes": undefined,
       "id": "id6",
       "nodeId": undefined,
       "portType": undefined,

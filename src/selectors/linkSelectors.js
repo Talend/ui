@@ -9,9 +9,9 @@ export const getDetachedLinks = createSelector(
 	(links, ports) => (
 		links.filter(
 			link => !ports.find(port => port.id === link.sourceId)
-				|| !ports.find(port => port.id === link.targetId)
+				|| !ports.find(port => port.id === link.targetId),
 		)
-	)
+	),
 );
 
 /**

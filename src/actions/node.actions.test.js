@@ -12,15 +12,6 @@ const mockStore = configureMockStore(middlewares);
 describe('Check that node action creators generate proper' +
 	' action objects and perform checking', () => {
 	it('addNode generate action with 0 configuration', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_ADD',
-			nodeId: 'id',
-			nodePosition: { x: 75, y: 75 },
-			nodeSize: { width: 50, heigth: 50 },
-			nodeType: 'nodeType',
-			attributes: {},
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({}),
@@ -28,19 +19,19 @@ describe('Check that node action creators generate proper' +
 		});
 
 		store.dispatch(
-				nodeActions.addNode('id', { x: 75, y: 75 }, { width: 50, heigth: 50 }, 'nodeType', {}),
-			);
+			nodeActions.addNode(
+				'id',
+				{ x: 75, y: 75 },
+				{ width: 50, heigth: 50 },
+				'nodeType',
+				{},
+			),
+		);
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('moveNode generate a proper action object witch nodeId and nodePosition parameter', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_MOVE',
-			nodeId: 'nodeId',
-			nodePosition: { x: 10, y: 20 },
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
@@ -55,16 +46,10 @@ describe('Check that node action creators generate proper' +
 
 		store.dispatch(nodeActions.moveNodeTo('nodeId', { x: 10, y: 20 }, {}));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('setNodeSize', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_SET_SIZE',
-			nodeId: 'nodeId',
-			nodeSize: { width: 100, height: 100 },
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
@@ -72,51 +57,60 @@ describe('Check that node action creators generate proper' +
 		});
 
 		store.dispatch(nodeActions.setNodeSize('nodeId', { width: 100, height: 100 }));
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
-	it('setNodeAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_SET_ATTR',
-			nodeId: 'id',
-			attributes: { selected: true },
-		}];
-
+	it('setNodeGraphicalAttributes', () => {
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
 			},
 		});
 
-		store.dispatch(nodeActions.setNodeAttribute('id', { selected: true }));
+		store.dispatch(nodeActions.setNodeGraphicalAttributes('id', { selected: true }));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
-	it('removeNodeAttribute', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_REMOVE_ATTR',
-			nodeId: 'id',
-			attributesKey: 'selected',
-		}];
-
+	it('removeNodeGraphicalAttribute', () => {
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
 			},
 		});
 
-		store.dispatch(nodeActions.removeNodeAttribute('id', 'selected'));
+		store.dispatch(nodeActions.removeNodeGraphicalAttribute('id', 'selected'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('setNodeData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
+			},
+		});
+
+		store.dispatch(nodeActions.setNodeData('id', { type: 'test' }));
+
+		expect(store.getActions()).toMatchSnapshot();
+	});
+
+	it('removeNodeData', () => {
+		const store = mockStore({
+			flowDesigner: {
+				nodes: new Map({
+					id: { id: 'nodeId', nodeType: 'type', data: new Map({ type: 'test' }) },
+				}),
+			},
+		});
+
+		store.dispatch(nodeActions.removeNodeData('id', 'type'));
+
+		expect(store.getActions()).toMatchSnapshot();
 	});
 
 	it('removeNode', () => {
-		const expectedActions = [{
-			type: 'FLOWDESIGNER_NODE_REMOVE',
-			nodeId: 'id',
-		}];
-
 		const store = mockStore({
 			flowDesigner: {
 				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
@@ -125,7 +119,7 @@ describe('Check that node action creators generate proper' +
 
 		store.dispatch(nodeActions.removeNode('id'));
 
-		expect(store.getActions()).toEqual(expectedActions);
+		expect(store.getActions()).toMatchSnapshot();
 	});
 });
 

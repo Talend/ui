@@ -20,7 +20,8 @@ export const NodeRecord = new Record({
 	position: undefined,
 	nodeSize: undefined,
 	nodeType: undefined,
-	attributes: undefined,
+	data: undefined,
+	graphicalAttributes: undefined,
 });
 
 export const LinkRecord = new Record({
@@ -28,7 +29,8 @@ export const LinkRecord = new Record({
 	sourceId: undefined,
 	targetId: undefined,
 	linkType: undefined,
-	attributes: undefined,
+	data: undefined,
+	graphicalAttributes: undefined,
 });
 
 export const PortRecord = new Record({
@@ -36,5 +38,6 @@ export const PortRecord = new Record({
 	nodeId: undefined,
 	portType: undefined,
 	position: undefined,
-	attributes: undefined,
+	data: undefined,
+	graphicalAttributes: undefined,
 });
