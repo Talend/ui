@@ -94,7 +94,8 @@
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "testRegex": "src/.*\\.test\\.js$",
+    "testPathDirs": ["src", "__mocks__"],
+    "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
