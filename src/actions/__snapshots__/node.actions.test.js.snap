@@ -1,8 +1,8 @@
 exports[`Check that node action creators generate proper action objects and perform checking addNode generate action with 0 configuration 1`] = `
 Array [
   Object {
-    "data": undefined,
-    "graphicalAttributes": undefined,
+    "data": Object {},
+    "graphicalAttributes": Object {},
     "nodeId": "id",
     "nodePosition": Object {
       "x": 75,

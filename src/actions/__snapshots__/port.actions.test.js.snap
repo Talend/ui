@@ -1,10 +1,9 @@
 exports[`Check that port action creators generate proper action objects and perform checking addPort 1`] = `
 Array [
   Object {
-    "attributes": Object {
-      "graphicalAttributes": Object {
-        "selected": true,
-      },
+    "data": Object {},
+    "graphicalAttributes": Object {
+      "selected": true,
     },
     "nodeId": "nodeId",
     "portId": "portId",

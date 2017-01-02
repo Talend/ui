@@ -1,7 +1,7 @@
 exports[`Check that link action creators generate proper action objects and perform checking addLink 1`] = `
 Array [
   Object {
-    "data": undefined,
+    "data": Object {},
     "graphicalAttributes": Object {
       "selected": true,
     },
