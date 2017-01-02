@@ -2,7 +2,10 @@ exports[`Notification should render 1`] = `
 <div
   className="tc-notification-container">
   <div
-    className="react-addons-css-transition-group">
+    className="react-addons-css-transition-group"
+    transitionEnterTimeout={300}
+    transitionLeaveTimeout={280}
+    transitionName="tc-notification">
     <div
       className="tc-notification tc-notification-info"
       onClick={[Function]}

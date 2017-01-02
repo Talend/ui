@@ -38,7 +38,11 @@ exports[`Layout should render Layout OneColumn 1`] = `
   <div
     className="tc-layout-one-column" />
   <div
-    className="react-addons-css-transition-group" />
+    className="react-addons-css-transition-group"
+    transitionAppearTimeout={230}
+    transitionEnterTimeout={230}
+    transitionLeaveTimeout={230}
+    transitionName="tc-drawer" />
 </div>
 `;
 
@@ -91,7 +95,11 @@ exports[`Layout should render Layout TwoColumns 1`] = `
       className="tc-layout-two-columns-main" />
   </div>
   <div
-    className="react-addons-css-transition-group" />
+    className="react-addons-css-transition-group"
+    transitionAppearTimeout={230}
+    transitionEnterTimeout={230}
+    transitionLeaveTimeout={230}
+    transitionName="tc-drawer" />
 </div>
 `;
 
@@ -144,7 +152,11 @@ exports[`Layout should render layout with Drawer component 1`] = `
       className="tc-layout-two-columns-main" />
   </div>
   <div
-    className="react-addons-css-transition-group">
+    className="react-addons-css-transition-group"
+    transitionAppearTimeout={230}
+    transitionEnterTimeout={230}
+    transitionLeaveTimeout={230}
+    transitionName="tc-drawer">
     <div
       className="tc-drawer"
       style={undefined}>

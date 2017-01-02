@@ -1,9 +1,9 @@
 import React from 'react';
 
-function ReactCSSTransitionGroup(props) {
+function ReactCSSTransitionGroup({children, ...props}) {
 	return (
-		<div className="react-addons-css-transition-group">
-			{props.children}
+		<div className="react-addons-css-transition-group" {...props}>
+			{children}
 		</div>
 	);
 }
