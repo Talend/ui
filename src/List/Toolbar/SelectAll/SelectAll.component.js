@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import theme from './SelectAll.scss';
 
 function SelectAll({ id, items, isSelected, onToggleAll }) {
-	const isAllSelected = () => items.findIndex(item => !isSelected(item)) < 0;
+	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
 	const checkboxId = id && `${id}-check-all`;
 	return (
 		<form className="navbar-form navbar-left">
