@@ -2,6 +2,7 @@ import Action from './Action';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import List from './List';
+import Notification from './Notification';
 import SidePanel from './SidePanel';
 
 // export all other components from react-talend-components
@@ -9,7 +10,6 @@ import SidePanel from './SidePanel';
 import {
 	ActionDropdown,
 	ActionBar,
-	Notification,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
@@ -20,7 +20,7 @@ import {
 	Layout,
 	TooltipTrigger,
 	Typeahead,
-} from 'react-talend-components'
+} from 'react-talend-components';
 
 export {
 	Action,

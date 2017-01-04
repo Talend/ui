@@ -5890,9 +5890,9 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-talend-icons@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.11.2.tgz#ef4929b6b39f9945ce4400aa5848bc5d00a4ef13"
+talend-icons@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.13.1.tgz#529ddef0dda4b58f5a53724199136f3068274438"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
