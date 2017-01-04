@@ -5,14 +5,18 @@
 
 .btn {
 	@include btn-colors;
-	display: inline-flex;
-	align-items: center;
 	font-size: $btn-font-size;
 	letter-spacing: 1px;
 	line-height: 3.3rem;
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
 
+	&,
+	& > span {
+		display: inline-flex;
+		align-items: center;
+	}
+	
 	svg {
 		fill: currentColor;
 		height: $btn-md-svg-size;

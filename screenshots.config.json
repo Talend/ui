@@ -30,6 +30,10 @@
       "selector": "#buttons-left-icons"
     },
     {
+      "name": "buttons-dropdowns-icons",
+      "selector": "#btn-dropdown-icons"
+    },
+    {
       "name": "buttons-no-icons",
       "selector": "#buttons-no-icons"
     },
