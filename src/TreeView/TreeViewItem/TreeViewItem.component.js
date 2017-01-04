@@ -46,7 +46,7 @@ function TreeViewItem({
 
 	return (
 		<li className={getClassName('tc-treeview-li')} data-tc-treeview-hidden={item.hidden}>
-			<div
+			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				className={getClassName('tc-treeview-item')}
 				onClick={selectHandler}
 				data-tc-treeview-depth={depth}

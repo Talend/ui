@@ -53,7 +53,7 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 	);
 
 	return (
-		<div
+		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			id={id}
 			className={tileClasses}
 			onClick={onItemSelect}

@@ -169,27 +169,27 @@ function DisplayTable(props) {
 	return (
 		<table className={className}>
 			<thead>
-			<ListHeader
-				columns={columns}
-				onToggleAll={onToggleAll}
-				items={items}
-				isSelected={isSelected}
-				id={id}
-			/>
+				<ListHeader
+					columns={columns}
+					onToggleAll={onToggleAll}
+					items={items}
+					isSelected={isSelected}
+					id={id}
+				/>
 			</thead>
 			<tbody>
-			{items.map(
-				(item, index) => (
-					<RowRenderer
-						id={id && `${id}-${index}`}
-						key={index}
-						columns={columns}
-						item={item}
-						itemProps={itemProps}
-						titleProps={titleProps}
-					/>
-				)
-			)}
+				{items.map(
+					(item, index) => (
+						<RowRenderer
+							id={id && `${id}-${index}`}
+							key={index}
+							columns={columns}
+							item={item}
+							itemProps={itemProps}
+							titleProps={titleProps}
+						/>
+					)
+				)}
 			</tbody>
 		</table>
 	);

@@ -116,7 +116,7 @@ function Notification({ notification, leaveFn, autoLeaveTimeout }) {
 	};
 	const classes = classNames(notificationClasses);
 	return (
-		<div
+		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			role="status"
 			className={classes}
 			onMouseEnter={() => onMouseEnter(notification)}
