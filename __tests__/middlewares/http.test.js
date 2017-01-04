@@ -3,12 +3,15 @@ import {
 	isHTTPRequest,
 	getMethod,
 	httpRequest,
-	httpErrors,
+	httpError,
 	httpResponse,
 	mergeOptions,
 	onResponse,
 	onError,
 	httpMiddleware,
+	HTTPError,
+	status,
+	json,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -55,11 +58,11 @@ describe('CMF http middleware', () => {
 		expect(action.url).toBe(url);
 		expect(action.config).toBe(config);
 	});
-	it('should httpErrors create action', () => {
-		const error = { msg: 'something goes wrong' };
-		const action = httpErrors(error);
+	it('should httpError create action', () => {
+		const error = { message: 'something goes wrong' };
+		const action = httpError(error);
 		expect(action.type).toBe(HTTP_ERRORS);
-		expect(action.errors).toBe(error);
+		expect(action.error).toBe(error);
 	});
 	it('should httpResponse create action', () => {
 		const response = { id: '2312321323' };
@@ -95,35 +98,140 @@ describe('CMF http middleware', () => {
 		expect(action.onResponse.mock.calls[0][0]).toBe(response);
 	});
 	it('should onError create action', () => {
-		const errors = { msg: 'something goes wrong' };
+		const error = { message: 'something goes wrong' };
 		const action = {
 			type: 'DONT_CARE',
 			onError: 'CALL_ME_BACK',
 		};
-		const newAction = onError(action, errors);
+		const newAction = onError(action, error);
 		expect(newAction.type).toBe('CALL_ME_BACK');
-		expect(newAction.errors).toBe(errors);
+		expect(newAction.error).toBe(error);
 
 		action.onError = jest.fn();
-		onError(action, errors);
+		onError(action, error);
 		expect(action.onError.mock.calls.length).toBe(1);
-		expect(action.onError.mock.calls[0][0]).toBe(errors);
+		expect(action.onError.mock.calls[0][0]).toBe(error);
 	});
 	it('should httpMiddleware return function', () => {
 		const store = {
 			dispatch: jest.fn(),
 		};
 		const next = jest.fn();
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+	});
+	it('should httpMiddleware handle response promise', (done) => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
-			body: { label: 'great test'},
+			body: { label: 'great test' },
 			onSend: 'CALL_ME_BACK on send',
 			onResponse: 'CALL_ME_BACK on response',
 			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: 200,
+				json: () => new Promise(resolve => resolve({ foo: 'bar' })),
+			},
 		};
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		expect(fetch.mock.calls.length).toBe(1);
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
+		});
+	});
+	it('should httpMiddleware handle response promise with error', (done) => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: false,
+				status: 500,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorHTTPAction = store.dispatch.mock.calls[2][0];
+			const errorCallbackAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(500);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
+			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
+			expect(errorCallbackAction.error.stack.status).toBe(500);
+			expect(errorCallbackAction.error.stack.ok).toBe(false);
+			done();
+		}).catch(() => done());
+	});
+});
+
+describe('HTTPError', () => {
+	it('should create a new instance', () => {
+		const response = {
+			status: 500,
+			statusText: 'Internal Server Error',
+			ok: false,
+		};
+		const err = new HTTPError(response);
+		expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
+	});
+});
+
+describe('status function', () => {
+	it('should reject if status >= 300', () => {
+		const response = {
+			status: 500,
+		};
+		return status(response).catch((err) => {
+			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
+		});
+	});
+	it('should resolve if status >= 200 & < 300', () => {
+		const response = {
+			status: 204,
+		};
+		return status(response).then((r) => {
+			expect(r).toBe(response);
+		});
+	});
+});
+
+describe('json function', () => {
+	it('should reject if no json function on response', () => {
+		const response = {
+			status: 502,
+		};
+		return json(response).catch((err) => {
+			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
+		});
+	});
+	it('should resolve if attr json is on response', () => {
+		const response = {
+			status: 204,
+			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
+		};
+		return json(response).then((r) => {
+			expect(r).toMatchSnapshot();
+		});
 	});
 });

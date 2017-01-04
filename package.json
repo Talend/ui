@@ -53,6 +53,7 @@
     "jest": "^17.0.3",
     "jest-cli": "^17.0.3",
     "jsdoc": "^3.4.1",
+    "lodash": "4.17.2",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -68,7 +69,9 @@
     "semantic-release": "4.3.5"
   },
   "jest": {
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "setupFiles": [
       "env__tests.js"
     ]
@@ -77,6 +80,7 @@
     "classnames": "2",
     "immutable": "3",
     "invariant": "2",
+    "lodash": "4.17.2",
     "react": "15",
     "react-dom": "15",
     "react-redux": "4",
