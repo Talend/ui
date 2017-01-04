@@ -7,7 +7,7 @@ class NotificationWrapper extends React.Component {
 		super();
 		this.notifications = [
 		];
-		this.counter = 1;
+		this.state = { counter: 1 };
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
 				{
@@ -20,7 +20,7 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState({	a: 'A' });
+			this.setState({	counter: this.state.counter + 1 });
 		}, 500);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -35,7 +35,7 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState({	b: 'B' });
+			this.setState({	counter: this.state.counter + 1 });
 		}, 1000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -45,7 +45,7 @@ class NotificationWrapper extends React.Component {
 					message: ['This is a feedback of your operation3', 'details'],
 				},
 			]);
-			this.setState({	b: 'B' });
+			this.setState({	counter: this.state.counter + 1 });
 		}, 2000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -55,14 +55,14 @@ class NotificationWrapper extends React.Component {
 					message: 'This is a feedback of your operation4',
 				},
 			]);
-			this.setState({	b: 'B' });
+			this.setState({	counter: this.state.counter + 1 });
 		}, 2500);
 	}
 	leaveFn(notification) {
 		const index = this.notifications.indexOf(notification);
 		if (index !== -1) {
 			this.notifications.splice(index, 1);
-			this.setState({ count: this.counter + 1 });
+			this.setState({	counter: this.state.counter - 1 });
 		}
 	}
 	render() {

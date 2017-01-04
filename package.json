@@ -86,7 +86,7 @@
     "sass-loader": "^4.0.2",
     "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
-    "talend-icons": "0.10.0",
+    "talend-icons": "^0.13.1",
     "uuid": "^2.0.3",
     "webpack": "1.13.1"
   },
@@ -94,7 +94,10 @@
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "testPathDirs": ["src", "__mocks__"],
+    "testPathDirs": [
+      "src",
+      "__mocks__"
+    ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"

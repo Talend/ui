@@ -55,7 +55,7 @@ function CloseButton({ notification, leaveFn }) {
 		<Action
 			onClick={() => leaveFn(notification)}
 			label={''}
-			icon={'talend-crossbig'}
+			icon={'talend-cross'}
 			bsClass={classNames(
 				theme['tc-notification-action'], 'tc-notification-action',
 				theme['tc-notification-close'], '.tc-notification-close'
