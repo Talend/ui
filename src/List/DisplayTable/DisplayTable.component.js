@@ -7,6 +7,24 @@ import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
 
+function cellContent(isTitle, item, column, titleProps, id) {
+	if (isTitle) {
+		return (<ItemTitle
+			id={id && `${id}-title`}
+			item={item}
+			titleProps={titleProps}
+		/>);
+	}
+	if (item[column.key] instanceof Array) {
+		return (<Actions
+			actions={item[column.key]}
+			link
+			hideLabel
+		/>);
+	}
+	return item[column.key];
+}
+
 function RowRenderer(props) {
 	const { id, item, itemProps, titleProps } = props;
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
@@ -29,13 +47,7 @@ function RowRenderer(props) {
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				const isTitle = column.key === titleProps.key;
-				const cell = isTitle ?
-					(<ItemTitle
-						id={id && `${id}-title`}
-						item={item}
-						titleProps={titleProps}
-					/>) :
-					item[column.key];
+				const cell = cellContent(isTitle, item, column, titleProps, id);
 
 				// actions are only on title and on 'text' display mode
 				const { displayModeKey } = titleProps;
@@ -75,7 +87,7 @@ function ListHeader(props) {
 		columns,
 		isSelected,
 		onToggleAll,
-	} = props;
+		} = props;
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
@@ -138,7 +150,7 @@ ListHeader.propTypes = {
 		onEditValidate: action('onEditValidate'),
 	},
 };
-<DisplayTable {...props} />
+ <DisplayTable {...props} />
  */
 function DisplayTable(props) {
 	const {
@@ -147,7 +159,7 @@ function DisplayTable(props) {
 		items,
 		itemProps,
 		titleProps,
-	} = props;
+		} = props;
 	const { isSelected, onToggleAll } = itemProps || {};
 	const className = classnames(
 		'table',
@@ -155,29 +167,29 @@ function DisplayTable(props) {
 		theme.table,
 	);
 	return (
-		<table className={className} >
+		<table className={className}>
 			<thead>
-				<ListHeader
-					columns={columns}
-					onToggleAll={onToggleAll}
-					items={items}
-					isSelected={isSelected}
-					id={id}
-				/>
+			<ListHeader
+				columns={columns}
+				onToggleAll={onToggleAll}
+				items={items}
+				isSelected={isSelected}
+				id={id}
+			/>
 			</thead>
 			<tbody>
-				{items.map(
-					(item, index) => (
-						<RowRenderer
-							id={id && `${id}-${index}`}
-							key={index}
-							columns={columns}
-							item={item}
-							itemProps={itemProps}
-							titleProps={titleProps}
-						/>
-					)
-				)}
+			{items.map(
+				(item, index) => (
+					<RowRenderer
+						id={id && `${id}-${index}`}
+						key={index}
+						columns={columns}
+						item={item}
+						itemProps={itemProps}
+						titleProps={titleProps}
+					/>
+				)
+			)}
 			</tbody>
 		</table>
 	);

@@ -159,6 +159,34 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('table with column actions', () => {
+		const columnActionsProps = Immutable.fromJS(props).toJS();
+		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
+		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
+			columnActions: [
+				{
+					label: 'favorite',
+					icon: 'talend-star',
+					className: 'favorite',
+					onClick: action('onFavorite'),
+				}, {
+					label: 'certify',
+					icon: 'talend-badge',
+					className: 'certify',
+					onClick: action('onCertify'),
+				},
+			],
+			...item,
+		}));
+		return (<div>
+			<h1>List</h1>
+			<h2>Definition</h2>
+			<p>Display a list by defining your.</p>
+			<h2>Examples</h2>
+			<IconsProvider />
+			<List {...columnActionsProps} />
+		</div>);
+	})
 	.add('table with selected items', () => {
 		const selectedItemsProps = Immutable.fromJS(props).toJS();
 		selectedItemsProps.toolbar.actionBar.selected = 1;
@@ -170,10 +198,10 @@ storiesOf('List', module)
 					icon: 'talend-trash',
 					onClick: action('delete'),
 				},
-			]
+			],
 		};
 		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		return(
+		return (
 			<div>
 				<h1>List</h1>
 				<h2>Definition</h2>

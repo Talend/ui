@@ -5,6 +5,20 @@ import DisplayTable from './DisplayTable.component';
 
 jest.mock('react-dom');
 
+const columnActions = [
+	{
+		label: 'favorite',
+		icon: 'talend-star',
+		className: 'favorite',
+		onClick: jest.fn(),
+	}, {
+		label: 'certify',
+		icon: 'talend-badge',
+		className: 'certify',
+		onClick: jest.fn(),
+	},
+];
+
 const items = [
 	{
 		id: 1,
@@ -115,7 +129,7 @@ describe('DisplayTable', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('shoudl render selected list element with defaut \'active\' class', () => {
+	it('should render selected list element with defaut \'active\' class', () => {
 		// given
 		const props = {
 			id: 'table-list',
@@ -131,13 +145,29 @@ describe('DisplayTable', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('shoudl render selected list element with custom selectedClass if set', () => {
+	it('should render selected list element with custom selectedClass if set', () => {
 		// given
 		const props = {
 			id: 'table-list',
 			items,
 			columns,
 			itemProps: { isSelected: () => true, selectedClass: 'something' },
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render column actions', () => {
+		// given
+		columns.splice(2, 0, { key: 'columnActions', label: '' });
+		items[0].columnActions = columnActions;
+		const props = {
+			items,
+			columns,
 		};
 
 		// when
