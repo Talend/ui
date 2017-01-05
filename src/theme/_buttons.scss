@@ -13,10 +13,13 @@
 
 	&,
 	& > span {
-		display: inline-flex;
-		align-items: center;
+		display: inline-block;
+
+		> * {
+			vertical-align: middle;
+		}
 	}
-	
+
 	svg {
 		fill: currentColor;
 		height: $btn-md-svg-size;
@@ -68,7 +71,7 @@
 	}
 
 	&-icon-only {
-		padding: $padding-smaller;
+		padding: 0 $padding-smaller;
 	}
 
 	&-xs {

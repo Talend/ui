@@ -51,6 +51,17 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
+
+			&.dropdown-toggle {
+				position: relative;
+				padding-right: 2 * $padding-large;
+
+				.caret {
+					position: absolute;
+					right: $padding-large;
+					margin-top: $dropdown-caret-size / 2;
+				}
+			}
 		}
 
 		&.nav-stacked {
