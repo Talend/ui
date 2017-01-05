@@ -108,11 +108,26 @@ describe('Item', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render with actions', () => {
 		// given
 		const props = {
 			item: Object.assign({}, item, { actions }),
 			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<Item {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with icon', () => {
+		// given
+		const props = {
+			item,
+			columns: [...columns, { key: 'icon', label: '', type: 'icon' }],
 		};
 
 		// when

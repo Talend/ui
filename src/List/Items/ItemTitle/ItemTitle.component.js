@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
-import Icon from '../../../Icon';
 
 const TITLE_MODE_TEXT = 'text';
 const TITLE_MODE_INPUT = 'input';
@@ -85,6 +84,10 @@ class TitleInput extends React.Component {
 			id={this.props.id}
 			value={this.props.value}
 			ref={(input) => { this.titleInput = input; }}
+			onChange={event => this.props.onEditChange(event, {
+				value: event.target.value,
+				model: this.props.item,
+			})}
 			onKeyUp={this.onKeyUp}
 			onBlur={this.submit}
 			autoFocus
@@ -96,11 +99,13 @@ TitleInput.propTypes = {
 	value: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onEditSubmit: PropTypes.func,
+	onEditChange: PropTypes.func,
 	onEditCancel: PropTypes.func,
 };
 
 /**
  * Item title component
+ * @param {string} id the ID of the title
  * @param {string} className the title class name
  * @param {object} item the item from list
  * @param {object} titleProps title configuration props
@@ -122,16 +127,14 @@ const props = {
 function ItemTitle({ id, className, item, titleProps }) {
 	const {
 		key,
-		iconKey,
 		displayModeKey,
 		onClick,
 		onEditSubmit,
+		onEditChange,
 		onEditCancel,
 	} = titleProps;
 	const value = item[key];
 	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
-	const iconName = iconKey && item[iconKey];
-	const icon = iconName ? <Icon className="tc-list-icon" name={iconName} /> : null;
 
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
@@ -139,13 +142,12 @@ function ItemTitle({ id, className, item, titleProps }) {
 			renderButton({ id, value, className, item, onClick }) :
 			renderText({ id, value, className });
 	} else if (displayMode === TITLE_MODE_INPUT) {
-		const props = { id, value, item, onEditSubmit, onEditCancel };
+		const props = { id, value, item, onEditSubmit, onEditChange, onEditCancel };
 		titleElement = <TitleInput {...props} />;
 	}
 
 	return (
 		<div className="tc-list-item-title">
-			{icon}
 			{titleElement}
 		</div>
 	);
@@ -157,10 +159,10 @@ ItemTitle.propTypes = {
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	titleProps: PropTypes.shape({
 		key: PropTypes.string,
-		iconKey: PropTypes.string,
 		displayModeKey: PropTypes.string,
 		onClick: PropTypes.func,
 		onEditSubmit: PropTypes.func,
+		onEditChange: PropTypes.func,
 		onEditCancel: PropTypes.func,
 	}).isRequired,
 };

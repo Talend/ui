@@ -14,21 +14,6 @@ exports[`ItemTitle should render button title 1`] = `
 </div>
 `;
 
-exports[`ItemTitle should render icon 1`] = `
-<div
-  className="tc-list-item-title">
-  <i
-    aria-hidden="true"
-    className="fa fa-file-excel-o tc-list-icon"
-    title={null} />
-  <span
-    className="my-title"
-    id={undefined}>
-    Hello world
-  </span>
-</div>
-`;
-
 exports[`ItemTitle should render input title 1`] = `
 <div
   className="tc-list-item-title">
@@ -36,6 +21,7 @@ exports[`ItemTitle should render input title 1`] = `
     autoFocus={true}
     id="title"
     onBlur={[Function]}
+    onChange={[Function]}
     onKeyUp={[Function]}
     type="text"
     value="Hello world" />

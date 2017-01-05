@@ -374,3 +374,67 @@ exports[`Item should render with selected item 1`] = `
   </div>
 </div>
 `;
+
+exports[`Item should render with icon 1`] = `
+<div
+  className="tc-list-item"
+  id={undefined}
+  onClick={undefined}
+  onDoubleClick={undefined}
+  role="button">
+  <div
+    className="tc-list-item-icon">
+    <i
+      aria-hidden="true"
+      className="fa fa-file-excel-o"
+      title={null} />
+  </div>
+  <div
+    className="tc-list-item-title">
+    <span
+      className={undefined}
+      id={undefined}>
+      Bar
+    </span>
+  </div>
+  <div
+    className="tc-list-item-definition-list">
+    <div
+      className="tc-list-item-definition-item">
+      <div
+        className="tc-list-item-definition-term">
+        Author
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="Jean-Pierre DUPONT">
+        Jean-Pierre DUPONT
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item">
+      <div
+        className="tc-list-item-definition-term">
+        Created
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22">
+        2016-09-22
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item">
+      <div
+        className="tc-list-item-definition-term">
+        Modified
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22">
+        2016-09-22
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -5,15 +5,15 @@ exports[`Items should render 1`] = `
     <li
       className="tc-list-header">
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Author
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Created
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Modified
       </div>
     </li>
@@ -231,15 +231,15 @@ exports[`Items should render with display mode if provided 1`] = `
     <li
       className="tc-list-header">
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Author
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Created
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Modified
       </div>
     </li>
@@ -457,15 +457,15 @@ exports[`Items should render with id if provided 1`] = `
     <li
       className="tc-list-header">
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Author
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Created
       </div>
       <div
-        className="tc-list-header-item">
+        className="tc-list-header-item tc-list-header-text">
         Modified
       </div>
     </li>

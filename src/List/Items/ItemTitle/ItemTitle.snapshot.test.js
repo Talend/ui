@@ -79,22 +79,4 @@ describe('ItemTitle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-
-	it('should render icon', () => {
-		// given
-		const props = {
-			className: 'my-title',
-			item,
-			titleProps: {
-				key: 'name',
-				iconKey: 'icon', // item.icon is the icon name
-			},
-		};
-
-		// when
-		const wrapper = renderer.create(<ItemTitle {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
 });

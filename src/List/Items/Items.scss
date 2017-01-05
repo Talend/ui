@@ -12,6 +12,9 @@ $definition-width: 220px;
 /// width of item's definition description
 /// @type Number (Unit)
 $description-width: 130px;
+/// width of item's icon column
+/// @type Number (Unit)
+$icon-column-width: 30px;
 /// padding for checkbox
 /// @type Number (Unit)
 $checkbox-padding: 45px;
@@ -41,6 +44,11 @@ $checkbox-padding: 45px;
 
 		&:global(.active) {
 			background-color: #F5F5F5;
+		}
+
+		:global(.tc-list-item-icon) {
+			display: inline-block;
+			width: $icon-column-width;
 		}
 
 		:global(.tc-list-item-title) {
@@ -76,7 +84,7 @@ $checkbox-padding: 45px;
 		}
 
 		:global(.tc-actions) {
-			background-color: rgba(242, 242 ,242, 0.5);
+			background-color: rgba(242, 242, 242, 0.5);
 			position: absolute;
 			visibility: hidden;
 
@@ -91,7 +99,7 @@ $checkbox-padding: 45px;
 			}
 
 			:global(.tc-actions) {
-				 visibility: visible;
+				visibility: visible;
 			 }
 		}
 
@@ -149,12 +157,19 @@ $checkbox-padding: 45px;
 			display: inline-block;
 			font-weight: bold;
 			padding: $padding-small $padding-normal;
-			width: $description-width + 2 * ($padding-normal);
 			text-transform: uppercase;
+		}
 
-			&:first-child {
-				width: $definition-width + 2 * ($padding-normal);
-			}
+		:global(.tc-list-header-icon) {
+			width: $icon-column-width;
+		}
+
+		:global(.tc-list-header-title) {
+			width: $definition-width + 2 * ($padding-normal);
+		}
+
+		:global(.tc-list-header-text) {
+			width: $description-width + 2 * ($padding-normal);
 		}
 	}
 
@@ -236,7 +251,7 @@ $checkbox-padding: 45px;
 
 		:global(.tc-list-item-title) {
 			:global(.btn-link) {
-				max-width: $definition-width;
+				max-width: $definition-width - $icon-column-width - $padding-normal;
 			}
 		}
 

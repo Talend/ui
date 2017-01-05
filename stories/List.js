@@ -17,8 +17,9 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
+			{ key: 'icon', label: '', type: 'icon' },
+			{ key: 'id', label: 'Id', type: 'text' },
+			{ key: 'name', label: 'Name', type: 'title' },
 			{ key: 'author', label: 'Author' },
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
@@ -85,6 +86,7 @@ const props = {
 			displayModeKey: 'display',
 			onClick: action('onClick'),
 			onEditCancel: action('onEditCancel'),
+			onEditChange: action('onEditChange'),
 			onEditSubmit: action('onEditSubmit'),
 		},
 		itemProps: {

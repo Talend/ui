@@ -2,7 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 
 import ItemTitle from '../ItemTitle';
+import Icon from '../../../Icon';
 import { Actions } from '../../../Actions';
+import Column from '../Column.properties';
 
 function getDefinitionItem(column, value, index) {
 	return (
@@ -17,6 +19,15 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 	const { classNameKey, onSelect, onToggle, isSelected } = itemProps;
 	const onItemOpen = titleProps.onClick && (event => titleProps.onClick(event, item));
 	const onItemSelect = onSelect && (event => onSelect(event, item));
+
+	const iconColumn = columns.find(column => column.type === 'icon');
+	const getIcon = iconKey => (item[iconKey] ? (
+		<div className="tc-list-item-icon">
+			<Icon name={item[iconKey]} />
+		</div>
+	) : (
+		<div className="tc-list-item-icon" />
+	));
 
 	const checkbox = (onToggle && isSelected) &&
 		(<input
@@ -38,7 +49,7 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 	const selectedClass = isSelected && isSelected(item) && (itemProps.selectedClass || 'active');
 	const tileClasses = classNames('tc-list-item', customClass, selectedClass);
 
-	const columnsWithoutTitle = columns.filter(column => column.key !== titleProps.key);
+	const textColumns = columns.filter(column => !column.type || column.type === 'text');
 	return (
 		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			id={id}
@@ -47,6 +58,7 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 			onClick={onItemSelect}
 			onDoubleClick={onItemOpen}
 		>
+			{iconColumn && getIcon(iconColumn.key)}
 			<ItemTitle
 				id={id && `${id}-title`}
 				item={item}
@@ -55,7 +67,7 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 			{checkbox}
 			{actions}
 			<div className="tc-list-item-definition-list">
-				{columnsWithoutTitle.map((column, index) => getDefinitionItem(column, item[column.key], index))}
+				{textColumns.map((column, index) => getDefinitionItem(column, item[column.key], index))}
 			</div>
 		</div>
 	);
@@ -63,12 +75,7 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 
 Item.propTypes = {
 	id: React.PropTypes.string,
-	columns: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			key: React.PropTypes.string.isRequired,
-			label: React.PropTypes.string.isRequired,
-		})
-	).isRequired,
+	columns: React.PropTypes.arrayOf(Column.propTypes).isRequired,
 	item: React.PropTypes.shape({
 		actions: Actions.propTypes.actions,
 	}).isRequired,
