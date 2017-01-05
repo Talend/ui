@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react';
 import Toolbar from './Toolbar';
-import DisplayPropTypes from './Display/Display.propTypes';
-import DisplayLarge from './DisplayLarge';
-import DisplayTable from './DisplayTable';
-import DisplayTile from './DisplayTile';
+import Items from './Items';
 
 /**
  * @param {object} props react props
@@ -41,27 +38,6 @@ const props = {
 <List {...props}></List>
  */
 function List({ id, displayMode, toolbar, list }) {
-	let displayModeComponent;
-	switch (displayMode) {
-	case 'tile':
-		displayModeComponent = DisplayTile;
-		break;
-	case 'large':
-		displayModeComponent = DisplayLarge;
-		break;
-	default:
-		if (typeof displayMode === 'function') {
-			displayModeComponent = displayMode;
-		} else {
-			displayModeComponent = DisplayTable;
-		}
-		break;
-	}
-
-	const content = React.createElement(
-		displayModeComponent,
-		{ id, ...list }
-	);
 	let toolbarProps;
 	if (toolbar) {
 		toolbarProps = Object.assign({}, toolbar, { id });
@@ -80,7 +56,7 @@ function List({ id, displayMode, toolbar, list }) {
 	return (
 		<div className="tc-list">
 			{toolbar && (<Toolbar {...toolbarProps} />)}
-			{content}
+			<Items id={id} displayMode={displayMode} {...list} />
 		</div>
 	);
 }
@@ -88,8 +64,12 @@ function List({ id, displayMode, toolbar, list }) {
 List.propTypes = {
 	id: PropTypes.string,
 	displayMode: PropTypes.string,
-	list: PropTypes.shape(DisplayPropTypes),
+	list: PropTypes.shape(Items.propTypes),
 	toolbar: PropTypes.shape(Toolbar.propTypes),
+};
+
+List.defaultProps = {
+	displayMode: 'table',
 };
 
 export default List;

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
-import Icon from '../../Icon';
+import Icon from '../../../Icon';
 
 const TITLE_MODE_TEXT = 'text';
 const TITLE_MODE_INPUT = 'input';
@@ -15,7 +15,14 @@ function renderButton({ id, value, className, item, onClick }) {
 	};
 
 	return (
-		<Button id={id} className={className} onClick={click} role="link" bsStyle="link">
+		<Button
+			id={id}
+			className={className}
+			title={value}
+			onClick={click}
+			role="link"
+			bsStyle="link"
+		>
 			{value}
 		</Button>
 	);
@@ -74,7 +81,9 @@ class TitleInput extends React.Component {
 
 	render() {
 		return (<input
+			type="text"
 			id={this.props.id}
+			value={this.props.value}
 			ref={(input) => { this.titleInput = input; }}
 			onKeyUp={this.onKeyUp}
 			onBlur={this.submit}
@@ -134,9 +143,8 @@ function ItemTitle({ id, className, item, titleProps }) {
 		titleElement = <TitleInput {...props} />;
 	}
 
-	const style = { display: 'inline' };
 	return (
-		<div style={style}>
+		<div className="tc-list-item-title">
 			{icon}
 			{titleElement}
 		</div>

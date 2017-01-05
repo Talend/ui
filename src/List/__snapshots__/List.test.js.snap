@@ -1,73 +1,178 @@
 exports[`List should not render the toolbar without toolbar props 1`] = `
 <div
   className="tc-list">
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
+  <div>
+    <ul
+      className="tc-list-items table">
+      <li
+        className="tc-list-header">
+        <div
+          className="tc-list-header-item">
           Id
-        </th>
-        <th>
+        </div>
+        <div
+          className="tc-list-header-item">
           Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          1
-        </td>
-        <td>
-          Hello world
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={1}>
+                1
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Hello world">
+                Hello world
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          2
-        </td>
-        <td>
-          Foo
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={2}>
+                2
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Foo">
+                Foo
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          3
-        </td>
-        <td>
-          Bar
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={3}>
+                3
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Bar">
+                Bar
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
@@ -466,73 +571,178 @@ exports[`List should render 1`] = `
       </div>
     </div>
   </div>
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
+  <div>
+    <ul
+      className="tc-list-items table">
+      <li
+        className="tc-list-header">
+        <div
+          className="tc-list-header-item">
           Id
-        </th>
-        <th>
+        </div>
+        <div
+          className="tc-list-header-item">
           Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          1
-        </td>
-        <td>
-          Hello world
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={1}>
+                1
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Hello world">
+                Hello world
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          2
-        </td>
-        <td>
-          Foo
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={2}>
+                2
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Foo">
+                Foo
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id={undefined}
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id={undefined}
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id={undefined}
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          3
-        </td>
-        <td>
-          Bar
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={3}>
+                3
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Bar">
+                Bar
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
@@ -931,72 +1141,177 @@ exports[`List should render id if provided 1`] = `
       </div>
     </div>
   </div>
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
+  <div>
+    <ul
+      className="tc-list-items table">
+      <li
+        className="tc-list-header">
+        <div
+          className="tc-list-header-item">
           Id
-        </th>
-        <th>
+        </div>
+        <div
+          className="tc-list-header-item">
           Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id="context-0">
-        <td>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id="context-0"
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-0-title"
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id="context-0-check"
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          1
-        </td>
-        <td>
-          Hello world
-        </td>
-      </tr>
-      <tr
-        className=""
-        id="context-1">
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={1}>
+                1
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Hello world">
+                Hello world
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id="context-1"
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-1-title"
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id="context-1-check"
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          2
-        </td>
-        <td>
-          Foo
-        </td>
-      </tr>
-      <tr
-        className=""
-        id="context-2">
-        <td>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={2}>
+                2
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Foo">
+                Foo
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          className="tc-list-item"
+          id="context-2"
+          onClick={undefined}
+          onDoubleClick={[Function]}
+          role="button">
+          <div
+            className="tc-list-item-title">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-2-title"
+              onClick={[Function]}
+              role="link"
+              title={undefined}
+              type="button" />
+          </div>
           <input
             checked={false}
             id="context-2-check"
             onChange={[Function]}
             type="checkbox" />
-        </td>
-        <td>
-          3
-        </td>
-        <td>
-          Bar
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <div
+            className="tc-list-item-definition-list">
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Id
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title={3}>
+                3
+              </div>
+            </div>
+            <div
+              className="tc-list-item-definition-item">
+              <div
+                className="tc-list-item-definition-term">
+                Name
+              </div>
+              <div
+                className="tc-list-item-definition-description"
+                title="Bar">
+                Bar
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

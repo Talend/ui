@@ -1,0 +1,257 @@
+// Items styles
+
+/// item border color
+/// @type Color
+$border-color: #CCC;
+/// Global font size for item rendering
+/// @type Number (Unit)
+$text-size: 14px;
+/// width of item's definition list
+/// @type Number (Unit)
+$definition-width: 220px;
+/// width of item's definition description
+/// @type Number (Unit)
+$description-width: 130px;
+/// padding for checkbox
+/// @type Number (Unit)
+$checkbox-padding: 45px;
+
+
+.tc-list-items {
+	list-style: none;
+	overflow: auto;
+	padding: 0 20px;
+
+	:global(.tc-list-header) {
+		display: none;
+	}
+
+	:global(.tc-list-item) {
+		border: 1px solid $border-color;
+		border-radius: 0.5em;
+		font-size: $text-size;
+		line-height: 30px;
+		padding: $padding-normal;
+		position: relative;
+
+		&:hover {
+			background: $concrete;
+			border-color: darken($border-color, 40%);
+		}
+
+		&:global(.active) {
+			background-color: #F5F5F5;
+		}
+
+		:global(.tc-list-item-title) {
+			display: inline-block;
+
+			:global(.btn-link) {
+				color: $mine-shaft;
+				display: inline-block;
+				font-size: $text-size;
+				font-weight: 600;
+				letter-spacing: 0;
+				margin: 0;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				text-transform: uppercase;
+				white-space: nowrap;
+			}
+
+			:global(input[type='text']) {
+				margin-left: $padding-normal;
+			}
+		}
+
+		:global(input[type='checkbox']) {
+			position: absolute;
+			right: $padding-normal;
+			top: $padding-large;
+			visibility: hidden;
+
+			&:checked {
+				visibility: visible;
+			}
+		}
+
+		:global(.tc-actions) {
+			background-color: rgba(242, 242 ,242, 0.5);
+			position: absolute;
+			visibility: hidden;
+
+			:global(button) {
+				padding-left: 0;
+			}
+		}
+
+		&:hover {
+			:global(input[type='checkbox']) {
+				visibility: visible;
+			}
+
+			:global(.tc-actions) {
+				 visibility: visible;
+			 }
+		}
+
+		:global(.tc-list-item-definition-list) {
+			&:after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+
+			:global(.tc-list-item-definition-term),
+			:global(.tc-list-item-definition-description) {
+				display: inline-block;
+				vertical-align: middle;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+
+			:global(.tc-list-item-definition-term) {
+				color: darken($brand-primary, 25%);
+				font-weight: 400;
+				margin-right: $padding-small;
+				text-align: right;
+				text-transform: uppercase;
+				width: 80px;
+
+				&:after {
+					content: ' :';
+				}
+			}
+
+			:global(.tc-list-item-definition-description) {
+				color: $dove-gray;
+				margin-left: 0; // reset default
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 130px;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+.table {
+	padding: 0;
+
+	:global(.tc-list-header) {
+		border-bottom: 1px solid $border-color;
+		display: block;
+		padding-left: $checkbox-padding;
+
+		:global(.tc-list-header-item) {
+			display: inline-block;
+			font-weight: bold;
+			padding: $padding-small $padding-normal;
+			width: $description-width + 2 * ($padding-normal);
+			text-transform: uppercase;
+
+			&:first-child {
+				width: $definition-width + 2 * ($padding-normal);
+			}
+		}
+	}
+
+	:global(.tc-list-item) {
+		border: none;
+		border-bottom: 1px solid $border-color;
+		border-radius: 0;
+		max-height: 65px;
+		padding-left: $checkbox-padding;
+
+		:global(input[type='checkbox']) {
+			left: $padding-normal;
+		}
+
+		:global(.tc-list-item-title) {
+			width: $definition-width + 2 * ($padding-normal);
+
+			:global(.btn-link) {
+				max-width: $definition-width + 2 * ($padding-normal);
+				padding: 0 $padding-normal;
+			}
+		}
+
+		:global(.tc-list-item-definition-list) {
+			display: inline-block;
+
+			:global(.tc-list-item-definition-item) {
+				display: inline-block;
+
+				:global(.tc-list-item-definition-term) {
+					display: none;
+				}
+
+				:global(.tc-list-item-definition-description) {
+					padding: 0 $padding-normal;
+					width: $description-width + 2 * ($padding-normal);
+				}
+			}
+		}
+
+		:global(.tc-actions) {
+			right: $padding-normal;
+		}
+	}
+}
+
+.large {
+	:global(.tc-list-item) {
+		margin-bottom: 20px;
+
+		:global(.tc-actions) {
+			right: 30px;
+		}
+
+		:global(.tc-list-item-definition-list) {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			height: 65px;
+			width: $definition-width;
+
+			:global(.tc-list-item-definition-item) {
+				max-height: 30px;
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+.tile {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	:global(.tc-list-item) {
+		height: 250px;
+		margin: 0 25px 25px 0;
+		width: 250px;
+
+		:global(.tc-list-item-title) {
+			:global(.btn-link) {
+				max-width: $definition-width;
+			}
+		}
+
+		:global(.tc-actions) {
+			display: block;
+			max-width: 25px;
+			right: $padding-normal;
+
+			:global(button) {
+				display: block;
+			}
+		}
+
+		:global(.tc-list-item-definition-list) {
+			width: $definition-width;
+		}
+	}
+}

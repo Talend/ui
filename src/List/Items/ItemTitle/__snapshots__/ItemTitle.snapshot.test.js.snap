@@ -1,16 +1,13 @@
 exports[`ItemTitle should render button title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className="tc-list-item-title">
   <button
     className="my-title btn btn-link"
     disabled={false}
     id="title"
     onClick={[Function]}
     role="link"
+    title="Hello world"
     type="button">
     Hello world
   </button>
@@ -19,11 +16,7 @@ exports[`ItemTitle should render button title 1`] = `
 
 exports[`ItemTitle should render icon 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className="tc-list-item-title">
   <i
     aria-hidden="true"
     className="fa fa-file-excel-o tc-list-icon"
@@ -38,26 +31,20 @@ exports[`ItemTitle should render icon 1`] = `
 
 exports[`ItemTitle should render input title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className="tc-list-item-title">
   <input
     autoFocus={true}
     id="title"
     onBlur={[Function]}
-    onKeyUp={[Function]} />
+    onKeyUp={[Function]}
+    type="text"
+    value="Hello world" />
 </div>
 `;
 
 exports[`ItemTitle should render text title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className="tc-list-item-title">
   <span
     className="my-title"
     id="title">
