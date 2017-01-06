@@ -1,8 +1,9 @@
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 
-@mixin typeCol($width: 100%) {
+@mixin type-col($width: 100%) {
 	flex-basis: $width;
+
 	:global(.label) {
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -10,7 +11,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	}
 }
 
-@mixin colStyle() {
+@mixin col-style {
 	display: flex;
 	flex-shrink: 1;
 	flex-grow: 0;
@@ -19,31 +20,31 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	overflow: hidden;
 
 	&.col-5 {
-		@include typeCol(20%);
+		@include type-col(20%);
 	}
 
 	&.col-6 {
-		@include typeCol(calc(100%/6));
+		@include type-col(calc(100%/6));
 	}
 
 	&.col-7 {
-		@include typeCol(calc(100%/7));
+		@include type-col(calc(100%/7));
 	}
 
 	&.col-8 {
-		@include typeCol(calc(100%/8));
+		@include type-col(calc(100%/8));
 	}
 
 	&.col-9 {
-		@include typeCol(calc(100%/9));
+		@include type-col(calc(100%/9));
 	}
 
 	&.col-10 {
-		@include typeCol(calc(10%));
+		@include type-col(calc(10%));
 	}
 }
 
-@mixin actionsStyle() {
+@mixin actions-style {
 	.tc-panel-action {
 		visibility: hidden;
 	}
@@ -55,29 +56,29 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	}
 }
 
-@mixin headerStyle() {
+@mixin header-style {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding-right: $tc-collapsible-panel-padding-larger;
 
 	& > * {
-		@include colStyle();
+		@include col-style;
 	}
 }
 
 .tc-panel {
-	@include actionsStyle();
+	@include actions-style;
 	font-size: 1.3em;
 
 	:global(.panel-heading) {
-		@include headerStyle();
+		@include header-style;
 		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
 	}
 }
 
 .tc-collapsible-panel {
-	@include actionsStyle();
+	@include actions-style;
 	position: relative;
 
 	&-caret-down {
@@ -94,10 +95,10 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		font-size: 1em;
 
 		a {
-			@include headerStyle();
+			@include header-style;
 			text-decoration: none;
 
-			&[aria-expanded="true"] .tc-collapsible-panel-caret-down {
+			&[aria-expanded='true'] .tc-collapsible-panel-caret-down {
 				transform: rotate(180deg);
 			}
 		}
