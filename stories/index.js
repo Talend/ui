@@ -1,5 +1,6 @@
 import './Action';
 import './ActionBar';
+import './Badge';
 import './ActionDropdown';
 import './ActionSplitDropdown';
 import './Actions';
