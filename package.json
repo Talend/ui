@@ -42,7 +42,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "react-jsonschema-form": "^0.41.1"
+    "react-jsonschema-form": "^0.41.2"
   },
   "peerDependencies": {
     "react": "^15.4.0",
@@ -63,7 +63,7 @@
   },
   "jest": {
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     }
   }
 }

@@ -2,6 +2,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
+// FIXME: Temporary fix only on tests while the issue
+// described on the following pull request isn't fixed.
+// https://github.com/mozilla-services/react-jsonschema-form/pull/387
+// eslint-disable-next-line no-unused-vars
+import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
+
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
@@ -38,21 +44,23 @@ describe('<Form/>', () => {
 	const onChange = jest.fn();
 
 	beforeEach(() => {
-		wrapper = mount(<Form data={data}
-		                      onChange={onChange}
-		                      onSubmit={onSubmit}/>);
+		wrapper = mount(<Form
+			data={data}
+			onChange={onChange}
+			onSubmit={onSubmit}
+		/>);
 	});
 
 	it('Renders the <Input/> component', () => {
-		expect(wrapper.containsMatchingElement(<Input/>)).toBeTruthy();
+		expect(wrapper.containsMatchingElement(<Input />)).toBeTruthy();
 	});
 
 	it('Renders the <Checkbox/> component', () => {
-		expect(wrapper.containsMatchingElement(<Checkbox/>)).toBeTruthy();
+		expect(wrapper.containsMatchingElement(<Checkbox />)).toBeTruthy();
 	});
 
 	it('Renders the <Select/> component', () => {
-		expect(wrapper.containsMatchingElement(<Select/>)).toBeTruthy();
+		expect(wrapper.containsMatchingElement(<Select />)).toBeTruthy();
 	});
 
 	// TODO: Follow what's happening on https://github.com/airbnb/enzyme/issues/364
