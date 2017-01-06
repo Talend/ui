@@ -6,6 +6,7 @@ import Items from './Items.component';
 jest.mock('react-dom');
 
 const columns = [
+	{ key: 'name', label: 'Name', type: 'title' },
 	{ key: 'author', label: 'Author' },
 	{ key: 'created', label: 'Created' },
 	{ key: 'modified', label: 'Modified' },

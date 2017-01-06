@@ -3,28 +3,12 @@ import renderer from 'react-test-renderer';
 
 import ItemTitle from './ItemTitle.component';
 
-const item = {
-	id: 1,
-	name: 'Hello world',
-	created: '2016-09-22',
-	modified: '2016-09-22',
-	author: 'Jean-Pierre DUPONT',
-	icon: 'fa fa-file-excel-o',
-	displayMode: 'input',
-};
-
 describe('ItemTitle', () => {
 	it('should render text title', () => {
 		// given
 		const props = {
 			id: 'title',
-			className: 'my-title',
-			item,
-			titleProps: {
-				key: 'name',
-				displayModeKey: undefined, // no display mode in item
-				onClick: undefined, // no click callback
-			},
+			value: 'Hello world',
 		};
 
 		// when
@@ -38,13 +22,9 @@ describe('ItemTitle', () => {
 		// given
 		const props = {
 			id: 'title',
-			className: 'my-title',
-			item,
-			titleProps: {
-				key: 'name',
-				displayModeKey: undefined, // no display mode in item
-				onClick: jest.fn(), // provided click callback
-			},
+			value: 'Hello world',
+			display: 'button',
+			onClick: jest.fn(),
 		};
 
 		// when
@@ -58,23 +38,15 @@ describe('ItemTitle', () => {
 		// given
 		const props = {
 			id: 'title',
-			className: 'my-title',
-			item,
-			titleProps: {
-				key: 'name',
-				displayModeKey: 'displayMode', // item.displayMode is the provided display mode
-			},
+			value: 'Hello world',
+			display: 'input',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			onCancel: jest.fn(),
 		};
-		function createNodeMock(element) {
-			if (element.type === 'input') {
-				return {};
-			}
-			return null;
-		}
-		const rendererOptions = { createNodeMock };
 
 		// when
-		const wrapper = renderer.create(<ItemTitle {...props} />, rendererOptions).toJSON();
+		const wrapper = renderer.create(<ItemTitle {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

@@ -12,11 +12,10 @@ function Items(props) {
 		columns,
 		items,
 		itemProps,
-		titleProps,
 	} = props;
 	const itemsClasses = classNames(theme['tc-list-items'], 'tc-list-items', theme[displayMode], displayMode);
 	const iconColumn = columns.find(column => column.type === 'icon');
-	const titleColumn = columns.find(column => column.key === titleProps.key);
+	const titleColumn = columns.find(column => column.type === 'title');
 	const textColumns = columns.filter(column => !column.type || column.type === 'text');
 	return (
 		<div>
@@ -35,7 +34,6 @@ function Items(props) {
 							columns={columns}
 							item={item}
 							itemProps={itemProps}
-							titleProps={titleProps}
 						/>
 					</li>
 				))}
@@ -50,7 +48,6 @@ Items.propTypes = {
 	columns: React.PropTypes.arrayOf(Column.propTypes).isRequired,
 	items: React.PropTypes.arrayOf(React.PropTypes.object),
 	itemProps: Item.propTypes.itemProps,
-	titleProps: Item.propTypes.titleProps,
 };
 
 Items.defaultProps = {

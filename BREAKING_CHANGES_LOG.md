@@ -3,6 +3,22 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.46.0
+* Component: List
+* PR: [feat(List): refactor ItemTitle component](https://github.com/Talend/react-talend-components/pull/214)
+* Changes
+
+| Old Props | New props |
+|---|---|
+| props.titleProps | ~~deleted~~ |
+| - | props.items[i].display |
+| props.itemProps.onToggle | props.itemProps.onOpen |
+| props.titleProps.onClick | props.itemProps.onOpen |
+| props.titleProps.onEditCancel | props.itemProps.onCancel |
+| props.titleProps.onEditChange | props.itemProps.onChange |
+| props.titleProps.onEditSubmit | props.itemProps.onSubmit |
+| props.sizeOptions | props.itemsPerPageOptions |
+
 ## v0.39.0
 * Component: List > Toolbar > Pagination
 * PR: [feat(Pagination): refactor pagination in accordance with RFC 7644](https://github.com/Talend/react-talend-components/pull/174)

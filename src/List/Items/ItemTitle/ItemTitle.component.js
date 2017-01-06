@@ -1,24 +1,28 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 
 const TITLE_MODE_TEXT = 'text';
 const TITLE_MODE_INPUT = 'input';
+const TITLE_MODE_BUTTON = 'button';
 
 const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
-function renderButton({ id, value, className, item, onClick }) {
-	const click = (event) => {
-		event.stopPropagation();
-		onClick(event, item);
-	};
+function TitleText({ id, value }) {
+	return (<span id={id}>{value}</span>);
+}
 
+TitleText.propTypes = {
+	id: React.PropTypes.string,
+	value: React.PropTypes.string.isRequired,
+};
+
+function TitleButton({ id, value, onClick }) {
 	return (
 		<Button
 			id={id}
-			className={className}
 			title={value}
-			onClick={click}
+			onClick={onClick}
 			role="link"
 			bsStyle="link"
 		>
@@ -26,145 +30,101 @@ function renderButton({ id, value, className, item, onClick }) {
 		</Button>
 	);
 }
-renderButton.propTypes = {
-	id: PropTypes.string,
-	value: PropTypes.string,
-	className: PropTypes.string,
-	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	onClick: PropTypes.func,
+
+TitleButton.propTypes = {
+	id: React.PropTypes.string,
+	value: React.PropTypes.string.isRequired,
+	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderText({ id, value, className }) {
-	return (<span id={id} className={className}>{value}</span>);
-}
-renderText.propTypes = {
-	id: PropTypes.string,
-	value: PropTypes.string,
-	className: PropTypes.string,
-};
-
-class TitleInput extends React.Component {
-	constructor(props) {
-		super(props);
-		this.onKeyUp = this.onKeyUp.bind(this);
-		this.submit = this.submit.bind(this);
-	}
-
-	componentDidMount() {
-		this.titleInput.value = this.props.value;
-	}
-
-	onKeyUp(event) {
+function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
+	const onKeyUp = (event) => {
 		switch (event.keyCode) {
 		case ESC_KEY:
-			this.cancel(event);
+			onCancel(event);
 			break;
 		case ENTER_KEY:
-			this.submit(event);
+			onSubmit(event);
 			break;
 		default:
 			break;
 		}
-	}
-
-	cancel(event) {
-		return this.props.onEditCancel(event, this.props.item);
-	}
-
-	submit(event) {
-		return this.props.onEditSubmit(event, {
-			value: event.target.value,
-			model: this.props.item,
-		});
-	}
-
-	render() {
-		return (<input
+	};
+	return (
+		<input
 			type="text"
-			id={this.props.id}
-			value={this.props.value}
-			ref={(input) => { this.titleInput = input; }}
-			onChange={event => this.props.onEditChange(event, {
-				value: event.target.value,
-				model: this.props.item,
-			})}
-			onKeyUp={this.onKeyUp}
-			onBlur={this.submit}
+			id={id}
+			value={value}
+			onChange={onChange}
+			onKeyUp={onKeyUp}
+			onBlur={onSubmit}
 			autoFocus
-		/>);
-	}
+		/>
+	);
 }
+
 TitleInput.propTypes = {
-	id: PropTypes.string,
-	value: PropTypes.string,
-	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	onEditSubmit: PropTypes.func,
-	onEditChange: PropTypes.func,
-	onEditCancel: PropTypes.func,
+	id: React.PropTypes.string,
+	value: React.PropTypes.string.isRequired,
+	onChange: React.PropTypes.func.isRequired,
+	onSubmit: React.PropTypes.func.isRequired,
+	onCancel: React.PropTypes.func.isRequired,
 };
 
 /**
  * Item title component
- * @param {string} id the ID of the title
- * @param {string} className the title class name
- * @param {object} item the item from list
- * @param {object} titleProps title configuration props
+ * @param {object} props item title configuration props
  * @example
 const props = {
-	className: 'my-title',
-	item: item,
-	titleProps: {
-		key: 'name',                        // item.name is the title value
-		iconKey: 'icon',                    // item.icon is the icon
-		displayModeKey: 'display',          // item.display ('text' | 'input') set the display mode
-		onClick: (event, item) => {},       // title click callback
-		onEditSubmit: (event, item) => {},    // input mode validation callback
-		onEditCancel: (event, item) => {},      // input mode cancellation callback
+	id: 'my-title',
+	value: 'My Title',
+	display: 'text',              // 'text' | 'button' | 'input'
+	onClick: (event) => {},       // button mode click callback
+	onChange: (event) => {},      // input mode change callback
+	onSubmit: (event) => {},      // input mode validation callback
+	onCancel: (event) => {},      // input mode cancellation callback
 	}
 }
 <ItemTitle {...props} />
  */
-function ItemTitle({ id, className, item, titleProps }) {
-	const {
-		key,
-		displayModeKey,
-		onClick,
-		onEditSubmit,
-		onEditChange,
-		onEditCancel,
-	} = titleProps;
-	const value = item[key];
-	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
-
-	let titleElement = null;
-	if (displayMode === TITLE_MODE_TEXT) {
-		titleElement = onClick ?
-			renderButton({ id, value, className, item, onClick }) :
-			renderText({ id, value, className });
-	} else if (displayMode === TITLE_MODE_INPUT) {
-		const props = { id, value, item, onEditSubmit, onEditChange, onEditCancel };
-		titleElement = <TitleInput {...props} />;
-	}
+function ItemTitle(props) {
+	const { display, ...rest } = props;
+	const getTitleElement = () => {
+		switch (display) {
+		case TITLE_MODE_TEXT:
+			return <TitleText {...rest} />;
+		case TITLE_MODE_BUTTON:
+			return <TitleButton {...rest} />;
+		case TITLE_MODE_INPUT:
+			return <TitleInput {...rest} />;
+		default:
+			return null;
+		}
+	};
 
 	return (
 		<div className="tc-list-item-title">
-			{titleElement}
+			{getTitleElement()}
 		</div>
 	);
 }
 
 ItemTitle.propTypes = {
-	id: PropTypes.string,
-	className: PropTypes.string,
-	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	titleProps: PropTypes.shape({
-		key: PropTypes.string,
-		displayModeKey: PropTypes.string,
-		onClick: PropTypes.func,
-		onEditSubmit: PropTypes.func,
-		onEditChange: PropTypes.func,
-		onEditCancel: PropTypes.func,
-	}).isRequired,
+	id: React.PropTypes.string,
+	value: React.PropTypes.string.isRequired,
+	display: React.PropTypes.oneOf([
+		TITLE_MODE_TEXT,
+		TITLE_MODE_BUTTON,
+		TITLE_MODE_INPUT,
+	]),
+	onClick: React.PropTypes.func,
+	onChange: React.PropTypes.func,
+	onSubmit: React.PropTypes.func,
+	onCancel: React.PropTypes.func,
+};
+
+ItemTitle.defaultProps = {
+	display: TITLE_MODE_TEXT,
 };
 
 export default ItemTitle;

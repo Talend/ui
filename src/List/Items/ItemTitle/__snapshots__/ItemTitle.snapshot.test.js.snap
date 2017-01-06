@@ -2,7 +2,7 @@ exports[`ItemTitle should render button title 1`] = `
 <div
   className="tc-list-item-title">
   <button
-    className="my-title btn btn-link"
+    className="btn btn-link"
     disabled={false}
     id="title"
     onClick={[Function]}
@@ -32,7 +32,6 @@ exports[`ItemTitle should render text title 1`] = `
 <div
   className="tc-list-item-title">
   <span
-    className="my-title"
     id="title">
     Hello world
   </span>

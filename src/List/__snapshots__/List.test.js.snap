@@ -19,20 +19,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -71,20 +60,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -123,20 +101,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -589,20 +556,9 @@ exports[`List should render 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -641,20 +597,9 @@ exports[`List should render 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -693,20 +638,9 @@ exports[`List should render 1`] = `
         <div
           className="tc-list-item"
           id={undefined}
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id={undefined}
@@ -1159,20 +1093,9 @@ exports[`List should render id if provided 1`] = `
         <div
           className="tc-list-item"
           id="context-0"
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="context-0-title"
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id="context-0-check"
@@ -1211,20 +1134,9 @@ exports[`List should render id if provided 1`] = `
         <div
           className="tc-list-item"
           id="context-1"
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="context-1-title"
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id="context-1-check"
@@ -1263,20 +1175,9 @@ exports[`List should render id if provided 1`] = `
         <div
           className="tc-list-item"
           id="context-2"
-          onClick={undefined}
+          onClick={[Function]}
           onDoubleClick={[Function]}
           role="button">
-          <div
-            className="tc-list-item-title">
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="context-2-title"
-              onClick={[Function]}
-              role="link"
-              title={undefined}
-              type="button" />
-          </div>
           <input
             checked={false}
             id="context-2-check"

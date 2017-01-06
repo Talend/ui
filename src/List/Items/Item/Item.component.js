@@ -15,25 +15,57 @@ function getDefinitionItem(column, value, index) {
 	);
 }
 
-function Item({ id, columns, item, itemProps, titleProps }) {
-	const { classNameKey, onSelect, onToggle, isSelected } = itemProps;
-	const onItemOpen = titleProps.onClick && (event => titleProps.onClick(event, item));
+function Item({ id, columns, item, itemProps }) {
+	const { classNameKey, onSelect, onOpen, isSelected, onChange, onSubmit, onCancel } = itemProps;
+	const onItemOpen = onOpen && ((event) => {
+		event.stopPropagation();
+		onOpen(event, item);
+	});
 	const onItemSelect = onSelect && (event => onSelect(event, item));
+	const onTitleChange = onChange && ((event) => {
+		onChange(event, {
+			value: event.target.value,
+			model: item,
+		});
+	});
+	const onTitleSubmit = onSubmit && ((event) => {
+		onSubmit(event, {
+			value: event.target.value,
+			model: item,
+		});
+	});
+	const onTitleCancel = onCancel && ((event) => {
+		onCancel(event, item);
+	});
 
 	const iconColumn = columns.find(column => column.type === 'icon');
-	const getIcon = iconKey => (item[iconKey] ? (
+	const getIcon = () => (item[iconColumn.key] ? (
 		<div className="tc-list-item-icon">
-			<Icon name={item[iconKey]} />
+			<Icon name={item[iconColumn.key]} />
 		</div>
 	) : (
 		<div className="tc-list-item-icon" />
 	));
 
-	const checkbox = (onToggle && isSelected) &&
+	const titleColumn = columns.find(column => column.type === 'title');
+	const getTitle = () => {
+		const titleProperties = {
+			id: id && `${id}-title`,
+			value: item[titleColumn.key],
+			display: item.display,
+			onClick: onItemOpen,
+			onChange: onTitleChange,
+			onSubmit: onTitleSubmit,
+			onCancel: onTitleCancel,
+		};
+		return <ItemTitle {...titleProperties} />;
+	};
+
+	const checkbox = (onSelect && isSelected) &&
 		(<input
 			id={id && `${id}-check`}
 			type="checkbox"
-			onChange={(e) => { onToggle(e, item); }}
+			onChange={onItemSelect}
 			checked={isSelected(item)}
 		/>);
 
@@ -47,23 +79,19 @@ function Item({ id, columns, item, itemProps, titleProps }) {
 
 	const customClass = classNameKey && item[classNameKey];
 	const selectedClass = isSelected && isSelected(item) && (itemProps.selectedClass || 'active');
-	const tileClasses = classNames('tc-list-item', customClass, selectedClass);
+	const itemClasses = classNames('tc-list-item', customClass, selectedClass);
 
 	const textColumns = columns.filter(column => !column.type || column.type === 'text');
 	return (
 		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			id={id}
 			role="button"
-			className={tileClasses}
+			className={itemClasses}
 			onClick={onItemSelect}
 			onDoubleClick={onItemOpen}
 		>
-			{iconColumn && getIcon(iconColumn.key)}
-			<ItemTitle
-				id={id && `${id}-title`}
-				item={item}
-				titleProps={titleProps}
-			/>
+			{iconColumn && getIcon()}
+			{titleColumn && getTitle()}
 			{checkbox}
 			{actions}
 			<div className="tc-list-item-definition-list">
@@ -77,6 +105,7 @@ Item.propTypes = {
 	id: React.PropTypes.string,
 	columns: React.PropTypes.arrayOf(Column.propTypes).isRequired,
 	item: React.PropTypes.shape({
+		display: React.PropTypes.string,
 		actions: Actions.propTypes.actions,
 	}).isRequired,
 	itemProps: React.PropTypes.shape({
@@ -84,15 +113,15 @@ Item.propTypes = {
 		selectedClass: React.PropTypes.string,
 		isSelected: React.PropTypes.func,
 		onSelect: React.PropTypes.func,
-		onToggle: React.PropTypes.func,
-		onToggleAll: React.PropTypes.func,
+		onOpen: React.PropTypes.func,
+		onChange: React.PropTypes.func,
+		onSubmit: React.PropTypes.func,
+		onCancel: React.PropTypes.func,
 	}),
-	titleProps: ItemTitle.propTypes.titleProps,
 };
 
 Item.defaultProps = {
 	itemProps: {},
-	titleProps: { key: 'name' },
 };
 
 export default Item;

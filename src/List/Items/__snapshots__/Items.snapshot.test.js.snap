@@ -5,6 +5,10 @@ exports[`Items should render 1`] = `
     <li
       className="tc-list-header">
       <div
+        className="tc-list-header-item tc-list-header-title">
+        Name
+      </div>
+      <div
         className="tc-list-header-item tc-list-header-text">
         Author
       </div>
@@ -27,7 +31,6 @@ exports[`Items should render 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Hello world
           </span>
@@ -118,7 +121,6 @@ exports[`Items should render 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Foo
           </span>
@@ -174,7 +176,6 @@ exports[`Items should render 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Bar
           </span>
@@ -231,6 +232,10 @@ exports[`Items should render with display mode if provided 1`] = `
     <li
       className="tc-list-header">
       <div
+        className="tc-list-header-item tc-list-header-title">
+        Name
+      </div>
+      <div
         className="tc-list-header-item tc-list-header-text">
         Author
       </div>
@@ -253,7 +258,6 @@ exports[`Items should render with display mode if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Hello world
           </span>
@@ -344,7 +348,6 @@ exports[`Items should render with display mode if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Foo
           </span>
@@ -400,7 +403,6 @@ exports[`Items should render with display mode if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id={undefined}>
             Bar
           </span>
@@ -457,6 +459,10 @@ exports[`Items should render with id if provided 1`] = `
     <li
       className="tc-list-header">
       <div
+        className="tc-list-header-item tc-list-header-title">
+        Name
+      </div>
+      <div
         className="tc-list-header-item tc-list-header-text">
         Author
       </div>
@@ -479,7 +485,6 @@ exports[`Items should render with id if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id="list-items-0-title">
             Hello world
           </span>
@@ -570,7 +575,6 @@ exports[`Items should render with id if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id="list-items-1-title">
             Foo
           </span>
@@ -626,7 +630,6 @@ exports[`Items should render with id if provided 1`] = `
         <div
           className="tc-list-item-title">
           <span
-            className={undefined}
             id="list-items-2-title">
             Bar
           </span>
