@@ -16,14 +16,23 @@ $tc-side-panel-docked-spacing: 15px !default;
 	padding: 0 $padding-large;
 	transition: 0.2s padding ease-out;
 
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: 1.4em;
+		height: 1.4em;
+	}
+
 	.action-list {
 		margin: 0 (-$padding-large);
 		transition: 0.2s margin ease-out;
+
+		:global(.tc-side-panel-list-item):first-child {
+			height: 1.5 * (2 * $padding-base-vertical + 1.4 * $font-size-base);
+		}
 	}
 
 	.link {
 		text-align: left;
-		font-size: 1.2em;
+		font-size: 1em;
 		text-transform: uppercase;
 
 		i + span,
@@ -41,8 +50,8 @@ $tc-side-panel-docked-spacing: 15px !default;
 		padding: 12px 90px 12px $padding-large;
 	}
 
-	:global(.btn-link):hover {
-		background-color: darken($brand-primary, 12%);
+	:global(.tc-side-panel-list-item):hover {
+		background-color: darken($brand-primary, 2%);
 	}
 
 	&.docked {
