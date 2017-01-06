@@ -4,8 +4,11 @@ const NATIVE_PROPS = [
 ];
 
 function extractComponentProps(Component, props) {
+	if (!Component) {
+		return {};
+	}
 	const extractedProps = {};
-	Object.keys(Component.propTypes).forEach((propName) => {
+	Object.keys(Component.propTypes || {}).forEach((propName) => {
 		if (props[propName] !== undefined) {
 			extractedProps[propName] = props[propName];
 		}
@@ -24,6 +27,9 @@ function extractNativeProps(props) {
 }
 
 export default function getPropsFrom(Component, props) {
+	if (!Component) {
+		return {};
+	}
 	return {
 		...extractNativeProps(props),
 		...extractComponentProps(Component, props),

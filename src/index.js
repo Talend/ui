@@ -74,6 +74,7 @@ import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
+import Dialog from './Dialog';
 import Drawer from './Drawer';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -96,6 +97,7 @@ export {
 	Breadcrumbs,
 	CircularProgress,
 	CollapsiblePanel,
+	Dialog,
 	ConfirmDialog,
 	Drawer,
 	TreeView,
