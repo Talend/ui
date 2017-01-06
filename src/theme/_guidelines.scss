@@ -37,22 +37,6 @@ $btn-box-shadow-width: 3px !default;
 /// @type Number (Unitless)
 $btn-background-tint-percent: 10 !default;
 
-/// Extra small button svg size
-/// @type Number (Unitless)
-$btn-xs-svg-size: 0.8rem !default;
-
-/// Small button svg size
-/// @type Number (Unitless)
-$btn-sm-svg-size: 1.2rem !default;
-
-/// Default button svg size
-/// @type Number (Unitless)
-$btn-md-svg-size: 1.6rem !default;
-
-/// Large button svg size
-/// @type Number (Unitless)
-$btn-lg-svg-size: 2.5rem !default;
-
 /// Dropdown caret size
 /// @type Number (Unit)
 $dropdown-caret-size: $caret-width-large !default;
@@ -92,3 +76,19 @@ $navbar-search-btn-color: #000 !default;
 /// Navbar search btn width
 /// @type Number (Unit)
 $navbar-search-btn-width: 40px !default;
+
+/// Extra small button svg size
+/// @type Number (Unitless)
+$svg-xs-size: 0.8rem !default;
+
+/// Small button svg size
+/// @type Number (Unitless)
+$svg-sm-size: 1.2rem !default;
+
+/// Default button svg size
+/// @type Number (Unitless)
+$svg-md-size: 2rem !default;
+
+/// Large button svg size
+/// @type Number (Unitless)
+$svg-lg-size: 2.5rem !default;
