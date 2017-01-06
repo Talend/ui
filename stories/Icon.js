@@ -56,4 +56,19 @@ storiesOf('Icon', module)
 				<li><Icon name="talend-add" /> : <strong>talend-add</strong></li>
 			</ul>
 		</div>
+	))
+	.addWithInfo('svg transform', () => (
+		<div>
+			<IconsProvider />
+			<p>Here we are changing the icon talend-apache</p>
+			<ul>
+				<li><Icon name="talend-apache" /></li>
+				<li><Icon name="talend-apache" transform="spin" /> : <strong>spin</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong></li>
+				<li><Icon name="talend-apache" transform="flip-horizontal" /> : <strong>flip-horizontal</strong></li>
+				<li><Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong></li>
+			</ul>
+		</div>
 	));

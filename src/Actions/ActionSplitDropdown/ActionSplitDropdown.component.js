@@ -43,7 +43,7 @@ function ActionSplitDropdown(props) {
 
 	const Title = (
 		<span>
-			{icon && <Icon name={icon} />}
+			{icon ? <Icon name={icon} /> : null}
 			<span>{label}</span>
 		</span>
 	);

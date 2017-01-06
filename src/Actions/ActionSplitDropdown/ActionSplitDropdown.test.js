@@ -3,7 +3,9 @@ import renderer from 'react-test-renderer';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
-jest.mock('react-dom');
+jest.mock('../../Icon', () => (
+	props => (<i name={props.name} />)
+));
 
 const items = [
 	{

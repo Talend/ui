@@ -53,7 +53,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -62,14 +62,16 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -77,7 +79,8 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
@@ -197,7 +200,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -206,14 +209,16 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -221,7 +226,8 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
@@ -344,7 +350,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -353,14 +359,16 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -368,7 +376,8 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
@@ -493,7 +502,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -502,14 +511,16 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -517,7 +528,8 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
@@ -642,7 +654,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -651,14 +663,16 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -666,7 +680,8 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
@@ -794,7 +809,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
+            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
             	var accessibility = {
             		'aria-hidden': 'true',
             		title: title || null };
@@ -803,14 +818,16 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
             		var classes = /* istanbul ignore next */(0, _classnames2.default)(
             		'fa',
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
             	}
             	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
             		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
             		name,
-            		className);
+            		className,
+            		transform && FA_TRANSFORMS[transform]);
             
             		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
             	}
@@ -818,7 +835,8 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
             		var classname = /* istanbul ignore next */(0, _classnames2.default)(
             		/* istanbul ignore next */_Icon2.default['svg-icon'],
             		'tc-svg-icon',
-            		className);
+            		className,
+            		SVG_TRANSFORMS[transform]);
             
             		return (
             			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),

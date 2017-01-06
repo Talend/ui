@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import invariant from 'invariant';
 import classnames from 'classnames';
 import theme from './Icon.scss';
+
+
+export const FA_TRANSFORMS = {
+	spin: 'fa-spin',
+	'rotate-90': 'fa-rotate-90',
+	'rotate-180': 'fa-rotate-180',
+	'rotate-270': 'fa-rotate-270',
+	'flip-horizontal': 'fa-flip-horizontal',
+	'flip-vertical': 'fa-flip-vertical',
+};
+
+export const SVG_TRANSFORMS = {
+	spin: theme.spin,
+	'rotate-90': theme['rotate-90'],
+	'rotate-180': theme['rotate-180'],
+	'rotate-270': theme['rotate-270'],
+	'flip-horizontal': theme['flip-horizontal'],
+	'flip-vertical': theme['flip-vertical'],
+};
+
+
+export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
+
 
 /**
  * SVG implementation is inspired by
@@ -10,7 +33,7 @@ import theme from './Icon.scss';
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title }) {
+function Icon({ className, name, title, transform }) {
 	const accessibility = {
 		'aria-hidden': 'true',
 		title: title || null,
@@ -20,6 +43,7 @@ function Icon({ className, name, title }) {
 			'fa',
 			name,
 			className,
+			transform && FA_TRANSFORMS[transform]
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
@@ -27,6 +51,7 @@ function Icon({ className, name, title }) {
 		const classes = classnames(
 			name,
 			className,
+			transform && FA_TRANSFORMS[transform]
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
@@ -35,6 +60,7 @@ function Icon({ className, name, title }) {
 			theme['svg-icon'],
 			'tc-svg-icon',
 			className,
+			SVG_TRANSFORMS[transform]
 		);
 		return (
 			<svg className={classname} {...accessibility}>
@@ -46,9 +72,10 @@ function Icon({ className, name, title }) {
 }
 
 Icon.propTypes = {
-	className: React.PropTypes.string,
-	name: React.PropTypes.string.isRequired,
-	title: React.PropTypes.string,
+	className: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	title: PropTypes.string,
+	transform: PropTypes.oneOf(TRANSFORMS),
 };
 
 export default Icon;

@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 
 import ActionBar from './ActionBar.component';
 
-jest.mock('react-dom');
-
 const primaryAction = {
 	label: 'Primary',
 	icon: 'fa fa-asterisk',

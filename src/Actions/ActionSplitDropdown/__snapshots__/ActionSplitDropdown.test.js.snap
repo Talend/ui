@@ -8,9 +8,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
     type="button">
     <span>
       <i
-        aria-hidden="true"
-        className="fa fa-plus"
-        title={null} />
+        name="fa fa-plus" />
       <span>
         Add File
       </span>
@@ -21,40 +19,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
     aria-haspopup={true}
     aria-label={
       <span>
-        <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
-        	var accessibility = {
-        		'aria-hidden': 'true',
-        		title: title || null };
-        
-        	if (name.startsWith('fa-')) {
-        		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-        		'fa',
-        		name,
-        		className);
-        
-        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-        	}
-        	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-        		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-        		name,
-        		className);
-        
-        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-        	}
-        	if (name) {
-        		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-        		/* istanbul ignore next */_Icon2.default['svg-icon'],
-        		'tc-svg-icon',
-        		className);
-        
-        		return (
-        			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-        				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-        
-        
-        	}
-        	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-        }
+        <function (props) /* istanbul ignore next */{return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */{ name: props.name }));}
           name="fa fa-plus" />
         <span>
           Add File
@@ -103,9 +68,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
     type="button">
     <span>
       <i
-        aria-hidden="true"
-        className="fa fa-plus"
-        title={null} />
+        name="fa fa-plus" />
       <span>
         Add File
       </span>
@@ -116,40 +79,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
     aria-haspopup={true}
     aria-label={
       <span>
-        <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title;
-        	var accessibility = {
-        		'aria-hidden': 'true',
-        		title: title || null };
-        
-        	if (name.startsWith('fa-')) {
-        		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-        		'fa',
-        		name,
-        		className);
-        
-        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-        	}
-        	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-        		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-        		name,
-        		className);
-        
-        		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-        	}
-        	if (name) {
-        		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-        		/* istanbul ignore next */_Icon2.default['svg-icon'],
-        		'tc-svg-icon',
-        		className);
-        
-        		return (
-        			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-        				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-        
-        
-        	}
-        	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-        }
+        <function (props) /* istanbul ignore next */{return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */{ name: props.name }));}
           name="fa fa-plus" />
         <span>
           Add File
