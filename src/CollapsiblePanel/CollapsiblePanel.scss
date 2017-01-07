@@ -62,7 +62,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	justify-content: space-between;
 	padding-right: $tc-collapsible-panel-padding-larger;
 
-	& > * {
+	> * {
 		@include col-style;
 	}
 }
@@ -84,6 +84,8 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	&-caret-down {
 		position: absolute;
 		right: $tc-collapsible-panel-padding-normal;
+		top: 0;
+		bottom: 0;
 	}
 
 	:global(.panel-heading) {
@@ -93,6 +95,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 
 	:global(.panel-title) {
 		font-size: 1em;
+		position: relative;
 
 		a {
 			@include header-style;
@@ -100,6 +103,10 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 
 			&[aria-expanded='true'] .tc-collapsible-panel-caret-down {
 				transform: rotate(180deg);
+			}
+
+			> * {
+				margin: auto $tc-collapsible-panel-padding-normal;
 			}
 		}
 	}
