@@ -1,0 +1,17 @@
+{
+  "baseurl": "http://localhost:6006/iframe.html?dataId=1",
+  "viewport": {
+    "height": 768,
+    "width": 1366
+  },
+  "stories": {
+    "App Header Bar": {
+      "default": [
+        {
+          "name": "appheaderbar-default",
+          "selector": "#appheaderbar-default"
+        }
+      ]
+    }
+  }
+}

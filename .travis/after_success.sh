@@ -19,6 +19,10 @@ if [ -n "$GITHUB_API_KEY" ]; then
         echo "✓ Push storybook-static/ content to gh-pages"
     else
         echo "Building PR #$TRAVIS_PULL_REQUEST from branch $TRAVIS_BRANCH"
+        echo "✓ Start storybook server"
+        nohup yarn start >/dev/null 2>&1 &
+
+
     fi
     cd "$TRAVIS_BUILD_DIR"
     curl -Lo travis_after_all.py https://git.io/travis_after_all
