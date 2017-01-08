@@ -10,12 +10,12 @@ import tv4 from 'tv4';
  * @param {Any} value the value to validate.
  * @return {Object} a tv4js result object.
  */
-const validate = function (form, value) {
+export function validate(form, value) {
   if (!form) {
     return { valid: true };
   };
 
-  var schema = form.schema;
+  let schema = form.schema;
   if (!schema) {
     return { valid: true };
   };
@@ -36,20 +36,18 @@ const validate = function (form, value) {
   // Version 4 of JSON Schema has the required property not on the
   // property itself but on the wrapping object. Since we like to test
   // only this property we wrap it in a fake object.
-  var wrap = { type: 'object', 'properties': {}};
-  var propName = form.key[form.key.length - 1];
+  let wrap = { type: 'object', 'properties': {}, required: undefined};
+  let propName = form.key[form.key.length - 1];
   wrap.properties[propName] = schema;
 
   if (form.required) {
     wrap.required = [ propName ];
   };
 
-  var valueWrap = {};
+  let valueWrap = {};
   if (!!value) {
     valueWrap[propName] = value;
   };
 
   return tv4.validateResult(valueWrap, wrap);
 };
-
-export { validate };

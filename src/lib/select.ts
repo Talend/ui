@@ -1,5 +1,4 @@
-
-import { parse } from './sfPath';
+import * as sfPath from './sf-path';
 
 const numRe = /^\d+$/;
 
@@ -19,27 +18,28 @@ const numRe = /^\d+$/;
   * @returns {Any|undefined} returns the value at the end of the projection path
   *                          or undefined if there is none.
   */
-const select = (projection, obj, valueToSet) => {
+export function select(projection, obj, valueToSet) {
   if (!obj) {
     obj = this;
-  }
-  //Support [] array syntax
-  var parts = typeof projection === 'string' ? parse(projection) : projection;
+  };
+
+  // Support [] array syntax
+  let parts = typeof projection === 'string' ? sfPath.parse(projection) : projection;
 
   if (typeof valueToSet !== 'undefined' && parts.length === 1) {
-    //special case, just setting one variable
+    // special case, just setting one variable
     obj[parts[0]] = valueToSet;
     return obj;
-  }
+  };
 
   if (typeof valueToSet !== 'undefined' &&
       typeof obj[parts[0]] === 'undefined') {
     // We need to look ahead to check if array is appropriate
     obj[parts[0]] = parts.length > 2 && numRe.test(parts[1]) ? [] : {};
-  }
+  };
 
-  var value = obj[parts[0]];
-  for (var i = 1; i < parts.length; i++) {
+  let value = obj[parts[0]];
+  for (let i = 1; i < parts.length; i++) {
     // Special case: We allow JSON Form syntax for arrays using empty brackets
     // These will of course not work here so we exit if they are found.
     if (parts[i] === '') {
@@ -47,13 +47,13 @@ const select = (projection, obj, valueToSet) => {
     }
     if (typeof valueToSet !== 'undefined') {
       if (i === parts.length - 1) {
-        //last step. Let's set the value
+        // last step. Let's set the value
         value[parts[i]] = valueToSet;
         return valueToSet;
       } else {
         // Make sure to create new objects on the way if they are not there.
         // We need to look ahead to check if array is appropriate
-        var tmp = value[parts[i]];
+        let tmp = value[parts[i]];
         if (typeof tmp === 'undefined' || tmp === null) {
           tmp = numRe.test(parts[i + 1]) ? [] : {};
           value[parts[i]] = tmp;
@@ -61,11 +61,9 @@ const select = (projection, obj, valueToSet) => {
         value = tmp;
       }
     } else if (value) {
-      //Just get nex value.
+      // Just get nex value.
       value = value[parts[i]];
     }
   }
   return value;
 }
-
-export { select };
