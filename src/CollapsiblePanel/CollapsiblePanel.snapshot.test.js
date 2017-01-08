@@ -46,6 +46,7 @@ const props = {
 			tooltipPlacement: 'top',
 		},
 		{
+			displayMode: 'badge',
 			label: 'XML',
 			bsStyle: 'default',
 			tooltipPlacement: 'top',

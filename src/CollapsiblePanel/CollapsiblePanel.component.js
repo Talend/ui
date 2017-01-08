@@ -10,6 +10,7 @@ import css from './CollapsiblePanel.scss';
 
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
+export const BADGE_ACTION = 'badge';
 
 const getActionHandler = (func, item) => (e) => {
 	e.stopPropagation();
@@ -39,9 +40,19 @@ function renderHeader({ header, caret }) {
 			return (
 				<div
 					key={index}
-					className={classNames(css['tc-panel-action'], css[headerColumnClass])}
+					className={classNames(css.action, css[headerColumnClass])}
 				>
 					<Action onClick={getActionHandler(onClick, headerItem)} {...restAction} />
+				</div>
+			);
+		}
+		case BADGE_ACTION: {
+			const { label, tooltipPlacement, ...rest } = headerItem;
+			return (
+				<div key={index} className={css[headerColumnClass]}>
+					<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+						<Label {...rest}>{label}</Label>
+					</TooltipTrigger>
 				</div>
 			);
 		}
@@ -50,7 +61,7 @@ function renderHeader({ header, caret }) {
 			return (
 				<div key={index} className={css[headerColumnClass]}>
 					<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-						<Label {...rest}>{label}</Label>
+						<span {...rest}>{label}</span>
 					</TooltipTrigger>
 				</div>
 			);
@@ -62,7 +73,7 @@ function renderHeader({ header, caret }) {
 		headerItems.push(
 			<Icon
 				key={header.length}
-				className={css['tc-collapsible-panel-caret-down']}
+				className={css.caret}
 				name={'talend-caret-down'}
 			/>
 		);
@@ -127,11 +138,11 @@ function CollapsiblePanel({ header, content }) {
 			<Panel className={css['tc-collapsible-panel']} collapsible header={headerItems}>
 				{content.map(
 					(item, index) => ((
-						<div key={index}>
-							<Label>{item.label}</Label>
-							<span className={css['tc-collapsible-panel-description']}>{item.description}</span>
+						<div key={index} className={css.content}>
+							<div className={css.label}><Label>{item.label}</Label></div>
+							<div className={css.description}>{item.description}</div>
 						</div>
-						)),
+						))
 					)}
 			</Panel>
 		);

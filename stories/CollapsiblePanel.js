@@ -57,6 +57,7 @@ const label2 = {
 
 
 const label3 = {
+	displayMode: 'badge',
 	label: 'XML',
 	bsStyle: 'info',
 	tooltipPlacement: 'top',

@@ -92,7 +92,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           className={undefined}>
           <span
             aria-describedby={42}
-            className="label label-default"
+            bsStyle="default"
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -105,7 +105,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           className={undefined}>
           <span
             aria-describedby={42}
-            className="label label-default"
+            bsStyle="default"
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -119,6 +119,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           <span
             aria-describedby={42}
             className="label label-default"
+            displayMode="badge"
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -145,15 +146,19 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
     role={undefined}>
     <div
       className="panel-body">
-      <div>
-        <span
-          className="label label-default">
-          Content
-        </span>
-        <span
+      <div
+        className={undefined}>
+        <div
+          className={undefined}>
+          <span
+            className="label label-default">
+            Content
+          </span>
+        </div>
+        <div
           className={undefined}>
           Description3
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -244,7 +249,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       className={undefined}>
       <span
         aria-describedby={42}
-        className="label label-default"
+        bsStyle="default"
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -257,7 +262,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       className={undefined}>
       <span
         aria-describedby={42}
-        className="label label-default"
+        bsStyle="default"
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -271,6 +276,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       <span
         aria-describedby={42}
         className="label label-default"
+        displayMode="badge"
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}

@@ -4,7 +4,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
 
-	:global(.label) {
+	:global(.label), span {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -45,12 +45,12 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 }
 
 @mixin actions-style {
-	.tc-panel-action {
+	.action {
 		visibility: hidden;
 	}
 
 	&:hover {
-		.tc-panel-action {
+		.action {
 			visibility: visible;
 		}
 	}
@@ -81,7 +81,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	@include actions-style;
 	position: relative;
 
-	&-caret-down {
+	.caret {
 		position: absolute;
 		right: $tc-collapsible-panel-padding-normal;
 		top: 0;
@@ -101,7 +101,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 			@include header-style;
 			text-decoration: none;
 
-			&[aria-expanded='true'] .tc-collapsible-panel-caret-down {
+			&[aria-expanded='true'] .caret {
 				transform: rotate(180deg);
 			}
 
@@ -116,8 +116,19 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		overflow: auto;
 		word-break: break-all;
 
-		.tc-collapsible-panel-description {
-			padding: $tc-collapsible-panel-padding-normal;
+		.content {
+			display: flex;
+			width: 100%;
+			.label {
+				flex-basis: 10%;
+				flex-shrink: 0;
+				flex-grow: 1;
+			}
+			.description {
+				flex-basis: 90%;
+				flex-shrink: 0;
+				flex-grow: 1;
+			}
 		}
 	}
 }
