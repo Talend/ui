@@ -3,9 +3,11 @@
 /// @group Custom widgets
 ////
 
+$tc-icon-size: $svg-md-size !default;
+
 .svg-icon {
-	width: 1em;
-	height: 1em;
+	width: $tc-icon-size;
+	height: $tc-icon-size;
 	fill: currentColor;
 }
 
