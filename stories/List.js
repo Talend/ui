@@ -17,9 +17,8 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'icon', label: '', type: 'icon' },
-			{ key: 'id', label: 'Id', type: 'text' },
-			{ key: 'name', label: 'Name', type: 'title' },
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
 			{ key: 'author', label: 'Author' },
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
@@ -59,7 +58,7 @@ const props = {
 					},
 				],
 				icon: 'fa fa-file-excel-o',
-				display: 'button',
+				display: 'text',
 				className: 'item-0-class',
 			},
 			{
@@ -77,19 +76,22 @@ const props = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				display: 'button',
 				author: 'Jean-Pierre DUPONT with super long name',
 			},
 		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
 		itemProps: {
 			classNameKey: 'className',
-			onSelect: action('onItemSelect'),
-			onOpen: action('onItemOpen'),
+			onSelect: action('onSelect'),
+			onToggle: action('onToggle'),
 			onToggleAll: action('onToggleAll'),
-			isSelected: item => selected.find(next => next.id === item.id),
-			onCancel: action('onTitleEditCancel'),
-			onChange: action('onTitleChange'),
-			onSubmit: action('onTitleEditSubmit'),
 		},
 	},
 	toolbar: {
@@ -157,54 +159,6 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
-	.add('large', () => {
-		const eprops = Object.assign({}, props);
-		eprops.displayMode = 'large';
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display the list in large mode</p>
-				<IconsProvider />
-				<List {...eprops} />
-			</div>
-		);
-	})
-	.add('tile', () => {
-		const tprops = Object.assign({}, props);
-		tprops.displayMode = 'tile';
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display the list in tile mode</p>
-				<IconsProvider />
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('table with selected items', () => {
-		const selectedItemsProps = Immutable.fromJS(props).toJS();
-		selectedItemsProps.toolbar.actionBar.selected = 1;
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'delete',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('delete'),
-				},
-			],
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Display a list by defining your.</p>
-				<h2>Examples</h2>
-				<IconsProvider />
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
 	.add('table with column actions', () => {
 		const columnActionsProps = Immutable.fromJS(props).toJS();
 		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
@@ -233,9 +187,35 @@ storiesOf('List', module)
 			<List {...columnActionsProps} />
 		</div>);
 	})
+	.add('table with selected items', () => {
+		const selectedItemsProps = Immutable.fromJS(props).toJS();
+		selectedItemsProps.toolbar.actionBar.selected = 1;
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'delete',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('delete'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		return (
+			<div>
+				<h1>List</h1>
+				<h2>Definition</h2>
+				<p>Display a list by defining your.</p>
+				<h2>Examples</h2>
+				<IconsProvider />
+				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
 	.add('table with custom selected class', () => {
 		const selectedClassProps = Immutable.fromJS(props).toJS();
 		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
 		return (
 			<div>
 				<h1>List</h1>
@@ -244,6 +224,30 @@ storiesOf('List', module)
 				<h2>Examples</h2>
 				<IconsProvider />
 				<List {...selectedClassProps} />
+			</div>
+		);
+	})
+	.add('large', () => {
+		const eprops = Object.assign({}, props);
+		eprops.displayMode = 'large';
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display the list in large mode</p>
+				<IconsProvider />
+				<List {...eprops} />
+			</div>
+		);
+	})
+	.add('tile', () => {
+		const tprops = Object.assign({}, props);
+		tprops.displayMode = 'tile';
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display the list in tile mode</p>
+				<IconsProvider />
+				<List {...tprops} />
 			</div>
 		);
 	})

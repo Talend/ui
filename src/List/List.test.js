@@ -18,8 +18,10 @@ const listProps = {
 	itemProps: {
 		isSelected: () => false,
 		onToggleAll: jest.fn(),
-		onSelect: jest.fn(),
-		onOpen: jest.fn(),
+		onToggle: jest.fn(),
+	},
+	titleProps: {
+		onClick: jest.fn(),
 	},
 };
 

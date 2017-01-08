@@ -3,6 +3,11 @@
 Before 1.0, `react-talend-components` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.46.1
+* Component: List
+* PR: [fix(List): revert list breaks](https://github.com/Talend/react-talend-components/pull/225)
+* Changes : revert breaking changes of 0.46.0
+
 ## v0.46.0
 * Component: List
 * PR: [feat(List): refactor ItemTitle component](https://github.com/Talend/react-talend-components/pull/214)
