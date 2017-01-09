@@ -46,19 +46,20 @@
     white-space: nowrap;
 
     &-with-icon {
-      margin-right: $padding-small + 8px;
+      margin-right: $padding-large;
     }
   }
 
   .tc-badge-delete-icon {
     position: absolute;
-    top: 1px;
-    right: 1px;
+    top: -1px;
+    right: 0;
     padding: 0;
     border: none;
     background: transparent;
     box-shadow: none;
     cursor: pointer;
+    line-height: inherit;
 
     svg {
       margin: 0;
