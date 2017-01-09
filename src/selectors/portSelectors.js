@@ -40,7 +40,7 @@ export const getPortsForNode = createSelector(
 export const getEmitterPorts = createSelector(
 	getPorts,
 	ports => (
-		ports.filter(port => port.data.get('type') === 'EMITTER')
+		ports.filter(port => port.graphicalAttributes.get('type') === 'EMITTER')
 	),
 );
 
@@ -52,7 +52,7 @@ export const getEmitterPorts = createSelector(
 export const getSinkPorts = createSelector(
 	getPorts,
 	ports => (
-		ports.filter(port => port.data.get('type') === 'SINK')
+		ports.filter(port => port.graphicalAttributes.get('type') === 'SINK')
 	),
 );
 

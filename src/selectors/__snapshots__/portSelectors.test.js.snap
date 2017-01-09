@@ -1,20 +1,20 @@
 exports[`getEmitterPorts return a map with port id2 1`] = `
 Object {
   "id2": Object {
-    "data": Object {
+    "data": undefined,
+    "graphicalAttributes": Object {
       "type": "EMITTER",
     },
-    "graphicalAttributes": undefined,
     "id": "id2",
     "nodeId": "nodeId1",
     "portType": undefined,
     "position": undefined,
   },
   "id4": Object {
-    "data": Object {
+    "data": undefined,
+    "graphicalAttributes": Object {
       "type": "EMITTER",
     },
-    "graphicalAttributes": undefined,
     "id": "id4",
     "nodeId": "nodeId2",
     "portType": undefined,
@@ -26,10 +26,10 @@ Object {
 exports[`getEmitterPortsForNode return a map with port id2 1`] = `
 Object {
   "id2": Object {
-    "data": Object {
+    "data": undefined,
+    "graphicalAttributes": Object {
       "type": "EMITTER",
     },
-    "graphicalAttributes": undefined,
     "id": "id2",
     "nodeId": "nodeId1",
     "portType": undefined,
@@ -41,20 +41,20 @@ Object {
 exports[`getSinkPorts return a map with port id1 & id3 1`] = `
 Object {
   "id1": Object {
-    "data": Object {
+    "data": undefined,
+    "graphicalAttributes": Object {
       "type": "SINK",
     },
-    "graphicalAttributes": undefined,
     "id": "id1",
     "nodeId": "nodeId1",
     "portType": undefined,
     "position": undefined,
   },
   "id3": Object {
-    "data": Object {
+    "data": undefined,
+    "graphicalAttributes": Object {
       "type": "SINK",
     },
-    "graphicalAttributes": undefined,
     "id": "id3",
     "nodeId": "nodeId2",
     "portType": undefined,
