@@ -32,11 +32,7 @@ exports[`DisplayTable should render column actions 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -140,11 +136,7 @@ exports[`DisplayTable should render column actions 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -173,11 +165,7 @@ exports[`DisplayTable should render column actions 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -233,11 +221,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-0-title">
@@ -298,11 +282,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-1-title">
@@ -330,11 +310,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-2-title">
@@ -389,11 +365,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-0-title">
@@ -454,11 +426,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-1-title">
@@ -486,11 +454,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-2-title">
@@ -545,11 +509,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -610,11 +570,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -642,11 +598,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id={undefined}>
@@ -698,11 +650,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
       id={undefined}>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o tc-list-icon"
@@ -771,11 +719,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
       id={undefined}>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o tc-list-icon"
@@ -811,11 +755,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
       id={undefined}>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <button
             className="btn btn-link"
             disabled={false}
@@ -877,11 +817,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-0-title">
@@ -942,11 +878,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-1-title">
@@ -974,11 +906,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-2-title">
@@ -1033,11 +961,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-0-title">
@@ -1098,11 +1022,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-1-title">
@@ -1130,11 +1050,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       </td>
       <td>
         <div
-          style={
-            Object {
-              "display": "inline",
-            }
-          }>
+          className={undefined}>
           <span
             className={undefined}
             id="table-list-2-title">

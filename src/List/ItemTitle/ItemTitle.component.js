@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
+import classNames from 'classnames';
 import Icon from '../../Icon';
+import theme from './ItemTitle.scss';
 
 const TITLE_MODE_TEXT = 'text';
 const TITLE_MODE_INPUT = 'input';
@@ -122,7 +124,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 	const value = item[key];
 	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
 	const iconName = iconKey && item[iconKey];
-	const icon = iconName ? <Icon className="tc-list-icon" name={iconName} /> : null;
+	const icon = iconName && <Icon className={classNames('tc-list-icon', theme.icon)} name={iconName} />;
 
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
@@ -134,9 +136,8 @@ function ItemTitle({ id, className, item, titleProps }) {
 		titleElement = <TitleInput {...props} />;
 	}
 
-	const style = { display: 'inline' };
 	return (
-		<div style={style}>
+		<div className={theme['item-title']}>
 			{icon}
 			{titleElement}
 		</div>

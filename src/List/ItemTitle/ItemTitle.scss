@@ -1,0 +1,13 @@
+// ItemTitle styles
+.item-title {
+	display: inline;
+
+	.icon {
+		vertical-align: middle;
+
+		+ input {
+			margin-left: $padding-normal;
+			width: auto;
+		}
+	}
+}

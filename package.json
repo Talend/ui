@@ -113,7 +113,7 @@
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.1",
     "react-bootstrap": "0",
-    "talend-icons": "0.10.0",
+    "talend-icons": "^0.13.1",
     "uuid": "^2.0.3"
   }
 }

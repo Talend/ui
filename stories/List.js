@@ -10,7 +10,7 @@ const selected = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
-		icon: 'fa fa-file-pdf-o',
+		icon: 'talend-file-json-o',
 	}];
 const props = {
 	id: 'talend',
@@ -57,7 +57,7 @@ const props = {
 						],
 					},
 				],
-				icon: 'fa fa-file-excel-o',
+				icon: 'talend-file-xls-o',
 				display: 'text',
 				className: 'item-0-class',
 			},
@@ -67,7 +67,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
-				icon: 'fa fa-file-pdf-o',
+				icon: 'talend-file-json-o',
 				display: 'input',
 				className: 'item-1-class',
 			},
@@ -108,7 +108,7 @@ const props = {
 					{
 						displayMode: 'splitDropdown',
 						label: 'Add File',
-						icon: 'fa fa-plus',
+						icon: 'talend-folder',
 						onClick: action('onAdd'),
 						items: [
 							{

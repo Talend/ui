@@ -7,11 +7,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-0-title">
@@ -108,11 +104,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-1-title">
@@ -176,11 +168,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-2-title">
@@ -250,11 +238,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-0-title">
@@ -351,11 +335,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-1-title">
@@ -419,11 +399,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-2-title">
@@ -493,11 +469,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id={undefined}>
@@ -594,11 +566,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id={undefined}>
@@ -662,11 +630,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id={undefined}>
@@ -736,11 +700,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o tc-list-icon"
@@ -845,11 +805,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <i
           aria-hidden="true"
           className="fa fa-file-pdf-o tc-list-icon"
@@ -921,11 +877,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <button
           className="btn btn-link"
           disabled={false}
@@ -999,11 +951,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-0-title">
@@ -1100,11 +1048,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-1-title">
@@ -1168,11 +1112,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-2-title">
@@ -1242,11 +1182,7 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-0-title">
@@ -1343,11 +1279,7 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-1-title">
@@ -1411,11 +1343,7 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
     <div
       className={undefined}>
       <div
-        style={
-          Object {
-            "display": "inline",
-          }
-        }>
+        className={undefined}>
         <span
           className={undefined}
           id="large-list-2-title">

@@ -1,10 +1,6 @@
 exports[`ItemTitle should render button title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className={undefined}>
   <button
     className="my-title btn btn-link"
     disabled={false}
@@ -19,11 +15,7 @@ exports[`ItemTitle should render button title 1`] = `
 
 exports[`ItemTitle should render icon 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className={undefined}>
   <i
     aria-hidden="true"
     className="fa fa-file-excel-o tc-list-icon"
@@ -38,11 +30,7 @@ exports[`ItemTitle should render icon 1`] = `
 
 exports[`ItemTitle should render input title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className={undefined}>
   <input
     autoFocus={true}
     id="title"
@@ -53,11 +41,7 @@ exports[`ItemTitle should render input title 1`] = `
 
 exports[`ItemTitle should render text title 1`] = `
 <div
-  style={
-    Object {
-      "display": "inline",
-    }
-  }>
+  className={undefined}>
   <span
     className="my-title"
     id="title">
