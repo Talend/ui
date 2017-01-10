@@ -77,7 +77,7 @@ exports[`Actions should render actions 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -91,7 +91,7 @@ exports[`Actions should render actions 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -184,7 +184,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -198,7 +198,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -299,7 +299,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -313,7 +313,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -414,7 +414,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -428,7 +428,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}

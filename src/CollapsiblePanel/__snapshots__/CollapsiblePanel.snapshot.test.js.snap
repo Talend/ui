@@ -11,6 +11,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
         aria-controls={undefined}
         aria-expanded={false}
         aria-selected={false}
+        className="collapsed"
         href={undefined}
         onClick={[Function]}
         role={undefined}>

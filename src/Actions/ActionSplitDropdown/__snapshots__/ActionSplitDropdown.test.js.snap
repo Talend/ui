@@ -19,7 +19,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
     aria-haspopup={true}
     aria-label={
       <span>
-        <function (props) /* istanbul ignore next */{return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */{ name: props.name }));}
+        <Unknown
           name="fa fa-plus" />
         <span>
           Add File
@@ -46,7 +46,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
       role="presentation"
       style={undefined}>
       <a
-        href=""
+        href="#"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
@@ -79,7 +79,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
     aria-haspopup={true}
     aria-label={
       <span>
-        <function (props) /* istanbul ignore next */{return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */{ name: props.name }));}
+        <Unknown
           name="fa fa-plus" />
         <span>
           Add File
@@ -106,7 +106,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
       role="presentation"
       style={undefined}>
       <a
-        href=""
+        href="#"
         label="From Local"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -120,7 +120,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
       role="presentation"
       style={undefined}>
       <a
-        href=""
+        href="#"
         label="From Remote"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -177,7 +177,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
       role="presentation"
       style={undefined}>
       <a
-        href=""
+        href="#"
         label="From Local"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -191,7 +191,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
       role="presentation"
       style={undefined}>
       <a
-        href=""
+        href="#"
         label="From Remote"
         onClick={[Function]}
         onKeyDown={[Function]}

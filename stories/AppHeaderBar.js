@@ -139,7 +139,7 @@ const props = {
 	],
 };
 
-const decoratedStories = storiesOf('App Header Bar', module)
+const decoratedStories = storiesOf('AppHeaderBar', module)
 	.addDecorator(story => (
 		<div>
 			{story()}

@@ -53,43 +53,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -116,7 +80,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -130,7 +94,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -200,43 +164,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -263,7 +191,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -277,7 +205,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -350,43 +278,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -413,7 +305,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -427,7 +319,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -502,43 +394,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -565,7 +421,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -579,7 +435,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -654,43 +510,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -717,7 +537,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -731,7 +551,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -809,43 +629,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         aria-haspopup={true}
         aria-label={
           <span>
-            <function Icon( /* istanbul ignore next */_ref) {/* istanbul ignore next */var className = _ref.className; /* istanbul ignore next */var name = _ref.name; /* istanbul ignore next */var title = _ref.title; /* istanbul ignore next */var transform = _ref.transform;
-            	var accessibility = {
-            		'aria-hidden': 'true',
-            		title: title || null };
-            
-            	if (name.startsWith('fa-')) {
-            		var classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		'fa',
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: classes }, accessibility)));
-            	}
-            	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-            		var _classes = /* istanbul ignore next */(0, _classnames2.default)(
-            		name,
-            		className,
-            		transform && FA_TRANSFORMS[transform]);
-            
-            		return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'i', /* istanbul ignore next */_extends({ className: _classes }, accessibility)));
-            	}
-            	if (name) {
-            		var classname = /* istanbul ignore next */(0, _classnames2.default)(
-            		/* istanbul ignore next */_Icon2.default['svg-icon'],
-            		'tc-svg-icon',
-            		className,
-            		SVG_TRANSFORMS[transform]);
-            
-            		return (
-            			/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */_extends({ className: classname }, accessibility),
-            				/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */'#' + name })));
-            
-            
-            	}
-            	/* istanbul ignore next */(0, _invariant2.default)(true, 'no name provided');
-            }
+            <Icon
               name="fa fa-plus" />
             <span>
               Add File
@@ -872,7 +656,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Local"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -886,7 +670,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             label="From Remote"
             onClick={[Function]}
             onKeyDown={[Function]}

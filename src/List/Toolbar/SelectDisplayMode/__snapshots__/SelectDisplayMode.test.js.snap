@@ -9,7 +9,7 @@ exports[`SelectDisplayMode should render 1`] = `
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
-      href=""
+      href="#"
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -31,7 +31,7 @@ exports[`SelectDisplayMode should render 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -49,7 +49,7 @@ exports[`SelectDisplayMode should render 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -67,7 +67,7 @@ exports[`SelectDisplayMode should render 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -96,7 +96,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
-      href=""
+      href="#"
       id="toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -118,7 +118,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id="toolbar-display-mode-table"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -136,7 +136,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id="toolbar-display-mode-large"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -154,7 +154,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id="toolbar-display-mode-tile"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -183,7 +183,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
-      href=""
+      href="#"
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -205,7 +205,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -223,7 +223,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -241,7 +241,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -270,7 +270,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
-      href=""
+      href="#"
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -292,7 +292,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -310,7 +310,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -328,7 +328,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -357,7 +357,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle"
-      href=""
+      href="#"
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -379,7 +379,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -397,7 +397,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -415,7 +415,7 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
         role="presentation"
         style={undefined}>
         <a
-          href=""
+          href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}

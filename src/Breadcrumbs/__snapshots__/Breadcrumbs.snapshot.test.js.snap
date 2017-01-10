@@ -92,7 +92,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             id="42-item-0"
             label="Text A"
             onClick={[Function]}
@@ -108,7 +108,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             id="42-item-1"
             label="Text B"
             onClick={[Function]}
@@ -124,7 +124,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             id="42-item-2"
             label="Text C"
             onClick={[Function]}
@@ -189,7 +189,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             id="my-breadcrumb-item-0"
             label="Text A"
             onClick={[Function]}
@@ -261,7 +261,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
           role="presentation"
           style={undefined}>
           <a
-            href=""
+            href="#"
             id="42-item-0"
             label="Text A"
             onClick={[Function]}
