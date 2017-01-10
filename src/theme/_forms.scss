@@ -296,6 +296,7 @@ form {
 		+ label {
 			position: absolute;
 			top: 1.5rem;
+			left: 0;
 			font-size: 1.5rem;
 			transition: opacity 0.1s linear, font-size 0.1s linear, top 0.1s linear;
 			pointer-events: none;
