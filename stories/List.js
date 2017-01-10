@@ -102,7 +102,7 @@ const props = {
 						id: 'add',
 						label: 'Add Folder',
 						bsStyle: 'primary',
-						icon: 'talend-plus',
+						icon: 'talend-plus-circle',
 						onClick: action('add.onClick'),
 					},
 					{
