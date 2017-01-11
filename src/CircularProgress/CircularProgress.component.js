@@ -2,32 +2,53 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import theme from './CircularProgress.scss';
 
+const RADIUS = 20;
+const DIAMETER = 50;
+const CENTER_POSITION = 25;
 const SIZE = {
 	small: 'small',
 	default: 'default',
 	large: 'large',
 };
+const CIRCUMFERENCE = Math.PI * (RADIUS * 2);
 
 /**
  * @param {object} props react props
  * @example
-<CircularProgress size="large" />
+ <CircularProgress size="large" />
  */
-function CircularProgress({ size, light }) {
-	const classes = classNames(theme.loader, {
-		[theme.loaderlight]: light,
-		[theme.small]: size === SIZE.small,
-		[theme.default]: size === SIZE.default,
-		[theme.large]: size === SIZE.large,
-	});
+function CircularProgress({ size, light, percent }) {
+	const classes = classNames(
+		theme.loader,
+		{
+			[theme.loaderlight]: light,
+			[theme.animate]: !percent,
+			[theme.fixed]: percent,
+			[theme.small]: size === SIZE.small,
+			[theme.default]: size === SIZE.default,
+			[theme.large]: size === SIZE.large,
+		}
+	);
+
+	const circleStyle = percent &&
+		{
+			strokeDasharray: CIRCUMFERENCE,
+			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
+		};
+
 	return (
 		<svg
 			className={classes}
-			x="0px"
-			y="0px"
-			viewBox="0 0 50 50"
+			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
 		>
-			<circle className={theme.path} cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
+			<circle
+				className={theme.path}
+				r={RADIUS}
+				cx={CENTER_POSITION}
+				cy={CENTER_POSITION}
+				fill="none"
+				style={circleStyle}
+			/>
 		</svg>
 	);
 }
@@ -35,6 +56,7 @@ function CircularProgress({ size, light }) {
 CircularProgress.propTypes = {
 	size: PropTypes.oneOf([SIZE.small, SIZE.default, SIZE.large]),
 	light: PropTypes.bool,
+	percent: PropTypes.number,
 };
 
 CircularProgress.defaultProps = {

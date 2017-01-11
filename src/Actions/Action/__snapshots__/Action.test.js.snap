@@ -7,16 +7,14 @@ exports[`Action should display a Progress indicator if set 1`] = `
   type="button">
   <svg
     className=""
-    viewBox="0 0 50 50"
-    x="0px"
-    y="0px">
+    viewBox="0 0 50 50">
     <circle
       className={undefined}
-      cx="25"
-      cy="25"
+      cx={25}
+      cy={25}
       fill="none"
-      r="20"
-      strokeWidth="5" />
+      r={20}
+      style={undefined} />
   </svg>
   <span>
     Click me

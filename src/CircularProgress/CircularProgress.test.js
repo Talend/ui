@@ -23,4 +23,9 @@ describe('CircularProgress', () => {
 		const wrapper = renderer.create(<CircularProgress light />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render with percent if set', () => {
+		const wrapper = renderer.create(<CircularProgress percent={30} />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });
