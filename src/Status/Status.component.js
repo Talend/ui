@@ -71,7 +71,7 @@ function Status(props) {
 
 	return (
 		<div className={rootClassnames} >
-			<span className={css['tc-status-icon']}> {renderIcon(status, icon)} </span>
+			{renderIcon(status, icon)}
 			<span className={classNames(css['tc-status-label'], 'tc-status-label')}> {label} </span>
 			<span className={css['tc-status-actions']}>
 				<Actions actions={actions} />

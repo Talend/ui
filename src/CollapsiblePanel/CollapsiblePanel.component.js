@@ -10,63 +10,89 @@ import css from './CollapsiblePanel.scss';
 
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
-export const BADGE_ACTION = 'badge';
+export const TYPE_BADGE = 'badge';
 
 const getActionHandler = (func, item) => (e) => {
 	e.stopPropagation();
 	func(e, item);
 };
 
+const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
+
+const statusPropTypes = {
+	displayMode: PropTypes.oneOf(displayModes),
+	...Status.propTypes,
+};
+
+const actionPropTypes = {
+	displayMode: PropTypes.oneOf(displayModes),
+	...Action.propTypes,
+};
+
+const simplePropTypes = {
+	displayMode: PropTypes.oneOf(displayModes),
+	label: PropTypes.string,
+	bsStyle: PropTypes.string,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
+};
+
+function renderHeaderItem({ displayMode, ...headerItem }, key) {
+	switch (displayMode) {
+	case TYPE_STATUS: {
+		const { actions, ...restStatus } = headerItem;
+		const adaptActions = actions.map(
+			action => ({
+				...action,
+				onClick: getActionHandler(action.onClick, headerItem),
+			})
+		);
+		return (<Status key={key} actions={adaptActions} {...restStatus} />);
+	}
+	case TYPE_ACTION: {
+		const { onClick, ...restAction } = headerItem;
+		return (<Action key={key} onClick={getActionHandler(onClick, headerItem)} {...restAction} />);
+	}
+	case TYPE_BADGE: {
+		const { label, tooltipPlacement, ...rest } = headerItem;
+		return (
+			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+				<Label {...rest}>{label}</Label>
+			</TooltipTrigger>
+		);
+	}
+	default: {
+		const { label, tooltipPlacement } = headerItem;
+		return (
+			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+				<span>{label}</span>
+			</TooltipTrigger>
+		);
+	}
+	}
+}
+renderHeaderItem.propTypes = PropTypes.oneOfType([
+	PropTypes.shape(statusPropTypes),
+	PropTypes.shape(actionPropTypes),
+	PropTypes.shape(simplePropTypes),
+	PropTypes.arrayOf(PropTypes.oneOfType([
+		PropTypes.shape(statusPropTypes),
+		PropTypes.shape(actionPropTypes),
+		PropTypes.shape(simplePropTypes),
+	])),
+]);
+
 function renderHeader({ header, caret }) {
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
-		switch (headerItem.displayMode) {
-		case TYPE_STATUS: {
-			const { actions, ...restStatus } = headerItem;
-			const adaptActions = actions.map(
-				action => ({
-					...action,
-					onClick: getActionHandler(action.onClick, headerItem),
-				})
-			);
+		if (Array.isArray(headerItem)) {
+			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<div key={index} className={css[headerColumnClass]}>
-					<Status actions={adaptActions} {...restStatus} />
-				</div>
+				<div key={index} className={classNames(css.group, css[headerColumnClass])}>{elements}</div>
 			);
 		}
-		case TYPE_ACTION: {
-			const { onClick, ...restAction } = headerItem;
-			return (
-				<div
-					key={index}
-					className={classNames(css.action, css[headerColumnClass])}
-				>
-					<Action onClick={getActionHandler(onClick, headerItem)} {...restAction} />
-				</div>
-			);
-		}
-		case BADGE_ACTION: {
-			const { label, tooltipPlacement, ...rest } = headerItem;
-			return (
-				<div key={index} className={css[headerColumnClass]}>
-					<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-						<Label {...rest}>{label}</Label>
-					</TooltipTrigger>
-				</div>
-			);
-		}
-		default: {
-			const { label, tooltipPlacement, ...rest } = headerItem;
-			return (
-				<div key={index} className={css[headerColumnClass]}>
-					<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-						<span {...rest}>{label}</span>
-					</TooltipTrigger>
-				</div>
-			);
-		}
-		}
+		return (
+			<div key={index} className={css[headerColumnClass]}>{renderHeaderItem(headerItem)}</div>
+		);
 	});
 
 	if (caret) {
@@ -151,21 +177,7 @@ function CollapsiblePanel({ header, content }) {
 }
 
 CollapsiblePanel.propTypes = {
-	header: PropTypes.arrayOf(PropTypes.oneOfType([
-		PropTypes.shape({
-			displayMode: PropTypes.oneOf([TYPE_STATUS, TYPE_ACTION]),
-			...Status.propTypes,
-		}),
-		PropTypes.shape({
-			displayMode: PropTypes.oneOf([TYPE_STATUS, TYPE_ACTION]),
-			...Action.propTypes,
-		}),
-		PropTypes.shape({
-			label: PropTypes.string,
-			bsStyle: PropTypes.string,
-			tooltipPlacement: OverlayTrigger.propTypes.placement,
-		}),
-	])).isRequired,
+	header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
 	content: PropTypes.arrayOf(PropTypes.shape({
 		label: PropTypes.string,
 		description: PropTypes.string,

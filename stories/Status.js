@@ -1,18 +1,18 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Status } from '../src/index';
+import { Status, IconsProvider } from '../src/index';
 
 const cancelAction = {
 	label: 'cancel',
-	icon: 'fa fa-cancel',
+	icon: 'talend-cross',
 	onClick: action('onCancel'),
 	bsSize: 'small',
 };
 
 const deleteAction = {
 	label: 'delete',
-	icon: 'fa fa-delete',
+	icon: 'talend-cross',
 	onClick: action('onDelete'),
 	bsSize: 'small',
 };
@@ -20,13 +20,14 @@ const deleteAction = {
 const myStatus = {
 	status: 'successful',
 	label: 'Successful',
-	icon: 'fa fa-check',
+	icon: 'talend-check',
 	actions: [deleteAction],
 };
 
 storiesOf('Status', module)
 	.addWithInfo('default', () => (
 		<div>
+			<IconsProvider />
 			<h1>Status</h1>
 			<h2>Definition</h2>
 			<p>
@@ -48,14 +49,14 @@ storiesOf('Status', module)
 				{...myStatus}
 				status={'failed'}
 				label={'Failed'}
-				icon={'fa fa-close'}
+				icon={'talend-cross'}
 			/>
 			<h3>Status is <code>canceled</code></h3>
 			<Status
 				{...myStatus}
 				status={'canceled'}
 				label={'Canceled'}
-				icon={'fa fa-close'}
+				icon={'talend-cross'}
 			/>
 			<h3>Status without actions</h3>
 			<Status {...{ ...myStatus, actions: [] }} />

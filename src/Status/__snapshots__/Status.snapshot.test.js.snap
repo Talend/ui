@@ -1,12 +1,7 @@
 exports[`Status should render a label 1`] = `
 <div
   className="tc-status text-success undefined">
-  <span
-    className={undefined}>
-     
-    
-     
-  </span>
+  
   <span
     className="tc-status-label">
      
@@ -53,15 +48,10 @@ exports[`Status should render a label 1`] = `
 exports[`Status should render a label with Icon 1`] = `
 <div
   className="tc-status text-success undefined">
-  <span
-    className={undefined}>
-     
-    <i
-      aria-hidden="true"
-      className="fa fa-check"
-      title={null} />
-     
-  </span>
+  <i
+    aria-hidden="true"
+    className="fa fa-check"
+    title={null} />
   <span
     className="tc-status-label">
      
@@ -108,15 +98,10 @@ exports[`Status should render a label with Icon 1`] = `
 exports[`Status should render a label with Icon without actions 1`] = `
 <div
   className="tc-status text-success">
-  <span
-    className={undefined}>
-     
-    <i
-      aria-hidden="true"
-      className="fa fa-check"
-      title={null} />
-     
-  </span>
+  <i
+    aria-hidden="true"
+    className="fa fa-check"
+    title={null} />
   <span
     className="tc-status-label">
      

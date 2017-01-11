@@ -1,18 +1,22 @@
 $tc-status-icon-size: 20px !default;
+$tc-status-action_min-size: 23px !default;
 
 .tc-status {
 	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: $tc-status-action_min-size;
 
-	&-icon {
-		width: $tc-status-icon-size;
+	> svg {
+		width: $tc-status-icon-size + $padding-small;
 		height: $tc-status-icon-size;
 	}
 
 	&-actions {
 		visibility: hidden;
 		position: absolute;
-		left: $tc-status-icon-size;
 		top: 0;
+		left: 0;
 	}
 
 	&.action:hover {

@@ -21,14 +21,8 @@ const status = {
 	actions: [
 		{
 			label: 'cancel',
-			icon: 'fa fa-cancel',
+			icon: 'talend-cross',
 			onClick: action('onCancel'),
-			bsSize: 'small',
-		},
-		{
-			label: 'delete',
-			icon: 'fa fa-delete',
-			onClick: action('onDelete'),
 			bsSize: 'small',
 		},
 	],
@@ -37,10 +31,10 @@ const status = {
 const button = {
 	displayMode: 'action',
 	label: 'Download',
-	icon: 'fa fa-download',
+	icon: 'talend-download',
 	onClick: action('onDownload'),
 	hideLabel: true,
-	link: false,
+	link: true,
 };
 
 const label1 = {
@@ -82,7 +76,7 @@ const propsPanel = {
 
 const propsPanelWithActions = {
 	header: [
-		{ ...status, actions: [], status: 'successful', label: 'Successful', icon: 'fa fa-check' },
+		{ ...status, actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' },
 		label1,
 		label4,
 		button,
@@ -93,7 +87,7 @@ const propsPanelWithActions = {
 
 const propsPanelWithoutActions = {
 	header: [
-		{ ...status, actions: [], status: 'canceled', label: 'Canceled', icon: 'fa fa-close' },
+		{ ...status, actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' },
 		label1,
 		label2,
 		{},
@@ -104,11 +98,21 @@ const propsPanelWithoutActions = {
 
 const propsCollapsiblePanel = {
 	header: [
-		{ ...status, status: 'failed', label: 'Failed', icon: 'fa fa-close' },
+		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
 		label1,
 		label4,
 		button,
 		label3,
+	],
+	content,
+};
+
+const propsCollapsiblePanelWithHeaderGroups = {
+	header: [
+		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
+		label1,
+		label4,
+		[button, label3],
 	],
 	content,
 };
@@ -125,9 +129,11 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel {...propsCollapsiblePanel} />
 			<p>No content :</p>
 			<CollapsiblePanel{...propsPanel} />
-			<p>No content - Header with Actions :</p>
+			<p>Header with Actions :</p>
 			<CollapsiblePanel{...propsPanelWithActions} />
 			<p>No content - Header without Actions :</p>
 			<CollapsiblePanel{...propsPanelWithoutActions} />
+			<p>Header with groups :</p>
+			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
 		</div>
 	));

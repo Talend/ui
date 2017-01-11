@@ -1,5 +1,6 @@
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
+$tc-collapsible-panel-btn-color: #555964;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -8,6 +9,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
+		font-size: 1em;
 	}
 }
 
@@ -18,6 +20,11 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	flex-basis: 100%;
 	margin: 0 $tc-collapsible-panel-padding-normal;
 	overflow: hidden;
+
+	> :global(.btn){
+		line-height: 1em;
+		color: $tc-collapsible-panel-btn-color;
+	}
 
 	&.col-5 {
 		@include type-col(20%);
@@ -43,19 +50,6 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		@include type-col(calc(10%));
 	}
 }
-
-@mixin actions-style {
-	.action {
-		visibility: hidden;
-	}
-
-	&:hover {
-		.action {
-			visibility: visible;
-		}
-	}
-}
-
 @mixin header-style {
 	display: flex;
 	align-items: center;
@@ -67,10 +61,20 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 	}
 }
 
-.tc-panel {
-	@include actions-style;
-	font-size: 1.3em;
+.group {
+	justify-content: flex-end;
+	> * {
+		margin: 0 $tc-collapsible-panel-padding-normal;
+	}
+	:global(.label){
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 1em;
+	}
+}
 
+.tc-panel {
 	:global(.panel-heading) {
 		@include header-style;
 		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
@@ -78,19 +82,19 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 }
 
 .tc-collapsible-panel {
-	@include actions-style;
 	position: relative;
 
 	.caret {
 		position: absolute;
-		right: $tc-collapsible-panel-padding-normal;
+		right: 0;
 		top: 0;
 		bottom: 0;
 	}
 
 	:global(.panel-heading) {
-		font-size: 1.3em;
-		line-height: 1em;
+		h4 {
+			line-height: $line-height-base;
+		}
 	}
 
 	:global(.panel-title) {
@@ -100,6 +104,10 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 		a {
 			@include header-style;
 			text-decoration: none;
+
+			&:hover {
+				color: initial;
+			}
 
 			&[aria-expanded='true'] .caret {
 				transform: rotate(180deg);
