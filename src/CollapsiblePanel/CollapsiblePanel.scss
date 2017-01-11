@@ -62,7 +62,7 @@ $tc-collapsible-panel-btn-color: #555964;
 }
 
 .group {
-	justify-content: flex-end;
+	justify-content: space-between;
 	> * {
 		margin: 0 $tc-collapsible-panel-padding-normal;
 	}

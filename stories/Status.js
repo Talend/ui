@@ -60,6 +60,14 @@ storiesOf('Status', module)
 			/>
 			<h3>Status without actions</h3>
 			<Status {...{ ...myStatus, actions: [] }} />
+			<h3>Status is <code>inProgress</code> with progress</h3>
+			<Status
+				{...{ ...myStatus, actions: [cancelAction, deleteAction] }}
+				status={'inProgress'}
+				label={'In Progress'}
+				icon={''}
+				progress="50"
+			/>
 			<br />
 		</div>
 	));

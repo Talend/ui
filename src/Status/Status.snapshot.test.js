@@ -24,6 +24,43 @@ const currentStatus = {
 		}],
 };
 
+const inProgressStatus = {
+	status: 'inProgress',
+	label: 'In Progress',
+	actions: [
+		{
+			label: 'cancel',
+			icon: 'fa fa-cancel',
+			onClick: jest.fn(),
+			bsSize: 'small',
+		},
+		{
+			label: 'delete',
+			icon: 'fa fa-delete',
+			onClick: jest.fn(),
+			bsSize: 'small',
+		}],
+};
+
+const inProgressStatusWithPercent = {
+	status: 'inProgress',
+	label: 'In Progress',
+	percent: '70',
+	actions: [
+		{
+			label: 'cancel',
+			icon: 'fa fa-cancel',
+			onClick: jest.fn(),
+			bsSize: 'small',
+		},
+		{
+			label: 'delete',
+			icon: 'fa fa-delete',
+			onClick: jest.fn(),
+			bsSize: 'small',
+		}],
+};
+
 describe('Status', () => {
 	it('should render a label with Icon', () => {
 		// when
@@ -48,6 +85,22 @@ describe('Status', () => {
 	it('should render a label with Icon without actions', () => {
 		// when
 		const wrapper = renderer.create(<Status {...currentStatus} actions={[]} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a label with a continuous circular progress', () => {
+		// when
+		const wrapper = renderer.create(<Status {...inProgressStatus} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a label with a fixed circular progress', () => {
+		// when
+		const wrapper = renderer.create(<Status {...inProgressStatusWithPercent} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

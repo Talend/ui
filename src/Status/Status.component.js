@@ -47,9 +47,9 @@ function getbsStyleFromStatus(status) {
 	}
 }
 
-function renderIcon(status, icon) {
+function renderIcon(status, icon, progress) {
 	if (status === STATUS_IN_PROGRESS) {
-		return (icon ? <Icon name={icon} /> : <CircularProgress size={'small'} />);
+		return (icon ? <Icon name={icon} /> : <CircularProgress size={'small'} percent={progress} />);
 	}
 	return (icon && <Icon name={icon} />);
 }
@@ -60,6 +60,7 @@ function Status(props) {
 		label,
 		icon,
 		actions,
+		progress,
 	} = props;
 
 	const rootClassnames = classNames(
@@ -71,7 +72,7 @@ function Status(props) {
 
 	return (
 		<div className={rootClassnames} >
-			{renderIcon(status, icon)}
+			{renderIcon(status, icon, progress)}
 			<span className={classNames(css['tc-status-label'], 'tc-status-label')}> {label} </span>
 			<span className={css['tc-status-actions']}>
 				<Actions actions={actions} />
@@ -90,6 +91,7 @@ Status.propTypes = {
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
+	progress: PropTypes.number,
 };
 
 Status.defaultProps = {

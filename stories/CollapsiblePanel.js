@@ -117,6 +117,16 @@ const propsCollapsiblePanelWithHeaderGroups = {
 	content,
 };
 
+const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
+	header: [
+		{ ...status, progress: '70' },
+		label1,
+		label4,
+		[button, label3],
+	],
+	content,
+};
+
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -135,5 +145,7 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel{...propsPanelWithoutActions} />
 			<p>Header with groups :</p>
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
+			<p>Header with fixed circularProgress :</p>
+			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
 		</div>
 	));
