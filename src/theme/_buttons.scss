@@ -5,6 +5,7 @@
 
 .btn {
 	@include btn-colors;
+	border: none;
 	font-size: $btn-font-size;
 	letter-spacing: 1px;
 	line-height: 3.3rem;
