@@ -5,7 +5,7 @@
   display: inline-block;
   font-size: $font-size-small;
   position: relative;
-  max-width: 100%;
+  max-width: calc(100% - #{$padding-normal});
 
   &.tc-badge-outline {
     background: $white;
