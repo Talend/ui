@@ -12,7 +12,10 @@
   },
   "uiSchema": {
     "authentication": {
-      "ui:widget": "toggle"
+      "ui:widget": "toggle",
+      "ui:trigger": [
+        "after"
+      ]
     }
   },
   "properties": {}

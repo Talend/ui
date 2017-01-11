@@ -4,6 +4,7 @@ import RJSForm from 'react-jsonschema-form/lib/index';
 
 import Button from 'react-bootstrap/lib/Button';
 
+import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
 import FieldTemplate from './templates/FieldTemplate';
@@ -68,6 +69,7 @@ class Form extends React.Component {
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
+			BooleanField,
 			ObjectField,
 			StringField,
 		};
