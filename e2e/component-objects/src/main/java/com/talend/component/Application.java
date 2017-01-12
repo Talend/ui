@@ -19,6 +19,8 @@ public class Application {
 
     public List List;
 
+    public Drawer Drawer;
+
     /**
      * Application constructor
      *
@@ -29,5 +31,6 @@ public class Application {
         this.SidePanel = new SidePanel(driver);
         this.AppHeaderBar = new AppHeaderBar(driver);
         this.List = new List(driver);
+        this.Drawer = new Drawer(driver);
     }
 }
