@@ -1,48 +1,72 @@
-const webpage = require('webpage').create();
+const webpage = require('webpage');  // eslint-disable-line
 
 const { baseurl, viewport, stories } = require('./../screenshots.config.json');
 
-//`${baseurl}&selectedKind=${component}&selectedStory=${usecase}
-
-const capture = (targetFile, clipRect) => {
+const capture = (page, targetFile, clipRect) => {
 	try {
-		webpage.clipRect = clipRect;
-		webpage.render(targetFile, {
+		page.clipRect = clipRect;  // eslint-disable-line no-param-reassign
+		slimer.wait(500);  // eslint-disable-line no-undef
+		page.render(targetFile, {
 			onlyViewport: false,
 		});
 	} catch (e) {
-		console.log(`Failed to capture screenshot as ${targetFile} : ${e}`);
+		console.log(`Failed to capture screenshot as ${targetFile} : ${e}`);  // eslint-disable-line no-console
 	}
-	return this;
+	return page;
 };
 
-const captureSelector = (targetFile, selector) => {
-	const elm = webpage.evaluate((selector) => {
-		try {
-			const clipRect = document.querySelector(selector).getBoundingClientRect();
-			return {
-				top: clipRect.top,
-				left: clipRect.left,
-				width: clipRect.width,
-				height: clipRect.height,
-			};
-		} catch (e) {
-			console.log(`Unable to fetch bounds for element ${selector}`);
-		}
+const captureSelector = (page, targetFile, selector) => {
+	const elm = page.evaluate((selector) => {
+		const clipRect = document.querySelector(selector).getBoundingClientRect();
+		return {
+			top: clipRect.top,
+			left: clipRect.left,
+			width: clipRect.width,
+			height: clipRect.height,
+		};
 	}, selector);
-	return capture(targetFile, elm);
+	return capture(page, targetFile, elm);
 };
+
+const opened = [];
 
 Object.keys(stories).forEach((component) => {
-	//AppHeaderBar
 	Object.keys(stories[component]).forEach((usecase) => {
-		webpage.open(
+		const page = webpage.create();
+/*		page.onError = function(message, stack) {
+			console.error(message);
+		};
+		page.onConsoleMessage = function(message, line, file) {
+			console.log(message);
+		};
+		page.onResourceError = function (error) {
+			console.log(JSON.stringify(error));
+		};*/
+		const popened =
+			page.open(
 			`${baseurl}&selectedKind=${component}&selectedStory=${usecase}`
-		).then(() => {
+		);
+		opened.push(popened.then(() => {
 			const mapping = stories[component][usecase];
-			webpage.viewportSize = viewport;
-			mapping.forEach(({ selector, name }) => captureSelector(`screenshots/${name}.png`, selector));
-			slimer.exit();
-		});
+			page.viewportSize = viewport;
+			const shots = mapping.map(
+				({ selector, name }) => {
+					if (Array.isArray(selector)) {
+						return Promise.all(
+							selector.map((sel, index) => captureSelector(
+								page, `screenshots/${name}-${index}.png`, sel
+							))
+						);
+					}
+					return captureSelector(
+						page, `screenshots/${name}.png`, selector
+					);
+				}
+			);
+			return Promise.all(shots);
+		}));
 	});
+});
+Promise.all(opened).then(() => {
+	slimer.exit();  // eslint-disable-line no-undef
 });

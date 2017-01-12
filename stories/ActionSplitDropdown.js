@@ -5,7 +5,7 @@ import { ActionSplitDropdown } from '../src/index';
 
 const myAction = {
 	label: 'Add File',
-	icon: 'fa fa-plus',
+	icon: 'talend-plus-circle',
 	onClick: action('onAdd'),
 	items: [
 		{
@@ -23,25 +23,24 @@ const myAction = {
 storiesOf('ActionSplitDropdown', module)
 	.addWithInfo('default', () => (
 		<div>
-			<h1>ActionSplitDropdown</h1>
-			<h2>Definition</h2>
-			<p>
-				The action component display a primary button with a dropdown
-				where each element let the user dispatch an action
-			</p>
-			<h2>Examples</h2>
 			<p>By default :</p>
-			<ActionSplitDropdown {...myAction} />
+			<div id="default">
+				<ActionSplitDropdown {...myAction} />
+			</div>
 			<p>Without icon</p>
-			<ActionSplitDropdown
-				{...myAction}
-				icon={''}
-			/>
+			<div id="noicon">
+				<ActionSplitDropdown
+					{...myAction}
+					icon={''}
+				/>
+			</div>
 			<p>Empty option</p>
-			<ActionSplitDropdown
-				{...myAction}
-				items={[]}
-			/>
+			<div id="empty">
+				<ActionSplitDropdown
+					{...myAction}
+					items={[]}
+				/>
+			</div>
 		</div>
 	))
 	.addWithInfo('style variatons', () => {
@@ -49,14 +48,7 @@ storiesOf('ActionSplitDropdown', module)
 			margin: '0 5px',
 		};
 		return (
-			<div>
-				<h1>ActionSplitDropdown</h1>
-				<h2>Definition</h2>
-				<p>
-					The action component display a split button with a dropdown
-					where each element let the user dispatch an action
-				</p>
-				<h2>Examples</h2>
+			<div id="styles">
 				<span style={btnStyles}>
 					<ActionSplitDropdown bsStyle="default" {...myAction} /></span>
 				<span style={btnStyles}>

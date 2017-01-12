@@ -143,12 +143,7 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 	.addDecorator(story => (
 		<div>
 			{story()}
-			<div className="container" style={{ paddingTop: 40 }}>
-				<h1>AppHeaderBar</h1>
-				<h2>Definition</h2>
-				<p>Display a navigation bar on top of the page.</p>
-				<p>Look on top</p>
-			</div>
+			<div className="container" style={{ paddingTop: 40 }} />
 		</div>
 	));
 

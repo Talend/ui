@@ -173,7 +173,7 @@ function CollapsiblePanel({ header, content }) {
 			</Panel>
 		);
 	}
-	return (<Panel className={css['tc-panel']} header={headerItems} />);
+	return (<Panel className={`tc-collapsible-panel ${css['tc-panel']}`} header={headerItems} />);
 }
 
 CollapsiblePanel.propTypes = {

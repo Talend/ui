@@ -12,19 +12,17 @@ const myAction = {
 storiesOf('Action', module)
 	.addWithInfo('default', () => (
 		<div>
-			<h1>Action</h1>
-			<h2>Definition</h2>
-			<p>The action component display a button to let the user dispatch an action</p>
-			<h2>Examples</h2>
 			<p>By default :</p>
-			<Action {...myAction} />
+			<Action id="default" {...myAction} />
 			<p>With hideLabel option</p>
 			<Action
+				id="hidelabel"
 				{...myAction}
 				hideLabel
 			/>
 			<p>In progress</p>
 			<Action
+				id="inprogress"
 				{...myAction}
 				inProgress
 			/>

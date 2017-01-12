@@ -24,25 +24,24 @@ const myAction = {
 storiesOf('ActionDropdown', module)
 	.addWithInfo('default', () => (
 		<div>
-			<h1>ActionDropdown</h1>
-			<h2>Definition</h2>
-			<p>
-				The action component display a dropdown
-				where each element let the user dispatch an action
-			</p>
-			<h2>Examples</h2>
 			<p>By default :</p>
-			<ActionDropdown {...myAction} />
+			<div id="default">
+				<ActionDropdown {...myAction} />
+			</div>
 			<p>With hideLabel option</p>
-			<ActionDropdown
-				{...myAction}
-				hideLabel
-			/>
+			<div id="hidelabel">
+				<ActionDropdown
+					{...myAction}
+					hideLabel
+				/>
+			</div>
 			<p>Empty option</p>
-			<ActionDropdown
-				{...myAction}
-				items={[]}
-				hideLabel
-			/>
+			<div id="empty">
+				<ActionDropdown
+					{...myAction}
+					items={[]}
+					hideLabel
+				/>
+			</div>
 		</div>
 	));

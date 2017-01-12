@@ -1106,20 +1106,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -2365,20 +2352,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -3612,20 +3586,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -4848,20 +4809,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -6090,20 +6038,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -7586,20 +7521,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -9070,20 +8992,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;
 
@@ -10144,19 +10053,6 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
       Object {
         "paddingTop": 40,
       }
-    }>
-    <h1>
-      AppHeaderBar
-    </h1>
-    <h2>
-      Definition
-    </h2>
-    <p>
-      Display a navigation bar on top of the page.
-    </p>
-    <p>
-      Look on top
-    </p>
-  </div>
+    } />
 </div>
 `;

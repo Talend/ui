@@ -19,13 +19,21 @@ if [ -n "$GITHUB_API_KEY" ]; then
         echo "✓ Push storybook-static/ content to gh-pages"
     else
         echo "Building PR #$TRAVIS_PULL_REQUEST from branch $TRAVIS_BRANCH"
+        yarn run build-storybook
+        yarn global add http-server
+        nohup http-server storybook-static/ -p 1337 >/dev/null 2>&1 &
+        #nohup yarn start >/dev/null 2>&1 &
+        sleep 5
         echo "✓ Start storybook server"
-        nohup yarn start >/dev/null 2>&1 &
-
-
+        yarn run test:slimerjs
+        echo "✓ Run yarn test:slimerjs script"
+        if [ "$TRAVIS_BRANCH" != 'master' ]; then
+            git checkout $TRAVIS_BRANCH
+            git add screenshots/
+            git -c user.name='travis' -c user.email='travis' commit -m 'Update screenshots from CI'
+            git push -f -q https://frassinier:$GITHUB_API_KEY@github.com/Talend/react-talend-components $TRAVIS_BRANCH &> /dev/null
+            echo "✓ Push screenshots to $TRAVIS_BRANCH"
+        fi
     fi
     cd "$TRAVIS_BUILD_DIR"
-    curl -Lo travis_after_all.py https://git.io/travis_after_all
-    python travis_after_all.py
-    export $(cat .to_export_back) &> /dev/null
 fi

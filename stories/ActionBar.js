@@ -86,22 +86,22 @@ const basicProps = {
 storiesOf('ActionBar', module)
 	.addWithInfo('default', () => (
 		<nav>
-			<h1>Actionbar</h1>
-			<h2>Definition</h2>
-			<p>The actionbar component display a group buttons to let the user dispatch actions</p>
-			<h2>Examples</h2>
 			<p>No Selected, Layout: Left Space Right</p>
-			<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
-
+			<div id="default">
+				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
+			</div>
 			<p>1 Selected, Layout: Left Space Right</p>
-			<ActionBar {...Object.assign({}, basicProps, { selected: 1 })} />
+			<div id="selected">
+				<ActionBar {...Object.assign({}, basicProps, { selected: 1 })} />
+			</div>
 
 			<p>1 Selected, Layout: Right</p>
-			<ActionBar
-				selected={1}
-				actions={{ left: [primary] }}
-				multiSelectActions={{ right: [multi3] }}
-			/>
-
+			<div id="right">
+				<ActionBar
+					selected={1}
+					actions={{ left: [primary] }}
+					multiSelectActions={{ right: [multi3] }}
+				/>
+			</div>
 		</nav>
 	));

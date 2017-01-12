@@ -157,7 +157,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
 
 exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
 <div
-  className="panel panel-default"
+  className="tc-collapsible-panel undefined panel panel-default"
   id={undefined}>
   <div
     className="panel-heading">

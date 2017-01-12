@@ -9,6 +9,13 @@ notifications:
   email: false
 node_js:
   - '6'
+env:
+  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+addons:
+  firefox: "50.0"
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+sudo: required
 after_success:
   - npm run test:cov
   - cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage

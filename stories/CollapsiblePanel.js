@@ -131,18 +131,22 @@ storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
 			<IconsProvider />
-			<h1>CollapsiblePanel</h1>
-			<h2>Definition</h2>
-			<p>The CollapsiblePanel component display a Panel with a customizable header and content</p>
-			<h2>Examples</h2>
 			<p>By default :</p>
-			<CollapsiblePanel {...propsCollapsiblePanel} />
+			<div id="default">
+				<CollapsiblePanel {...propsCollapsiblePanel} />
+			</div>
 			<p>No content :</p>
-			<CollapsiblePanel{...propsPanel} />
-			<p>Header with Actions :</p>
-			<CollapsiblePanel{...propsPanelWithActions} />
+			<div id="one">
+				<CollapsiblePanel {...propsPanel} />
+			</div>
+			<p>No content - Header with Actions :</p>
+			<div id="two">
+				<CollapsiblePanel {...propsPanelWithActions} />
+			</div>
 			<p>No content - Header without Actions :</p>
-			<CollapsiblePanel{...propsPanelWithoutActions} />
+			<div id="three">
+				<CollapsiblePanel {...propsPanelWithoutActions} />
+			</div>
 			<p>Header with groups :</p>
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
 			<p>Header with fixed circularProgress :</p>

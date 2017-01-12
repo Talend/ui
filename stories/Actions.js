@@ -41,28 +41,32 @@ const actions = [
 storiesOf('Actions', module)
 	.addWithInfo('default', () => (
 		<div>
-			<h1>Actions</h1>
-			<h2>Definition</h2>
-			<p>The actions component display buttons to let the user dispatch those actions</p>
-			<h2>Examples</h2>
 			<p>By default :</p>
-			<Actions actions={actions} />
+			<div id="default">
+				<Actions actions={actions} />
+			</div>
 			<p>With hideLabel option</p>
-			<Actions
-				actions={actions}
-				hideLabel
-			/>
+			<div id="hidelabel">
+				<Actions
+					actions={actions}
+					hideLabel
+				/>
+			</div>
 			<p>Vertical</p>
-			<Actions
-				actions={actions}
-				vertical
-			/>
+			<div id="vertical">
+				<Actions
+					actions={actions}
+					vertical
+				/>
+			</div>
 			<p>Vertical with hideLabel</p>
-			<Actions
-				actions={actions}
-				placement="right"
-				hideLabel
-				vertical
-			/>
+			<div id="vhidelabel">
+				<Actions
+					actions={actions}
+					placement="right"
+					hideLabel
+					vertical
+				/>
+			</div>
 		</div>
 	));

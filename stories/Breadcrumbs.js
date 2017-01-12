@@ -14,10 +14,6 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
-				<h1>Breadcrumb</h1>
-				<h2>Definition</h2>
-				<a href="http://guidelines.talend.com/document/92132#/ui-controls/breadcrumb-home-page">Spec</a>
-				<h2>Example</h2>
 				<Breadcrumbs items={items} />
 			</div>
 		);
@@ -32,10 +28,6 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
-				<h1>Breadcrumb with max items reached</h1>
-				<h2>Definition</h2>
-				<a href="http://guidelines.talend.com/document/92132#/ui-controls/breadcrumb-home-page">Spec</a>
-				<h2>Example with 2 visible items max</h2>
 				<Breadcrumbs items={items} maxItems={2} />
 			</div>
 		);

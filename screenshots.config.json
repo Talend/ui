@@ -1,15 +1,91 @@
 {
-  "baseurl": "http://localhost:6006/iframe.html?dataId=1",
+  "baseurl": "http://localhost:1337/iframe.html?dataId=1",
   "viewport": {
     "height": 768,
     "width": 1366
   },
   "stories": {
-    "App Header Bar": {
+    "Action": {
+      "default": [
+        {
+          "name": "action-default",
+          "selector": ["#default", "#hidelabel"]
+        }
+      ]
+    },
+    "ActionBar": {
+      "default": [
+        {
+          "name": "actionbar-default",
+          "selector": ["#default", "#selected", "#right"]
+        }
+      ]
+    },
+    "ActionDropdown": {
+      "default": [
+        {
+          "name": "actiondropdown-default",
+          "selector": ["#default", "#hidelabel"]
+        }
+      ]
+    },
+    "ActionSplitDropdown": {
+      "default": [
+        {
+          "name": "actionsplitdropdown-default",
+          "selector": ["#default", "#noicon", "#empty"]
+        }
+      ],
+      "style variatons": [
+        {
+          "name": "actionsplitdropdown-styles",
+          "selector": "#styles"
+        }
+      ]
+    },
+    "AppHeaderBar": {
       "default": [
         {
           "name": "appheaderbar-default",
-          "selector": "#appheaderbar-default"
+          "selector": "nav"
+        }
+      ]
+    },
+    "Badge": {
+      "default": [
+        {
+          "name": "badge-default",
+          "selector": "#default"
+        }
+      ]
+    },
+    "Breadcrumbs": {
+      "default": [
+        {
+          "name": "breadcrumb-default",
+          "selector": ".tc-breadcrumb"
+        }
+      ],
+      "with max items reached": [
+        {
+          "name": "breadcrumb-max",
+          "selector": ".tc-breadcrumb"
+        }
+      ]
+    },
+    "CollapsiblePanel": {
+      "default": [
+        {
+          "name": "collapsiblepanel-default",
+          "selector": ["#default", "#two", "#three"]
+        }
+      ]
+    },
+    "Icon": {
+      "default use svg": [
+        {
+          "name": "icons",
+          "selector": "ul"
         }
       ]
     }
