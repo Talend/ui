@@ -93,4 +93,18 @@ public class List extends Component {
             throw new Exception("Parameters should not be empty or null!");
         }
     }
+
+    /**
+     * Test if an item exists
+     * @param name label of the list item
+     * @return true if the item is in the list
+     */
+    public Boolean hasItem(String name) {
+        try {
+            this.getItemFromLabel(name);
+        } catch (NotFoundException e) {
+            return false;
+        }
+        return true;
+    }
 }
