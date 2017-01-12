@@ -31,8 +31,13 @@
 		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
 
 		li > a {
+			display: inline-flex;
 			padding: $padding-small $padding-normal;
 			transition: 0.1s background-color ease-out;
+
+			svg {
+				margin-right: $padding-smaller;
+			}
 		}
 	}
 }
