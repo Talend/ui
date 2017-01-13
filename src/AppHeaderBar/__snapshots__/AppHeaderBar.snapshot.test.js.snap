@@ -1266,10 +1266,10 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                   </div>
                 </div>
                 <div
-                  id="react-autowhatever-42"
-                  style={Object {}}>
+                  id="react-autowhatever-42">
                   <div
-                    className="undefined undefined">
+                    className="undefined undefined"
+                    style={Object {}}>
                     <span
                       className="is-searching">
                       Searching for matches…
@@ -2512,10 +2512,10 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                   </div>
                 </div>
                 <div
-                  id="react-autowhatever-42"
-                  style={Object {}}>
+                  id="react-autowhatever-42">
                   <div
-                    className="undefined undefined">
+                    className="undefined undefined"
+                    style={Object {}}>
                     <span
                       className="no-result">
                       No result.
@@ -4969,9 +4969,9 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                   </div>
                 </div>
                 <div
-                  id="react-autowhatever-42"
-                  style={Object {}}>
-                  <div />
+                  id="react-autowhatever-42">
+                  <div
+                    style={Object {}} />
                 </div>
               </div>
             </div>
@@ -6198,9 +6198,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                   </div>
                 </div>
                 <div
-                  id="react-autowhatever-42"
-                  style={Object {}}>
-                  <div>
+                  id="react-autowhatever-42">
+                  <div
+                    style={Object {}}>
                     <div
                       style={Object {}}>
                       <div

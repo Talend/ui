@@ -28,9 +28,9 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
       value="le" />
   </div>
   <div
-    id="react-autowhatever-my-search"
-    style={Object {}}>
-    <div>
+    id="react-autowhatever-my-search">
+    <div
+      style={Object {}}>
       <div
         style={Object {}}>
         <div
@@ -221,9 +221,9 @@ exports[`Typeahead items should render typeahead with results 1`] = `
       value={undefined} />
   </div>
   <div
-    id="react-autowhatever-my-search"
-    style={Object {}}>
-    <div>
+    id="react-autowhatever-my-search">
+    <div
+      style={Object {}}>
       <div
         style={Object {}}>
         <div
@@ -358,10 +358,10 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       value={undefined} />
   </div>
   <div
-    id="react-autowhatever-my-search"
-    style={Object {}}>
+    id="react-autowhatever-my-search">
     <div
-      className="undefined undefined">
+      className="undefined undefined"
+      style={Object {}}>
       <span
         className="no-result">
         No result.
@@ -401,9 +401,9 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       value={undefined} />
   </div>
   <div
-    id="react-autowhatever-my-search"
-    style={Object {}}>
-    <div />
+    id="react-autowhatever-my-search">
+    <div
+      style={Object {}} />
   </div>
 </div>
 `;

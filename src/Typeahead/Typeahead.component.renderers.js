@@ -91,23 +91,28 @@ ItemContainer.propTypes = {
 
 export const renderItemsContainerFactory = (items, noResultText, searching, searchingText) => {
 	const renderItemsContainerComponent = (props) => {
-		const { children, ...containerProps } = props;
+		const { id, key, ref, ...rest } = props;
 		return (
-			<div {...containerProps}>
+			<div
+				id={id}
+				ref={ref}
+				key={key}
+			>
 				<ItemContainer
+					{...rest}
 					items={items}
 					noResultText={noResultText}
 					searching={searching}
 					searchingText={searchingText}
-				>
-					{children}
-				</ItemContainer>
+				/>
 			</div>
 		);
 	};
 
 	renderItemsContainerComponent.propTypes = {
-		children: PropTypes.element,
+		id: PropTypes.string,
+		key: PropTypes.string,
+		ref: PropTypes.func,
 	};
 
 	return renderItemsContainerComponent;
