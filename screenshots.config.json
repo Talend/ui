@@ -88,6 +88,20 @@
           "selector": "ul"
         }
       ]
+    },
+    "SidePanel": {
+      "default": [
+        {
+          "name": "sidepanel-default",
+          "selector": ".tc-side-panel"
+        }
+      ],
+      "docked": [
+        {
+          "name": "sidepanel-docked",
+          "selector": ".tc-side-panel"
+        }
+      ]
     }
   }
 }

@@ -22,7 +22,7 @@ const actions = [
 	},
 ];
 
-storiesOf('Side Panel', module)
+storiesOf('SidePanel', module)
 	.addWithInfo('default', () => {
 		return (
 			<div>
