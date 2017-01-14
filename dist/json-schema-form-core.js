@@ -1,10 +1,10 @@
 /*!
  * json-schema-form-core
- * @version 1.0.0-alpha.5
- * @date Sat, 14 Jan 2017 08:11:48 GMT
+ * @version 1.0.0-alpha.6
+ * @date Sat, 14 Jan 2017 14:01:12 GMT
  * @link https://github.com/json-schema-form/json-schema-form-core
  * @license MIT
- * Copyright (c) 2016 JSON Schema Form
+ * Copyright (c) 2014-2017 JSON Schema Form
  */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
@@ -70,7 +70,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -153,101 +153,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(8).ObjectPath;
+module.exports = __webpack_require__(9).ObjectPath;
 
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sf_path__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canonical_title_map__ = __webpack_require__(1);
-/* harmony export (immutable) */ exports["a"] = merge;
-
-
-
-// export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
-function merge(lookup, form, options, readonly, asyncTemplates) {
-  form = form || [];
-  options = options || {};
-
-  // ok let's merge!
-  // We look at the supplied form and extend it with schema standards
-  return form.map(function (obj) {
-
-    // handle the shortcut with just a name
-    if (typeof obj === 'string') {
-      obj = { key: obj };
-    }
-
-    if (obj.key) {
-      if (typeof obj.key === 'string') {
-        obj.key = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__sf_path__["parse"])(obj.key);
-      }
-    }
-
-    // If it has a titleMap make sure it's a list
-    if (obj.titleMap) {
-      obj.titleMap = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__canonical_title_map__["a" /* default */])(obj.titleMap);
-    }
-
-    // extend with std form from schema.
-    if (obj.key) {
-      var strid = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__sf_path__["stringify"])(obj.key);
-      if (lookup[strid]) {
-        (function () {
-          var schemaDefaults = lookup[strid];
-          if (schemaDefaults) {
-            Object.keys(schemaDefaults).forEach(function (attr) {
-              if (obj[attr] === undefined) {
-                obj[attr] = schemaDefaults[attr];
-              }
-            });
-          }
-        })();
-      }
-    }
-
-    // Are we inheriting readonly?
-    if (readonly === true) {
-      // Inheriting false is not cool.
-      obj.readonly = true;
-    }
-
-    // if it's a type with items, merge 'em!
-    if (obj.items) {
-      obj.items = merge(lookup, obj.items, options, obj.readonly, asyncTemplates);
-    }
-
-    // if its has tabs, merge them also!
-    if (obj.tabs) {
-      obj.tabs.forEach(function (tab) {
-        if (tab.items) {
-          tab.items = merge(lookup, tab.items, options, obj.readonly, asyncTemplates);
-        }
-      });
-    }
-
-    // Special case: checkbox
-    // Since have to ternary state we need a default
-    if (obj.type === 'checkbox' && obj.schema['default'] === undefined) {
-      obj.schema['default'] = false;
-    };
-
-    // Special case: template type with tempplateUrl that's needs to be loaded before rendering
-    // TODO: this is not a clean solution. Maybe something cleaner can be made when $ref support
-    // is introduced since we need to go async then anyway
-    if (asyncTemplates && obj.type === 'template' && !obj.template && obj.templateUrl) {
-      asyncTemplates.push(obj);
-    }
-
-    return obj;
-  });
-}
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -557,7 +467,148 @@ function defaultForm(schema, defaultSchemaTypes, ignore, globalOptions) {
 }
 
 /***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__schema_defaults__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sf_path__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__merge__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__select__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__traverse__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validate__ = __webpack_require__(8);
+/* harmony export (binding) */ __webpack_require__.d(exports, "sfPath", function() { return sfPath; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "schemaDefaults", function() { return schemaDefaults; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "canonicalTitleMap", function() { return canonicalTitleMap; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "merge", function() { return __WEBPACK_IMPORTED_MODULE_3__merge__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "select", function() { return __WEBPACK_IMPORTED_MODULE_4__select__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "traverseSchema", function() { return __WEBPACK_IMPORTED_MODULE_5__traverse__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "traverseForm", function() { return __WEBPACK_IMPORTED_MODULE_5__traverse__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "validate", function() { return __WEBPACK_IMPORTED_MODULE_6__validate__["a"]; });
+
+
+
+
+
+
+
+
+
+var sfPath = __WEBPACK_IMPORTED_MODULE_1__sf_path__;
+var schemaDefaults = __WEBPACK_IMPORTED_MODULE_0__schema_defaults__;
+var canonicalTitleMap = __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__["a" /* default */];
+
+/***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sf_path__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__schema_defaults__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__ = __webpack_require__(1);
+/* harmony export (immutable) */ exports["a"] = merge;
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+
+
+
+
+// export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
+function merge(lookup, form, ignore, options, readonly, asyncTemplates) {
+  var formItems = [];
+  form = form || [];
+  var idx = form.indexOf('*');
+  options = options || {};
+
+  if ((typeof lookup === 'undefined' ? 'undefined' : _typeof(lookup)) === 'object' && lookup.hasOwnProperty('properties')) {
+    readonly = readonly || lookup.readonly || lookup.readOnly;
+    var stdForm = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__schema_defaults__["defaultForm"])(lookup, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__schema_defaults__["createDefaults"])(), ignore, options);
+    var defaultFormLookup = stdForm.lookup;
+
+    lookup = defaultFormLookup || lookup;
+    formItems = formItems.concat(stdForm.form);
+  };
+
+  if (idx !== -1) {
+    form = form.slice(0, idx).concat(formItems).concat(form.slice(idx + 1));
+  };
+
+  // ok let's merge!
+  // We look at the supplied form and extend it with schema standards
+  return form.map(function (obj) {
+    // handle the shortcut with just a name
+    if (typeof obj === 'string') {
+      obj = { key: obj };
+    }
+
+    if (obj.key) {
+      if (typeof obj.key === 'string') {
+        obj.key = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__sf_path__["parse"])(obj.key);
+      }
+    }
+
+    // If it has a titleMap make sure it's a list
+    if (obj.titleMap) {
+      obj.titleMap = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__canonical_title_map__["a" /* default */])(obj.titleMap);
+    }
+
+    // extend with std form from schema.
+    if (obj.key) {
+      var strid = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__sf_path__["stringify"])(obj.key);
+      if (lookup[strid]) {
+        (function () {
+          var schemaDefaults = lookup[strid];
+          if (schemaDefaults) {
+            Object.keys(schemaDefaults).forEach(function (attr) {
+              if (obj[attr] === undefined) {
+                obj[attr] = schemaDefaults[attr];
+              }
+            });
+          }
+        })();
+      }
+    }
+
+    // Are we inheriting readonly?
+    if (readonly === true) {
+      // Inheriting false is not cool.
+      obj.readonly = true;
+    }
+
+    // if it's a type with items, merge 'em!
+    if (obj.items) {
+      obj.items = merge(lookup, obj.items, ignore, options, obj.readonly, asyncTemplates);
+    }
+
+    // if its has tabs, merge them also!
+    if (obj.tabs) {
+      obj.tabs.forEach(function (tab) {
+        if (tab.items) {
+          tab.items = merge(lookup, tab.items, ignore, options, obj.readonly, asyncTemplates);
+        }
+      });
+    }
+
+    // Special case: checkbox
+    // Since have to ternary state we need a default
+    if (obj.type === 'checkbox' && obj.schema['default'] === undefined) {
+      obj.schema['default'] = false;
+    };
+
+    // Special case: template type with tempplateUrl that's needs to be loaded before rendering
+    // TODO: this is not a clean solution. Maybe something cleaner can be made when $ref support
+    // is introduced since we need to go async then anyway
+    if (asyncTemplates && obj.type === 'template' && !obj.template && obj.templateUrl) {
+      asyncTemplates.push(obj);
+    }
+
+    return obj;
+  });
+}
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -633,7 +684,7 @@ function select(projection, obj, valueToSet) {
 }
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -688,11 +739,11 @@ function traverseForm(form, fn) {
 }
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tv4__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tv4__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tv4___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_tv4__);
 /* harmony export (immutable) */ exports["a"] = validate;
 /*  Common code for validating a value against its form and schema definition */
@@ -750,7 +801,7 @@ function validate(form, value) {
 };
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -859,43 +910,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 }();
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 module.exports = tv4;
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__schema_defaults__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sf_path__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__merge__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__select__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__traverse__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validate__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(exports, "sfPath", function() { return sfPath; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "schemaDefaults", function() { return schemaDefaults; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "canonicalTitleMap", function() { return canonicalTitleMap; });
-/* harmony reexport (binding) */ __webpack_require__.d(exports, "merge", function() { return __WEBPACK_IMPORTED_MODULE_3__merge__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(exports, "select", function() { return __WEBPACK_IMPORTED_MODULE_4__select__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(exports, "traverseSchema", function() { return __WEBPACK_IMPORTED_MODULE_5__traverse__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(exports, "traverseForm", function() { return __WEBPACK_IMPORTED_MODULE_5__traverse__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(exports, "validate", function() { return __WEBPACK_IMPORTED_MODULE_6__validate__["a"]; });
+module.exports = __webpack_require__(4);
 
-
-
-
-
-
-
-
-
-var sfPath = __WEBPACK_IMPORTED_MODULE_1__sf_path__;
-var schemaDefaults = __WEBPACK_IMPORTED_MODULE_0__schema_defaults__;
-var canonicalTitleMap = __WEBPACK_IMPORTED_MODULE_2__canonical_title_map__["a" /* default */];
 
 /***/ }
 /******/ ]);
