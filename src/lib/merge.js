@@ -3,19 +3,23 @@ import { defaultForm, createDefaults } from './schema-defaults';
 import canonicalTitleMap from './canonical-title-map';
 
 // export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
-export function merge(lookup, form, options, readonly, asyncTemplates) {
+export function merge(lookup, form, ignore, options, readonly, asyncTemplates) {
+  let formItems = [];
   form  = form || [];
+  let idx = form.indexOf('*');
   options = options || {};
 
-  const stdForm = defaultForm(lookup, createDefaults());
   if(typeof lookup === 'object' && lookup.hasOwnProperty('properties')) {
-    let defaultForm = stdForm.lookup;
-    lookup = defaultForm || lookup;
+    readonly = readonly || lookup.readonly || lookup.readOnly;
+    const stdForm = defaultForm(lookup, createDefaults(), ignore, options);
+    let defaultFormLookup = stdForm.lookup;
+
+    lookup = defaultFormLookup || lookup;
+    formItems = formItems.concat(stdForm.form);
   };
 
-  let idx = form.indexOf('*');
   if (idx !== -1) {
-    form = form.slice(0, idx).concat(stdForm.form).concat(form.slice(idx + 1));
+    form = form.slice(0, idx).concat(formItems).concat(form.slice(idx + 1));
   };
 
   // ok let's merge!
@@ -59,14 +63,14 @@ export function merge(lookup, form, options, readonly, asyncTemplates) {
 
     // if it's a type with items, merge 'em!
     if (obj.items) {
-      obj.items = merge(lookup, obj.items, options, obj.readonly, asyncTemplates);
+      obj.items = merge(lookup, obj.items, ignore, options, obj.readonly, asyncTemplates);
     }
 
     // if its has tabs, merge them also!
     if (obj.tabs) {
       obj.tabs.forEach((tab) => {
         if (tab.items) {
-          tab.items = merge(lookup, tab.items, options, obj.readonly, asyncTemplates);
+          tab.items = merge(lookup, tab.items, ignore, options, obj.readonly, asyncTemplates);
         }
       });
     }

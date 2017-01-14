@@ -4,6 +4,9 @@ Core library for working with JSON-Schema with a UI-Schema (Form) definition tha
 This library, through the use of its merge module, combines the schema and ui-schema
 into a canonical schema for use by its services and external libraries.
 
+You **DO NOT** use this file in addition to Angular Schema Form, it is embedded at
+build into any frameworks using it.
+
 ## Work-In-Progress!
 There is [test output](docs/test.md) that forms some super basic documentation
 and I intend to expand them much further to the point of almost being

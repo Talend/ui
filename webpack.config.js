@@ -1,9 +1,9 @@
 /* global __dirname */
-var webpack = require('webpack');
-var path = require('path');
-var pjson = require('./package.json');
-var library = 'JSONSchemaFormCore';
-console.log('JSON Schema Form Core v' + pjson.version);
+const webpack = require('webpack');
+const path = require('path');
+const package = require('./package.json');
+const buildDate = new Date();
+console.log('JSON Schema Form Core v' + package.version);
 const plugins = [
   new webpack.BannerPlugin(
     'json-schema-form-core\n' +
@@ -19,14 +19,15 @@ const plugins = [
       minimize: true
     })
 ];
+let library = 'JSONSchemaFormCore';
 
 module.exports = {
   entry: {
-    "lib": './src/lib/index'
+    "json-schema-form-core": [ path.join(__dirname, 'src', 'lib', 'index') ]
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'json-schema-form-core.js',
+    filename: '[name].js',
     library: library,
     libraryTarget: 'commonjs2'
   },

@@ -1,10 +1,11 @@
 {
   "name": "json-schema-form-core",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/json-schema-form-core.js",
   "scripts": {
     "build": "webpack",
+    "dist-untested": "webpack --config webpack.config.dist.js",
     "tslint": "tslint \"src/**/*.ts\"",
     "test": "mocha --opts .mocha",
     "testdoc": "mocha --opts .mocha && mocha --opts .mocha.md > docs/test.md"

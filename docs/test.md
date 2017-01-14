@@ -16,12 +16,11 @@ _merge.merge.should.be.an('function');
 
 <a name="mergejs-merge"></a>
 ## merge
-should combine a schema and form definition, regardless of order.
+should handle a schema lookup or schema for first argument.
 
 ```js
-(0, _merge.merge)(schema, ['name', 'gender']).should.be.deep.equal(stdForm.form);
-(0, _merge.merge)(schema, ['gender']).should.be.deep.equal([stdForm.form[1]]);
-(0, _merge.merge)(schema, ['gender', 'name']).should.be.deep.equal([stdForm.form[1], stdForm.form[0]]);
+(0, _merge.merge)(stdForm.lookup, ['name', 'shoe', 'gender']).should.be.deep.equal(stdForm.form);
+(0, _merge.merge)(schema, ['*']).should.be.deep.equal(stdForm.form);
 ```
 
 should handle a wildcard * in the form definition.
@@ -30,10 +29,105 @@ should handle a wildcard * in the form definition.
 (0, _merge.merge)(schema, ['*']).should.be.deep.equal(stdForm.form);
 ```
 
+should not handle a wildcard * if the schema is a lookup.
+
+```js
+(0, _merge.merge)(stdForm.lookup, ['*']).should.not.be.deep.equal(stdForm.form);
+```
+
+should combine a schema and form definition, regardless of order.
+
+```js
+(0, _merge.merge)(schema, ['name', 'shoe', 'gender']).should.be.deep.equal(stdForm.form);
+(0, _merge.merge)(schema, ['gender']).should.be.deep.equal([stdForm.form[2]]);
+(0, _merge.merge)(schema, ['gender', 'name']).should.be.deep.equal([stdForm.form[2], stdForm.form[0]]);
+```
+
 should allow items that are not in the schema.
 
 ```js
 (0, _merge.merge)(schema, ['*', { type: 'fieldset' }]).should.be.deep.equal(stdForm.form.concat([{ type: 'fieldset' }]));
+```
+
+should translate "readOnly" in schema to "readonly" on the merged form defintion.
+
+```js
+var merged = (0, _merge.merge)(schema, ['gender']);
+merged[0].should.have.property('readonly');
+merged[0].readonly.should.eq(true);
+```
+
+should push readOnly in schema down into objects and arrays.
+
+```js
+var subschema = {
+  'type': 'object',
+  'readOnly': true,
+  'properties': {
+    'sub': {
+      'type': 'object',
+      'properties': {
+        'array': {
+          'type': 'array',
+          'items': {
+            'type': 'object',
+            'properties': {
+              'foo': {
+                'type': 'string'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+var merged = (0, _merge.merge)(subschema, ['*']);
+//sub
+merged[0].should.have.property('readonly');
+merged[0].readonly.should.eq(true);
+//array
+merged[0].items[0].should.have.property('readonly');
+merged[0].items[0].readonly.should.eq(true);
+//array items
+merged[0].items[0].items[0].should.have.property('readonly');
+merged[0].items[0].items[0].readonly.should.eq(true);
+```
+
+should push readonly in form def down into objects and arrays.
+
+```js
+var subschema = {
+  'type': 'object',
+  'properties': {
+    'sub': {
+      'type': 'object',
+      'properties': {
+        'array': {
+          'type': 'array',
+          'items': {
+            'type': 'object',
+            'properties': {
+              'foo': {
+                'type': 'string'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+var merged = (0, _merge.merge)(subschema, [{ key: 'sub', readonly: true }]);
+//sub
+merged[0].should.have.property('readonly');
+merged[0].readonly.should.eq(true);
+//array
+merged[0].items[0].should.have.property('readonly');
+merged[0].items[0].readonly.should.eq(true);
+//array items
+merged[0].items[0].items[0].should.have.property('readonly');
+merged[0].items[0].items[0].readonly.should.eq(true);
 ```
 
 <a name="schema-defaultsjs"></a>
