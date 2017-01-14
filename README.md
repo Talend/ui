@@ -1,23 +1,52 @@
 # json-schema-form-core
 Core library for working with JSON-Schema with a UI-Schema (Form) definition that doesn't depend on a framework.
 
-Work-In-Progress!
-
 This library, through the use of its merge module, combines the schema and ui-schema
 into a canonical schema for use by its services and external libraries.
 
+## Work-In-Progress!
+There is [test output](docs/test.md) that forms some super basic documentation
+and I intend to expand them much further to the point of almost being
+useful before I create a proper API and document that.
+
+## Keeping Track
+After changing to Webpack 2, this library now includes a detailed version
+header which is passed through into `Angular Schema Form` and also the `Bootstrap` decorator bundle
+
+```javascript
+/*!
+ * json-schema-form-core
+ * @version 1.0.0-alpha.5
+ * @date Sat, 14 Jan 2017 08:08:15 GMT
+ * @link https://github.com/json-schema-form/json-schema-form-core
+ * @license MIT
+ * Copyright (c) 2014-2017 JSON Schema Form
+ */
+```
+
+## Contributing / Plans
+The main contributions we need to the core at the moment are related to both the migration
+of `Angular Schema Form` features to the core (like templates/builders) and the addition
+of an API for use by ASF (Angular) and RSF (React) libraries.
+
+Please contact @Anthropic via our [Gitter](https://gitter.im/json-schema-form/angular-schema-form) if you wish to get involved.
+
 ## Testing it
 
+### With Angular Schema Form
 There is a branch in angular-schema-form called `feature/webpack-babel` that integrates the core.
 To use it roughly follow these steps:
 
-* Get angular-schema-form and switch to branch `feature/webpack-babel`
-* `npm install` to install dependencies, this will install json-schema-form-core as well
+* Clone angular-schema-form to a **sibling** directory and switch to branch `feature/webpack-babel`
+* `npm install` to install dependencies
 * `npm run build` to build with the core.
-* Use dist/schema-form.js, now with core. *No need to also load ObjectPath since it is already included*
+* Use dist/angular-schema-form.js, now with the core from this folder. *No need to also load ObjectPath since it is already included*
 
-## Tests
+### With Mocha tests
 Tests are written in mocha + chai and run trough `npm test`.
+
+When the command `npm run testdoc` is run instead, the tests will also generate a readable
+`markdown` file [test.md](docs/test.md) to document elements of the library.
 
 ## Notes
 * ObjectPath is bundled with json-schema-form-core

@@ -1,4 +1,5 @@
 import {stringify, parse} from './sf-path';
+import { defaultForm, createDefaults } from './schema-defaults';
 import canonicalTitleMap from './canonical-title-map';
 
 // export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
@@ -6,10 +7,20 @@ export function merge(lookup, form, options, readonly, asyncTemplates) {
   form  = form || [];
   options = options || {};
 
+  const stdForm = defaultForm(lookup, createDefaults());
+  if(typeof lookup === 'object' && lookup.hasOwnProperty('properties')) {
+    let defaultForm = stdForm.lookup;
+    lookup = defaultForm || lookup;
+  };
+
+  let idx = form.indexOf('*');
+  if (idx !== -1) {
+    form = form.slice(0, idx).concat(stdForm.form).concat(form.slice(idx + 1));
+  };
+
   // ok let's merge!
   // We look at the supplied form and extend it with schema standards
   return form.map((obj) => {
-
     // handle the shortcut with just a name
     if (typeof obj === 'string') {
       obj = { key: obj };

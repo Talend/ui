@@ -4,6 +4,21 @@ var path = require('path');
 var pjson = require('./package.json');
 var library = 'JSONSchemaFormCore';
 console.log('JSON Schema Form Core v' + pjson.version);
+const plugins = [
+  new webpack.BannerPlugin(
+    'json-schema-form-core\n' +
+    '@version ' + package.version + '\n' +
+    '@date ' + buildDate.toUTCString() + '\n' +
+    '@link https://github.com/json-schema-form/json-schema-form-core\n' +
+    '@license MIT\n' +
+    'Copyright (c) 2014-' + buildDate.getFullYear() + ' JSON Schema Form'),
+  /* Minification only occurs if the output is named .min */
+  new webpack.optimize.UglifyJsPlugin(
+    {
+      include: /\.min\.js$/,
+      minimize: true
+    })
+];
 
 module.exports = {
   entry: {
@@ -31,9 +46,11 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options: {
+            babelrc: false,
             presets: [
               ["es2015", { "modules": false }]
-            ]
+            ],
+            plugins: [ "transform-flow-strip-types" ]
           }
         }],
         exclude: /node_modules/
@@ -49,13 +66,5 @@ module.exports = {
   externals: {
     'tv4': 'var tv4',
   },
-  plugins: [
-    new webpack.BannerPlugin(
-      'json-schema-form-core\n' +
-      '@version ' + pjson.version + '\n' +
-      '@date ' + new Date().toUTCString() + '\n' +
-      '@link https://github.com/json-schema-form/json-schema-form-core\n' +
-      '@license MIT\n' +
-      'Copyright (c) 2016 JSON Schema Form')
-  ]
+  plugins: plugins
 };
