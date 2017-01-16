@@ -35,9 +35,8 @@ $tc-side-panel-docked-spacing: 15px !default;
 		font-size: 1em;
 		text-transform: uppercase;
 
-		i + span,
 		:global(.tc-svg-icon) + span {
-			padding-left: $padding-large;
+			padding-left: $padding-normal;
 		}
 
 		span {
@@ -57,7 +56,6 @@ $tc-side-panel-docked-spacing: 15px !default;
 	&.docked {
 		padding: 0 $padding-normal;
 
-		.toggle-btn i,
 		.toggle-btn :global(.tc-svg-icon) {
 			transform: rotate(-180deg);
 		}
@@ -74,21 +72,21 @@ $tc-side-panel-docked-spacing: 15px !default;
 	}
 
 	.toggle-btn {
-		margin-left: 3px;
+		margin-left: 0;
+		margin-bottom: $padding-large;
 
-		& :global(.tc-svg-icon) {
+		& svg:global(.tc-svg-icon) {
 			fill: $tc-side-panel-toggle-color;
-			width: 1.5em;
-			height: 1.5em;
+			width: 1.3em;
+			height: 1.3em;
 			transition: 0.2s transform ease-out;
 		}
 
 		&:before {
 			content: '';
-			height: 1.1em;
-			margin-right: -2px;
+			height: 0.9em;
+			margin-right: -5px;
 			border-left: 2px solid $tc-side-panel-toggle-color;
 		}
 	}
-
 }
