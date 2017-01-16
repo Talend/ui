@@ -1,4 +1,7 @@
 # json-schema-form-core
+[![Gitter](https://img.shields.io/badge/GITTER-JOIN%20CHAT%20%E2%86%92-ff69b4.svg?style=flat-square)](https://gitter.im/json-schema-form/angular-schema-form?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/json-schema-form/json-schema-form-core.svg?branch=development)](https://travis-ci.org/json-schema-form/json-schema-form-core)
+
 Core library for working with JSON-Schema with a UI-Schema (Form) definition that doesn't depend on a framework.
 
 This library, through the use of its merge module, combines the schema and ui-schema
