@@ -9,7 +9,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -1121,7 +1121,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -2367,7 +2367,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -3601,7 +3601,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -4824,7 +4824,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -6053,7 +6053,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -7536,7 +7536,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div
@@ -9007,7 +9007,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
         }
       }>
       <nav
-        className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+        className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
         <div
           className="container-fluid">
           <div

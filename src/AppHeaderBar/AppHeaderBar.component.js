@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap';
 import Icon from '../Icon';
 import Typeahead from '../Typeahead';
+import theme from './AppHeaderBar.scss';
 
 const NAV_ITEM = 'navItem';
 const DROPDOWN = 'dropdown';
@@ -183,7 +184,7 @@ function AppHeaderBar(props) {
 		);
 	}
 	return (
-		<Navbar fluid fixedTop inverse className="tc-app-header-bar">
+		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
 			<Navbar.Header>
 				<Navbar.Brand>
 					{brandLink}
@@ -191,7 +192,7 @@ function AppHeaderBar(props) {
 				<Navbar.Toggle />
 			</Navbar.Header>
 			<Navbar.Collapse>
-				{props.content ? props.content.map(renderContent) : null}
+				{props.content && props.content.map(renderContent)}
 			</Navbar.Collapse>
 		</Navbar>
 	);

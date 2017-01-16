@@ -4,7 +4,7 @@ exports[`Layout should render Layout OneColumn 1`] = `
   <div
     className="tc-layout-header">
     <nav
-      className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+      className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
       <div
         className="container-fluid">
         <div
@@ -52,7 +52,7 @@ exports[`Layout should render Layout TwoColumns 1`] = `
   <div
     className="tc-layout-header">
     <nav
-      className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+      className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
       <div
         className="container-fluid">
         <div
@@ -109,7 +109,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
   <div
     className="tc-layout-header">
     <nav
-      className="tc-app-header-bar navbar navbar-inverse navbar-fixed-top">
+      className="tc-app-header-bar undefined navbar navbar-inverse navbar-fixed-top">
       <div
         className="container-fluid">
         <div
