@@ -1,242 +1,66 @@
 import chai from 'chai';
 import { describe, it} from 'mocha';
-import { defaultForm, createDefaults } from './schema-defaults';
+import { select } from './select';
 
 chai.should();
 
-describe('schema-defaults.js', () => {
-  it('should hold functions for generating a default form schema from defaults it creates', () => {
-    defaultForm.should.be.an('function');
-    createDefaults.should.be.an('function');
-  });
-
-  describe('createDefaults', () => {
-    it('should create default rules', () => {
-      const rules = createDefaults();
-      rules.should.be.an('object');
-    });
-  });
-
-  describe('defaultForm', () => {
-    it('should generate default form def from a schema', () => {
-      const schema = {
-        'type': 'object',
-        'properties': {
-          'name': {
-            'title': 'Name',
-            'description': 'Gimme yea name lad',
-            'type': 'string'
-          },
-          'gender': {
-            'title': 'Choose',
-            'type': 'string',
-            'enum': [
-              'undefined',
-              'null',
-              'NaN',
-            ]
-          },
-          'overEighteen': {
-            'title': 'Are you over 18 years old?',
-            'type': 'boolean',
-            'default': false
-          },
-          'attributes': {
-            'type': 'object',
-            'required': [ 'eyecolor' ],
-            'properties': {
-              'eyecolor': { 'type': 'string', 'title': 'Eye color' },
-              'haircolor': { 'type': 'string', 'title': 'Hair color' },
-              'shoulders': {
-                'type': 'object',
-                'title': 'Shoulders',
-                'properties': {
-                  'left': { 'type': 'string' },
-                  'right': { 'type': 'string' },
-                }
-              }
-            }
+describe('select.js', () => {
+  const data = {
+    'name': 'Freddy',
+    'weapon': {
+      'glove': {
+        'method': [ 'stab' ]
+      }
+    },
+    'frienemies': [
+      {
+        'name': 'Jason',
+        'weapon': {
+          'machette': {
+            'method': [ 'slash' ]
           }
         }
-      };
+      },
+      {
+        'name': 'Ash Williams',
+        'weapon': {
+          'boomstick': {
+            'method': [ 'boom' ]
+          },
+          'chainsaw': {
+            'method': [ 'hack', 'slash', 'lop' ]
+          }
+        }
+      }
+    ],
+  };
 
-      const form = [
-        {
-          'title': 'Name',
-          'description': 'Gimme yea name lad',
-          'schema': {
-            'title': 'Name',
-            'description': 'Gimme yea name lad',
-            'type': 'string'
-          },
-          'ngModelOptions': {},
-          'key': [
-            'name'
-          ],
-          'type': 'text'
-        },
-        {
-          'title': 'Choose',
-          'schema': {
-            'title': 'Choose',
-            'type': 'string',
-            'enum': [
-              'undefined',
-              'null',
-              'NaN'
-            ]
-          },
-          'ngModelOptions': {},
-          'key': [
-            'gender'
-          ],
-          'type': 'select',
-          'titleMap': [
-            {
-              'name': 'undefined',
-              'value': 'undefined'
-            },
-            {
-              'name': 'null',
-              'value': 'null'
-            },
-            {
-              'name': 'NaN',
-              'value': 'NaN'
-            }
-          ]
-        },
-        {
-          'title': 'Are you over 18 years old?',
-          'schema': {
-            'title': 'Are you over 18 years old?',
-            'type': 'boolean',
-            'default': false
-          },
-          'ngModelOptions': {},
-          'key': [
-            'overEighteen'
-          ],
-          'type': 'checkbox'
-        },
-        {
-          'title': 'attributes',
-          'schema': {
-            'type': 'object',
-            'required': [
-              'eyecolor'
-            ],
-            'properties': {
-              'eyecolor': {
-                'type': 'string',
-                'title': 'Eye color'
-              },
-              'haircolor': {
-                'type': 'string',
-                'title': 'Hair color'
-              },
-              'shoulders': {
-                'type': 'object',
-                'title': 'Shoulders',
-                'properties': {
-                  'left': {
-                    'type': 'string'
-                  },
-                  'right': {
-                    'type': 'string'
-                  }
-                }
-              }
-            }
-          },
-          'ngModelOptions': {},
-          'key': [
-            'attributes'
-          ],
-          'type': 'fieldset',
-          'items': [
-            {
-              'title': 'Eye color',
-              'required': true,
-              'schema': {
-                'type': 'string',
-                'title': 'Eye color'
-              },
-              'ngModelOptions': {},
-              'key': [
-                'attributes',
-                'eyecolor'
-              ],
-              'type': 'text'
-            },
-            {
-              'title': 'Hair color',
-              'schema': {
-                'type': 'string',
-                'title': 'Hair color'
-              },
-              'ngModelOptions': {},
-              'key': [
-                'attributes',
-                'haircolor'
-              ],
-              'type': 'text'
-            },
-            {
-              'title': 'Shoulders',
-              'schema': {
-                'type': 'object',
-                'title': 'Shoulders',
-                'properties': {
-                  'left': {
-                    'type': 'string'
-                  },
-                  'right': {
-                    'type': 'string'
-                  }
-                }
-              },
-              'ngModelOptions': {},
-              'key': [
-                'attributes',
-                'shoulders'
-              ],
-              'type': 'fieldset',
-              'items': [
-                {
-                  'title': 'left',
-                  'schema': {
-                    'type': 'string'
-                  },
-                  'ngModelOptions': {},
-                  'key': [
-                    'attributes',
-                    'shoulders',
-                    'left'
-                  ],
-                  'type': 'text'
-                },
-                {
-                  'title': 'right',
-                  'schema': {
-                    'type': 'string'
-                  },
-                  'ngModelOptions': {},
-                  'key': [
-                    'attributes',
-                    'shoulders',
-                    'right'
-                  ],
-                  'type': 'text'
-                }
-              ]
-            }
+  it('should provide a function for getting and setting an object value', () => {
+    select.should.be.an('function');
+  });
+
+  describe('select', () => {
+    it('should get a value from an object', () => {
+      let value = select('frienemies[1].weapon.boomstick.method[0]', data);
+      value.should.eq('boom');
+    });
+
+    it('should set a value on an object', () => {
+      let value = select('weapon.glove.method[1]', data, 'slice');
+      data.weapon.glove.method.should.be.deep.equal([ 'stab', 'slice' ]);
+    });
+
+    it('should create any undefined objects or arrays in the path when setting a value', () => {
+      let data = {};
+      let value = select('property.array[1].value', data, 'something');
+      data.should.be.deep.equal({
+        'property': {
+          'array': [
+            ,
+            { 'value': 'something' }
           ]
         }
-      ];
-
-      const f = defaultForm(schema, createDefaults());
-      f.form.should.be.deep.equal(form);
+      });
     });
   });
 });

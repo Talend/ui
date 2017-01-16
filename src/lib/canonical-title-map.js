@@ -7,7 +7,8 @@ export default function(titleMap: Array<any>, originalEnum?: any) {
       originalEnum.forEach((value) => {
         canonical.push({ name: titleMap[value], value });
       });
-    } else {
+    }
+    else {
       Object.keys(titleMap).forEach((value) => {
         canonical.push({ name: titleMap[value], value });
       });

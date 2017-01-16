@@ -29,6 +29,7 @@ export function select(projection, obj, valueToSet) {
   if (typeof valueToSet !== 'undefined' && parts.length === 1) {
     // special case, just setting one variable
     obj[parts[0]] = valueToSet;
+
     return obj;
   };
 
@@ -39,31 +40,38 @@ export function select(projection, obj, valueToSet) {
   };
 
   let value = obj[parts[0]];
+
   for (let i = 1; i < parts.length; i++) {
     // Special case: We allow JSON Form syntax for arrays using empty brackets
     // These will of course not work here so we exit if they are found.
     if (parts[i] === '') {
       return undefined;
-    }
+    };
+
     if (typeof valueToSet !== 'undefined') {
       if (i === parts.length - 1) {
         // last step. Let's set the value
         value[parts[i]] = valueToSet;
         return valueToSet;
-      } else {
+      }
+      else {
         // Make sure to create new objects on the way if they are not there.
         // We need to look ahead to check if array is appropriate
         let tmp = value[parts[i]];
+
         if (typeof tmp === 'undefined' || tmp === null) {
           tmp = numRe.test(parts[i + 1]) ? [] : {};
           value[parts[i]] = tmp;
-        }
+        };
+
         value = tmp;
-      }
-    } else if (value) {
+      };
+    }
+    else if (value) {
       // Just get nex value.
       value = value[parts[i]];
-    }
-  }
+    };
+  };
+
   return value;
-}
+};

@@ -23,7 +23,7 @@ let library = 'JSONSchemaFormCore';
 
 module.exports = {
   entry: {
-    "json-schema-form-core": [ path.join(__dirname, 'src', 'lib', 'index') ]
+    "json-schema-form-core": [ path.join(__dirname, 'src', 'module') ]
   },
   output: {
     path: path.join(__dirname, 'dist'),

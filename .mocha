@@ -2,4 +2,4 @@
 --require babel-polyfill
 --reporter spec
 --watch-extensions js
-src/lib/*.spec.js
+src/**/*.spec.js
