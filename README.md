@@ -1,4 +1,4 @@
-# json-schema-form-core
+# JSON Schema Form Core
 [![Gitter](https://img.shields.io/badge/GITTER-JOIN%20CHAT%20%E2%86%92-ff69b4.svg?style=flat-square)](https://gitter.im/json-schema-form/angular-schema-form?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/json-schema-form/json-schema-form-core.svg?branch=development)](https://travis-ci.org/json-schema-form/json-schema-form-core)
 
