@@ -89,6 +89,26 @@
         }
       ]
     },
+    "List": {
+      "table (default)": [
+        {
+          "name": "list-table-default",
+          "selector": ".tc-list"
+        }
+      ],
+      "large": [
+        {
+          "name": "list-large-default",
+          "selector": ".tc-list"
+        }
+      ],
+      "tile": [
+        {
+          "name": "list-tile-default",
+          "selector": ".tc-list"
+        }
+      ]
+    },
     "SidePanel": {
       "default": [
         {
