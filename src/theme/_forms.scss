@@ -323,6 +323,15 @@ form {
 	}
 }
 
+form {
+	legend {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		border-bottom: none;
+	}
+}
+
 .switch {
 	input[type='checkbox'] {
 		position: absolute !important;
