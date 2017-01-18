@@ -28,8 +28,14 @@ describe('CMF settinsActions', () => {
 		action = settings.receiveSettings(data);
 		expect(action.type).toBe(settings.REQUEST_OK);
 		expect(action.settings).toBe(data);
-		action = settings.errorWithSettings(data);
+		const message = 'Unexpected token } in JSON at position 232';
+		const error = {
+			message,
+			stack: `SyntaxError: ${message}`,
+		};
+		action = settings.errorWithSettings(error);
 		expect(action.type).toBe(settings.REQUEST_KO);
-		expect(action.error).toBe(data);
+		expect(action.error.message).toBe(error.message);
+		expect(action.error.stack).toBe(error.stack);
 	});
 });

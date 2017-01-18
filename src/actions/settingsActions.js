@@ -1,6 +1,8 @@
 /**
  * @module react-cmf/lib/actions/settingsActions
  */
+import get from 'lodash/get';
+
 export const REQUEST_SETTINGS = 'REACT_CMF.REQUEST_SETTINGS';
 export const REQUEST_KO = 'REACT_CMF.REQUEST_SETTINGS_KO';
 export const REQUEST_OK = 'REACT_CMF.REQUEST_SETTINGS_OK';
@@ -22,7 +24,10 @@ export function receiveSettings(json) {
 export function errorWithSettings(error) {
 	return {
 		type: REQUEST_KO,
-		error,
+		error: {
+			message: get(error, 'message'),
+			stack: get(error, 'stack'),
+		},
 	};
 }
 
