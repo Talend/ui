@@ -21,7 +21,7 @@ public class List extends Component {
 
     static final String LIST_SELECTOR = ".tc-list";
 
-    static final String ADD_BTN_SELECTOR = ".btn-success";
+    static final String ADD_BTN_SELECTOR = ".tc-actionbar-container .btn-primary";
 
     static final String LIST_ITEMS_SELECTOR = ".tc-list-display-table div:first-child button";
 
