@@ -102,10 +102,13 @@ exports[`Toolbar should render display mode selector 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             role="button">
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-bars"
-              title={null} />
+              className="tc-svg-icon"
+              title={null}>
+              <use
+                xlinkHref="#talend-table" />
+            </svg>
              
             <span
               className="caret" />
@@ -125,10 +128,13 @@ exports[`Toolbar should render display mode selector 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1">
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-bars"
-                  title={null} />
+                  className="tc-svg-icon"
+                  title={null}>
+                  <use
+                    xlinkHref="#talend-table" />
+                </svg>
                 Table
               </a>
             </li>
@@ -143,10 +149,13 @@ exports[`Toolbar should render display mode selector 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1">
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-list-alt"
-                  title={null} />
+                  className="tc-svg-icon"
+                  title={null}>
+                  <use
+                    xlinkHref="#talend-expanded" />
+                </svg>
                 Expanded
               </a>
             </li>
@@ -161,10 +170,13 @@ exports[`Toolbar should render display mode selector 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1">
-                <i
+                <svg
                   aria-hidden="true"
-                  className="fa fa-th-large"
-                  title={null} />
+                  className="tc-svg-icon"
+                  title={null}>
+                  <use
+                    xlinkHref="#talend-tiles" />
+                </svg>
                 Tile
               </a>
             </li>

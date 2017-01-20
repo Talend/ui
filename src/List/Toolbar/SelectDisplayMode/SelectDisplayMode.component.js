@@ -5,10 +5,10 @@ import Icon from '../../../Icon';
 
 function getIcon(selected) {
 	switch (selected) {
-	case 'table': return 'fa-bars';
-	case 'large': return 'fa-list-alt';
-	case 'tile': return 'fa-th-large';
-	default: return 'fa-bars';
+	case 'table': return 'talend-table';
+	case 'large': return 'talend-expanded';
+	case 'tile': return 'talend-tiles';
+	default: return 'talend-table';
 	}
 }
 

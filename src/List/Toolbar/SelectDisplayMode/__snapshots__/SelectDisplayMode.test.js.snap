@@ -14,10 +14,13 @@ exports[`SelectDisplayMode should render 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-bars"
-        title={null} />
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-table" />
+      </svg>
        
       <span
         className="caret" />
@@ -37,10 +40,13 @@ exports[`SelectDisplayMode should render 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-table" />
+          </svg>
           Table
         </a>
       </li>
@@ -55,10 +61,13 @@ exports[`SelectDisplayMode should render 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-list-alt"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-expanded" />
+          </svg>
           Expanded
         </a>
       </li>
@@ -73,10 +82,13 @@ exports[`SelectDisplayMode should render 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-th-large"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-tiles" />
+          </svg>
           Tile
         </a>
       </li>
@@ -101,10 +113,13 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-bars"
-        title={null} />
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-table" />
+      </svg>
        
       <span
         className="caret" />
@@ -124,10 +139,13 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-table" />
+          </svg>
           Table
         </a>
       </li>
@@ -142,10 +160,13 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-list-alt"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-expanded" />
+          </svg>
           Expanded
         </a>
       </li>
@@ -160,10 +181,13 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-th-large"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-tiles" />
+          </svg>
           Tile
         </a>
       </li>
@@ -188,10 +212,13 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-list-alt"
-        title={null} />
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-expanded" />
+      </svg>
        
       <span
         className="caret" />
@@ -211,10 +238,13 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-table" />
+          </svg>
           Table
         </a>
       </li>
@@ -229,10 +259,13 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-list-alt"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-expanded" />
+          </svg>
           Expanded
         </a>
       </li>
@@ -247,10 +280,13 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-th-large"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-tiles" />
+          </svg>
           Tile
         </a>
       </li>
@@ -275,10 +311,13 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-bars"
-        title={null} />
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-table" />
+      </svg>
        
       <span
         className="caret" />
@@ -298,10 +337,13 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-table" />
+          </svg>
           Table
         </a>
       </li>
@@ -316,10 +358,13 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-list-alt"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-expanded" />
+          </svg>
           Expanded
         </a>
       </li>
@@ -334,10 +379,13 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-th-large"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-tiles" />
+          </svg>
           Tile
         </a>
       </li>
@@ -362,10 +410,13 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button">
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-th-large"
-        title={null} />
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-tiles" />
+      </svg>
        
       <span
         className="caret" />
@@ -385,10 +436,13 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-bars"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-table" />
+          </svg>
           Table
         </a>
       </li>
@@ -403,10 +457,13 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-list-alt"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-expanded" />
+          </svg>
           Expanded
         </a>
       </li>
@@ -421,10 +478,13 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1">
-          <i
+          <svg
             aria-hidden="true"
-            className="fa fa-th-large"
-            title={null} />
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-tiles" />
+          </svg>
           Tile
         </a>
       </li>
