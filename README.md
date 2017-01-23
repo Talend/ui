@@ -3,6 +3,11 @@
 That repository was created in an effort to simplify the development of Talend's
 front-end stack.
 
+[![Travis CI][travis-ci-image] ][travis-ci-url]
+
+[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/ui
+
 ## Goals
 
 * Single code repository / Multiple packages
@@ -24,3 +29,7 @@ front-end stack.
 - [ ] Setup projects test
 - [ ] Setup projects storybooks
 - [ ] Setup [lerna-semantic-release](https://github.com/atlassian/lerna-semantic-release)
+
+## The stack
+
+- [generator-talend](https://github.com/Talend/ui/tree/master/generator)
