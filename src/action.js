@@ -1,4 +1,5 @@
 import registry from './registry';
+import get from 'lodash/get';
 
 /**
  * @module react-cmf/lib/action
@@ -13,12 +14,7 @@ const ACTION_CREATOR_PREFIX = 'actionCreator';
  */
 function getActionsById(context) {
 	const state = context.store.getState();
-	if (state) {
-		if (state.cmf.settings) {
-			return state.cmf.settings.actions;
-		}
-	}
-	return {};
+	return get(state, 'cmf.settings.actions', {});
 }
 
 /**
@@ -30,15 +26,11 @@ function getActionsById(context) {
  */
 function getContentTypeActions(context, contentType, category) {
 	const state = context.store.getState();
-	const ct = state.cmf.settings.contentTypes[contentType];
-	if (ct) {
-		if (ct.actions) {
-			if (ct.actions[category]) {
-				return ct.actions[category];
-			}
-		}
-	}
-	return [];
+	return get(
+		state,
+		`cmf.settings.contentTypes[${contentType}.actions[${category}]`,
+		[]
+	);
 }
 
 /**
