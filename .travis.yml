@@ -8,7 +8,7 @@ notifications:
   email: false
 node_js:
   - '6'
-install:
+script:
   - lerna exec -- yarn
   - lerna exec -- yarn test
 branches:
