@@ -1,0 +1,25 @@
+{
+  "name": "<%= props.name %>",
+  "version": "0.0.0",
+  "description": "<%= props.name %> library.",
+  "license": "Apache-2.0",
+  "author": "<%= props.author_name %> <%= props.author_email %>",
+  "repository": {
+    "type": "git",
+    "url": "github:Talend/<%= props.name %>"
+  },
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-eslint": "6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.13.2",
+    "eslint": "3.4.0",
+    "eslint-config-airbnb": "10.0.1",
+    "eslint-plugin-import": "1.14.0",
+    "eslint-plugin-jsx-a11y": "2.2.0",
+    "eslint-plugin-react": "6.2.0",
+    "semantic-release": "4.3.5",
+    "webpack": "1.13.1"
+ },
+  "dependencies": {}
+}

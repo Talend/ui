@@ -1,0 +1,23 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - $HOME/.cache
+    - $HOME/.yarn-cache
+notifications:
+  email: false
+node_js:
+  - '6'
+install:
+  - npm install -g yarn
+  - yarn
+  - mkdir -p $HOME/.cache/node-yeoman-remote-cache/Talend/tools
+  - rm -rf $HOME/.cache/node-yeoman-remote-cache/Talend/tools/master
+  - curl -Lo master.zip https://github.com/Talend/tools/archive/master.zip
+  - unzip master.zip
+  - mv tools-master $HOME/.cache/node-yeoman-remote-cache/Talend/tools/master
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
