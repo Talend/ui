@@ -13,7 +13,7 @@ front-end stack.
 ## TODO
 
 - [ ] Initialze the repository with lerna
-- [ ] Import [generator-talend](https://github.com/Talend/generator-talend)
+- [x] Import [generator-talend](https://github.com/Talend/generator-talend)
 - [ ] Import [react-talend-containers](https://github.com/Talend/react-talend-containers)
 - [ ] Import [react-cmf](https://github.com/Talend/react-cmf)
 - [ ] Import [react-talend-forms](https://github.com/Talend/react-talend-forms)
