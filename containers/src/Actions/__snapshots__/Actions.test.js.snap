@@ -1,0 +1,7 @@
+exports[`Actions should render 1`] = `
+<div
+  className="mock-provider">
+  <div
+    className="tc-actions" />
+</div>
+`;

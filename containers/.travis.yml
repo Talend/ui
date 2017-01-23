@@ -1,0 +1,19 @@
+sudo: false
+language: node_js
+cache:
+  yarn: true
+  directories:
+    - $HOME/.cache
+    - $HOME/.yarn-cache
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '6'
+after_success:
+  - npm run test:cov
+  - cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage
+  - /bin/bash .travis/after_success.sh
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

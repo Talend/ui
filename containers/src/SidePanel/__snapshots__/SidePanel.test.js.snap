@@ -1,0 +1,15 @@
+exports[`SidePanel should render 1`] = `
+<div
+  className="mock-provider">
+  <div
+    className="tc-side-panel" />
+</div>
+`;
+
+exports[`SidePanel should render provided actions as string 1`] = `
+<div
+  className="mock-provider">
+  <div
+    className="tc-side-panel" />
+</div>
+`;
