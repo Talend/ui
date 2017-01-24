@@ -89,6 +89,8 @@ We are adding metadata over content type:
 * icon id
 * actions (by category)
 
+Status: not fully implemented and not used at the moment.
+
 ## Internals: The registry
 
 You will find the registry as the central piece of ui abstraction.
@@ -96,6 +98,8 @@ It's just a key/object registry and it's used with prefix to store the following
 
 * action creators (function)
 * views (React Component)
+
+Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
 
 ## Store structure
 cmf store structure is the following
@@ -163,3 +167,62 @@ return actions.http.get(url, {
 	});
 }
 ```
+
+The request is done using the fecth API so you may add the [github's fetch
+polyfill](http://npmjs.com/package/whatwg-fetch) in your project.
+
+Note onResponse and onError accept function:
+
+* onResponse(response)
+* onError(error)
+
+## Tests & mocks
+
+When you are in the context of CMF and you want to test your component you
+will need to mock some stuff (context, router, ...).
+
+We want testing experience to be easy so CMF provides some mocks for you.
+
+```javascript
+import React from 'react';
+import renderer from 'react-test-renderer';
+import { Provider, store as mock } from 'react-cmf/lib/mock';
+
+import MyComponent from './My.component';
+
+describe('App', () => {
+	it('should render the app container', () => {
+		const wrapper = renderer.create(
+			<Provider>
+				<MyComponent />
+			</Provider>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+});
+```
+
+This way MyComponent may request for the following context:
+
+* router
+* registry
+* store
+
+you may change the following using simple props:
+
+* store
+* state
+* router
+* registry
+
+## ROADMAP
+
+For 1.0
+
+- [ ] embedable apps
+- [ ] higher order configuration (RegistryProvider)
+- [ ] react-router v5
+- [ ] i18n
+- [ ] generator
+- [ ] content types
+- [ ] actionCreator should become first class
