@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [ "es6" ],
+    "mapRoot": "./",
+    "module": "commonjs",
+    "moduleResolution": "classic",
+    "noImplicitAny": false,
+    "outDir": "./dist/",
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es6",
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "files": [
+    "src/lib/index.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}
