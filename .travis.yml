@@ -8,10 +8,14 @@ notifications:
   email: false
 node_js:
   - '6'
+before_install: .travis/before_install.sh
 before_script:
   - lerna exec -- yarn --mutex network
 script:
   - lerna exec -- yarn test
+after_success: .travis/after_success.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+git:
+  depth: 1
