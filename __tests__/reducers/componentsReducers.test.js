@@ -51,7 +51,7 @@ describe('check component management reducer', () => {
 	);
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
-		state tracking to the store if the key don\'t exist`,
+		state tracking to the store if the key don't exist`,
 		() => {
 			expect(componentsReducers(initialState, {
 				type: 'REACT_CMF.COMPONENT_ADD_STATE',

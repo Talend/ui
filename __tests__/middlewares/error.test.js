@@ -15,7 +15,7 @@ describe('CMF error middleware getErrorMiddleware', () => {
 		};
 		const next = (action) => {
 			if (action.type === 'THROW') {
-				throw { error: 'message' };
+				throw new Error('message');
 			}
 			return {
 				action,
@@ -30,7 +30,7 @@ describe('CMF error middleware getErrorMiddleware', () => {
 		expect(newState.action.body.reduxState).toBe(store.state);
 		expect(newState.action.body.action.type).toBe('THROW');
 		expect(newState.action.body.userAgent).toMatch(/Node\.js/);
-		expect(newState.action.body.error.error).toBe('message');
+		expect(newState.action.body.error.message).toBe('message');
 	});
 	it('should throw exception without slug', () => {
 		expect(getErrorMiddleware).toThrow(URL_REQUIRED_MESSAGE);

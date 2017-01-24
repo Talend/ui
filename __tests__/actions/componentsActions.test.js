@@ -119,21 +119,26 @@ describe('test component state management action creators', () => {
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 
-	it('removeComponentState throw when a couple of componentName, collectionId doesn\'t exist', () => {
+	it('removeComponentState throw when a couple of componentName, collectionId doesn\'t exist', () => {  // eslint-disable-line
 		const store = mockStore({
 			cmf: {
 				collections: new Map().set('collection', new Map()),
 				components: new Map().set('component', new Map().set('key', new Map())),
 			},
 		});
+		const msg = 'The component can\'t be removed since the componentName, keyId association doesn\'t exist.';  // eslint-disable-line
+		const msgbis = 'The component can\'t be removed since the component, keyId association doesn\'t exist.';  // eslint-disable-line
 		expect(() => {
 			store.dispatch(removeComponentState('componentName', 'keyId'));
-		}).toThrowError('The component can\'t be removed since the componentName, keyId association doesn\'t exist.');
+		})
+		.toThrowError(msg);
 		expect(() => {
 			store.dispatch(removeComponentState('component', 'keyId'));
-		}).toThrowError('The component can\'t be removed since the component, keyId association doesn\'t exist.');
+		})
+		.toThrowError(msgbis);
 		expect(() => {
 			store.dispatch(removeComponentState('componentName', 'keyId'));
-		}).toThrowError('The component can\'t be removed since the componentName, keyId association doesn\'t exist.');
+		})
+		.toThrowError(msg);
 	});
 });

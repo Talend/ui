@@ -3,7 +3,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import route, {
 	mapStateToViewProps,
-	connectView,
 } from '../src/route';
 import registry from '../src/registry';
 import mock from '../src/mock';

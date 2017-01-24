@@ -1,13 +1,12 @@
-jest.mock('react-router');
-jest.mock('react-router-redux', () => {
-	return {
-		syncHistoryWithStore(module, store) {
-			return { module, store };
-		},
-	};
-});
 import { hashHistory } from 'react-router';
 import history from '../src/history';
+
+jest.mock('react-router');
+jest.mock('react-router-redux', () => ({
+	syncHistoryWithStore(module, store) {
+		return { module, store };
+	},
+}));
 
 describe('uiAbstraction history', () => {
 	it('shoud expose a get method', () => {
