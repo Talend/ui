@@ -88,10 +88,22 @@ should handle a wildcard * in the form definition.
 (0, _merge.merge)(schema, ['*']).should.be.deep.equal(stdForm.form);
 ```
 
-should not handle a wildcard * if the schema is a lookup.
+should not handle a wildcard * if the schema is a lookup and cannot be inserted.
 
 ```js
 (0, _merge.merge)(stdForm.lookup, ['*']).should.not.be.deep.equal(stdForm.form);
+```
+
+should handle a rest "..." key in the form definition.
+
+```js
+(0, _merge.merge)(schema, ['...', 'gender']).should.be.deep.equal(stdForm.form);
+```
+
+should not handle a rest "..." key in the form definition when the schema is a lookup and cannot be inserted.
+
+```js
+(0, _merge.merge)(stdForm.lookup, ['...', 'gender']).should.not.be.deep.equal(stdForm.form);
 ```
 
 should combine a schema and form definition, regardless of order.

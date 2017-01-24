@@ -5,13 +5,17 @@ import canonicalTitleMap from './canonical-title-map';
 // export function merge(schema, form, schemaDefaultTypes, ignore, options, readonly, asyncTemplates) {
 export function merge(lookup, form, ignore, options, readonly, asyncTemplates) {
   let formItems = [];
+  let formItemRest = [];
   form  = form || [];
   let idx = form.indexOf('*');
   options = options || {};
+  let stdForm = {};
 
+  let idxRest = form.indexOf('...');
   if(typeof lookup === 'object' && lookup.hasOwnProperty('properties')) {
     readonly = readonly || lookup.readonly || lookup.readOnly;
-    const stdForm = defaultForm(lookup, createDefaults(), ignore, options);
+    stdForm = defaultForm(lookup, createDefaults(), ignore, options);
+
     let defaultFormLookup = stdForm.lookup;
 
     lookup = defaultFormLookup || lookup;
@@ -20,6 +24,36 @@ export function merge(lookup, form, ignore, options, readonly, asyncTemplates) {
 
   if (idx !== -1) {
     form = form.slice(0, idx).concat(formItems).concat(form.slice(idx + 1));
+  }
+
+  //simple case, we have a "...", just put the formItemRest there
+  if (stdForm.form && idxRest !== -1) {
+    let formKeys = form.map(function(obj) {
+      if (typeof obj === 'string'){
+        return obj;
+      }
+      else if (obj.key) {
+        return obj.key;
+      };
+    }).filter(function(element) {
+      return element !== undefined;
+    });
+
+    formItemRest = formItemRest.concat(
+      stdForm.form.map(function(obj) {
+        let isInside = formKeys.indexOf(obj.key[0]) !== -1;
+        if (!isInside) {
+          return obj;
+        };
+      })
+      .filter(function(element) {
+        return element !== undefined;
+      })
+    );
+  };
+
+  if (idxRest !== -1) {
+    form = form.slice(0, idxRest).concat(formItemRest).concat(form.slice(idxRest + 1));
   };
 
   // ok let's merge!
