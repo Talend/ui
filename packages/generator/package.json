@@ -34,7 +34,6 @@
     "eslint": "^3.1.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
-    "semantic-release": "^4.3.5",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
@@ -43,7 +42,6 @@
     "url": "https://github.com/Talend/generator-talend.git"
   },
   "scripts": {
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test:coverage": "istanbul cover _mocha",
     "test:lint": "eslint generator/**/index.js",
     "test:unit": "mocha --compilers js:babel-register",
