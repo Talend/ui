@@ -1,0 +1,33 @@
+{
+  "contentTypes": {
+
+  },
+  "actions": {
+    "menu:home": {
+      "id":"menu:home",
+      "name":"Home",
+      "icon": "fa-home",
+      "type":"@@router/CALL_HISTORY_METHOD",
+      "payload":{
+          "method": "push",
+          "args":["/"]
+      }
+    }
+  },
+  "views":{
+    "appheaderbar":{
+      "actions": ["menu:home"],
+      "userMenuActions": [],
+      "logo": {"src": "images/logo.png", "alt": "React CMF"},
+      "app": "React CMF"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": { "component": "Home" },
+    "childRoutes": [
+      { "path": "home", "component": "Home" },
+    ]
+  }
+}
