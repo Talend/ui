@@ -19,7 +19,7 @@ front-end stack.
 
 - [ ] Initialze the repository with lerna
 - [x] Import [generator-talend](https://github.com/Talend/generator-talend)
-- [ ] Import [react-talend-containers](https://github.com/Talend/react-talend-containers)
+- [x] Import [react-talend-containers](https://github.com/Talend/react-talend-containers)
 - [ ] Import [react-cmf](https://github.com/Talend/react-cmf)
 - [ ] Import [react-talend-forms](https://github.com/Talend/react-talend-forms)
 - [ ] Import [react-flow-designer](https://github.com/Talend/react-flow-designer)
@@ -33,3 +33,4 @@ front-end stack.
 ## The stack
 
 - [generator-talend](https://github.com/Talend/ui/tree/master/generator)
+- [react-talend-containers](https://github.com/Talend/ui/tree/master/containers)
