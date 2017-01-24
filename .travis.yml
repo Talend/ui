@@ -8,8 +8,9 @@ notifications:
   email: false
 node_js:
   - '6'
+before_script:
+  - lerna exec -- yarn --mutex network
 script:
-  - lerna exec -- yarn
   - lerna exec -- yarn test
 branches:
   except:
