@@ -5,7 +5,6 @@
 import api from './api';
 import App from './App';
 import ConnectedDispatcher from './Dispatcher';
-import Icon from './Icon';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import history from './history';
@@ -35,7 +34,6 @@ export {
 	Dispatcher,
 	history,
 	store,
-	Icon,
 	reducers,
 	RegistryProvider,
 	UIRouter,
