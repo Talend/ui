@@ -8,6 +8,10 @@
     "postinstall": "lerna bootstrap",
     "test": "lerna run test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "version": "0.0.0",
   "private": true
 }
