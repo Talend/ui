@@ -102,5 +102,6 @@
     "react-talend-components": "^0.4.1",
     "reselect": "^2.5.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.60.0"
 }
