@@ -14,4 +14,8 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 			width: auto;
 		}
 	}
+
+	button:first-child {
+		padding-left: 0;
+	}
 }
