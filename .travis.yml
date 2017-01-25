@@ -17,5 +17,3 @@ after_success: .travis/after_success.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
-git:
-  depth: 1
