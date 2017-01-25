@@ -5,6 +5,8 @@
 
 .navbar {
 	.dropdown-toggle {
+		display: flex;
+		align-items: center;
 		text-transform: uppercase;
 	}
 
