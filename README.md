@@ -25,6 +25,7 @@ front-end stack.
 - [ ] Import [react-flow-designer](https://github.com/Talend/react-flow-designer)
 - [ ] Import [icons](https://github.com/Talend/icons)
 - [ ] Import [react-talend-components](https://github.com/Talend/react-talend-components)
+- [ ] Import [bootstrap-theme](https://github.com/Talend/bootstrap-theme)
 - [ ] Import projects issues
 - [ ] Setup projects test
 - [ ] Setup projects storybooks
