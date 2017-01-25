@@ -82,6 +82,7 @@ import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import Layout from './Layout';
 import List from './List';
+import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
@@ -108,6 +109,7 @@ export {
 	Layout,
 	List,
 	Notification,
+	ObjectViewer,
 	Progress,
 	SidePanel,
 	Status,
