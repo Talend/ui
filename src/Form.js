@@ -10,6 +10,7 @@ import StringField from './fields/StringField';
 import FieldTemplate from './templates/FieldTemplate';
 import SwitchWidget from './widgets/SwitchWidget';
 import TabsWidget from './widgets/TabsWidget';
+import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -18,10 +19,11 @@ const TRIGGER_AFTER = 'after';
 const customWidgets = {
 	toggle: SwitchWidget,
 	tabs: TabsWidget,
+	multiSelectTag: MultiSelectTagWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs'],
+	'ui:widget': ['toggle', 'tabs', 'multiSelectTag'],
 };
 
 class Form extends React.Component {

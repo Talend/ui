@@ -6,6 +6,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
+import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
 import Form from '../src/Form';
 
@@ -43,12 +44,15 @@ sampleFilenames
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 			decoratedStories.add(capitalizedSampleName, () => (
-				<Form
-					autocomplete='off'
-					data={object(capitalizedSampleName, sampleFilenames(filename))}
-					onChange={action('Change')}
-					onSubmit={action('Submit')}
-				/>
+				<section>
+					<IconsProvider />
+					<Form
+						autocomplete='off'
+						data={object(capitalizedSampleName, sampleFilenames(filename))}
+						onChange={action('Change')}
+						onSubmit={action('Submit')}
+					/>
+				</section>
 			));
 		});
 

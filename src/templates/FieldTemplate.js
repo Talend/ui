@@ -28,7 +28,8 @@ const CustomFieldTemplate = ({
 		uiWidget === 'checkboxes' ||
 		uiWidget === 'checkbox' ||
 		uiWidget === 'radio' ||
-		uiWidget === 'range';
+		uiWidget === 'range' ||
+		uiWidget === 'multiSelectTag';
 	const isToggle =
 		uiWidget === 'toggle';
 	return (
