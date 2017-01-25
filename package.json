@@ -23,7 +23,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.13.14",
+    "bootstrap-talend-theme": "^0.13.20",
     "chokidar": "^1.6.1",
     "classnames": "^2.2.5",
     "cpx": "^1.5.0",

@@ -9,7 +9,6 @@ class TabsField extends Component {
 		this.state = { ...props.formData };
 	}
 
-
 	render() {
 		const {
 		schema,
