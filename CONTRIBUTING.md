@@ -112,3 +112,7 @@ The footer should contain
 
 **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space
 or two newlines. The rest of the commit message is then used for this.
+
+## <a name="codestyle"></a> Code style
+
+https://github.com/Talend/ui/wiki/Javascript-coding-style
