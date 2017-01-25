@@ -1,0 +1,31 @@
+{
+  "jsonSchema": {
+    "title": "multiSelectTag",
+    "type": "object",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"
+          ],
+          "enumNames": [
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"
+          ]
+        },
+        "uniqueItems": true,
+        "createIfNoneMatch": true
+      }
+    }
+  },
+  "uiSchema": {
+    "tags": {
+      "ui:widget": "multiSelectTag"
+    }
+  },
+  "properties": {
+    "tags": [
+      "a", "b"
+    ]
+  }
+}
