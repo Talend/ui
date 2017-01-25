@@ -6,6 +6,7 @@ Here are the guidelines we'd like you to follow:
 
 - [Pull Requests](#pullrequest)
 - [Commit Message Guidelines](#commit)
+- [Code style](#codestyle)
 
 
 ## <a name="pullrequest"></a> GitHub Pull Requests
