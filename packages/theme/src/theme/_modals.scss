@@ -1,0 +1,24 @@
+
+.modal {
+	&-header {
+		border-top-left-radius: $border-radius-base;
+		border-top-right-radius: $border-radius-base;
+		background-color: $modal-header-bg;
+
+		.modal-title {
+			font-weight: bold;
+			color: $modal-header-color;
+			text-align: center;
+		}
+
+		.close {
+			color: $modal-header-color;
+			opacity: 1;
+		}
+	}
+
+	&-footer {
+		border-top: none;
+	}
+
+}

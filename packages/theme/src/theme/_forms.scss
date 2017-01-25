@@ -1,0 +1,395 @@
+////
+/// Bootstrap forms customization
+/// @group Forms
+////
+
+form {
+	// Bootswatch Paper theme fork
+	// @see https://github.com/thomaspark/bootswatch/tree/gh-pages/paper
+
+	// Change this var with restrict scope in order to not modify Bootswatch fork
+	$brand-primary: $scooter;
+
+	// Forms ======================================================================
+
+	label {
+		font-weight: normal;
+	}
+
+	textarea,
+	textarea.form-control,
+	input.form-control,
+	input[type=text],
+	input[type=password],
+	input[type=email],
+	input[type=number],
+	[type=text].form-control,
+	[type=password].form-control,
+	[type=email].form-control,
+	[type=tel].form-control,
+	[contenteditable].form-control {
+		@include box-shadow(inset 0 -1px 0 $alto);
+		padding: 0;
+		border: none;
+		border-radius: 0;
+		font-size: 16px;
+
+		&:focus {
+			@include box-shadow(inset 0 -2px 0 $brand-primary);
+		}
+
+		&[disabled],
+		&[readonly] {
+			@include box-shadow(none);
+			border-bottom: 1px dotted $alto;
+		}
+
+		&.input {
+			&-sm {
+				font-size: $font-size-small;
+			}
+
+			&-lg {
+				font-size: $font-size-large;
+			}
+		}
+	}
+
+	select,
+	select.form-control {
+		@include box-shadow(inset 0 -1px 0 $alto);
+		border: none;
+		border-radius: 0;
+		appearance: none;
+		padding-left: 0;
+		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+		background-size: 13px;
+		background-repeat: no-repeat;
+		background-position: right center;
+		font-size: 16px;
+		line-height: 1.5;
+
+		&::-ms-expand {
+			display: none;
+		}
+
+		&.input {
+			&-sm {
+				font-size: $font-size-small;
+			}
+
+			&-lg {
+				font-size: $font-size-large;
+			}
+		}
+
+		&:focus {
+			@include box-shadow(inset 0 -2px 0 $brand-primary);
+			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+		}
+
+		&[multiple] {
+			background: none;
+		}
+	}
+
+	.radio,
+	.radio-inline,
+	.checkbox,
+	.checkbox-inline {
+		label {
+			padding-left: 25px;
+		}
+
+		input[type='radio'],
+		input[type='checkbox'] {
+			margin-left: -25px;
+		}
+	}
+
+	input[type='radio'],
+	.radio input[type='radio'],
+	.radio-inline input[type='radio'] {
+		position: relative;
+		margin-top: 6px;
+		margin-right: 4px;
+		vertical-align: top;
+		border: none;
+		background-color: transparent;
+		appearance: none;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:before,
+		&:after {
+			@include transition(240ms);
+			content: '';
+			display: block;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+		}
+
+		&:before {
+			@include scale(0);
+			position: absolute;
+			left: 0;
+			top: -3px;
+			background-color: $brand-primary;
+		}
+
+		&:after {
+			position: relative;
+			top: -3px;
+			border: 2px solid $gray;
+		}
+
+		&:checked:before {
+			@include scale(0.5);
+		}
+
+		&:disabled:checked:before {
+			background-color: $gray-light;
+		}
+
+		&:checked:after {
+			border-color: $brand-primary;
+		}
+
+		&:disabled:after,
+		&:disabled:checked:after {
+			border-color: $gray-light;
+		}
+	}
+
+	input[type='checkbox'],
+	.checkbox input[type='checkbox'],
+	.checkbox-inline input[type='checkbox'] {
+		position: relative;
+		border: none;
+		margin-bottom: -4px;
+		appearance: none;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus:after {
+			border-color: $brand-primary;
+		}
+
+		&:after {
+			@include transition(240ms);
+			content: '';
+			display: block;
+			width: 18px;
+			height: 18px;
+			margin-top: -2px;
+			margin-right: 5px;
+			border: 2px solid $gray;
+			border-radius: 2px;
+		}
+
+		&:checked:before {
+			@include rotate(45deg);
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 6px;
+			display: table;
+			width: 6px;
+			height: 12px;
+			border: 2px solid #FFF;
+			border-top-width: 0;
+			border-left-width: 0;
+		}
+
+		&:checked:after {
+			background-color: $brand-primary;
+			border-color: $brand-primary;
+		}
+
+		&:disabled:after {
+			border-color: $gray-light;
+		}
+
+		&:disabled:checked:after {
+			background-color: $gray-light;
+			border-color: transparent;
+		}
+	}
+
+	.has-warning {
+		input:not([type=checkbox]),
+		.form-control,
+		input.form-control[readonly],
+		input[type=text][readonly],
+		[type=text].form-control[readonly],
+		input:not([type=checkbox]):focus,
+		.form-control:focus {
+			@include box-shadow(inset 0 -2px 0 $brand-warning);
+			border-bottom: none;
+		}
+	}
+
+	.has-error {
+		input:not([type=checkbox]),
+		.form-control,
+		input.form-control[readonly],
+		input[type=text][readonly],
+		[type=text].form-control[readonly],
+		input:not([type=checkbox]):focus,
+		.form-control:focus {
+			@include box-shadow(inset 0 -2px 0 $brand-danger);
+			border-bottom: none;
+		}
+	}
+
+	.has-success {
+		input:not([type=checkbox]),
+		.form-control,
+		input.form-control[readonly],
+		input[type=text][readonly],
+		[type=text].form-control[readonly],
+		input:not([type=checkbox]):focus,
+		.form-control:focus {
+			@include box-shadow(inset 0 -2px 0 $brand-success);
+			border-bottom: none;
+		}
+	}
+
+	// Remove the Bootstrap feedback styles for input addons
+	.input-group-addon {
+		.has-warning &,
+		.has-error &,
+		.has-success & {
+			color: $input-color;
+			border-color: $input-group-addon-border-color;
+			background-color: $input-group-addon-bg;
+		}
+	}
+
+	.form-group-lg {
+		select,
+		select.form-control {
+			line-height: 1.5;
+		}
+	}
+}
+
+.form {
+	&-group {
+		position: relative;
+		padding-top: 1.5rem;
+
+		select {
+			padding: 0;
+		}
+	}
+
+	&-control {
+		+ label {
+			position: absolute;
+			top: 1.5rem;
+			left: 0;
+			font-size: 1.5rem;
+			transition: opacity 0.1s linear, font-size 0.1s linear, top 0.1s linear;
+			pointer-events: none;
+		}
+	}
+
+	&-control:focus,
+	&-control:disabled,
+	&-control[value]:not([value='']),
+	&-control:not(:empty),
+	input[type='date'],
+	input[type='datetime-local'] {
+		+ label {
+			top: 0;
+			font-size: 1.125rem;
+			opacity: 1 !important;
+		}
+	}
+
+	&-control[placeholder]:not([placeholder='']) {
+		+ label {
+			opacity: 0;
+		}
+	}
+}
+
+form {
+	legend {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		border-bottom: none;
+	}
+}
+
+.switch {
+	input[type='checkbox'] {
+		position: absolute !important;
+		clip: rect(1px 1px 1px 1px);
+		clip: rect(1px, 1px, 1px, 1px);
+		padding: 0 !important;
+		border: none !important;
+		height: 1px !important;
+		width: 1px !important;
+		overflow: hidden;
+
+		+ * {
+			position: relative;
+			padding-left: 15px;
+		}
+
+		+ *:before,
+		+ *:after {
+			display: inline-block;
+			position: absolute;
+			content: '';
+			top: 0;
+			left: -25px;
+			transition: background 0.2s ease, transform 0.2s ease;
+		}
+
+		+ *:before {
+			height: 15px;
+			width: 35px;
+			margin-top: 3px;
+			background: tint($dove-gray, 40);
+			border-radius: 100px;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+
+		+ *:after {
+			width: 20px;
+			height: 20px;
+			border-radius: 100px;
+			background: #F1F1F1;
+			box-shadow: 0 1px 1px 0 $dove-gray;
+		}
+
+		&:checked {
+			+ *:before {
+				background: tint($scooter, 40);
+			}
+
+			+ *:after {
+				background: $scooter;
+				transform: translate(16px, 0);
+			}
+		}
+	}
+}
+
+.input-group-btn {
+	.btn {
+		line-height: $font-size-base * $line-height-base;
+	}
+}

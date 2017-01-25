@@ -1,0 +1,118 @@
+.nav {
+	.btn.btn-link {
+		color: inherit;
+		border: none;
+
+		&:focus,
+		&:active,
+		&:hover {
+			text-decoration: none;
+			background: none;
+		}
+	}
+
+	&-inverse {
+		color: $navbar-inverse-color;
+		background-color: $brand-primary;
+	}
+
+	&-pills {
+
+		> li {
+
+			&,
+			& + li {
+				margin: 0;
+			}
+
+			&:focus,
+			&:active,
+			&:hover,
+			&.active,
+			&.open {
+				color: $navbar-inverse-color;
+				background-color: $brand-primary-dark;
+			}
+
+			&.disabled .btn {
+				&:focus,
+				&:active,
+				&:hover {
+					color: shade($navbar-inverse-color, 10);
+				}
+			}
+		}
+
+		.btn.btn-link {
+			padding: $padding-large;
+			width: 100%;
+			line-height: 1;
+			text-align: left;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+
+			&.dropdown-toggle {
+				position: relative;
+				padding-right: 2 * $padding-large;
+
+				.caret {
+					position: absolute;
+					right: $padding-large;
+					margin-top: $dropdown-caret-size / 2;
+				}
+			}
+		}
+
+		&.nav-stacked {
+			.btn.btn-link {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+
+	&-tabs {
+		border: none;
+		font-size: $font-size-small;
+
+		> li {
+
+			&.active {
+
+				button {
+					box-shadow: 0 -2px 0 $brand-primary inset;
+				}
+			}
+
+			&.disabled button {
+				cursor: not-allowed;
+				color: rgba(1, 1, 1, 0.4);
+
+				&:focus,
+				&:hover {
+					background: transparent;
+				}
+			}
+
+			> button {
+				background: transparent;
+				border: none;
+				color: rgba(1, 1, 1, 0.6);
+				letter-spacing: 0.6px;
+				line-height: 1;
+				outline: none;
+				padding: $padding-normal;
+				text-transform: uppercase;
+
+				&:focus {
+					background: rgba(0, 0, 0, 0.06);
+				}
+
+				&:hover {
+					background: rgba(0, 0, 0, 0.03);
+				}
+			}
+		}
+	}
+}
