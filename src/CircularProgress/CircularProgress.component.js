@@ -12,6 +12,19 @@ const SIZE = {
 };
 const CIRCUMFERENCE = Math.PI * (RADIUS * 2);
 
+function getCircleStyle(percent) {
+	if (percent) {
+		return {
+			strokeDasharray: CIRCUMFERENCE,
+			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
+		};
+	}
+	return {
+		strokeDasharray: CIRCUMFERENCE / 10,
+		strokeDashoffset: 0,
+	};
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -30,12 +43,6 @@ function CircularProgress({ size, light, percent }) {
 		}
 	);
 
-	const circleStyle = percent &&
-		{
-			strokeDasharray: CIRCUMFERENCE,
-			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
-		};
-
 	return (
 		<svg
 			className={classes}
@@ -47,7 +54,7 @@ function CircularProgress({ size, light, percent }) {
 				cx={CENTER_POSITION}
 				cy={CENTER_POSITION}
 				fill="none"
-				style={circleStyle}
+				style={getCircleStyle(percent)}
 			/>
 		</svg>
 	);

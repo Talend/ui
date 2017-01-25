@@ -128,7 +128,12 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       cy={25}
       fill="none"
       r={20}
-      style={undefined} />
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      } />
   </svg>
   <span
     className="tc-status-label">
@@ -185,7 +190,12 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       cy={25}
       fill="none"
       r={20}
-      style={undefined} />
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      } />
   </svg>
   <span
     className="tc-status-label">

@@ -14,7 +14,12 @@ exports[`Action should display a Progress indicator if set 1`] = `
       cy={25}
       fill="none"
       r={20}
-      style={undefined} />
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      } />
   </svg>
   <span>
     Click me
