@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Content Management Framework (aka CMF)</h1><p>This is a library to help you to build configurable React App.</p>
+<p>It provides a set of base components and patterns.</p>
+<p><a href="https://npmjs.org/package/react-cmf"><img src="https://nodei.co/npm/react-cmf.png?downloads=true" alt="NPM"> </a></p>
+<p><a href="https://travis-ci.org/Talend/react-cmf"><img src="https://travis-ci.org/Talend/react-cmf.svg?branch=master" alt="Travis CI"> </a>
+<a href="http://packagequality.com/#?package=react-cmf"><img src="http://npm.packagequality.com/shield/react-cmf.svg" alt="Quality"> </a>
+<a href="https://david-dm.org/Talend/react-cmf"><img src="https://david-dm.org/Talend/react-cmf.png" alt="dependencies"> </a>
+<a href="https://david-dm.org/Talend/react-cmf#info=devDependencies"><img src="https://david-dm.org/Talend/react-cmf/dev-status.png" alt="devdependencies"> </a>
+<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+<h2>Definition</h2><p><em>CMF</em> definition from wikipedia:</p>
+<pre class="prettyprint source"><code>A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system</code></pre><p>It feets with our goal, this is why this addon has been named that way.</p>
+<h2>Paradigm</h2><p>A <em>user</em> interact with a <em>view</em> using mouse and/or keyboard which send <em>events</em> from a <em>content</em> and that interaction <em>dispatch</em> an <em>action</em>.
+That action may change the current view or the content displayed.</p>
+<h2>Definitions</h2><p>We have the following objects to build a user interface:</p>
+<ul>
+<li>views</li>
+<li>actions</li>
+<li>content types</li>
+</ul>
+<p>Let's talk about each of them.</p>
+<h3>Views</h3><p>Views are special React component. They are high level component which has the following responsability:
+They must dispatch props to configurable components.</p>
+<p>They are called by UI abstraction library from the router and connected to the store throw the settings.</p>
+<p>So a view is can be a pure component.</p>
+<p>Then view will be composed of react components that can get their props.</p>
+<h3>Actions</h3><p>Actions are <a href="http://redux.js.org/docs/basics/Actions.html">redux actions</a>.</p>
+<h3>ComponentState Management</h3><p>Component state can be easily stored in cmf state, each are identified by theyr name and an unique key,
+so component state, can be stored and reused later</p>
+<h3>collections management</h3><p>Manage a local cache of your business data</p>
+<h3>Content Types</h3><p>A content type define metadata over content. For example when you display a list of article you said each item in this list are an <em>article</em> which is a content type.</p>
+<p>We are adding metadata over content type:</p>
+<ul>
+<li>title</li>
+<li>icon id</li>
+<li>actions (by category)</li>
+</ul>
+<h2>Internals: The registry</h2><p>You will find the the registry as the central piece of ui abstraction.
+It's just a key/object registry and it's used with prefix to store the following:</p>
+<ul>
+<li>action creators (function)</li>
+<li>views (React Component)</li>
+</ul>
+<h2>Store structure</h2><p>cmf store structure is the following</p>
+<ul>
+<li>root<ul>
+<li>cmf<ul>
+<li>collections</li>
+<li>components</li>
+<li>settings</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-react-cmf.html">react-cmf</a></li><li><a href="module-react-cmf_lib_action.html">react-cmf/lib/action</a></li><li><a href="module-react-cmf_lib_actions.html">react-cmf/lib/actions</a></li><li><a href="module-react-cmf_lib_actions_collectionsActions.html">react-cmf/lib/actions/collectionsActions</a></li><li><a href="module-react-cmf_lib_actions_componentsActions.html">react-cmf/lib/actions/componentsActions</a></li><li><a href="module-react-cmf_lib_actions_settingsActions.html">react-cmf/lib/actions/settingsActions</a></li><li><a href="module-react-cmf_lib_api.html">react-cmf/lib/api</a></li><li><a href="module-react-cmf_lib_App.html">react-cmf/lib/App</a></li><li><a href="module-react-cmf_lib_Dispatcher.html">react-cmf/lib/Dispatcher</a></li><li><a href="module-react-cmf_lib_Icon.html">react-cmf/lib/Icon</a></li><li><a href="module-react-cmf_lib_reducers.html">react-cmf/lib/reducers</a></li><li><a href="module-react-cmf_lib_reducers_collectionsReducers.html">react-cmf/lib/reducers/collectionsReducers</a></li><li><a href="module-react-cmf_lib_reducers_componentsReducers.html">react-cmf/lib/reducers/componentsReducers</a></li><li><a href="module-react-cmf_lib_reducers_settingsReducers.html">react-cmf/lib/reducers/settingsReducers</a></li><li><a href="module-react-cmf_lib_registry.html">react-cmf/lib/registry</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li><li><a href="module-react-cmf_lib_route.html">react-cmf/lib/route</a></li><li><a href="module-react-cmf_lib_store.html">react-cmf/lib/store</a></li><li><a href="module-react-cmf_lib_UIRouter.html">react-cmf/lib/UIRouter</a></li></ul><h3>Classes</h3><ul><li><a href="module-react-cmf_lib_Dispatcher.html">react-cmf/lib/Dispatcher</a></li><li><a href="module-react-cmf_lib_Dispatcher.Dispatcher.Dispatcher.html">Dispatcher</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Mon Sep 12 2016 16:24:55 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
