@@ -13,7 +13,6 @@
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config .eslintrc src",
     "lint": "npm run lint:es",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "watch": "npm-watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs/storybook"
@@ -23,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/react-talend-containers.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "react",
@@ -83,7 +82,6 @@
     "redux-thunk": "2",
     "reselect": "^2.5.4",
     "sass-loader": "^4.1.0",
-    "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
     "talend-icons": "^0.13.1",
     "uuid": "^3.0.1",
@@ -104,5 +102,6 @@
     "react-talend-components": "^0.4.1",
     "reselect": "^2.5.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.60.0"
 }

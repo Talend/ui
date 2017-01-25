@@ -1,5 +1,17 @@
 {
   "devDependencies": {
-    "lerna": "2.0.0-beta.32"
-  }
+    "lerna": "2.0.0-beta.32",
+    "lerna-semantic-release": "^8.0.0"
+  },
+  "scripts": {
+    "semantic-release": "lerna-semantic-release pre && lerna-semantic-release post && lerna-semantic-release perform",
+    "postinstall": "lerna bootstrap",
+    "test": "lerna run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "version": "0.0.0",
+  "private": true
 }
