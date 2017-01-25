@@ -1,0 +1,26 @@
+////
+/// Bootstrap navbars button customization
+/// @group Navbar
+////
+
+.navbar {
+	.btn {
+		min-height: $navbar-height;
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	&-inverse {
+		.btn {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $navbar-inverse-link-hover-bg;
+			}
+		}
+	}
+}
