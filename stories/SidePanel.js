@@ -36,6 +36,7 @@ storiesOf('SidePanel', module)
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
 					docked={false}
+					tooltipPlacement="top"
 				/>
 			</div>
 		);
@@ -52,6 +53,7 @@ storiesOf('SidePanel', module)
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
 					docked
+					tooltipPlacement="top"
 				/>
 			</div>
 		)

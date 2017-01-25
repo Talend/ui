@@ -1116,14 +1116,18 @@ exports[`Storyshots SidePanel default 1`] = `
         <ul
           className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
           <li
-            className="tc-side-panel-list-item">
+            className={undefined}>
             <button
-              aria-hidden="true"
+              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="context-toggle-dock"
+              onBlur={[Function]}
               onClick={[Function]}
-              title="Toggle side panel"
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -1141,8 +1145,7 @@ exports[`Storyshots SidePanel default 1`] = `
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
-              role="link"
-              title="Display Preparations"
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -1163,8 +1166,7 @@ exports[`Storyshots SidePanel default 1`] = `
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
-              role="link"
-              title="Display Datasets"
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -1185,8 +1187,7 @@ exports[`Storyshots SidePanel default 1`] = `
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
-              role="link"
-              title="Display Favorites"
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -2014,6 +2015,33 @@ exports[`Storyshots SidePanel default 1`] = `
                         </span>
                       </span>
                     </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      tooltipPlacement
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          top
+                          \"
+                        </span>
+                      </span>
+                    </span>
                     <br />
                   </span>
                 </span>
@@ -2307,6 +2335,30 @@ exports[`Storyshots SidePanel default 1`] = `
                   </td>
                   <td>
                     -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    tooltipPlacement
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      right
+                      \"
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -3437,14 +3489,17 @@ exports[`Storyshots SidePanel docked 1`] = `
         <ul
           className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
           <li
-            className="tc-side-panel-list-item">
+            className={undefined}>
             <button
-              aria-hidden="true"
+              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              id={undefined}
+              onBlur={[Function]}
               onClick={[Function]}
-              title="Toggle side panel"
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -3458,12 +3513,15 @@ exports[`Storyshots SidePanel docked 1`] = `
           <li
             className="tc-side-panel-list-item active">
             <button
+              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              id={undefined}
+              onBlur={[Function]}
               onClick={[Function]}
-              role="link"
-              title="Display Preparations"
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -3477,12 +3535,15 @@ exports[`Storyshots SidePanel docked 1`] = `
           <li
             className="tc-side-panel-list-item">
             <button
+              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              id={undefined}
+              onBlur={[Function]}
               onClick={[Function]}
-              role="link"
-              title="Display Datasets"
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -3496,12 +3557,15 @@ exports[`Storyshots SidePanel docked 1`] = `
           <li
             className="tc-side-panel-list-item">
             <button
+              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              id={undefined}
+              onBlur={[Function]}
               onClick={[Function]}
-              role="link"
-              title="Display Favorites"
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
               type="button">
               <svg
                 aria-hidden="true"
@@ -3984,7 +4048,10 @@ exports[`Storyshots SidePanel docked 1`] = `
                 </span>
                 <span>
                   <span>
-                     
+                    <span>
+                      <br />
+                        
+                    </span>
                     <span
                       style={Object {}}>
                       actions
@@ -4242,7 +4309,10 @@ exports[`Storyshots SidePanel docked 1`] = `
                     </span>
                   </span>
                   <span>
-                     
+                    <span>
+                      <br />
+                        
+                    </span>
                     <span
                       style={Object {}}>
                       onToggleDock
@@ -4267,12 +4337,42 @@ exports[`Storyshots SidePanel docked 1`] = `
                     </span>
                   </span>
                   <span>
-                     
+                    <span>
+                      <br />
+                        
+                    </span>
                     <span
                       style={Object {}}>
                       docked
                     </span>
-                     
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      tooltipPlacement
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          top
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                    <br />
                   </span>
                 </span>
                 <span
@@ -4565,6 +4665,30 @@ exports[`Storyshots SidePanel docked 1`] = `
                   </td>
                   <td>
                     -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    tooltipPlacement
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      right
+                      \"
+                    </span>
                   </td>
                 </tr>
               </tbody>

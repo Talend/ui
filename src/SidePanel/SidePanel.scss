@@ -7,10 +7,6 @@
 /// @type Color
 $tc-side-panel-toggle-color: #DDD !default;
 
-/// Docked side panel spacing
-/// @type Number (Unit)
-$tc-side-panel-docked-spacing: 15px !default;
-
 .tc-side-panel {
 	overflow-x: hidden;
 	padding: 0 $padding-large;
@@ -24,10 +20,6 @@ $tc-side-panel-docked-spacing: 15px !default;
 	.action-list {
 		margin: 0 (-$padding-large);
 		transition: 0.2s margin ease-out;
-
-		:global(.tc-side-panel-list-item):first-child {
-			height: 1.5 * (2 * $padding-base-vertical + 1.4 * $font-size-base);
-		}
 	}
 
 	.link {
@@ -56,26 +48,43 @@ $tc-side-panel-docked-spacing: 15px !default;
 	&.docked {
 		padding: 0 $padding-normal;
 
-		.toggle-btn :global(.tc-svg-icon) {
-			transform: rotate(-180deg);
-		}
+		:global(.nav-pills) {
+			//override nav-pill a bit
+			:global(.btn.btn-link) {
+				padding-left: $padding-normal;
+				padding-right: $padding-normal;
+			}
 
-		.link span {
-			opacity: 0;
-		}
+			.toggle-btn {
+				:global(.tc-svg-icon) {
+					transform: rotate(-180deg);
+				}
 
-		//override nav-pill a bit
-		:global(.nav-pills .btn.btn-link) {
-			padding-left: $padding-normal;
-			padding-right: $padding-normal;
+				:global(.btn.btn-link) {
+					padding-left: 0;
+				}
+
+				&:before {
+					margin: 12px 0 0 20px;
+				}
+			}
+
+			.link span {
+				opacity: 0;
+			}
 		}
 	}
 
 	.toggle-btn {
 		margin-left: 0;
-		margin-bottom: $padding-large;
+		margin-bottom: $padding-normal;
 
-		& svg:global(.tc-svg-icon) {
+		:global(.btn.btn-link) {
+			width: 20px;
+			padding: 12px 0;
+			outline: none;
+		}
+		:global(.tc-svg-icon) {
 			fill: $tc-side-panel-toggle-color;
 			width: 1.3em;
 			height: 1.3em;
@@ -85,8 +94,12 @@ $tc-side-panel-docked-spacing: 15px !default;
 		&:before {
 			content: '';
 			height: 0.9em;
-			margin-right: -5px;
+			margin: 12px 0 0 20px;
 			border-left: 2px solid $tc-side-panel-toggle-color;
+		}
+
+		&:hover {
+			background-color: transparent;
 		}
 	}
 }

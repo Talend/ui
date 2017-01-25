@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Button } from 'react-bootstrap';
 import theme from './SidePanel.scss';
-import Icon from '../Icon';
+import Action from '../Actions/Action';
 
 /* eslint-disable jsx-a11y/href-no-hash */
 
@@ -41,20 +40,17 @@ function SidePanel(props) {
 	return (
 		<nav className={navCSS}>
 			<ul className={listCSS}>
-				<li className="tc-side-panel-list-item">
-					<Button
+				<li className={theme['toggle-btn']}>
+					<Action
 						id={props.id && `${props.id}-toggle-dock`}
-						className={classNames(
-							theme['toggle-btn'],
-							theme.link
-						)}
+						className={theme.link}
 						bsStyle="link"
 						onClick={props.onToggleDock}
-						aria-hidden="true"
-						title="Toggle side panel"
-					>
-						<Icon name="talend-arrow-left" />
-					</Button>
+						label="Toggle side panel"
+						icon="talend-arrow-left"
+						hideLabel
+						tooltipPlacement={props.tooltipPlacement}
+					/>
 				</li>
 				{actions.map(action => (
 					<li
@@ -64,17 +60,17 @@ function SidePanel(props) {
 							{ active: !!action.active }
 						)}
 					>
-						<Button
+						<Action
 							id={props.id && `${props.id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
-							title={`Display ${action.label}`}
 							bsStyle="link"
 							role="link"
 							className={theme.link}
 							onClick={action.onClick}
-						>
-							{ action.icon ? <Icon name={action.icon} /> : null }
-							{ props.docked ? null : <span>{action.label}</span> }
-						</Button>
+							label={action.label}
+							icon={action.icon}
+							hideLabel={props.docked}
+							tooltipPlacement={props.tooltipPlacement}
+						/>
 					</li>
 				))}
 			</ul>
@@ -93,6 +89,10 @@ SidePanel.propTypes = {
 	),
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
+	tooltipPlacement: React.PropTypes.string,
 };
 
+SidePanel.defaultProps = {
+	tooltipPlacement: 'right',
+};
 export default SidePanel;
