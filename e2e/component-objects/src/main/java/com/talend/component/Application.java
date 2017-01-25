@@ -21,6 +21,8 @@ public class Application {
 
     public Drawer Drawer;
 
+    public ConfirmDialog ConfirmDialog;
+
     /**
      * Application constructor
      *
@@ -32,5 +34,6 @@ public class Application {
         this.AppHeaderBar = new AppHeaderBar(driver);
         this.List = new List(driver);
         this.Drawer = new Drawer(driver);
+        this.ConfirmDialog = new ConfirmDialog(driver);
     }
 }
