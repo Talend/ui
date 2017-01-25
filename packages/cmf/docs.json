@@ -1,0 +1,48 @@
+{
+    "opts": {
+      "recurse": true,
+      "destination": "docs/jsdoc",
+      "readme": "README.md"
+    },
+    "source": {
+        "include": [
+          "src/actions/index.js",
+          "src/actions/collectionsActions.js",
+          "src/actions/componentsActions.js",
+          "src/actions/settingsActions.js",
+          "src/reducers/index.js",
+          "src/reducers/collectionsReducers.js",
+          "src/reducers/componentsReducers.js",
+          "src/reducers/settingsReducers.js",
+          "src/action.js",
+          "src/api.js",
+          "src/App.js",
+          "src/Dispatcher.js",
+          "src/Icon.js",
+          "src/index.js",
+          "src/registry.js",
+          "src/RegistryProvider.js",
+          "src/route.js",
+          "src/store.js",
+          "src/UIRouter.js"
+        ],
+        "excludePattern": "(node_modules/*|docs/*|lib/*)"
+    },
+
+    "plugins": [],
+    "templates": {
+        "license": "MIT",
+        "outputSourceFiles"     : true,
+        "systemName"            : "React CMF",
+        "navType"               : "vertical",
+        "theme"                 : "cerulean",
+        "linenums"              : true,
+        "collapseSymbols"       : false,
+        "inverseNav"            : false,
+        "dateFormat"            : "YYYY-MM-DD",
+        "analytics": {
+            "ua": "UA-77701501-4",
+            "domain": "auto"
+        }
+    }
+}
