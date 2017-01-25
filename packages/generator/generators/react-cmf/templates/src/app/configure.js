@@ -10,10 +10,4 @@ export default {
 	initialize() {
 		registerComponent('App', App);
 	},
-	getStore() {
-		// import your reducers from here
-		const store = configureStore(rootReducer);
-		store.dispatch(settings.actions.fetchSettings());
-		return store;
-	}
 };
