@@ -26,10 +26,13 @@ if [ -n "$GITHUB_API_KEY" ]; then
         sleep 5
         echo "✓ Start storybook server"
         yarn run test:slimerjs
+        yarn run lint:es 1> output/eslint.txt
+        yarn run lint:styles 1> output/sass-lint.txt
         echo "✓ Run yarn test:slimerjs script"
         if [ "$TRAVIS_BRANCH" != 'master' ]; then
             git checkout $TRAVIS_BRANCH
             git add screenshots/
+            git add output/
             git -c user.name='travis' -c user.email='travis' commit -m 'Update screenshots from CI'
             git push -f -q https://frassinier:$GITHUB_API_KEY@github.com/Talend/react-talend-components $TRAVIS_BRANCH &> /dev/null
             echo "✓ Push screenshots to $TRAVIS_BRANCH"
