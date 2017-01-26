@@ -1,0 +1,71 @@
+exports[`Filter should render id if provided 1`] = `
+<form
+  className="navbar-form navbar-right"
+  onSubmit={[Function]}
+  role="search">
+  <div
+    className="form-group">
+    <input
+      aria-label="Filter"
+      className="form-control"
+      id="toolbar-filter-input"
+      onChange={[Function]}
+      placeholder="Filter"
+      type="search" />
+    <button
+      className="btn btn-link"
+      disabled={false}
+      id="toolbar-filter-submit"
+      title="Filter"
+      type="submit">
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-search" />
+      </svg>
+      <span
+        className="sr-only">
+        Filter
+      </span>
+    </button>
+  </div>
+</form>
+`;
+
+exports[`Filter should render its name 1`] = `
+<form
+  className="navbar-form navbar-right"
+  onSubmit={[Function]}
+  role="search">
+  <div
+    className="form-group">
+    <input
+      aria-label="Filter"
+      className="form-control"
+      id={undefined}
+      onChange={[Function]}
+      placeholder="Filter"
+      type="search" />
+    <button
+      className="btn btn-link"
+      disabled={false}
+      id={undefined}
+      title="Filter"
+      type="submit">
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}>
+        <use
+          xlinkHref="#talend-search" />
+      </svg>
+      <span
+        className="sr-only">
+        Filter
+      </span>
+    </button>
+  </div>
+</form>
+`;

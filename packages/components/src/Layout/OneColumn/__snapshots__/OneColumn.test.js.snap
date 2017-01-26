@@ -1,0 +1,8 @@
+exports[`OneColumn should render 1`] = `
+<div
+  className="tc-layout-one-column">
+  <span>
+    children
+  </span>
+</div>
+`;
