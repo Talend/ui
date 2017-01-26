@@ -1,0 +1,224 @@
+exports[`ConfirmDialog should render with a large container 1`] = `
+<div
+  bsSize="large"
+  className="Modal"
+  keyboard={true}
+  show={true}>
+  <div
+    className="Header"
+    closeButton={false}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with a progress bar 1`] = `
+<div
+  bsSize="large"
+  className="Modal"
+  keyboard={true}
+  show={true}>
+  <div
+    className="Header"
+    closeButton={false}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div
+      className="ProgressBar"
+      now={25} />
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with a small container 1`] = `
+<div
+  bsSize="small"
+  className="Modal"
+  keyboard={true}
+  show={true}>
+  <div
+    className="Header"
+    closeButton={false}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with defaults values 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  keyboard={true}
+  show={true}>
+  <div
+    className="Header"
+    closeButton={false}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render without header 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  keyboard={true}
+  show={true}>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;

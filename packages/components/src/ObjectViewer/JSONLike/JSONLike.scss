@@ -1,0 +1,32 @@
+// JSONLike styles
+.container {
+	display: block;
+
+	li {
+		list-style-type: none;
+	}
+
+	.opened {
+		color: red;
+	}
+
+	:global(.btn) {
+		text-transform: none;
+	}
+
+	.name:after {
+		content: ':';
+	}
+
+	.string {
+		color: #798953;
+	}
+
+	.number {
+		color: #d28445;
+	}
+
+	.boolean {
+		color: #75b5aa;
+	}
+}

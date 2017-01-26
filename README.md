@@ -20,11 +20,12 @@ front-end stack.
 - [ ] Initialze the repository with lerna
 - [x] Import [generator-talend](https://github.com/Talend/generator-talend)
 - [x] Import [react-talend-containers](https://github.com/Talend/react-talend-containers)
-- [ ] Import [react-cmf](https://github.com/Talend/react-cmf)
+- [x] Import [react-cmf](https://github.com/Talend/react-cmf)
 - [ ] Import [react-talend-forms](https://github.com/Talend/react-talend-forms)
 - [ ] Import [react-flow-designer](https://github.com/Talend/react-flow-designer)
 - [ ] Import [icons](https://github.com/Talend/icons)
 - [ ] Import [react-talend-components](https://github.com/Talend/react-talend-components)
+- [ ] Import [bootstrap-theme](https://github.com/Talend/bootstrap-theme)
 - [ ] Import projects issues
 - [ ] Setup projects test
 - [ ] Setup projects storybooks
@@ -34,3 +35,4 @@ front-end stack.
 
 - [generator-talend](https://github.com/Talend/ui/tree/master/generator)
 - [react-talend-containers](https://github.com/Talend/ui/tree/master/containers)
+- [react-cmf](https://github.com/Talend/ui/tree/master/cmf)

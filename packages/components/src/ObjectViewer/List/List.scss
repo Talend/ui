@@ -1,0 +1,7 @@
+// List styles
+.container {
+	> li {
+		padding-bottom: $padding-normal;
+		border-bottom: 1px solid $concrete;
+	}
+}

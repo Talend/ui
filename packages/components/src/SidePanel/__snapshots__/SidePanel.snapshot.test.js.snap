@@ -1,0 +1,2226 @@
+exports[`Storyshots SidePanel default 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 0,
+      }
+    }>
+    <div>
+      <svg
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        xmlns="http://www.w3.org/2000/svg">
+        <symbol
+          id="talend-arrow-left">
+          <svg
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 9H8.4l2.3-2.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-4 4c-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L8.4 11H15c.6 0 1-.4 1-1s-.4-1-1-1z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-dataprep">
+          <svg
+            viewBox="0.5 10 800 800"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M375.504 160c41.406 0 75.001-33.594 75.001-75 0-41.504-33.595-75-75.001-75-41.406 0-75 33.496-75 75 0 41.406 33.594 75 75 75zm-175 50c27.637 0 50-22.363 50-50s-22.363-50-50-50-50 22.363-50 50 22.364 50 50 50zm400-40c27.637 0 50-22.363 50-50s-22.363-50-50-50-50 22.363-50 50 22.363 50 50 50zm125.684 596.25L524.82 403.652c-5.37-9.57-14.258-17.969-24.315-25.195V297.5c27.49 0 49.999-19.727 49.999-43.75 0-24.121-22.509-43.75-49.999-43.75h-200c-27.49 0-50 19.629-50 43.75 0 24.023 22.51 43.75 50 43.75v80.957c-10.034 7.227-18.97 15.625-24.292 25.195L74.796 766.25C61.442 790.274 73.014 810 100.504 810h600c27.49 0 39.062-19.726 25.684-43.75zM178.288 710l55.542-100h333.375l55.516 100H178.288z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-download">
+          <svg
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16,11v5H0V11H2v3H14V11ZM13.4,7l-1.4-1.4-3,3V0h-2V8.6l-3-3L2.6,7l5.4,5Z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-star">
+          <svg
+            viewBox="0.001 0 800 800"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M387.794 31.238l112.207 287.549h300L542.97 489.368l107.031 279.394-262.207-166.699-239.648 166.699 84.57-279.394L.001 318.787h300z" />
+          </svg>
+        </symbol>
+      </svg>
+      <nav
+        className="tc-side-panel">
+        <ul
+          className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+          <li
+            className={undefined}>
+            <button
+              aria-describedby={42}
+              className="btn btn-link"
+              disabled={false}
+              id="context-toggle-dock"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-arrow-left" />
+              </svg>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item active">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-preparations"
+              onClick={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-dataprep" />
+              </svg>
+              <span>
+                Preparations
+              </span>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-datasets"
+              onClick={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-download" />
+              </svg>
+              <span>
+                Datasets
+              </span>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item">
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-favorites"
+              onClick={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-star" />
+              </svg>
+              <span>
+                Favorites
+              </span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <a
+    onClick={[Function]}
+    style={
+      Object {
+        "background": "#28c",
+        "borderRadius": "0 0 0 5px",
+        "color": "#fff",
+        "cursor": "pointer",
+        "display": "block",
+        "fontFamily": "sans-serif",
+        "fontSize": 12,
+        "padding": "5px 15px",
+        "position": "fixed",
+        "right": 0,
+        "textDecoration": "none",
+        "top": 0,
+      }
+    }>
+    ?
+  </a>
+  <div
+    style={
+      Object {
+        "background": "white",
+        "bottom": 0,
+        "display": "none",
+        "left": 0,
+        "overflow": "auto",
+        "padding": "0 40px",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }>
+    <a
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#28c",
+          "borderRadius": "0 0 0 5px",
+          "color": "#fff",
+          "cursor": "pointer",
+          "display": "block",
+          "fontFamily": "sans-serif",
+          "fontSize": 12,
+          "padding": "5px 15px",
+          "position": "fixed",
+          "right": 0,
+          "textDecoration": "none",
+          "top": 0,
+        }
+      }>
+      ×
+    </a>
+    <div
+      style={undefined}>
+      <div
+        style={
+          Object {
+            "WebkitFontSmoothing": "antialiased",
+            "color": "#444",
+            "fontFamily": "
+              -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+              \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+            ",
+            "fontSize": 15,
+            "fontWeight": 300,
+            "lineHeight": 1.45,
+          }
+        }>
+        <div
+          style={
+            Object {
+              "borderBottom": "1px solid #eee",
+              "marginBottom": 10,
+            }
+          }>
+          <h1
+            style={
+              Object {
+                "fontSize": 35,
+                "margin": "20px 0 0 0",
+                "padding": 0,
+              }
+            }>
+            SidePanel
+          </h1>
+          <h2
+            style={
+              Object {
+                "fontSize": 22,
+                "fontWeight": 400,
+                "margin": "0 0 10px 0",
+                "padding": 0,
+              }
+            }>
+            default
+          </h2>
+        </div>
+        
+        <div>
+          <h1
+            style={
+              Object {
+                "borderBottom": "1px solid #EEE",
+                "fontSize": 25,
+                "margin": "20px 0 0 0",
+                "padding": "0 0 5px 0",
+              }
+            }>
+            Story Source
+          </h1>
+          <pre
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+                "fontSize": ".88em",
+                "lineHeight": 1.5,
+                "overflowX": "scroll",
+                "padding": ".5rem",
+              }
+            }>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  div
+                </span>
+                <span />
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  IconsProvider
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      defaultIcons
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-arrow-left
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-dataprep
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-download
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            …
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                     
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  />
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  SidePanel
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      id
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          context
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      actions
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            [
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Preparations
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-dataprep
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                , 
+                                …
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Datasets
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-download
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Favorites
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-star
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      onToggleDock
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }>
+                            anonymous()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      docked
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#a11",
+                              }
+                            }>
+                            false
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      tooltipPlacement
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          top
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  />
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  div
+                  >
+                </span>
+              </div>
+            </div>
+          </pre>
+        </div>
+        <div>
+          <h1
+            style={
+              Object {
+                "borderBottom": "1px solid #EEE",
+                "fontSize": 25,
+                "margin": "20px 0 0 0",
+                "padding": "0 0 5px 0",
+              }
+            }>
+            Prop Types
+          </h1>
+          <div>
+            <h2
+              style={
+                Object {
+                  "margin": "20px 0 0 0",
+                }
+              }>
+              \"
+              IconsProvider
+              \" Component
+            </h2>
+            <table
+              style={
+                Object {
+                  "borderCollapse": "separate",
+                  "borderSpacing": "10px 5px",
+                  "marginLeft": -10,
+                }
+              }>
+              <thead>
+                <tr>
+                  <th>
+                    property
+                  </th>
+                  <th>
+                    propType
+                  </th>
+                  <th>
+                    required
+                  </th>
+                  <th>
+                    default
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    defaultIcons
+                  </td>
+                  <td>
+                    object
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        {
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-activemq
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-activity
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-aggregate
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        …
+                        }
+                      </span>
+                      }
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    icons
+                  </td>
+                  <td>
+                    object
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        {
+                        }
+                      </span>
+                      }
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h2
+              style={
+                Object {
+                  "margin": "20px 0 0 0",
+                }
+              }>
+              \"
+              SidePanel
+              \" Component
+            </h2>
+            <table
+              style={
+                Object {
+                  "borderCollapse": "separate",
+                  "borderSpacing": "10px 5px",
+                  "marginLeft": -10,
+                }
+              }>
+              <thead>
+                <tr>
+                  <th>
+                    property
+                  </th>
+                  <th>
+                    propType
+                  </th>
+                  <th>
+                    required
+                  </th>
+                  <th>
+                    default
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    actions
+                  </td>
+                  <td>
+                    other
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    docked
+                  </td>
+                  <td>
+                    bool
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    onToggleDock
+                  </td>
+                  <td>
+                    func
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    tooltipPlacement
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      right
+                      \"
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SidePanel docked 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 0,
+      }
+    }>
+    <div>
+      <svg
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        xmlns="http://www.w3.org/2000/svg">
+        <symbol
+          id="talend-arrow-left">
+          <svg
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 9H8.4l2.3-2.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-4 4c-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L8.4 11H15c.6 0 1-.4 1-1s-.4-1-1-1z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-dataprep">
+          <svg
+            viewBox="0.5 10 800 800"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M375.504 160c41.406 0 75.001-33.594 75.001-75 0-41.504-33.595-75-75.001-75-41.406 0-75 33.496-75 75 0 41.406 33.594 75 75 75zm-175 50c27.637 0 50-22.363 50-50s-22.363-50-50-50-50 22.363-50 50 22.364 50 50 50zm400-40c27.637 0 50-22.363 50-50s-22.363-50-50-50-50 22.363-50 50 22.363 50 50 50zm125.684 596.25L524.82 403.652c-5.37-9.57-14.258-17.969-24.315-25.195V297.5c27.49 0 49.999-19.727 49.999-43.75 0-24.121-22.509-43.75-49.999-43.75h-200c-27.49 0-50 19.629-50 43.75 0 24.023 22.51 43.75 50 43.75v80.957c-10.034 7.227-18.97 15.625-24.292 25.195L74.796 766.25C61.442 790.274 73.014 810 100.504 810h600c27.49 0 39.062-19.726 25.684-43.75zM178.288 710l55.542-100h333.375l55.516 100H178.288z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-download">
+          <svg
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16,11v5H0V11H2v3H14V11ZM13.4,7l-1.4-1.4-3,3V0h-2V8.6l-3-3L2.6,7l5.4,5Z" />
+          </svg>
+        </symbol>
+        <symbol
+          id="talend-star">
+          <svg
+            viewBox="0.001 0 800 800"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M387.794 31.238l112.207 287.549h300L542.97 489.368l107.031 279.394-262.207-166.699-239.648 166.699 84.57-279.394L.001 318.787h300z" />
+          </svg>
+        </symbol>
+      </svg>
+      <nav
+        className="undefined tc-side-panel">
+        <ul
+          className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list">
+          <li
+            className={undefined}>
+            <button
+              aria-describedby={42}
+              className="btn btn-link"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-arrow-left" />
+              </svg>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item active">
+            <button
+              aria-describedby={42}
+              className="btn btn-link"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-dataprep" />
+              </svg>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item">
+            <button
+              aria-describedby={42}
+              className="btn btn-link"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-download" />
+              </svg>
+            </button>
+          </li>
+          <li
+            className="tc-side-panel-list-item">
+            <button
+              aria-describedby={42}
+              className="btn btn-link"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button">
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-star" />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <a
+    onClick={[Function]}
+    style={
+      Object {
+        "background": "#28c",
+        "borderRadius": "0 0 0 5px",
+        "color": "#fff",
+        "cursor": "pointer",
+        "display": "block",
+        "fontFamily": "sans-serif",
+        "fontSize": 12,
+        "padding": "5px 15px",
+        "position": "fixed",
+        "right": 0,
+        "textDecoration": "none",
+        "top": 0,
+      }
+    }>
+    ?
+  </a>
+  <div
+    style={
+      Object {
+        "background": "white",
+        "bottom": 0,
+        "display": "none",
+        "left": 0,
+        "overflow": "auto",
+        "padding": "0 40px",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }>
+    <a
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#28c",
+          "borderRadius": "0 0 0 5px",
+          "color": "#fff",
+          "cursor": "pointer",
+          "display": "block",
+          "fontFamily": "sans-serif",
+          "fontSize": 12,
+          "padding": "5px 15px",
+          "position": "fixed",
+          "right": 0,
+          "textDecoration": "none",
+          "top": 0,
+        }
+      }>
+      ×
+    </a>
+    <div
+      style={undefined}>
+      <div
+        style={
+          Object {
+            "WebkitFontSmoothing": "antialiased",
+            "color": "#444",
+            "fontFamily": "
+              -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+              \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+            ",
+            "fontSize": 15,
+            "fontWeight": 300,
+            "lineHeight": 1.45,
+          }
+        }>
+        <div
+          style={
+            Object {
+              "borderBottom": "1px solid #eee",
+              "marginBottom": 10,
+            }
+          }>
+          <h1
+            style={
+              Object {
+                "fontSize": 35,
+                "margin": "20px 0 0 0",
+                "padding": 0,
+              }
+            }>
+            SidePanel
+          </h1>
+          <h2
+            style={
+              Object {
+                "fontSize": 22,
+                "fontWeight": 400,
+                "margin": "0 0 10px 0",
+                "padding": 0,
+              }
+            }>
+            docked
+          </h2>
+        </div>
+        
+        <div>
+          <h1
+            style={
+              Object {
+                "borderBottom": "1px solid #EEE",
+                "fontSize": 25,
+                "margin": "20px 0 0 0",
+                "padding": "0 0 5px 0",
+              }
+            }>
+            Story Source
+          </h1>
+          <pre
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+                "fontSize": ".88em",
+                "lineHeight": 1.5,
+                "overflowX": "scroll",
+                "padding": ".5rem",
+              }
+            }>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  div
+                </span>
+                <span />
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  IconsProvider
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      defaultIcons
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-arrow-left
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-dataprep
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              talend-download
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                <svg />
+                              </span>
+                              }
+                            </span>
+                            , 
+                            …
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                     
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  />
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  SidePanel
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      actions
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            [
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Preparations
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-dataprep
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                , 
+                                …
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Datasets
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-download
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }>
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  label
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  Favorites
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  icon
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }>
+                                  \"
+                                  talend-star
+                                  \"
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }>
+                                  onClick
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }>
+                                    anonymous()
+                                  </span>
+                                  }
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      onToggleDock
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }>
+                            anonymous()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      docked
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      tooltipPlacement
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          top
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  />
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  div
+                  >
+                </span>
+              </div>
+            </div>
+          </pre>
+        </div>
+        <div>
+          <h1
+            style={
+              Object {
+                "borderBottom": "1px solid #EEE",
+                "fontSize": 25,
+                "margin": "20px 0 0 0",
+                "padding": "0 0 5px 0",
+              }
+            }>
+            Prop Types
+          </h1>
+          <div>
+            <h2
+              style={
+                Object {
+                  "margin": "20px 0 0 0",
+                }
+              }>
+              \"
+              IconsProvider
+              \" Component
+            </h2>
+            <table
+              style={
+                Object {
+                  "borderCollapse": "separate",
+                  "borderSpacing": "10px 5px",
+                  "marginLeft": -10,
+                }
+              }>
+              <thead>
+                <tr>
+                  <th>
+                    property
+                  </th>
+                  <th>
+                    propType
+                  </th>
+                  <th>
+                    required
+                  </th>
+                  <th>
+                    default
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    defaultIcons
+                  </td>
+                  <td>
+                    object
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        {
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-activemq
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-activity
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          talend-aggregate
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            <svg />
+                          </span>
+                          }
+                        </span>
+                        , 
+                        …
+                        }
+                      </span>
+                      }
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    icons
+                  </td>
+                  <td>
+                    object
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        {
+                        }
+                      </span>
+                      }
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h2
+              style={
+                Object {
+                  "margin": "20px 0 0 0",
+                }
+              }>
+              \"
+              SidePanel
+              \" Component
+            </h2>
+            <table
+              style={
+                Object {
+                  "borderCollapse": "separate",
+                  "borderSpacing": "10px 5px",
+                  "marginLeft": -10,
+                }
+              }>
+              <thead>
+                <tr>
+                  <th>
+                    property
+                  </th>
+                  <th>
+                    propType
+                  </th>
+                  <th>
+                    required
+                  </th>
+                  <th>
+                    default
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    actions
+                  </td>
+                  <td>
+                    other
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    docked
+                  </td>
+                  <td>
+                    bool
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    onToggleDock
+                  </td>
+                  <td>
+                    func
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    tooltipPlacement
+                  </td>
+                  <td>
+                    string
+                  </td>
+                  <td>
+                    no
+                  </td>
+                  <td>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      right
+                      \"
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,75 @@
+exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
+<div
+  className="undefined"
+  id="my-progress">
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "0%",
+      }
+    } />
+</div>
+`;
+
+exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
+<div
+  className=""
+  id="my-progress">
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "100%",
+      }
+    } />
+</div>
+`;
+
+exports[`Progress should render hidden progress at 0% 1`] = `
+<div
+  className="undefined"
+  id="my-progress">
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "0%",
+      }
+    } />
+</div>
+`;
+
+exports[`Progress should render progress with given percentage 1`] = `
+<div
+  className=""
+  id="my-progress">
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "60%",
+      }
+    } />
+</div>
+`;
+
+exports[`Progress should render progress with tooltip 1`] = `
+<div
+  className=""
+  id="my-progress">
+  <div
+    aria-describedby={42}
+    className={undefined}
+    onBlur={[Function]}
+    onClick={null}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "60%",
+      }
+    } />
+</div>
+`;
