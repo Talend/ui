@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
 
-import Component from './ObjectViewer.component';
+import { Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected, {
 	mapDispatchToProps,
