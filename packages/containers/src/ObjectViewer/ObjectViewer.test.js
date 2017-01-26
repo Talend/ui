@@ -3,17 +3,45 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
 
-import { Component } from 'react-talend-components';
+import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected, {
 	mapDispatchToProps,
 	mapStateToProps,
 } from './ObjectViewer.connect';
 
+const data = [
+	{
+		int: 1,
+		str: 'test data for the object viewer',
+		bool: true,
+		obj: {
+			bool: true,
+		},
+		arrayInt: [
+			1, 2, 3, 4,
+		],
+		arrayOb: [
+			{ foo: 'bar' },
+		],
+	},
+	{
+		int: 2,
+		str: 'hello world',
+		bool: false,
+		obj: {
+			bool: false,
+		},
+		arrayOb: [
+			{ foo: 3.2 },
+		],
+	},
+];
+
 describe('Component ObjectViewer', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Component name="Hello world" />
+			<Component data={data} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -23,7 +51,7 @@ describe('Container ObjectViewer', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider>
-				<Container name="Hello world" />
+				<Container data={data} />
 			</Provider>
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
@@ -45,12 +73,12 @@ describe('Connected ObjectViewer', () => {
 				}),
 			},
 		};
-		const props = mapStateToProps(state);
+		const props = mapStateToProps(state, {});
 		expect(typeof props).toBe('object');
 	});
 	it('should map state to props', () => {
 		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
+		const props = mapDispatchToProps(dispatch, {});
 		expect(typeof props).toBe('object');
 	});
 });

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable, { List, Map } from 'immutable';
+import get from 'lodash/get';
 
 import { ObjectViewer as Component } from 'react-talend-components';
 import { statePropTypes, stateWillMount } from '../state';
@@ -14,9 +15,9 @@ class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 	static propTypes = {
 		id: PropTypes.string,
-		data: Component.propTypes.data,
-		displayMode: Component.propTypes.displayMode,
-		onSubmit: Component.propTypes.onSubmit,
+		data: get(Component, 'propTypes.data'),
+		displayMode: get(Component, 'propTypes.displayMode'),
+		onSubmit: get(Component, 'propTypes.onSubmit'),
 		...statePropTypes,
 	};
 
@@ -72,19 +73,17 @@ class ObjectViewer extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const { data, displayMode, ...props } = this.props;
 		// TODO: add support for mutate the data using modified state
 		// We need for that a better JSONPath support.
 		return (
 			<Component
-				data={data}
-				displayMode={displayMode}
+				data={this.props.data}
+				displayMode={this.props.displayMode}
 				onClick={this.onClick}
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : null}
 				opened={state.opened}
 				edited={state.edited}
-				{...props}
 			/>
 		);
 	}
