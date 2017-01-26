@@ -1,6 +1,13 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
+
 import { Notification, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-undo': talendIcons['talend-undo'],
+};
 
 class NotificationWrapper extends React.Component {
 	constructor() {
@@ -79,7 +86,7 @@ storiesOf('Notification', module)
 	.addWithInfo('default', () => (
 		<nav>
 			<h1>Notification</h1>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h2>Definition</h2>
 			<p>
 				The Notification component display notification

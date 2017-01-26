@@ -47,7 +47,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.60.1",
+    "bootstrap-talend-theme": "^0.60.2",
     "classnames": "2",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
@@ -68,7 +68,7 @@
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-bootstrap": "^0.30.7",
-    "react-cmf": "^0.60.1",
+    "react-cmf": "^0.60.2",
     "react-dom": "^15.4.1",
     "react-i18next": "^1.8.0",
     "react-redux": "^4.4.6",
@@ -84,7 +84,7 @@
     "reselect": "^2.5.4",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
-    "talend-icons": "^0.60.1",
+    "talend-icons": "^0.60.2",
     "uuid": "^3.0.1",
     "webpack": "^1.14.0"
   },
@@ -99,10 +99,10 @@
   },
   "peerDependencies": {
     "react-bootstrap": "0",
-    "react-cmf": "0",
-    "react-talend-components": "0",
+    "react-cmf": "^0.60.2",
+    "react-talend-components": "^0.60.2",
     "reselect": "^2.5.4"
   },
   "dependencies": {},
-  "version": "0.60.0"
+  "version": "0.60.2"
 }

@@ -1,7 +1,15 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
 import { SidePanel, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-arrow-left': talendIcons['talend-arrow-left'],
+	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-download': talendIcons['talend-download'],
+	'talend-star': talendIcons['talend-star'],
+};
 
 const actions = [
 	{
@@ -26,11 +34,7 @@ storiesOf('SidePanel', module)
 	.addWithInfo('default', () => {
 		return (
 			<div>
-				<h1>SidePanel</h1>
-				<h2>Definition</h2>
-				<a href="http://guidelines.talend.com/document/92132#/ui-controls/side-panel">Spec</a>
-				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<SidePanel
 					id="context"
 					actions={actions}
@@ -44,11 +48,7 @@ storiesOf('SidePanel', module)
 	.addWithInfo('docked', () =>
 		(
 			<div>
-				<h1>SidePanel</h1>
-				<h2>Definition</h2>
-				<a href="http://guidelines.talend.com/document/92132#/ui-controls/side-panel">Spec</a>
-				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<SidePanel
 					actions={actions}
 					onToggleDock={action('Toggle dock clicked')}
