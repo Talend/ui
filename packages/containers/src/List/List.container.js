@@ -72,7 +72,7 @@ class List extends React.Component {
 	}
 
 	onFilter(event, payload) {
-		this.props.updateState({ searchQuery: event });
+		this.props.updateState({ searchQuery: payload });
 	}
 
 	onSelectDisplayMode(event, payload) {
