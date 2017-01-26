@@ -1236,6 +1236,16 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bootstrap-sass@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
+
+bootstrap-talend-theme@^0.13.20:
+  version "0.13.20"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.13.20.tgz#25d6614587b31aacad399bb1da0fb18fffbd3209"
+  dependencies:
+    bootstrap-sass "^3.3.7"
+
 brace-expansion@^1.0.0:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
@@ -4347,7 +4357,7 @@ nomnom@^1.8.1:
   dependencies:
     abbrev "1"
 
-normalize-package-data@^1.0.3, "normalize-package-data@~1.0.1 || ^2.0.0":
+normalize-package-data@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-1.0.3.tgz#8be955b8907af975f1a4584ea8bb9b41492312f5"
   dependencies:
@@ -4355,7 +4365,7 @@ normalize-package-data@^1.0.3, "normalize-package-data@~1.0.1 || ^2.0.0":
     github-url-from-username-repo "^1.0.0"
     semver "2 || 3 || 4"
 
-normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
+normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, "normalize-package-data@~1.0.1 || ^2.0.0":
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.3.5.tgz#8d924f142960e1777e7ffe170543631cc7cb02df"
   dependencies:
