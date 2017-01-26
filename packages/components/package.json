@@ -116,5 +116,6 @@
     "react-bootstrap": "0",
     "talend-icons": "^0.13.1",
     "uuid": "^2.0.3"
-  }
+  },
+  "version": "0.60.1"
 }

@@ -89,5 +89,6 @@
     "redux": "3",
     "redux-batched-actions": "0",
     "redux-thunk": "2"
-  }
+  },
+  "version": "0.60.1"
 }
