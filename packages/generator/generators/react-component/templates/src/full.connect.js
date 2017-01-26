@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'react-cmf';
 
 import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
+import { getStateAccessors, getStateProps } from '../state';
 
 export function getContainerInfo(ownProps) {
 	return {
@@ -11,38 +12,21 @@ export function getContainerInfo(ownProps) {
 }
 
 export function mapDispatchToProps(dispatch, ownProps) {
-	const { name, id } = getContainerInfo(ownProps);
-	return {
-		updateState(state) {
-			dispatch(
-				actions.componentsActions.mergeComponentState(
-					name,
-					id,
-					state
-				)
-			);
-		},
-		initState() {
-			dispatch(
-				actions.componentsActions.addComponentState(
-					name,
-					id,
-					DEFAULT_STATE
-				)
-			);
-		},
-	};
+	const info = getContainerInfo(ownProps);
+	const props = getStateAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
+	props.dispatch = dispatch;
+	return props;
 }
 
 export function mapStateToProps(state, ownProps) {
-	const { name, id } = getContainerInfo(ownProps);
-	return {
-		state: state.cmf.components.getIn([
-			name,
-			id,
-		]),
-	};
+	const info = getContainerInfo(ownProps);
+	return getStateProps(state, info.name, info.id);
 }
+
+/* if you need it
+export function mergeProps(stateProps, dispatchProps, ownProps) {
+}
+*/
 
 export default connect(
 	mapStateToProps,

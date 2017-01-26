@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
 import Component from './<%= props.name %>.component';
+import { statePropTypes, stateWillMount } from '../state';
 
 export const DEFAULT_STATE = new Map({
 
@@ -10,12 +11,9 @@ export const DEFAULT_STATE = new Map({
 class <%= props.name %> extends React.Component {
 	static displayName = 'CMFContainer(<%= props.name %>)';
 	static propTypes = {
-		initState: PropTypes.func,
-		updateState: PropTypes.func,
-		state: PropTypes.shape({
-
-		}),
 		name: PropTypes.string,
+		...statePropTypes,
+
 	};
 
 	constructor(props) {
@@ -23,15 +21,15 @@ class <%= props.name %> extends React.Component {
 	}
 
 	componentWillMount() {
-		if (!this.props.state && this.props.initState) {
-			this.props.initState();
-		}
+		stateWillMount(this.props);
 	}
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		return (
-			<Component name={state.name} />
+			<Component
+				name={state.name}
+			/>
 		);
 	}
 }
