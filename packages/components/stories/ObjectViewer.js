@@ -1,7 +1,13 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
 import { ObjectViewer, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
+};
 
 const data = [
 	{
@@ -42,49 +48,49 @@ const handler = {
 storiesOf('ObjectViewer', module)
 	.addWithInfo('tree default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} />
 		</div>
 	))
 	.addWithInfo('tree with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} {...handler} />
 		</div>
 	))
 	.addWithInfo('list default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="list" />
 		</div>
 	))
 	.addWithInfo('list with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="list" {...handler} />
 		</div>
 	))
 	.addWithInfo('table default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="table" />
 		</div>
 	))
 	.addWithInfo('table with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} {...handler} displayMode="table" />
 		</div>
 	))
 	.addWithInfo('flat default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} {...handler} displayMode="flat" />
 		</div>
 	));
