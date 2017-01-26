@@ -1,0 +1,31 @@
+$tc-status-icon-size: 20px !default;
+$tc-status-action_min-size: 23px !default;
+
+.tc-status {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: $tc-status-action_min-size;
+
+	> svg {
+		width: $tc-status-icon-size + $padding-small;
+		height: $tc-status-icon-size;
+	}
+
+	&-actions {
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&.action:hover {
+		.tc-status-label {
+			visibility: hidden;
+		}
+
+		.tc-status-actions {
+			visibility: visible;
+		}
+	}
+}

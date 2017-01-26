@@ -1,0 +1,46 @@
+// Toolbar styles
+$tc-list-toolbar-display-color: $silver !default;
+$tc-list-toolbar-background-color: $concrete !default;
+$tc-list-toolbar-height: 44px;
+
+.tc-list-toolbar {
+	background: $tc-list-toolbar-background-color;
+	border-top: 1px solid $alto;
+	border-bottom: 1px solid $alto;
+	margin-bottom: 0;
+	height: $tc-list-toolbar-height;
+
+	:global(.navbar-btn) {
+		margin-top: 0;
+		margin-bottom: 0;
+		height: $tc-list-toolbar-height;
+	}
+
+	:global(.navbar-text) {
+		color: $tc-list-toolbar-display-color;
+		margin-right: 0;
+		height: $tc-list-toolbar-height - (2 * 14);
+
+		label {
+			font-weight: 400;
+			margin: 0;
+		}
+	}
+
+	:global(.navbar-nav) {
+		height: $tc-list-toolbar-height;
+
+		li a {
+			color: $black;
+		}
+	}
+
+	:global(.navbar-form) {
+		height: $tc-list-toolbar-height;
+
+		:global(.form-control) {
+			min-height: $tc-list-toolbar-height;
+		}
+	}
+
+}

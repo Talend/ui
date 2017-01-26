@@ -1,0 +1,27 @@
+$tc-progress-color: $brand-success !default;
+
+.progress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 5px;
+
+	&.hidden {
+		display: none;
+	}
+
+	.progress-percent {
+		background: $tc-progress-color;
+		height: 100%;
+		transition: width 200ms ease;
+
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			height: 200%;
+			width: 100%;
+		}
+	}
+}

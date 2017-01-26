@@ -1,0 +1,24 @@
+////
+/// Layout
+/// @group Custom widgets
+////
+
+/// Layout first columns in two columns background color
+/// @type Color
+$tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
+
+.container {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.sidemenu {
+	background-color: $tc-layout-two-columns-sidemenu-bg;
+}
+
+.main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow-y: auto;
+}

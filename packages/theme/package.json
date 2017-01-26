@@ -51,5 +51,6 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7"
-  }
+  },
+  "version": "0.60.1"
 }
