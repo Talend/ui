@@ -1,0 +1,12 @@
+////
+/// Breadcrumb
+/// @group Custom widgets
+////
+
+.tc-breadcrumb {
+	.dots {
+		&:before {
+			content: none;
+		}
+	}
+}

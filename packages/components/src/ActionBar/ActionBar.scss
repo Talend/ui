@@ -1,0 +1,21 @@
+$tc-action-bar-background-color: lighten($alto, 5%) !default;
+
+.tc-actionbar-container {
+	padding: 0 $padding-small;
+	background: $tc-action-bar-background-color;
+
+	.navbar-left,
+	.navbar-right {
+		> * {
+			margin: $padding-small $padding-larger $padding-small 0;
+		}
+
+		> :last-child {
+			margin-right: 0;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+	}
+}
