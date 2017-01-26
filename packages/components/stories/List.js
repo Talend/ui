@@ -1,7 +1,21 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
+import talendIcons from 'talend-icons/dist/react';
+
 import { List, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-badge': talendIcons['talend-badge'],
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-file': talendIcons['talend-file'],
+	'talend-folder': talendIcons['talend-folder'],
+	'talend-icons': talendIcons['talend-icons'],
+	'talend-pencil': talendIcons['talend-pencil'],
+	'talend-plus': talendIcons['talend-plus'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-trash': talendIcons['talend-trash'],
+};
 
 const selected = [
 	{
@@ -245,7 +259,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...props} />
 		</div>
 	))
@@ -256,7 +270,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...eprops} />
 			</div>
 		);
@@ -268,7 +282,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -297,7 +311,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...columnActionsProps} />
 		</div>);
 	})
@@ -321,7 +335,7 @@ storiesOf('List', module)
 				<h2>Definition</h2>
 				<p>Display a list by defining your.</p>
 				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} />
 			</div>
 		);
@@ -336,7 +350,7 @@ storiesOf('List', module)
 				<h2>Definition</h2>
 				<p>Display a list by defining your.</p>
 				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...selectedClassProps} />
 			</div>
 		);
@@ -350,7 +364,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list without toolbar</p>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -361,7 +375,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('table')} />
 		</div>
 	))
@@ -369,7 +383,7 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('large')} />
 		</div>
 	))
@@ -377,7 +391,7 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
 		</div>
 	));

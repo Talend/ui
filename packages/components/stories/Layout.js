@@ -1,7 +1,14 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
 import { IconsProvider, Layout, SidePanel } from '../src/index';
+
+const icons = {
+	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-folder': talendIcons['talend-folder'],
+	'talend-star': talendIcons['talend-star'],
+};
 
 const actions = [
 	{
@@ -93,7 +100,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			<h1>Hello world</h1>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with scroll', () => (
@@ -102,7 +109,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			{content}
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
@@ -112,7 +119,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			<h1>Hello world</h1>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with scroll', () => (
@@ -122,7 +129,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			{content}
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => {
@@ -139,7 +146,7 @@ storiesOf('Layout', module)
 				one={dockedSidePanel}
 			>
 				{content}
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
 	})
@@ -151,6 +158,6 @@ storiesOf('Layout', module)
 			drawers={drawers}
 		>
 			{content}
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	));

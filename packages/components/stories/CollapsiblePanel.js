@@ -1,7 +1,15 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
 import { CollapsiblePanel, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-download': talendIcons['talend-download'],
+	'talend-check': talendIcons['talend-check'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
+};
 
 const content = [
 	{
@@ -130,7 +138,7 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<p>By default :</p>
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
