@@ -5,7 +5,7 @@ This document aims to ease the WIP migration from a version to another by provid
 
 ## next version
 * Component: List
-* PR: []()
+* PR: [feat(List): filter dock mode](https://github.com/Talend/ui/pull/74)
 * Changes : props.toolbar.onFilter was taking (value, event) args, it's now aligned with other components (event, value)
 
 ## v0.46.1
