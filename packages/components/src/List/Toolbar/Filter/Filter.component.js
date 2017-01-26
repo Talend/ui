@@ -1,58 +1,142 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import Button from 'react-bootstrap/lib/Button';
+import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
+import theme from './Filter.scss';
+
+const ESC_KEY = 27;
+const ENTER_KEY = 13;
+
+function onKeyDown(event, escAction, enterAction) {
+	switch (event.keyCode) {
+	case ESC_KEY:
+		escAction(event);
+		break;
+	case ENTER_KEY:
+		if (enterAction) {
+			enterAction(event);
+		}
+		break;
+	default:
+		break;
+	}
+}
+function FilterInput(props) {
+	const {
+		id,
+		debounceMinLength,
+		debounceTimeout,
+		onBlur,
+		onFocus,
+		onFilter,
+		onToggle,
+	} = props;
+
+	const inputProps = {
+		id,
+		name: 'search',
+		type: 'search',
+		placeholder: 'Filter',
+		className: theme.search,
+		'aria-label': 'Filter',
+		onBlur: onBlur && (event => onBlur(event, event.target.value)),
+		onFocus: onFocus && (event => onFocus(event, event.target.value)),
+		onChange: event => onFilter(event, event.target.value),
+		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
+		autoFocus: true,
+	};
+
+	if (debounceMinLength || debounceTimeout) {
+		return (<DebounceInput
+			{...inputProps}
+			element={FormControl}
+			minLength={debounceMinLength}
+			debounceTimeout={debounceTimeout}
+		/>);
+	}
+
+	return <FormControl {...inputProps} />;
+}
+FilterInput.propTypes = {
+	id: PropTypes.string,
+	debounceMinLength: PropTypes.number,
+	debounceTimeout: PropTypes.number,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func,
+	onFilter: PropTypes.func.isRequired,
+	onToggle: PropTypes.func,
+};
 
 /**
  * @param {object} props react props
  * @example
- <Filter name="Hello world"></Filter>
+ <Filter id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
-function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
-	function onFilterHandler(event) {
-		return onFilter(event.target.value, event);
+function Filter(props) {
+	const {
+		id,
+		debounceMinLength,
+		debounceTimeout,
+		docked,
+		highlight,
+		onBlur,
+		onFocus,
+		onFilter,
+		onToggle,
+	} = props;
+	if (docked) {
+		return (
+			<Action
+				id={id}
+				className="navbar-right"
+				onClick={onToggle}
+				label="Toggle filter"
+				hideLabel
+				icon="talend-search"
+				bsStyle="link"
+			/>
+		);
 	}
 
 	function onSubmit(event) {
 		event.preventDefault();
-		return onFilter(this.value, event);
+		return onFilter(event, event.target.search.value);
 	}
 
-	const inputProps = {
-		id: id && `${id}-input`,
-		type: 'search',
-		placeholder: 'Filter',
-		'aria-label': 'Filter',
-		onChange: onFilterHandler,
-		ref: c => onSubmit.bind(c),
-	};
+	const classes = classNames(
+		'navbar-form',
+		'navbar-right',
+		theme.filter,
+		{ [theme.highlight]: highlight },
+	);
 
 	return (
 		<form
-			className="navbar-form navbar-right"
+			className={classes}
 			role="search"
 			onSubmit={onSubmit}
 		>
+			<Icon name="talend-search" className={theme['search-icon']} />
 			<div className="form-group">
-				{(debounceMinLength || debounceTimeout) ?
-					<DebounceInput
-						{...inputProps}
-						element={FormControl}
-						minLength={debounceMinLength}
-						debounceTimeout={debounceTimeout}
-					/> : <FormControl
-						{...inputProps}
-					/> }
-				<Button
-					id={id && `${id}-submit`}
+				<FilterInput
+					id={id && `${id}-input`}
+					debounceMinLength={debounceMinLength}
+					debounceTimeout={debounceTimeout}
+					onBlur={onBlur}
+					onFocus={onFocus}
+					onFilter={onFilter}
+					onToggle={onToggle}
+				/>
+				<Action
+					id={id && `${id}-cross-icon`}
 					bsStyle="link"
-					type="submit"
-					title="Filter"
-				>
-					<Icon name="talend-search" />
-					<span className="sr-only">Filter</span>
-				</Button>
+					icon="talend-cross"
+					label="Remove filter"
+					hideLabel
+					onClick={onToggle}
+				/>
 			</div>
 		</form>
 	);
@@ -60,9 +144,18 @@ function Filter({ id, onFilter, debounceMinLength, debounceTimeout }) {
 
 Filter.propTypes = {
 	id: PropTypes.string,
-	onFilter: PropTypes.func.isRequired,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
+	docked: PropTypes.bool,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func,
+	onFilter: PropTypes.func.isRequired,
+	onToggle: PropTypes.func.isRequired,
+	highlight: PropTypes.bool,
+};
+
+Filter.defaultProps = {
+	docked: true,
 };
 
 export default Filter;

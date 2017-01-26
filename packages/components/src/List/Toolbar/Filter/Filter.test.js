@@ -6,12 +6,44 @@ import Filter from './Filter.component';
 jest.useFakeTimers();
 
 const defaultProps = {
+	docked: false,
+	onBlur: jest.fn(),
 	onFilter: jest.fn(),
+	onToggle: jest.fn(),
 	ref: 'inputFilter',
 };
 
 describe('Filter', () => {
-	it('should call onFilter', () => {
+	it('should call onToggle on search icon click', () => {
+		// given
+		const props = {
+			...defaultProps,
+			docked: true,
+		};
+		const filterInstance = mount(<Filter {...props} />);
+
+		// when
+		filterInstance.find('button').simulate('click');
+
+		// then
+		expect(props.onToggle).toBeCalled();
+	});
+	
+	it('should call onToggle on cross icon click', () => {
+		// given
+		const props = {
+			...defaultProps,
+		};
+		const filterInstance = mount(<Filter {...props} />);
+
+		// when
+		filterInstance.find('button').simulate('click');
+
+		// then
+		expect(props.onToggle).toBeCalled();
+	});
+
+	it('should call onFilter when input value change', () => {
 		// given
 		const props = { ...defaultProps };
 		const filterInstance = mount(<Filter {...props} />);
@@ -21,6 +53,42 @@ describe('Filter', () => {
 
 		// then
 		expect(props.onFilter).toBeCalled();
+	});
+
+	it('should call onToggle on input blur', () => {
+		// given
+		const props = { ...defaultProps };
+		const filterInstance = mount(<Filter {...props} />);
+
+		// when
+		filterInstance.find('input').simulate('blur');
+
+		// then
+		expect(props.onToggle).toBeCalled();
+	});
+
+	it('should call onToggle on ESC keydown', () => {
+		// given
+		const props = { ...defaultProps };
+		const filterInstance = mount(<Filter {...props} />);
+
+		// when
+		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
+
+		// then
+		expect(props.onToggle).toBeCalled();
+	});
+
+	it('should call onToggle on ENTER keydown', () => {
+		// given
+		const props = { ...defaultProps };
+		const filterInstance = mount(<Filter {...props} />);
+
+		// when
+		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
+
+		// then
+		expect(props.onBlur).toBeCalled();
 	});
 
 	it('should call onFilter with debounce options', () => {
