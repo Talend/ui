@@ -1,0 +1,17 @@
+exports[`TwoColumns should render two columns 1`] = `
+<div
+  className="tc-layout-two-columns">
+  <div
+    className="tc-layout-two-columns-left">
+    <div>
+      Hello world
+    </div>
+  </div>
+  <div
+    className="tc-layout-two-columns-main">
+    <span>
+      children
+    </span>
+  </div>
+</div>
+`;

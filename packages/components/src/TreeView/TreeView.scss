@@ -1,0 +1,46 @@
+// TreeView styles
+$tc-treeview-main-color: $brand-primary !default;
+$tc-treeview-small-padding: $padding-small !default;
+$tc-treeview-normal-padding: $padding-normal !default;
+$tc-treeview-large-padding: $padding-large !default;
+
+.tc-treeview {
+	.tc-treeview-header {
+		color: $tc-treeview-main-color;
+		display: flex;
+		line-height: $tc-treeview-large-padding;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: $tc-treeview-large-padding;
+		border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
+
+		:global(.btn-link) {
+			padding: 0;
+			margin-left: auto;
+			height: $tc-treeview-large-padding;
+			outline: none;
+
+			:global(.tc-svg-icon) {
+				height: $tc-treeview-large-padding;
+				width: $tc-treeview-large-padding;
+				stroke: $tc-treeview-main-color;
+				fill: $tc-treeview-main-color;
+				margin-right: 0;
+			}
+		}
+	}
+
+	.tc-treeview-nav {
+		padding: $tc-treeview-small-padding 0;
+		overflow: auto;
+
+		.tc-treeview-ul {
+			padding: 0;
+			list-style-type: none;
+
+			.tc-treeview-li {
+				line-height: $tc-treeview-large-padding;
+			}
+		}
+	}
+}
