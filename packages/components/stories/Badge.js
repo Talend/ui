@@ -1,14 +1,18 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
+
 import { Badge, IconsProvider } from '../src/';
 
 const style = { maxWidth: '260px' };
-
+const icons = {
+	'talend-cross': talendIcons['talend-cross'],
+};
 
 storiesOf('Badge', module)
 	.addWithInfo('default', () => (
 		<section>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<div id="default">
 				<Badge label="Option 1" tcStyle="outline" />
 				<Badge label="Option 2" tcStyle="outline" onDelete={action('remove badge 2')} />
