@@ -8,12 +8,19 @@ import { List, IconsProvider } from '../src/index';
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-cross': talendIcons['talend-cross'],
+	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
+	'talend-file-json-o': talendIcons['talend-file-json-o'],
+	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-icons': talendIcons['talend-icons'],
 	'talend-pencil': talendIcons['talend-pencil'],
 	'talend-plus': talendIcons['talend-plus'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
+	'talend-search': talendIcons['talend-search'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-table': talendIcons['talend-table'],
+	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
 };
 
