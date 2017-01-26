@@ -1,0 +1,686 @@
+exports[`ActionBar should render no-selected actions, all on left  1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-left">
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`ActionBar should render no-selected actions, all on right 1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-right">
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`ActionBar should render no-selected actions, some on left, the other on right 1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-left">
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Primary
+      </span>
+    </button>
+  </div>
+  <div
+    className="navbar-right">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, all on left 1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-left">
+    <span
+      className="tc-actionbar-selected-count">
+      1
+       selected
+    </span>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, all on right 1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-right">
+    <span
+      className="tc-actionbar-selected-count">
+      1
+       selected
+    </span>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, count and some actions on left, the other on right 1`] = `
+<nav
+  className="tc-actionbar-container nav">
+  <div
+    className="navbar-left">
+    <span
+      className="tc-actionbar-selected-count">
+      1
+       selected
+    </span>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+  </div>
+  <div
+    className="navbar-right">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-asterisk"
+        title={null} />
+      <span>
+        Secondary
+      </span>
+    </button>
+    <div
+      className="dropdown btn-group">
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button">
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-plus"
+            title={null} />
+          <span>
+            Add File
+          </span>
+        </span>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label={
+          <span>
+            <Icon
+              name="fa fa-plus" />
+            <span>
+              Add File
+            </span>
+          </span>
+        }
+        className="dropdown-toggle btn btn-default"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        type="button">
+         
+        <span
+          className="caret" />
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu"
+        role="menu">
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Local"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Local
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}>
+          <a
+            href="#"
+            label="From Remote"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1">
+            From Remote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
