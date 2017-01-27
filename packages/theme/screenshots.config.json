@@ -1,5 +1,5 @@
 {
-  "url": "http://localhost:1337/",
+  "url": "http://localhost:1337/theme/dist/",
   "viewport": {
     "height": 768,
     "width": 1366

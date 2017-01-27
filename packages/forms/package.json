@@ -69,6 +69,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config .eslintrc src",
+    "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6006",
     "start": "npm run storybook",
