@@ -31,30 +31,30 @@ const data = [
 ];
 
 
-export default function ExampleObjectViewer() {
-	return (
+const ExampleObjectViewer = {
+	default: () => (
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} />
 		</div>
-	);
-	/*
-	.addWithInfo('list default', () => (
+	),
+	'list default': () => (
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} displayMode="list" />
 		</div>
-	))
-	.addWithInfo('table default', () => (
+	),
+	'table default': () => (
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} displayMode="table" />
 		</div>
-	))
-	.addWithInfo('flat default', () => (
+	),
+	'flat default': () => (
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} displayMode="flat" />
 		</div>
-	));*/
-}
+	),
+};
+export default ExampleObjectViewer;

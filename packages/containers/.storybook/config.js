@@ -63,11 +63,21 @@ function loadStories() {
 			icon: 'talend-trash',
 			type: 'APP_OBJECT_DELETE',
 		};
-		storiesOf(example)
-			.addWithCMF('Default', examples[example], {
+		const story = storiesOf(example);
+		console.log(examples[example]);
+		if (typeof examples[example] === 'function') {
+			story.addWithCMF('Default', examples[example], {
 				state,
 				reducer,
 			});
+		} else {
+			Object.keys(examples[example]).forEach((usecase) => {
+				story.addWithCMF(usecase, examples[example][usecase], {
+					state,
+					reducer,
+				});
+			});
+		}
 	});
 }
 
