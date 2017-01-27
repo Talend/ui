@@ -7,7 +7,7 @@ jest.mock('react-dom');
 
 const myAction = {
 	label: 'Click me',
-	icon: 'fa fa-asterisk',
+	icon: 'talend-caret-down',
 	onClick: jest.fn(),
 };
 
@@ -55,6 +55,30 @@ describe('Action', () => {
 			<Action
 				className="navbar-btn"
 				inProgress
+				{...myAction}
+			/>).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should reverse icon/label', () => {
+		// when
+		const wrapper = renderer.create(
+			<Action
+				reverseDisplay
+				{...myAction}
+			/>).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should apply transformation on icon', () => {
+		// when
+		const wrapper = renderer.create(
+			<Action
+				iconTransform={'rotate-180'}
 				{...myAction}
 			/>).toJSON();
 
