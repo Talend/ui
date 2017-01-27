@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "lerna": "2.0.0-beta.32",
-    "lerna-semantic-release": "^8.0.0"
+    "lerna-semantic-release": "^8.0.0",
+    "rimraf": "^2.5.4"
   },
   "scripts": {
     "semantic-release": "lerna-semantic-release pre && lerna-semantic-release post && lerna-semantic-release perform",

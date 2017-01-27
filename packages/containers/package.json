@@ -4,9 +4,9 @@
   "main": "lib/index.js",
   "scripts": {
     "docs:js": "jsdoc -c docs.json",
-    "docs:cleanup": "rm -rf docs/jsodc/*",
+    "docs:cleanup": "rimraf docs/jsodc/*",
     "docs": "npm run docs:cleanup && npm run docs:js",
-    "prepublish": "babel -d lib ./src/ && rm lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
     "start": "npm run storybook",
     "test": "jest",
     "test:watch": "jest --watch",
