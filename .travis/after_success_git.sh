@@ -2,7 +2,7 @@
 #!/bin/bash
 set -e
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" != 'master' ]; then
 	git config user.name 'travis'
 	git config user.email no-reply@travis.com
 
