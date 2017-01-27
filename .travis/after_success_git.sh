@@ -6,7 +6,11 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	git config user.name 'travis'
 	git config user.email no-reply@travis.com
 
+	git status
+	git stash
 	git checkout $TRAVIS_BRANCH
+	git stash pop
+
 	git add packages/theme/screenshots
 	git add packages/components/screenshots
 	git commit -m 'Update screenshots from CI'
