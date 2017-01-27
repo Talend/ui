@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { actions } from 'react-cmf';
 
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import { getStateAccessors, getStateProps } from '../state';
@@ -14,7 +13,6 @@ export function getContainerInfo(ownProps) {
 export function mapDispatchToProps(dispatch, ownProps) {
 	const info = getContainerInfo(ownProps);
 	const props = getStateAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
-	props.dispatch = dispatch;
 	return props;
 }
 

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Immutable, { List, Map } from 'immutable';
+import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
 import { ObjectViewer as Component } from 'react-talend-components';
@@ -37,9 +37,9 @@ class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 	static propTypes = {
 		id: PropTypes.string,
-		data: get(Component, 'propTypes.data'),
-		displayMode: get(Component, 'propTypes.displayMode'),
-		onSubmit: get(Component, 'propTypes.onSubmit'),
+		data: get(Component, 'propTypes.data', PropTypes.any),
+		displayMode: get(Component, 'propTypes.displayMode', PropTypes.func),
+		onSubmit: get(Component, 'propTypes.onSubmit', PropTypes.func),
 		...statePropTypes,
 	};
 
@@ -61,7 +61,7 @@ class ObjectViewer extends React.Component {
 			// we don't want to match on undefined as false
 			newState = open(data.jsonpath, this.props);
 		} else if (data.edit === false) {
-			newState = edit(data.jsonpath, this.props)
+			newState = edit(data.jsonpath, this.props);
 		}
 		if (newState) {
 			this.props.updateState(newState);
@@ -70,13 +70,14 @@ class ObjectViewer extends React.Component {
 
 	onChange(event, data) {
 		const modified = this.props.state.get('modified');
-		this.props.state.set(
+		const newState = this.props.state.set(
 			'modified',
 			modified.set(
 				data.jsonpath,
 				event.target.value
 			)
 		);
+		this.props.updateState(newState);
 	}
 
 	render() {
@@ -89,7 +90,7 @@ class ObjectViewer extends React.Component {
 				displayMode={this.props.displayMode}
 				onClick={this.onClick}
 				onSubmit={this.props.onSubmit}
-				onChange={this.props.onSubmit ? this.onChange : null}
+				onChange={this.props.onSubmit ? this.onChange : undefined}
 				opened={state.opened}
 				edited={state.edited}
 			/>
