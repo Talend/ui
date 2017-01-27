@@ -16,7 +16,6 @@ before_install: .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server
-  - lerna bootstrap
 sudo: required
 script:
   - lerna exec --concurrency 1 -- yarn test
