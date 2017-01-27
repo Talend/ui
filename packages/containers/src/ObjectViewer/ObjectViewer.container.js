@@ -11,6 +11,28 @@ export const DEFAULT_STATE = new Map({
 	modified: new Map(),  // Store the onChange
 });
 
+export function open(path, props) {
+	return props.state.set(
+		'opened',
+		props.state.get('opened').push(path)
+	);
+}
+
+export function close(path, props) {
+	const opened = props.state.get('opened');
+	return props.state.set(
+		'opened',
+		opened.delete(opened.indexOf(path))
+	);
+}
+
+export function edit(path, props) {
+	props.state.set(
+		'edited',
+		props.state.get('edited').push(path)
+	);
+}
+
 class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 	static propTypes = {
@@ -32,28 +54,14 @@ class ObjectViewer extends React.Component {
 	}
 
 	onClick(event, data) {
-		const opened = this.props.state.get('opened');
-		const edited = this.props.state.get('edited');
 		let newState;
 		if (data.isOpened) {
-			// we should close the tree
-			newState = this.props.state.set(
-				'opened',
-				opened.delete(opened.indexOf(data.jsonpath))
-			);
+			newState = close(data.jsonpath, this.props);
 		} else if (data.isOpened === false) {
 			// we don't want to match on undefined as false
-			// we should open the tree
-			newState = this.props.state.set(
-				'opened',
-				opened.push(data.jsonpath)
-			);
+			newState = open(data.jsonpath, this.props);
 		} else if (data.edit === false) {
-			// we should edit this field
-			newState = this.props.state.set(
-				'edited',
-				edited.push(data.jsonpath)
-			);
+			newState = edit(data.jsonpath, this.props)
 		}
 		if (newState) {
 			this.props.updateState(newState);
