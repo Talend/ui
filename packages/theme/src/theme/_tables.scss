@@ -1,0 +1,19 @@
+.table {
+	// Cells
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				vertical-align: middle;
+			}
+		}
+	}
+
+	&-hover {
+		> tbody > tr:hover {
+			font-weight: 700;
+		}
+	}
+}

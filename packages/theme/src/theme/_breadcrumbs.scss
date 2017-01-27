@@ -1,0 +1,97 @@
+////
+/// Bootstrap breadcrumbs customization
+/// @group Breadcrumbs
+////
+
+.breadcrumb {
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	margin: 0;
+	color: $breadcrumb-items-color;
+	text-transform: uppercase;
+	border-radius: 0;
+
+	> li {
+		display: flex;
+		align-items: center;
+		min-width: 0;
+
+		& > a,
+		& > span,
+		& > .btn {
+			flex: 1;
+			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
+			padding: $breadcrumb-padding-vertical 0;
+			max-width: $breadcrumb-items-max-width;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		&:not(.sr-only) {
+			position: relative;
+			margin-right: $breadcrumb-separator-padding;
+
+			+ li {
+				margin: 0 $breadcrumb-separator-padding;
+				padding: 0;
+
+				&:before {
+					position: absolute;
+					content: '';
+					padding: 0;
+					top: 47.5%;
+					left: -($breadcrumb-separator-padding + 7px);
+					height: 5px;
+					width: 5px;
+					border: 1px solid $breadcrumb-separator-color;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+					box-shadow: 1px -1px 0 $breadcrumb-separator-color;
+					transform: rotate(45deg);
+				}
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.active span {
+				box-shadow: 0 1px 0 $breadcrumb-items-color;
+				color: $breadcrumb-active-color;
+			}
+		}
+	}
+
+	// Buttons need to have the same behavior as links
+	.btn {
+		font-size: inherit;
+		text-align: left;
+		border: none;
+		background: none;
+	}
+
+	a,
+	span,
+	.btn {
+		color: $breadcrumb-items-color;
+
+		&:focus,
+		&:hover,
+		&:active,
+		&.active,
+		&:visited {
+			// list item border on hover replaces this default feature
+			text-decoration: none;
+		}
+
+		&:active,
+		&.active {
+			&:focus,
+			&.focus {
+				outline: 0;
+			}
+		}
+	}
+}

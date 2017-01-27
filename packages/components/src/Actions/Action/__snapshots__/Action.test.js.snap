@@ -1,0 +1,62 @@
+exports[`Action should display a Progress indicator if set 1`] = `
+<button
+  className="navbar-btn btn btn-default"
+  disabled={true}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <svg
+    className=""
+    viewBox="0 0 50 50">
+    <circle
+      className={undefined}
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      } />
+  </svg>
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
+exports[`Action should pass all props to the Button 1`] = `
+<button
+  className="navbar-btn btn btn-default"
+  disabled={false}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <i
+    aria-hidden="true"
+    className="fa fa-asterisk"
+    title={null} />
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
+exports[`Action should render a button 1`] = `
+<button
+  className="btn btn-default"
+  disabled={false}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <i
+    aria-hidden="true"
+    className="fa fa-asterisk"
+    title={null} />
+  <span>
+    Click me
+  </span>
+</button>
+`;

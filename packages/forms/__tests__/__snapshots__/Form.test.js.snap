@@ -1,0 +1,95 @@
+exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
+<form
+  acceptCharset={undefined}
+  action={undefined}
+  autoComplete={undefined}
+  className="form"
+  encType={undefined}
+  id={undefined}
+  method={undefined}
+  name={undefined}
+  onSubmit={[Function]}
+  target={undefined}>
+  <div
+    className="form-group field field-object">
+    <fieldset>
+      <legend
+        id="root__title">
+        TestForm
+      </legend>
+      <div
+        className="form-group field field-string">
+        <input
+          autoFocus={false}
+          className="form-control"
+          disabled={false}
+          id="root_name"
+          label="Name"
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          type="text"
+          value="John Doe" />
+        <label
+          htmlFor="root_name">
+          Name
+        </label>
+        <div />
+        <div />
+        <div />
+      </div>
+      <div
+        className="form-group field field-string">
+        <select
+          autoFocus={false}
+          className="form-control"
+          disabled={false}
+          id="root_roles"
+          multiple={undefined}
+          onChange={[Function]}
+          readOnly={false}
+          required={false}
+          value="dev">
+          <option
+            value="dev">
+            dev
+          </option>
+          <option
+            value="pm">
+            pm
+          </option>
+        </select>
+        <label
+          htmlFor="root_roles">
+          roles
+        </label>
+        <div />
+        <div />
+        <div />
+      </div>
+    </fieldset>
+    <div />
+    <div />
+  </div>
+  <div
+    className="buttons">
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      title={undefined}
+      type="submit">
+      Submit
+    </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      title={undefined}
+      type="reset">
+      Reset
+    </button>
+  </div>
+</form>
+`;

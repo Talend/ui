@@ -1,0 +1,94 @@
+////
+/// Talend spec from the guidelines
+/// @group Guidelines
+////
+
+@import './helpers';
+@import './colors';
+@import './paddings';
+@import './variables';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+/// Breadcrumb not selected items color
+/// @type Color
+$breadcrumb-items-color: $brand-primary !default;
+
+/// Breadcrumb items max width
+/// @type Number
+$breadcrumb-items-max-width: 250px !default;
+
+/// Breadcrumb separator color
+/// @type Color
+$breadcrumb-separator-color: $breadcrumb-color !default;
+
+/// Breadcrumb separator padding
+/// @type Number
+$breadcrumb-separator-padding: $padding-larger !default;
+
+/// Button font size
+/// @type Number (Unit)
+$btn-font-size: 12px !default;
+
+/// Button box shadow width
+/// @type Number (Unit)
+$btn-box-shadow-width: 3px !default;
+
+/// Button background tinting percent
+/// @type Number (Unitless)
+$btn-background-tint-percent: 10 !default;
+
+/// Dropdown caret size
+/// @type Number (Unit)
+$dropdown-caret-size: $caret-width-large !default;
+
+/// Input group button padding
+/// @type Number (Unit)
+$input-group-btn-padding: 5px !default;
+
+/// Input group add-on padding
+/// @type Number (Unit)
+$input-group-addon-padding: 8px !default;
+
+/// Modal header background color
+///
+/// @type Color
+$modal-header-bg: $brand-primary !default;
+
+/// Modal header color
+///
+/// @type Color
+$modal-header-color: $white !default;
+
+/// Navbar brand logo width
+/// @type Number (Unit)
+$navbar-brand-logo-height: 20px !default;
+$navbar-brand-logo-width: 75px !default;
+
+/// Navbar form top and bottom width
+/// @type Number (Unit)
+$navbar-form-margin: 0 !default;
+
+/// Navbar search text and border bottom color
+///
+/// @type Color
+$navbar-search-btn-color: #000 !default;
+
+/// Navbar search btn width
+/// @type Number (Unit)
+$navbar-search-btn-width: 40px !default;
+
+/// Extra small button svg size
+/// @type Number (Unitless)
+$svg-xs-size: 0.8rem !default;
+
+/// Small button svg size
+/// @type Number (Unitless)
+$svg-sm-size: 1.2rem !default;
+
+/// Default button svg size
+/// @type Number (Unitless)
+$svg-md-size: 2rem !default;
+
+/// Large button svg size
+/// @type Number (Unitless)
+$svg-lg-size: 2.5rem !default;

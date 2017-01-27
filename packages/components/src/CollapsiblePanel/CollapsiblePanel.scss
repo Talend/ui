@@ -1,0 +1,142 @@
+$tc-collapsible-panel-padding-normal: $padding-normal !default;
+$tc-collapsible-panel-padding-larger: $padding-larger !default;
+$tc-collapsible-panel-btn-color: #555964;
+
+@mixin type-col($width: 100%) {
+	flex-basis: $width;
+
+	:global(.label), span {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 1em;
+	}
+}
+
+@mixin col-style {
+	display: flex;
+	flex-shrink: 1;
+	flex-grow: 0;
+	flex-basis: 100%;
+	margin: 0 $tc-collapsible-panel-padding-normal;
+	overflow: hidden;
+
+	> :global(.btn){
+		line-height: 1em;
+		color: $tc-collapsible-panel-btn-color;
+	}
+
+	&.col-5 {
+		@include type-col(20%);
+	}
+
+	&.col-6 {
+		@include type-col(calc(100%/6));
+	}
+
+	&.col-7 {
+		@include type-col(calc(100%/7));
+	}
+
+	&.col-8 {
+		@include type-col(calc(100%/8));
+	}
+
+	&.col-9 {
+		@include type-col(calc(100%/9));
+	}
+
+	&.col-10 {
+		@include type-col(calc(10%));
+	}
+}
+@mixin header-style {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: $tc-collapsible-panel-padding-larger;
+
+	> * {
+		@include col-style;
+	}
+}
+
+.group {
+	justify-content: space-between;
+	> * {
+		margin: 0 $tc-collapsible-panel-padding-normal;
+	}
+	:global(.label){
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 1em;
+	}
+}
+
+.tc-panel {
+	:global(.panel-heading) {
+		@include header-style;
+		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
+	}
+}
+
+.tc-collapsible-panel {
+	position: relative;
+
+	.caret {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+	:global(.panel-heading) {
+		h4 {
+			line-height: $line-height-base;
+		}
+	}
+
+	:global(.panel-title) {
+		font-size: 1em;
+		position: relative;
+
+		a {
+			@include header-style;
+			text-decoration: none;
+
+			&:hover {
+				color: initial;
+			}
+
+			&[aria-expanded='true'] .caret {
+				transform: rotate(180deg);
+			}
+
+			> * {
+				margin: auto $tc-collapsible-panel-padding-normal;
+			}
+		}
+	}
+
+	:global(.panel-body) {
+		max-height: 50vh;
+		overflow: auto;
+		word-break: break-all;
+
+		.content {
+			display: flex;
+			width: 100%;
+			.label {
+				flex-basis: 10%;
+				flex-shrink: 0;
+				flex-grow: 1;
+			}
+			.description {
+				flex-basis: 90%;
+				flex-shrink: 0;
+				flex-grow: 1;
+			}
+		}
+	}
+}

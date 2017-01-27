@@ -1,0 +1,140 @@
+exports[`Dialog should render 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  show={true}>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dialog should render action 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  show={true}>
+  <div
+    className="Header"
+    closeButton={true}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Dialog should render header 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  show={true}>
+  <div
+    className="Header"
+    closeButton={true}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dialog should render large 1`] = `
+<div
+  bsSize="large"
+  className="Modal"
+  show={true}>
+  <div
+    className="Header"
+    closeButton={true}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Dialog should render small 1`] = `
+<div
+  bsSize="small"
+  className="Modal"
+  show={true}>
+  <div
+    className="Header"
+    closeButton={true}>
+    <div
+      className="Title">
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body">
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer">
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
