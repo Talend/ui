@@ -7,6 +7,7 @@ import { List, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
@@ -246,7 +247,12 @@ const itemPropsForItems = {
 	onChange: action('onTitleChange'),
 	onSubmit: action('onTitleEditSubmit'),
 };
-const getPropsFor = (displayMode) => ({
+const sort = {
+	field: 'name',
+	isDescending: false,
+	onChange: action('sort.onChange'),
+};
+const getPropsFor = displayMode => ({
 	id: props.id,
 	displayMode,
 	list: {
@@ -371,6 +377,19 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list without toolbar</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Table with sort header click', () => {
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.toolbar = undefined;
+		tprops.list.sort = sort;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
