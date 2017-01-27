@@ -5,13 +5,12 @@ set -e
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	git config user.name 'travis'
 	git config user.email no-reply@travis.com
-	git add packages/theme/screenshots/
-	git add packages/components/screenshots/
+
+	git add packages/theme/screenshots
+	git add packages/components/screenshots
 	git commit -m 'Update screenshots from CI'
 
-	git add packages/theme/output/
-	git add packages/components/output/
-	git add packages/containers/output/
+	git add output
 	git commit -m 'Update code style outputs from CI'
 
 	git push -f -q https://jmfrancois:$GITHUB_API_KEY@github.com/Talend/ui $TRAVIS_BRANCH &> /dev/null
