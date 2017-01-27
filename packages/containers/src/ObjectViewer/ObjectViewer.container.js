@@ -11,25 +11,32 @@ export const DEFAULT_STATE = new Map({
 	modified: new Map(),  // Store the onChange
 });
 
-export function open(path, props) {
-	return props.state.set(
+export function open(path, state) {
+	return state.set(
 		'opened',
-		props.state.get('opened').push(path)
+		state.get('opened').push(path)
 	);
 }
 
-export function close(path, props) {
-	const opened = props.state.get('opened');
-	return props.state.set(
+export function close(path, state) {
+	const opened = state.get('opened');
+	return state.set(
 		'opened',
 		opened.delete(opened.indexOf(path))
 	);
 }
 
-export function edit(path, props) {
-	props.state.set(
+export function edit(path, state) {
+	return state.set(
 		'edited',
-		props.state.get('edited').push(path)
+		state.get('edited').push(path)
+	);
+}
+
+export function change(path, state, value) {
+	return state.set(
+		'modified',
+		state.get('modified').set(path, value)
 	);
 }
 
@@ -56,12 +63,12 @@ class ObjectViewer extends React.Component {
 	onClick(event, data) {
 		let newState;
 		if (data.isOpened) {
-			newState = close(data.jsonpath, this.props);
+			newState = close(data.jsonpath, this.props.state);
 		} else if (data.isOpened === false) {
 			// we don't want to match on undefined as false
-			newState = open(data.jsonpath, this.props);
+			newState = open(data.jsonpath, this.props.state);
 		} else if (data.edit === false) {
-			newState = edit(data.jsonpath, this.props);
+			newState = edit(data.jsonpath, this.props.state);
 		}
 		if (newState) {
 			this.props.updateState(newState);
@@ -69,13 +76,10 @@ class ObjectViewer extends React.Component {
 	}
 
 	onChange(event, data) {
-		const modified = this.props.state.get('modified');
-		const newState = this.props.state.set(
-			'modified',
-			modified.set(
-				data.jsonpath,
-				event.target.value
-			)
+		const newState = change(
+			data.jsonpath,
+			this.props.state,
+			event.target.value
 		);
 		this.props.updateState(newState);
 	}

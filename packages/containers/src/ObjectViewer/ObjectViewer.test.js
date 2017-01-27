@@ -102,6 +102,13 @@ describe('Container ObjectViewer', () => {
 		expect(updateState.mock.calls.length).toBe(1);
 		expect(updateState.mock.calls[0][0].get('modified').size).toBe(1);
 		expect(updateState.mock.calls[0][0].get('modified').get(path)).toBe(2);
+
+		props.onClick(null, {
+			edit: false,
+			jsonpath: path,
+		});
+		expect(updateState.mock.calls.length).toBe(2);
+		expect(updateState.mock.calls[1][0].get('edited').size).toBe(1);
 	});
 });
 
