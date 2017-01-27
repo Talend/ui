@@ -1,11 +1,9 @@
 import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
 import cmf from 'react-storybook-cmf';
-import infoAddon from '@kadira/react-storybook-addon-info';
 import mock from 'react-cmf/lib/mock';
 import { api } from 'react-cmf';
 import examples from '../examples';
 
-//setAddon(infoAddon);
 setAddon({ addWithCMF: cmf.addWithCMF });
 
 const actionLogger = action('dispatch');
@@ -23,7 +21,6 @@ function objectView(...args) {
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
-
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {
@@ -63,8 +60,9 @@ function loadStories() {
 			icon: 'talend-trash',
 			type: 'APP_OBJECT_DELETE',
 		};
+
 		const story = storiesOf(example);
-		console.log(examples[example]);
+
 		if (typeof examples[example] === 'function') {
 			story.addWithCMF('Default', examples[example], {
 				state,
