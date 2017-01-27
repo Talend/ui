@@ -3,7 +3,8 @@
 set -e
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-	git -c user.name='travis' -c user.email='travis'
+	git config user.name='travis'
+	git config user.email='travis'
 	git checkout $TRAVIS_BRANCH
 	git add packages/theme/screenshots/
 	git add packages/components/screenshots/
