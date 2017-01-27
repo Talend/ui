@@ -23,11 +23,6 @@ export function mapStateToProps(state, ownProps) {
 	return getStateProps(state, info.name, info.id);
 }
 
-/* if you need it
-export function mergeProps(stateProps, dispatchProps, ownProps) {
-}
-*/
-
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
