@@ -28,6 +28,32 @@ getIcon.propTypes = {
 	inProgress: PropTypes.bool,
 };
 
+function getLabel({ hideLabel, label }) {
+	return hideLabel ? null : <span>{label}</span>;
+}
+getLabel.propTypes = {
+	label: PropTypes.string,
+	hideLabel: PropTypes.bool,
+};
+
+function adjustContentPlacement(icon, label, iconPosition) {
+	if (iconPosition === RIGHT) {
+		return [label, icon];
+	}
+	return [icon, label];
+}
+
+function getContent(props) {
+	const icon = getIcon(props);
+	const label = getLabel(props);
+
+	return adjustContentPlacement(
+		icon,
+		label,
+		props.iconPosition
+	);
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -49,7 +75,6 @@ function Action(props) {
 		label,
 		link,
 		model,
-		iconPosition,
 		onClick,
 		tooltipPlacement,
 		...rest
@@ -62,11 +87,7 @@ function Action(props) {
 		model,
 	});
 
-	const btnIcon = getIcon(props);
-	const btnLabel = hideLabel ? null : <span>{label}</span>;
-	const buttonContent = iconPosition === RIGHT ?
-			[btnLabel, btnIcon] :
-			[btnIcon, btnLabel];
+	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
