@@ -21,10 +21,16 @@ describe('Check that node action creators generate proper' +
 		store.dispatch(
 			nodeActions.addNode(
 				'id',
-				{ x: 75, y: 75 },
-				{ width: 50, heigth: 50 },
-				'nodeType',
-				{},
+				'label',
+				'description',
+				{
+					data: {},
+					graphicalAttributes: {
+						nodePosition: { x: 75, y: 75 },
+						nodeSize: { width: 50, heigth: 50 },
+						type: 'nodeType',
+					},
+				},
 			),
 		);
 

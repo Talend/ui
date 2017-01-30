@@ -2,12 +2,9 @@ exports[`Check that port action creators generate proper action objects and perf
 Array [
   Object {
     "data": Object {},
-    "graphicalAttributes": Object {
-      "selected": true,
-    },
+    "graphicalAttributes": Object {},
     "nodeId": "nodeId",
     "portId": "portId",
-    "portType": "portType",
     "type": "FLOWDESIGNER_PORT_ADD",
   },
 ]

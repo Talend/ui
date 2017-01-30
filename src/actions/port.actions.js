@@ -14,11 +14,10 @@ import {
  * @param {string} portType
  * @param {Object} attributes
  */
-export const addPort = (nodeId, portId, portType, { data = {}, graphicalAttributes = {} } = {}) => ({
+export const addPort = (nodeId, portId, { data = {}, graphicalAttributes = {} } = {}) => ({
 	type: FLOWDESIGNER_PORT_ADD,
 	nodeId,
 	portId,
-	portType,
 	data,
 	graphicalAttributes,
 });

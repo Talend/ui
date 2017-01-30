@@ -45,41 +45,41 @@ const AbstractLink = React.createClass({
 			nextProps.target !== this.props.target ||
 			nextProps.targetHandlePosition !== this.props.targetHandlePosition;
 	},
-	renderLinkSourcehandle(){
-		if(this.props.linkSourceHandleComponent){
-			return <LinkHandle
+	renderLinkSourceHandle() {
+		if (this.props.linkSourceHandleComponent) {
+			return (<LinkHandle
 				component={this.props.linkSourceHandleComponent}
 				onDrag={this.props.onSourceDrag} onDragEnd={this.props.onSourceDragEnd}
-				position={this.props.sourceHandlePosition || this.props.source.position}
-			/>
+				position={this.props.sourceHandlePosition || this.props.source.getIn(['graphicalAttributes', 'position'])}
+			/>);
 		}
 		return null;
 	},
-	renderLinkTargetHandle(){
-		if(this.props.linkTargetHandleComponent){
-			return <LinkHandle
+	renderLinkTargetHandle() {
+		if (this.props.linkTargetHandleComponent) {
+			return (<LinkHandle
 				component={this.props.linkTargetHandleComponent}
 				onDrag={this.props.onTargetDrag} onDragEnd={this.props.onTargetDragEnd}
-				position={this.props.targetHandlePosition || this.props.target.position}
-			/>
+				position={this.props.targetHandlePosition || this.props.target.getIn(['graphicalAttributes', 'position'])}
+			/>);
 		}
 		return null;
 	},
 	render() {
 		const pathCalculationMethod = this.props.calculatePath || calculatePath;
 		const { path, xInterpolate, yInterpolate } = pathCalculationMethod(
-			this.props.source.position,
-			this.props.targetHandlePosition || this.props.target.position
+			this.props.source.getIn(['graphicalAttributes', 'position']),
+			this.props.targetHandlePosition || this.props.target.getIn(['graphicalAttributes', 'position']),
 		);
 		const newChildren = React.Children.map(this.props.children, child => (
 				React.cloneElement(child, { d: path, xInterpolate, yInterpolate })
 			));
 		return (
-		  <g>
-			{newChildren}
-			{this.renderLinkSourcehandle()}
-			{this.renderLinkTargetHandle()}
-		  </g>
+			<g>
+				{newChildren}
+				{this.renderLinkSourceHandle()}
+				{this.renderLinkTargetHandle()}
+			</g>
 		);
 	},
 });

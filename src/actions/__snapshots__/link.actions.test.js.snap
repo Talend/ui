@@ -2,11 +2,8 @@ exports[`Check that link action creators generate proper action objects and perf
 Array [
   Object {
     "data": Object {},
-    "graphicalAttributes": Object {
-      "selected": true,
-    },
+    "graphicalAttributes": Object {},
     "linkId": "linkId",
-    "linkType": "linkType",
     "sourceId": "sourceId",
     "targetId": "targetId",
     "type": "FLOWDESIGNER_LINK_ADD",

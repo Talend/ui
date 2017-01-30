@@ -10,20 +10,25 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id": Object {
-      "data": Object {},
+      "data": Object {
+        "properties": Object {},
+      },
       "graphicalAttributes": Object {
-        "name": "test",
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {},
       },
       "id": "id",
-      "nodeSize": Object {
-        "height": undefined,
-        "width": undefined,
-      },
-      "nodeType": "MY_NODE_TYPE",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": undefined,
     },
   },
   "out": Object {
@@ -54,18 +59,25 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id": Object {
-      "data": Object {},
-      "graphicalAttributes": Object {},
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
       "id": "id",
-      "nodeSize": Object {
-        "height": undefined,
-        "width": undefined,
-      },
-      "nodeType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": undefined,
     },
   },
   "out": Object {
@@ -96,30 +108,30 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": true,
+        "type": "type1",
       },
       "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 50,
+          "y": 50,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 50,
-        "y": 50,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -146,15 +158,15 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -169,7 +181,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_DATA should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_DATA should remove {type} attribute to node data map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -181,30 +193,30 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": true,
+        "type": "type1",
       },
       "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -219,7 +231,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES should remove {selected} attribute to node graphicalAttributes map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -230,29 +242,30 @@ Object {
       "data": Object {
         "type": "test",
       },
-      "graphicalAttributes": Object {},
-      "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "type1",
       },
+      "id": "id1",
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -267,7 +280,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_SET_DATA should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_DATA should add { type: 'string' } attribute to node data map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -279,30 +292,30 @@ Object {
         "type": "string",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": true,
+        "type": "type1",
       },
       "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -317,7 +330,7 @@ Object {
 }
 `;
 
-exports[`Check node reducer FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES should add attribute to node attribute map 1`] = `
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES should add { selected: false } attribute to node graphicalAttributes map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -329,30 +342,30 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type1",
       },
       "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -379,33 +392,34 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "nodeSize": Object {
+          "height": 200,
+          "width": 200,
+        },
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": true,
+        "type": "type1",
       },
       "id": "id1",
-      "nodeSize": Object {
-        "height": 200,
-        "width": 200,
-      },
-      "nodeType": "type1",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type1",
     },
     "id2": Object {
       "data": Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": false,
+        "type": "type2",
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": "type2",
     },
   },
   "out": Object {},
@@ -428,43 +442,42 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "id1": Object {
-      "data": undefined,
+      "data": Object {
+        "properties": Object {},
+      },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": NaN,
+          "y": NaN,
+        },
         "selected": true,
       },
       "id": "id1",
-      "nodeSize": undefined,
-      "nodeType": "type1",
-      "position": Object {
-        "x": 20,
-        "y": 15,
-      },
+      "type": undefined,
     },
     "id2": Object {
-      "data": undefined,
+      "data": Object {
+        "properties": Object {},
+      },
       "graphicalAttributes": Object {
+        "position": Object {
+          "x": NaN,
+          "y": NaN,
+        },
         "selected": false,
       },
       "id": "id2",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 20,
-        "y": 15,
-      },
+      "type": undefined,
     },
     "id3": Object {
-      "data": undefined,
+      "data": Object {
+        "properties": Object {},
+      },
       "graphicalAttributes": Object {
         "selected": false,
       },
       "id": "id3",
-      "nodeSize": undefined,
-      "nodeType": "type2",
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": undefined,
     },
   },
   "out": Object {},

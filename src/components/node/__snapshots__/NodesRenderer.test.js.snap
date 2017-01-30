@@ -1,4 +1,4 @@
-exports[`<LinksRenderer /> renders correctly <LinksRenderer /> renders correctly 1`] = `
+exports[`<NodesRenderer /> renders correctly 1`] = `
 <g>
   <span>
     MockLink

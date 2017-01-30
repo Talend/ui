@@ -11,6 +11,13 @@ import {
 	FLOWDESIGNER_NODE_REMOVE,
 } from '../constants/flowdesigner.constants';
 
+const defaultGraphicalAttributes = {
+	label: '',
+	nodeType: '',
+	nodePosition: {},
+	nodeSize: {},
+	properties: {},
+};
 
 /**
  * Ask for node creation and injection into current dataflow
@@ -21,11 +28,13 @@ import {
  * @param {Object} attr
  * @return {Object}
  */
-export const addNode = (nodeId, nodePosition, nodeSize, nodeType, { data = {}, graphicalAttributes = {} } = {}) => ({
+export const addNode = (
+	nodeId,
+	nodeType,
+	{ data = {}, graphicalAttributes = defaultGraphicalAttributes } = {},
+) => ({
 	type: FLOWDESIGNER_NODE_ADD,
 	nodeId,
-	nodePosition,
-	nodeSize,
 	nodeType,
 	data,
 	graphicalAttributes,

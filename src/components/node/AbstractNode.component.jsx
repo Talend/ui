@@ -18,110 +18,114 @@ import { PositionRecord } from '../../constants/flowdesigner.model';
  * @param nodeSize
  */
 const calculatePortPosition = (ports, nodePosition, nodeSize) => {
-    let portsWithPosition = new Map();
-    const emitterPorts = ports.filter(port => port.attributes.get('type') === 'EMITTER');
-    const sinkPorts = ports.filter(port => port.attributes.get('type') === 'SINK');
-    const range = [nodePosition.y, nodePosition.y + nodeSize.height];
-    const scaleYEmitter = scaleLinear()
-        .domain([0, emitterPorts.size + 1])
-        .range(range);
-    const scaleYSink = scaleLinear()
-        .domain([0, sinkPorts.size + 1])
-        .range(range);
-    let emitterNumber = 0;
-    let sinkNumber = 0;
-    emitterPorts.forEach(port => {
-        emitterNumber += 1;
-        const position = new PositionRecord({
-            x: nodePosition.x + nodeSize.width,
-            y: scaleYEmitter(emitterNumber),
-        });
-        portsWithPosition = portsWithPosition.set(port.id, port.set('position', position));
-    });
-    sinkPorts.forEach(port => {
-        sinkNumber += 1;
-        const position = new PositionRecord({
-            x: nodePosition.x,
-            y: scaleYSink(sinkNumber),
-        });
-        portsWithPosition = portsWithPosition.set(port.id, port.set('position', position));
-    });
-    return portsWithPosition;
+	let portsWithPosition = new Map();
+	const emitterPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'EMITTER');
+	const sinkPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'SINK');
+	const range = [nodePosition.get('y'), nodePosition.get('y') + nodeSize.get('height')];
+	const scaleYEmitter = scaleLinear()
+		.domain([0, emitterPorts.size + 1])
+		.range(range);
+	const scaleYSink = scaleLinear()
+		.domain([0, sinkPorts.size + 1])
+		.range(range);
+	let emitterNumber = 0;
+	let sinkNumber = 0;
+	emitterPorts.forEach((port) => {
+		emitterNumber += 1;
+		const position = new PositionRecord({
+			x: nodePosition.get('x') + nodeSize.get('width'),
+			y: scaleYEmitter(emitterNumber),
+		});
+		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
+	});
+	sinkPorts.forEach((port) => {
+		sinkNumber += 1;
+		const position = new PositionRecord({
+			x: nodePosition.get('x'),
+			y: scaleYSink(sinkNumber),
+		});
+		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
+	});
+	return portsWithPosition;
 };
 
 
 export const AbstractNode = React.createClass({
-    propTypes: {
-        node: NodeType.isRequired,
-        moveNodeTo: PropTypes.func.isRequired,
-        moveNodeToEnd: PropTypes.func.isRequired,
-        onDragStart: PropTypes.func,
-        onDrag: PropTypes.func,
-        onDragEnd: PropTypes.func,
-        onClick: PropTypes.func,
-        children: PropTypes.node,
-    },
-    statics: { calculatePortPosition },
-    componentDidMount() {
-        this.d3Node = select(this.nodeElement);
-        this.d3Node.data([this.props.node.position]);
-        this.d3Node.call(
-            drag()
-                .on('start', this.onDragStart)
-                .on('drag', this.onDrag)
-                .on('end', this.onDragEnd)
-        );
-    },
-    shouldComponentUpdate(nextProps) {
-        return nextProps !== this.props;
-    },
-    componentWillUnmount() {
-        this.d3Node.remove();
-    },
-    onClick(event) {
-        if (this.props.onClick) {
-            this.props.onClick(event);
-        }
-    },
-    onDragStart() {
-        if (this.props.onDragStart) {
-            this.props.onDragStart(event);
-        }
-    },
-    onDrag() {
-        this.d3Node.data([this.props.node.position]);
-        this.props.moveNodeTo(this.props.node.id, event);
-        if (this.props.onDrag) {
-            this.props.onDrag(event);
-        }
-    },
-    onDragEnd() {
-        this.props.moveNodeToEnd(this.props.node.id, event);
-        if (this.props.onDragEnd) {
-            this.props.onDragEnd(event);
-        }
-    },
-    renderContent() {
-        if (this.props.children) {
-            return this.props.children;
-        }
-        invariant(false, '<AbstractNode /> should not be used without giving it a children' +
-            'ex: <AbstractNode><rect /></AbstractNode>');
-        return null;
-    },
-    render() {
-        const { node } = this.props;
-        return (
-            <g>
-                <g
-                    transform={`translate(${node.position.x},${node.position.y})`}
-                    ref={c => (this.nodeElement = c)} onClick={this.onClick}
-                    >
-                    {this.renderContent()}
-                </g>
-            </g>
-        );
-    },
+	propTypes: {
+		node: NodeType.isRequired,
+		moveNodeTo: PropTypes.func.isRequired,
+		moveNodeToEnd: PropTypes.func.isRequired,
+		onDragStart: PropTypes.func,
+		onDrag: PropTypes.func,
+		onDragEnd: PropTypes.func,
+		onClick: PropTypes.func,
+		children: PropTypes.node,
+	},
+	statics: { calculatePortPosition },
+	componentDidMount() {
+		this.d3Node = select(this.nodeElement);
+		this.d3Node.data([this.props.node.getIn(['graphicalAttributes', 'position'])]);
+		this.d3Node.call(
+			drag()
+				.on('start', this.onDragStart)
+				.on('drag', this.onDrag)
+				.on('end', this.onDragEnd),
+		);
+	},
+	shouldComponentUpdate(nextProps) {
+		return nextProps !== this.props;
+	},
+	componentWillUnmount() {
+		this.d3Node.remove();
+	},
+	onClick(clickEvent) {
+		if (this.props.onClick) {
+			this.props.onClick(clickEvent);
+		}
+	},
+	onDragStart() {
+		if (this.props.onDragStart) {
+			this.props.onDragStart(event);
+		}
+	},
+	onDrag() {
+		this.d3Node.data([this.props.node.getIn(['graphicalAttributes', 'position'])]);
+		this.props.moveNodeTo(this.props.node.id, event);
+		if (this.props.onDrag) {
+			this.props.onDrag(event);
+		}
+	},
+	onDragEnd() {
+		this.props.moveNodeToEnd(this.props.node.id, event);
+		if (this.props.onDragEnd) {
+			this.props.onDragEnd(event);
+		}
+	},
+	renderContent() {
+		if (this.props.children) {
+			return this.props.children;
+		}
+		invariant(false, '<AbstractNode /> should not be used without giving it a children' +
+			'ex: <AbstractNode><rect /></AbstractNode>');
+		return null;
+	},
+	render() {
+		const { node } = this.props;
+		const x = node.getIn(['graphicalAttributes', 'position', 'x']);
+		const y = node.getIn(['graphicalAttributes', 'position', 'y']);
+		const transform = `translate(${x}, ${y})`;
+		return (
+			<g>
+				<g
+					transform={transform}
+					ref={c => (this.nodeElement = c)}
+					onClick={this.onClick}
+				>
+					{this.renderContent()}
+				</g>
+			</g>
+		);
+	},
 });
 
 

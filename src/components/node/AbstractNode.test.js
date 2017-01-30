@@ -1,25 +1,24 @@
 import ReactTestUtils from 'react-addons-test-utils';
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Map } from 'immutable';
 
-import { NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
+import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
 import AbstractNode from './AbstractNode.component.jsx';
 
 const node = new NodeRecord({
 	id: 'id',
-	position: new PositionRecord({ x: 100, y: 50 }),
-	nodeSize: new SizeRecord({ width: 125, height: 75 }),
-	attr: new Map(),
+	graphicalAttributes: new NodeGraphicalAttributes({
+		position: new PositionRecord({ x: 100, y: 50 }),
+		nodeSize: new SizeRecord({ width: 125, height: 75 }),
+	}),
 });
 
 
 describe('Testing <AbstractNode>', () => {
-
 	it('should create a bare node component with provided position', () => {
 		const wrapper = shallow(<AbstractNode node={node}><rect /></AbstractNode>);
 		const rect = wrapper.find('g[transform]');
-		expect(rect.prop('transform')).toBe('translate(100,50)');
+		expect(rect.prop('transform')).toBe('translate(100, 50)');
 	});
 
 	it('call the injected onClick action when clicked', () => {

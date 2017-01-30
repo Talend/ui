@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import * as Selectors from './portSelectors';
 import { defaultState } from '../reducers/flow.reducer';
 import {
@@ -9,22 +9,22 @@ import {
 const port1 = new PortRecord({
 	id: 'id1',
 	nodeId: 'nodeId1',
-	graphicalAttributes: new Map({ type: 'SINK' }),
+	graphicalAttributes: fromJS({ properties: { type: 'SINK' } }),
 });
 const port2 = new PortRecord({
 	id: 'id2',
 	nodeId: 'nodeId1',
-	graphicalAttributes: new Map({ type: 'EMITTER' }),
+	graphicalAttributes: fromJS({ properties: { type: 'EMITTER' } }),
 });
 const port3 = new PortRecord({
 	id: 'id3',
 	nodeId: 'nodeId2',
-	graphicalAttributes: new Map({ type: 'SINK' }),
+	graphicalAttributes: fromJS({ properties: { type: 'SINK' } }),
 });
 const port4 = new PortRecord({
 	id: 'id4',
 	nodeId: 'nodeId2',
-	graphicalAttributes: new Map({ type: 'EMITTER' }),
+	graphicalAttributes: fromJS({ properties: { type: 'EMITTER' } }),
 });
 const givenState = defaultState.set('links', new Map().set('id1', new LinkRecord({
 	id: 'id1',
@@ -39,7 +39,7 @@ const givenState = defaultState.set('links', new Map().set('id1', new LinkRecord
 );
 
 describe('getEmitterPorts', () => {
-	it('return a map with port id2', () => {
+	it('return a map with port id2 && id4', () => {
 		expect(Selectors.getEmitterPorts(givenState)).toMatchSnapshot();
 	});
 });

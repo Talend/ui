@@ -24,7 +24,7 @@ describe('<FlowDesigner /> renders correctly', () => {
 			>
 				<NodeType type="test" component={NodeType} />
 				<NodeType type="test2" component={NodeType} />
-			</FlowDesigner>
+			</FlowDesigner>,
 		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});

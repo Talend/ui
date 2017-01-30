@@ -1,13 +1,89 @@
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch many elements creation 1`] = `
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch many elements creation 1`] = `
 Object {
-  "childrens": Object {},
-  "in": Object {},
+  "childrens": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
+  "in": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
   "links": Object {},
   "nodeTypes": Object {},
-  "nodes": Object {},
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {},
+  "nodes": Object {
+    "node2": Object {
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": 10,
+          "width": 10,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "node2",
+      "type": undefined,
+    },
+    "nodeId": Object {
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": 10,
+          "width": 10,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "nodeId",
+      "type": undefined,
+    },
+  },
+  "out": Object {
+    "node2": Object {},
+    "nodeId": Object {
+      "portId": Object {},
+    },
+  },
+  "parents": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
+  "ports": Object {
+    "portId": Object {
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "portType": undefined,
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {
+          "type": "EMITTER",
+        },
+      },
+      "id": "portId",
+      "nodeId": "nodeId",
+    },
+  },
   "transform": Object {
     "k": 1,
     "x": 0,
@@ -17,7 +93,7 @@ Object {
 }
 `;
 
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should batch one element creation 1`] = `
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should batch one element creation 1`] = `
 Object {
   "childrens": Object {
     "nodeId": Object {},
@@ -29,18 +105,25 @@ Object {
   "nodeTypes": Object {},
   "nodes": Object {
     "nodeId": Object {
-      "data": Object {},
-      "graphicalAttributes": Object {},
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": "",
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {},
+      },
       "id": "nodeId",
-      "nodeSize": Object {
-        "height": 10,
-        "width": 10,
-      },
-      "nodeType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
+      "type": undefined,
     },
   },
   "out": Object {
@@ -59,7 +142,7 @@ Object {
 }
 `;
 
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS is batching elements creation should handle throwing sub reducer by returning old state 1`] = `
+exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should handle throwing sub reducer by returning old state 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -80,14 +163,90 @@ Object {
 
 exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
 Object {
-  "childrens": Object {},
-  "in": Object {},
+  "childrens": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
+  "in": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
   "links": Object {},
   "nodeTypes": Object {},
-  "nodes": Object {},
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {},
+  "nodes": Object {
+    "node2": Object {
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": 10,
+          "width": 10,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "node2",
+      "type": undefined,
+    },
+    "nodeId": Object {
+      "data": Object {
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": 10,
+          "width": 10,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "nodeId",
+      "type": undefined,
+    },
+  },
+  "out": Object {
+    "node2": Object {},
+    "nodeId": Object {
+      "portId": Object {},
+    },
+  },
+  "parents": Object {
+    "node2": Object {},
+    "nodeId": Object {},
+  },
+  "ports": Object {
+    "portId": Object {
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "portType": undefined,
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {
+          "type": "EMITTER",
+        },
+      },
+      "id": "portId",
+      "nodeId": "nodeId",
+    },
+  },
   "transform": Object {
     "k": 1,
     "x": 0,

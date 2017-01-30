@@ -19,47 +19,60 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
-        "attr": "attr",
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "test",
       },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "portId": Object {
       "data": Object {
-        "type": "EMITTER",
+        "flowType": undefined,
+        "properties": Object {},
       },
-      "graphicalAttributes": Object {},
+      "graphicalAttributes": Object {
+        "portType": "portType",
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {
+          "type": "EMITTER",
+        },
+      },
       "id": "portId",
       "nodeId": "nodeId",
-      "portType": "portType",
-      "position": undefined,
     },
   },
   "transform": Object {
@@ -71,7 +84,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_ADDS to add multiple ports to port collection 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_ADDS to add multiple ports (portId1, portId2) to port collection 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {
@@ -96,57 +109,78 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
-        "attr": "attr",
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "test",
       },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "portId1": Object {
       "data": Object {
-        "type": "EMITTER",
+        "flowType": undefined,
+        "properties": Object {},
       },
-      "graphicalAttributes": Object {},
+      "graphicalAttributes": Object {
+        "portType": "portType",
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {
+          "type": "EMITTER",
+        },
+      },
       "id": "portId1",
       "nodeId": "nodeId",
-      "portType": "portType",
-      "position": undefined,
     },
     "portId2": Object {
       "data": Object {
-        "type": "SINK",
+        "flowType": undefined,
+        "properties": Object {},
       },
-      "graphicalAttributes": Object {},
+      "graphicalAttributes": Object {
+        "portType": "portType",
+        "position": Object {
+          "x": undefined,
+          "y": undefined,
+        },
+        "properties": Object {
+          "type": "SINK",
+        },
+      },
       "id": "portId2",
       "nodeId": "nodeId",
-      "portType": "portType",
-      "position": undefined,
     },
   },
   "transform": Object {
@@ -158,7 +192,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE should remove port from ports collection 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE should remove port id1 from ports collection 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -171,26 +205,32 @@ Object {
   "parents": Object {},
   "ports": Object {
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
   },
   "transform": Object {
@@ -202,7 +242,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_DATA on data map 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_DATA remove type on port id1 on port data map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -217,37 +257,42 @@ Object {
     "id1": Object {
       "data": Object {},
       "graphicalAttributes": Object {
-        "attr": "attr",
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "test",
       },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
   },
   "transform": Object {
@@ -259,7 +304,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES to remove attr from attr map 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES to remove attr on port id1 graphicalAttribute map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -275,36 +320,43 @@ Object {
       "data": Object {
         "type": "test",
       },
-      "graphicalAttributes": Object {},
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "test",
+      },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
   },
   "transform": Object {
@@ -316,7 +368,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_SET_DATA to merge a new data in data map 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_SET_DATA to merge { type: 'string' } on port id1 data map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -333,37 +385,42 @@ Object {
         "type": "string",
       },
       "graphicalAttributes": Object {
-        "attr": "attr",
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "type": "test",
       },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
   },
   "transform": Object {
@@ -375,7 +432,7 @@ Object {
 }
 `;
 
-exports[`Check port reducer FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES to merge a new attributes in attribute collection 1`] = `
+exports[`Check port reducer FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES to merge { selected: true } on port id1 graphicalAttribute map 1`] = `
 Object {
   "childrens": Object {},
   "in": Object {},
@@ -392,38 +449,43 @@ Object {
         "type": "test",
       },
       "graphicalAttributes": Object {
-        "attr": "attr",
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
         "selected": true,
+        "type": "test",
       },
       "id": "id1",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id2": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id2",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
     "id3": Object {
-      "data": undefined,
-      "graphicalAttributes": undefined,
+      "data": Object {
+        "flowType": undefined,
+        "properties": Object {},
+      },
+      "graphicalAttributes": Object {
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+      },
       "id": "id3",
       "nodeId": undefined,
-      "portType": undefined,
-      "position": Object {
-        "x": 10,
-        "y": 10,
-      },
     },
   },
   "transform": Object {

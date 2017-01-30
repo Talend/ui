@@ -1,24 +1,30 @@
-exports[`getEmitterPorts return a map with port id2 1`] = `
+exports[`getEmitterPorts return a map with port id2 && id4 1`] = `
 Object {
   "id2": Object {
-    "data": undefined,
+    "data": Object {
+      "flowType": undefined,
+      "properties": Object {},
+    },
     "graphicalAttributes": Object {
-      "type": "EMITTER",
+      "properties": Object {
+        "type": "EMITTER",
+      },
     },
     "id": "id2",
     "nodeId": "nodeId1",
-    "portType": undefined,
-    "position": undefined,
   },
   "id4": Object {
-    "data": undefined,
+    "data": Object {
+      "flowType": undefined,
+      "properties": Object {},
+    },
     "graphicalAttributes": Object {
-      "type": "EMITTER",
+      "properties": Object {
+        "type": "EMITTER",
+      },
     },
     "id": "id4",
     "nodeId": "nodeId2",
-    "portType": undefined,
-    "position": undefined,
   },
 }
 `;
@@ -26,14 +32,17 @@ Object {
 exports[`getEmitterPortsForNode return a map with port id2 1`] = `
 Object {
   "id2": Object {
-    "data": undefined,
+    "data": Object {
+      "flowType": undefined,
+      "properties": Object {},
+    },
     "graphicalAttributes": Object {
-      "type": "EMITTER",
+      "properties": Object {
+        "type": "EMITTER",
+      },
     },
     "id": "id2",
     "nodeId": "nodeId1",
-    "portType": undefined,
-    "position": undefined,
   },
 }
 `;
@@ -41,24 +50,30 @@ Object {
 exports[`getSinkPorts return a map with port id1 & id3 1`] = `
 Object {
   "id1": Object {
-    "data": undefined,
+    "data": Object {
+      "flowType": undefined,
+      "properties": Object {},
+    },
     "graphicalAttributes": Object {
-      "type": "SINK",
+      "properties": Object {
+        "type": "SINK",
+      },
     },
     "id": "id1",
     "nodeId": "nodeId1",
-    "portType": undefined,
-    "position": undefined,
   },
   "id3": Object {
-    "data": undefined,
+    "data": Object {
+      "flowType": undefined,
+      "properties": Object {},
+    },
     "graphicalAttributes": Object {
-      "type": "SINK",
+      "properties": Object {
+        "type": "SINK",
+      },
     },
     "id": "id3",
     "nodeId": "nodeId2",
-    "portType": undefined,
-    "position": undefined,
   },
 }
 `;
