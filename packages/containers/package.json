@@ -82,6 +82,7 @@
     "redux-batched-actions": "^0.1.5",
     "redux-thunk": "2",
     "reselect": "^2.5.4",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
     "talend-icons": "^0.60.2",
