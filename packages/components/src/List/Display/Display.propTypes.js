@@ -14,4 +14,9 @@ export default {
 		width: PropTypes.string,
 	}),
 	titleProps: ItemTitle.propTypes.titleProps,
+	sort: PropTypes.shape({
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+	}),
 };
