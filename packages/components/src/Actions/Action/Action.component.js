@@ -8,6 +8,52 @@ import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 
+const LEFT = 'left';
+const RIGHT = 'right';
+
+function getIcon({ icon, iconTransform, inProgress }) {
+	if (inProgress) {
+		return (<CircularProgress size="small" />);
+	}
+
+	if (icon) {
+		return (<Icon name={icon} transform={iconTransform} />);
+	}
+
+	return null;
+}
+getIcon.propTypes = {
+	icon: PropTypes.string,
+	iconTransform: PropTypes.string,
+	inProgress: PropTypes.bool,
+};
+
+function getLabel({ hideLabel, label }) {
+	if (hideLabel) {
+		return null;
+	}
+	return (<span>{label}</span>);
+}
+getLabel.propTypes = {
+	label: PropTypes.string,
+	hideLabel: PropTypes.bool,
+};
+
+function adjustContentPlacement(icon, label, iconPosition) {
+	if (iconPosition === RIGHT) {
+		return [label, icon];
+	}
+	return [icon, label];
+}
+
+function getContent(props) {
+	return adjustContentPlacement(
+		getIcon(props),
+		getLabel(props),
+		props.iconPosition
+	);
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -24,7 +70,6 @@ import getPropsFrom from '../../utils/getPropsFrom';
 function Action(props) {
 	const {
 		bsStyle,
-		icon,
 		inProgress,
 		hideLabel,
 		label,
@@ -41,6 +86,9 @@ function Action(props) {
 		action: { label, ...rest },
 		model,
 	});
+
+	const buttonContent = getContent(props);
+
 	const btn = (
 		<Button
 			onClick={rClick}
@@ -49,9 +97,7 @@ function Action(props) {
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
-			{icon && !inProgress ? <Icon name={icon} /> : null}
-			{inProgress ? <CircularProgress size="small" /> : null}
-			{hideLabel ? null : <span>{label}</span>}
+			{buttonContent}
 		</Button>
 	);
 
@@ -61,16 +107,16 @@ function Action(props) {
 }
 
 Action.propTypes = {
+	...getIcon.propTypes,
+	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	icon: PropTypes.string,
+	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
-	inProgress: PropTypes.bool,
-	id: PropTypes.string,
 };
 
 Action.defaultProps = {

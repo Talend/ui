@@ -64,6 +64,12 @@ const columns = [
 	{ key: 'modified', label: 'Modified' },
 ];
 
+const sort = {
+	field: 'name',
+	isDescending: false,
+	onChange: jest.fn(),
+};
+
 describe('DisplayTable', () => {
 	it('should render with default title property (name)', () => {
 		// given
@@ -168,6 +174,21 @@ describe('DisplayTable', () => {
 		const props = {
 			items,
 			columns,
+		};
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render sortable headers', () => {
+		// given
+		const props = {
+			items,
+			columns,
+			sort,
 		};
 
 		// when

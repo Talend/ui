@@ -23,6 +23,8 @@ public class List extends Component {
 
     static final String ADD_BTN_SELECTOR = ".tc-actionbar-container .btn-primary";
 
+    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-display-table thead tr th";
+
     static final String LIST_ITEMS_SELECTOR = ".tc-list-display-table div:first-child button";
 
     static final String ACTION_BTN_ITEM_XPATH = "//*[@class='tc-list']//button[text()='{label}']/../following-sibling::div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
@@ -44,6 +46,15 @@ public class List extends Component {
      */
     public WebElement getAddButton() throws NotFoundException {
         return this.getElement().findElement(By.cssSelector(ADD_BTN_SELECTOR));
+    }
+
+    /**
+     * Get list of column header
+     *
+     * @return List of WebElement
+     */
+    public java.util.List<WebElement> getColumnsHeaders() {
+        return this.getElement().findElements(By.cssSelector(LIST_COLUMN_HEADER_SELECTOR));
     }
 
     /**
@@ -96,6 +107,7 @@ public class List extends Component {
 
     /**
      * Test if an item exists
+     *
      * @param name label of the list item
      * @return true if the item is in the list
      */
