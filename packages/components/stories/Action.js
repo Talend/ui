@@ -37,7 +37,7 @@ storiesOf('Action', module)
 			<Action
 				id="reverseDisplay"
 				{...myAction}
-				reverseDisplay
+				iconPosition="right"
 			/>
 			<p>Transform icon</p>
 			<Action

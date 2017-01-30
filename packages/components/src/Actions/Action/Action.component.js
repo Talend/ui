@@ -8,6 +8,9 @@ import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 
+const LEFT = 'left';
+const RIGHT = 'right';
+
 function getIcon({ icon, iconTransform, inProgress }) {
 	if (inProgress) {
 		return (<CircularProgress size="small" />);
@@ -46,7 +49,7 @@ function Action(props) {
 		label,
 		link,
 		model,
-		reverseDisplay,
+		iconPosition,
 		onClick,
 		tooltipPlacement,
 		...rest
@@ -61,7 +64,7 @@ function Action(props) {
 
 	const btnIcon = getIcon(props);
 	const btnLabel = hideLabel ? null : <span>{label}</span>;
-	const buttonContent = reverseDisplay ?
+	const buttonContent = iconPosition === RIGHT ?
 			[btnLabel, btnIcon] :
 			[btnIcon, btnLabel];
 
@@ -87,7 +90,7 @@ Action.propTypes = {
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	reverseDisplay: PropTypes.bool,
+	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types

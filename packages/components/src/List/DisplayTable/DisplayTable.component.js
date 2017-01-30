@@ -103,7 +103,7 @@ function headerContent(column, sort) {
 			icon={icon}
 			link
 			label={column.label}
-			reverseDisplay
+			iconPosition="right"
 			iconTransform={iconTransform}
 			onClick={onChange}
 		/>

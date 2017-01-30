@@ -66,7 +66,7 @@ describe('Action', () => {
 		// when
 		const wrapper = renderer.create(
 			<Action
-				reverseDisplay
+				iconPosition="right"
 				{...myAction}
 			/>).toJSON();
 
