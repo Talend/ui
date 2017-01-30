@@ -47,12 +47,9 @@ function adjustContentPlacement(icon, label, iconPosition) {
 }
 
 function getContent(props) {
-	const icon = getIcon(props);
-	const label = getLabel(props);
-
 	return adjustContentPlacement(
-		icon,
-		label,
+		getIcon(props),
+		getLabel(props),
 		props.iconPosition
 	);
 }
