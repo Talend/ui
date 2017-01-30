@@ -18,10 +18,11 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -1029,10 +1030,11 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -2250,10 +2252,11 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -3499,10 +3502,11 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -4942,10 +4946,11 @@ exports[`Storyshots ObjectViewer table default 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -6152,10 +6157,11 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -7566,10 +7572,11 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
@@ -8818,10 +8825,11 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
         <symbol
           id="talend-caret-down">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 16a1.994 1.994 0 0 1-1.414-.586l-8-8a2 2 0 0 1 2.828-2.828L10 11.172l6.586-6.586a2 2 0 0 1 2.828 2.828l-8 8A1.994 1.994 0 0 1 10 16z" />
+            <polygon
+              points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 " />
           </svg>
         </symbol>
         <symbol
