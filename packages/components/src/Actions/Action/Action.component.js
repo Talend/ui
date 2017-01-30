@@ -97,7 +97,7 @@ function Action(props) {
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
-			{buttonContent.map(content => content)}
+			{buttonContent}
 		</Button>
 	);
 
