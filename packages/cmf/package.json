@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "scripts": {
     "docs:js": "jsdoc -c docs.json",
-    "docs:cleanup": "rm -rf docs/jsodc/*",
+    "docs:cleanup": "rimraf -rf docs/jsodc/*",
     "docs": "npm run docs:cleanup && npm run docs:js",
     "prepublish": "babel -d lib ./src/",
     "test": "jest",
@@ -66,6 +66,7 @@
     "redux-logger": "2.6.1",
     "redux-mock-store": "^1.1.4",
     "redux-thunk": "2",
+    "rimraf": "^2.5.4",
     "semantic-release": "4.3.5"
   },
   "jest": {
