@@ -82,19 +82,35 @@ RowRenderer.propTypes = {
 	titleProps: ItemTitle.propTypes.titleProps,
 };
 
+function getCaretIcon(isCurrentSortField) {
+	return isCurrentSortField ? 'talend-caret-down' : null;
+}
+
+function getIconTransform(sort) {
+	return sort.isDescending ? 'rotate-180' : null;
+}
+
+function getNextDirection(isCurrentSortField, currentSort) {
+	if (isCurrentSortField) {
+		return !currentSort.isDescending;
+	}
+
+	return false;
+}
+
 function headerContent(column, sort) {
 	if (!sort) {
 		return column.label;
 	}
 
 	const isCurrentSortField = sort.field === column.key;
-	const icon = isCurrentSortField ? 'talend-caret-down' : null;
-	const iconTransform = sort.isDescending ? 'rotate-180' : null;
+	const icon = getCaretIcon(isCurrentSortField);
+	const iconTransform = getIconTransform(sort);
 	const onChange = event => sort.onChange(
 		event,
 		{
 			field: column.key,
-			isDescending: isCurrentSortField ? !sort.isDescending : false,
+			isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
 		},
 	);
 
