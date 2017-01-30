@@ -28,7 +28,16 @@ exports[`DisplayTable should render column actions 1`] = `
       className=""
       id={undefined}>
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -125,20 +134,56 @@ exports[`DisplayTable should render column actions 1`] = `
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -158,22 +203,67 @@ exports[`DisplayTable should render column actions 1`] = `
         <div
           className="tc-actions btn-group" />
       </td>
-      <td />
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]} />
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
+      </td>
+      <td>
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -193,15 +283,51 @@ exports[`DisplayTable should render column actions 1`] = `
         <div
           className="tc-actions btn-group" />
       </td>
-      <td />
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]} />
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
+      </td>
+      <td>
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -235,7 +361,16 @@ exports[`DisplayTable should render selected list element with custom selectedCl
       className="something"
       id="table-list-0">
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -289,20 +424,56 @@ exports[`DisplayTable should render selected list element with custom selectedCl
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className="something"
       id="table-list-1">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -323,20 +494,56 @@ exports[`DisplayTable should render selected list element with custom selectedCl
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className="something"
       id="table-list-2">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -357,13 +564,40 @@ exports[`DisplayTable should render selected list element with custom selectedCl
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -397,7 +631,16 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
       className="active"
       id="table-list-0">
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -451,20 +694,56 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className="active"
       id="table-list-1">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -485,20 +764,56 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className="active"
       id="table-list-2">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -519,13 +834,40 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -623,7 +965,16 @@ exports[`DisplayTable should render sortable headers 1`] = `
       className=""
       id={undefined}>
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -720,20 +1071,56 @@ exports[`DisplayTable should render sortable headers 1`] = `
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -753,22 +1140,67 @@ exports[`DisplayTable should render sortable headers 1`] = `
         <div
           className="tc-actions btn-group" />
       </td>
-      <td />
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]} />
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
+      </td>
+      <td>
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -788,15 +1220,51 @@ exports[`DisplayTable should render sortable headers 1`] = `
         <div
           className="tc-actions btn-group" />
       </td>
-      <td />
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]} />
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
+      </td>
+      <td>
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -830,7 +1298,16 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       className=""
       id={undefined}>
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -884,20 +1361,56 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -918,20 +1431,56 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id={undefined}>
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -952,13 +1501,40 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1050,16 +1626,52 @@ exports[`DisplayTable should render with defined title property 1`] = `
         </div>
       </td>
       <td>
-        Hello world
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Hello world
+        </span>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
@@ -1091,16 +1703,52 @@ exports[`DisplayTable should render with defined title property 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Foo
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Foo
+        </span>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
@@ -1128,16 +1776,52 @@ exports[`DisplayTable should render with defined title property 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Bar
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Bar
+        </span>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1171,7 +1855,16 @@ exports[`DisplayTable should render with id if provided 1`] = `
       className=""
       id="table-list-0">
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -1225,20 +1918,56 @@ exports[`DisplayTable should render with id if provided 1`] = `
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id="table-list-1">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -1259,20 +1988,56 @@ exports[`DisplayTable should render with id if provided 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id="table-list-2">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -1293,13 +2058,40 @@ exports[`DisplayTable should render with id if provided 1`] = `
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
@@ -1333,7 +2125,16 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       className="item-0-class"
       id="table-list-0">
       <td>
-        1
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          1
+        </span>
       </td>
       <td>
         <div
@@ -1387,20 +2188,56 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
         </div>
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className="item-1-class"
       id="table-list-1">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -1421,20 +2258,56 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
     <tr
       className=""
       id="table-list-2">
       <td>
-        2
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2
+        </span>
       </td>
       <td>
         <div
@@ -1455,13 +2328,40 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
           className="tc-actions btn-group" />
       </td>
       <td>
-        Jean-Pierre DUPONT
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          Jean-Pierre DUPONT
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
       <td>
-        2016-09-22
+        <span
+          aria-describedby={42}
+          className="item-text"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
+          2016-09-22
+        </span>
       </td>
     </tr>
   </tbody>
