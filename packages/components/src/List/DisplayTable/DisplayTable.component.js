@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import { Actions } from '../../Actions';
+import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 
 import DisplayPropTypes from '../Display/Display.propTypes';
@@ -82,16 +82,65 @@ RowRenderer.propTypes = {
 	titleProps: ItemTitle.propTypes.titleProps,
 };
 
+function getCaretIcon(isCurrentSortField) {
+	if (isCurrentSortField) {
+		return 'talend-caret-down';
+	}
+	return null;
+}
+
+function getIconTransform(isDescending) {
+	if (isDescending) {
+		return 'rotate-180';
+	}
+	return null;
+}
+
+function getNextDirection(isCurrentSortField, currentSort) {
+	if (isCurrentSortField) {
+		return !currentSort.isDescending;
+	}
+
+	return false;
+}
+
+function headerContent(column, sort) {
+	if (!sort) {
+		return column.label;
+	}
+
+	const isCurrentSortField = sort.field === column.key;
+	const onChange = event => sort.onChange(
+		event,
+		{
+			field: column.key,
+			isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
+		},
+	);
+
+	return (
+		<Action
+			icon={getCaretIcon(isCurrentSortField)}
+			link
+			label={column.label}
+			iconPosition="right"
+			iconTransform={getIconTransform(sort.isDescending)}
+			onClick={onChange}
+		/>
+	);
+}
+
 function ListHeader(props) {
 	const {
 		columns,
 		isSelected,
 		onToggleAll,
-		} = props;
+		sort,
+	} = props;
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => (<th key={index}>{column.label}</th>))}
+			{columns.map((column, index) => (<th key={index}>{headerContent(column, sort)}</th>))}
 		</tr>
 	);
 }
@@ -101,6 +150,11 @@ ListHeader.propTypes = {
 	),
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
+	sort: PropTypes.shape({
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+		onChange: PropTypes.func,
+	}),
 };
 
 /**
@@ -158,8 +212,9 @@ function DisplayTable(props) {
 		columns,
 		items,
 		itemProps,
+		sort,
 		titleProps,
-		} = props;
+	} = props;
 	const { isSelected, onToggleAll } = itemProps || {};
 	const className = classnames(
 		'table',
@@ -170,11 +225,12 @@ function DisplayTable(props) {
 		<table className={className}>
 			<thead>
 				<ListHeader
-					columns={columns}
-					onToggleAll={onToggleAll}
-					items={items}
-					isSelected={isSelected}
 					id={id}
+					columns={columns}
+					isSelected={isSelected}
+					items={items}
+					onToggleAll={onToggleAll}
+					sort={sort}
 				/>
 			</thead>
 			<tbody>
