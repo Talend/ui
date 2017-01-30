@@ -89,8 +89,8 @@ function getCaretIcon(isCurrentSortField) {
 	return null;
 }
 
-function getIconTransform(sort) {
-	if (sort.isDescending) {
+function getIconTransform(isDescending) {
+	if (isDescending) {
 		return 'rotate-180';
 	}
 	return null;
@@ -110,8 +110,6 @@ function headerContent(column, sort) {
 	}
 
 	const isCurrentSortField = sort.field === column.key;
-	const icon = getCaretIcon(isCurrentSortField);
-	const iconTransform = getIconTransform(sort);
 	const onChange = event => sort.onChange(
 		event,
 		{
@@ -122,11 +120,11 @@ function headerContent(column, sort) {
 
 	return (
 		<Action
-			icon={icon}
+			icon={getCaretIcon(isCurrentSortField)}
 			link
 			label={column.label}
 			iconPosition="right"
-			iconTransform={iconTransform}
+			iconTransform={getIconTransform(sort.isDescending)}
 			onClick={onChange}
 		/>
 	);
