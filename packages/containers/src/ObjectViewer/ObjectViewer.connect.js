@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
-import { actions } from 'react-cmf';
 
-import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
+import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import { getStateAccessors, getStateProps } from '../state';
 
 export function getContainerInfo(ownProps) {
 	return {
-		name: '<%= props.name %>',
-		id: '<%= props.name %>',  // you may change this using ownProps
+		name: 'ObjectViewer',
+		id: ownProps.id || 'ObjectViewer',
 	};
 }
 
 export function mapDispatchToProps(dispatch, ownProps) {
 	const info = getContainerInfo(ownProps);
 	const props = getStateAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
-	props.dispatch = dispatch;
 	return props;
 }
 
