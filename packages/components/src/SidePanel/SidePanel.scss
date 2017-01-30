@@ -83,12 +83,13 @@ $tc-side-panel-toggle-color: #DDD !default;
 			width: 20px;
 			padding: 12px 0;
 			outline: none;
-		}
-		:global(.tc-svg-icon) {
-			fill: $tc-side-panel-toggle-color;
-			width: 1.3em;
-			height: 1.3em;
-			transition: 0.2s transform ease-out;
+
+			:global(.tc-svg-icon) {
+				fill: $tc-side-panel-toggle-color;
+				width: 1.2em;
+				height: 1.2em;
+				transition: 0.2s transform ease-out;
+			}
 		}
 
 		&:before {
