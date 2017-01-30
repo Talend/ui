@@ -15,19 +15,19 @@ import java.util.Iterator;
  */
 public class List extends Component {
 
-    private static final Logger LOGGER                      = LogManager.getLogger(List.class);
+    private static final Logger LOGGER = LogManager.getLogger(List.class);
 
-    static final String         NAME                        = "List";
+    static final String NAME = "List";
 
-    static final String         LIST_SELECTOR               = ".tc-list";
+    static final String LIST_SELECTOR = ".tc-list";
 
-    static final String         ADD_BTN_SELECTOR            = ".tc-actionbar-container .btn-primary";
+    static final String ADD_BTN_SELECTOR = ".tc-actionbar-container .btn-primary";
 
-    static final String         LIST_COLUMN_HEADER_SELECTOR = ".tc-list-display-table thead tr th";
+    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-display-table thead tr th";
 
-    static final String         LIST_ITEMS_SELECTOR         = ".tc-list-display-table div:first-child button";
+    static final String LIST_ITEMS_SELECTOR = ".tc-list-display-table div:first-child button";
 
-    static final String         ACTION_BTN_ITEM_XPATH       = "//*[@class='tc-list']//button[text()='{label}']/../following-sibling::div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
+    static final String ACTION_BTN_ITEM_XPATH = "//*[@class='tc-list']//button[text()='{label}']/../following-sibling::div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
 
     /**
      * List constructor
