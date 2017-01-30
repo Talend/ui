@@ -83,11 +83,17 @@ RowRenderer.propTypes = {
 };
 
 function getCaretIcon(isCurrentSortField) {
-	return isCurrentSortField ? 'talend-caret-down' : null;
+	if (isCurrentSortField) {
+		return 'talend-caret-down';
+	}
+	return null;
 }
 
 function getIconTransform(sort) {
-	return sort.isDescending ? 'rotate-180' : null;
+	if (sort.isDescending) {
+		return 'rotate-180';
+	}
+	return null;
 }
 
 function getNextDirection(isCurrentSortField, currentSort) {

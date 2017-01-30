@@ -29,7 +29,10 @@ getIcon.propTypes = {
 };
 
 function getLabel({ hideLabel, label }) {
-	return hideLabel ? null : <span>{label}</span>;
+	if (hideLabel) {
+		return null;
+	}
+	return (<span>{label}</span>);
 }
 getLabel.propTypes = {
 	label: PropTypes.string,
