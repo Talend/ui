@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 echo "GIT"
+echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
+echo "TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR"
+echo "TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH"
+
 if [ -n "$GH_TOKEN" ]; then
     echo "✓ Token is here"
     cd "$TRAVIS_BUILD_DIR"
@@ -9,7 +13,13 @@ if [ -n "$GH_TOKEN" ]; then
         git config user.name 'travis'
         git config user.email no-reply@travis.com
 
+        echo "git status"
         git status
+        echo "git remote -v"
+        git remote -v
+        echo "git fetch origin"
+        git fetch origin
+        echo "git checkout $TRAVIS_PULL_REQUEST_BRANCH"
         git checkout $TRAVIS_PULL_REQUEST_BRANCH
         echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
 
