@@ -26,6 +26,11 @@ $tc-list-table-hover-color: $black !default;
 			font-size: inherit;
 			font-weight: inherit;
 			line-height: inherit;
+
+			> svg {
+				height: 1rem;
+				width: 1rem;
+			}
 		}
 	}
 
