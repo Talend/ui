@@ -98,7 +98,7 @@ function getIconTransform(isDescending) {
 
 function getNextDirection(isCurrentSortField, currentSort) {
 	if (isCurrentSortField) {
-		return !currentSort.isDescending;
+		return !currentSort;
 	}
 
 	return false;
