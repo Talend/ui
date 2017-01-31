@@ -37,6 +37,18 @@ Here are the label definitions for this workflow (label name : color code) :
 * Need review                : #fef2c0
 * Reviewing                  : #fbca04
 
+#### Git branch naming example
+
+General nomenclature:
+
+`{ * fix/feat/docs/... } / { optional packagename } / { optional subcomponent } / { * short description }`
+
+| Pull request title | Branch name |
+| ------------- |:-------------:|
+| feat(CMF): upgrade react-router to v4 | `feat/cmf/router/upgrade-to-v4-ftw` |
+| docs(contribution): added example of commit message | `docs/contibution/example-commit-msg` |
+| refactor(readme): removed duplicated readme | `refactor/remove-duped-readme` |
+
 ## Git Commit Guidelines
 
 We have very precise rules over how our git commit messages can be formatted.
