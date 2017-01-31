@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-#!/bin/bash
 
+echo "GIT"
 if [ -n "$GH_TOKEN" ]; then
+    echo "✓ Token is here"
     cd "$TRAVIS_BUILD_DIR"
+    echo "✓ Move to Travis build dir"
     if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" != 'master' ]; then
         git config user.name 'travis'
         git config user.email no-reply@travis.com
@@ -24,4 +26,5 @@ if [ -n "$GH_TOKEN" ]; then
         echo "✓ Push to $TRAVIS_BRANCH"
     fi
     cd "$TRAVIS_BUILD_DIR"
+    echo "✓ Move to Travis build dir"
 fi
