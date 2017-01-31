@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #!/bin/bash
 
-if [ -n "$GITHUB_API_KEY" ]; then
+if [ -n "$GH_TOKEN" ]; then
     cd "$TRAVIS_BUILD_DIR"
     if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" != 'master' ]; then
         git config user.name 'travis'
@@ -20,7 +20,7 @@ if [ -n "$GITHUB_API_KEY" ]; then
         git commit -m 'Update code style outputs from CI'
         echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
-        git push -f -q https://jmfrancois:$GITHUB_API_KEY@github.com/Talend/ui $TRAVIS_BRANCH &> /dev/null
+        git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH &> /dev/null
         echo "✓ Push to $TRAVIS_BRANCH"
     fi
     cd "$TRAVIS_BUILD_DIR"
