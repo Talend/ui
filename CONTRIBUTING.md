@@ -39,11 +39,15 @@ Here are the label definitions for this workflow (label name : color code) :
 
 #### Git branch naming example
 
+General nomenclature:
+
+`{ * fix/feat/docs/... } / { optional packagename } / { optional subcomponent } / { * short description }`
+
 | Pull request title | Branch name |
 | ------------- |:-------------:|
-| feat(CMF): upgrade react-router to v4 | feat/cmf/router/upgrade-to-v4-ftw |
-| feat(CMF): upgrade react-router to v4 | feat/cmf/upgrade-router-to-v4-ftw |
-| feat(CMF): upgrade react-router to v4 | feat/upgrade-cmf-react-router-to-v4 |
+| feat(CMF): upgrade react-router to v4 | `feat/cmf/router/upgrade-to-v4-ftw` |
+| docs(contribution): added example of commit message | `docs/contibution/example-commit-msg` |
+| refactor(readme): removed duplicated readme | `refactor/remove-duped-readme` |
 
 ## Git Commit Guidelines
 
