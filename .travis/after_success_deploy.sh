@@ -6,15 +6,15 @@ if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; th
 	echo "✓ Deploy showcases to somewhere"
 else
     mkdir .tmp
-    cp ./.surge/index.html .tmp/
+    cp .surge/index.html .tmp
 	echo "✓ Copy showcase index.html"
     mkdir -p .tmp/icons
     lerna exec --scope=talend-icons -- yarn run docs
-    mv ./package/icons/docs .tmp/icons
+    mv packages/icons/docs .tmp/icons
 	echo "✓ Move icons showcase"
     mkdir -p .tmp/theme
-    mv ./package/theme/example/index.html .tmp/theme
-    mv ./package/theme/dist .tmp/theme
+    mv packages/theme/example/index.html .tmp/theme
+    mv packages/theme/dist .tmp/theme
 	echo "✓ Move theme showcase"
 	surge --project .tmp --domain "talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
 	echo "✓ Deploy PR#$TRAVIS_PULL_REQUEST to talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
