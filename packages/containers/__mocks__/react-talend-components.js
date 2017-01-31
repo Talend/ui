@@ -5,5 +5,6 @@ module.exports = {
 	Action: props => (<button className="tc-action">{props.label}</button>),
 	Actions: () => (<div className="tc-actions" />),
 	Notification: props => (<div className="tc-notifications" notifications={props.notifications} />),
+	ObjectViewer: () => (<div className="tc-object-viewer" />),
 	SidePanel: () => (<div className="tc-side-panel" />),
 };

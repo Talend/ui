@@ -18,10 +18,11 @@ exports[`Storyshots SidePanel default 1`] = `
         <symbol
           id="talend-arrow-left">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M15 9H8.4l2.3-2.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-4 4c-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L8.4 11H15c.6 0 1-.4 1-1s-.4-1-1-1z" />
+            <polygon
+              points="15,7 4.4,7 8.4,3 7,1.6 0.6,8 7,14.4 8.4,13 4.4,9 15,9 " />
           </svg>
         </symbol>
         <symbol
@@ -45,10 +46,11 @@ exports[`Storyshots SidePanel default 1`] = `
         <symbol
           id="talend-star">
           <svg
-            viewBox="0.001 0 800 800"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M387.794 31.238l112.207 287.549h300L542.97 489.368l107.031 279.394-262.207-166.699-239.648 166.699 84.57-279.394L.001 318.787h300z" />
+            <polygon
+              points="8,0 10.5,5 16,5.8 12,9.7 12.9,15.2 8,12.6 3.1,15.2 4,9.7 0,5.8 5.5,5 " />
           </svg>
         </symbol>
       </svg>
@@ -1153,10 +1155,11 @@ exports[`Storyshots SidePanel docked 1`] = `
         <symbol
           id="talend-arrow-left">
           <svg
-            viewBox="0 0 20 20"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M15 9H8.4l2.3-2.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-4 4c-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L8.4 11H15c.6 0 1-.4 1-1s-.4-1-1-1z" />
+            <polygon
+              points="15,7 4.4,7 8.4,3 7,1.6 0.6,8 7,14.4 8.4,13 4.4,9 15,9 " />
           </svg>
         </symbol>
         <symbol
@@ -1180,10 +1183,11 @@ exports[`Storyshots SidePanel docked 1`] = `
         <symbol
           id="talend-star">
           <svg
-            viewBox="0.001 0 800 800"
+            version="1.1"
+            viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M387.794 31.238l112.207 287.549h300L542.97 489.368l107.031 279.394-262.207-166.699-239.648 166.699 84.57-279.394L.001 318.787h300z" />
+            <polygon
+              points="8,0 10.5,5 16,5.8 12,9.7 12.9,15.2 8,12.6 3.1,15.2 4,9.7 0,5.8 5.5,5 " />
           </svg>
         </symbol>
       </svg>

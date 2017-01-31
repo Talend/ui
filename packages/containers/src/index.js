@@ -3,6 +3,7 @@ import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import List from './List';
 import Notification from './Notification';
+import ObjectViewer from './ObjectViewer';
 import SidePanel from './SidePanel';
 
 // export all other components from react-talend-components
@@ -27,6 +28,7 @@ export {
 	Actions,
 	AppHeaderBar,
 	List,
+	ObjectViewer,
 	SidePanel,
 
 	ActionDropdown,
