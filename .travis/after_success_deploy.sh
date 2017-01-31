@@ -10,10 +10,11 @@ else
 	echo "✓ Copy showcase index.html"
     mkdir -p .tmp/icons
     lerna exec --scope=talend-icons -- yarn run docs
-    mv ./package/icons/docs/* .tmp/icons
+    mv ./package/icons/docs .tmp/icons
 	echo "✓ Move icons showcase"
     mkdir -p .tmp/theme
-    mv ./package/theme/dist/* .tmp/theme
+    mv ./package/theme/example/index.html .tmp/theme
+    mv ./package/theme/dist .tmp/theme
 	echo "✓ Move theme showcase"
 	surge --project .tmp --domain "talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
 	echo "✓ Deploy PR#$TRAVIS_PULL_REQUEST to talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
