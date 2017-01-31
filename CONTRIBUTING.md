@@ -37,6 +37,14 @@ Here are the label definitions for this workflow (label name : color code) :
 * Need review                : #fef2c0
 * Reviewing                  : #fbca04
 
+#### Git branch naming example
+
+| Pull request title | Branch name |
+| ------------- |:-------------:|
+| feat(CMF): upgrade react-router to v4 | feat/cmf/router/upgrade-to-v4-ftw |
+| feat(CMF): upgrade react-router to v4 | feat/cmf/upgrade-router-to-v4-ftw |
+| feat(CMF): upgrade react-router to v4 | feat/upgrade-cmf-react-router-to-v4 |
+
 ## Git Commit Guidelines
 
 We have very precise rules over how our git commit messages can be formatted.
