@@ -17,22 +17,17 @@ front-end stack.
 
 ## TODO
 
-- [ ] Initialze the repository with lerna
-- [x] Import [generator-talend](https://github.com/Talend/generator-talend)
-- [x] Import [react-talend-containers](https://github.com/Talend/react-talend-containers)
-- [x] Import [react-cmf](https://github.com/Talend/react-cmf)
-- [ ] Import [react-talend-forms](https://github.com/Talend/react-talend-forms)
 - [ ] Import [react-flow-designer](https://github.com/Talend/react-flow-designer)
-- [ ] Import [icons](https://github.com/Talend/icons)
-- [ ] Import [react-talend-components](https://github.com/Talend/react-talend-components)
-- [ ] Import [bootstrap-theme](https://github.com/Talend/bootstrap-theme)
-- [ ] Import projects issues
 - [ ] Setup projects test
 - [ ] Setup projects storybooks
-- [ ] Setup [lerna-semantic-release](https://github.com/atlassian/lerna-semantic-release)
 
 ## The stack
 
-- [generator-talend](https://github.com/Talend/ui/tree/master/generator)
-- [react-talend-containers](https://github.com/Talend/ui/tree/master/containers)
 - [react-cmf](https://github.com/Talend/ui/tree/master/cmf)
+- [react-talend-containers](https://github.com/Talend/ui/tree/master/containers)
+- [react-talend-components](https://github.com/Talend/ui/tree/master/components)
+- [react-talend-forms](https://github.com/Talend/ui/tree/master/forms)
+- [generator-talend](https://github.com/Talend/ui/tree/master/generator)
+- [talend-icons](https://github.com/Talend/ui/tree/master/icons)
+- [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/theme)
+
