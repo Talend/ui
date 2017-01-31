@@ -9,6 +9,10 @@ else
         mkdir .tmp
         cp .surge/index.html .tmp
 	    echo "✓ Copy showcase index.html"
+        mkdir -p .tmp/components
+        lerna exec --scope=react-talend-components -- yarn run build-storybook
+        mv -v packages/components/storybook-static .tmp/components
+	    echo "✓ Move components showcase"
         mkdir -p .tmp/icons
         lerna exec --scope=talend-icons -- yarn run docs
         mv -v packages/icons/docs/index.html .tmp/icons
