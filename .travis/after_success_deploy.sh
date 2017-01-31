@@ -13,6 +13,14 @@ else
         lerna exec --scope=react-talend-components -- yarn run build-storybook
         mv -v packages/components/storybook-static/* .tmp/components
 	    echo "✓ Move components showcase"
+        mkdir -p .tmp/containers
+        lerna exec --scope=react-talend-containers -- yarn run build-storybook
+        mv -v packages/containers/storybook-static/* .tmp/containers
+	    echo "✓ Move containers showcase"
+        mkdir -p .tmp/forms
+        lerna exec --scope=react-talend-forms -- yarn run build-storybook
+        mv -v packages/forms/storybook-static/* .tmp/forms
+	    echo "✓ Move forms showcase"
         mkdir -p .tmp/icons
         lerna exec --scope=talend-icons -- yarn run docs
         mv -v packages/icons/docs/index.html .tmp/icons
