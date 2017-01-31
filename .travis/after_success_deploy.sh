@@ -16,6 +16,7 @@ else
     mv packages/theme/example/index.html .tmp/theme
     mv packages/theme/dist .tmp/theme
 	echo "✓ Move theme showcase"
+	ls -larth .tmp
 	surge --project .tmp --domain "talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
 	echo "✓ Deploy PR#$TRAVIS_PULL_REQUEST to talend-ui.$TRAVIS_PULL_REQUEST.surge.sh"
 fi
