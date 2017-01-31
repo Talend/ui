@@ -10,7 +10,6 @@ This is the set of SVG icons used in our apps.
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 [![peerdependencies][peerdependencies-image] ][peerdependencies-url]
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [npm-icon]: https://nodei.co/npm/talend-icons.svg?downloads=true
 [npm-url]: https://npmjs.org/package/talend-icons
