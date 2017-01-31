@@ -86,8 +86,8 @@ $tc-side-panel-toggle-color: #DDD !default;
 
 			:global(.tc-svg-icon) {
 				fill: $tc-side-panel-toggle-color;
-				width: 1.2em;
-				height: 1.2em;
+				width: $svg-sm-size;
+				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
 		}
