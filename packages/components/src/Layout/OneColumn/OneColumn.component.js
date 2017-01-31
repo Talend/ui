@@ -7,12 +7,12 @@ import theme from './OneColumn.scss';
  * @example
 <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn(props) {
+function OneColumn({ children, ...props }) {
 	const container = classnames(
 		'tc-layout-one-column',
 		theme.main
 	);
-	return (<div className={container}>{props.children}</div>);
+	return (<div className={container} {...props}>{children}</div>);
 }
 
 OneColumn.propTypes = {

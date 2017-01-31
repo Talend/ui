@@ -7,7 +7,7 @@ import theme from './TwoColumns.scss';
  * @example
 <TwoColumns name="Hello world"></TwoColumns>
  */
-function TwoColumns(props) {
+function TwoColumns({ one, children, ...props }) {
 	const containerCSS = classnames(
 		'tc-layout-two-columns',
 		theme.container
@@ -22,12 +22,12 @@ function TwoColumns(props) {
 	);
 
 	return (
-		<div className={containerCSS}>
+		<div className={containerCSS} {...props}>
 			<div className={sidemenuCSS}>
-				{props.one}
+				{one}
 			</div>
 			<div className={mainCSS}>
-				{props.children}
+				{children}
 			</div>
 		</div>
 	);
