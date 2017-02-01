@@ -15,7 +15,7 @@
     "lint": "npm run lint:es",
     "watch": "npm-watch",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs/storybook"
+    "build-storybook": "build-storybook"
   },
   "watch": {
     "prepublish": "src/*"
