@@ -28,6 +28,7 @@ script:
   - lerna exec --concurrency 1 -- yarn test
 after_success:
   - .travis/after_success_lint.sh
+  - .travis/after_success_static.sh
   - .travis/after_success_screenshots.sh
   - .travis/after_success_git.sh
   - .travis/after_success_deploy.sh
