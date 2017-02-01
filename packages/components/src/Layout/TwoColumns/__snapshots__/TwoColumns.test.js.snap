@@ -1,6 +1,11 @@
 exports[`TwoColumns should render two columns 1`] = `
 <div
-  className="tc-layout-two-columns">
+  className="tc-layout-two-columns"
+  style={
+    Object {
+      "display": "flex",
+    }
+  }>
   <div
     className="tc-layout-two-columns-left">
     <div>
