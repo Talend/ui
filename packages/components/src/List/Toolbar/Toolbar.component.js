@@ -52,11 +52,16 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
+	const hasToolbarItem = selectAllCheckbox ||
+		display ||
+		sort ||
+		pagination ||
+		filter;
 
 	return (
 		<div>
 			{actionBar && (<ActionBar {...actionBarProps} />)}
-			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+			{hasToolbarItem && (<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 				{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
 				{display && (<Label text="Display:" htmlFor={displayModeId} />)}
 				{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
@@ -65,7 +70,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 				{pagination && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
 				{pagination && (<Pagination id={id && `${id}-pagination`} {...pagination} />)}
 				{filter && (<Filter id={id && `${id}-filter`} {...filter} />)}
-			</Navbar>
+			</Navbar>)}
 		</div>
 	);
 }
