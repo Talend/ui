@@ -13,7 +13,7 @@
     "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
     "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
     "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
-    "lint:sass": "sass-lint -q -v"
+    "lint:style": "sass-lint -q -v"
   },
   "repository": {
     "type": "git",
@@ -52,5 +52,5 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7"
   },
-  "version": "0.60.3"
+  "version": "0.60.4"
 }

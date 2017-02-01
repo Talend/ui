@@ -10,7 +10,7 @@ describe('TwoColumns', () => {
 
 		// when
 		const wrapper = renderer.create(
-			<TwoColumns one={one}>
+			<TwoColumns one={one} style={{ display: 'flex' }}>
 				<span>children</span>
 			</TwoColumns>
 		).toJSON();

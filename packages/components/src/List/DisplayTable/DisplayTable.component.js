@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
+import TooltipTrigger from '../../TooltipTrigger';
 
 import DisplayPropTypes from '../Display/Display.propTypes';
 
@@ -22,7 +23,11 @@ function cellContent(isTitle, item, column, titleProps, id) {
 			hideLabel
 		/>);
 	}
-	return item[column.key];
+	return (<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
+				<span className={classnames(theme['item-text'], 'item-text')}>
+					{item[column.key]}
+				</span>
+			</TooltipTrigger>);
 }
 
 function RowRenderer(props) {
@@ -98,7 +103,7 @@ function getIconTransform(isDescending) {
 
 function getNextDirection(isCurrentSortField, currentSort) {
 	if (isCurrentSortField) {
-		return !currentSort.isDescending;
+		return !currentSort;
 	}
 
 	return false;
