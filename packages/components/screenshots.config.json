@@ -9,7 +9,7 @@
       "default": [
         {
           "name": "action-default",
-          "selector": ["#default", "#hidelabel"]
+          "selector": ["#default", "#hidelabel", "#disabled"]
         }
       ]
     },
