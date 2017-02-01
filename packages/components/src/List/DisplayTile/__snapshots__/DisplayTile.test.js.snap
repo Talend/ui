@@ -11,8 +11,14 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-0-title">
+            id="tile-list-0-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Hello world
           </span>
         </div>
@@ -66,8 +72,14 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-1-title">
+            id="tile-list-1-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Foo
           </span>
         </div>
@@ -121,8 +133,14 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-2-title">
+            id="tile-list-2-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Bar
           </span>
         </div>
@@ -184,8 +202,14 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-0-title">
+            id="tile-list-0-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Hello world
           </span>
         </div>
@@ -239,8 +263,14 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-1-title">
+            id="tile-list-1-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Foo
           </span>
         </div>
@@ -294,8 +324,14 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-2-title">
+            id="tile-list-2-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Bar
           </span>
         </div>
@@ -361,10 +397,15 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             className="fa fa-file-excel-o tc-list-icon"
             title={null} />
           <button
+            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
             role="link"
             type="button">
             Hello world
@@ -424,10 +465,15 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             className="fa fa-file-pdf-o tc-list-icon"
             title={null} />
           <button
+            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
             role="link"
             type="button">
             Foo
@@ -483,10 +529,15 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
         <div
           className={undefined}>
           <button
+            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
             role="link"
             type="button">
             Bar
@@ -554,8 +605,14 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
             className="fa fa-file-excel-o tc-list-icon"
             title={null} />
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             1
           </span>
         </div>
@@ -613,8 +670,14 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
             className="fa fa-file-pdf-o tc-list-icon"
             title={null} />
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             2
           </span>
         </div>
@@ -668,8 +731,14 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             2
           </span>
         </div>
@@ -731,8 +800,14 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Hello world
           </span>
         </div>
@@ -786,8 +861,14 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Foo
           </span>
         </div>
@@ -841,8 +922,14 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id={undefined}>
+            id={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Bar
           </span>
         </div>
@@ -904,8 +991,14 @@ exports[`DisplayTile should render with id if provided 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-0-title">
+            id="tile-list-0-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Hello world
           </span>
         </div>
@@ -959,8 +1052,14 @@ exports[`DisplayTile should render with id if provided 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-1-title">
+            id="tile-list-1-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Foo
           </span>
         </div>
@@ -1014,8 +1113,14 @@ exports[`DisplayTile should render with id if provided 1`] = `
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-2-title">
+            id="tile-list-2-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Bar
           </span>
         </div>
@@ -1077,8 +1182,14 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-0-title">
+            id="tile-list-0-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Hello world
           </span>
         </div>
@@ -1132,8 +1243,14 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-1-title">
+            id="tile-list-1-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Foo
           </span>
         </div>
@@ -1187,8 +1304,14 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
         <div
           className={undefined}>
           <span
+            aria-describedby={42}
             className=""
-            id="tile-list-2-title">
+            id="tile-list-2-title"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
             Bar
           </span>
         </div>

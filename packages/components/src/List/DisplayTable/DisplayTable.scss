@@ -41,5 +41,12 @@ $tc-list-table-hover-color: $black !default;
 			color: $tc-list-table-hover-color;
 			background-color: $tc-list-table-hover-bg;
 		}
+
+		.item-text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+		}
 	}
 }
