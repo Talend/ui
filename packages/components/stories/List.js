@@ -99,6 +99,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT with super long name',
+				className: 'item-2-class',
 			},
 		],
 		titleProps: {
@@ -267,7 +268,7 @@ const getPropsFor = displayMode => ({
 
 storiesOf('List', module)
 	.add('table (default)', () => (
-		<div>
+		<div className="display-table">
 			<h1>List</h1>
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
