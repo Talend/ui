@@ -1,23 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 
 import DisplayTable from './DisplayTable.component';
-
-jest.mock('react-dom');
-
-const columnActions = [
-	{
-		label: 'favorite',
-		icon: 'talend-star',
-		className: 'favorite',
-		onClick: jest.fn(),
-	}, {
-		label: 'certify',
-		icon: 'talend-badge',
-		className: 'certify',
-		onClick: jest.fn(),
-	},
-];
 
 const items = [
 	{
@@ -64,127 +48,14 @@ const columns = [
 	{ key: 'modified', label: 'Modified' },
 ];
 
-const sort = {
-	field: 'name',
-	isDescending: false,
-	onChange: jest.fn(),
-};
-
 describe('DisplayTable', () => {
-	it('should render with default title property (name)', () => {
+	it('should trigger sort on new column', () => {
 		// given
-		const props = {
-			items,
-			columns,
+		const sort = {
+			field: 'name',
+			isDescending: false,
+			onChange: jest.fn(),
 		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render with defined title property', () => {
-		// given
-		const props = {
-			items,
-			columns,
-			titleProps: {
-				key: 'id', // title key defined
-				iconKey: 'icon',
-				onClick: jest.fn(),
-			},
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render with id if provided', () => {
-		// given
-		const props = {
-			id: 'table-list',
-			items,
-			columns,
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render with item custom className if provided', () => {
-		// given
-		const props = {
-			id: 'table-list',
-			items,
-			columns,
-			itemProps: { classNameKey: 'className' },
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render selected list element with defaut \'active\' class', () => {
-		// given
-		const props = {
-			id: 'table-list',
-			items,
-			columns,
-			itemProps: { isSelected: () => true },
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render selected list element with custom selectedClass if set', () => {
-		// given
-		const props = {
-			id: 'table-list',
-			items,
-			columns,
-			itemProps: { isSelected: () => true, selectedClass: 'something' },
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render column actions', () => {
-		// given
-		columns.splice(2, 0, { key: 'columnActions', label: '' });
-		items[0].columnActions = columnActions;
-		const props = {
-			items,
-			columns,
-		};
-
-		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render sortable headers', () => {
-		// given
 		const props = {
 			items,
 			columns,
@@ -192,9 +63,41 @@ describe('DisplayTable', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+		const list = (<DisplayTable {...props} />);
+		const wrapper = mount(list);
+		wrapper.find('th').at(2).find('button').simulate('click');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(sort.onChange).toBeCalled();
+		expect(sort.onChange.mock.calls[0][1]).toEqual({
+			field: 'author',
+			isDescending: false,
+		});
+	});
+
+	it('should trigger sort on current column with reverse direction', () => {
+		// given
+		const sort = {
+			field: 'name',
+			isDescending: true,
+			onChange: jest.fn(),
+		};
+		const props = {
+			items,
+			columns,
+			sort,
+		};
+
+		// when
+		const list = (<DisplayTable {...props} />);
+		const wrapper = mount(list);
+		wrapper.find('th').at(1).find('button').simulate('click');
+
+		// then
+		expect(sort.onChange).toBeCalled();
+		expect(sort.onChange.mock.calls[0][1]).toEqual({
+			field: 'name',
+			isDescending: false,
+		});
 	});
 });
