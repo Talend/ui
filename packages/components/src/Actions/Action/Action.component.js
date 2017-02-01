@@ -71,6 +71,7 @@ function Action(props) {
 	const {
 		bsStyle,
 		inProgress,
+		disabled,
 		hideLabel,
 		label,
 		link,
@@ -93,7 +94,7 @@ function Action(props) {
 		<Button
 			onClick={rClick}
 			bsStyle={style}
-			disabled={inProgress}
+			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
@@ -123,6 +124,7 @@ Action.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,
+	disabled: false,
 };
 
 export default Action;
