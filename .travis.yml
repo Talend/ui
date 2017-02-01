@@ -22,11 +22,16 @@ node_js:
 before_install: .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
-  - yarn global add sassdoc http-server
+  - yarn global add sassdoc http-server surge
 sudo: required
 script:
   - lerna exec --concurrency 1 -- yarn test
-after_success: .travis/after_success.sh
+after_success:
+  - .travis/after_success_lint.sh
+  - .travis/after_success_static.sh
+  - .travis/after_success_screenshots.sh
+  - .travis/after_success_git.sh
+  - .travis/after_success_deploy.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

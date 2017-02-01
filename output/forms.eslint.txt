@@ -1,0 +1,31 @@
+Lerna v2.0.0-beta.32
+Scoping to packages that match 'react-talend-forms'
+yarn run v0.17.10
+$ eslint --config .eslintrc src 
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/Users/jmfrancois/github/talend/ui/packages/forms/src/fields/BooleanField.js
+   8:20  error  Missing trailing comma                 comma-dangle
+  16:16  error  Strings must use singlequote           quotes
+  16:24  error  Strings must use singlequote           quotes
+  17:23  error  Missing trailing comma                 comma-dangle
+  18:39  error  Missing trailing comma                 comma-dangle
+  25:3   error  'name' is missing in props validation  react/prop-types
+  33:11  error  Missing trailing comma                 comma-dangle
+  37:26  error  Strings must use singlequote           quotes
+  61:30  error  Strings must use singlequote           quotes
+  79:5   error  Missing trailing comma                 comma-dangle
+
+/Users/jmfrancois/github/talend/ui/packages/forms/src/Form.js
+  143:16  error  'autocomplete' PropType is defined but prop is never used  react/no-unused-prop-types
+
+/Users/jmfrancois/github/talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  4:1  error  'classnames' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+✖ 12 problems (12 errors, 0 warnings)
+
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+Errored while running command 'yarn' with arguments 'run lint:es' in 'react-talend-forms'
+Errored while running ExecCommand.execute
+Command failed: yarn run lint:es
+Waiting for 1 child process to exit. CTRL-C to exit immediately.
