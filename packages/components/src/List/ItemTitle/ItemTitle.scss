@@ -15,7 +15,13 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 		}
 	}
 
-	button:first-child {
-		padding-left: 0;
+	button {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&:first-child {
+			padding-left: 0;
+		}
 	}
 }
