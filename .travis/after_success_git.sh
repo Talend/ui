@@ -20,7 +20,7 @@ if [ -n "$GH_TOKEN" ]; then
         echo "✓ Commit updated screenshots to $TRAVIS_BRANCH"
 
         git add output/
-        git -c user.name='travis' -c user.email='travis' commit -m 'tests: udate code style outputs from CI'
+        git -c user.name='travis' -c user.email='travis' commit -m 'tests: update code style outputs from CI'
         echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
         git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH &> /dev/null
