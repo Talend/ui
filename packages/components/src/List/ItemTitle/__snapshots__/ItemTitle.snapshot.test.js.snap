@@ -2,10 +2,15 @@ exports[`ItemTitle should render button title 1`] = `
 <div
   className={undefined}>
   <button
+    aria-describedby={42}
     className="my-title btn btn-link"
     disabled={false}
     id="title"
+    onBlur={[Function]}
     onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
     role="link"
     type="button">
     Hello world
@@ -21,8 +26,14 @@ exports[`ItemTitle should render icon 1`] = `
     className="fa fa-file-excel-o tc-list-icon"
     title={null} />
   <span
+    aria-describedby={42}
     className="my-title"
-    id={undefined}>
+    id={undefined}
+    onBlur={[Function]}
+    onClick={null}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}>
     Hello world
   </span>
 </div>
@@ -43,8 +54,14 @@ exports[`ItemTitle should render text title 1`] = `
 <div
   className={undefined}>
   <span
+    aria-describedby={42}
     className="my-title"
-    id="title">
+    id="title"
+    onBlur={[Function]}
+    onClick={null}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}>
     Hello world
   </span>
 </div>

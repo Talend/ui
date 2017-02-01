@@ -9,8 +9,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-0-title">
+          id="large-list-0-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Hello world
         </span>
       </div>
@@ -106,8 +112,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-1-title">
+          id="large-list-1-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Foo
         </span>
       </div>
@@ -170,8 +182,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-2-title">
+          id="large-list-2-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Bar
         </span>
       </div>
@@ -240,8 +258,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-0-title">
+          id="large-list-0-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Hello world
         </span>
       </div>
@@ -337,8 +361,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-1-title">
+          id="large-list-1-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Foo
         </span>
       </div>
@@ -401,8 +431,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-2-title">
+          id="large-list-2-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Bar
         </span>
       </div>
@@ -471,8 +507,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id={undefined}>
+          id={undefined}
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Hello world
         </span>
       </div>
@@ -568,8 +610,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id={undefined}>
+          id={undefined}
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Foo
         </span>
       </div>
@@ -632,8 +680,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id={undefined}>
+          id={undefined}
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Bar
         </span>
       </div>
@@ -706,10 +760,15 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           className="fa fa-file-excel-o tc-list-icon"
           title={null} />
         <button
+          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           role="link"
           type="button">
           1
@@ -811,10 +870,15 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           className="fa fa-file-pdf-o tc-list-icon"
           title={null} />
         <button
+          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           role="link"
           type="button">
           2
@@ -879,10 +943,15 @@ exports[`DisplayLarge should render with defined title property 1`] = `
       <div
         className={undefined}>
         <button
+          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           role="link"
           type="button">
           2
@@ -953,8 +1022,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-0-title">
+          id="large-list-0-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Hello world
         </span>
       </div>
@@ -1050,8 +1125,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-1-title">
+          id="large-list-1-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Foo
         </span>
       </div>
@@ -1114,8 +1195,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-2-title">
+          id="large-list-2-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Bar
         </span>
       </div>
@@ -1184,8 +1271,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-0-title">
+          id="large-list-0-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Hello world
         </span>
       </div>
@@ -1281,8 +1374,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-1-title">
+          id="large-list-1-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Foo
         </span>
       </div>
@@ -1345,8 +1444,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <div
         className={undefined}>
         <span
+          aria-describedby={42}
           className={undefined}
-          id="large-list-2-title">
+          id="large-list-2-title"
+          onBlur={[Function]}
+          onClick={null}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}>
           Bar
         </span>
       </div>
