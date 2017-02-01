@@ -1,0 +1,17 @@
+$tc-enumeration-width: 262px !default;
+$tc-enumeration-height: 50vh !default;
+$tc-enumeration-main-color: $brand-primary !default;
+
+.tc-enumeration{
+	color: $tc-enumeration-main-color;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	width: $tc-enumeration-width;
+	height: $tc-enumeration-height;
+
+	header{
+		flex-shrink: 0;
+		box-shadow: 0px 1px 3px 0px $shadow;
+	}
+}
