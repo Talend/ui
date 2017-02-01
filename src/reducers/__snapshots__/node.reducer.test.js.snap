@@ -13,6 +13,9 @@ Object {
       "data": Object {
         "properties": Object {},
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
         "description": "",
         "label": "",
@@ -62,6 +65,9 @@ Object {
       "data": Object {
         "properties": Object {},
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
         "description": "",
         "label": "",
@@ -107,13 +113,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": true,
-        "type": "type1",
+        "properties": Object {},
       },
       "id": "id1",
       "type": "type1",
@@ -122,13 +137,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 50,
           "y": 50,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -157,13 +181,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -192,13 +225,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": true,
-        "type": "type1",
+        "properties": Object {},
       },
       "id": "id1",
       "type": "type1",
@@ -207,13 +249,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -242,12 +293,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "type": "type1",
+        "properties": Object {},
       },
       "id": "id1",
       "type": "type1",
@@ -256,13 +317,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -291,13 +361,22 @@ Object {
       "data": Object {
         "type": "string",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": true,
-        "type": "type1",
+        "properties": Object {},
       },
       "id": "id1",
       "type": "type1",
@@ -306,13 +385,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -341,13 +429,24 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type1",
+        "properties": Object {
+          "selected": false,
+        },
       },
       "id": "id1",
       "type": "type1",
@@ -356,13 +455,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -391,17 +499,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
         "nodeSize": Object {
           "height": 200,
           "width": 200,
         },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": true,
-        "type": "type1",
+        "properties": Object {},
       },
       "id": "id1",
       "type": "type1",
@@ -410,13 +523,22 @@ Object {
       "data": Object {
         "type": "test",
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
         "position": Object {
           "x": 10,
           "y": 10,
         },
-        "selected": false,
-        "type": "type2",
+        "properties": Object {},
       },
       "id": "id2",
       "type": "type2",
@@ -445,12 +567,22 @@ Object {
       "data": Object {
         "properties": Object {},
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
-        "position": Object {
-          "x": NaN,
-          "y": NaN,
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
         },
-        "selected": true,
+        "nodeType": undefined,
+        "position": Object {
+          "x": 20,
+          "y": 15,
+        },
+        "properties": Object {},
       },
       "id": "id1",
       "type": undefined,
@@ -459,12 +591,22 @@ Object {
       "data": Object {
         "properties": Object {},
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
-        "position": Object {
-          "x": NaN,
-          "y": NaN,
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
         },
-        "selected": false,
+        "nodeType": undefined,
+        "position": Object {
+          "x": 20,
+          "y": 15,
+        },
+        "properties": Object {},
       },
       "id": "id2",
       "type": undefined,
@@ -473,8 +615,22 @@ Object {
       "data": Object {
         "properties": Object {},
       },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
       "graphicalAttributes": Object {
-        "selected": false,
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
       },
       "id": "id3",
       "type": undefined,

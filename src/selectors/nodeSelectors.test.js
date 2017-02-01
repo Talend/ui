@@ -7,7 +7,6 @@ import {
 } from '../constants/flowdesigner.model';
 
 describe('Testing node selectors', () => {
-
 	const node1 = new NodeRecord({
 		id: 'id1',
 	});

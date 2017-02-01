@@ -21,7 +21,7 @@ const AbstractPort = React.createClass({
 		}
 	},
 	render() {
-		const position = this.props.port.getIn(['graphicalAttributes', 'position']);
+		const position = this.props.port.getPosition();
 		return (
 			<g>
 				<g ref={c => (this.node = c)} transform={`translate(${position.get('x')},${position.get('y')})`}>

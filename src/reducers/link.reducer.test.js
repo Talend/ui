@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import { defaultState } from './flow.reducer';
 import linkReducer from './link.reducer';
@@ -23,7 +23,7 @@ describe('check linkreducer', () => {
 				sourceId: 'id1',
 				targetId: 'id2',
 				data: new Map().set('attr', 'attr'),
-				graphicalAttributes: new Map().set('attr', 'attr'),
+				graphicalAttributes: new Map().set('properties', fromJS({ attr: 'attr' })),
 			})),
 		).set('ports', new Map()
 			.set('id1', new PortRecord({

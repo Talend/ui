@@ -120,14 +120,18 @@ export default function linkReducer(state = defaultState, action) {
 					false,
 					`Can't set an attribute on non existing link ${action.linkId}`);
 		}
-		return state.mergeIn(['links', action.linkId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		try {
+			return state.mergeIn(['links', action.linkId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		} catch (error) {
+			return state.mergeIn(['links', action.linkId, 'graphicalAttributes', 'properties'], fromJS(action.graphicalAttributes));
+		}
 	case FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['links', action.linkId])) {
 			invariant(
 					false,
 					`Can't remove an attribute on non existing link ${action.linkId}`);
 		}
-		return state.deleteIn(['links', action.linkId, 'graphicalAttributes', action.graphicalAttributesKey]);
+		return state.deleteIn(['links', action.linkId, 'graphicalAttributes', 'properties', action.graphicalAttributesKey]);
 
 	case FLOWDESIGNER_LINK_SET_DATA:
 		if (!state.getIn(['links', action.linkId])) {
@@ -135,14 +139,18 @@ export default function linkReducer(state = defaultState, action) {
 					false,
 					`Can't set an attribute on non existing link ${action.linkId}`);
 		}
-		return state.mergeIn(['links', action.linkId, 'data'], fromJS(action.data));
+		try {
+			return state.mergeIn(['links', action.linkId, 'data'], fromJS(action.data));
+		} catch (error) {
+			return state.mergeIn(['links', action.linkId, 'data', 'properties'], fromJS(action.data));
+		}
 	case FLOWDESIGNER_LINK_REMOVE_DATA:
 		if (!state.getIn(['links', action.linkId])) {
 			invariant(
 					false,
 					`Can't remove an attribute on non existing link ${action.linkId}`);
 		}
-		return state.deleteIn(['links', action.linkId, 'data', action.dataKey]);
+		return state.deleteIn(['links', action.linkId, 'data', 'properties', action.dataKey]);
 
 	default:
 		return state;

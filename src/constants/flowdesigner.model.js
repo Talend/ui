@@ -53,6 +53,15 @@ export const NodeRecord = new Record({
 	type: undefined,
 	data: new NodeData(),
 	graphicalAttributes: new NodeGraphicalAttributes(),
+	getPosition() {
+		return this.getIn(['graphicalAttributes', 'position']);
+	},
+	getSize() {
+		return this.getIn(['graphicalAttributes', 'nodeSize']);
+	},
+	getNodeType() {
+		return this.getIn(['graphicalAttributes', 'nodeType']);
+	},
 });
 
 export const LinkRecord = new Record({
@@ -61,6 +70,9 @@ export const LinkRecord = new Record({
 	targetId: undefined,
 	data: new LinkData(),
 	graphicalAttributes: new LinkGraphicalAttributes(),
+	getLinkType() {
+		return this.getIn(['graphicalAttributes', 'linkType']);
+	},
 });
 
 export const PortRecord = new Record({
@@ -68,4 +80,16 @@ export const PortRecord = new Record({
 	nodeId: undefined,
 	data: new PortData(),
 	graphicalAttributes: new PortGraphicalAttributes(),
+	getPosition() {
+		return this.getIn(['graphicalAttributes', 'position']);
+	},
+	getPortType() {
+		return this.getIn(['graphicalAttributes', 'portType']);
+	},
+	getPortDirection() {
+		return this.getIn(['graphicalAttributes', 'properties', 'type']);
+	},
+	getPortFlowType() {
+		return this.getIn(['data', 'flowType']);
+	},
 });

@@ -2,13 +2,7 @@ exports[`Check that node action creators generate proper action objects and perf
 Array [
   Object {
     "data": Object {},
-    "graphicalAttributes": Object {
-      "label": "",
-      "nodePosition": Object {},
-      "nodeSize": Object {},
-      "nodeType": "",
-      "properties": Object {},
-    },
+    "graphicalAttributes": Object {},
     "nodeId": "id",
     "nodeType": "label",
     "type": "FLOWDESIGNER_NODE_ADD",

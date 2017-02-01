@@ -10,7 +10,7 @@ const LinksRender = React.createClass({
 		linkTypeMap: PropTypes.object.isRequired,
 	},
 	renderLink(link) {
-		const ConcreteLink = this.props.linkTypeMap[link.getIn(['graphicalAttributes', 'linkType'])].component;
+		const ConcreteLink = this.props.linkTypeMap[link.getLinkType()].component;
 		const source = this.props.ports.get(link.sourceId);
 		const target = this.props.ports.get(link.targetId);
 		if (!ConcreteLink) {

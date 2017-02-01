@@ -53,8 +53,8 @@ const nodeReducer = (state = defaultState, action) => {
 		return state.update('nodes', nodes => nodes.map((node) => {
 			if (action.nodesId.find(id => id === node.id)) {
 				return node
-					.setIn(['graphicalAttributes', 'position', 'x'], node.getIn(['graphicalAttributes', 'position', 'x']) + action.movement.x)
-					.setIn(['graphicalAttributes', 'position', 'y'], node.getIn(['graphicalAttributes', 'position', 'y']) + action.movement.y);
+					.setIn(['graphicalAttributes', 'position', 'x'], node.getPosition().x + action.movement.x)
+					.setIn(['graphicalAttributes', 'position', 'y'], node.getPosition().y + action.movement.y);
 			}
 			return node;
 		}));
@@ -70,22 +70,30 @@ const nodeReducer = (state = defaultState, action) => {
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't set a graphical attribute on non existing node ${action.nodeId}`);
 		}
-		return state.mergeIn(['nodes', action.nodeId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		try {
+			return state.mergeIn(['nodes', action.nodeId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		} catch (error) {
+			return state.mergeIn(['nodes', action.nodeId, 'graphicalAttributes', 'properties'], fromJS(action.graphicalAttributes));
+		}
 	case FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't remove a graphical attribute on non existing node ${action.nodeId}`);
 		}
-		return state.deleteIn(['nodes', action.nodeId, 'graphicalAttributes', action.graphicalAttributesKey]);
+		return state.deleteIn(['nodes', action.nodeId, 'graphicalAttributes', 'properties', action.graphicalAttributesKey]);
 	case FLOWDESIGNER_NODE_SET_DATA:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't set a data on non existing node ${action.nodeId}`);
 		}
-		return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
+		try {
+			return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
+		} catch (error) {
+			return state.mergeIn(['nodes', action.nodeId, 'data', 'properties'], fromJS(action.data));
+		}
 	case FLOWDESIGNER_NODE_REMOVE_DATA:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't remove a data on non existing node ${action.nodeId}`);
 		}
-		return state.deleteIn(['nodes', action.nodeId, 'data', action.dataKey]);
+		return state.deleteIn(['nodes', action.nodeId, 'data', 'properties', action.dataKey]);
 	case FLOWDESIGNER_NODE_REMOVE:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can not remove node ${action.nodeId} since it doesn't exist`);

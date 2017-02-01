@@ -2,14 +2,14 @@ import { Map } from 'immutable';
 
 import { defaultState } from './flow.reducer';
 import nodeReducer from './node.reducer';
-import { NodeRecord, PositionRecord } from '../constants/flowdesigner.model';
+import { NodeRecord, PositionRecord, NodeGraphicalAttributes } from '../constants/flowdesigner.model';
 
 describe('Check node reducer', () => {
 	const initialState = defaultState.setIn(['nodes', 'id1'], new NodeRecord({
 		id: 'id1',
 		type: 'type1',
 		data: new Map({ type: 'test' }),
-		graphicalAttributes: new Map({
+		graphicalAttributes: new NodeGraphicalAttributes({
 			type: 'type1',
 			selected: true,
 			position: new PositionRecord({ x: 10, y: 10 }),
@@ -18,7 +18,7 @@ describe('Check node reducer', () => {
 		id: 'id2',
 		type: 'type2',
 		data: new Map({ type: 'test' }),
-		graphicalAttributes: new Map({
+		graphicalAttributes: new NodeGraphicalAttributes({
 			type: 'type2',
 			selected: false,
 			position: new PositionRecord({ x: 10, y: 10 }),
@@ -107,18 +107,21 @@ describe('FLOWDESIGNER_NODE_APPLY_MOVEMENT', () => {
 	const initialState = defaultState.setIn(['nodes', 'id1'], new NodeRecord({
 		id: 'id1',
 		nodeType: 'type1',
-		position: new PositionRecord({ x: 10, y: 10 }),
-		graphicalAttributes: new Map({ selected: true }),
+		graphicalAttributes: new NodeGraphicalAttributes({
+			position: new PositionRecord({ x: 10, y: 10 }),
+		}),
 	})).setIn(['nodes', 'id2'], new NodeRecord({
 		id: 'id2',
 		nodeType: 'type2',
-		position: new PositionRecord({ x: 10, y: 10 }),
-		graphicalAttributes: new Map({ selected: false }),
+		graphicalAttributes: new NodeGraphicalAttributes({
+			position: new PositionRecord({ x: 10, y: 10 }),
+		}),
 	})).setIn(['nodes', 'id3'], new NodeRecord({
 		id: 'id3',
 		nodeType: 'type2',
-		position: new PositionRecord({ x: 10, y: 10 }),
-		graphicalAttributes: new Map({ selected: false }),
+		graphicalAttributes: new NodeGraphicalAttributes({
+			position: new PositionRecord({ x: 10, y: 10 }),
+		}),
 	}));
 	it('should apply the same relative movement to each node listed', () => {
 		expect(nodeReducer(initialState, {

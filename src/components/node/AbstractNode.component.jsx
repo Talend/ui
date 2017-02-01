@@ -64,7 +64,7 @@ export const AbstractNode = React.createClass({
 	statics: { calculatePortPosition },
 	componentDidMount() {
 		this.d3Node = select(this.nodeElement);
-		this.d3Node.data([this.props.node.getIn(['graphicalAttributes', 'position'])]);
+		this.d3Node.data([this.props.node.getPosition()]);
 		this.d3Node.call(
 			drag()
 				.on('start', this.onDragStart)
@@ -89,7 +89,7 @@ export const AbstractNode = React.createClass({
 		}
 	},
 	onDrag() {
-		this.d3Node.data([this.props.node.getIn(['graphicalAttributes', 'position'])]);
+		this.d3Node.data([this.props.node.getPosition()]);
 		this.props.moveNodeTo(this.props.node.id, event);
 		if (this.props.onDrag) {
 			this.props.onDrag(event);
@@ -111,8 +111,7 @@ export const AbstractNode = React.createClass({
 	},
 	render() {
 		const { node } = this.props;
-		const x = node.getIn(['graphicalAttributes', 'position', 'x']);
-		const y = node.getIn(['graphicalAttributes', 'position', 'y']);
+		const { x, y } = node.getPosition();
 		const transform = `translate(${x}, ${y})`;
 		return (
 			<g>

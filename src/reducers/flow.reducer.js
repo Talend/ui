@@ -103,7 +103,7 @@ export const calculatePortsPosition = (state, action) => {
 			nodes = state.get('nodes');
 		}
 		return nodes.reduce((cumulativeState, node) => {
-			const nodeType = node.getIn(['graphicalAttributes', 'nodeType']);
+			const nodeType = node.getNodeType();
 			const ports = state.get('ports').filter(port => port.nodeId === node.id);
 			const calculatePortPosition = state.getIn(['nodeTypes', nodeType, 'component'])
 				.calculatePortPosition;
@@ -111,8 +111,8 @@ export const calculatePortsPosition = (state, action) => {
 				['ports'],
 				calculatePortPosition(
 					ports,
-					node.getIn(['graphicalAttributes', 'position']),
-					node.getIn(['graphicalAttributes', 'nodeSize'])
+					node.getPosition(),
+					node.getSize(),
 				),
 			);
 		}, state);

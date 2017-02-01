@@ -74,25 +74,33 @@ export default function portReducer(state = defaultState, action) {
 			invariant(false,
 					`Can't set an graphical attribute on non existing port ${action.portId}`);
 		}
-		return state.mergeIn(['ports', action.portId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		try {
+			return state.mergeIn(['ports', action.portId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
+		} catch (error) {
+			return state.mergeIn(['ports', action.portId, 'graphicalAttributes', 'properties'], fromJS(action.graphicalAttributes));
+		}
 	case FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
 					`Can't remove a graphical attribute on non existing port ${action.portId}`);
 		}
-		return state.deleteIn(['ports', action.portId, 'graphicalAttributes', action.graphicalAttributesKey]);
+		return state.deleteIn(['ports', action.portId, 'graphicalAttributes', 'properties', action.graphicalAttributesKey]);
 	case FLOWDESIGNER_PORT_SET_DATA:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
 					`Can't set a data on non existing port ${action.portId}`);
 		}
-		return state.mergeIn(['ports', action.portId, 'data'], fromJS(action.data));
+		try {
+			return state.mergeIn(['ports', action.portId, 'data'], fromJS(action.data));
+		} catch (error) {
+			return state.mergeIn(['ports', action.portId, 'data', 'properties'], fromJS(action.data));
+		}
 	case FLOWDESIGNER_PORT_REMOVE_DATA:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,
 					`Can't remove a data on non existing port ${action.portId}`);
 		}
-		return state.deleteIn(['ports', action.portId, 'data', action.dataKey]);
+		return state.deleteIn(['ports', action.portId, 'data', 'properties', action.dataKey]);
 	case FLOWDESIGNER_PORT_REMOVE:
 		if (!state.getIn(['ports', action.portId])) {
 			invariant(false,

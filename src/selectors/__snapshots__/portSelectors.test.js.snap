@@ -5,6 +5,10 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getPortDirection": [Function],
+    "getPortFlowType": [Function],
+    "getPortType": [Function],
+    "getPosition": [Function],
     "graphicalAttributes": Object {
       "properties": Object {
         "type": "EMITTER",
@@ -18,6 +22,10 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getPortDirection": [Function],
+    "getPortFlowType": [Function],
+    "getPortType": [Function],
+    "getPosition": [Function],
     "graphicalAttributes": Object {
       "properties": Object {
         "type": "EMITTER",
@@ -36,6 +44,10 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getPortDirection": [Function],
+    "getPortFlowType": [Function],
+    "getPortType": [Function],
+    "getPosition": [Function],
     "graphicalAttributes": Object {
       "properties": Object {
         "type": "EMITTER",
@@ -54,6 +66,10 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getPortDirection": [Function],
+    "getPortFlowType": [Function],
+    "getPortType": [Function],
+    "getPosition": [Function],
     "graphicalAttributes": Object {
       "properties": Object {
         "type": "SINK",
@@ -67,6 +83,10 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getPortDirection": [Function],
+    "getPortFlowType": [Function],
+    "getPortType": [Function],
+    "getPosition": [Function],
     "graphicalAttributes": Object {
       "properties": Object {
         "type": "SINK",
