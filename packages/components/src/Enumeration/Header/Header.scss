@@ -1,0 +1,59 @@
+$tc-enumeration-main-color: $brand-primary !default;
+$tc-enumeration-smaller-padding: $padding-smaller !default;
+$tc-enumeration-small-padding: $padding-small !default;
+$tc-enumeration-normal-padding: $padding-normal !default;
+$tc-enumeration-large-padding: $padding-large !default;
+$tc-enumeration-header-height: 28px !default;
+
+.tc-enumeration-header {
+	display: flex;
+	line-height: $tc-enumeration-large-padding;
+	text-transform: uppercase;
+	align-items: center;
+	height: $tc-enumeration-header-height;
+
+	span{
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.6px;
+		line-height: 30px;
+		text-align: left;
+	}
+
+	input{
+		outline: none;
+		border: none;
+		flex-grow: 1;
+	}
+
+	/*
+		this allows to set a custom style on the first element if there is not the first child
+		.btn-link {
+			// apply css on all matches
+		}
+
+		.btn-link ~ .btn-link {
+			// abort the rule on the others elements
+		}
+	*/
+
+	:global(.btn-link ~ .btn-link) {
+		margin-left: $tc-enumeration-smaller-padding;
+	}
+	:global(.btn-link) {
+		margin-left: auto;
+		margin-right: $tc-enumeration-smaller-padding;
+		padding: 0;
+		height: $tc-enumeration-small-padding;
+		outline: none;
+
+		:global(.tc-svg-icon) {
+			height: $tc-enumeration-small-padding;
+			width: $tc-enumeration-small-padding;
+			stroke: $tc-enumeration-main-color;
+			fill: $tc-enumeration-main-color;
+			margin-right: 0;
+			vertical-align: top;
+		}
+	}
+}
