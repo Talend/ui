@@ -6,14 +6,13 @@
     "npm": ">=2.7.1"
   },
   "scripts": {
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prepublish": "webpack -p",
     "start": "webpack-dev-server --port 1337",
     "test": "yarn test:slimerjs",
     "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
     "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
     "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
-    "lint:sass": "sass-lint -q -v"
+    "lint:style": "sass-lint -q -v"
   },
   "repository": {
     "type": "git",
@@ -42,7 +41,6 @@
     "postcss-loader": "^0.13.0",
     "sass-lint": "^1.9.1",
     "sass-loader": "^4.0.0",
-    "semantic-release": "4.3.5",
     "slimerjs": "^0.10.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -52,5 +50,5 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7"
   },
-  "version": "0.60.1"
+  "version": "0.60.4"
 }

@@ -8,13 +8,6 @@ $tc-list-table-hover-color: $black !default;
 		visibility: hidden;
 	}
 
-	:global(.btn-link) {
-		color: $tc-list-table-color;
-		font-size: inherit;
-		letter-spacing: inherit;
-		font-weight: 600;
-	}
-
 	:global(.btn-link:hover) {
 		color: $tc-list-table-hover-color;
 		text-decoration: none;
@@ -26,11 +19,34 @@ $tc-list-table-hover-color: $black !default;
 
 	thead tr {
 		text-transform: uppercase;
+
+		th > button {
+			padding: 0;
+			color: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
 	}
 
-	tbody tr:hover {
-		color: $tc-list-table-hover-color;
-		background-color: $tc-list-table-hover-bg;
-	}
+	tbody {
+		:global(.btn-link) {
+			color: $tc-list-table-color;
+			font-size: inherit;
+			letter-spacing: inherit;
+			font-weight: 600;
+		}
 
+		tr:hover {
+			color: $tc-list-table-hover-color;
+			background-color: $tc-list-table-hover-bg;
+		}
+
+		.item-text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+		}
+	}
 }

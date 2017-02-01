@@ -26,10 +26,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             type="checkbox" />
         </td>
         <td>
-          1
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            1
+          </span>
         </td>
         <td>
-          Hello world
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Hello world
+          </span>
         </td>
       </tr>
       <tr
@@ -43,10 +61,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             type="checkbox" />
         </td>
         <td>
-          2
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            2
+          </span>
         </td>
         <td>
-          Foo
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Foo
+          </span>
         </td>
       </tr>
       <tr
@@ -60,10 +96,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             type="checkbox" />
         </td>
         <td>
-          3
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            3
+          </span>
         </td>
         <td>
-          Bar
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Bar
+          </span>
         </td>
       </tr>
     </tbody>
@@ -489,10 +543,28 @@ exports[`List should render 1`] = `
             type="checkbox" />
         </td>
         <td>
-          1
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            1
+          </span>
         </td>
         <td>
-          Hello world
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Hello world
+          </span>
         </td>
       </tr>
       <tr
@@ -506,10 +578,28 @@ exports[`List should render 1`] = `
             type="checkbox" />
         </td>
         <td>
-          2
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            2
+          </span>
         </td>
         <td>
-          Foo
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Foo
+          </span>
         </td>
       </tr>
       <tr
@@ -523,10 +613,28 @@ exports[`List should render 1`] = `
             type="checkbox" />
         </td>
         <td>
-          3
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            3
+          </span>
         </td>
         <td>
-          Bar
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Bar
+          </span>
         </td>
       </tr>
     </tbody>
@@ -953,10 +1061,28 @@ exports[`List should render id if provided 1`] = `
             type="checkbox" />
         </td>
         <td>
-          1
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            1
+          </span>
         </td>
         <td>
-          Hello world
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Hello world
+          </span>
         </td>
       </tr>
       <tr
@@ -970,10 +1096,28 @@ exports[`List should render id if provided 1`] = `
             type="checkbox" />
         </td>
         <td>
-          2
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            2
+          </span>
         </td>
         <td>
-          Foo
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Foo
+          </span>
         </td>
       </tr>
       <tr
@@ -987,10 +1131,28 @@ exports[`List should render id if provided 1`] = `
             type="checkbox" />
         </td>
         <td>
-          3
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            3
+          </span>
         </td>
         <td>
-          Bar
+          <span
+            aria-describedby={42}
+            className="item-text"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}>
+            Bar
+          </span>
         </td>
       </tr>
     </tbody>

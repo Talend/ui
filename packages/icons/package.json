@@ -23,7 +23,6 @@
     "build-webfont": "webpack --progress",
     "docs": "node ./scripts/docs.js",
     "prepublish": "npm run build-react && npm run build-webfont",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "echo no test",
     "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
@@ -41,7 +40,6 @@
     "fontgen-loader": "^0.2.1",
     "mkdirp": "^0.5.1",
     "react": "^15.3.2",
-    "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
     "svgo": "0.7.1",
     "webpack": "^1.14.0"
@@ -51,5 +49,5 @@
     "icons",
     "svg"
   ],
-  "version": "0.60.1"
+  "version": "0.60.4"
 }

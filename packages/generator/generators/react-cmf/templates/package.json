@@ -43,7 +43,6 @@
     "react-addons-test-utils": "15.3.1",
     "react-test-renderer": "15.3.1",
     "sass-loader": "4.0.2",
-    "semantic-release": "4.3.5",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1",
     "webpack-dashboard": "0.1.8",

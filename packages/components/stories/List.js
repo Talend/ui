@@ -1,7 +1,29 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
+import talendIcons from 'talend-icons/dist/react';
+
 import { List, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-badge': talendIcons['talend-badge'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-expanded': talendIcons['talend-expanded'],
+	'talend-file': talendIcons['talend-file'],
+	'talend-file-json-o': talendIcons['talend-file-json-o'],
+	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-folder': talendIcons['talend-folder'],
+	'talend-icons': talendIcons['talend-icons'],
+	'talend-pencil': talendIcons['talend-pencil'],
+	'talend-plus': talendIcons['talend-plus'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
+	'talend-search': talendIcons['talend-search'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-table': talendIcons['talend-table'],
+	'talend-tiles': talendIcons['talend-tiles'],
+	'talend-trash': talendIcons['talend-trash'],
+};
 
 const selected = [
 	{
@@ -77,6 +99,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT with super long name',
+				className: 'item-2-class',
 			},
 		],
 		titleProps: {
@@ -245,13 +268,13 @@ function getPropsFor(displayMode) {
 }
 
 storiesOf('List', module)
-	.add('Table (default)', () => (
-		<div>
+	.add('table (default)', () => (
+		<div className="display-table">
 			<h1>List</h1>
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...props} />
 		</div>
 	))
@@ -264,7 +287,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -278,7 +301,7 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -351,7 +374,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...columnActionsProps} />
 		</div>);
 	})
@@ -375,7 +398,7 @@ storiesOf('List', module)
 				<h2>Definition</h2>
 				<p>Display a list by defining your.</p>
 				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} />
 			</div>
 		);
@@ -390,8 +413,35 @@ storiesOf('List', module)
 				<h2>Definition</h2>
 				<p>Display a list by defining your.</p>
 				<h2>Examples</h2>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<List {...selectedClassProps} />
+			</div>
+		);
+	})
+	.add('table without toolbar', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list without toolbar</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Table with sort header click', () => {
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.toolbar = undefined;
+		tprops.list.sort = sort;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Table with sort header click</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -401,7 +451,7 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('table')} />
 		</div>
 	))
@@ -409,7 +459,7 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('large')} />
 		</div>
 	))
@@ -417,7 +467,7 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
 		</div>
 	));
