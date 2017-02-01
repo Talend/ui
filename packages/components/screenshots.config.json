@@ -1,5 +1,5 @@
 {
-  "baseurl": "http://localhost:1337/components/storybook-static/iframe.html?dataId=1",
+  "baseurl": "http://localhost:1337/iframe.html?dataId=1",
   "viewport": {
     "height": 768,
     "width": 1366
