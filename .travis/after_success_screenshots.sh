@@ -6,6 +6,7 @@ if [ "$TRAVIS_BRANCH" != 'master' ]; then
     mkdir .static
     cp packages/components/storybook-static .static/components
     nohup http-server .static/ -p 1337 >/dev/null 2>&1 &
+    sleep 5
     echo "✓ Start static server"
 
     lerna exec --scope=react-talend-components -- yarn run test:slimerjs
