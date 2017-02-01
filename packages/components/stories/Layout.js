@@ -5,6 +5,7 @@ import talendIcons from 'talend-icons/dist/react';
 import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 const icons = {
+	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-star': talendIcons['talend-star'],
