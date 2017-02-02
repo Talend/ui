@@ -1,0 +1,43 @@
+{
+  "jsonSchema": {
+    "title": "A enumeration form",
+    "description": "A enumeration form example.",
+    "type": "object",
+    "properties": {
+      "values": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": {
+    "values": {
+      "ui:field": "ObjectEnumerationField"
+    }
+  },
+  "properties": {
+    "values": [{
+      "id": 1,
+      "label": "Loreum lopsum 1"
+    }, {
+      "id": 2,
+      "label": "Loreum lopsum 2"
+    }, {
+      "id": 3,
+      "label": "Loreum lopsum 3"
+    }, {
+      "id": 4,
+      "label": "Loreum lopsum 4"
+    }]
+  }
+}
