@@ -335,7 +335,6 @@ form {
 .switch {
 	input[type='checkbox'] {
 		position: absolute !important;
-		clip: rect(1px 1px 1px 1px);
 		clip: rect(1px, 1px, 1px, 1px);
 		padding: 0 !important;
 		border: none !important;

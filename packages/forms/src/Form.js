@@ -140,7 +140,6 @@ Form.propTypes = {
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
-	autocomplete: PropTypes.string,
 };
 
 Form.defaultProps = {

@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
 import Immutable, { Map } from 'immutable';
 
-import { List as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
 	mapDispatchToProps,
@@ -37,9 +36,9 @@ const settings = {
 		},
 	},
 	actions: {
-		//title: 'object:open',
-		//left: ['object:add'],
-		//items: ['object:delete'],
+		// title: 'object:open',
+		// left: ['object:add'],
+		// items: ['object:delete'],
 	},
 };
 
@@ -78,7 +77,7 @@ describe('Container List', () => {
 		const wrapper = renderer.create(
 			<Provider>
 				<Container settings={settings} items={items} />
-			</Provider>
+			</Provider>,
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
