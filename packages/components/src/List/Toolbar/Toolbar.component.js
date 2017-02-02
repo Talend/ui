@@ -52,25 +52,32 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-	const hasToolbarItem = selectAllCheckbox ||
+	const hasToolbarItem = (
+		selectAllCheckbox ||
 		display ||
 		sort ||
 		pagination ||
-		filter;
+		filter
+	);
 
 	return (
 		<div>
 			{actionBar && (<ActionBar {...actionBarProps} />)}
-			{hasToolbarItem && (<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-				{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
-				{display && (<Label text="Display:" htmlFor={displayModeId} />)}
-				{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
-				{sort && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
-				{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
-				{pagination && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
-				{pagination && (<Pagination id={id && `${id}-pagination`} {...pagination} />)}
-				{filter && (<Filter id={id && `${id}-filter`} {...filter} />)}
-			</Navbar>)}
+			{hasToolbarItem && (
+				<Navbar
+					componentClass="div"
+					className={theme['tc-list-toolbar']}
+					role="toolbar" fluid
+				>
+					{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
+					{display && (<Label text="Display:" htmlFor={displayModeId} />)}
+					{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
+					{sort && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
+					{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
+					{pagination && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
+					{pagination && (<Pagination id={id && `${id}-pagination`} {...pagination} />)}
+					{filter && (<Filter id={id && `${id}-filter`} {...filter} />)}
+				</Navbar>)}
 		</div>
 	);
 }
