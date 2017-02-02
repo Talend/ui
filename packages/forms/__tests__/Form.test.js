@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 // FIXME: Temporary fix only on tests while the issue
@@ -8,11 +8,13 @@ import renderer from 'react-test-renderer';
 // eslint-disable-next-line no-unused-vars
 import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 
+import Button from 'react-bootstrap/lib/Button';
+
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
-import Form from '../src/Form';
+import Form, { renderActionIcon, renderActions } from '../src/Form';
 
 const data = {
 	jsonSchema: {
@@ -37,6 +39,36 @@ const data = {
 		},
 	},
 };
+
+describe('renderActionIcon', () => {
+	it('Renders the <i /> component', () => {
+		const wrapper = shallow(renderActionIcon('test'));
+		expect(wrapper.containsMatchingElement(<i />)).toBeTruthy();
+	});
+	it("Doesn't render the <i /> component", () => {
+		expect(renderActionIcon()).toBeNull();
+	});
+});
+
+describe('renderActions', () => {
+	it('Renders actions', () => {
+		const actions = [{
+			type: 'button',
+			style: 'link',
+			label: 'CANCEL',
+		}, {
+			type: 'submit',
+			style: 'primary',
+			label: 'VALIDATE',
+		}];
+		const wrapper = shallow(<div>{renderActions(actions)}</div>);
+		expect(wrapper.find(Button)).toHaveLength(2);
+	});
+	it('Renders a single submit button', () => {
+		const wrapper = shallow(renderActions());
+		expect(wrapper.containsMatchingElement(<button type="submit">Submit</button>)).toBeTruthy();
+	});
+});
 
 describe('<Form/>', () => {
 	let wrapper;
