@@ -28,18 +28,14 @@ function renderKey(schema, data, onChange) {
 			<Select
 				schema={schema.properties.key}
 				options={{ enumOptions: options }}
-				onChange={(change) =>
-					onChange({ key: change, value: data.value })
-				}
+				onChange={change => onChange({ key: change, value: data.value })}
 			/>
 		);
 	}
 	return (
 		<Text
 			value={toKey(data)}
-			onChange={(change) =>
-				onChange(`${change}=${toValue(data)}`)
-			}
+			onChange={change => onChange(`${change}=${toValue(data)}`)}
 		/>
 	);
 }
@@ -49,21 +45,21 @@ function renderValue(schema, data, onChange) {
 		return (
 			<Text
 				value={data.value}
-				onChange={(change) => onChange({ key: data.key, value: change })}
+				onChange={change => onChange({ key: data.key, value: change })}
 			/>
 		);
 	}
 	return (
 		<Text
 			value={toValue(data)}
-			onChange={(change) => onChange(`${toKey(data)}=${change}`)}
+			onChange={change => onChange(`${toKey(data)}=${change}`)}
 		/>
 	);
 }
 
 function KeyValueWidget(props) {
 	return (
-		<dl className={theme.dl}>
+		<dl className={theme['key-value']}>
 			<dt>{ renderKey(props.schema, props.value || props.formData, props.onChange) }</dt>
 			<dd>{ renderValue(props.schema, props.value || props.formData, props.onChange) }</dd>
 		</dl>

@@ -160,9 +160,9 @@ class MultiSelectTagWidget extends React.Component {
 	getOptionsToShow() {
 		const { value, options } = this.props;
 		return options.enumOptions.filter(
-			option => value.indexOf(option.value) < 0
+			option => value.indexOf(option.value) < 0,
 		).filter(
-			item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1
+			item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
 		);
 	}
 
@@ -195,7 +195,7 @@ class MultiSelectTagWidget extends React.Component {
 					onChange={event => this.onFilterTextChange(event)}
 					onFocus={() => this.toggleDropDownOptions(true)}
 					onBlur={() => this.toggleDropDownOptions(false)}
-					onKeyDown={(event) => this.onKeyDown(event)}
+					onKeyDown={event => this.onKeyDown(event)}
 					ref={input => this.onInputMount(input)}
 				/>
 				<div className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
@@ -203,7 +203,7 @@ class MultiSelectTagWidget extends React.Component {
 				</div>
 				<div
 					className={classNames(theme['tags-container'], 'tags-container')}
-					ref={(tags) => this.onTagsMount(tags)}
+					ref={tags => this.onTagsMount(tags)}
 				>
 					{
 						value.map((val, index) => {
@@ -261,4 +261,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default MultiSelectTagWidget;
-
