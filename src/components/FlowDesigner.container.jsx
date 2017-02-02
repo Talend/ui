@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { mapOf, orderedMapOf } from 'react-immutable-proptypes';
 import invariant from 'invariant';
+import get from 'lodash/get';
 
 import { setZoom } from '../actions/flow.actions';
 import ZoomHandler from './ZoomHandler.component';
@@ -14,17 +15,15 @@ import { moveNodeTo, moveNodeToEnd } from '../actions/node.actions';
 import { setNodeTypes } from '../actions/nodeType.actions';
 
 
-
 export const FlowDesigner = React.createClass({
 	propTypes: {
 		children: PropTypes.node,
 		setNodeTypes: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
-		nodes: mapOf(
-			NodeType
-		).isRequired,
+		nodes: mapOf(NodeType).isRequired,
 		ports: orderedMapOf(PortType).isRequired,
 		links: mapOf(PropTypes.object).isRequired,
+		reduxMountPoint: PropTypes.string.isRequired,
 	},
 	getInitialState() {
 		return {
@@ -48,7 +47,7 @@ export const FlowDesigner = React.createClass({
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						}
+						},
 					);
 					break;
 				case 'LinkType':
@@ -59,7 +58,7 @@ export const FlowDesigner = React.createClass({
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						}
+						},
 					);
 					break;
 				case 'PortType':
@@ -70,13 +69,13 @@ export const FlowDesigner = React.createClass({
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						}
-					)
+						},
+					);
 					break;
 				default:
 					invariant(
 					false,
-					`<${element.type.displayName} /> is an unknown component configuration`
+					`<${element.type.displayName} /> is an unknown component configuration`,
 				);
 				}
 			});
@@ -97,8 +96,8 @@ export const FlowDesigner = React.createClass({
 						<feGaussianBlur in="shadow" stdDeviation="3" />
 						<feOffset dx="0" dy="0" />
 						<feMerge>
-						<feMergeNode />
-						<feMergeNode in="SourceGraphic" />
+							<feMergeNode />
+							<feMergeNode in="SourceGraphic" />
 						</feMerge>
 					</filter>
 				</defs>
@@ -128,12 +127,12 @@ export const FlowDesigner = React.createClass({
 	},
 });
 
-const mapStateToProps = state => ({
-	nodes: state.flowDesigner.get('nodes'),
-	links: state.flowDesigner.get('links'),
-	ports: state.flowDesigner.get('ports'),
-	transform: state.flowDesigner.get('transform'),
-	transformToApply: state.flowDesigner.get('transformToApply'),
+const mapStateToProps = (state, ownProps) => ({
+	nodes: get(state, ownProps.reduxMountPoint).get('nodes'),
+	links: get(state, ownProps.reduxMountPoint).get('links'),
+	ports: get(state, ownProps.reduxMountPoint).get('ports'),
+	transform: get(state, ownProps.reduxMountPoint).get('transform'),
+	transformToApply: get(state, ownProps.reduxMountPoint).get('transformToApply'),
 });
 
 
