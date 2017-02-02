@@ -1212,9 +1212,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.60.2:
-  version "0.60.3"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.60.3.tgz#d097624b3c845d22411da6a8ecff1ebf85af3957"
+bootstrap-talend-theme@^0.60.4:
+  version "0.60.4"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.60.4.tgz#06749cb4f44a077b227b349cb49ea5bd00541cb5"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -2451,7 +2451,7 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   dependencies:
     bser "^1.0.2"
 
-fbjs@^0.8.1, fbjs@^0.8.4:
+fbjs@^0.8.4:
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.8.tgz#02f1b6e0ea0d46c24e0b51a2d24df069563a5ad6"
   dependencies:
@@ -5144,14 +5144,6 @@ react-docgen@^2.12.1:
     node-dir "^0.1.10"
     recast "^0.11.5"
 
-react-dom@^15.4.0:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
-  dependencies:
-    fbjs "^0.8.1"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-
 react-fuzzy@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/react-fuzzy/-/react-fuzzy-0.3.3.tgz#9f6775393cd03bbd3c977651771abe16c8b29a81"
@@ -5236,7 +5228,7 @@ react-themeable@^1.1.0:
   dependencies:
     object-assign "^3.0.0"
 
-react@^15.4.0, react@^15.4.1:
+react@^15.4.1:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:
@@ -5994,9 +5986,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.60.2:
-  version "0.60.3"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.60.3.tgz#b780ca09eda8ac9729d55390d6ab8a389ea75d73"
+talend-icons@^0.60.4:
+  version "0.60.4"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.60.4.tgz#8af4fc2610ebcde1b2ed40da08dcf4c3b74b0dfb"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
