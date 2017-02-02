@@ -82,7 +82,7 @@ class List extends React.Component {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const items = getItems(this.context, this.props);
 		const props = {
-			displayMode: state.displayMode,
+			displayMode: this.props.displayMode || state.displayMode,
 			list: {
 				items,
 				columns: this.props.list.columns,
