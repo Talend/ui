@@ -195,7 +195,7 @@ class MultiSelectTagWidget extends React.Component {
 					onChange={event => this.onFilterTextChange(event)}
 					onFocus={() => this.toggleDropDownOptions(true)}
 					onBlur={() => this.toggleDropDownOptions(false)}
-					onKeyDown={(event) => this.onKeyDown(event)}
+					onKeyDown={event => this.onKeyDown(event)}
 					ref={input => this.onInputMount(input)}
 				/>
 				<div className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
@@ -261,4 +261,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default MultiSelectTagWidget;
-

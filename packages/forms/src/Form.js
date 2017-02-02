@@ -29,6 +29,31 @@ const customUiSchema = {
 	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag'],
 };
 
+export function renderActionIcon(icon) {
+	if (icon) {
+		return <i className={icon} />;
+	}
+	return null;
+}
+
+export function renderActions(actions) {
+	if (actions) {
+		return actions.map((action, index) => (
+			<Button
+				key={index}
+				bsStyle={action.style}
+				type={action.type}
+				onClick={action.onClick}
+				title={action.title}
+			>
+				{renderActionIcon(action.icon)}
+				{action.label}
+			</Button>),
+		);
+	}
+	return <Button bsStyle="primary" type="submit">Submit</Button>;
+}
+
 class Form extends React.Component {
 
 	constructor(props) {
@@ -83,18 +108,6 @@ class Form extends React.Component {
 			handleSchemaChange: this.handleSchemaChange,
 		};
 
-		const actions = this.props.actions ? this.props.actions.map((action, index) => (
-			<Button
-				key={index}
-				bsStyle={action.style}
-				type={action.type}
-				onClick={action.onClick}
-				title={action.title}
-			>
-				{action.icon ? <i className={action.icon} /> : null }
-				{action.label}
-			</Button>
-		)) : <Button bsStyle="primary" type="submit">Submit</Button>;
 		return (
 			<RJSForm
 				{...this.props}
@@ -109,7 +122,7 @@ class Form extends React.Component {
 				onSubmit={this.handleSchemaSubmit}
 			>
 				<div className={this.props.buttonBlockClass}>
-					{actions}
+					{renderActions(this.props.actions)}
 				</div>
 			</RJSForm>
 		);
