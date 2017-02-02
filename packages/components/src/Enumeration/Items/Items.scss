@@ -3,5 +3,5 @@
 	min-height: 0;
 	overflow-y: auto;
 	list-style: none;
-	box-shadow: 0px -1px 3px 0px $shadow inset;
+	box-shadow: inset 0px 21px 3px -20px $shadow, inset 0px -21px 3px -20px $shadow;
 }
