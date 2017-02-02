@@ -20,5 +20,5 @@ $tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
 .main {
 	flex-grow: 1;
 	min-height: 0;
-	overflow-y: auto;
+	overflow: hidden;
 }

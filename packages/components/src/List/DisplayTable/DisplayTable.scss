@@ -2,6 +2,12 @@
 $tc-list-table-hover-bg: $concrete !default;
 $tc-list-table-color: $dove-gray !default;
 $tc-list-table-hover-color: $black !default;
+$tc-list-table-header-height: 36px !default;
+
+.container {
+	padding-top: $tc-list-table-header-height;
+	position: relative;
+}
 
 .table {
 	:global(.btn-group) {
@@ -20,12 +26,31 @@ $tc-list-table-hover-color: $black !default;
 	thead tr {
 		text-transform: uppercase;
 
-		th > button {
-			padding: 0;
-			color: inherit;
-			font-size: inherit;
-			font-weight: inherit;
-			line-height: inherit;
+		th {
+			height: 0;
+			line-height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			border: none;
+			color: transparent;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.header {
+			color: initial;
+			height: auto;
+			line-height: initial;
+			padding: 8px 0;
+			position: absolute;
+			top: 0;
+			> button {
+				padding: 0;
+				color: inherit;
+				font-size: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+			}
 		}
 	}
 
