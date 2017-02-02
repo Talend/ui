@@ -11,16 +11,14 @@ const MAX_TO_RADIO = 2;
  * @returns {*} Radio inputs if choices length is gte to 2 or Select
  * @constructor
  */
-const RadioOrSelectWidget = (props) => {
-	const options = props.options && props.options;
-	const enumOptions = options && options.enumOptions;
-	const shouldDisplayRadio = enumOptions && enumOptions.length <= MAX_TO_RADIO;
-
-	if (shouldDisplayRadio) {
-		return <Radio {...props} />;
+function RadioOrSelectWidget(props) {
+	if (props.options && props.options.enumOptions) {
+		if (props.options.enumOptions.length <= MAX_TO_RADIO) {
+			return <Radio {...props} />;
+		}
 	}
 	return <Select {...props} />;
-};
+}
 
 RadioOrSelectWidget.propTypes = {
 	options: React.PropTypes.shape({
