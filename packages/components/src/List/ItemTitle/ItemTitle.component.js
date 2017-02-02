@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import Icon from '../../Icon';
+import TooltipTrigger from '../../TooltipTrigger';
 import theme from './ItemTitle.scss';
 
 const TITLE_MODE_TEXT = 'text';
@@ -139,7 +140,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 	return (
 		<div className={theme['item-title']}>
 			{icon}
-			{titleElement}
+			<TooltipTrigger label={value} tooltipPlacement="top">{titleElement}</TooltipTrigger>
 		</div>
 	);
 }

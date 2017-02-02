@@ -48,7 +48,6 @@
     "react-test-renderer": "15.4.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.1.1",
-    "semantic-release": "^4.3.5",
     "talend-icons": "^0.13.1",
     "uuid": "^2.0.3",
     "webpack": "^1.13.1"
@@ -63,12 +62,12 @@
     "react-talend-components": "^0.50.0"
   },
   "scripts": {
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config .eslintrc src",
+    "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6006",
     "start": "npm run storybook",
@@ -83,5 +82,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__tests__/styleMock.js"
     }
   },
-  "version": "0.60.3"
+  "version": "0.60.4"
 }

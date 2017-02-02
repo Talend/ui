@@ -18,7 +18,6 @@
     "eslint-plugin-import": "1.14.0",
     "eslint-plugin-jsx-a11y": "2.2.0",
     "eslint-plugin-react": "6.2.0",
-    "semantic-release": "4.3.5",
     "webpack": "1.13.1"
  },
   "dependencies": {}

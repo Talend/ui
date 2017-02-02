@@ -1,0 +1,101 @@
+Lerna v2.0.0-beta.32
+Scoping to packages that match 'react-talend-containers'
+yarn run v0.17.10
+$ eslint --config .eslintrc src 
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Action/Action.component.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies      import/no-extraneous-dependencies
+  4:1  error  'invariant' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:8  error  'invariant' is defined but never used                                            no-unused-vars
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Action/Action.test.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:1  error  'jest' is not defined                                                                      no-undef
+  8:1  error  'jest' is not defined                                                                      no-undef
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Actions/Actions.component.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Actions/Actions.test.js
+   1:1   error  'react' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  11:37  error  A space is required before closing bracket                                                 react/jsx-space-before-closing
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/AppHeaderBar/AppHeaderBar.component.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies        import/no-extraneous-dependencies
+  1:8  error  'React' is defined but never used                                                  no-unused-vars
+  2:1  error  'react-redux' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/AppHeaderBar/AppHeaderBar.test.js
+   1:1   error  'react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   1:8   error  'React' is defined but never used                                            no-unused-vars
+   4:1   error  'jest' is not defined                                                        no-undef
+   6:1   error  Import in body of module; reorder to top                                     import/imports-first
+  28:3   error  Expected exception block, space or tab after '//' in comment                 spaced-comment
+  32:20  error  'jest' is not defined                                                        no-undef
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/index.js
+  23:8  error  Absolute imports should come before relative imports  import/imports-first
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/List/List.connect.js
+  1:1  error  'react-redux' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/List/List.container.js
+   1:1   error  'react' should be listed in the project's dependencies, not devDependencies      import/no-extraneous-dependencies
+   3:1   error  'immutable' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  38:3   error  Prop type `object` is forbidden                                                  react/forbid-prop-types
+  74:18  error  'payload' is defined but never used                                              no-unused-vars
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/List/List.test.js
+   1:1   error  'react' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   4:1   error  'immutable' should be listed in the project's dependencies, not devDependencies            import/no-extraneous-dependencies
+   6:18  error  'Component' is defined but never used                                                      no-unused-vars
+  40:3   error  Expected exception block, space or tab after '//' in comment                               spaced-comment
+  41:3   error  Expected exception block, space or tab after '//' in comment                               spaced-comment
+  42:3   error  Expected exception block, space or tab after '//' in comment                               spaced-comment
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/List/selector.js
+   2:1   error  'immutable' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  36:41  error  Unexpected block statement surrounding arrow body                                arrow-body-style
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Notification/Notification.connect.js
+  1:1  error  'react-redux' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'invariant' should be listed in the project's dependencies, not devDependencies    import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Notification/Notification.container.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies      import/no-extraneous-dependencies
+  2:1  error  'immutable' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Notification/Notification.test.js
+   1:1   error  'react' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   4:1   error  'immutable' should be listed in the project's dependencies, not devDependencies            import/no-extraneous-dependencies
+   6:26  error  'Component' is defined but never used                                                      no-unused-vars
+  13:7   error  'initialState' is assigned a value but never used                                          no-unused-vars
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
+  1:1  error  'react-redux' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies      import/no-extraneous-dependencies
+  4:1  error  'immutable' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  6:1  error  'jest' is not defined                                                                      no-undef
+  7:1  error  'jest' is not defined                                                                      no-undef
+
+/Users/jmfrancois/github/talend/ui/packages/containers/src/state.js
+  1:1  error  'react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+✖ 52 problems (52 errors, 0 warnings)
+
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+Errored while running command 'yarn' with arguments 'run lint:es' in 'react-talend-containers'
+Errored while running ExecCommand.execute
+Command failed: yarn run lint:es
+Waiting for 1 child process to exit. CTRL-C to exit immediately.
