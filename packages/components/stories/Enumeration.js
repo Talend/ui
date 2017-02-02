@@ -13,7 +13,7 @@ const props = {
 		onClick: action('header.onAdd'),
 	}],
 	headerInput: [{
-		disabled: true,
+		disabled: false,
 		label: 'Validate',
 		icon: 'talend-check',
 		id: 'validate',
@@ -30,6 +30,8 @@ const props = {
 			label: `Lorem ipsum dolor sit amet ${index}`,
 		};
 	}),
+	onAddChange: action('onAddChange'),
+	onAddKeyUp: action('onAddKeyUp'),
 };
 
 const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };

@@ -9,22 +9,52 @@ const headerClasses = () => classNames({
 	'tc-enumeration-header': true,
 });
 
-function HeaderInput({props}) {
+function HeaderInput({ headerInput, onAddChange, onAddKeyUp, valueAdded }) {
+	const getAction = (action, index) => {
+		const propsAction = {
+			key: index,
+			label: action.label,
+			icon: action.icon,
+			onClick: action.onClick && (
+				event => action.onClick(event, { value: inputRef.value })
+			),
+			disabled: action.disabled,
+		};
+
+		return (
+			<Action
+				{...propsAction}
+				tooltipPlacement="bottom"
+				hideLabel
+				link
+			/>
+		);
+	};
+
+	const onAddChangeHandler = (event) => {
+		onAddChange(event, {
+			value: event.target.value,
+		});
+	};
+
+	const onAddKeyUpHandler = (event) => {
+		onAddKeyUp(event, {
+			value: event.target.value,
+		});
+	};
+
+	let inputRef;
+
 	return (
 		<header className={headerClasses()}>
-			<input type="text" placeholder="New entry"/>
-			{props.map((action, index) => (
-				<Action
-					key={index}
-					label={action.label}
-					icon={action.icon}
-					onClick={action.onClick}
-					tooltipPlacement="bottom"
-					disabled={action.disabled}
-					hideLabel
-					link
-				/>
-			))}
+			<input
+				type="text"
+				placeholder="New entry"
+				ref={input => (inputRef = input)}
+				onChange={onAddChangeHandler}
+				onKeyUp={onAddKeyUpHandler}
+			/>
+			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);
 }

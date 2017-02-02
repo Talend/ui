@@ -9,21 +9,28 @@ const headerClasses = () => classNames({
 	'tc-enumeration-header': true,
 });
 
-function Header({props}) {
+function Header({ headerDefault }) {
+	const getAction = (action, index) => {
+		const propsAction = {
+			key: index,
+			label: action.label,
+			icon: action.icon,
+			onClick: action.onClick && (event => action.onClick(event, { value: event.target.value })),
+		};
+
+		return (
+			<Action
+				{...propsAction}
+				tooltipPlacement="bottom"
+				hideLabel
+				link
+			/>
+		);
+	};
 	return (
 		<header className={headerClasses()}>
 			<span>Values</span>
-			{props.map((action, index) => (
-				<Action
-					key={index}
-					label={action.label}
-					icon={action.icon}
-					onClick={action.onClick}
-					tooltipPlacement="bottom"
-					hideLabel
-					link
-				/>
-		))}
+			{headerDefault.map((action, index) => getAction(action, index))}
 		</header>
 	);
 }
