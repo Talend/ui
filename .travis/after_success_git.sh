@@ -16,11 +16,11 @@ if [ -n "$GH_TOKEN" ]; then
 		git add packages/components/screenshots/
 		echo "git status"
 		git status
-		git -c user.name='travis' -c user.email='travis' commit -m 'tests: update screenshots from CI'
+		git -c user.name="travis" -c user.email="travis" commit -m "tests: update screenshots from CI\n[skip ci]"
 		echo "✓ Commit updated screenshots to $TRAVIS_BRANCH"
 
 		git add output/
-		git -c user.name='travis' -c user.email='travis' commit -m 'tests: update code style outputs from CI'
+		git -c user.name="travis" -c user.email="travis" commit -m "tests: update code style outputs from CI\n[skip ci]"
 		echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
 		git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH
