@@ -1,9 +1,11 @@
 {
   "devDependencies": {
+    "cpx": "^1.5.0",
     "lerna": "2.0.0-beta.32"
   },
   "scripts": {
-    "postinstall": "lerna exec -- yarn",
+    "postinstall": "lerna exec -- yarn && yarn run build",
+    "build": "lerna exec --ignore=generator-talend -- yarn run prepublish",
     "test": "lerna run test"
   },
   "repository": {
