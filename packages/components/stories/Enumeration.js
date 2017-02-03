@@ -26,7 +26,8 @@ const props = {
 	}],
 	items: Array(50).fill('').map((item, index) => {
 		return {
-			label: `Lorem ipsum dolor sit amet ${index}`,
+			id: index,
+			values: [`Lorem ipsum dolor sit amet ${index}`],
 		};
 	}),
 	onAddChange: action('onAddChange'),
