@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
-import AbstractNode from './AbstractNode.component.jsx';
+import AbstractNode from './AbstractNode.component';
 
 const node = new NodeRecord({
 	id: 'id',
