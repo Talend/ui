@@ -24,12 +24,6 @@ exports[`Toolbar should render actions toolbar 1`] = `
       </button>
     </div>
   </nav>
-  <div
-    className="navbar navbar-default"
-    role="toolbar">
-    <div
-      className="container-fluid" />
-  </div>
 </div>
 `;
 
@@ -64,12 +58,6 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       </button>
     </div>
   </nav>
-  <div
-    className="navbar navbar-default"
-    role="toolbar">
-    <div
-      className="container-fluid" />
-  </div>
 </div>
 `;
 
@@ -188,16 +176,7 @@ exports[`Toolbar should render display mode selector 1`] = `
 </div>
 `;
 
-exports[`Toolbar should render empty toolbar 1`] = `
-<div>
-  <div
-    className="navbar navbar-default"
-    role="toolbar">
-    <div
-      className="container-fluid" />
-  </div>
-</div>
-`;
+exports[`Toolbar should render empty toolbar 1`] = `<div />`;
 
 exports[`Toolbar should render filter form 1`] = `
 <div>
