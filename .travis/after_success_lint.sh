@@ -2,7 +2,7 @@
 #!/bin/bash
 set -e
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+if [ "$TRAVIS_BRANCH" != 'master' ]; then
 	echo "Linting JavaScript files"
 	lerna exec --scope=react-cmf -- yarn run lint:es 1> output/cmf.eslint.txt 2>/dev/null
 	lerna exec --scope=react-talend-components -- yarn run lint:es 1> output/components.eslint.txt 2>/dev/null
