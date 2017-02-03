@@ -71,8 +71,10 @@ function RowRenderer(props) {
 
 				return (
 					<td key={index}>
-						{cell}
-						{actions}
+						<div className={classnames('tc-list-display-table-td',theme['tc-list-display-table-td'])}>
+							<div className={classnames('cell',theme.cell)}>{cell}</div>
+							<div className={classnames('actions',theme.actions)}>{actions}</div>
+						</div>
 					</td>
 				);
 			})}
