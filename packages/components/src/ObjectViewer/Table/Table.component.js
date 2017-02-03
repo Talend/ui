@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
 import theme from './Table.scss';
@@ -19,8 +20,14 @@ function Table({ flat, data, ...props }) {
 		return null;
 	}
 	const keys = getKeys(data[0], flat);
+	const tableClassName = classNames(
+		theme.table,
+		'tc-object-viewer',
+		'table table-bordered table-striped table-hover',
+	);
+
 	return (
-		<table className="tc-object-viewer table table-bordered table-striped table-hover">
+		<table className={tableClassName}>
 			<thead>
 				<tr>
 					{keys.map((key, index) => (<td key={index}>{key}</td>))}
