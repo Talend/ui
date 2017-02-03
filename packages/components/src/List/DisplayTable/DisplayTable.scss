@@ -42,6 +42,17 @@ $tc-list-table-hover-color: $black !default;
 			background-color: $tc-list-table-hover-bg;
 		}
 
+		.tc-list-display-table-td {
+			display: flex;
+			.cell{
+				flex-shrink: 1;
+				flex-grow: 0;
+			}
+			.actions{
+				flex-shrink: 0;
+				flex-grow: 0;
+			}
+		}
 		.item-text {
 			overflow: hidden;
 			text-overflow: ellipsis;

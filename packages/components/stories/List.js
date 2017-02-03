@@ -101,6 +101,43 @@ const props = {
 				author: 'Jean-Pierre DUPONT with super long name',
 				className: 'item-2-class',
 			},
+			{
+				id: 4,
+				name: 'Title with long long long long long long long long long long long text',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions: [
+					{
+						label: 'edit',
+						icon: 'talend-pencil',
+						onClick: action('onEdit'),
+					},
+					{
+						label: 'delete',
+						icon: 'talend-trash',
+						onClick: action('onDelete'),
+					},
+					{
+						displayMode: 'dropdown',
+						label: 'related items',
+						icon: 'talend-folder',
+						items: [
+							{
+								label: 'document 1',
+								onClick: action('document 1 click'),
+							},
+							{
+								label: 'document 2',
+								onClick: action('document 2 click'),
+							},
+						],
+					},
+				],
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
 		],
 		titleProps: {
 			key: 'name',
