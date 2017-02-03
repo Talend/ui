@@ -20,7 +20,7 @@
     "react",
     "framework"
   ],
-  "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
+  "author": "Talend <contact@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "autoprefixer": "6.7.0",
@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.13.21",
+    "bootstrap-talend-theme": "^0.60.4",
     "classnames": "2.2.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
@@ -71,19 +71,19 @@
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-bootstrap": "^0.30.7",
-    "react-cmf": "0",
+    "react-cmf": "^0.60.4",
     "react-dom": "^15.4.2",
     "react-redux": "4.4.5",
     "react-router": "^3.0.2",
     "react-router-redux": "4.0.5",
-    "react-talend-components": "^0.51.0",
-    "react-talend-containers": "^0.60.0",
+    "react-talend-components": "^0.60.4",
+    "react-talend-containers": "^0.60.4",
     "redux": "3.5.2",
     "redux-batched-actions": "^0.1.5",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.1.0",
     "reselect": "^2.5.4",
-    "talend-icons": "^0.16.8",
+    "talend-icons": "^0.60.4",
     "uuid": "^3.0.1"
   }
 }
