@@ -111,6 +111,7 @@ Action.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
+	disabled: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
