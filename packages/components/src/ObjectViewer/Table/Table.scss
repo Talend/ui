@@ -1,3 +1,5 @@
-.tc-object-viewer.table-hover >tbody > tr:hover {
-	font-weight: initial;
+.table {
+	&:global(.table-hover) >tbody > tr:hover {
+		font-weight: initial;
+	}
 }
