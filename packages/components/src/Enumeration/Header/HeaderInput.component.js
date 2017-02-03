@@ -9,7 +9,7 @@ const headerClasses = () => classNames({
 	'tc-enumeration-header': true,
 });
 
-function HeaderInput({ headerInput, onAddChange, onAddKeyUp, valueAdded }) {
+function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
 	const getAction = (action, index) => {
 		const propsAction = {
 			key: index,
@@ -37,8 +37,8 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyUp, valueAdded }) {
 		});
 	};
 
-	const onAddKeyUpHandler = (event) => {
-		onAddKeyUp(event, {
+	const onAddKeyDownHandler = (event) => {
+		onAddKeyDown(event, {
 			value: event.target.value,
 		});
 	};
@@ -50,9 +50,14 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyUp, valueAdded }) {
 			<input
 				type="text"
 				placeholder="New entry"
-				ref={input => (inputRef = input)}
+				ref={(input) => {
+					inputRef = input;
+					if (input) {
+						input.focus();
+					}
+				}}
 				onChange={onAddChangeHandler}
-				onKeyUp={onAddKeyUpHandler}
+				onKeyDown={onAddKeyDownHandler}
 			/>
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>

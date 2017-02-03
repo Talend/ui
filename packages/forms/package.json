@@ -44,7 +44,7 @@
     "react-addons-test-utils": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.50.0",
+    "react-talend-components": "/home/jare/depots/ui/packages/components",
     "react-test-renderer": "15.4.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.1.1",
