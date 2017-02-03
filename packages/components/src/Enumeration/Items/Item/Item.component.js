@@ -9,9 +9,9 @@ const itemClasses = () => classNames({
 	'tc-enumeration-item': true,
 });
 
-function Item({ id, label }) {
+function Item({ id, values }) {
 	return (
-		<li className={itemClasses()}>{label}</li>
+		<li className={itemClasses()}>{values.join(',')}</li>
 	);
 }
 
