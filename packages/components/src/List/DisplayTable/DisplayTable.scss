@@ -40,19 +40,30 @@ $tc-list-table-hover-color: $black !default;
 		tr:hover {
 			color: $tc-list-table-hover-color;
 			background-color: $tc-list-table-hover-bg;
+
+			.tc-list-display-table-td {
+
+				.cell {
+					min-width: 0;
+				}
+			}
 		}
 
 		.tc-list-display-table-td {
 			display: flex;
-			.cell{
+
+			.cell {
 				flex-shrink: 1;
-				flex-grow: 0;
+				flex-grow: 1;
+				max-width: 100%;
 			}
-			.actions{
+
+			.actions {
 				flex-shrink: 0;
 				flex-grow: 0;
 			}
 		}
+
 		.item-text {
 			overflow: hidden;
 			text-overflow: ellipsis;
