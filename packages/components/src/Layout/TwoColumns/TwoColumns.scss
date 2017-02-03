@@ -6,6 +6,7 @@
 /// Layout first columns in two columns background color
 /// @type Color
 $tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
+$tc-layout-header-height: $navbar-height !default;
 
 .container {
 	display: flex;
@@ -21,6 +22,7 @@ $tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
 
 .main {
 	flex-grow: 1;
-	min-height: 0;
 	overflow: hidden;
+	/*safari need a fixed height (not in %) to manage flex columns content*/
+	height: calc(100vh - #{$tc-layout-header-height});
 }
