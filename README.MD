@@ -1,5 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1391fe51ad7e4a409f9bdb7df0ad7754)](https://www.codacy.com/app/Talend/react-flow-designer_2?utm_source=github.com&utm_medium=referral&utm_content=Talend/react-flow-designer&utm_campaign=badger)
-[![Build Status](https://travis-ci.org/acateland/react-flow-designer.svg?branch=master)](https://travis-ci.org/acateland/react-flow-designer)
+[![Build Status](https://travis-ci.org/Talend/react-flow-designer.svg?branch=master)](https://travis-ci.org/Talend/react-flow-designer.svg?branch=master)
 
 [![dependencies Status](https://david-dm.org/acateland/react-flow-designer/status.svg)](https://david-dm.org/acateland/react-flow-designer)
 
