@@ -43,8 +43,8 @@ $tc-list-table-hover-color: $black !default;
 
 			.tc-list-display-table-td {
 
-				.cell {
-					min-width: 0;
+				.actions {
+					width: auto;
 				}
 			}
 		}
@@ -55,12 +55,13 @@ $tc-list-table-hover-color: $black !default;
 			.cell {
 				flex-shrink: 1;
 				flex-grow: 1;
-				max-width: 100%;
+				min-width: 0;
 			}
 
 			.actions {
 				flex-shrink: 0;
 				flex-grow: 0;
+				width: 0;
 			}
 		}
 
