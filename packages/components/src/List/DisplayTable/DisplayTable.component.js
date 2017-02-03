@@ -24,10 +24,10 @@ function cellContent(isTitle, item, column, titleProps, id) {
 		/>);
 	}
 	return (<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
-				<span className={classnames(theme['item-text'], 'item-text')}>
-					{item[column.key]}
-				</span>
-			</TooltipTrigger>);
+		<span className={classnames(theme['item-text'], 'item-text')}>
+			{item[column.key]}
+		</span>
+	</TooltipTrigger>);
 }
 
 function RowRenderer(props) {
@@ -45,7 +45,7 @@ function RowRenderer(props) {
 		null;
 	const classes = classnames(
 		classNameKey && item[classNameKey],
-		isSelected && isSelected(item) && (selectedClass || 'active')
+		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
 	return (
 		<tr id={id} className={classes}>
@@ -81,7 +81,7 @@ RowRenderer.propTypes = {
 	id: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(
-		PropTypes.shape({ key: PropTypes.string.isRequired })
+		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
 	titleProps: ItemTitle.propTypes.titleProps,
