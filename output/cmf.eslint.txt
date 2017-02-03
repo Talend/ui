@@ -3,5 +3,5 @@ Scoping to packages that match 'react-cmf'
 yarn run v0.19.1
 $ eslint --config .eslintrc --ext .js src 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-Done in 2.76s.
+Done in 3.10s.
 Waiting for 1 child process to exit. CTRL-C to exit immediately.
