@@ -15,7 +15,8 @@
 	:global(.tc-list-display) {
 		flex-grow: 1;
 		flex-shrink: 1;
-		flex-basis: auto;
+		flex-basis: 0;
 		overflow-y: auto;
+		box-shadow: $shadow-default;
 	}
 }

@@ -2,6 +2,7 @@
 $tc-list-table-hover-bg: $concrete !default;
 $tc-list-table-color: $dove-gray !default;
 $tc-list-table-hover-color: $black !default;
+$tc-list-table-header-color: $black !default;
 $tc-list-table-header-height: 36px !default;
 
 .container {
@@ -12,6 +13,7 @@ $tc-list-table-header-height: 36px !default;
 	> div {
 		width: 100%;
 		overflow-y: auto;
+		box-shadow: $shadow-default;
 	}
 }
 
@@ -33,6 +35,7 @@ $tc-list-table-header-height: 36px !default;
 		text-transform: uppercase;
 
 		th {
+			font-size: 0;
 			height: 0;
 			line-height: 0;
 			padding-top: 0;
@@ -44,12 +47,14 @@ $tc-list-table-header-height: 36px !default;
 		}
 
 		.header {
-			color: initial;
+			color: $tc-list-table-header-color;
+			font-size: 1.4rem;
 			height: auto;
-			line-height: initial;
+			line-height: normal;
 			padding: 8px 0;
 			position: absolute;
 			top: 0;
+
 			> button {
 				padding: 0;
 				color: inherit;

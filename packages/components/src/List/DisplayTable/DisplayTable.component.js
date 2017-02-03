@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import classnames from 'classnames';
-import { Actions, Action } from '../../Actions';
+import {Actions, Action} from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
 
@@ -242,8 +242,8 @@ function DisplayTable(props) {
 	return (
 		<div className={containerClassName}>
 			<div>
-			<table className={tableClassName}>
-				<thead>
+				<table className={tableClassName}>
+					<thead>
 					<ListHeader
 						id={id}
 						columns={columns}
@@ -252,8 +252,8 @@ function DisplayTable(props) {
 						onToggleAll={onToggleAll}
 						sort={sort}
 					/>
-				</thead>
-				<tbody>
+					</thead>
+					<tbody>
 					{items.map(
 						(item, index) => (
 							<RowRenderer
@@ -266,9 +266,9 @@ function DisplayTable(props) {
 							/>
 						)
 					)}
-				</tbody>
-			</table>
-				</div>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 }
