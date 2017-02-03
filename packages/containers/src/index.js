@@ -96,9 +96,11 @@ import {
 import Action from './Action';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
+import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
+import Redirect from './Redirect';
 import SidePanel from './SidePanel';
 
 // react-bootstrap
@@ -203,8 +205,10 @@ export {
 	Action,
 	Actions,
 	AppHeaderBar,
+	HomeListView,
 	List,
 	Notification,
 	ObjectViewer,
+	Redirect,
 	SidePanel,
 };
