@@ -7,4 +7,5 @@ module.exports = {
 	Notification: props => (<div className="tc-notifications" notifications={props.notifications} />),
 	ObjectViewer: () => (<div className="tc-object-viewer" />),
 	SidePanel: () => (<div className="tc-side-panel" />),
+	List: () => (<div className="tc-list" />),
 };

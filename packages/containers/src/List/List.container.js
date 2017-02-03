@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
+import get from 'lodash/get';
 
 import { statePropTypes, stateWillMount } from '../state';
 import { getActionsProps } from '../actionAPI';
@@ -25,7 +26,7 @@ export function getItems(context, props) {
 	return props.items.map(
 		item => Object.assign({}, item, {
 			actions: getActionsProps(
-				context, props.actions.items, item
+				context, get(props, 'actions.items', []), item
 			),
 		})
 	);
@@ -85,10 +86,10 @@ class List extends React.Component {
 			displayMode: this.props.displayMode || state.displayMode,
 			list: {
 				items,
-				columns: this.props.list.columns,
+				columns: get(this.props, 'list.columns', []),
 			},
 		};
-		props.list.titleProps = this.props.list.titleProps;
+		props.list.titleProps = get(this.props, 'list.titleProps');
 
 		if (props.list.titleProps) {
 			props.list.titleProps.onClick = (e, p) => {
