@@ -30,7 +30,8 @@ class ObjectEnumerationField extends React.Component {
 			}],
 			items: props.formData.map((item) => {
 				return {
-					label: item.label,
+					id: item.id,
+					values: item.values,
 				};
 			}),
 			onAddChange: this.onAddChange.bind(this),
@@ -67,7 +68,8 @@ class ObjectEnumerationField extends React.Component {
 		this.setState({
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: this.state.items.concat([{
-				label: value.value,
+				id: -1,
+				values: [value.value],
 			}]),
 		}, () => this.props.onChange(this.state.items));
 

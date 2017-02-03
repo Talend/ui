@@ -4,7 +4,7 @@
     "description": "A enumeration form example.",
     "type": "object",
     "properties": {
-      "values": {
+      "documents": {
         "type": "array",
         "items": {
           "type": "object",
@@ -12,8 +12,11 @@
             "id": {
               "type": "number"
             },
-            "label": {
-              "type": "string"
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         }
@@ -21,23 +24,23 @@
     }
   },
   "uiSchema": {
-    "values": {
+    "documents": {
       "ui:field": "ObjectEnumerationField"
     }
   },
   "properties": {
-    "values": [{
+    "documents": [{
       "id": 1,
-      "label": "Loreum lopsum 1"
+      "values": ["Loreum lopsum 1"]
     }, {
       "id": 2,
-      "label": "Loreum lopsum 2"
+      "values": ["Loreum lopsum 2"]
     }, {
       "id": 3,
-      "label": "Loreum lopsum 3"
+      "values": ["Loreum lopsum 3"]
     }, {
       "id": 4,
-      "label": "Loreum lopsum 4"
+      "values": ["Loreum lopsum 4"]
     }]
   }
 }
