@@ -47,6 +47,26 @@ exports[`Action should display a Progress indicator if set 1`] = `
 </button>
 `;
 
+exports[`Action should display a disabled Icon 1`] = `
+<button
+  className="navbar-btn btn btn-default"
+  disabled={true}
+  onClick={[Function]}
+  role={null}
+  type="button">
+  <svg
+    aria-hidden="true"
+    className="tc-svg-icon"
+    title={null}>
+    <use
+      xlinkHref="#talend-caret-down" />
+  </svg>
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
 exports[`Action should pass all props to the Button 1`] = `
 <button
   className="navbar-btn btn btn-default"
