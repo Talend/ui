@@ -18,6 +18,7 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 
 	button {
 		flex: 1;
+		text-align: left; // because of Bootstrap .btn style
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
