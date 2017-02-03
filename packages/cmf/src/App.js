@@ -18,7 +18,7 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children !== undefined ? props.children : <UIRouter history={hist} />}
+				{props.children || <UIRouter history={hist} />}
 			</RegistryProvider>
 		</Provider>
 	);
