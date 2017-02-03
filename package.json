@@ -3,7 +3,7 @@
     "lerna": "2.0.0-beta.32"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna exec -- yarn",
     "test": "lerna run test"
   },
   "repository": {
