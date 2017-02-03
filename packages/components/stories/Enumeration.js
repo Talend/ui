@@ -26,12 +26,11 @@ const props = {
 	}],
 	items: Array(50).fill('').map((item, index) => {
 		return {
-			id: index,
 			label: `Lorem ipsum dolor sit amet ${index}`,
 		};
 	}),
 	onAddChange: action('onAddChange'),
-	onAddKeyUp: action('onAddKeyUp'),
+	onAddKeyDown: action('onAddKeyDown'),
 };
 
 const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };

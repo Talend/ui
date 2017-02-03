@@ -16,14 +16,14 @@ const enumerationClasses = () => classNames({
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 
-function Enumeration({ displayMode, headerDefault, headerInput, items, onAddChange, onAddKeyUp }) {
+function Enumeration({ displayMode, headerDefault, headerInput, items, onAddChange, onAddKeyDown }) {
 	const getHeaderFor = () => {
 		switch (displayMode) {
 		case DISPLAY_MODE_ADD:
 			const propsInput = {
 				headerInput,
 				onAddChange,
-				onAddKeyUp,
+				onAddKeyDown,
 			};
 
 			return <HeaderInput {...propsInput} />;
@@ -51,7 +51,7 @@ Enumeration.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	items: PropTypes.arrayOf(PropTypes.shape(ItemPropTypes)).isRequired,
 	onAddChange: PropTypes.func.isRequired,
-	onAddKeyUp: PropTypes.func,
+	onAddKeyDown: PropTypes.func,
 };
 
 export default Enumeration;

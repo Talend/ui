@@ -1,72 +1,92 @@
 import React from 'react';
-import { Enumeration, IconsProvider } from 'react-talend-components';
+import Enumeration from 'react-talend-components/lib/Enumeration';
 
+const KEY_CODE_ENTER = 13;
 
 class ObjectEnumerationField extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const onAddHandler = () => {
-			this.setState({
-				displayMode: 'DISPLAY_MODE_ADD',
-			});
-		}
-
-		const onAbortHandler = () => {
-			this.setState({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-			});
-		}
-
-		const onAddItem = (event, value) => {
-			console.log('###onAddItem###')
-			console.log('items', this.state.items);
-			this.setState({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-				items: this.state.items.concat([{
-					id: this.state.items.length++,
-					label: value.value
-				}])
-			}, () => props.onChange(this.state.items))
-		}
-
 		this.state = {
-				displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 
-				headerDefault: [{
-					label: 'Add item',
-					icon: 'talend-plus',
-					id: 'add',
-					onClick: onAddHandler,
-				}],
-				headerInput: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: onAddItem,
-				}, {
-					label: 'Abort',
-					icon: 'talend-cross',
-					id: 'abort',
-					onClick: onAbortHandler,
-				}],
-				items: props.formData.map((item) => {
-					return {
-						id: item.id,
-						label: item.label,
-					};
-				}),
-				onAddChange: function() {console.log('onAddChange')},
-				onAddKeyUp: function() {console.log('onAddKeyUp')},
+			headerDefault: [{
+				label: 'Add item',
+				icon: 'talend-plus',
+				id: 'add',
+				onClick: this.onChangeDisplay.bind(this),
+			}],
+			headerInput: [{
+				disabled: true,
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: this.onAddHandler.bind(this),
+			}, {
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: this.onAbortHandler.bind(this),
+			}],
+			items: props.formData.map((item) => {
+				return {
+					label: item.label,
+				};
+			}),
+			onAddChange: this.onAddChange.bind(this),
+			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
 	}
 
-	render() {
+	onChangeDisplay() {
+		this.setState({
+			displayMode: 'DISPLAY_MODE_ADD',
+		});
+	}
 
+	onAddChange(event, value) {
+		this.updateHeaderInputDisabled(value.value);
+	}
+
+	onAbortHandler() {
+		this.setState({
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+		});
+		this.updateHeaderInputDisabled('');
+	}
+
+	onAddKeyDown(event, value) {
+		if (event.keyCode === KEY_CODE_ENTER) {
+			event.stopPropagation();
+			event.preventDefault();
+			this.onAddHandler(event, value);
+		}
+	}
+
+	onAddHandler(event, value) {
+		this.setState({
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			items: this.state.items.concat([{
+				label: value.value,
+			}]),
+		}, () => this.props.onChange(this.state.items));
+
+		this.updateHeaderInputDisabled('');
+	}
+
+	updateHeaderInputDisabled(value) {
+		const [validateAction, abortAction] = this.state.headerInput;
+
+		validateAction.disabled = value === '';
+
+		this.setState({
+			headerInput: [validateAction, abortAction],
+		});
+	}
+
+	render() {
 		return (
 			<div>
-				<IconsProvider />
 				<Enumeration
 					{...this.state}
 				/>
