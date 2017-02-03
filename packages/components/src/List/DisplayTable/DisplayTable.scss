@@ -7,6 +7,12 @@ $tc-list-table-header-height: 36px !default;
 .container {
 	padding-top: $tc-list-table-header-height;
 	position: relative;
+	display: flex;
+
+	> div {
+		width: 100%;
+		overflow-y: auto;
+	}
 }
 
 .table {

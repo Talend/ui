@@ -230,14 +230,19 @@ function DisplayTable(props) {
 		titleProps,
 	} = props;
 	const { isSelected, onToggleAll } = itemProps || {};
-	const className = classnames(
+	const containerClassName = classnames(
+		'tc-list-display',
+		theme.container,
+	);
+	const tableClassName = classnames(
 		'table',
 		'tc-list-display-table',
 		theme.table,
 	);
 	return (
-		<div className={theme.container}>
-			<table className={className}>
+		<div className={containerClassName}>
+			<div>
+			<table className={tableClassName}>
 				<thead>
 					<ListHeader
 						id={id}
@@ -263,6 +268,7 @@ function DisplayTable(props) {
 					)}
 				</tbody>
 			</table>
+				</div>
 		</div>
 	);
 }

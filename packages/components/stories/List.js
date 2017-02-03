@@ -164,10 +164,6 @@ const props = {
 			totalResults: 10,
 			onChange: action('pagination.onChange'),
 		},
-		filter: {
-			onFilter: action('filter.onFilter'),
-			debounceTimeout: 300,
-		},
 	},
 };
 const columnsForItems = [

@@ -54,7 +54,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 	const displayModeId = id && `${id}-display-mode`;
 
 	return (
-		<div>
+		<div className="tc-list-toolbar">
 			{actionBar && (<ActionBar {...actionBarProps} />)}
 			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 				{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
