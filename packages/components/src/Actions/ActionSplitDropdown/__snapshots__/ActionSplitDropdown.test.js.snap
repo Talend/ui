@@ -1,0 +1,205 @@
+exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <i
+        name="fa fa-plus" />
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <Unknown
+          name="fa fa-plus" />
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className="disabled"
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        No option
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <i
+        name="fa fa-plus" />
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <Unknown
+          name="fa fa-plus" />
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        label="From Local"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Local
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        label="From Remote"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Remote
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionSplitDropdown should render a button with label 1`] = `
+<div
+  className="dropdown btn-group">
+  <button
+    className="btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span>
+      <span>
+        Add File
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label={
+      <span>
+        <span>
+          Add File
+        </span>
+      </span>
+    }
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id={undefined}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby={undefined}
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        label="From Local"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Local
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        label="From Remote"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        From Remote
+      </a>
+    </li>
+  </ul>
+</div>
+`;

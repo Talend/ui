@@ -1,0 +1,18 @@
+
+.navbar {
+	[role='search'] {
+		.form-control {
+			padding-right: $navbar-search-btn-width;
+			font-style: italic;
+			color: $navbar-search-btn-color;
+			border-radius: 0;
+			min-height: $navbar-height;
+		}
+	}
+
+	.navbar-form {
+		.form-group {
+			padding: 0;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+////
+/// Bootstrap input groups customization
+/// @group Input groups
+////
+
+.input-group {
+	&-btn {
+		> .btn {
+			padding-top: $input-group-btn-padding;
+			padding-bottom: $input-group-btn-padding;
+		}
+	}
+
+	&-addon {
+		padding-top: $input-group-addon-padding;
+		padding-bottom: $input-group-addon-padding;
+	}
+}

@@ -10,7 +10,6 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 [![peerdependencies][peerdependencies-image] ][peerdependencies-url]
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c7b3baa7ac56473aa18a34d585a3c861)](https://www.codacy.com/app/Talend/react-cmf-bootstrap)
 
 [npm-icon]: https://nodei.co/npm/react-talend-containers.png?downloads=true

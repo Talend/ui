@@ -1,0 +1,27 @@
+// ItemTitle styles
+$tc-list-item-title-icon-size: $svg-lg-size !default;
+
+.item-title {
+	display: inline;
+
+	.icon {
+		height: $tc-list-item-title-icon-size;
+		width: $tc-list-item-title-icon-size;
+		vertical-align: middle;
+
+		+ input {
+			margin-left: $padding-normal;
+			width: auto;
+		}
+	}
+
+	button {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}

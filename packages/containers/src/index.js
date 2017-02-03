@@ -98,6 +98,7 @@ import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import List from './List';
 import Notification from './Notification';
+import ObjectViewer from './ObjectViewer';
 import SidePanel from './SidePanel';
 
 // react-bootstrap
@@ -204,5 +205,6 @@ export {
 	AppHeaderBar,
 	List,
 	Notification,
+	ObjectViewer,
 	SidePanel,
 };

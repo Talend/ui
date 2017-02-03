@@ -1,0 +1,33 @@
+////
+/// Bootstrap button groups customization
+/// @group Button Groups
+////
+
+.btn-group {
+	display: inline-flex;
+
+	.btn {
+		&-primary,
+		&-success,
+		&-info,
+		&-warning,
+		&-danger {
+			.caret {
+				@include dropdown-caret-color($navbar-inverse-link-color);
+			}
+		}
+
+		+ .btn {
+			.caret.caret {
+				margin-left: 0;
+			}
+		}
+	}
+
+	&-justified {
+		> .btn,
+		> .btn-group {
+			width: auto;
+		}
+	}
+}

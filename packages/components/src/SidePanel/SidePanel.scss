@@ -1,0 +1,106 @@
+////
+/// Side panel
+/// @group Custom widgets
+////
+
+/// Side panel toggle button color
+/// @type Color
+$tc-side-panel-toggle-color: #DDD !default;
+
+.tc-side-panel {
+	overflow-x: hidden;
+	padding: 0 $padding-large;
+	transition: 0.2s padding ease-out;
+
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: 1.4em;
+		height: 1.4em;
+	}
+
+	.action-list {
+		margin: 0 (-$padding-large);
+		transition: 0.2s margin ease-out;
+	}
+
+	.link {
+		text-align: left;
+		font-size: 1em;
+		text-transform: uppercase;
+
+		:global(.tc-svg-icon) + span {
+			padding-left: $padding-normal;
+		}
+
+		span {
+			transition: 0.2s opacity linear;
+		}
+	}
+
+	//override nav-pill a bit
+	:global(.nav-pills .btn.btn-link) {
+		padding: 12px 90px 12px $padding-large;
+	}
+
+	:global(.tc-side-panel-list-item):hover {
+		background-color: darken($brand-primary, 2%);
+	}
+
+	&.docked {
+		padding: 0 $padding-normal;
+
+		:global(.nav-pills) {
+			//override nav-pill a bit
+			:global(.btn.btn-link) {
+				padding-left: $padding-normal;
+				padding-right: $padding-normal;
+			}
+
+			.toggle-btn {
+				:global(.tc-svg-icon) {
+					transform: rotate(-180deg);
+				}
+
+				:global(.btn.btn-link) {
+					padding-left: 0;
+				}
+
+				&:before {
+					margin: 12px 0 0 20px;
+				}
+			}
+
+			.link span {
+				opacity: 0;
+			}
+		}
+	}
+
+	.toggle-btn {
+		margin-left: 0;
+		margin-bottom: $padding-normal;
+
+		:global(.btn.btn-link) {
+			width: 20px;
+			padding: 12px 0;
+			outline: none;
+
+			:global(.tc-svg-icon) {
+				fill: $tc-side-panel-toggle-color;
+				width: $svg-sm-size;
+				height: $svg-sm-size;
+				transition: 0.2s transform ease-out;
+			}
+		}
+
+		&:before {
+			content: '';
+			height: 0.9em;
+			margin: 12px 0 0 20px;
+			border-left: 2px solid $tc-side-panel-toggle-color;
+		}
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+}

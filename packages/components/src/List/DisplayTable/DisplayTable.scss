@@ -1,0 +1,52 @@
+// DisplayTable styles
+$tc-list-table-hover-bg: $concrete !default;
+$tc-list-table-color: $dove-gray !default;
+$tc-list-table-hover-color: $black !default;
+
+.table {
+	:global(.btn-group) {
+		visibility: hidden;
+	}
+
+	:global(.btn-link:hover) {
+		color: $tc-list-table-hover-color;
+		text-decoration: none;
+	}
+
+	tr:hover :global(.btn-group) {
+		visibility: visible;
+	}
+
+	thead tr {
+		text-transform: uppercase;
+
+		th > button {
+			padding: 0;
+			color: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+	}
+
+	tbody {
+		:global(.btn-link) {
+			color: $tc-list-table-color;
+			font-size: inherit;
+			letter-spacing: inherit;
+			font-weight: 600;
+		}
+
+		tr:hover {
+			color: $tc-list-table-hover-color;
+			background-color: $tc-list-table-hover-bg;
+		}
+
+		.item-text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "jsonSchema": {
+    "title": "A connexion form",
+    "description": "A simple form example.",
+    "type": "object",
+    "properties": {
+      "authentication": {
+        "type": "boolean",
+        "title": "Authentication"
+      }
+    }
+  },
+  "uiSchema": {
+    "authentication": {
+      "ui:widget": "toggle",
+      "ui:trigger": [
+        "after"
+      ]
+    }
+  },
+  "properties": {}
+}

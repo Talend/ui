@@ -2,18 +2,36 @@ language: node_js
 cache:
   directories:
     - node_modules
+    - packages/cmf/node_modules
+    - packages/components/node_modules
+    - packages/containers/node_modules
+    - packages/forms/node_modules
+    - packages/generator/node_modules
+    - packages/icons/node_modules
+    - packages/theme/node_modules
     - $HOME/.cache
     - $HOME/.yarn-cache
 notifications:
   email: false
+env:
+  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+addons:
+  firefox: "50.0"
 node_js:
   - '6'
 before_install: .travis/before_install.sh
 before_script:
-  - lerna exec -- yarn --mutex network
+  - sh -e /etc/init.d/xvfb start
+  - yarn global add sassdoc http-server surge
+sudo: required
 script:
-  - lerna exec -- yarn test
-after_success: .travis/after_success.sh
+  - lerna exec --concurrency 1 -- yarn test
+after_success:
+  - .travis/after_success_lint.sh
+  - .travis/after_success_static.sh
+  - .travis/after_success_screenshots.sh
+  - .travis/after_success_git.sh
+  - .travis/after_success_deploy.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
