@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
+import get from 'lodash/get';
 
 import { statePropTypes, stateWillMount } from '../state';
 import { getActionsProps } from '../actionAPI';
@@ -15,7 +16,6 @@ export const DEFAULT_STATE = new Map({
 	sortAsc: true,
 });
 
-
 /**
  * merge props.items with actions
  * @param  {Object} context [description]
@@ -26,7 +26,7 @@ export function getItems(context, props) {
 	return props.items.map(
 		item => Object.assign({}, item, {
 			actions: getActionsProps(
-				context, props.actions.items, item
+				context, get(props, 'actions.items', []), item
 			),
 		})
 	);
@@ -81,12 +81,18 @@ class List extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-
-		// list
 		const items = getItems(this.context, this.props);
-		const titleProps = this.props.list.titleProps;
-		if (titleProps) {
-			titleProps.onClick = (e, p) => {
+		const props = {
+			displayMode: this.props.displayMode || state.displayMode,
+			list: {
+				items,
+				columns: get(this.props, 'list.columns', []),
+			},
+		};
+		props.list.titleProps = get(this.props, 'list.titleProps');
+
+		if (props.list.titleProps) {
+			props.list.titleProps.onClick = (e, p) => {
 				this.props.dispatch(
 					api.action.getActionCreatorFunction(
 						this.context,
@@ -97,57 +103,51 @@ class List extends React.Component {
 		}
 
 		// toolbar
-		const sort = this.props.toolbar.sort;
-		if (sort) {
-			sort.isDescending = !state.sortAsc;
-			sort.field = state.sortOn;
-			sort.onChange = (e, p) => {
-				this.onSelectSortBy(e, p);
-			};
-		}
-
-		const filter = this.props.toolbar.filter;
-		if (filter) {
-			filter.onFilter = (e, p) => {
-				this.onFilter(e, p);
-			};
-		}
-
-		const actionBar = { actions: {} };
-		const actions = this.props.actions;
-		if (actions) {
-			if (actions.left) {
-				actionBar.actions.left = getActionsProps(
-					this.context,
-					actions.left
-				);
-			}
-			if (actions.right) {
-				actionBar.actions.right = getActionsProps(
-					this.context,
-					actions.right
-				);
-			}
-		}
-
-		const props = {
-			displayMode: state.displayMode,
-			list: {
-				items,
-				columns: this.props.list.columns,
-				titleProps,
-			},
-			toolbar: {
-				sort,
-				filter,
+		if (this.props.toolbar) {
+			props.toolbar = {
 				display: {
 					onChange: (e, p) => {
 						this.onSelectDisplayMode(e, p);
 					},
 				},
-				actionBar,
-			},
-		};
+			};
+			props.toolbar.sort = this.props.toolbar.sort;
+
+			if (props.toolbar.sort) {
+				props.toolbar.sort.isDescending = !state.sortAsc;
+				props.toolbar.sort.field = state.sortOn;
+				props.toolbar.sort.onChange = (e, p) => {
+					this.onSelectSortBy(e, p);
+				};
+			}
+
+			props.toolbar.filter = this.props.toolbar.filter;
+
+			if (props.toolbar.filter) {
+				props.toolbar.filter.onFilter = (e, p) => {
+					this.onFilter(e, p);
+				};
+			}
+
+			props.toolbar.actionBar = { actions: {} };
+			const actions = this.props.actions;
+
+			if (actions) {
+				if (actions.left) {
+					props.toolbar.actionBar.actions.left = getActionsProps(
+						this.context,
+						actions.left
+					);
+				}
+				if (actions.right) {
+					props.toolbar.actionBar.actions.right = getActionsProps(
+						this.context,
+						actions.right
+					);
+				}
+			}
+		}
+
 		return (<Component {...props} />);
 	}
 }
