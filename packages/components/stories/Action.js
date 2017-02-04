@@ -33,6 +33,12 @@ storiesOf('Action', module)
 				{...myAction}
 				inProgress
 			/>
+			<p>Disabled</p>
+			<Action
+				id="disabled"
+				{...myAction}
+				disabled
+			/>
 			<p>Reverse display</p>
 			<Action
 				id="reverseDisplay"
