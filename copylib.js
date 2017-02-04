@@ -1,5 +1,15 @@
+#!/usr/bin/env node
 const path = require('path');
 const cpx = require('cpx');
+const program = require('commander');
+
+program
+	.version('0.0.1')
+	.option('-w, --watch', 'copy and watch to copy again')
+	.option('-s, --scope [scope]', 'only one deps')
+	.parse(process.argv);
+
+const command = program.watch ? 'watch' : 'copy';
 
 const deps = [
 	{
@@ -41,6 +51,9 @@ const deps = [
 ];
 
 deps.forEach((info) => {
+	if (program.scope && !info.src.startsWith(program.scope)) {
+		return;
+	}
 	const source = path.resolve(
 		'packages',
 		info.src,
@@ -56,9 +69,8 @@ deps.forEach((info) => {
 	const options = {
 	//	clean: true, // The flag to remove files that copied on past before copy
 	};
-	cpx.watch(source, dest, options)
-	// .on('watch-ready', () => console.log('watch ready'))
-	// .on('copy', (e) => console.log(`
-	//	${e.srcPath} -> ${e.dstPath}
-	//`));
+	cpx[command](source, dest, options)
+	//.on('copy', (e) => process.stdout.write("."))
+	//.on('copy', (e) => console.log(`${e.srcPath} -> ${e.dstPath}`))
+	;
 });
