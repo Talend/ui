@@ -31,3 +31,55 @@ front-end stack.
 - [talend-icons](https://github.com/Talend/ui/tree/master/icons)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/theme)
 
+## Tools (dev environment)
+
+If you have done a learna bootstrap in the past, please start by
+
+```
+learna clean
+```
+
+or you will have bad behavior with the following tools.
+
+### yarn run watch
+
+The stack as one may entry point:
+
+```
+yarn run watch
+```
+
+This watcher will trigger build and sync inside the stack for you.
+
+For example if you modify a component, it will rebuild component into lib folder and copy the content throw forms and containers.
+
+### yarn run build
+
+Just build all the packages for static purpose.
+It use the prepublish command.
+
+### copylibs
+
+```
+./copylibs.js
+```
+
+This script will copy all the *lib* folder of the stach into their dependencies.
+
+This script for example will copy the *lib* folder of components into containers's node_modules and forms's node_modules.
+
+it accepts options:
+
+```
+./copylibs.js --watch
+```
+
+if the content of a lib folder change it triggers the copy.
+
+```
+./copylibs.js --scope=components
+```
+
+only copy components into forms and containers.
+
+Same with all subfolder of packges.
