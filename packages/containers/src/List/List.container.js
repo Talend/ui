@@ -98,7 +98,7 @@ class List extends React.Component {
 					api.action.getActionCreatorFunction(
 						this.context,
 						this.props.actions.title,
-					)(event, p, this.context),
+					)(e, p, this.context),
 				);
 			};
 		}
