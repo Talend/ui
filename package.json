@@ -6,7 +6,7 @@
     "npm-watch": "^0.1.8"
   },
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna exec -- yarn && ./copylibs.js",
+    "postinstall": "lerna exec -- yarn && ./copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
