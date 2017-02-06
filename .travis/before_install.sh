@@ -6,9 +6,6 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	exit 0
 fi
 
-rm -rf /home/travis/.cache
-rm -rf /home/travis/.yarn-cache
-
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	rm -rf .git
 	git init

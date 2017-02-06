@@ -12,7 +12,6 @@ node_js:
   - '6'
 before_install: .travis/before_install.sh
 before_script:
-  - echo yarn cache dir && yarn cache dir
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge
 sudo: required

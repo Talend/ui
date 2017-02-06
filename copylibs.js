@@ -12,8 +12,6 @@ program
 	.option('-w, --watch', 'copy and watch to copy again')
 	.parse(process.argv);
 
-const command = program.watch ? 'watch' : 'copy';
-
 const deps = [
 	{
 		src: 'components/lib',
@@ -52,6 +50,8 @@ const deps = [
 		dest: 'forms/node_modules/bootstrap-talend-theme/src',
 	},
 ];
+
+const command = program.watch ? 'watch' : 'copy';
 
 deps.forEach((info) => {
 	if (program.scope && !info.src.startsWith(program.scope)) {
