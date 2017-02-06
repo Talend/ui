@@ -26,9 +26,9 @@ export function getItems(context, props) {
 	return props.items.map(
 		item => Object.assign({}, item, {
 			actions: getActionsProps(
-				context, get(props, 'actions.items', []), item
+				context, get(props, 'actions.items', []), item,
 			),
-		})
+		}),
 	);
 }
 
@@ -96,8 +96,8 @@ class List extends React.Component {
 				this.props.dispatch(
 					api.action.getActionCreatorFunction(
 						this.context,
-						this.props.actions.title
-					)(p.id)
+						this.props.actions.title,
+					)(p.id),
 				);
 			};
 		}
@@ -136,13 +136,13 @@ class List extends React.Component {
 				if (actions.left) {
 					props.toolbar.actionBar.actions.left = getActionsProps(
 						this.context,
-						actions.left
+						actions.left,
 					);
 				}
 				if (actions.right) {
 					props.toolbar.actionBar.actions.right = getActionsProps(
 						this.context,
-						actions.right
+						actions.right,
 					);
 				}
 			}

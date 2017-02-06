@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { Provider } from 'react-cmf/lib/mock';
 import Immutable, { Map } from 'immutable';
 
-import { List as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
 	mapDispatchToProps,

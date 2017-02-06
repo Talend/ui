@@ -12,7 +12,7 @@ function Actions({ names, ...rest }, context) {
 		context.store.dispatch(payload.action);
 	};
 	const actions = names ? names.map(
-		name => api.action.getActionInfo(context, name)
+		name => api.action.getActionInfo(context, name),
 	) : null;
 
 	return (
