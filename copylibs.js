@@ -5,8 +5,11 @@ const program = require('commander');
 
 program
 	.version('0.0.1')
-	.option('-w, --watch', 'copy and watch to copy again')
+	.option('-c, --clean', 'remove files that copied on past before')
+	.option('-d, --debug', 'display more info')
+	.option('-q, --quiet', 'display nothing')
 	.option('-s, --scope [scope]', 'only one deps')
+	.option('-w, --watch', 'copy and watch to copy again')
 	.parse(process.argv);
 
 const command = program.watch ? 'watch' : 'copy';
@@ -65,12 +68,16 @@ deps.forEach((info) => {
 		'packages',
 		info.dest
 	);
-	console.log(`Copy ${source} -> ${dest}`);
+
+	if (!program.quiet) {
+		console.log(`Copy ${source} -> ${dest}`);
+	}
+
 	const options = {
-	//	clean: true, // The flag to remove files that copied on past before copy
+		clean: program.clean,
 	};
-	cpx[command](source, dest, options)
-	//.on('copy', (e) => process.stdout.write("."))
-	//.on('copy', (e) => console.log(`${e.srcPath} -> ${e.dstPath}`))
-	;
+	const copy = cpx[command](source, dest, options);
+	if (program.debug) {
+		copy.on('copy', (e) => console.log(`${e.srcPath} -> ${e.dstPath}`));
+	}
 });
