@@ -11,7 +11,7 @@ describe('SidePanel', () => {
 		const sidepanel = renderer.create(
 			<Provider>
 				<SidePanel />
-			</Provider>
+			</Provider>,
 		).toJSON();
 		expect(sidepanel).toMatchSnapshot();
 	});
@@ -21,7 +21,7 @@ describe('SidePanel', () => {
 		const sidepanel = renderer.create(
 			<Provider>
 				<SidePanel actions={actions} />
-			</Provider>
+			</Provider>,
 		).toJSON();
 		expect(sidepanel).toMatchSnapshot();
 	});

@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { AppHeaderBar } from 'react-talend-components';
 
@@ -30,5 +29,5 @@ export function mapStateToProps(state) {
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
 )(AppHeaderBar);
