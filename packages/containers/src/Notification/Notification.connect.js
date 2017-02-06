@@ -39,8 +39,8 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 				actions.componentsActions.mergeComponentState(
 					info.name,
 					info.id,
-					newState
-				)
+					newState,
+				),
 			);
 		},
 	}, ownProps, stateProps, dispatchProps);

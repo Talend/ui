@@ -96,10 +96,15 @@
     }
   },
   "peerDependencies": {
+    "react": "^15.4.2",
     "react-bootstrap": "0",
     "react-cmf": "^0.60.5",
     "react-talend-components": "^0.60.5",
-    "reselect": "^2.5.4"
+    "react-redux": "^4.4.6",
+    "reselect": "^2.5.4",
+    "immutable": "3",
+    "invariant": "^2.2.2",
+    "lodash": "4.17.2"
   },
   "dependencies": {},
   "version": "0.60.5"

@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Action as PureAction } from 'react-talend-components';
 import { api } from 'react-cmf';
-import invariant from 'invariant';
 
 /**
  * @param {Object} props react props

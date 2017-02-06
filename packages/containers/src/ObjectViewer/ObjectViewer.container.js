@@ -14,7 +14,7 @@ export const DEFAULT_STATE = new Map({
 export function open(path, state) {
 	return state.set(
 		'opened',
-		state.get('opened').push(path)
+		state.get('opened').push(path),
 	);
 }
 
@@ -22,21 +22,21 @@ export function close(path, state) {
 	const opened = state.get('opened');
 	return state.set(
 		'opened',
-		opened.delete(opened.indexOf(path))
+		opened.delete(opened.indexOf(path)),
 	);
 }
 
 export function edit(path, state) {
 	return state.set(
 		'edited',
-		state.get('edited').push(path)
+		state.get('edited').push(path),
 	);
 }
 
 export function change(path, state, value) {
 	return state.set(
 		'modified',
-		state.get('modified').set(path, value)
+		state.get('modified').set(path, value),
 	);
 }
 
@@ -79,7 +79,7 @@ class ObjectViewer extends React.Component {
 		const newState = change(
 			data.jsonpath,
 			this.props.state,
-			event.target.value
+			event.target.value,
 		);
 		this.props.updateState(newState);
 	}
