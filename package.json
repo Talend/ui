@@ -6,7 +6,7 @@
     "npm-watch": "^0.1.8"
   },
   "scripts": {
-    "postinstall": "lerna exec -- yarn && ./copylibs.js",
+    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress && ./copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
@@ -15,7 +15,7 @@
     "build-icons": "lerna exec --scope=*icons -- yarn run prepublish && ./copylibs.js --scope=icons",
     "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && ./copylibs.js --scope=theme",
     "update-icons": "lerna exec --scope=*components -- yarn test -- -u",
-    "test": "lerna run test",
+    "test": "lerna exec --concurrency 1 -- yarn test",
     "watch": "npm-watch"
   },
   "watch": {

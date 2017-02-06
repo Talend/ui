@@ -6,17 +6,6 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
 	exit 0
 fi
 
-echo "Remove stack dependencies in case they have been linked by lerna bootstrap"
-rm -rf packages/containers/node_modules/react-talend-components/node_modules
-rm -rf packages/forms/node_modules/react-talend-components/node_modules
-rm -rf packages/containers/node_modules/talend-icons/node_modules
-rm -rf packages/components/node_modules/talend-icons/node_modules
-rm -rf packages/forms/node_modules/talend-icons/node_modules
-rm -rf packages/containers/node_modules/react-cmf/node_modules
-rm -rf packages/components/node_modules/bootstrap-talend-theme/node_modules
-rm -rf packages/containers/node_modules/bootstrap-talend-theme/node_modules
-rm -rf packages/forms/node_modules/bootstrap-talend-theme/node_modules
-
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	rm -rf .git
 	git init
