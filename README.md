@@ -64,9 +64,9 @@ It use the prepublish command.
 ./copylibs.js
 ```
 
-This script will copy all the *lib* folder of the stach into their dependencies.
+This script will copy all the *lib* folders of the stach into their dependencies.
 
-This script for example will copy the *lib* folder of components into containers's node_modules and forms's node_modules.
+This script for example will copy the *lib* folders of components into containers and forms node_modules.
 
 it accepts options:
 
@@ -82,4 +82,4 @@ if the content of a lib folder change it triggers the copy.
 
 only copy components into forms and containers.
 
-Same with all subfolder of packges.
+Same with all subfolders of packges.
