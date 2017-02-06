@@ -62,6 +62,19 @@ describe('Action', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should display a disabled Icon', () => {
+		// when
+		const wrapper = renderer.create(
+			<Action
+				className="navbar-btn"
+				disabled
+				{...myAction}
+			/>).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should reverse icon/label', () => {
 		// when
 		const wrapper = renderer.create(
