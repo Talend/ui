@@ -1,5 +1,5 @@
-import registry from './registry';
 import get from 'lodash/get';
+import registry from './registry';
 
 /**
  * @module react-cmf/lib/action
@@ -29,7 +29,7 @@ function getContentTypeActions(context, contentType, category) {
 	return get(
 		state,
 		`cmf.settings.contentTypes[${contentType}.actions[${category}]`,
-		[]
+		[],
 	);
 }
 
@@ -89,7 +89,7 @@ function getActionObject(context, id, event, data) {
  * @return {Array}       of string
  */
 function getOnProps(props) {
-	return Object.keys(props).filter((name) => (
+	return Object.keys(props).filter(name => (
 		{}.hasOwnProperty.call(props, name) &&
 		/^on.+/.test(name)
 	));

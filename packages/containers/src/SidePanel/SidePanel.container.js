@@ -19,7 +19,7 @@ class SidePanel extends React.Component {
 			PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.object,
-			])
+			]),
 		),
 		...statePropTypes,
 	};
