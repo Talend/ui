@@ -45,6 +45,7 @@ export function renderActions(actions) {
 				type={action.type}
 				onClick={action.onClick}
 				title={action.title}
+				name={action.title}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
