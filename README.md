@@ -33,17 +33,17 @@ front-end stack.
 
 ## Tools (dev environment)
 
-If you have done a learna bootstrap in the past, please start by
+If you have done a lerna bootstrap in the past, please start by
 
 ```
-learna clean
+lerna clean
 ```
 
 or you will have bad behavior with the following tools.
 
 ### yarn run watch
 
-The stack as one may entry point:
+The stack has one entry point:
 
 ```
 yarn run watch
@@ -51,7 +51,7 @@ yarn run watch
 
 This watcher will trigger build and sync inside the stack for you.
 
-For example if you modify a component, it will rebuild component into lib folder and copy the content throw forms and containers.
+For example if you modify a component, it will rebuild component into lib folder and copy the content througt forms and containers.
 
 ### yarn run build
 
