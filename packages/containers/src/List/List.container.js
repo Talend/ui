@@ -26,9 +26,9 @@ export function getItems(context, props) {
 	return props.items.map(
 		item => Object.assign({}, item, {
 			actions: getActionsProps(
-				context, get(props, 'actions.items', []), item
+				context, get(props, 'actions.items', []), item,
 			),
-		})
+		}),
 	);
 }
 
@@ -51,6 +51,7 @@ class List extends React.Component {
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
+		router: PropTypes.object,
 	};
 
 	constructor(props) {
@@ -92,12 +93,12 @@ class List extends React.Component {
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
 		if (props.list.titleProps) {
-			props.list.titleProps.onClick = (e, p) => {
+			props.list.titleProps.onClick = (event, data) => {
 				this.props.dispatch(
 					api.action.getActionCreatorFunction(
 						this.context,
-						this.props.actions.title
-					)(p.id)
+						this.props.actions.title,
+					)(event, data, this.context),
 				);
 			};
 		}
@@ -116,16 +117,16 @@ class List extends React.Component {
 			if (props.toolbar.sort) {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
-				props.toolbar.sort.onChange = (e, p) => {
-					this.onSelectSortBy(e, p);
+				props.toolbar.sort.onChange = (event, data) => {
+					this.onSelectSortBy(event, data);
 				};
 			}
 
 			props.toolbar.filter = this.props.toolbar.filter;
 
 			if (props.toolbar.filter) {
-				props.toolbar.filter.onFilter = (e, p) => {
-					this.onFilter(e, p);
+				props.toolbar.filter.onFilter = (event, data) => {
+					this.onFilter(event, data);
 				};
 			}
 
@@ -136,13 +137,13 @@ class List extends React.Component {
 				if (actions.left) {
 					props.toolbar.actionBar.actions.left = getActionsProps(
 						this.context,
-						actions.left
+						actions.left,
 					);
 				}
 				if (actions.right) {
 					props.toolbar.actionBar.actions.right = getActionsProps(
 						this.context,
-						actions.right
+						actions.right,
 					);
 				}
 			}

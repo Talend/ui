@@ -8,8 +8,8 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				actions.componentsActions.mergeComponentState(
 					name,
 					id,
-					state
-				)
+					state,
+				),
 			);
 		},
 		initState(initialState) {
@@ -18,8 +18,8 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				actions.componentsActions.addComponentState(
 					name,
 					id,
-					state
-				)
+					state,
+				),
 			);
 		},
 	};

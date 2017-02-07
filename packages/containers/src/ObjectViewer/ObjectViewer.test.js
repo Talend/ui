@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 
@@ -47,7 +46,7 @@ describe('Container ObjectViewer', () => {
 				data={data}
 				state={DEFAULT_STATE}
 				updateState={updateState}
-			/>
+			/>,
 		);
 		expect(wrapper.find(Component).length).toBe(1);
 		const props = wrapper.props();
@@ -62,7 +61,7 @@ describe('Container ObjectViewer', () => {
 
 		expect(wrapper.props().opened.length).toBe(0);
 		const path = '$[0][\'obj\']';
-		//open
+		// open
 		props.onClick(null, {
 			isOpened: false,
 			jsonpath: path,
@@ -86,7 +85,7 @@ describe('Container ObjectViewer', () => {
 				state={DEFAULT_STATE}
 				updateState={updateState}
 				onSubmit={onSubmit}
-			/>
+			/>,
 		);
 		const props = wrapper.props();
 		const path = '$[0][\'int\']';

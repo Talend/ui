@@ -75,13 +75,17 @@ const ExampleList = {
 	default: () => (
 		<div>
 			<IconsProvider />
-			<List {...props} items={items} />
+			<div className="list-container">
+				<List {...props} items={items} />
+			</div>
 		</div>
 	),
 	'no toolbar': () => (
 		<div>
 			<IconsProvider />
-			<List list={list} actions={actions} items={items} />
+			<div className="list-container">
+				<List list={list} actions={actions} items={items} />
+			</div>
 		</div>
 	),
 };

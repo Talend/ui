@@ -5,7 +5,8 @@ $tc-collapsible-panel-btn-color: #555964;
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
 
-	:global(.label), span {
+	:global(.label),
+	span {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -21,7 +22,7 @@ $tc-collapsible-panel-btn-color: #555964;
 	margin: 0 $tc-collapsible-panel-padding-normal;
 	overflow: hidden;
 
-	> :global(.btn){
+	> :global(.btn) {
 		line-height: 1em;
 		color: $tc-collapsible-panel-btn-color;
 	}
@@ -63,10 +64,12 @@ $tc-collapsible-panel-btn-color: #555964;
 
 .group {
 	justify-content: space-between;
+
 	> * {
 		margin: 0 $tc-collapsible-panel-padding-normal;
 	}
-	:global(.label){
+
+	:global(.label) {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -127,11 +130,13 @@ $tc-collapsible-panel-btn-color: #555964;
 		.content {
 			display: flex;
 			width: 100%;
+
 			.label {
 				flex-basis: 10%;
 				flex-shrink: 0;
 				flex-grow: 1;
 			}
+
 			.description {
 				flex-basis: 90%;
 				flex-shrink: 0;
