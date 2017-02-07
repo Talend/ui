@@ -10,20 +10,20 @@ addons:
   firefox: "50.0"
 node_js:
   - '6'
-before_install: test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/before_install.sh
+before_install:
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/before_install.sh
 before_script:
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && sh -e /etc/init.d/xvfb start
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && yarn global add sassdoc http-server surge
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && sh -e /etc/init.d/xvfb start
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && yarn global add sassdoc http-server surge
 sudo: required
 script:
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && yarn test
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && yarn test
 after_success:
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/after_success_lint.sh
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/after_success_static.sh
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/after_success_screenshots.sh
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/after_success_git.sh
-deploy:
-  - test $TRAVIS_COMMIT_MESSAGE != "tests: update *" && .travis/deploy.sh
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/after_success_lint.sh
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/after_success_static.sh
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/after_success_screenshots.sh
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/after_success_git.sh
+  - [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ] && .travis/deploy.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
