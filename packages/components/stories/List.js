@@ -311,7 +311,7 @@ function getPropsFor(displayMode) {
 }
 
 storiesOf('List', module)
-	.add('table (default)', () => (
+	.add('Table (default)', () => (
 		<div className="display-table">
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
@@ -452,7 +452,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('table with custom selected class', () => {
+	.add('Table with custom selected class', () => {
 		const selectedClassProps = Immutable.fromJS(props).toJS();
 		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
 		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
@@ -467,7 +467,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('table without toolbar', () => {
+	.add('Table without toolbar', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
