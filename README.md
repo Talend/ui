@@ -47,6 +47,8 @@ This watcher will trigger build and sync inside the stack for you.
 
 For example if you modify a component, it will rebuild component into lib folder and copy the content through forms and containers.
 
+Be warned the [delete or rename are not taken into account](https://github.com/remy/nodemon/issues/656).
+
 ### yarn run build
 
 Just build all the packages for static purpose.
