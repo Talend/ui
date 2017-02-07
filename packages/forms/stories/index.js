@@ -47,7 +47,7 @@ sampleFilenames
 				<section>
 					<IconsProvider />
 					<Form
-						autocomplete='off'
+						autocomplete="off"
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
 						onChange={action('Change')}
 						onSubmit={action('Submit')}
