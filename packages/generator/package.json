@@ -42,6 +42,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
+    "start": "echo nothing to start",
     "test:coverage": "istanbul cover _mocha",
     "test:lint": "eslint generator/**/index.js",
     "test:unit": "mocha --compilers js:babel-register",
