@@ -61,7 +61,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 	);
 
 	return (
-		<div>
+		<div className="tc-list-toolbar">
 			{actionBar && (<ActionBar {...actionBarProps} />)}
 			{hasToolbarItem && (
 				<Navbar

@@ -1,6 +1,6 @@
 exports[`DisplayLarge shoudl render selected list element with custom selectedClass if set 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default something"
     id="large-list-0">
@@ -249,7 +249,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
 
 exports[`DisplayLarge shoudl render selected list element with defaut 'active' class 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default active"
     id="large-list-0">
@@ -498,7 +498,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
 
 exports[`DisplayLarge should render with default title property (name) 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default"
     id={undefined}>
@@ -747,7 +747,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
 
 exports[`DisplayLarge should render with defined title property 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default"
     id={undefined}>
@@ -1013,7 +1013,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
 
 exports[`DisplayLarge should render with id if provided 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default"
     id="large-list-0">
@@ -1262,7 +1262,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
 
 exports[`DisplayLarge should render with item custom className if provided 1`] = `
 <div
-  className={undefined}>
+  className="tc-list-display">
   <div
     className="panel panel-default item-0-class"
     id="large-list-0">
