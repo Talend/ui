@@ -12,7 +12,7 @@ node_js:
   - '6'
 before_install:
   - echo $TRAVIS_COMMIT_MESSAGE
-  - 'if [ test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ]; then exit 0; else .travis/before_install.sh fi'
+  - 'if [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ]; then exit 0; fi'
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
