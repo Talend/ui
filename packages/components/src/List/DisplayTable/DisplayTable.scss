@@ -18,6 +18,8 @@ $tc-list-table-header-height: 36px !default;
 }
 
 .table {
+	margin: 0;
+
 	:global(.btn-group) {
 		visibility: hidden;
 	}
