@@ -36,16 +36,16 @@ export function renderActionIcon(icon) {
 	return null;
 }
 
-export function renderActions(actions) {
+export function renderActions(actions, handleActionClick) {
 	if (actions) {
 		return actions.map((action, index) => (
 			<Button
 				key={index}
 				bsStyle={action.style}
 				type={action.type}
-				onClick={action.onClick}
+				onClick={handleActionClick(action.onClick)}
 				title={action.title}
-				name={action.title}
+				name={action.name}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
@@ -61,6 +61,7 @@ class Form extends React.Component {
 		super(props);
 		this.handleSchemaChange = this.handleSchemaChange.bind(this);
 		this.handleSchemaSubmit = this.handleSchemaSubmit.bind(this);
+		this.handleActionClick = this.handleActionClick.bind(this);
 	}
 
 	handleSchemaSubmit(changes) {
@@ -84,6 +85,10 @@ class Form extends React.Component {
 				this.props.onChange(changes, id, name, value);
 			}
 		}
+	}
+
+	handleActionClick(onClick) {
+		return event => onClick(event, this.form.state);
 	}
 
 	render() {
@@ -121,9 +126,10 @@ class Form extends React.Component {
 				widgets={customWidgets}
 				onChange={undefined}
 				onSubmit={this.handleSchemaSubmit}
+				ref={(c) => { this.form = c; }}
 			>
 				<div className={this.props.buttonBlockClass}>
-					{renderActions(this.props.actions)}
+					{renderActions(this.props.actions, this.handleActionClick)}
 				</div>
 			</RJSForm>
 		);
