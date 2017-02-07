@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 import { select, event } from 'd3-selection';
 import { drag } from 'd3-drag';
 
-const LinkHandle = React.createClass({
-	propTypes: {
+class LinkHandle extends React.Component {
+	static propTypes = {
 		position: PropTypes.shape({
 			x: PropTypes.number.isRequired,
 			y: PropTypes.number.isRequired,
@@ -12,7 +12,14 @@ const LinkHandle = React.createClass({
 		onDrag: PropTypes.func,
 		onDragEnd: PropTypes.func,
 		component: PropTypes.element.isRequired,
-	},
+	}
+
+	constructor(props) {
+		super(props);
+		this.drag = this.drag.bind(this);
+		this.dragEnd = this.dragEnd.bind(this);
+	}
+
 	componentDidMount() {
 		this.d3Handle = select(this.handle);
 		this.d3Handle.call(
@@ -20,20 +27,24 @@ const LinkHandle = React.createClass({
 				.on('drag', this.drag)
 				.on('end', this.dragEnd),
 		);
-	},
+	}
+
 	componentWillUnmount() {
 		this.d3Handle.remove();
-	},
+	}
+
 	drag() {
 		if (this.props.onDrag) {
 			this.props.onDrag(event);
 		}
-	},
+	}
+
 	dragEnd() {
 		if (this.props.onDragEnd) {
 			this.props.onDragEnd(event);
 		}
-	},
+	}
+
 	render() {
 		const position = this.props.position;
 		return (
@@ -45,7 +56,7 @@ const LinkHandle = React.createClass({
 
 			</g>
 		);
-	},
-});
+	}
+}
 
 export default LinkHandle;

@@ -50,8 +50,8 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
 };
 
 
-export const AbstractNode = React.createClass({
-	propTypes: {
+class AbstractNode extends React.Component {
+	static propTypes = {
 		node: NodeType.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
@@ -60,8 +60,19 @@ export const AbstractNode = React.createClass({
 		onDragEnd: PropTypes.func,
 		onClick: PropTypes.func,
 		children: PropTypes.node,
-	},
-	statics: { calculatePortPosition },
+	};
+
+	static calculatePortPosition = calculatePortPosition;
+
+	constructor(props) {
+		super(props);
+		this.onClick = this.onClick.bind(this);
+		this.onDragStart = this.onDragStart.bind(this);
+		this.onDrag = this.onDrag.bind(this);
+		this.onDragEnd = this.onDragEnd.bind(this);
+		this.renderContent = this.renderContent.bind(this);
+	}
+
 	componentDidMount() {
 		this.d3Node = select(this.nodeElement);
 		this.d3Node.data([this.props.node.getPosition()]);
@@ -71,36 +82,43 @@ export const AbstractNode = React.createClass({
 				.on('drag', this.onDrag)
 				.on('end', this.onDragEnd),
 		);
-	},
+	}
+
 	shouldComponentUpdate(nextProps) {
 		return nextProps !== this.props;
-	},
+	}
+
 	componentWillUnmount() {
 		this.d3Node.remove();
-	},
+	}
+
 	onClick(clickEvent) {
 		if (this.props.onClick) {
 			this.props.onClick(clickEvent);
 		}
-	},
+	}
+
 	onDragStart() {
 		if (this.props.onDragStart) {
 			this.props.onDragStart(event);
 		}
-	},
+	}
+
 	onDrag() {
 		this.d3Node.data([this.props.node.getPosition()]);
 		this.props.moveNodeTo(this.props.node.id, event);
 		if (this.props.onDrag) {
 			this.props.onDrag(event);
 		}
-	},
+	}
+
 	onDragEnd() {
 		this.props.moveNodeToEnd(this.props.node.id, event);
 		if (this.props.onDragEnd) {
 			this.props.onDragEnd(event);
 		}
-	},
+	}
+
 	renderContent() {
 		if (this.props.children) {
 			return this.props.children;
@@ -108,7 +126,8 @@ export const AbstractNode = React.createClass({
 		invariant(false, '<AbstractNode /> should not be used without giving it a children' +
 			'ex: <AbstractNode><rect /></AbstractNode>');
 		return null;
-	},
+	}
+
 	render() {
 		const { node } = this.props;
 		const { x, y } = node.getPosition();
@@ -124,8 +143,7 @@ export const AbstractNode = React.createClass({
 				</g>
 			</g>
 		);
-	},
-});
-
+	}
+}
 
 export default AbstractNode;

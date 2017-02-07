@@ -1,5 +1,4 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { PropTypes } from 'react';
 
 const Grid = ({ transform }) => {
 	const smallGridSize = 10 * transform.k;
@@ -47,8 +46,16 @@ const Grid = ({ transform }) => {
 				height="100%"
 				fill="url(#grid)"
 			/>
-	</g>
-	)
+		</g>
+	);
+};
+
+Grid.propTypes = {
+	transform: PropTypes.shape({
+		k: PropTypes.number.isRequired,
+		x: PropTypes.number.isRequired,
+		y: PropTypes.number.isRequired,
+	}),
 };
 
 export default Grid;

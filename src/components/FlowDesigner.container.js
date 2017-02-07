@@ -15,8 +15,8 @@ import { moveNodeTo, moveNodeToEnd } from '../actions/node.actions';
 import { setNodeTypes } from '../actions/nodeType.actions';
 
 
-export const FlowDesigner = React.createClass({
-	propTypes: {
+export class FlowDesigner extends React.Component {
+	static propTypes = {
 		children: PropTypes.node,
 		setNodeTypes: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
@@ -24,13 +24,17 @@ export const FlowDesigner = React.createClass({
 		ports: orderedMapOf(PortType).isRequired,
 		links: mapOf(PropTypes.object).isRequired,
 		reduxMountPoint: PropTypes.string.isRequired,
-	},
-	getInitialState() {
-		return {
+	}
+
+	constructor(props) {
+		super(props);
+		this.state = {
 			nodeTypeMap: {},
 			linkTypeMap: {},
+			portTypeMap: {},
 		};
-	},
+	}
+
 	componentWillMount() {
 		const { children } = this.props;
 		let nodeTypeMap = {};
@@ -85,7 +89,8 @@ export const FlowDesigner = React.createClass({
 
 		this.props.setNodeTypes(nodeTypeMap);
 		this.setState({ nodeTypeMap, linkTypeMap, portTypeMap });
-	},
+	}
+
 	render() {
 		return (
 			<svg onClick={this.props.onClick} ref={c => (this.node = c)} width="100%">
@@ -124,8 +129,8 @@ export const FlowDesigner = React.createClass({
 				</ZoomHandler>
 			</svg>
 		);
-	},
-});
+	}
+}
 
 const mapStateToProps = (state, ownProps) => ({
 	nodes: get(state, ownProps.reduxMountPoint).get('nodes'),

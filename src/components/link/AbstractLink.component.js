@@ -22,8 +22,8 @@ const calculatePath = (sourcePosition, targetPosition) => {
 	return { path, xInterpolate, yInterpolate };
 };
 
-const AbstractLink = React.createClass({
-	propTypes: {
+class AbstractLink extends React.Component {
+	static propTypes = {
 		source: PortType.isRequired,
 		target: PortType.isRequired,
 		markerSource: PropTypes.element,
@@ -38,13 +38,22 @@ const AbstractLink = React.createClass({
 		onTargetDrag: PropTypes.func,
 		onTargetDragEnd: PropTypes.func,
 		children: PropTypes.node,
-	},
-	statics: calculatePath,
+		linkSourceHandleComponent: PropTypes.element,
+		sourceHandlePosition: PropTypes.shape({
+			x: PropTypes.number.isRequired,
+			y: PropTypes.number.isRequired,
+		}),
+		linkTargetHandleComponent: PropTypes.element,
+	}
+
+	static calculatePath = calculatePath;
+
 	shouldComponentUpdate(nextProps) {
 		return nextProps.source !== this.props.source ||
 			nextProps.target !== this.props.target ||
 			nextProps.targetHandlePosition !== this.props.targetHandlePosition;
-	},
+	}
+
 	renderLinkSourceHandle() {
 		if (this.props.linkSourceHandleComponent) {
 			return (<LinkHandle
@@ -54,7 +63,8 @@ const AbstractLink = React.createClass({
 			/>);
 		}
 		return null;
-	},
+	}
+  
 	renderLinkTargetHandle() {
 		if (this.props.linkTargetHandleComponent) {
 			return (<LinkHandle
@@ -64,9 +74,10 @@ const AbstractLink = React.createClass({
 			/>);
 		}
 		return null;
-	},
+	}
+
 	render() {
-		const pathCalculationMethod = this.props.calculatePath || calculatePath;
+		const pathCalculationMethod = this.props.calculatePath || self.calculatePath;
 		const { path, xInterpolate, yInterpolate } = pathCalculationMethod(
 			this.props.source.getPosition(),
 			this.props.targetHandlePosition || this.props.target.getPosition(),
@@ -81,7 +92,7 @@ const AbstractLink = React.createClass({
 				{this.renderLinkTargetHandle()}
 			</g>
 		);
-	},
-});
+	}
+}
 
 export default AbstractLink;
