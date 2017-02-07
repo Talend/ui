@@ -1,41 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 
-import { Notification as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './Notification.container';
 import Connected, {
 	mapDispatchToProps,
 	mapStateToProps,
 } from './Notification.connect';
 
-const initialState = new Map({
-	notifications: new List([
-		{
-			id: 'story-1',
-			message: 'This is a feedback of your operation1, This is a feedback of your operation1',
-		},
-		{
-			id: 'story-2',
-			type: 'error',
-			message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
-		},
-		{
-			id: 'story-3',
-			type: 'warning',
-			message: ['This is a feedback of your operation3', 'details'],
-		},
-
-	]),
-});
-
 describe('Container Notification', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider>
 				<Container />
-			</Provider>
+			</Provider>,
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
