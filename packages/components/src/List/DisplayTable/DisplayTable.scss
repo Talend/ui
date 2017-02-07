@@ -11,7 +11,7 @@ $tc-list-table-header-height: 36px !default;
 	display: flex;
 
 	> div {
-		width: 100%;
+		flex-grow: 1;
 		overflow-y: auto;
 		box-shadow: $shadow-default;
 	}
