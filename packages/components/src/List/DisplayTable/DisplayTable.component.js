@@ -119,8 +119,6 @@ function getNextDirection(isCurrentSortField, currentSort) {
 }
 
 function columnHeader(index, column, sort) {
-	let hiddenHeader;
-	let displayedHeader;
 	let header;
 
 	if (sort) {
@@ -151,6 +149,7 @@ function columnHeader(index, column, sort) {
 	return (
 		<th key={index}>
 			{header}
+			<span aria-hidden="true">{column.label}</span>
 		</th>
 	);
 }

@@ -11,10 +11,18 @@ exports[`DisplayTable should render column actions 1`] = `
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -23,10 +31,18 @@ exports[`DisplayTable should render column actions 1`] = `
               className={undefined}>
               
             </span>
+            <span
+              aria-hidden="true">
+              
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Author
+            </span>
+            <span
+              aria-hidden="true">
               Author
             </span>
           </th>
@@ -35,10 +51,18 @@ exports[`DisplayTable should render column actions 1`] = `
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -517,10 +541,18 @@ exports[`DisplayTable should render selected list element with custom selectedCl
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -529,16 +561,28 @@ exports[`DisplayTable should render selected list element with custom selectedCl
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -930,10 +974,18 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -942,16 +994,28 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -1350,6 +1414,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Id
               </span>
             </button>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <button
@@ -1370,6 +1438,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   xlinkHref="#talend-caret-down" />
               </svg>
             </button>
+            <span
+              aria-hidden="true">
+              Name
+            </span>
           </th>
           <th>
             <button
@@ -1383,6 +1455,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 
               </span>
             </button>
+            <span
+              aria-hidden="true">
+              
+            </span>
           </th>
           <th>
             <button
@@ -1396,6 +1472,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Author
               </span>
             </button>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <button
@@ -1409,6 +1489,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Created
               </span>
             </button>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <button
@@ -1422,6 +1506,10 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Modified
               </span>
             </button>
+            <span
+              aria-hidden="true">
+              Modified
+            </span>
           </th>
         </tr>
       </thead>
@@ -1898,10 +1986,18 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -1910,16 +2006,28 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -2311,10 +2419,18 @@ exports[`DisplayTable should render with defined title property 1`] = `
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -2323,16 +2439,28 @@ exports[`DisplayTable should render with defined title property 1`] = `
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -2741,10 +2869,18 @@ exports[`DisplayTable should render with id if provided 1`] = `
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -2753,16 +2889,28 @@ exports[`DisplayTable should render with id if provided 1`] = `
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>
@@ -3154,10 +3302,18 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
               className={undefined}>
               Id
             </span>
+            <span
+              aria-hidden="true">
+              Id
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Name
+            </span>
+            <span
+              aria-hidden="true">
               Name
             </span>
           </th>
@@ -3166,16 +3322,28 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
               className={undefined}>
               Author
             </span>
+            <span
+              aria-hidden="true">
+              Author
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
               Created
             </span>
+            <span
+              aria-hidden="true">
+              Created
+            </span>
           </th>
           <th>
             <span
               className={undefined}>
+              Modified
+            </span>
+            <span
+              aria-hidden="true">
               Modified
             </span>
           </th>

@@ -14,10 +14,18 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                 className={undefined}>
                 Id
               </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
               <span
                 className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
                 Name
               </span>
             </th>
@@ -605,10 +613,18 @@ exports[`List should render 1`] = `
                 className={undefined}>
                 Id
               </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
               <span
                 className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
                 Name
               </span>
             </th>
@@ -1196,10 +1212,18 @@ exports[`List should render id if provided 1`] = `
                 className={undefined}>
                 Id
               </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
               <span
                 className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
                 Name
               </span>
             </th>
