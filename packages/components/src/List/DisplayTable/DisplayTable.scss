@@ -2,6 +2,20 @@
 $tc-list-table-hover-bg: $concrete !default;
 $tc-list-table-color: $dove-gray !default;
 $tc-list-table-hover-color: $black !default;
+$tc-list-table-header-color: $black !default;
+$tc-list-table-header-height: 36px !default;
+
+.container {
+	padding-top: $tc-list-table-header-height;
+	position: relative;
+	display: flex;
+
+	> div {
+		flex-grow: 1;
+		overflow-y: auto;
+		box-shadow: $shadow-default;
+	}
+}
 
 .table {
 	:global(.btn-group) {
@@ -20,16 +34,38 @@ $tc-list-table-hover-color: $black !default;
 	thead tr {
 		text-transform: uppercase;
 
-		th > button {
-			padding: 0;
-			color: inherit;
-			font-size: inherit;
-			font-weight: inherit;
-			line-height: inherit;
+		th {
+			font-size: 0;
+			height: 0;
+			line-height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			border: none;
+			color: transparent;
+			overflow: hidden;
+			white-space: nowrap;
+		}
 
-			> svg {
-				height: $svg-xs-size;
-				width: $svg-xs-size;
+		.header {
+			color: $tc-list-table-header-color;
+			font-size: 1.4rem;
+			height: auto;
+			line-height: normal;
+			padding: 8px 0;
+			position: absolute;
+			top: 0;
+
+			> button {
+				padding: 0;
+				color: inherit;
+				font-size: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+
+				> svg {
+					height: $svg-xs-size;
+					width: $svg-xs-size;
+				}
 			}
 		}
 	}
