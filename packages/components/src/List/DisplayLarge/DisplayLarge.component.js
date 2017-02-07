@@ -159,12 +159,8 @@ function DisplayLarge(props) {
 		itemProps,
 		titleProps,
 	} = props;
-	const classnames = classNames(
-		theme.container,
-		'tc-list-display',
-	);
 	return (
-		<div className={classnames}>
+		<div className={theme.container}>
 			{items.map((item, index) => rowRenderer({
 				index,
 				id: id && `${id}-${index}`,

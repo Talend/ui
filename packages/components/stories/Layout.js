@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel } from '../src/index';
+import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -94,145 +94,6 @@ const header = {
 	app: 'Example App Name',
 };
 
-const listItem = {
-	id: 1,
-	name: 'Title',
-	created: '2016-09-22',
-	modified: '2016-09-22',
-	author: 'Jean-Pierre DUPONT',
-	display: 'text',
-};
-const listProps = {
-	id: 'talend-list',
-	displayMode: 'table',
-	list: {
-		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
-		],
-		items: [
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-		],
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
-		itemProps: {
-			classNameKey: 'className',
-			onSelect: action('onSelect'),
-			onToggle: action('onToggle'),
-			onToggleAll: action('onToggleAll'),
-		},
-	},
-	toolbar: {
-		actionBar: {
-			actions: {
-				left: [
-					{
-						id: 'add',
-						label: 'Add Folder',
-						bsStyle: 'primary',
-						icon: 'talend-plus-circle',
-						onClick: action('add.onClick'),
-					},
-					{
-						displayMode: 'splitDropdown',
-						label: 'Add File',
-						icon: 'talend-folder',
-						onClick: action('onAdd'),
-						items: [
-							{
-								label: 'From Local',
-								onClick: action('From Local click'),
-							},
-							{
-								label: 'From Remote',
-								onClick: action('From Remote click'),
-							},
-						],
-						emptyDropdownLabel: 'No option',
-					},
-				],
-			},
-		},
-		sort: {
-			field: 'name',
-			onChange: action('sort.onChange'),
-			options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
-			],
-		},
-	},
-};
-
 storiesOf('Layout', module)
 	.addWithInfo('OneColumn', () => (
 		<Layout
@@ -272,57 +133,6 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('TwoColumns with big Table list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Large list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'large'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Tile list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'tile'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
 	.addWithInfo('TwoColumns docked', () => {
 		const dockedSidePanel = (<SidePanel
 			actions={actions}
