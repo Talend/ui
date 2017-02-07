@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import {Actions, Action} from '../../Actions';
+import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
 
@@ -71,9 +71,13 @@ function RowRenderer(props) {
 
 				return (
 					<td key={index}>
-						<div className={classnames('tc-list-display-table-td',theme['tc-list-display-table-td'])}>
-							<div className={classnames('cell',theme.cell)}>{cell}</div>
-							<div className={classnames('actions',theme.actions)}>{actions}</div>
+						<div
+							className={
+								classnames('tc-list-display-table-td', theme['tc-list-display-table-td'])
+							}
+						>
+							<div className={classnames('cell', theme.cell)}>{cell}</div>
+							<div className={classnames('actions', theme.actions)}>{actions}</div>
 						</div>
 					</td>
 				);
@@ -246,28 +250,28 @@ function DisplayTable(props) {
 			<div>
 				<table className={tableClassName}>
 					<thead>
-					<ListHeader
-						id={id}
-						columns={columns}
-						isSelected={isSelected}
-						items={items}
-						onToggleAll={onToggleAll}
-						sort={sort}
-					/>
+						<ListHeader
+							id={id}
+							columns={columns}
+							isSelected={isSelected}
+							items={items}
+							onToggleAll={onToggleAll}
+							sort={sort}
+						/>
 					</thead>
 					<tbody>
-					{items.map(
-						(item, index) => (
-							<RowRenderer
-								id={id && `${id}-${index}`}
-								key={index}
-								columns={columns}
-								item={item}
-								itemProps={itemProps}
-								titleProps={titleProps}
-							/>
-						)
-					)}
+						{items.map(
+							(item, index) => (
+								<RowRenderer
+									id={id && `${id}-${index}`}
+									key={index}
+									columns={columns}
+									item={item}
+									itemProps={itemProps}
+									titleProps={titleProps}
+								/>
+							)
+						)}
 					</tbody>
 				</table>
 			</div>
