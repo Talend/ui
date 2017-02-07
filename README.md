@@ -82,3 +82,9 @@ It will start all the stack for you:
 - containers on localhost:6007
 - forms on localhost:6008
 - theme on localhost:1337
+
+If you want to work accross the stack you should launch
+
+```
+./copylibs.js --watch
+```
