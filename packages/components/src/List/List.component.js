@@ -1,12 +1,10 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
 import DisplayTable from './DisplayTable';
 import DisplayTile from './DisplayTile';
 import Content from './Content';
-import theme from './List.scss';
 
 /**
  * @param {object} props react props
@@ -73,13 +71,8 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 			};
 		}
 	}
-
-	const classnames = classNames(
-		'tc-list',
-		theme.list,
-	);
 	return (
-		<div className={classnames}>
+		<div className="tc-list">
 			{toolbar && (<Toolbar {...toolbarProps} />)}
 			{useContent ? getContent() : getDisplayModeComponent()}
 		</div>

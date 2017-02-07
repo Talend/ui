@@ -201,6 +201,10 @@ const props = {
 			totalResults: 10,
 			onChange: action('pagination.onChange'),
 		},
+		filter: {
+			onFilter: action('filter.onFilter'),
+			debounceTimeout: 300,
+		},
 	},
 };
 const columnsForItems = [
@@ -303,11 +307,11 @@ storiesOf('List', module)
 	.add('table (default)', () => (
 		<div className="display-table">
 			<h1>List</h1>
+			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
+			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...props} />
-			</div>
+			<List {...props} />
 		</div>
 	))
 	.add('large', () => {
@@ -318,9 +322,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...eprops} />
-				</div>
+				<List {...eprops} />
 			</div>
 		);
 	})
@@ -332,9 +334,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -359,11 +359,11 @@ storiesOf('List', module)
 		}));
 		return (<div>
 			<h1>List</h1>
-			<p>Display a list with columns containing actions.</p>
+			<h2>Definition</h2>
+			<p>Display a list by defining your.</p>
+			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...columnActionsProps} />
-			</div>
+			<List {...columnActionsProps} />
 		</div>);
 	})
 	.add('table with selected items', () => {
@@ -383,11 +383,11 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<p>Display a list with selected items.</p>
+				<h2>Definition</h2>
+				<p>Display a list by defining your.</p>
+				<h2>Examples</h2>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...selectedItemsProps} />
-				</div>
+				<List {...selectedItemsProps} />
 			</div>
 		);
 	})
@@ -398,11 +398,11 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
+				<h2>Definition</h2>
+				<p>Display a list by defining your.</p>
+				<h2>Examples</h2>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...selectedClassProps} />
-				</div>
+				<List {...selectedClassProps} />
 			</div>
 		);
 	})
@@ -416,9 +416,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list without toolbar</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -431,9 +429,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -444,9 +440,7 @@ storiesOf('List', module)
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('table')} />
-			</div>
+			<List {...getPropsFor('table')} />
 		</div>
 	))
 	.add('large of Content', () => (
@@ -454,9 +448,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('large')} />
-			</div>
+			<List {...getPropsFor('large')} />
 		</div>
 	))
 	.add('tile of Content', () => (
@@ -464,8 +456,6 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('tile')} />
-			</div>
+			<List {...getPropsFor('tile')} />
 		</div>
 	));
