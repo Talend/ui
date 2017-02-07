@@ -15,12 +15,6 @@ front-end stack.
 * Unified stack versions
 * Easy cross packages development
 
-## TODO
-
-- [ ] Import [react-flow-designer](https://github.com/Talend/react-flow-designer)
-- [ ] Setup projects test
-- [ ] Setup projects storybooks
-
 ## The stack
 
 - [react-cmf](https://github.com/Talend/ui/tree/master/cmf)
