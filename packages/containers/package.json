@@ -4,14 +4,14 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
-    "start": "npm run storybook",
+    "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config .eslintrc src",
     "lint": "npm run lint:es",
     "watch": "npm-watch",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   },
   "watch": {
