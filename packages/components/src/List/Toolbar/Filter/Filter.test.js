@@ -28,7 +28,7 @@ describe('Filter', () => {
 		// then
 		expect(props.onToggle).toBeCalled();
 	});
-	
+
 	it('should call onToggle on cross icon click', () => {
 		// given
 		const props = {
