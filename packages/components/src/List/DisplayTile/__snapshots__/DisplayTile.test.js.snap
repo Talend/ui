@@ -1,5 +1,6 @@
 exports[`DisplayTile shoudl render selected list element with custom selectedClass if set 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -190,7 +191,8 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
 `;
 
 exports[`DisplayTile shoudl render selected list element with defaut 'active' class 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -381,7 +383,8 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
 `;
 
 exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -589,7 +592,8 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
 `;
 
 exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -788,7 +792,8 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
 `;
 
 exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -979,7 +984,8 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
 `;
 
 exports[`DisplayTile should render with id if provided 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>
@@ -1170,7 +1176,8 @@ exports[`DisplayTile should render with id if provided 1`] = `
 `;
 
 exports[`DisplayTile should render with item custom className if provided 1`] = `
-<div>
+<div
+  className="tc-list-display">
   <ul
     className={undefined}>
     <li>

@@ -149,7 +149,7 @@ function DisplayTile(props) {
 	} = props;
 	const { width } = itemProps || {};
 	return (
-		<div>
+		<div className="tc-list-display">
 			<ul className={theme.tiles}>
 				{items.map((item, index) => (
 					<li key={index}>
