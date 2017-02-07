@@ -1,12 +1,11 @@
-import React from 'react';
 import { AppHeaderBar as PureAppHeaderBar } from 'react-talend-components';
-
-jest.mock('react-talend-components');
 
 import AppHeaderBar, {
 	mapStateToProps,
 	mapDispatchToProps,
 } from './AppHeaderBar.component';
+
+jest.mock('react-talend-components');
 
 describe('AppHeaderBar', () => {
 	it('should map state to props', () => {
@@ -25,7 +24,7 @@ describe('AppHeaderBar', () => {
 		expect(props.logo).toBe('my logo');
 	});
 	it('should be connected to the store', () => {
-		//expect(AppHeaderBar.displayName).toBe('Connect(AppHeaderBar)');
+		// expect(AppHeaderBar.displayName).toBe('Connect(AppHeaderBar)');
 		expect(AppHeaderBar.WrappedComponent).toBe(PureAppHeaderBar);
 	});
 	it('should map dispatch to props bind onClick on react-redux-router', () => {

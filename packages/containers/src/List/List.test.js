@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Provider } from 'react-cmf/lib/mock';
 import Immutable, { Map } from 'immutable';
 
-import { List as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
 	mapDispatchToProps,
@@ -38,7 +36,7 @@ const toolbar = {
 };
 
 const actions = {
-	// title: 'object:open',
+	title: 'object:open',
 	// left: ['object:add'],
 	// items: ['object:delete'],
 };
@@ -113,6 +111,33 @@ describe('Container List', () => {
 		, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
+	});
+
+	it('should ontitle click call action creator', () => {
+		const dispatch = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:open': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container {...settings} items={items} dispatch={dispatch} />
+		, {
+			lifecycleExperimental: true,
+			context,
+		});
+		const props = wrapper.props();
+		const onClick = props.list.titleProps.onClick;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onClick(e, data);
+		const calls = actionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe(e);
+		expect(calls[0][1]).toBe(data);
+		expect(calls[0][2].registry).toBe(context.registry);
 	});
 });
 
