@@ -11,8 +11,7 @@ addons:
 node_js:
   - '6'
 before_install:
-  - test $TRAVIS_COMMIT_MESSAGE =~ 'test(ci)*' \
-  && exit 0;
+  - test $TRAVIS_COMMIT_MESSAGE =~ 'test(ci)*' && exit 0;
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
