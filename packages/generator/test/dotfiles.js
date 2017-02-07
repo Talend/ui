@@ -5,7 +5,7 @@ const assert = require('yeoman-assert');
 describe('talend:dotfiles', function () {
 
 	it('fetches the tools repository', function (done) {
-		this.timeout(10000);
+		this.timeout(20000);
 		this.app = helpers
 			.run(path.join(__dirname, '../generators/dotfiles'))
 			.withOptions({})
