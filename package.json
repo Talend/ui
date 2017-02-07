@@ -8,7 +8,7 @@
     "clean:coverage": "rimraf ./coverage",
     "lint": "npm run lint:es",
     "lint:es": "eslint --config .eslintrc src/**/*.js",
-    "prepublish": "babel -d lib ./src/ && rm lib/**/*.test.js",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "jest --no-cache",
     "test:watch": "jest --watch",

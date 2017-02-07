@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Grid = ({ transform }) => {
+function Grid({ transform }) {
 	const smallGridSize = 10 * transform.k;
 	const largeGridSize = 50 * transform.k;
 	const smallGridOpacity = transform.k < 1 ? transform.k : 1;
@@ -48,7 +48,7 @@ const Grid = ({ transform }) => {
 			/>
 		</g>
 	);
-};
+}
 
 Grid.propTypes = {
 	transform: PropTypes.shape({
