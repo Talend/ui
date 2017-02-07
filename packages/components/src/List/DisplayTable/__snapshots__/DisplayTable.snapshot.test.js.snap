@@ -7,52 +7,40 @@ exports[`DisplayTable should render column actions 1`] = `
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -525,44 +513,34 @@ exports[`DisplayTable should render selected list element with custom selectedCl
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -948,44 +926,34 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -1371,113 +1339,89 @@ exports[`DisplayTable should render sortable headers 1`] = `
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  Id
-                </span>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on Id field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                Id
+              </span>
+            </button>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  Name
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="tc-svg-icon"
-                  title={null}>
-                  <use
-                    xlinkHref="#talend-caret-down" />
-                </svg>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on Name field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                Name
+              </span>
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                title={null}>
+                <use
+                  xlinkHref="#talend-caret-down" />
+              </svg>
+            </button>
           </th>
           <th>
-            
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  
-                </span>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on  field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                
+              </span>
+            </button>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  Author
-                </span>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on Author field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                Author
+              </span>
+            </button>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  Created
-                </span>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on Created field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                Created
+              </span>
+            </button>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
-              className={undefined}>
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                role="link"
-                type="button">
-                <span>
-                  Modified
-                </span>
-              </button>
-            </div>
+            <button
+              aria-label="Sort on Modified field"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              role="link"
+              type="button">
+              <span>
+                Modified
+              </span>
+            </button>
           </th>
         </tr>
       </thead>
@@ -1950,44 +1894,34 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -2373,44 +2307,34 @@ exports[`DisplayTable should render with defined title property 1`] = `
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -2813,44 +2737,34 @@ exports[`DisplayTable should render with id if provided 1`] = `
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>
@@ -3236,44 +3150,34 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
       <thead>
         <tr>
           <th>
-            Id
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Id
-            </div>
+            </span>
           </th>
           <th>
-            Name
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Name
-            </div>
+            </span>
           </th>
           <th>
-            Author
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Author
-            </div>
+            </span>
           </th>
           <th>
-            Created
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Created
-            </div>
+            </span>
           </th>
           <th>
-            Modified
-            <div
-              aria-hidden="true"
+            <span
               className={undefined}>
               Modified
-            </div>
+            </span>
           </th>
         </tr>
       </thead>

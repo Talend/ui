@@ -1,4 +1,5 @@
 const NATIVE_PROPS = [
+	'aria-label',
 	'className',
 	'id',
 ];
@@ -23,6 +24,7 @@ function extractNativeProps(props) {
 			extractedProps[propName] = props[propName];
 		}
 	});
+	
 	return extractedProps;
 }
 

@@ -10,20 +10,16 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
             </th>
           </tr>
         </thead>
@@ -605,20 +601,16 @@ exports[`List should render 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
             </th>
           </tr>
         </thead>
@@ -1200,20 +1192,16 @@ exports[`List should render id if provided 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
             </th>
           </tr>
         </thead>
