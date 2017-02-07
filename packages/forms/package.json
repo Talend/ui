@@ -69,8 +69,8 @@
     "lint:es": "eslint --config .eslintrc src",
     "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6006",
-    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6008",
+    "start": "start-storybook -p 6008",
     "build-storybook": "build-storybook"
   },
   "jest": {
