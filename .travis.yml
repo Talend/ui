@@ -11,19 +11,20 @@ addons:
 node_js:
   - '6'
 before_install:
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/before_install.sh
+  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" && travis_terminate 1;
+  - .travis/before_install.sh
 before_script:
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || sh -e /etc/init.d/xvfb start
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || yarn global add sassdoc http-server surge
+  - sh -e /etc/init.d/xvfb start
+  - yarn global add sassdoc http-server surge
 sudo: required
 script:
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || yarn test
+  - yarn test
 after_success:
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/after_success_lint.sh
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/after_success_static.sh
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/after_success_screenshots.sh
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/after_success_git.sh
-  - test $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" || .travis/after_success_deploy.sh
+  - .travis/after_success_lint.sh
+  - .travis/after_success_static.sh
+  - .travis/after_success_screenshots.sh
+  - .travis/after_success_git.sh
+  - .travis/after_success_deploy.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
