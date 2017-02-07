@@ -12,6 +12,7 @@ node_js:
   - '6'
 before_install:
   - echo $TRAVIS_COMMIT_MESSAGE
+  - travis_terminate 0;
   - 'if [ $TRAVIS_COMMIT_MESSAGE =~ "test(ci)*" ]; then exit 0; fi'
   - .travis/before_install.sh
 before_script:
