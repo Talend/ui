@@ -1,0 +1,19 @@
+exports[`Redirect should redirect to path 1`] = `
+<div
+  className="mock-provider">
+  <div>
+    <svg
+      className=""
+      viewBox="0 0 50 50">
+      <circle
+        className={undefined}
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={undefined} />
+    </svg>
+    Redirect ...
+  </div>
+</div>
+`;
