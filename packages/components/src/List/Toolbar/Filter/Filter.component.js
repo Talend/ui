@@ -3,17 +3,18 @@ import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
+import keycode from 'keycode';
+
 import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
-import { ESC_KEY, ENTER_KEY } from '../../../utils/keyboardConstants';
 import theme from './Filter.scss';
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
-	case ESC_KEY:
+	case keycode.codes.esc:
 		escAction(event);
 		break;
-	case ENTER_KEY:
+	case keycode.codes.enter:
 		if (enterAction) {
 			enterAction(event);
 		}
@@ -22,6 +23,7 @@ function onKeyDown(event, escAction, enterAction) {
 		break;
 	}
 }
+
 function FilterInput(props) {
 	const {
 		id,
