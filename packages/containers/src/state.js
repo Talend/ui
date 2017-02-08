@@ -31,10 +31,19 @@ export function getStateProps(state, name, id) {
 	};
 }
 
-export function stateWillMount(props) {
+export function initState(props) {
 	if (!props.state && props.initState) {
 		props.initState(props.initialState);
 	}
+}
+
+// BBB
+export function stateWillMount(props) {
+	console.log(  // eslint-disable-line no-console
+		`DEPRECATION Warning: you should use initState
+		in componentDidMount instead.
+		https://github.com/facebook/react/issues/7671`);
+	initState(props);
 }
 
 export const statePropTypes = {
