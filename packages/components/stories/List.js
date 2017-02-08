@@ -301,7 +301,7 @@ const getPropsFor = displayMode => ({
 
 storiesOf('List', module)
 	.add('table (default)', () => (
-		<div className="display-table">
+		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
 			<IconsProvider defaultIcons={icons} />
@@ -381,19 +381,6 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('table with custom selected class', () => {
-		const selectedClassProps = Immutable.fromJS(props).toJS();
-		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
-		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...selectedClassProps} />
-			</div>
-		);
-	})
 	.add('table without toolbar', () => {
 		const tprops = {
 			...props,
@@ -408,6 +395,20 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('table with custom selected class', () => {
+		const selectedClassProps = Immutable.fromJS(props).toJS();
+		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.toolbar = undefined;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with custom selected class.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedClassProps} />
+			</div>
+		);
+	})
 	.add('Table with scroll', () => {
 		const tprops = {
 			...props,
@@ -418,9 +419,26 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list in a limited container. To enable content scroll.</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="small-list-container">
+				<div className="tc-list-small-container">
 					<List {...tprops} />
 				</div>
+			</div>
+		);
+	})
+	.add('Table with ellipsis', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div className="tc-list-fixed-name-column">
+				<h1>List</h1>
+				<p>
+					Display a list with NAME content ellipsis.
+					The NAME column is limited to 400px in css.
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
 			</div>
 		);
 	})

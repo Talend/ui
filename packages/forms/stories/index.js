@@ -39,7 +39,7 @@ const sampleFilenameRegex = /^.\/(.*).json$/;
 sampleFilenames
 	.keys()
 	.forEach(
-		filename => {
+		(filename) => {
 			const sampleNameMatches = filename.match(sampleFilenameRegex);
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
@@ -47,7 +47,7 @@ sampleFilenames
 				<section>
 					<IconsProvider />
 					<Form
-						autocomplete='off'
+						autocomplete="off"
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
 						onChange={action('Change')}
 						onSubmit={action('Submit')}
