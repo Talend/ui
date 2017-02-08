@@ -7,17 +7,9 @@ import Redirect from './Redirect.component';
 jest.mock('react-dom');
 
 describe('Redirect', () => {
-	xit('should render a circular progress', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Redirect path="/hello-world" />
-			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
 	it('should dispatch a redirect action', () => {
 		const dispatch = jest.fn();
-		Redirect(
+		const result = Redirect(
 			{ path: '/hello-world' },
 			{ store: { dispatch } }
 		);
@@ -25,5 +17,6 @@ describe('Redirect', () => {
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
 		expect(action.cmf.routerReplace).toBe('/hello-world');
+		expect(result).toMatchSnapshot();
 	});
 });
