@@ -51,5 +51,12 @@ storiesOf('Action', module)
 				{...myAction}
 				iconTransform={'rotate-180'}
 			/>
+			<p>Specify an form to the action</p>
+			<Action
+				form="formDisplay"
+				type="submit"
+				{...myAction}
+				iconTransform={'rotate-180'}
+			/>
 		</div>
 	));

@@ -78,6 +78,7 @@ function Action(props) {
 		model,
 		onClick,
 		tooltipPlacement,
+		form,
 		...rest
 	} = props;
 
@@ -87,6 +88,10 @@ function Action(props) {
 		action: { label, ...rest },
 		model,
 	});
+
+	if (form) {
+		buttonProps.form = form;
+	}
 
 	const buttonContent = getContent(props);
 
@@ -119,6 +124,7 @@ Action.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	form: PropTypes.string,
 };
 
 Action.defaultProps = {
