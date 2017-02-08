@@ -27,16 +27,15 @@ function Item({ item, itemProps }) {
 	} = itemProps;
 
 	const getAction = (action, index) => {
-		const propsAction = {
-			key: index,
-			label: action.label,
-			icon: action.icon,
-			onClick: action.onClick && (event => action.onClick(event, { value: event.target.value })),
-		};
+		const onClick = action.onClick &&
+			(event => action.onClick(event, { value: event.target.value }));
 
 		return (
 			<Action
-				{...propsAction}
+				key={index}
+				label={action.label}
+				icon={action.icon}
+				onClick={onClick}
 				tooltipPlacement="bottom"
 				hideLabel
 				link

@@ -11,19 +11,17 @@ const headerClasses = () => classNames({
 
 function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
 	const getAction = (action, index) => {
-		const propsAction = {
-			key: index,
-			label: action.label,
-			icon: action.icon,
-			onClick: action.onClick && (
-				event => action.onClick(event, { value: inputRef.value })
-			),
-			disabled: action.disabled,
-		};
+		const onClick = action.onClick && (
+			event => action.onClick(event, { value: inputRef.value })
+		);
 
 		return (
 			<Action
-				{...propsAction}
+				key={index}
+				label={action.label}
+				icon={action.icon}
+				onClick={onClick}
+				disabled={action.disabled}
 				tooltipPlacement="bottom"
 				hideLabel
 				link

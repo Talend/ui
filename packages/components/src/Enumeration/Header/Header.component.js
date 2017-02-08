@@ -11,17 +11,15 @@ const headerClasses = () => classNames({
 
 function Header({ headerDefault }) {
 	const getAction = (action, index) => {
-		const propsAction = {
-			key: index,
-			label: action.label,
-			icon: action.icon,
-			onClick: action.onClick && (event => action.onClick(event, { value: event.target.value })),
-		};
-
+		const onClick = action.onClick &&
+			(event => action.onClick(event, { value: event.target.value }));
 		return (
 			<Action
-				{...propsAction}
-				tooltipPlacement="bottom"
+				key={index}
+				label={action.label}
+				icon={action.icon}
+				onClick={onClick}
+				btooltipPlacement="bottom"
 				hideLabel
 				link
 			/>
