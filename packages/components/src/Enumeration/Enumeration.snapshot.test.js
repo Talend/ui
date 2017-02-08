@@ -28,7 +28,6 @@ describe('Enumeration', () => {
 			}],
 			items: Array(3).fill('').map((item, index) => {
 				return {
-					id: index,
 					values: [`Lorem ipsum dolor sit amet ${index}`],
 				};
 			}),
@@ -89,7 +88,6 @@ describe('Enumeration', () => {
 			}],
 			items: Array(3).fill('').map((item, index) => {
 				return {
-					id: index,
 					values: [`Lorem ipsum dolor sit amet ${index}`],
 				};
 			}),
@@ -150,7 +148,6 @@ describe('Enumeration', () => {
 			}],
 			items: Array(3).fill('').map((item, index) => {
 				return {
-					id: index,
 					values: [`Lorem ipsum dolor sit amet ${index}`],
 				};
 			}),

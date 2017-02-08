@@ -51,7 +51,8 @@ exports[`Enumeration should render with header in add state and list in default 
   <ul
     className="undefined tc-enumeration-items">
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="0-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 0
@@ -99,7 +100,8 @@ exports[`Enumeration should render with header in add state and list in default 
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="1-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 1
@@ -147,7 +149,8 @@ exports[`Enumeration should render with header in add state and list in default 
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="2-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 2
@@ -229,7 +232,8 @@ exports[`Enumeration should render with header in default state and first item i
   <ul
     className="undefined tc-enumeration-items">
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="0-item">
       <input
         autoFocus={true}
         className="undefined tc-enumeration-item-label"
@@ -260,7 +264,8 @@ exports[`Enumeration should render with header in default state and first item i
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="1-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 1
@@ -308,7 +313,8 @@ exports[`Enumeration should render with header in default state and first item i
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="2-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 2
@@ -390,7 +396,8 @@ exports[`Enumeration should render with header in default state and list in defa
   <ul
     className="undefined tc-enumeration-items">
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="0-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 0
@@ -438,7 +445,8 @@ exports[`Enumeration should render with header in default state and list in defa
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="1-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 1
@@ -486,7 +494,8 @@ exports[`Enumeration should render with header in default state and list in defa
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item">
+      className="undefined tc-enumeration-item"
+      id="2-item">
       <div
         className="undefined tc-enumeration-item-label">
         Lorem ipsum dolor sit amet 2

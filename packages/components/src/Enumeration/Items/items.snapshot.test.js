@@ -10,7 +10,6 @@ describe('Items', () => {
 		const props = {
 			items: Array(3).fill('').map((item, index) => {
 				return {
-					id: index,
 					values: [`Lorem ipsum dolor sit amet ${index}`],
 				};
 			}),

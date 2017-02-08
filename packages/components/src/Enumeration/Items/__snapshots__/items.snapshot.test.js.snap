@@ -2,7 +2,8 @@ exports[`Items should display one item in edit mode and the other in default 1`]
 <ul
   className="undefined tc-enumeration-items">
   <li
-    className="undefined tc-enumeration-item">
+    className="undefined tc-enumeration-item"
+    id="0-item">
     <input
       autoFocus={true}
       className="undefined tc-enumeration-item-label"
@@ -33,7 +34,8 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     </div>
   </li>
   <li
-    className="undefined tc-enumeration-item">
+    className="undefined tc-enumeration-item"
+    id="1-item">
     <div
       className="undefined tc-enumeration-item-label">
       Lorem ipsum dolor sit amet 1
@@ -81,7 +83,8 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     </div>
   </li>
   <li
-    className="undefined tc-enumeration-item">
+    className="undefined tc-enumeration-item"
+    id="2-item">
     <div
       className="undefined tc-enumeration-item-label">
       Lorem ipsum dolor sit amet 2

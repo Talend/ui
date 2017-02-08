@@ -23,13 +23,31 @@ function Items({ items, itemsProp }) {
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT:
-				itemProps.actions = itemsProp.actionsEdit;
-				itemProps.onSubmitItem = itemsProp.onSubmitItem;
-				itemProps.onAbortItem = itemsProp.onAbortItem;
-				return <ItemEdit key={index} item={item} itemProps={itemProps} />;
+				let itemPropsEdit = {
+					key: itemsProp.key,
+					actions: itemsProp.actionsEdit,
+					onSubmitItem: itemsProp.onSubmitItem,
+					onAbortItem: itemsProp.onAbortItem,
+				};
+
+				return <ItemEdit
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={item}
+					itemProps={itemPropsEdit}
+				/>;
 			default:
-				itemProps.actions = itemsProp.actionsDefault;
-				return <Item key={index} item={item} itemProps={itemProps} />;
+				let itemPropDefault = {
+					key: itemsProp.key,
+					actions: itemsProp.actionsDefault,
+				};
+
+				return <Item
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={item}
+					itemProps={itemPropDefault}
+				/>;
 		}
 	};
 
@@ -42,7 +60,6 @@ function Items({ items, itemsProp }) {
 
 Items.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),
 	itemsProp: PropTypes.shape({

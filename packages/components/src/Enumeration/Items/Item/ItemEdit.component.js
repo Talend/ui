@@ -81,7 +81,7 @@ class ItemEdit extends React.Component {
 
 	render() {
 		return (
-			<li className={itemClasses()}>
+			<li className={itemClasses()} id={this.props.id}>
 				<input className={itemLabelClasses()}
 					   ref={(input) => { this.itemInput = input; }}
 					   type="text"

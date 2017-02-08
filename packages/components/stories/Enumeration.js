@@ -26,7 +26,6 @@ const props = {
 	}],
 	items: Array(50).fill('').map((item, index) => {
 		return {
-			id: index,
 			values: [`Lorem ipsum dolor sit amet ${index}`],
 		};
 	}),
@@ -67,13 +66,11 @@ const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
 const editItemProps = { ...props, displayMode: 'DISPLAY_MODE_DEFAULT' };
 editItemProps.items = Array(50).fill('').map((item, index) => {
 	return {
-		id: index,
 		values: [`Lorem ipsum dolor sit amet ${index}`],
 	};
 });
 
 editItemProps.items[0] = {
-	id: 0,
 	values: ['Lorem ipsum dolor sit amet 0'],
 	displayMode: 'DISPLAY_MODE_EDIT',
 };

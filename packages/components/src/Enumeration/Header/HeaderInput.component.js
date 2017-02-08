@@ -17,7 +17,7 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
 
 		return (
 			<Action
-				key={index}
+				key={`${index}-enum-header-action`}
 				label={action.label}
 				icon={action.icon}
 				onClick={onClick}

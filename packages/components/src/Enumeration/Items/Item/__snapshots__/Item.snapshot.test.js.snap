@@ -1,6 +1,7 @@
 exports[`Item should display value with two buttons 1`] = `
 <li
-  className="undefined tc-enumeration-item">
+  className="undefined tc-enumeration-item"
+  id="0-item">
   <div
     className="undefined tc-enumeration-item-label">
     toto
