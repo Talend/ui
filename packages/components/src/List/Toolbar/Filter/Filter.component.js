@@ -5,10 +5,8 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
+import { ESC_KEY, ENTER_KEY } from '../../../utils/keyboardConstants';
 import theme from './Filter.scss';
-
-const ESC_KEY = 27;
-const ENTER_KEY = 13;
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
