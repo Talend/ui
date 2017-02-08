@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
 import Component from './<%= props.name %>.component';
-import { statePropTypes, stateWillMount } from '../state';
+import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
 
@@ -20,8 +20,8 @@ class <%= props.name %> extends React.Component {
 		super(props);
 	}
 
-	componentWillMount() {
-		stateWillMount(this.props);
+	componentDidMount() {
+		initState(this.props);
 	}
 
 	render() {
