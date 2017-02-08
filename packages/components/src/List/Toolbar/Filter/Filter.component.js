@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import get from 'lodash/get';
 import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
 import theme from './Filter.scss';
@@ -102,7 +103,7 @@ function Filter(props) {
 
 	function onSubmit(event) {
 		event.preventDefault();
-		return onFilter(event, event.target.search.value);
+		return onFilter(event, get(event, 'target.search.value'));
 	}
 
 	const classes = classNames(
