@@ -2,6 +2,7 @@ import { PropTypes } from 'react';
 import Action from '../../../Actions/Action';
 
 export default {
+	id: PropTypes.string,
 	item: PropTypes.object.isRequired,
 	itemProps: PropTypes.shape({
 		key: PropTypes.string,

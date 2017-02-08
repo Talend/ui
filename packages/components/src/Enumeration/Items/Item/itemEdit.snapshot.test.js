@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 import ItemEdit from './ItemEdit.component';
 
 const item = {
-	id: 1,
 	values: ['toto'],
 };
 
@@ -12,6 +11,7 @@ describe('Item', () => {
 	it('should display input value with two buttons', () => {
 		// given
 		const props = {
+			id: '0-item',
 			item: item,
 			itemProps: {
 				key: 'values',

@@ -15,7 +15,7 @@ function Header({ headerDefault }) {
 			(event => action.onClick(event, { value: event.target.value }));
 		return (
 			<Action
-				key={index}
+				key={`${index}-enum-header-action`}
 				label={action.label}
 				icon={action.icon}
 				onClick={onClick}

@@ -20,7 +20,7 @@ const itemDefaultActionsClasses = () => classNames({
 	[theme['editable']]: true,
 });
 
-function Item({ item, itemProps }) {
+function Item({ id, item, itemProps }) {
 	const {
 		key,
 		actions,
@@ -44,7 +44,7 @@ function Item({ item, itemProps }) {
 	};
 
 	return (
-		<li className={itemClasses()}>
+		<li className={itemClasses()} id={id}>
 			<div className={itemLabelClasses()}>{item[key].join(',')}</div>
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
