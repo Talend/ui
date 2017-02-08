@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
+ import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 
@@ -8,10 +9,48 @@ const itemClasses = () => classNames({
 	[theme['tc-enumeration-item']]: true,
 	'tc-enumeration-item': true,
 });
+const itemLabelClasses = () => classNames({
+	[theme['tc-enumeration-item-label']]: true,
+	'tc-enumeration-item-label': true,
+});
 
-function Item({ id, values }) {
+const itemDefaultActionsClasses = () => classNames({
+	[theme['tc-enumeration-item-actions']]: true,
+	'tc-enumeration-item-actions': true,
+	[theme['editable']]: true,
+});
+
+function Item({ item, itemProps }) {
+	const {
+		key,
+		actions,
+	} = itemProps;
+
+	const getAction = (action, index) => {
+		const propsAction = {
+			key: index,
+			label: action.label,
+			icon: action.icon,
+			onClick: action.onClick && (event => action.onClick(event, { value: event.target.value })),
+		};
+
+		return (
+			<Action
+				{...propsAction}
+				tooltipPlacement="bottom"
+				hideLabel
+				link
+			/>
+		);
+	};
+
 	return (
-		<li className={itemClasses()}>{values.join(',')}</li>
+		<li className={itemClasses()}>
+			<div className={itemLabelClasses()}>{item[key].join(',')}</div>
+			<div className={itemDefaultActionsClasses()}>
+				{actions.map((action, index) => getAction(action, index))}
+			</div>
+		</li>
 	);
 }
 

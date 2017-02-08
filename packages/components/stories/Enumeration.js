@@ -30,11 +30,54 @@ const props = {
 			values: [`Lorem ipsum dolor sit amet ${index}`],
 		};
 	}),
+	itemsProp: {
+		key: 'values',
+		onSubmitItem: action('itemEdit.onSubmit'),
+		onAbortItem: action('itemEdit.onCancel'),
+		actionsDefault: [{
+			disabled: false,
+			label: 'Edit',
+			icon: 'talend-pencil',
+			id: 'edit',
+			onClick: action('item.onEnterEditMode'),
+		}, {
+			label: 'Delete',
+			icon: 'talend-trash',
+			id: 'delete',
+			onClick: action('item.onDelete'),
+		}],
+		actionsEdit: [{
+			disabled: false,
+			label: 'Validate',
+			icon: 'talend-check',
+			id: 'validate',
+			onClick: action('itemEdit.onSubmit'),
+		}, /* {
+			label: 'Abort',
+			icon: 'talend-cross',
+			id: 'abort',
+			onClick: action('itemEdit.onCancel'),
+		} */],
+	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
 const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
+const editItemProps = { ...props, displayMode: 'DISPLAY_MODE_DEFAULT' };
+editItemProps.items = Array(50).fill('').map((item, index) => {
+	return {
+		id: index,
+		values: [`Lorem ipsum dolor sit amet ${index}`],
+	};
+});
+
+editItemProps.items[0] = {
+	id: 0,
+	values: ['Lorem ipsum dolor sit amet 0'],
+	displayMode: 'DISPLAY_MODE_EDIT',
+};
+
 
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
@@ -52,6 +95,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...addProps}
+			/>
+		</div>
+	))
+	.addWithInfo('edit mode', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...editItemProps}
 			/>
 		</div>
 	));
