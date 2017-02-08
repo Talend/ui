@@ -52,12 +52,10 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
 				placeholder="New entry"
 				ref={(input) => {
 					inputRef = input;
-					if (input) {
-						input.focus();
-					}
 				}}
 				onChange={onAddChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
+				autoFocus
 			/>
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
