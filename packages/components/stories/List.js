@@ -301,13 +301,11 @@ const getPropsFor = displayMode => ({
 
 storiesOf('List', module)
 	.add('table (default)', () => (
-		<div className="display-table">
+		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...props} />
-			</div>
+			<List {...props} />
 		</div>
 	))
 	.add('large', () => {
@@ -318,9 +316,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...eprops} />
-				</div>
+				<List {...eprops} />
 			</div>
 		);
 	})
@@ -332,9 +328,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -361,9 +355,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display a list with columns containing actions.</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...columnActionsProps} />
-			</div>
+			<List {...columnActionsProps} />
 		</div>);
 	})
 	.add('table with selected items', () => {
@@ -385,24 +377,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list with selected items.</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...selectedItemsProps} />
-				</div>
-			</div>
-		);
-	})
-	.add('table with custom selected class', () => {
-		const selectedClassProps = Immutable.fromJS(props).toJS();
-		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
-		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
-				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...selectedClassProps} />
-				</div>
+				<List {...selectedItemsProps} />
 			</div>
 		);
 	})
@@ -416,9 +391,54 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list without toolbar</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('table with custom selected class', () => {
+		const selectedClassProps = Immutable.fromJS(props).toJS();
+		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.toolbar = undefined;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with custom selected class.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedClassProps} />
+			</div>
+		);
+	})
+	.add('Table with scroll', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list in a limited container. To enable content scroll.</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
 					<List {...tprops} />
 				</div>
+			</div>
+		);
+	})
+	.add('Table with ellipsis', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div className="tc-list-fixed-name-column">
+				<h1>List</h1>
+				<p>
+					Display a list with NAME content ellipsis.
+					The NAME column is limited to 400px in css.
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -431,9 +451,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -444,9 +462,7 @@ storiesOf('List', module)
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('table')} />
-			</div>
+			<List {...getPropsFor('table')} />
 		</div>
 	))
 	.add('large of Content', () => (
@@ -454,9 +470,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('large')} />
-			</div>
+			<List {...getPropsFor('large')} />
 		</div>
 	))
 	.add('tile of Content', () => (
@@ -464,8 +478,6 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<div className="list-container">
-				<List {...getPropsFor('tile')} />
-			</div>
+			<List {...getPropsFor('tile')} />
 		</div>
 	));
