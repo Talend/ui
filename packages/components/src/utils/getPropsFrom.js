@@ -24,7 +24,7 @@ function extractNativeProps(props) {
 			extractedProps[propName] = props[propName];
 		}
 	});
-	
+
 	return extractedProps;
 }
 
