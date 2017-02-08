@@ -18,6 +18,8 @@ $tc-list-table-header-height: 36px !default;
 }
 
 .table {
+	margin: 0;
+
 	:global(.btn-group) {
 		visibility: hidden;
 	}
@@ -35,7 +37,6 @@ $tc-list-table-header-height: 36px !default;
 		text-transform: uppercase;
 
 		th {
-			font-size: 0;
 			height: 0;
 			line-height: 0;
 			padding-top: 0;
