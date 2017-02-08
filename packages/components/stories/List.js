@@ -201,10 +201,6 @@ const props = {
 			totalResults: 10,
 			onChange: action('pagination.onChange'),
 		},
-		filter: {
-			onFilter: action('filter.onFilter'),
-			debounceTimeout: 300,
-		},
 	},
 };
 const columnsForItems = [
@@ -307,9 +303,7 @@ storiesOf('List', module)
 	.add('table (default)', () => (
 		<div className="display-table">
 			<h1>List</h1>
-			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
-			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} />
 		</div>
@@ -359,9 +353,7 @@ storiesOf('List', module)
 		}));
 		return (<div>
 			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Display a list by defining your.</p>
-			<h2>Examples</h2>
+			<p>Display a list with columns containing actions.</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...columnActionsProps} />
 		</div>);
@@ -383,9 +375,7 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Display a list by defining your.</p>
-				<h2>Examples</h2>
+				<p>Display a list with selected items.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} />
 			</div>
@@ -398,9 +388,7 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Display a list by defining your.</p>
-				<h2>Examples</h2>
+				<p>Display a list with custom selected class.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...selectedClassProps} />
 			</div>
@@ -417,6 +405,22 @@ storiesOf('List', module)
 				<p>Display a list without toolbar</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Table with scroll', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list in a limited container. To enable content scroll.</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="small-list-container">
+					<List {...tprops} />
+				</div>
 			</div>
 		);
 	})

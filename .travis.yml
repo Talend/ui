@@ -1,16 +1,7 @@
 language: node_js
 cache:
   directories:
-    - node_modules
-    - packages/cmf/node_modules
-    - packages/components/node_modules
-    - packages/containers/node_modules
-    - packages/forms/node_modules
-    - packages/generator/node_modules
-    - packages/icons/node_modules
-    - packages/theme/node_modules
-    - $HOME/.cache
-    - $HOME/.yarn-cache
+    - $HOME/.cache/yarn
 notifications:
   email: false
 env:
@@ -25,7 +16,7 @@ before_script:
   - yarn global add sassdoc http-server surge
 sudo: required
 script:
-  - lerna exec --concurrency 1 -- yarn test
+  - yarn test
 after_success:
   - .travis/after_success_lint.sh
   - .travis/after_success_static.sh

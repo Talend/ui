@@ -23,11 +23,13 @@ function cellContent(isTitle, item, column, titleProps, id) {
 			hideLabel
 		/>);
 	}
-	return (<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
-		<span className={classnames(theme['item-text'], 'item-text')}>
-			{item[column.key]}
-		</span>
-	</TooltipTrigger>);
+	return (
+		<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
+			<span className={classnames(theme['item-text'], 'item-text')}>
+				{item[column.key]}
+			</span>
+		</TooltipTrigger>
+	);
 }
 
 function RowRenderer(props) {
@@ -69,9 +71,13 @@ function RowRenderer(props) {
 
 				return (
 					<td key={index}>
-						<div className={classnames('tc-list-display-table-td',theme['tc-list-display-table-td'])}>
-							<div className={classnames('cell',theme.cell)}>{cell}</div>
-							<div className={classnames('actions',theme.actions)}>{actions}</div>
+						<div
+							className={
+								classnames('tc-list-display-table-td', theme['tc-list-display-table-td'])
+							}
+						>
+							<div className={classnames('cell', theme.cell)}>{cell}</div>
+							<div className={classnames('actions', theme.actions)}>{actions}</div>
 						</div>
 					</td>
 				);
@@ -147,7 +153,14 @@ function ListHeader(props) {
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => (<th key={index}>{headerContent(column, sort)}</th>))}
+			{columns.map((column, index) => (
+				<th key={index}>
+					{column.label}
+					<div aria-hidden="true" className={theme.header}>
+						{headerContent(column, sort)}
+					</div>
+				</th>
+			))}
 		</tr>
 	);
 }
@@ -223,38 +236,46 @@ function DisplayTable(props) {
 		titleProps,
 	} = props;
 	const { isSelected, onToggleAll } = itemProps || {};
-	const className = classnames(
+	const containerClassName = classnames(
+		'tc-list-display',
+		theme.container,
+	);
+	const tableClassName = classnames(
 		'table',
 		'tc-list-display-table',
 		theme.table,
 	);
 	return (
-		<table className={className}>
-			<thead>
-				<ListHeader
-					id={id}
-					columns={columns}
-					isSelected={isSelected}
-					items={items}
-					onToggleAll={onToggleAll}
-					sort={sort}
-				/>
-			</thead>
-			<tbody>
-				{items.map(
-					(item, index) => (
-						<RowRenderer
-							id={id && `${id}-${index}`}
-							key={index}
+		<div className={containerClassName}>
+			<div>
+				<table className={tableClassName}>
+					<thead>
+						<ListHeader
+							id={id}
 							columns={columns}
-							item={item}
-							itemProps={itemProps}
-							titleProps={titleProps}
+							isSelected={isSelected}
+							items={items}
+							onToggleAll={onToggleAll}
+							sort={sort}
 						/>
-					)
-				)}
-			</tbody>
-		</table>
+					</thead>
+					<tbody>
+						{items.map(
+							(item, index) => (
+								<RowRenderer
+									id={id && `${id}-${index}`}
+									key={index}
+									columns={columns}
+									item={item}
+									itemProps={itemProps}
+									titleProps={titleProps}
+								/>
+							)
+						)}
+					</tbody>
+				</table>
+			</div>
+		</div>
 	);
 }
 

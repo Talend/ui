@@ -14,7 +14,7 @@ cp .surge/index.html .static
 
 lerna exec --scope=react-talend-components -- yarn run build-storybook
 cp -R packages/components/storybook-static/* .static/components
-echo "✓ Ccopy components showcase to .static"
+echo "✓ Copy components showcase to .static"
 lerna exec --scope=react-talend-containers -- yarn run build-storybook
 cp -R packages/containers/storybook-static/* .static/containers
 echo "✓ Copy containers showcase to .static"
@@ -33,8 +33,10 @@ echo "✓ Copy theme showcase to .static"
 
 find .static/
 
-nohup http-server .static/ -p 1337 >/dev/null 2>&1 &
-sleep 5
-echo "✓ Start static server"
+if [ "$TRAVIS_BRANCH" != 'master' ]; then
+	nohup http-server .static/ -p 1337 >/dev/null 2>&1 &
+	sleep 5
+	echo "✓ Start static server"
+fi
 
 cd "$TRAVIS_BUILD_DIR"

@@ -8,6 +8,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
   id={undefined}
   method={undefined}
   name={undefined}
+  noValidate={false}
   onSubmit={[Function]}
   target={undefined}>
   <div
@@ -25,6 +26,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
           disabled={false}
           id="root_name"
           label="Name"
+          onBlur={undefined}
           onChange={[Function]}
           placeholder=""
           readOnly={false}
@@ -47,10 +49,15 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
           disabled={false}
           id="root_roles"
           multiple={undefined}
+          onBlur={undefined}
           onChange={[Function]}
           readOnly={false}
           required={false}
-          value="dev">
+          value="">
+          <option
+            value="">
+            
+          </option>
           <option
             value="dev">
             dev
