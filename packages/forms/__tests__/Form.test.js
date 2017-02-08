@@ -117,8 +117,6 @@ describe('<Form/>', () => {
 		expect(form.props().noValidate).toBeTruthy();
 	});
 
-
-
 	describe('<Form actions/>', () => {
 		it('Renders default actions when no actions specified', () => {
 			const actions = wrapper.find('button');

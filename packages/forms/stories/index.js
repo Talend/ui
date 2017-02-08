@@ -39,7 +39,7 @@ const sampleFilenameRegex = /^.\/(.*).json$/;
 sampleFilenames
 	.keys()
 	.forEach(
-		filename => {
+		(filename) => {
 			const sampleNameMatches = filename.match(sampleFilenameRegex);
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
