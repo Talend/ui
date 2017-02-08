@@ -1,0 +1,132 @@
+exports[`Items should display one item in edit mode and the other in default 1`] = `
+<ul
+  className="undefined tc-enumeration-items">
+  <li
+    className="undefined tc-enumeration-item">
+    <input
+      autoFocus={true}
+      className="undefined tc-enumeration-item-label"
+      onBlur={[Function]}
+      onKeyUp={[Function]}
+      type="text" />
+    <div
+      className="undefined tc-enumeration-item-actions">
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-check" />
+        </svg>
+      </button>
+    </div>
+  </li>
+  <li
+    className="undefined tc-enumeration-item">
+    <div
+      className="undefined tc-enumeration-item-label">
+      Lorem ipsum dolor sit amet 1
+    </div>
+    <div
+      className="undefined tc-enumeration-item-actions">
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-pencil" />
+        </svg>
+      </button>
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-trash" />
+        </svg>
+      </button>
+    </div>
+  </li>
+  <li
+    className="undefined tc-enumeration-item">
+    <div
+      className="undefined tc-enumeration-item-label">
+      Lorem ipsum dolor sit amet 2
+    </div>
+    <div
+      className="undefined tc-enumeration-item-actions">
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-pencil" />
+        </svg>
+      </button>
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button">
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}>
+          <use
+            xlinkHref="#talend-trash" />
+        </svg>
+      </button>
+    </div>
+  </li>
+</ul>
+`;
