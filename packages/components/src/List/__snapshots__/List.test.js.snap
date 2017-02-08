@@ -10,20 +10,24 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>
@@ -591,20 +595,24 @@ exports[`List should render 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>
@@ -1173,20 +1181,24 @@ exports[`List should render id if provided 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>

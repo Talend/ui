@@ -8,6 +8,7 @@ const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-folder': talendIcons['talend-folder'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
 };
 

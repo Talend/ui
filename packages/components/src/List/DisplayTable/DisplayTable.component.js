@@ -72,9 +72,10 @@ function RowRenderer(props) {
 				return (
 					<td key={index}>
 						<div
-							className={
-								classnames('tc-list-display-table-td', theme['tc-list-display-table-td'])
-							}
+							className={classnames(
+								'tc-list-display-table-td',
+								theme['tc-list-display-table-td']
+							)}
 						>
 							<div className={classnames('cell', theme.cell)}>{cell}</div>
 							<div className={classnames('actions', theme.actions)}>{actions}</div>
@@ -117,33 +118,43 @@ function getNextDirection(isCurrentSortField, currentSort) {
 	return false;
 }
 
-function headerContent(column, sort) {
-	if (!sort) {
-		return column.label;
+function columnHeader(index, column, sort) {
+	let header;
+
+	if (sort) {
+		const isCurrentSortField = sort.field === column.key;
+		const onChange = event => sort.onChange(
+			event,
+			{
+				field: column.key,
+				isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
+			},
+		);
+		const actionProps = {
+			'aria-label': `Sort on ${column.label} field`,
+			className: theme.header,
+			icon: getCaretIcon(isCurrentSortField),
+			iconPosition: 'right',
+			iconTransform: getIconTransform(sort.isDescending),
+			label: column.label,
+			link: true,
+			onClick: onChange,
+		};
+
+		header = <Action {...actionProps} />;
+	} else {
+		header = <span className={theme.header}>{column.label}</span>;
 	}
 
-	const isCurrentSortField = sort.field === column.key;
-	const onChange = event => sort.onChange(
-		event,
-		{
-			field: column.key,
-			isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
-		},
-	);
-
 	return (
-		<Action
-			icon={getCaretIcon(isCurrentSortField)}
-			link
-			label={column.label}
-			iconPosition="right"
-			iconTransform={getIconTransform(sort.isDescending)}
-			onClick={onChange}
-		/>
+		<th key={index}>
+			{header}
+			<span aria-hidden="true">{column.label}</span>
+		</th>
 	);
 }
 
-function ListHeader(props) {
+function ListHeaders(props) {
 	const {
 		columns,
 		isSelected,
@@ -153,18 +164,11 @@ function ListHeader(props) {
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => (
-				<th key={index}>
-					{column.label}
-					<div aria-hidden="true" className={theme.header}>
-						{headerContent(column, sort)}
-					</div>
-				</th>
-			))}
+			{columns.map((column, index) => columnHeader(index, column, sort))}
 		</tr>
 	);
 }
-ListHeader.propTypes = {
+ListHeaders.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string })
 	),
@@ -250,7 +254,7 @@ function DisplayTable(props) {
 			<div>
 				<table className={tableClassName}>
 					<thead>
-						<ListHeader
+						<ListHeaders
 							id={id}
 							columns={columns}
 							isSelected={isSelected}
