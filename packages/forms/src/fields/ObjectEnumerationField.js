@@ -34,6 +34,30 @@ class ObjectEnumerationField extends React.Component {
 					values: item.values,
 				};
 			}),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: () => { console.log('itemEdit.onSubmit'); },
+				onAbortItem: () => { console.log('itemEdit.onCancel'); },
+				actionsDefault: [{
+					disabled: false,
+					label: 'Edit',
+					icon: 'talend-pencil',
+					id: 'edit',
+					onClick: () => { console.log('itemEdit.onEnterEditMode'); },
+				}, {
+					label: 'Delete',
+					icon: 'talend-trash',
+					id: 'delete',
+					onClick: () => { console.log('itemEdit.onDelete'); },
+				}],
+				actionsEdit: [{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: () => { console.log('itemEdit.onSubmit'); },
+				}],
+			},
 			onAddChange: this.onAddChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
