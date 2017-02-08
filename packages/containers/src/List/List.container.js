@@ -14,6 +14,7 @@ export const DEFAULT_STATE = new Map({
 	offset: 0,
 	sortOn: 'name',
 	sortAsc: true,
+	filterDocked: true,
 });
 
 /**
@@ -58,6 +59,7 @@ class List extends React.Component {
 		super(props);
 		this.onSelectSortBy = this.onSelectSortBy.bind(this);
 		this.onFilter = this.onFilter.bind(this);
+		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 	}
 
@@ -74,6 +76,10 @@ class List extends React.Component {
 
 	onFilter(event, payload) {
 		this.props.updateState({ searchQuery: payload });
+	}
+
+	onToggle() {
+		this.props.updateState({ filterDocked: !this.props.state.get('filterDocked') });
 	}
 
 	onSelectDisplayMode(event, payload) {
@@ -125,9 +131,13 @@ class List extends React.Component {
 			props.toolbar.filter = this.props.toolbar.filter;
 
 			if (props.toolbar.filter) {
+				props.toolbar.filter.onToggle = (event, data) => {
+					this.onToggle(event, data);
+				};
 				props.toolbar.filter.onFilter = (event, data) => {
 					this.onFilter(event, data);
 				};
+				props.toolbar.filter.docked = state.filterDocked;
 			}
 
 			props.toolbar.actionBar = { actions: {} };

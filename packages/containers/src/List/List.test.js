@@ -97,6 +97,7 @@ describe('Container List', () => {
 		expect(typeof props.toolbar.display.onChange).toBe('function');
 		expect(typeof props.toolbar.sort.onChange).toBe('function');
 		expect(props.toolbar.sort.options.length).toBe(2);
+		expect(props).toMatchSnapshot();
 	});
 	it('should render without toolbar', () => {
 		const wrapper = shallow(
