@@ -1,10 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import { Provider } from 'react-cmf/lib/mock';
 import Redirect from './Redirect.component';
-
-jest.mock('react-dom');
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {
