@@ -9,6 +9,8 @@ import invariant from 'invariant';
 import { NodeType } from '../../constants/flowdesigner.proptypes';
 import { PositionRecord } from '../../constants/flowdesigner.model';
 
+export const ABSTRACT_NODE_INVARIANT = `<AbstractNode /> should not be used without giving it a children
+ex: <AbstractNode><rect /></AbstractNode>`;
 
 /**
  * calculate the position of each ports for a given node information
@@ -17,7 +19,7 @@ import { PositionRecord } from '../../constants/flowdesigner.model';
  * @param nodePosition
  * @param nodeSize
  */
-const calculatePortPosition = (ports, nodePosition, nodeSize) => {
+function calculatePortPosition(ports, nodePosition, nodeSize) {
 	let portsWithPosition = new Map();
 	const emitterPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'EMITTER');
 	const sinkPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'SINK');
@@ -47,7 +49,7 @@ const calculatePortPosition = (ports, nodePosition, nodeSize) => {
 		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
 	});
 	return portsWithPosition;
-};
+}
 
 
 class AbstractNode extends React.Component {
@@ -123,8 +125,7 @@ class AbstractNode extends React.Component {
 		if (this.props.children) {
 			return this.props.children;
 		}
-		invariant(false, '<AbstractNode /> should not be used without giving it a children' +
-			'ex: <AbstractNode><rect /></AbstractNode>');
+		invariant(false, ABSTRACT_NODE_INVARIANT);
 		return null;
 	}
 

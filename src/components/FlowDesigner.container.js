@@ -20,10 +20,15 @@ export class FlowDesigner extends React.Component {
 		children: PropTypes.node,
 		setNodeTypes: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
+		moveNodeToEnd: PropTypes.func,
 		nodes: mapOf(NodeType).isRequired,
 		ports: orderedMapOf(PortType).isRequired,
 		links: mapOf(PropTypes.object).isRequired,
 		reduxMountPoint: PropTypes.string.isRequired,
+		onClick: PropTypes.func,
+		transform: ZoomHandler.propTypes.transform,
+		transformToApply: ZoomHandler.propTypes.transformToApply,
+		setZoom: ZoomHandler.propTypes.setZoom,
 		gridComponent: PropTypes.element,
 	}
 
@@ -94,7 +99,11 @@ export class FlowDesigner extends React.Component {
 
 	render() {
 		return (
-			<svg onClick={this.props.onClick} ref={c => (this.node = c)} width="100%">
+			<svg
+				onClick={this.props.onClick}
+				ref={c => (this.node = c)}
+				width="100%"
+			>
 				<defs>
 					<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
 						<feFlood floodColor="#01A7CF" result="COLOR" />

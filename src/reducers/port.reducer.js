@@ -19,7 +19,7 @@ import {
 
 const defaultState = new OrderedMap();
 
-const setPort = (state, port) => {
+function setPort(state, port) {
 	const newState = state.setIn(['ports', port.id], new PortRecord({
 		id: port.id,
 		nodeId: port.nodeId,
@@ -36,11 +36,11 @@ const setPort = (state, port) => {
 		return newState.setIn(['in', port.nodeId, port.id], new Map());
 	}
 	invariant(false,
-		`Can't set a new port ${port.id} if its 
+		`Can't set a new port ${port.id} if its
 		data.graphicalAttributes.properties.type !== EMITTER || SINK,
 		given ${port.graphicalAttributes.get('type')}`);
 	return state;
-};
+}
 
 export default function portReducer(state = defaultState, action) {
 	switch (action.type) {

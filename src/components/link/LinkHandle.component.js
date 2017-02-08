@@ -49,11 +49,10 @@ class LinkHandle extends React.Component {
 		const position = this.props.position;
 		return (
 			<g
-				ref={c => this.handle = c}
+				ref={(c) => { this.handle = c; }}
 				transform={`translate(${position.get('x')},${position.get('y')})`}
 			>
 				{this.props.component}
-
 			</g>
 		);
 	}

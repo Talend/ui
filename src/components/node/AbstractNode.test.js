@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
-import AbstractNode from './AbstractNode.component';
+import AbstractNode, { ABSTRACT_NODE_INVARIANT } from './AbstractNode.component';
 
 const node = new NodeRecord({
 	id: 'id',
@@ -63,9 +63,6 @@ describe('Testing <AbstractNode>', () => {
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
 			shallow(<AbstractNode node={node} />);
-		}).toThrowError(
-			'<AbstractNode /> should not be used without giving it a children' +
-				'ex: <AbstractNode><rect /></AbstractNode>'
-		);
+		}).toThrowError(ABSTRACT_NODE_INVARIANT);
 	});
 });

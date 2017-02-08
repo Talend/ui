@@ -7,7 +7,7 @@ class LinksRender extends React.Component {
 	static propTypes = {
 		links: mapOf(LinkType).isRequired,
 		ports: mapOf(PortType).isRequired,
-		linkTypeMap: PropTypes.object.isRequired,
+		linkTypeMap: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
 	}
 
 	constructor(props) {
@@ -22,8 +22,9 @@ class LinksRender extends React.Component {
 		if (!ConcreteLink) {
 			invariant(
 				false,
-				`<LinksRenderer />  the defined link type in your graph model hasn\'t been mapped into
-				the dataflow configuration, check LinkType documentation`
+				`<LinksRenderer /> the defined link type in your graph model
+				hasn't been mapped into the dataflow configuration,
+				check LinkType documentation`,
 			);
 		}
 		return (

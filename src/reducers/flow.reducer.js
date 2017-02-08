@@ -26,14 +26,15 @@ export const defaultState = new Map({
 	transformToApply: undefined,
 });
 
-const combinedReducer = (state = defaultState, action) => (
-	[nodesReducer, linksReducer, portsReducer, nodeTypeReducer].reduce(
+function combinedReducer(state = defaultState, action) {
+	return [nodesReducer, linksReducer, portsReducer, nodeTypeReducer]
+	.reduce(
 		(cumulatedState, reducer) => reducer(cumulatedState, action),
 		state,
-	)
-);
+	);
+}
 
-export const reducer = (state, action) => {
+export function reducer(state, action) {
 	switch (action.type) {
 	case FLOWDESIGNER_FLOW_ADD_ELEMENTS:
 		try {
@@ -78,7 +79,7 @@ export const reducer = (state, action) => {
 	default:
 		return combinedReducer(state, action);
 	}
-};
+}
 
 /**
  * Calculate port position with the methods provided by port parent node
@@ -89,7 +90,7 @@ export const reducer = (state, action) => {
  *
  * @return {object} new state
  */
-export const calculatePortsPosition = (state, action) => {
+export function calculatePortsPosition(state, action) {
 	let nodes = [];
 	// TODO: NOT a big fan of this way to optimize port recalculations, don't feel future proof
 	if ((/FLOWDESIGNER_NODE_/.exec(action.type) && action.type !== 'FLOWDESIGNER_NODE_REMOVE') ||
@@ -118,12 +119,12 @@ export const calculatePortsPosition = (state, action) => {
 		}, state);
 	}
 	return state;
-};
+}
 
-const flowDesignerReducer = (state, action) => {
+function flowDesignerReducer(state, action) {
 	let newState = reducer(state, action);
 	newState = calculatePortsPosition(newState, action, state);
 	return newState;
-};
+}
 
 export default flowDesignerReducer;
