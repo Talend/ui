@@ -28,7 +28,7 @@ function Item({ id, item, itemProps }) {
 
 	const getAction = (action, index) => {
 		const onClick = action.onClick &&
-			(event => action.onClick(event, { value: event.target.value }));
+			(event => action.onClick(event, { value: event.target.value, index: item.index }));
 
 		return (
 			<Action
