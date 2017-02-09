@@ -135,8 +135,9 @@ function ItemTitle({ id, className, item, titleProps }) {
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (onClick) {
 			titleElement = renderButton({ id, value, className, item, onClick });
+		} else {
+			titleElement = renderText({ id, value, className });
 		}
-		titleElement = renderText({ id, value, className });
 	} else if (displayMode === TITLE_MODE_INPUT) {
 		const props = { id, value, item, onEditSubmit, onEditCancel };
 		titleElement = <TitleInput {...props} />;
