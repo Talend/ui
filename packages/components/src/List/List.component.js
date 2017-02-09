@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
@@ -44,7 +45,7 @@ const props = {
 <List {...props}></List>
  */
 function List({ id, displayMode, toolbar, list, useContent }) {
-	const getDisplayModeComponent = () => {
+	function getDisplayModeComponent() {
 		switch (displayMode) {
 		case 'tile':
 			return <DisplayTile id={id} {...list} />;
@@ -53,10 +54,11 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 		default:
 			return <DisplayTable id={id} {...list} />;
 		}
-	};
-	const getContent = () => (
-		<Content id={id && `${id}-content`} displayMode={displayMode} {...list} />
-	);
+	}
+
+	function getContent() {
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+	}
 
 	let toolbarProps;
 	if (toolbar) {

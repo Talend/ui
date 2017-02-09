@@ -7,28 +7,30 @@ import css from './ActionBar.scss';
 const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
 function ActionBar({ selected, actions, multiSelectActions }) {
-	const getActionsToRender = () => (selected > 0 ? multiSelectActions : actions);
+	function getActionsToRender() {
+		if (selected > 0) {
+			return multiSelectActions;
+		}
+		return actions;
+	}
 
-	const renderActions = actionsToRender =>
-		actionsToRender.map((action, index) => {
+	function renderActions(actionsToRender) {
+		return actionsToRender.map((action, index) => {
 			const { displayMode, ...rest } = action;
 			if (displayMode === TYPE_SPLIT_DROPDOWN) {
-				return (
-					<ActionSplitDropdown key={index} {...rest} />
-				);
+				return <ActionSplitDropdown key={index} {...rest} />;
 			}
-
-			return (
-				<Action key={index} {...rest} />
-			);
+			return <Action key={index} {...rest} />;
 		});
+	}
 
-	const renderSelectedCount = () =>
-		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
+	function renderSelectedCount() {
+		return (<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
 			{selected} selected
-		</span>;
+		</span>);
+	}
 
-	const renderActionBar = () => {
+	function renderActionBar() {
 		const { left, right } = getActionsToRender();
 		const actionBar = [];
 		if (left) {
@@ -36,7 +38,7 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 				<div key={0} className={classNames(css['navbar-left'], 'navbar-left')}>
 					{ selected > 0 ? renderSelectedCount() : null}
 					{ renderActions(left) }
-				</div>
+				</div>,
 			);
 		}
 		if (right) {
@@ -44,11 +46,11 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 				<div key={1} className={classNames(css['navbar-right'], 'navbar-right')}>
 					{ selected > 0 && !left ? renderSelectedCount() : null}
 					{ renderActions(right) }
-				</div>
+				</div>,
 			);
 		}
 		return actionBar;
-	};
+	}
 
 	return (
 		<nav className={classNames(css['tc-actionbar-container'], 'tc-actionbar-container', 'nav')}>
