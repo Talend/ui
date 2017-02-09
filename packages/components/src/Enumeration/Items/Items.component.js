@@ -20,6 +20,8 @@ function Items({ items, itemsProp }) {
 		let itemProps = {
 			key: itemsProp.key,
 		};
+		// affecting index to the item
+		item.index = index;
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT:

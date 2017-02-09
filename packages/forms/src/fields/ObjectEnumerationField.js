@@ -36,31 +36,69 @@ class ObjectEnumerationField extends React.Component {
 			}),
 			itemsProp: {
 				key: 'values',
-				onSubmitItem: () => { console.log('itemEdit.onSubmit'); },
-				onAbortItem: () => { console.log('itemEdit.onCancel'); },
+				onSubmitItem: this.onSubmit.bind(this),
+				onAbortItem: this.onAbortItem.bind(this),
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
 					icon: 'talend-pencil',
 					id: 'edit',
-					onClick: () => { console.log('itemEdit.onEnterEditMode'); },
+					onClick: this.onEnterEditMode.bind(this),
 				}, {
 					label: 'Delete',
 					icon: 'talend-trash',
 					id: 'delete',
-					onClick: () => { console.log('itemEdit.onDelete'); },
+					onClick: this.onDelete.bind(this),
 				}],
 				actionsEdit: [{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
-					onClick: () => { console.log('itemEdit.onSubmit'); },
+					onClick: this.onSubmit.bind(this),
 				}],
 			},
 			onAddChange: this.onAddChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
+	}
+
+	// default mode
+	onEnterEditMode(event, value) {
+		const items = [...this.state.items];
+		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
+		this.setState({
+			items: items,
+		});
+	}
+
+	onDelete(event, value) {
+		const items = [...this.state.items];
+		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
+		items.splice(value.index, 1);
+
+		this.setState({
+			items: items,
+		});
+	}
+
+	// edit mode
+	onAbortItem(event, value) {
+		const items = [...this.state.items];
+		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		this.setState({
+			items: items,
+		});
+	}
+
+	onSubmit(event, value) {
+		const items = [...this.state.items];
+		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].values[0] = value.value;
+
+		this.setState({
+			items: items,
+		});
 	}
 
 	onChangeDisplay() {

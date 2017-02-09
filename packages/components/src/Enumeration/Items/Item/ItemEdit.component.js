@@ -37,7 +37,7 @@ class ItemEdit extends React.Component {
 
 	getAction = (action, index) => {
 		const onClick = action.onClick &&
-			(event => action.onClick(event, { value: event.target.value }));
+			(event => action.onClick(event, { value: event.target.value, index: this.props.item.index }));
 
 		return (
 			<Action
@@ -56,6 +56,7 @@ class ItemEdit extends React.Component {
 		return this.props.itemProps.onSubmitItem(event, {
 			value: event.target.value,
 			model: this.props.item,
+			index: this.props.item.index,
 		});
 	}
 
@@ -63,6 +64,7 @@ class ItemEdit extends React.Component {
 		return this.props.itemProps.onAbortItem(event, {
 			value: event.target.value,
 			model: this.props.item,
+			index: this.props.item.index,
 		});
 	}
 
