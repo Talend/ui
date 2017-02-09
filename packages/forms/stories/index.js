@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
 import { storiesOf, action } from '@kadira/storybook';
@@ -10,7 +10,7 @@ import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
 import Form from '../src/Form';
 
-a11y(React);
+a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
