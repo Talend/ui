@@ -8,11 +8,11 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
  * @example
 <Redirect name="Hello world"></Redirect>
  */
-function Redirect(props, context) {
+function Redirect({ path }, context) {
 	context.store.dispatch({
 		type: REDIRECT_ACTION_TYPE,
 		cmf: {
-			routerReplace: props.path,
+			routerReplace: path,
 		},
 	});
 	return (

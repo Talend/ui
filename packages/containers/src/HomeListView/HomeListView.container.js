@@ -26,7 +26,6 @@ class HomeListView extends React.Component {
 	}
 
 	render() {
-		// const state = (this.props.state || DEFAULT_STATE).toJS();
 		const { sidepanel, list } = this.props;
 		return (
 			<Component

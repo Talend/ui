@@ -6,19 +6,18 @@ import AppHeaderBar from '../AppHeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
-function HomeListView(props) {
-	if (!props.sidepanel || !props.list) {
+function HomeListView({ sidepanel, list, header, children }) {
+	if (!sidepanel || !list) {
 		return null;
 	}
-	const header = (<AppHeaderBar {...props.header} />);
 	return (
 		<Layout
-			header={header}
 			mode="TwoColumns"
-			one={(<SidePanel {...props.sidepanel} />)}
-			drawers={[props.children]}
+			header={(<AppHeaderBar {...header} />)}
+			one={(<SidePanel {...sidepanel} />)}
+			drawers={[children]}
 		>
-			<List {...props.list} />
+			<List {...list} />
 		</Layout>
 	);
 }
@@ -29,10 +28,8 @@ HomeListView.propTypes = {
 	sidepanel: PropTypes.shape({
 		actionIds: PropTypes.arrayOf(PropTypes.string),
 	}).isRequired,
-	didMountActionCreator: PropTypes.string,
 	list: PropTypes.shape({
 	}).isRequired,
-	dispatch: PropTypes.func.isRequired,
 	children: PropTypes.node,
 };
 
