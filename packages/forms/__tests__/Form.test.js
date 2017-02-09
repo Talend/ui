@@ -61,7 +61,8 @@ describe('renderActions', () => {
 			style: 'primary',
 			label: 'VALIDATE',
 		}];
-		const wrapper = shallow(<div>{renderActions(actions)}</div>);
+		function noop() {}
+		const wrapper = shallow(<div>{renderActions(actions, noop)}</div>);
 		expect(wrapper.find(Button)).toHaveLength(2);
 	});
 	it('Renders a single submit button', () => {

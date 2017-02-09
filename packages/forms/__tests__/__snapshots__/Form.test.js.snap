@@ -84,6 +84,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
     <button
       className="btn btn-primary"
       disabled={false}
+      name={undefined}
       onClick={[Function]}
       title={undefined}
       type="submit">
@@ -92,6 +93,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
+      name={undefined}
       onClick={[Function]}
       title={undefined}
       type="reset">
