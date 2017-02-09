@@ -10,7 +10,9 @@
             "id": "add",
             "icon":"icon-add-botton-3",
             "name": "Add article",
-            "type": "form/DISPLAY_FORM"
+            "payload": {
+              "type": "form/DISPLAY_FORM"
+            }
           }
         ],
         "primary":[
@@ -18,13 +20,17 @@
             "id": "edit",
             "icon":"icon-edit",
             "name": "Edit article",
-            "type": "form/DISPLAY_FORM"
+            "payload": {
+              "type": "form/DISPLAY_FORM"
+            }
           },
           {
             "id": "delete",
             "icon":"icon-delete",
             "name": "Delete article",
-            "type": "DELETE"
+            "payload": {
+              "type": "form/DISPLAY_FORM"
+            }
           }
         ]
       }
@@ -36,10 +42,12 @@
       "name":"My article",
       "icon": "icon-article",
       "available": "model.actions.delete",
-      "type":"@@router/CALL_HISTORY_METHOD",
       "payload":{
+        "type":"@@router/CALL_HISTORY_METHOD",
+        "payload": {
           "method": "push",
           "args":["/myarticle"]
+        }
       }
     }
   },
