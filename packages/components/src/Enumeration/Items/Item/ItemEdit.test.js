@@ -7,6 +7,7 @@ import ItemEdit from './ItemEdit.component';
 const item = {
 	id: 1,
 	values: ['toto'],
+	index: 0,
 };
 
 describe('Item', () => {
@@ -71,7 +72,7 @@ describe('Item', () => {
 		// then
 		expect(props.itemProps.onSubmitItem).toBeCalled();
 		const callArgs = props.itemProps.onSubmitItem.mock.calls[0];
-		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item });
+		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0 });
 	});
 
 	it('should trigger callback on input title ENTER', () => {
@@ -103,7 +104,7 @@ describe('Item', () => {
 		// then
 		expect(props.itemProps.onSubmitItem).toBeCalled();
 		const callArgs = props.itemProps.onSubmitItem.mock.calls[0];
-		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item });
+		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0  });
 	});
 
 	it('should trigger callback on input title ESC', () => {
@@ -135,6 +136,6 @@ describe('Item', () => {
 		// then
 		expect(props.itemProps.onAbortItem).toBeCalled();
 		const callArgs = props.itemProps.onAbortItem.mock.calls[0];
-		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item });
+		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0  });
 	});
 });
