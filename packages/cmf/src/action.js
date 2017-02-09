@@ -80,7 +80,7 @@ function getActionObject(context, id, event, data) {
 			action,
 		});
 	}
-	return Object.assign({}, action, { event, data, context });
+	return Object.assign({}, action.payload, { event, data, context });
 }
 
 /**

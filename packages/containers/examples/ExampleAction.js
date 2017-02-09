@@ -6,8 +6,10 @@ import { Action } from '../src';
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-cog',
-	type: 'MY SUPER REDUX ACTION',
 	onClick: stAction('You clicked me'),
+	payload: {
+		type: 'MY SUPER REDUX ACTION',
+	},
 };
 
 export default function ExampleAction() {
