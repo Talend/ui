@@ -8,6 +8,51 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import theme from './List.scss';
 
+function getToolbar(toolbar, id, displayMode, list) {
+	const toolbarProps = {
+		...toolbar,
+		id
+	};
+
+	if (toolbar.display) {
+		toolbarProps.display.mode = displayMode;
+	}
+
+	if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+		toolbarProps.selectAllCheckbox = {
+			id,
+			items: list.items,
+			isSelected: list.itemProps.isSelected,
+			onToggleAll: list.itemProps.onToggleAll,
+		};
+	}
+	return (<Toolbar {...toolbarProps} />);
+}
+
+function getList(useContent, id, displayMode, list) {
+	if (list.items && list.items.length) {
+		return getDisplayModeComponent(useContent, id, displayMode, list);
+	}
+
+	return (<span className={theme['no-result']}>No result found</span>);
+}
+
+function getDisplayModeComponent(useContent, id, displayMode, list) {
+	if (useContent) {
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+	}
+
+	switch (displayMode) {
+		case 'tile':
+			return <DisplayTile id={id} {...list} />;
+		case 'large':
+			return <DisplayLarge id={id} {...list} />;
+		default:
+			return <DisplayTable id={id} {...list} />;
+	}
+}
+
+
 /**
  * @param {object} props react props
  * @example
@@ -44,44 +89,14 @@ const props = {
 <List {...props}></List>
  */
 function List({ id, displayMode, toolbar, list, useContent }) {
-	const getDisplayModeComponent = () => {
-		switch (displayMode) {
-		case 'tile':
-			return <DisplayTile id={id} {...list} />;
-		case 'large':
-			return <DisplayLarge id={id} {...list} />;
-		default:
-			return <DisplayTable id={id} {...list} />;
-		}
-	};
-	const getContent = () => (
-		<Content id={id && `${id}-content`} displayMode={displayMode} {...list} />
-	);
-
-	let toolbarProps;
-	if (toolbar) {
-		toolbarProps = Object.assign({}, toolbar, { id });
-		if (toolbar.display) {
-			toolbarProps.display.mode = displayMode;
-		}
-		if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
-			toolbarProps.selectAllCheckbox = {
-				id,
-				items: list.items,
-				isSelected: list.itemProps.isSelected,
-				onToggleAll: list.itemProps.onToggleAll,
-			};
-		}
-	}
-
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
 	);
 	return (
 		<div className={classnames}>
-			{toolbar && (<Toolbar {...toolbarProps} />)}
-			{useContent ? getContent() : getDisplayModeComponent()}
+			{toolbar && getToolbar(toolbar, id, displayMode, list)}
+			{getList(useContent, id, displayMode, list)}
 		</div>
 	);
 }
