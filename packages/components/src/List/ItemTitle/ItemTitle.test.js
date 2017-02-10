@@ -35,7 +35,7 @@ describe('ItemTitle', () => {
 		// then
 		expect(props.titleProps.onClick).toBeCalled();
 		const callArgs = props.titleProps.onClick.mock.calls[0];
-		expect(callArgs[1].model).toBe(item);
+		expect(callArgs[1]).toBe(item);
 	});
 
 	it('should trigger callback on input title blur', () => {
