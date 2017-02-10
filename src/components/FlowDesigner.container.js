@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { mapOf, orderedMapOf } from 'react-immutable-proptypes';
+import { mapOf } from 'react-immutable-proptypes';
 import invariant from 'invariant';
 import get from 'lodash/get';
 
@@ -22,7 +22,7 @@ export class FlowDesigner extends React.Component {
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func,
 		nodes: mapOf(NodeType).isRequired,
-		ports: orderedMapOf(PortType).isRequired,
+		ports: mapOf(PortType).isRequired,
 		links: mapOf(PropTypes.object).isRequired,
 		reduxMountPoint: PropTypes.string.isRequired,
 		onClick: PropTypes.func,

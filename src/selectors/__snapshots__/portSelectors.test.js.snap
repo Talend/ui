@@ -5,6 +5,7 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getIndex": [Function],
     "getPortDirection": [Function],
     "getPortFlowType": [Function],
     "getPortType": [Function],
@@ -16,12 +17,14 @@ Object {
     },
     "id": "id2",
     "nodeId": "nodeId1",
+    "setIndex": [Function],
   },
   "id4": Object {
     "data": Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getIndex": [Function],
     "getPortDirection": [Function],
     "getPortFlowType": [Function],
     "getPortType": [Function],
@@ -33,6 +36,7 @@ Object {
     },
     "id": "id4",
     "nodeId": "nodeId2",
+    "setIndex": [Function],
   },
 }
 `;
@@ -44,6 +48,7 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getIndex": [Function],
     "getPortDirection": [Function],
     "getPortFlowType": [Function],
     "getPortType": [Function],
@@ -55,6 +60,7 @@ Object {
     },
     "id": "id2",
     "nodeId": "nodeId1",
+    "setIndex": [Function],
   },
 }
 `;
@@ -66,6 +72,7 @@ Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getIndex": [Function],
     "getPortDirection": [Function],
     "getPortFlowType": [Function],
     "getPortType": [Function],
@@ -77,12 +84,14 @@ Object {
     },
     "id": "id1",
     "nodeId": "nodeId1",
+    "setIndex": [Function],
   },
   "id3": Object {
     "data": Object {
       "flowType": undefined,
       "properties": Object {},
     },
+    "getIndex": [Function],
     "getPortDirection": [Function],
     "getPortFlowType": [Function],
     "getPortType": [Function],
@@ -94,6 +103,7 @@ Object {
     },
     "id": "id3",
     "nodeId": "nodeId2",
+    "setIndex": [Function],
   },
 }
 `;

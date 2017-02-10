@@ -1,21 +1,25 @@
+/* @flow */
+
 import { Record, Map } from 'immutable';
+
+import type { Position, Size, PortDirection, PortRecordType } from '../flow-typed';
 
 export const NONE = 'NONE';
 export const SELECTED = 'SELECTED';
 export const DROP_TARGET = 'DROP_TARGET';
 export const FORBIDDEN_DROP_TARGET = 'FORBIDDEN_DROP_TARGET';
 
-export const PositionRecord = new Record({
+export const PositionRecord = Record({
 	x: undefined,
 	y: undefined,
 });
 
-export const SizeRecord = new Record({
+export const SizeRecord = Record({
 	width: undefined,
 	height: undefined,
 });
 
-export const NodeGraphicalAttributes = new Record({
+export const NodeGraphicalAttributes = Record({
 	position: new PositionRecord(),
 	nodeSize: new SizeRecord(),
 	nodeType: undefined,
@@ -24,72 +28,78 @@ export const NodeGraphicalAttributes = new Record({
 	properties: new Map(),
 });
 
-export const NodeData = new Record({
+export const NodeData = Record({
 	properties: new Map(),
 });
 
-export const LinkGraphicalAttributes = new Record({
+export const LinkGraphicalAttributes = Record({
 	linkType: undefined,
 	properties: new Map(),
 });
 
-export const LinkData = new Record({
+export const LinkData = Record({
 	properties: new Map(),
 });
 
-export const PortGraphicalAttributes = new Record({
+export const PortGraphicalAttributes = Record({
 	position: PositionRecord,
 	portType: undefined,
 	properties: new Map(),
 });
 
-export const PortData = new Record({
+export const PortData = Record({
 	properties: new Map(),
 	flowType: undefined,
 });
 
-export const NodeRecord = new Record({
+export const NodeRecord = Record({
 	id: undefined,
 	type: undefined,
 	data: new NodeData(),
 	graphicalAttributes: new NodeGraphicalAttributes(),
-	getPosition() {
+	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
-	getSize() {
+	getSize(): Size {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
-	getNodeType() {
+	getNodeType(): string {
 		return this.getIn(['graphicalAttributes', 'nodeType']);
 	},
 });
 
-export const LinkRecord = new Record({
+export const LinkRecord = Record({
 	id: undefined,
 	sourceId: undefined,
 	targetId: undefined,
 	data: new LinkData(),
 	graphicalAttributes: new LinkGraphicalAttributes(),
-	getLinkType() {
+	getLinkType(): string {
 		return this.getIn(['graphicalAttributes', 'linkType']);
 	},
 });
 
-export const PortRecord = new Record({
+export const PortRecord = Record({
 	id: undefined,
 	nodeId: undefined,
 	data: new PortData(),
 	graphicalAttributes: new PortGraphicalAttributes(),
-	getPosition() {
+	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
-	getPortType() {
+	getPortType(): string {
 		return this.getIn(['graphicalAttributes', 'portType']);
 	},
-	getPortDirection() {
+	getPortDirection(): PortDirection {
 		return this.getIn(['graphicalAttributes', 'properties', 'type']);
 	},
-	getPortFlowType() {
+	getPortFlowType(): string {
 		return this.getIn(['data', 'flowType']);
+	},
+	getIndex(): number {
+		return this.getIn(['graphicalAttributes', 'properties', 'index']);
+	},
+	setIndex(index: number): PortRecordType {
+		return this.setIn(['graphicalAttributes', 'properties', 'index'], index);
 	},
 });

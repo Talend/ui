@@ -1,10 +1,17 @@
 exports[`Check that port action creators generate proper action objects and perform checking addPort 1`] = `
 Array [
   Object {
-    "data": Object {},
-    "graphicalAttributes": Object {},
+    "data": Object {
+      "flowType": "string",
+    },
+    "graphicalAttributes": Object {
+      "portType": "test",
+      "properties": Object {
+        "type": "SINK",
+      },
+    },
+    "id": "portId",
     "nodeId": "nodeId",
-    "portId": "portId",
     "type": "FLOWDESIGNER_PORT_ADD",
   },
 ]

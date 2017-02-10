@@ -16,8 +16,6 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS', () => {
 				nodeActions.addNode(
 					'nodeId',
 					undefined,
-					undefined,
-					undefined,
 					{
 						data: {},
 						graphicalAttributes: {
@@ -100,8 +98,10 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS', () => {
 				portActions.addPort(
 					'node3',
 					'portId',
-					undefined,
-					{},
+					{
+						data: undefined,
+						graphicalAttributes: undefined,
+					},
 				),
 			],
 		})).toMatchSnapshot();

@@ -5,19 +5,17 @@ import { interpolateBasis } from 'd3-interpolate';
 
 import LinkHandle from './LinkHandle.component';
 import { PortType } from '../../constants/flowdesigner.proptypes';
+import type { Position } from '../../flow-typed';
 
 const concreteLine = line()
 	.x(d => d.x)
 	.y(d => d.y)
 	.curve(curveBasis);
 
-function calculatePath(sourcePosition, targetPosition) {
+function calculatePath(sourcePosition: Position, targetPosition: Position) {
 	const pathCoords = [];
 	pathCoords[0] = targetPosition;
-	pathCoords[1] = {
-		x: sourcePosition.x,
-		y: sourcePosition.y,
-	};
+	pathCoords[1] = sourcePosition;
 	const xInterpolate = interpolateBasis([targetPosition.x, pathCoords[1].x]);
 	const yInterpolate = interpolateBasis([targetPosition.y, pathCoords[1].y]);
 	const path = concreteLine(pathCoords);

@@ -1,3 +1,4 @@
+/* @flow */
 import { Map, OrderedMap } from 'immutable';
 
 import { defaultState } from './flow.reducer';
@@ -13,6 +14,7 @@ describe('Check port reducer', () => {
 		}))
 		.set('id2', new PortRecord({
 			id: 'id2',
+			nodeId: 'test',
 			graphicalAttributes: new Map({ position: new PositionRecord({ x: 10, y: 10 }) }),
 		}))
 		.set('id3', new PortRecord({
@@ -21,12 +23,13 @@ describe('Check port reducer', () => {
 		})))
 		.set('nodes', new Map().set('nodeId', new Map())).set('links', new Map());
 
-	it('FLOWDESIGNER_PORT_ADD properly add the port to the port OrderedMap', () => {
+	it('FLOWDESIGNER_PORT_ADD properly add the port to the port Map', () => {
 		expect(portReducer(initialState, {
 			type: 'FLOWDESIGNER_PORT_ADD',
 			nodeId: 'nodeId',
-			portId: 'portId',
-			graphicalAttributes: { portType: 'portType', properties: { type: 'EMITTER' } },
+			id: 'portId',
+			data: {	flowType: 'string',	properties: {} },
+			graphicalAttributes: { portType: 'portType', properties: { type: 'EMITTER', index: 1 } },
 		})).toMatchSnapshot();
 	});
 
@@ -35,10 +38,19 @@ describe('Check port reducer', () => {
 			type: 'FLOWDESIGNER_PORT_ADDS',
 			nodeId: 'nodeId',
 			ports: [{
-				portId: 'portId1',
+				id: 'portId1',
+				nodeId: 'nodeId',
+				data: {	flowType: 'string',	properties: {} },
 				graphicalAttributes: { portType: 'portType', properties: { type: 'EMITTER' } },
 			}, {
-				portId: 'portId2',
+				id: 'portId2',
+				nodeId: 'nodeId',
+				data: {	flowType: 'string',	properties: {} },
+				graphicalAttributes: { portType: 'portType', properties: { type: 'SINK' } },
+			}, {
+				id: 'portId3',
+				nodeId: 'nodeId',
+				data: {	flowType: 'string',	properties: {} },
 				graphicalAttributes: { portType: 'portType', properties: { type: 'SINK' } },
 			}],
 		})).toMatchSnapshot();
@@ -76,10 +88,17 @@ describe('Check port reducer', () => {
 		})).toMatchSnapshot();
 	});
 
-	it('FLOWDESIGNER_PORT_REMOVE should remove port id1 from ports collection', () => {
+	it('FLOWDESIGNER_PORT_REMOVE should only remove port id1 from ports collection', () => {
 		expect(portReducer(initialState, {
 			type: 'FLOWDESIGNER_PORT_REMOVE',
 			portId: 'id1',
+		})).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_PORT_REMOVE should only remove port id2 from ports collection if its parent node does not exist', () => {
+		expect(portReducer(initialState, {
+			type: 'FLOWDESIGNER_PORT_REMOVE',
+			portId: 'id2',
 		})).toMatchSnapshot();
 	});
 });

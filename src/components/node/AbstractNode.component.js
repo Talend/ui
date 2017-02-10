@@ -14,8 +14,7 @@ ex: <AbstractNode><rect /></AbstractNode>`;
 
 /**
  * calculate the position of each ports for a given node information
- * @param emitterPorts
- * @param sinkPorts
+ * @param ports
  * @param nodePosition
  * @param nodeSize
  */
@@ -32,7 +31,15 @@ function calculatePortPosition(ports, nodePosition, nodeSize) {
 		.range(range);
 	let emitterNumber = 0;
 	let sinkNumber = 0;
-	emitterPorts.forEach((port) => {
+	emitterPorts.sort((a, b) => {
+		if (a.getIndex() < b.getIndex()) {
+			return -1;
+		}
+		if (a.getIndex() > b.getIndex()) {
+			return 1;
+		}
+		return 0;
+	}).forEach((port) => {
 		emitterNumber += 1;
 		const position = new PositionRecord({
 			x: nodePosition.get('x') + nodeSize.get('width'),
@@ -40,7 +47,15 @@ function calculatePortPosition(ports, nodePosition, nodeSize) {
 		});
 		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
 	});
-	sinkPorts.forEach((port) => {
+	sinkPorts.sort((a, b) => {
+		if (a.getIndex() < b.getIndex()) {
+			return -1;
+		}
+		if (a.getIndex() > b.getIndex()) {
+			return 1;
+		}
+		return 0;
+	}).forEach((port) => {
 		sinkNumber += 1;
 		const position = new PositionRecord({
 			x: nodePosition.get('x'),

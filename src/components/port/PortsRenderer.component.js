@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import { orderedMapOf } from 'react-immutable-proptypes';
+import { mapOf } from 'react-immutable-proptypes';
 
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
 class PortsRenderer extends React.Component {
 	static propTypes = {
-		ports: orderedMapOf(PortType).isRequired,
+		ports: mapOf(PortType).isRequired,
 		portTypeMap: PropTypes.object.isRequired,
 	}
 
