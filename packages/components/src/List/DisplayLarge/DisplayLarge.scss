@@ -1,15 +1,19 @@
 // DisplayLarge styles
 $tc-list-display-large-color: #AAA !default;
+$tc-list-display-large-background-color: lighten($tc-list-display-large-color, 25%) !default;
 
 .container {
 	padding: 20px;
 }
 
 .panel {
+	position: relative;
+
 	&:hover {
-		background-color: lighten($tc-list-display-large-color, 25%);
+		background-color: $tc-list-display-large-background-color;
 
 		:global(.tc-actions) {
+			opacity: 1;
 			visibility: visible;
 		}
 
@@ -20,7 +24,13 @@ $tc-list-display-large-color: #AAA !default;
 	}
 
 	:global(.tc-actions) {
+		transition: opacity 0.15s ease-in;
+		opacity: 0;
 		visibility: hidden;
+		position: absolute;
+		right: 0;
+		background: linear-gradient(to right, transparent, $tc-list-display-large-background-color 20px);
+		padding-left: 20px;
 	}
 }
 
