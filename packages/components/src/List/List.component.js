@@ -8,7 +8,11 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import theme from './List.scss';
 
-function getToolbar(toolbar, id, displayMode, list) {
+function ListToolbar({ id, toolbar, displayMode, list }) {
+	if (!toolbar) {
+		return null;
+	}
+
 	const toolbarProps = {
 		...toolbar,
 		id,
@@ -28,8 +32,17 @@ function getToolbar(toolbar, id, displayMode, list) {
 	}
 	return (<Toolbar {...toolbarProps} />);
 }
+ListToolbar.propTypes = {
+	id: PropTypes.string,
+	displayMode: PropTypes.string,
+	list: PropTypes.oneOfType([
+		PropTypes.shape(DisplayPropTypes),
+		PropTypes.shape(Content.propTypes),
+	]),
+	toolbar: PropTypes.shape(Toolbar.propTypes),
+};
 
-function getDisplayModeComponent(useContent, id, displayMode, list) {
+function DisplayModeComponent({ id, useContent, displayMode, list }) {
 	if (useContent) {
 		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
 	}
@@ -40,14 +53,31 @@ function getDisplayModeComponent(useContent, id, displayMode, list) {
 	default: return <DisplayTable id={id} {...list} />;
 	}
 }
+DisplayModeComponent.propTypes = {
+	id: PropTypes.string,
+	displayMode: PropTypes.string,
+	list: PropTypes.oneOfType([
+		PropTypes.shape(DisplayPropTypes),
+		PropTypes.shape(Content.propTypes),
+	]),
+	useContent: PropTypes.bool,
+};
 
-function getList(useContent, id, displayMode, list) {
+function ListDisplay({ id, useContent, displayMode, list }) {
 	if (list.items && list.items.length) {
-		return getDisplayModeComponent(useContent, id, displayMode, list);
+		return (
+			<DisplayModeComponent
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
+		);
 	}
 
 	return (<span className={theme['no-result']}>No result found</span>);
 }
+ListDisplay.propTypes = DisplayModeComponent.propTypes;
 
 
 /**
@@ -92,21 +122,25 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 	);
 	return (
 		<div className={classnames}>
-			{toolbar && getToolbar(toolbar, id, displayMode, list)}
-			{getList(useContent, id, displayMode, list)}
+			<ListToolbar
+				id={id}
+				toolbar={toolbar}
+				displayMode={displayMode}
+				list={list}
+			/>
+			<ListDisplay
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
 		</div>
 	);
 }
 
 List.propTypes = {
-	id: PropTypes.string,
-	displayMode: PropTypes.string,
-	list: PropTypes.oneOfType([
-		PropTypes.shape(DisplayPropTypes),
-		PropTypes.shape(Content.propTypes),
-	]),
-	toolbar: PropTypes.shape(Toolbar.propTypes),
-	useContent: PropTypes.bool,
+	...ListToolbar.propTypes,
+	...ListDisplay.propTypes,
 };
 
 List.defaultProps = {
