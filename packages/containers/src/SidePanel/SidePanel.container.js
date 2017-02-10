@@ -36,7 +36,7 @@ class SidePanel extends React.Component {
 		const { actionIds = [], state = DEFAULT_STATE, ...rest } = this.props;
 		const actions = actionIds.map((id) => {
 			const info = api.action.getActionInfo(this.context, id);
-			info.onClick = () => this.context.store.dispatch(info);
+			info.onClick = () => this.context.store.dispatch(info.payload);
 			if (info.cmf) {
 				if (info.cmf.routerReplace) {
 					const route = info.cmf.routerReplace;

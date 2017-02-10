@@ -39,7 +39,7 @@ const sampleFilenameRegex = /^.\/(.*).json$/;
 sampleFilenames
 	.keys()
 	.forEach(
-		filename => {
+		(filename) => {
 			const sampleNameMatches = filename.match(sampleFilenameRegex);
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
@@ -47,7 +47,7 @@ sampleFilenames
 				<section>
 					<IconsProvider />
 					<Form
-						autocomplete='off'
+						autocomplete="off"
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
 						onChange={action('Change')}
 						onSubmit={action('Submit')}
@@ -58,11 +58,17 @@ sampleFilenames
 
 decoratedStories.add('Multiple actions', () => {
 	const actions = [{
+		name: 'cancel',
 		style: 'link',
 		onClick: action('CANCEL'),
 		type: 'button',
 		label: 'CANCEL',
 	}, {
+		name: 'other',
+		type: 'button',
+		label: 'Other Button',
+		onClick: action('OTHER'),
+	},	{
 		style: 'primary',
 		type: 'submit',
 		label: 'VALIDATE',
@@ -70,15 +76,20 @@ decoratedStories.add('Multiple actions', () => {
 	const schema = {
 		jsonSchema: {
 			title: 'Please select a datastore',
-			type: 'string',
-			enum: ['one', 'two', 'three'],
-			enumNames: ['One', 'Two', 'Three'],
+			type: 'object',
+			properties: {
+				num: {
+					type: 'string',
+					enum: ['one', 'two', 'three'],
+					enumNames: ['One', 'Two', 'Three'],
+				},
+			},
 		},
 	};
 	return (
 		<Form
 			data={schema}
-			onSubmit={action('VALIDATE')}
+			onSubmit={action('SUBMIT')}
 			actions={actions}
 		/>
 	);

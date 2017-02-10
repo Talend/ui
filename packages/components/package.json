@@ -16,7 +16,7 @@
     "lint:es": "eslint --config .eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx \"./src/**/*.scss\" lib",
-    "start": "npm run storybook",
+    "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
@@ -41,6 +41,7 @@
     "url": "https://github.com/Talend/react-talend-components"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react-autowhatever": "^7.0.0",
     "react-debounce-input": "^2.4.2"
   },
@@ -59,7 +60,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.60.6",
+    "bootstrap-talend-theme": "^0.61.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
@@ -73,6 +74,7 @@
     "immutable": "^3.8.1",
     "invariant": "^2.2.1",
     "jest": "^17.0.0",
+    "keycode": "^2.1.8",
     "node-sass": "^3.10.1",
     "npm-watch": "^0.1.6",
     "postcss-loader": "^1.2.2",
@@ -89,7 +91,7 @@
     "slimerjs": "^0.10.2",
     "storyshots": "^3.2.0",
     "style-loader": "^0.13.1",
-    "talend-icons": "^0.60.6",
+    "talend-icons": "^0.61.1",
     "uuid": "^2.0.3",
     "webpack": "1.13.1"
   },
@@ -108,14 +110,15 @@
   },
   "peerDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.60.6",
+    "bootstrap-talend-theme": "^0.61.1",
     "classnames": "^2.2.5",
     "invariant": "^2.2.1",
+    "keycode": "^2.1.8",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.1",
     "react-bootstrap": "0",
-    "talend-icons": "^0.60.6",
+    "talend-icons": "^0.61.1",
     "uuid": "^2.0.3"
   },
-  "version": "0.60.6"
+  "version": "0.61.1"
 }

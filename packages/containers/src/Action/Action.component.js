@@ -9,7 +9,7 @@ import { api } from 'react-cmf';
  */
 function Action({ name, ...rest }, context) {
 	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action);
+		context.store.dispatch(payload.action.payload);
 	};
 	if (name) {
 		const action = api.action.getActionInfo(context, name);

@@ -61,7 +61,8 @@ describe('renderActions', () => {
 			style: 'primary',
 			label: 'VALIDATE',
 		}];
-		const wrapper = shallow(<div>{renderActions(actions)}</div>);
+		function noop() {}
+		const wrapper = shallow(<div>{renderActions(actions, noop)}</div>);
 		expect(wrapper.find(Button)).toHaveLength(2);
 	});
 	it('Renders a single submit button', () => {
@@ -77,6 +78,7 @@ describe('<Form/>', () => {
 
 	beforeEach(() => {
 		wrapper = mount(<Form
+			noHtml5Validate
 			data={data}
 			onChange={onChange}
 			onSubmit={onSubmit}
@@ -109,6 +111,11 @@ describe('<Form/>', () => {
 	it('Handles submit', () => {
 		wrapper.simulate('submit');
 		expect(onSubmit.mock.calls.length).toEqual(1);
+	});
+
+	it('Renders the <form /> with an attribute novalidate', () => {
+		const form = wrapper.find('form').first();
+		expect(form.props().noValidate).toBeTruthy();
 	});
 
 	describe('<Form actions/>', () => {

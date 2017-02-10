@@ -1,0 +1,6 @@
+exports[`Component HomeListView should render 1`] = `null`;
+
+exports[`Container HomeListView should render 1`] = `
+<div
+  className="mock-provider" />
+`;

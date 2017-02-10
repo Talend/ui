@@ -73,3 +73,18 @@ If the content of a lib folder change it triggers the copy.
 Only copy components into forms and containers.
 
 Same with all subfolders of packges.
+
+### yarn start
+
+It will start all the stack for you:
+
+- components on localhost:6006
+- containers on localhost:6007
+- forms on localhost:6008
+- theme on localhost:1337
+
+If you want to work accross the stack you should launch
+
+```
+./copylibs.js --watch
+```

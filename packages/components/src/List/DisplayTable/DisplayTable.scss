@@ -18,6 +18,8 @@ $tc-list-table-header-height: 36px !default;
 }
 
 .table {
+	margin: 0;
+
 	:global(.btn-group) {
 		visibility: hidden;
 	}
@@ -35,7 +37,6 @@ $tc-list-table-header-height: 36px !default;
 		text-transform: uppercase;
 
 		th {
-			font-size: 0;
 			height: 0;
 			line-height: 0;
 			padding-top: 0;
@@ -49,23 +50,16 @@ $tc-list-table-header-height: 36px !default;
 		.header {
 			color: $tc-list-table-header-color;
 			font-size: 1.4rem;
+			font-weight: bold;
 			height: auto;
 			line-height: normal;
 			padding: 8px 0;
 			position: absolute;
 			top: 0;
 
-			> button {
-				padding: 0;
-				color: inherit;
-				font-size: inherit;
-				font-weight: inherit;
-				line-height: inherit;
-
-				> svg {
-					height: $svg-xs-size;
-					width: $svg-xs-size;
-				}
+			> svg {
+				height: $svg-xs-size;
+				width: $svg-xs-size;
 			}
 		}
 	}

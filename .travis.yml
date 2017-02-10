@@ -10,7 +10,9 @@ addons:
   firefox: "50.0"
 node_js:
   - '6'
-before_install: .travis/before_install.sh
+before_install:
+  - if [[ "$TRAVIS_COMMIT_MESSAGE" =~ 'test(ci)' ]]; then travis_terminate 0; fi
+  - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge

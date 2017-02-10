@@ -9,7 +9,7 @@ import { Actions as PureActions } from 'react-talend-components';
  */
 function Actions({ names, ...rest }, context) {
 	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action);
+		context.store.dispatch(payload.action.payload);
 	};
 	const actions = names ? names.map(
 		name => api.action.getActionInfo(context, name),

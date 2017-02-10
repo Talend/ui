@@ -62,6 +62,7 @@ const pagination = {
 
 const filter = {
 	onFilter: jest.fn(),
+	onToggle: jest.fn(),
 };
 
 describe('Toolbar', () => {
