@@ -11,7 +11,7 @@ import theme from './List.scss';
 function getToolbar(toolbar, id, displayMode, list) {
 	const toolbarProps = {
 		...toolbar,
-		id
+		id,
 	};
 
 	if (toolbar.display) {
@@ -29,6 +29,18 @@ function getToolbar(toolbar, id, displayMode, list) {
 	return (<Toolbar {...toolbarProps} />);
 }
 
+function getDisplayModeComponent(useContent, id, displayMode, list) {
+	if (useContent) {
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+	}
+
+	switch (displayMode) {
+	case 'tile': return <DisplayTile id={id} {...list} />;
+	case 'large': return <DisplayLarge id={id} {...list} />;
+	default: return <DisplayTable id={id} {...list} />;
+	}
+}
+
 function getList(useContent, id, displayMode, list) {
 	if (list.items && list.items.length) {
 		return getDisplayModeComponent(useContent, id, displayMode, list);
@@ -37,26 +49,11 @@ function getList(useContent, id, displayMode, list) {
 	return (<span className={theme['no-result']}>No result found</span>);
 }
 
-function getDisplayModeComponent(useContent, id, displayMode, list) {
-	if (useContent) {
-		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
-	}
-
-	switch (displayMode) {
-		case 'tile':
-			return <DisplayTile id={id} {...list} />;
-		case 'large':
-			return <DisplayLarge id={id} {...list} />;
-		default:
-			return <DisplayTable id={id} {...list} />;
-	}
-}
-
 
 /**
  * @param {object} props react props
  * @example
-const props = {
+ const props = {
 	displayMode: 'table' / 'large' / 'tile' / component
 	list: {
 		items: [{}, {}, ...],
@@ -86,7 +83,7 @@ const props = {
 		},
 	}
 }
-<List {...props}></List>
+ <List {...props}></List>
  */
 function List({ id, displayMode, toolbar, list, useContent }) {
 	const classnames = classNames(
