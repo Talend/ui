@@ -1,0 +1,46 @@
+{
+  "jsonSchema": {
+    "title": "A simple typeahead",
+    "description": "A simple typeahead widget example.",
+    "type": "object",
+    "definitions": {
+      "datalist": {
+        "type": "string",
+        "enum": [
+          "Apple",
+          "Banana",
+          "Cherry",
+          "Lemon",
+          "Grapefruit"
+        ]
+      }
+    },
+    "properties": {
+      "select1": {
+        "$ref": "#/definitions/datalist"
+      },
+      "fullDatalist": {
+        "$ref": "#/definitions/datalist"
+      },
+      "emptyDatalist": {
+        "type": "string",
+        "title": "Typeahead",
+        "enum": []
+      }
+    }
+  },
+  "uiSchema": {
+    "fullDatalist": {
+      "ui:widget": "datalist"
+    },
+    "emptyDatalist": {
+      "ui:widget": "datalist"
+    },
+    "ui:order": [
+      "select1",
+      "emptyDatalist",
+      "fullDatalist"
+    ]
+  },
+  "properties": {}
+}

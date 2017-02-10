@@ -1,19 +1,17 @@
 import React from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Autowhatever from 'react-autowhatever';
-import theme from './TypeaheadWidget.scss';
+import theme from './DatalistWidget.scss';
 
 /**
  * Render Simple typeahead widget for filtering among a list
  * @param props
- * @returns {*} Typeahead
+ * @returns {*} DatalistWidget
  * @constructor
  */
-const SimpleTypeaheadWidget = (props) => {
-	const inputProps = props.schema.inputProps;
-
+const DatalistWidget = (props) => {
 	const renderItem = (item, { value }) => {
-		const splittedItem = !value ? [item.text] : item.text.split(value);
+		const splittedItem = !value ? [item] : item.split(value);
 		const emphasisedItem = splittedItem.map((item, index) => (
 			<span key={index}>
 			{item}
@@ -24,13 +22,12 @@ const SimpleTypeaheadWidget = (props) => {
 		return (
 			<div className={theme.item}>
 				<span className={theme['item-title']}>{emphasisedItem}</span>
-				<p className={theme['item-description']}>{item.description}</p>
 			</div>
 		);
 	};
 
 	const style = {
-		container: theme['tc-typeahead-container'],
+		container: theme['tf-typeahead-container'],
 		containerOpen: theme['container-open'],
 		highlight: theme['highlight-match'],
 		input: theme['typeahead-input'],
@@ -64,19 +61,18 @@ const SimpleTypeaheadWidget = (props) => {
 		}
 	};
 
-	const renderItemData = { value: inputProps.value };
 	return (
 		<Autowhatever
 			id={'exampleId'}
-			items={props.schema.items}
+			items={props.schema.enum}
 			renderItem={renderItem}
-			inputProps={inputProps}
+			//inputProps={inputProps}
 			theme={style}
-			renderItemData={renderItemData}
+			//renderItemData={renderItemData}
 			renderInputComponent={renderInputComponent}
-			renderItemsContainer={ItemContainer(props.schema.items)}
+			renderItemsContainer={ItemContainer(props.schema.enum)}
 		/>
 	);
 };
 
-export default SimpleTypeaheadWidget;
+export default DatalistWidget;

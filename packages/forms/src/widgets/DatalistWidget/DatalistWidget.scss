@@ -1,0 +1,91 @@
+$tf-typeahead-input-color: #000 !default;
+$tf-typeahead-input-width: 262px !default;
+$tf-typeahead-opened-items-container-color: #AAA !default;
+$tf-typeahead-opened-items-container-background-color: #FFF !default;
+$tf-typeahead-focused-item-background-color: #F7F7F7 !default;
+$tf-typeahead-item-description-color: #C0C0C0 !default;
+$tf-typeahead-section-border-color: #E0E0E0 !default;
+$tf-typeahead-icon-color: #CCC !default;
+$tf-typeahead-only-icon-color: #CCC !default;
+$tf-typeahead-section-header-color: #63AEBD !default;
+$tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
+
+.tf-typeahead-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: auto;
+}
+
+.typeahead-input {
+	min-width: $tf-typeahead-input-width;
+
+	&-icon {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.items-container {
+	display: none;
+	position: absolute;
+	margin-top: $padding-smaller;
+	top: 100%;
+	max-height: 70vh;
+	min-width: $tf-typeahead-input-width;
+	font-size: 1.5rem;
+	background-color: $tf-typeahead-opened-items-container-background-color;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px 0 $tf-typeahead-items-shadow-color;
+	overflow-y: auto;
+}
+
+.no-result {
+	padding: $padding-normal;
+	font-size: 1.5rem;
+	font-style: italic;
+	color: $tf-typeahead-item-description-color;
+
+	> span {
+		display: inline-block;
+		padding: $padding-normal 0;
+	}
+}
+
+.no-result,
+.container-open .items-container {
+	display: block;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.items {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.item {
+	margin-bottom: 0;
+	padding: $padding-smaller;
+	cursor: pointer;
+
+	&-focused {
+		background-color: $tf-typeahead-focused-item-background-color;
+	}
+}
+
+.highlight-match {
+	font-weight: 600;
+	font-style: normal;
+}
+
+.dropdown-toggle {
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none
+}

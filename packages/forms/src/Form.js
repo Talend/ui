@@ -12,7 +12,7 @@ import SwitchWidget from './widgets/SwitchWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
-import SimpleTypeaheadWidget from './widgets/TypeaheadWidget/TypeaheadWidget';
+import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -24,11 +24,11 @@ const customWidgets = {
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
-	simpleTypeahead: SimpleTypeaheadWidget,
+	datalist: DatalistWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'simpleTypeahead'],
+	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist'],
 };
 
 export function renderActionIcon(icon) {
