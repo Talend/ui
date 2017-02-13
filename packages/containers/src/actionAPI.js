@@ -25,6 +25,11 @@ export function getActionsProps(context, ids, model) {
 			}
 		};
 	});
+
+	if (typeof ids === 'string') {
+		return infos[0];
+	}
+
 	return infos;
 }
 
