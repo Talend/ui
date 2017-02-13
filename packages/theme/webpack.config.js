@@ -71,7 +71,10 @@ module.exports = () => {
 			}),
 		],
 		devServer: {
-			contentBase: './example',
+			contentBase: [
+				'./',
+				'./example'
+			],
 		},
 	}
 };
