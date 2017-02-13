@@ -106,16 +106,21 @@ export function calculatePortsPosition(state, action) {
 		return nodes.reduce((cumulativeState, node) => {
 			const nodeType = node.getNodeType();
 			const ports = state.get('ports').filter(port => port.nodeId === node.id);
-			const calculatePortPosition = state.getIn(['nodeTypes', nodeType, 'component'])
-				.calculatePortPosition;
-			return cumulativeState.mergeIn(
-				['ports'],
-				calculatePortPosition(
-					ports,
-					node.getPosition(),
-					node.getSize(),
-				),
-			);
+			const component = state.getIn(['nodeTypes', nodeType, 'component']);
+			if (component) {
+				const calculatePortPosition = component.calculatePortPosition;
+				if (calculatePortPosition) {
+					return cumulativeState.mergeIn(
+						['ports'],
+						calculatePortPosition(
+							ports,
+							node.getPosition(),
+							node.getSize(),
+						),
+					);
+				}
+			}
+			return state;
 		}, state);
 	}
 	return state;
