@@ -1,8 +1,6 @@
 /**
  * @module react-cmf/lib/actions/componentsActions
  */
-import invariant from 'invariant';
-
 export const COMPONENT_ADD_STATE = 'REACT_CMF.COMPONENT_ADD_STATE';
 export const COMPONENT_MERGE_STATE = 'REACT_CMF.COMPONENT_MERGE_STATE';
 export const COMPONENT_REMOVE_STATE = 'REACT_CMF.COMPONENT_REMOVE_STATE';
