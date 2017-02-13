@@ -35,9 +35,8 @@ export function componentsReducers(state = defaultState, action) {
 		);
 	case ACTIONS.componentsActions.COMPONENT_MERGE_STATE:
 		if (!state.getIn([action.componentName, action.key])) {
-			let msg = 'The component state can\'t be merged since the ';
-			msg += `${action.componentName}, ${action.key} association doesn't exist.`;
-			invariant(false, msg);
+			invariant(false, `The component state can't be merged since the
+			${action.componentName}, ${action.key} association doesn't exist.`);
 		}
 
 		return state.mergeIn(
