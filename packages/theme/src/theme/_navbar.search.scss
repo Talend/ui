@@ -1,6 +1,22 @@
 
 .navbar {
 	[role='search'] {
+		.btn {
+			display: flex;
+			align-items: center;
+
+			&:before,
+			&:after {
+				content: '';
+				flex: 1 0 auto;
+			}
+
+			@media (min-width: $grid-float-breakpoint) {
+				padding-top: $navbar-padding-vertical;
+				padding-bottom: $navbar-padding-vertical;
+			}
+		}
+
 		.form-control {
 			padding-right: $navbar-search-btn-width;
 			font-style: italic;
