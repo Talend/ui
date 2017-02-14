@@ -21,14 +21,10 @@ const HTML_TPL = (icons, style) => `
 			}
 			li {
 				flex-basis: 10%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				margin: 5px;
-			}
-			li > svg,
-			li > span {
-				display: block;
-			}
-			li > svg {
-				margin: 0 auto;
 			}
 			li > span {
 				margin-top: 10px;
