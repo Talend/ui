@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import mock, { Provider } from 'react-cmf/lib/mock';
-import Immutable, { Map } from 'immutable';
+import { fromJS, Map } from 'immutable';
 
 import Component from './HomeListView.component';
 import Container, { DEFAULT_STATE } from './HomeListView.container';
@@ -27,11 +27,7 @@ const list = {
 	},
 };
 
-const actions = {
-	//title: 'object:view',
-	//left: ['object:add'],
-	//items: ['object:delete'],
-};
+const actions = {};
 
 const toolbar =	{
 	sort: {
@@ -46,7 +42,7 @@ const toolbar =	{
 	},
 };
 
-const items = Immutable.fromJS([
+const items = fromJS([
 	{
 		id: 1,
 		label: 'Title with actions',
@@ -82,14 +78,14 @@ const listProps = {
 	toolbar,
 	items,
 };
-const state = mock.state();
-state.cmf.components = new Map({});
-state.cmf.collections = new Map({});
+const reduxState = mock.state();
+reduxState.cmf.components = new Map({});
+reduxState.cmf.collections = new Map({});
 
 describe('Component HomeListView', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Provider state={state}>
+			<Provider state={reduxState}>
 				<Component sidepanel={sidepanel} list={listProps}>
 					<h1>Hello children</h1>
 				</Component>
@@ -102,7 +98,7 @@ describe('Component HomeListView', () => {
 describe('Container HomeListView', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Provider state={state}>
+			<Provider state={reduxState}>
 				<Container sidepanel={sidepanel} list={listProps}>
 					<h1>Hello children</h1>
 				</Container>
