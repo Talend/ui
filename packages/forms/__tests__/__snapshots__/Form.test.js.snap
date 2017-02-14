@@ -1,4 +1,4 @@
-exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
+exports[`<Form/> <Form/> with simple elements <Form actions/> Renders form with custom css 1`] = `
 <form
   acceptCharset={undefined}
   action={undefined}
@@ -96,6 +96,85 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
       title={undefined}
       type="reset">
       Reset
+    </button>
+  </div>
+</form>
+`;
+
+exports[`<Form/> <Form/> with widgets elements should display items matching with "App" filter 1`] = `
+<form
+  acceptCharset={undefined}
+  action={undefined}
+  autoComplete={undefined}
+  className="form"
+  encType={undefined}
+  id={undefined}
+  method={undefined}
+  name={undefined}
+  noValidate={false}
+  onSubmit={[Function]}
+  target={undefined}>
+  <div
+    className="form-group field field-object">
+    <fieldset>
+      <legend
+        id="root__title">
+        TestForm
+      </legend>
+      <div
+        className="form-group field field-string">
+        <div
+          style={Object {}}>
+          <div
+            className={undefined}>
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-owns="react-autowhatever-exampleId"
+              autoComplete="off"
+              className="form-control"
+              id={undefined}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search ..."
+              required={false}
+              role="combobox"
+              style={Object {}}
+              type="text"
+              value="" />
+            <div
+              className={undefined}>
+              <span
+                className="caret" />
+            </div>
+          </div>
+          <div
+            id="react-autowhatever-exampleId"
+            style={Object {}} />
+        </div>
+        <label
+          htmlFor="root_datalist">
+          datalist
+        </label>
+        <div />
+        <div />
+        <div />
+      </div>
+    </fieldset>
+    <div />
+    <div />
+  </div>
+  <div
+    className="form-actions">
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit">
+      Submit
     </button>
   </div>
 </form>

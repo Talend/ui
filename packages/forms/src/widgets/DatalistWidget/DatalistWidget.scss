@@ -2,7 +2,7 @@ $tf-typeahead-input-color: #000 !default;
 $tf-typeahead-input-width: 262px !default;
 $tf-typeahead-opened-items-container-color: #AAA !default;
 $tf-typeahead-opened-items-container-background-color: #FFF !default;
-$tf-typeahead-focused-item-background-color: #F7F7F7 !default;
+$tf-typeahead-focused-item-background-color: rgba(255, 0, 0, .6) !default;
 $tf-typeahead-item-description-color: #C0C0C0 !default;
 $tf-typeahead-section-border-color: #E0E0E0 !default;
 $tf-typeahead-icon-color: #CCC !default;
@@ -73,7 +73,8 @@ $tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 	cursor: pointer;
 
 	&-focused {
-		background-color: $tf-typeahead-focused-item-background-color;
+		background-color: rgba(255, 0, 0, .6);
+		color: #ffffff
 	}
 }
 

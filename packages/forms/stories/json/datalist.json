@@ -3,14 +3,19 @@
     "title": "A simple typeahead",
     "description": "A simple typeahead widget example.",
     "type": "object",
+    "required": [
+      "fullDatalist",
+      "select1"
+    ],
     "definitions": {
       "datalist": {
         "type": "string",
         "enum": [
           "Apple",
+          "Pine[apple]",
           "Banana",
-          "Cherry",
-          "Lemon",
+          "Cher[ry",
+          "Lemo}n",
           "Grapefruit"
         ]
       }
@@ -21,11 +26,6 @@
       },
       "fullDatalist": {
         "$ref": "#/definitions/datalist"
-      },
-      "emptyDatalist": {
-        "type": "string",
-        "title": "Typeahead",
-        "enum": []
       }
     }
   },
@@ -33,14 +33,12 @@
     "fullDatalist": {
       "ui:widget": "datalist"
     },
-    "emptyDatalist": {
-      "ui:widget": "datalist"
-    },
     "ui:order": [
       "select1",
-      "emptyDatalist",
       "fullDatalist"
     ]
   },
-  "properties": {}
+  "properties": {
+    "fullDatalist": "Apple"
+  }
 }
