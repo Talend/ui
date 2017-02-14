@@ -102,8 +102,8 @@ $tc-list-table-header-height: 36px !default;
 
 					position: absolute;
 					right: 0;
-					background: linear-gradient(to right, transparent, $tc-list-table-hover-bg 20px);
-					padding-left: 20px;
+					background: linear-gradient(to right, transparent, $tc-list-table-hover-bg $padding-large);
+					padding-left: $padding-large;
 				}
 			}
 		}
