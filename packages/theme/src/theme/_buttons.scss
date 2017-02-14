@@ -11,6 +11,7 @@
 	line-height: 3.3rem;
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
+	transition: all 0.1s ease-out;
 
 	&,
 	& > span {
