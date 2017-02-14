@@ -5,7 +5,7 @@ import {
 	getWidget,
 	optionsList,
 	getUiOptions,
-	getDefaultRegistry
+	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
 import CheckboxWidget from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 
@@ -13,9 +13,9 @@ import CheckboxWidget from 'react-jsonschema-form/lib/components/widgets/Checkbo
 function buildOptions(schema) {
 	return {
 		enumOptions: optionsList(Object.assign({
-			enumNames: ["true", "false"],
-			enum: [true, false]
-		}, { enumNames: schema.enumNames }))
+			enumNames: ['true', 'false'],
+			enum: [true, false],
+		}, { enumNames: schema.enumNames })),
 	};
 }
 
@@ -30,11 +30,11 @@ function BooleanField(props) {
 		required,
 		disabled,
 		readonly,
-		onChange
+		onChange,
 	} = props;
 	const { title } = schema;
 	const { widgets, formContext } = registry;
-	const widget = uiSchema["ui:widget"];
+	const widget = uiSchema['ui:widget'];
 	const uiOptions = getUiOptions(uiSchema);
 	const onChangeHandler = (value) => {
 		onChange(value, uiOptions);
@@ -58,7 +58,7 @@ function BooleanField(props) {
 	return <CheckboxWidget {...commonProps} />;
 }
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
 	BooleanField.propTypes = {
 		schema: PropTypes.object.isRequired,
 		uiSchema: PropTypes.object,
@@ -76,7 +76,7 @@ if (process.env.NODE_ENV !== "production") {
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
-		})
+		}),
 	};
 }
 

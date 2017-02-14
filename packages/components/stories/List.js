@@ -101,6 +101,43 @@ const props = {
 				author: 'Jean-Pierre DUPONT with super long name',
 				className: 'item-2-class',
 			},
+			{
+				id: 4,
+				name: 'Title with long long long long long long long long long long long text',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions: [
+					{
+						label: 'edit',
+						icon: 'talend-pencil',
+						onClick: action('onEdit'),
+					},
+					{
+						label: 'delete',
+						icon: 'talend-trash',
+						onClick: action('onDelete'),
+					},
+					{
+						displayMode: 'dropdown',
+						label: 'related items',
+						icon: 'talend-folder',
+						items: [
+							{
+								label: 'document 1',
+								onClick: action('document 1 click'),
+							},
+							{
+								label: 'document 2',
+								onClick: action('document 2 click'),
+							},
+						],
+					},
+				],
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
 		],
 		titleProps: {
 			key: 'name',
@@ -165,8 +202,11 @@ const props = {
 			onChange: action('pagination.onChange'),
 		},
 		filter: {
+			docked: true,
+			onBlur: action('filter.onBlur'),
+			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
-			debounceTimeout: 300,
+			onToggle: action('filter.onToggle'),
 		},
 	},
 };
@@ -248,50 +288,56 @@ const itemPropsForItems = {
 	onChange: action('onTitleChange'),
 	onSubmit: action('onTitleEditSubmit'),
 };
+
 const sort = {
 	field: 'name',
 	isDescending: false,
 	onChange: action('sort.onChange'),
 };
-const getPropsFor = displayMode => ({
-	id: props.id,
-	displayMode,
-	list: {
-		columns: columnsForItems,
-		actions: actionsForItems,
-		items: itemsForItems,
-		itemProps: itemPropsForItems,
-	},
-	toolbar: props.toolbar,
-	useContent: true,
-});
+
+function getPropsFor(displayMode) {
+	return {
+		id: props.id,
+		displayMode,
+		list: {
+			columns: columnsForItems,
+			actions: actionsForItems,
+			items: itemsForItems,
+			itemProps: itemPropsForItems,
+		},
+		toolbar: props.toolbar,
+		useContent: true,
+	};
+}
 
 storiesOf('List', module)
-	.add('table (default)', () => (
-		<div className="display-table">
+	.add('Table (default)', () => (
+		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
-			<h2>Definition</h2>
 			<p>Display a list by defining your.</p>
-			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} />
 		</div>
 	))
-	.add('large', () => {
-		const eprops = Object.assign({}, props);
-		eprops.displayMode = 'large';
+	.add('Large', () => {
+		const tprops = {
+			...props,
+			displayMode: 'large',
+		};
 		return (
 			<div>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...eprops} />
+				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('tile', () => {
-		const tprops = Object.assign({}, props);
-		tprops.displayMode = 'tile';
+	.add('Tile', () => {
+		const tprops = {
+			...props,
+			displayMode: 'tile',
+		};
 		return (
 			<div>
 				<h1>List</h1>
@@ -301,7 +347,67 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('table with column actions', () => {
+	.add('Empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} />
+				</div>
+			</div>
+		);
+	})
+	.add('No toolbar', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list without toolbar</p>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...tprops} />
+				</div>
+			</div>
+		);
+	})
+	.add('Toolbar with filter', () => {
+		const dockedProps = Immutable.fromJS(props).toJS();
+		dockedProps.list.items = [dockedProps.list.items[0]];
+		dockedProps.toolbar.actionBar = null;
+
+		const inputProps = Immutable.fromJS(dockedProps).toJS();
+		inputProps.toolbar.filter.docked = false;
+
+		const highlightedProps = Immutable.fromJS(inputProps).toJS();
+		highlightedProps.toolbar.filter.highlight = true;
+
+		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
+		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
+
+		return (<div>
+			<IconsProvider />
+
+			<h1>List</h1>
+			<h2>Definition</h2>
+			<p>Toolbar Filter</p>
+			<h2>Docked</h2>
+			<List {...dockedProps} />
+			<h2>Input</h2>
+			<List {...inputProps} />
+			<h2>Highlighted</h2>
+			<List {...highlightedProps} />
+			<h2>Input with 300ms debounce</h2>
+			<List {...inputDebounceProps} />
+		</div>);
+	})
+	.add('Table with column actions', () => {
 		const columnActionsProps = Immutable.fromJS(props).toJS();
 		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
 		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
@@ -322,14 +428,12 @@ storiesOf('List', module)
 		}));
 		return (<div>
 			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Display a list by defining your.</p>
-			<h2>Examples</h2>
+			<p>Display a list with columns containing actions.</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...columnActionsProps} />
 		</div>);
 	})
-	.add('table with selected items', () => {
+	.add('Table with selected items', () => {
 		const selectedItemsProps = Immutable.fromJS(props).toJS();
 		selectedItemsProps.toolbar.actionBar.selected = 1;
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
@@ -346,30 +450,27 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Display a list by defining your.</p>
-				<h2>Examples</h2>
+				<p>Display a list with selected items.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} />
 			</div>
 		);
 	})
-	.add('table with custom selected class', () => {
+	.add('Table with custom selected class', () => {
 		const selectedClassProps = Immutable.fromJS(props).toJS();
-		selectedClassProps.list.itemProps.selectedClass = 'customStyle';
+		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
 		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.toolbar = undefined;
 		return (
 			<div>
 				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Display a list by defining your.</p>
-				<h2>Examples</h2>
+				<p>Display a list with custom selected class.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...selectedClassProps} />
 			</div>
 		);
 	})
-	.add('table without toolbar', () => {
+	.add('Table with scroll', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -377,7 +478,26 @@ storiesOf('List', module)
 		return (
 			<div>
 				<h1>List</h1>
-				<p>Display a list without toolbar</p>
+				<p>Display a list in a limited container. To enable content scroll.</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...tprops} />
+				</div>
+			</div>
+		);
+	})
+	.add('Table with ellipsis', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div className="tc-list-fixed-name-column">
+				<h1>List</h1>
+				<p>
+					Display a list with NAME content ellipsis.
+					The NAME column is limited to 400px in css.
+				</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { actions } from 'react-cmf';
 
 import Container, { DEFAULT_STATE } from './HomeListView.container';
 import { getStateAccessors, getStateProps } from '../state';

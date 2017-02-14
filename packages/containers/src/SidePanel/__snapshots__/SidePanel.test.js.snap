@@ -2,7 +2,10 @@ exports[`SidePanel should render 1`] = `
 <div
   className="mock-provider">
   <div
-    className="tc-side-panel" />
+    actions={Array []}
+    className="tc-side-panel"
+    docked={false}
+    onToggleDock={[Function]} />
 </div>
 `;
 
@@ -10,6 +13,9 @@ exports[`SidePanel should render provided actions as string 1`] = `
 <div
   className="mock-provider">
   <div
-    className="tc-side-panel" />
+    actions={Array []}
+    className="tc-side-panel"
+    docked={false}
+    onToggleDock={[Function]} />
 </div>
 `;

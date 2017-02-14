@@ -11,6 +11,7 @@
 	line-height: 3.3rem;
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
+	transition: all 0.1s ease-out;
 
 	&,
 	& > span {
@@ -25,7 +26,7 @@
 		fill: currentColor;
 		height: $svg-md-size;
 		width: $svg-md-size;
-		margin: 0 .4rem;
+		margin: 0 0.4rem;
 	}
 
 	&-primary,

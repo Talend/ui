@@ -1,1 +1,39 @@
 // Filter styles
+$tc-list-filter-input-size: 200px !default;
+$tc-list-filter-highlight-color: #F6E5BB !default;
+
+.filter {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	.search-icon {
+		margin: $padding-small;
+	}
+
+	input.search {
+		width: $tc-list-filter-input-size;
+		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&::-ms-clear {
+			display: none;
+		}
+	}
+}
+
+.highlight {
+	background-color: $tc-list-filter-highlight-color;
+}
+
+@keyframes reveal {
+	0% {
+		opacity: 0;
+		width: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		width: $tc-list-filter-input-size;
+	}
+}

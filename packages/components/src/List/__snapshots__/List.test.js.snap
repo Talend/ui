@@ -1,134 +1,202 @@
 exports[`List should not render the toolbar without toolbar props 1`] = `
 <div
   className="tc-list">
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
-          Id
-        </th>
-        <th>
-          Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            1
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Hello world
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            2
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Foo
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            3
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Bar
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div
+    className="tc-list-display">
+    <div>
+      <table
+        className="table tc-list-display-table">
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <span
+                className={undefined}>
+                Id
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
+            </th>
+            <th>
+              <span
+                className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    1
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Hello world
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    2
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Foo
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    3
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Bar
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`List should render 1`] = `
 <div
   className="tc-list">
-  <div>
+  <div
+    className="tc-list-toolbar">
     <div
       className="navbar navbar-default"
       role="toolbar">
@@ -496,170 +564,234 @@ exports[`List should render 1`] = `
             </a>
           </li>
         </ul>
-        <form
-          className="navbar-form navbar-right"
-          onSubmit={[Function]}
-          role="search">
-          <div
-            className="form-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id={undefined}
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              title="Filter"
-              type="submit">
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                title={null}>
-                <use
-                  xlinkHref="#talend-search" />
-              </svg>
-              <span
-                className="sr-only">
-                Filter
-              </span>
-            </button>
-          </div>
-        </form>
+        <button
+          aria-describedby={42}
+          className="navbar-right btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role={null}
+          type="button">
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
-          Id
-        </th>
-        <th>
-          Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            1
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Hello world
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            2
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Foo
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id={undefined}>
-        <td>
-          <input
-            checked={false}
-            id={undefined}
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            3
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Bar
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div
+    className="tc-list-display">
+    <div>
+      <table
+        className="table tc-list-display-table">
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <span
+                className={undefined}>
+                Id
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
+            </th>
+            <th>
+              <span
+                className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    1
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Hello world
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    2
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Foo
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id={undefined}>
+            <td>
+              <input
+                checked={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    3
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Bar
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list 1`] = `
+<div
+  className="tc-list">
+  <span
+    className={undefined}>
+    No result found
+  </span>
 </div>
 `;
 
 exports[`List should render id if provided 1`] = `
 <div
   className="tc-list">
-  <div>
+  <div
+    className="tc-list-toolbar">
     <div
       className="navbar navbar-default"
       role="toolbar">
@@ -1027,162 +1159,216 @@ exports[`List should render id if provided 1`] = `
             </a>
           </li>
         </ul>
-        <form
-          className="navbar-form navbar-right"
-          onSubmit={[Function]}
-          role="search">
-          <div
-            className="form-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id="context-filter-input"
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="context-filter-submit"
-              title="Filter"
-              type="submit">
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                title={null}>
-                <use
-                  xlinkHref="#talend-search" />
-              </svg>
-              <span
-                className="sr-only">
-                Filter
-              </span>
-            </button>
-          </div>
-        </form>
+        <button
+          aria-describedby={42}
+          className="navbar-right btn btn-link"
+          disabled={false}
+          id="context-filter"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role={null}
+          type="button">
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
-  <table
-    className="table tc-list-display-table">
-    <thead>
-      <tr>
-        <th />
-        <th>
-          Id
-        </th>
-        <th>
-          Name
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className=""
-        id="context-0">
-        <td>
-          <input
-            checked={false}
-            id="context-0-check"
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            1
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Hello world
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id="context-1">
-        <td>
-          <input
-            checked={false}
-            id="context-1-check"
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            2
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Foo
-          </span>
-        </td>
-      </tr>
-      <tr
-        className=""
-        id="context-2">
-        <td>
-          <input
-            checked={false}
-            id="context-2-check"
-            onChange={[Function]}
-            type="checkbox" />
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            3
-          </span>
-        </td>
-        <td>
-          <span
-            aria-describedby={42}
-            className="item-text"
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}>
-            Bar
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div
+    className="tc-list-display">
+    <div>
+      <table
+        className="table tc-list-display-table">
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <span
+                className={undefined}>
+                Id
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
+            </th>
+            <th>
+              <span
+                className={undefined}>
+                Name
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className=""
+            id="context-0">
+            <td>
+              <input
+                checked={false}
+                id="context-0-check"
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    1
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Hello world
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id="context-1">
+            <td>
+              <input
+                checked={false}
+                id="context-1-check"
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    2
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Foo
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+          <tr
+            className=""
+            id="context-2">
+            <td>
+              <input
+                checked={false}
+                id="context-2-check"
+                onChange={[Function]}
+                type="checkbox" />
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    3
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+            <td>
+              <div
+                className="tc-list-display-table-td">
+                <div
+                  className="cell">
+                  <span
+                    aria-describedby={42}
+                    className="item-text"
+                    onBlur={[Function]}
+                    onClick={null}
+                    onFocus={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}>
+                    Bar
+                  </span>
+                </div>
+                <div
+                  className="actions" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 `;

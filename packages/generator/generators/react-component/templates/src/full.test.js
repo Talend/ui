@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
 
@@ -13,7 +14,7 @@ import Connected, {
 describe('Component <%= props.name %>', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Component name="Hello world" />
+			<Component />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -21,11 +22,9 @@ describe('Component <%= props.name %>', () => {
 
 describe('Container <%= props.name %>', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Container name="Hello world" />
-			</Provider>
-		).toJSON();
+		const wrapper = shallow(
+			<Container />
+		);
 		expect(wrapper).toMatchSnapshot();
 	});
 });

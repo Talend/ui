@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Action as PureAction } from 'react-talend-components';
 import { api } from 'react-cmf';
-import invariant from 'invariant';
 
 /**
  * @param {Object} props react props
@@ -10,7 +9,7 @@ import invariant from 'invariant';
  */
 function Action({ name, ...rest }, context) {
 	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action);
+		context.store.dispatch(payload.action.payload);
 	};
 	if (name) {
 		const action = api.action.getActionInfo(context, name);

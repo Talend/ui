@@ -9,7 +9,7 @@
       "default": [
         {
           "name": "action-default",
-          "selector": ["#default", "#hidelabel"]
+          "selector": ["#default", "#hidelabel", "#disabled"]
         }
       ]
     },
@@ -90,19 +90,19 @@
       ]
     },
     "List": {
-      "table (default)": [
+      "Table (default)": [
         {
           "name": "list-table-default",
           "selector": ".tc-list"
         }
       ],
-      "large": [
+      "Large": [
         {
           "name": "list-large-default",
           "selector": ".tc-list"
         }
       ],
-      "tile": [
+      "Tile": [
         {
           "name": "list-tile-default",
           "selector": ".tc-list"

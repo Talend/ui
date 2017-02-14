@@ -23,11 +23,13 @@ function cellContent(isTitle, item, column, titleProps, id) {
 			hideLabel
 		/>);
 	}
-	return (<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
-				<span className={classnames(theme['item-text'], 'item-text')}>
-					{item[column.key]}
-				</span>
-			</TooltipTrigger>);
+	return (
+		<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
+			<span className={classnames(theme['item-text'], 'item-text')}>
+				{item[column.key]}
+			</span>
+		</TooltipTrigger>
+	);
 }
 
 function RowRenderer(props) {
@@ -45,7 +47,7 @@ function RowRenderer(props) {
 		null;
 	const classes = classnames(
 		classNameKey && item[classNameKey],
-		isSelected && isSelected(item) && (selectedClass || 'active')
+		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
 	return (
 		<tr id={id} className={classes}>
@@ -69,8 +71,15 @@ function RowRenderer(props) {
 
 				return (
 					<td key={index}>
-						{cell}
-						{actions}
+						<div
+							className={classnames(
+								'tc-list-display-table-td',
+								theme['tc-list-display-table-td']
+							)}
+						>
+							<div className={classnames('cell', theme.cell)}>{cell}</div>
+							<div className={classnames('actions', theme.actions)}>{actions}</div>
+						</div>
 					</td>
 				);
 			})}
@@ -81,7 +90,7 @@ RowRenderer.propTypes = {
 	id: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	columns: PropTypes.arrayOf(
-		PropTypes.shape({ key: PropTypes.string.isRequired })
+		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
 	titleProps: ItemTitle.propTypes.titleProps,
@@ -109,33 +118,43 @@ function getNextDirection(isCurrentSortField, currentSort) {
 	return false;
 }
 
-function headerContent(column, sort) {
-	if (!sort) {
-		return column.label;
+function columnHeader(index, column, sort) {
+	let header;
+
+	if (sort) {
+		const isCurrentSortField = sort.field === column.key;
+		const onChange = event => sort.onChange(
+			event,
+			{
+				field: column.key,
+				isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
+			},
+		);
+		const actionProps = {
+			'aria-label': `Sort on ${column.label} field`,
+			className: theme.header,
+			icon: getCaretIcon(isCurrentSortField),
+			iconPosition: 'right',
+			iconTransform: getIconTransform(sort.isDescending),
+			label: column.label,
+			link: true,
+			onClick: onChange,
+		};
+
+		header = <Action {...actionProps} />;
+	} else {
+		header = <span className={theme.header}>{column.label}</span>;
 	}
 
-	const isCurrentSortField = sort.field === column.key;
-	const onChange = event => sort.onChange(
-		event,
-		{
-			field: column.key,
-			isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
-		},
-	);
-
 	return (
-		<Action
-			icon={getCaretIcon(isCurrentSortField)}
-			link
-			label={column.label}
-			iconPosition="right"
-			iconTransform={getIconTransform(sort.isDescending)}
-			onClick={onChange}
-		/>
+		<th key={index}>
+			{header}
+			<span aria-hidden="true">{column.label}</span>
+		</th>
 	);
 }
 
-function ListHeader(props) {
+function ListHeaders(props) {
 	const {
 		columns,
 		isSelected,
@@ -145,11 +164,11 @@ function ListHeader(props) {
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => (<th key={index}>{headerContent(column, sort)}</th>))}
+			{columns.map((column, index) => columnHeader(index, column, sort))}
 		</tr>
 	);
 }
-ListHeader.propTypes = {
+ListHeaders.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string })
 	),
@@ -221,38 +240,46 @@ function DisplayTable(props) {
 		titleProps,
 	} = props;
 	const { isSelected, onToggleAll } = itemProps || {};
-	const className = classnames(
+	const containerClassName = classnames(
+		'tc-list-display',
+		theme.container,
+	);
+	const tableClassName = classnames(
 		'table',
 		'tc-list-display-table',
 		theme.table,
 	);
 	return (
-		<table className={className}>
-			<thead>
-				<ListHeader
-					id={id}
-					columns={columns}
-					isSelected={isSelected}
-					items={items}
-					onToggleAll={onToggleAll}
-					sort={sort}
-				/>
-			</thead>
-			<tbody>
-				{items.map(
-					(item, index) => (
-						<RowRenderer
-							id={id && `${id}-${index}`}
-							key={index}
+		<div className={containerClassName}>
+			<div>
+				<table className={tableClassName}>
+					<thead>
+						<ListHeaders
+							id={id}
 							columns={columns}
-							item={item}
-							itemProps={itemProps}
-							titleProps={titleProps}
+							isSelected={isSelected}
+							items={items}
+							onToggleAll={onToggleAll}
+							sort={sort}
 						/>
-					)
-				)}
-			</tbody>
-		</table>
+					</thead>
+					<tbody>
+						{items.map(
+							(item, index) => (
+								<RowRenderer
+									id={id && `${id}-${index}`}
+									key={index}
+									columns={columns}
+									item={item}
+									itemProps={itemProps}
+									titleProps={titleProps}
+								/>
+							)
+						)}
+					</tbody>
+				</table>
+			</div>
+		</div>
 	);
 }
 

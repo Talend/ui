@@ -33,13 +33,11 @@ export default function configureGetFilteredItems(configure) {
 			if (componentState) {
 				const searchQuery = componentState.get('searchQuery');
 				if (searchQuery !== '' && !!searchQuery) {
-					results = results.filter((item) => {
-						return contains(item, searchQuery);
-					});
+					results = results.filter(item => contains(item, searchQuery));
 				}
 			}
 			return results;
-		}
+		},
 	);
 
 	const getSortedList = createSelector(
@@ -76,11 +74,11 @@ export default function configureGetFilteredItems(configure) {
 				}
 			}
 			return results;
-		}
+		},
 	);
 
 	return createSelector(
 		[getSortedList, getComponentState],
-		items => items
+		items => items,
 	);
 }

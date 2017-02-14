@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-
+import { api } from 'react-cmf';
 import Component from './HomeListView.component';
-import { statePropTypes, stateWillMount } from '../state';
+import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
 
@@ -11,20 +11,11 @@ export const DEFAULT_STATE = new Map({
 class HomeListView extends React.Component {
 	static displayName = 'CMFContainer(HomeListView)';
 	static propTypes = {
-		name: PropTypes.string,
 		...statePropTypes,
-
 	};
 
-	constructor(props) {
-		super(props);
-	}
-
-	componentWillMount() {
-		stateWillMount(this.props);
-	}
-
 	componentDidMount() {
+		initState(this.props);
 		if (this.props.didMountActionCreator) {
 			this.props.dispatch(
 				api.action.getActionCreatorFunction(
@@ -35,11 +26,15 @@ class HomeListView extends React.Component {
 	}
 
 	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const { sidepanel, list, children, ...props } = this.props;
 		return (
 			<Component
-				name={state.name}
-			/>
+				sidepanel={sidepanel}
+				list={list}
+				{...props}
+			>
+				{children}
+			</Component>
 		);
 	}
 }

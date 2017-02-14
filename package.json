@@ -1,10 +1,60 @@
 {
   "devDependencies": {
-    "lerna": "2.0.0-beta.32"
+    "commander": "^2.9.0",
+    "cpx": "^1.5.0",
+    "lerna": "2.0.0-beta.36",
+    "npm-watch": "^0.1.8"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap",
-    "test": "lerna run test"
+    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && ./copylibs.js",
+    "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
+    "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
+    "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
+    "build-containers": "lerna exec --scope=*containers -- yarn run prepublish && ./copylibs.js --scope=containers",
+    "build-forms": "lerna exec --scope=*forms -- yarn run prepublish && ./copylibs.js --scope=forms",
+    "build-icons": "lerna exec --scope=*icons -- yarn run prepublish && ./copylibs.js --scope=icons && lerna exec --scope=*components -- yarn test -- -u",
+    "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && ./copylibs.js --scope=theme",
+    "test": "lerna exec --concurrency 1 -- yarn test",
+    "start": "lerna exec -- yarn start",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build-cmf": {
+      "patterns": [
+        "packages/cmf/src/**/*"
+      ],
+      "extensions": "js"
+    },
+    "build-components": {
+      "patterns": [
+        "packages/components/src/**/*"
+      ],
+      "extensions": "js,css,scss,svg"
+    },
+    "build-containers": {
+      "patterns": [
+        "packages/containers/src/**/*"
+      ],
+      "extensions": "js,css,scss,svg"
+    },
+    "build-forms": {
+      "patterns": [
+        "packages/forms/src/**/*"
+      ],
+      "extensions": "js,scss"
+    },
+    "build-icons": {
+      "patterns": [
+        "packages/icons/src/svg/*"
+      ],
+      "extensions": "svg"
+    },
+    "build-theme": {
+      "patterns": [
+        "packages/theme/src/**/*"
+      ],
+      "extensions": "css,scss"
+    }
   },
   "repository": {
     "type": "git",

@@ -76,9 +76,9 @@ describe('CMF action', () => {
 		};
 		const action = actionAPI.getActionObject(context, id, event, data);
 		expect(typeof action).toBe('object');
-		expect(action.id).toBe('menu:article');
-		expect(action.name).toBe('My article');
-		expect(action.icon).toBe('icon-article');
+		expect(action.id).toBe(undefined);
+		expect(action.name).toBe(undefined);
+		expect(action.icon).toBe(undefined);
 		expect(action.data).toBe(data);
 		expect(action.event).toBe(event);
 		expect(action.context).toBe(context);

@@ -1,38 +1,44 @@
 import React from 'react';
 import { IconsProvider } from 'react-talend-components';
-import { List } from '../src';
 import Immutable from 'immutable';
+import { List } from '../src';
+
+const list = {
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'label', label: 'Name' },
+		{ key: 'author', label: 'Author' },
+		{ key: 'created', label: 'Created' },
+		{ key: 'modified', label: 'Modified' },
+	],
+	titleProps: {
+		key: 'label',
+	},
+};
+
+const actions = {
+	title: 'object:view',
+	left: ['object:add'],
+	items: ['object:delete'],
+};
+
+const toolbar =	{
+	sort: {
+		field: 'id',
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'label', name: 'Name' },
+		],
+	},
+	filter: {
+		placeholder: 'find an object',
+	},
+};
 
 const props = {
-	list: {
-		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'label', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
-		],
-		titleProps: {
-			key: 'label',
-		},
-	},
-	toolbar: {
-		sort: {
-			field: 'id',
-			options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'label', name: 'Name' },
-			],
-		},
-		filter: {
-			placeholder: 'find an object',
-		},
-	},
-	actions: {
-		title: 'object:view',
-		left: ['object:add'],
-		items: ['object:delete'],
-	},
+	list,
+	actions,
+	toolbar,
 };
 
 const items = Immutable.fromJS([
@@ -65,11 +71,22 @@ const items = Immutable.fromJS([
 	},
 ]);
 
-export default function ExampleList() {
-	return (
+const ExampleList = {
+	default: () => (
 		<div>
 			<IconsProvider />
-			<List {...props} items={items} />
+			<div className="list-container">
+				<List {...props} items={items} />
+			</div>
 		</div>
-	);
-}
+	),
+	'no toolbar': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List list={list} actions={actions} items={items} />
+			</div>
+		</div>
+	),
+};
+export default ExampleList;

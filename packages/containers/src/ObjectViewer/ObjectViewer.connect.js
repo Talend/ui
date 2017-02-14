@@ -23,5 +23,5 @@ export function mapStateToProps(state, ownProps) {
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
 )(Container);
