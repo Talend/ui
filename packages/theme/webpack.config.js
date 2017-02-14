@@ -17,8 +17,8 @@ module.exports = () => {
 					options: {
 						limit: 50000,
 						mimetype: 'application/font-woff',
-						name: './fonts/[name].[ext]'
-					}
+						name: './fonts/[name].[ext]',
+					},
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -27,24 +27,33 @@ module.exports = () => {
 						loader: [
 							{
 								loader: 'css-loader',
-								query: {
+								options: {
 									importLoaders: 3,
 									minimize: true,
-									sourceMap: false
-								}
+									sourceMap: false,
+								},
 							},
 							{
-								loader: 'postcss-loader'
+								loader: 'postcss-loader',
+								options: {
+									plugins: () => [
+										autoprefixer({
+											browsers: ['last 2 versions'],
+											cascade: true,
+											remove: true,
+										}),
+									],
+								},
 							},
 							{
 								loader: 'sass-loader',
-								query: {
-									sourceMap: true
-								}
+								options: {
+									sourceMap: true,
+								},
 							},
 						],
 					}),
-				}
+				},
 			],
 		},
 		devtool: 'source-map',
@@ -56,26 +65,16 @@ module.exports = () => {
 			new webpack.LoaderOptionsPlugin({
 				options: {
 					context: __dirname,
-					postcss: [
-						require('autoprefixer')({
-							browsers: ['last 2 versions'],
-							cascade: true,
-							remove: true
-						}),
-					]
-				}
+				},
 			}),
 			new ExtractTextPlugin({
 				filename: 'bootstrap.css',
-				allChunks: true
+				allChunks: true,
 			}),
 		],
 		devServer: {
-			contentBase: [
-				'./',
-				'./example'
-			],
+			contentBase: ['./', './example'],
 		},
-	}
+	};
 };
 
