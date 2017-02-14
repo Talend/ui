@@ -18,7 +18,7 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				<UIRouter history={hist} />
+				{props.children || <UIRouter history={hist} />}
 			</RegistryProvider>
 		</Provider>
 	);
@@ -26,5 +26,6 @@ export default function App(props) {
 
 App.propTypes = {
 	store: React.PropTypes.object.isRequired,
+	children: React.PropTypes.node,
 	history: React.PropTypes.object,
 };

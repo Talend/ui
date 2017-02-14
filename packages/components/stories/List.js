@@ -325,6 +325,20 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} />
+				</div>
+			</div>
+		);
+	})
 	.add('No toolbar', () => {
 		const tprops = {
 			...props,

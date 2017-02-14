@@ -45,6 +45,7 @@ const toolbarProps = {
 	},
 	filter: {
 		onFilter: jest.fn(),
+		onToggle: jest.fn(),
 	},
 };
 
@@ -71,6 +72,16 @@ describe('List', () => {
 
 	it('should not render the toolbar without toolbar props', () => {
 		const wrapper = renderer.create(<List displayMode="table" list={listProps} />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render empty list', () => {
+		const tProps = {
+			...listProps,
+			items: [],
+		};
+
+		const wrapper = renderer.create(<List list={tProps} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });
