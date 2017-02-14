@@ -3,7 +3,7 @@ $tc-list-display-large-color: #AAA !default;
 $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 25%) !default;
 
 .container {
-	padding: 20px;
+	padding: $padding-large;
 }
 
 .panel {
@@ -29,13 +29,13 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 		visibility: hidden;
 		position: absolute;
 		right: 0;
-		background: linear-gradient(to right, transparent, $tc-list-display-large-background-color 20px);
-		padding-left: 20px;
+		background: linear-gradient(to right, transparent, $tc-list-display-large-background-color $padding-large);
+		padding-left: $padding-large;
 	}
 }
 
 .columns {
-	margin-top: 15px;
+	margin-top: $padding-normal;
 	display: flex;
 
 	& ul {
@@ -52,7 +52,7 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 
 .head {
 	display: flex;
-	padding: 0 15px;
+	padding: 0 $padding-normal;
 }
 
 .label {
