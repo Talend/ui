@@ -15,16 +15,20 @@ const HTML_TPL = (icons, style) => `
 		<link rel="stylesheet" href="/theme/dist/bootstrap.css" media="screen">
 		<style>
 			ul {
+				display: flex;
+				flex-wrap: wrap;
 				list-style-type: none;
 			}
 			li {
-				float: left;
+				flex-basis: 10%;
 				margin: 20px;
-				text-align: center;
 			}
 			li > svg,
 			li > span {
 				display: block;
+			}
+			li > svg {
+				margin: 0 auto;
 			}
 			li > span {
 				margin-top: 10px;
