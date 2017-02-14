@@ -9,17 +9,40 @@ describe('actionAPI.getActionsProps', () => {
 
 	it('should return props for one action', () => {
 		const context = mock.context();
+		const model = { model: true };
 		context.store.dispatch = jest.fn();
-		const props = action.getProps(context, 'menu:demo');
+		const props = action.getProps(context, 'menu:demo', model);
 		expect(props.id).toBe('menu');
 		expect(typeof props.onClick).toBe('function');
-		props.model = {};
-		props.payload = {
-			type: 'MY_SUPER_ACTION',
-		};
+
 		props.onClick();
 		const calls = context.store.dispatch.mock.calls;
 		expect(calls[0][0].model).toBe(props.model);
-		expect(calls[0][0].type).toBe('MY_SUPER_ACTION');
+		expect(calls[0][0].type).toBe('TEST_MENU');
+	});
+
+	it('should return props for multiple actions', () => {
+		const context = mock.context();
+		const model = { model: true };
+		context.store.dispatch = jest.fn();
+		const props = action.getProps(context, ['menu:demo', 'menu:article'], model);
+		expect(Array.isArray(props)).toBe(true);
+		const a1 = props[0];
+		const a2 = props[1];
+		expect(a1.id).toBe('menu');
+		expect(a2.id).toBe('menu:article');
+		expect(a1.model).toBe(model);
+		expect(a2.model).toBe(model);
+		expect(typeof a1.onClick).toBe('function');
+		expect(typeof a2.onClick).toBe('function');
+
+		a1.onClick();
+		a2.onClick();
+		const calls = context.store.dispatch.mock.calls;
+		expect(calls[0][0].model).toBe(a1.model);
+		expect(calls[0][0].type).toBe('TEST_MENU');
+
+		expect(calls[1][0].model).toBe(a2.model);
+		expect(calls[1][0].type).toBe('@@router/CALL_HISTORY_METHOD');
 	});
 });

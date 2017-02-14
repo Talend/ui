@@ -20,7 +20,7 @@ export function getActionsProps(context, ids, model) {
 				);
 			} else {
 				context.store.dispatch(Object.assign({
-					model: info.model,
+					model,
 				}, info.payload));
 			}
 		},
