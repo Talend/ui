@@ -21,7 +21,7 @@ const HTML_TPL = (icons, style) => `
 			}
 			li {
 				flex-basis: 10%;
-				margin: 20px;
+				margin: 5px;
 			}
 			li > svg,
 			li > span {
