@@ -5,7 +5,17 @@ const mock = {
 	Action: props => (<button className="tc-action">{props.label}</button>),
 	Actions: () => (<div className="tc-actions" />),
 	CircularProgress: () => (<div className="tc-circular-project" />),
-	Layout: () => (<div className="tc-layout" />),
+	Layout: props => (
+		<div className="tc-mock-layout">
+			<div className="tc-mock-layout-sidepanel">
+				{props.sidepanel}
+			</div>
+			<div className="tc-mock-layout-list">
+				{props.list}
+			</div>
+			{props.children}
+		</div>
+	),
 	Notification: props => (<div className="tc-notifications" notifications={props.notifications} />),
 	ObjectViewer: () => (<div className="tc-object-viewer" />),
 	SidePanel: () => (<div className="tc-side-panel" />),
@@ -14,4 +24,4 @@ const mock = {
 
 mock.Layout.propTypes = {};
 
-module.exports = mock
+module.exports = mock;
