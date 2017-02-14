@@ -7,6 +7,24 @@ import ACTIONS from '../actions';
 
 export const defaultState = new Map();
 
+export function componentAlreadyExists(action) {
+	let buff = `Can't set up your component ${action.componentName} `;
+	buff += `on key ${action.key} since this association already exist`;
+	return buff;
+}
+
+export function componentDoesntExists(action) {
+	let type;
+	if (action.type === ACTIONS.componentsActions.COMPONENT_MERGE_STATE) {
+		type = 'can\'t be merged';
+	} else if (action.type === ACTIONS.componentsActions.COMPONENT_REMOVE_STATE) {
+		type = 'can\'t be removed';
+	}
+	let buff = `The component state ${type} since the `;
+	buff += `${action.componentName}, ${action.key} association doesn't exist.`;
+	return buff;
+}
+
 /**
  * @param  {object} state  initial state
  * @param  {object} action the executed action
@@ -18,8 +36,7 @@ export function componentsReducers(state = defaultState, action) {
 		if (state.getIn([action.componentName, action.key])) {
 			invariant(
 				false,
-				`Can't set up your component ${action.componentName} on
-				key ${action.key} since this association already exist`,
+				componentAlreadyExists(action),
 			);
 		}
 		if (action.initialComponentState) {
@@ -35,8 +52,7 @@ export function componentsReducers(state = defaultState, action) {
 		);
 	case ACTIONS.componentsActions.COMPONENT_MERGE_STATE:
 		if (!state.getIn([action.componentName, action.key])) {
-			invariant(false, `The component state can't be merged since the
-			${action.componentName}, ${action.key} association doesn't exist.`);
+			invariant(false, componentDoesntExists(action));
 		}
 
 		return state.mergeIn(
@@ -44,6 +60,10 @@ export function componentsReducers(state = defaultState, action) {
 			fromJS(action.componentState)
 		);
 	case ACTIONS.componentsActions.COMPONENT_REMOVE_STATE:
+		if (!state.getIn([action.componentName, action.key])) {
+			invariant(false, componentDoesntExists(action));
+		}
+
 		return state.deleteIn([action.componentName, action.key]);
 	default:
 		return state;

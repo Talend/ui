@@ -1,6 +1,10 @@
 import { Map } from 'immutable';
 
-import componentsReducers, { defaultState } from '../../src/reducers/componentsReducers';
+import componentsReducers, {
+	defaultState,
+	componentAlreadyExists,
+	componentDoesntExists,
+} from '../../src/reducers/componentsReducers';
 
 describe('check component management reducer', () => {
 	const initialState = defaultState
@@ -68,6 +72,15 @@ describe('check component management reducer', () => {
 		}
 	);
 
+	it('REACT_CMF.COMPONENT_ADD_STATE throw when a couple of componentName, key already exist', () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_ADD_STATE',
+			componentName: 'component1',
+			key: 'key1',
+			initialComponentState: 'initialState',
+		};
+		expect(() => componentsReducers(initialState, action)).toThrow(componentAlreadyExists(action));
+	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`,
 		() => {
@@ -85,6 +98,20 @@ describe('check component management reducer', () => {
 		}
 	);
 
+	it(`REACT_CMF.COMPONENT_MERGE_STATE should throw when a couple of
+		componentName, keyId doesn't exist`,
+		() => {
+			const action = {
+				type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+				componentName: 'component',
+				key: 'key',
+				componentState: { searchQuery: 'data' },
+			};
+			expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
+		}
+	);
+
+
 	it(`REACT_CMF.COMPONENT_REMOVE_STATE should properly add
 		component/key state tracking to the store`,
 		() => {
@@ -97,78 +124,13 @@ describe('check component management reducer', () => {
 			);
 		}
 	);
-
-	xit('addComponentState throw when a couple of componentName, key already exist', () => {
-		/*const store = mockStore({
-			cmf: {
-				collections: new Map().set('collectionId', new Map()),
-				components: new Map().set('componentName', new Map().set('keyId', new Map())),
-			},
-		});
-		let msg = 'Can\'t set up your component componentName on key';
-		msg += ' keyId since this association already exist';
-		expect(() => {
-			store.dispatch(
-				addComponentState(
-					'componentName', 'keyId', { searchQuery: '' }
-				)
-			);
-		}).toThrowError(msg);*/
-	});
-
-	xit(`mergeComponentState throw when a couple of
-		componentName, keyId doesn't exist`,
-		() => {
-/*			const store = mockStore({
-				cmf: {
-					collections: new Map().set('collection', new Map()),
-					components: new Map().set('component', new Map().set('key', new Map())),
-				},
-			});
-			let msg = 'The component state can\'t be merged since the ';
-			msg += 'componentName, keyId association doesn\'t exist.';
-			expect(() => {
-				store.dispatch(mergeComponentState(
-					'componentName', 'keyId', { searchQuery: 'JSON' }
-				));
-			}).toThrowError(msg);
-			msg = 'The component state can\'t be merged since the ';
-			msg += 'component, keyId association doesn\'t exist.';
-			expect(() => {
-				store.dispatch(mergeComponentState(
-					'component', 'keyId', { searchQuery: 'JSON' }
-				));
-			}).toThrowError(msg);
-			msg = 'The component state can\'t be merged since the ';
-			msg += 'componentName, keyId association doesn\'t exist.';
-			expect(() => {
-				store.dispatch(mergeComponentState(
-					'componentName', 'keyId', { searchQuery: 'JSON' }
-				));
-			}).toThrowError(msg);*/
-		}
-	);
-
-	xit('removeComponentState throw when a couple of componentName, collectionId doesn\'t exist', () => {  // eslint-disable-line
-		/*const store = mockStore({
-			cmf: {
-				collections: new Map().set('collection', new Map()),
-				components: new Map().set('component', new Map().set('key', new Map())),
-			},
-		});
-		const msg = 'The component can\'t be removed since the componentName, keyId association doesn\'t exist.';  // eslint-disable-line
-		const msgbis = 'The component can\'t be removed since the component, keyId association doesn\'t exist.';  // eslint-disable-line
-		expect(() => {
-			store.dispatch(removeComponentState('componentName', 'keyId'));
-		})
-		.toThrowError(msg);
-		expect(() => {
-			store.dispatch(removeComponentState('component', 'keyId'));
-		})
-		.toThrowError(msgbis);
-		expect(() => {
-			store.dispatch(removeComponentState('componentName', 'keyId'));
-		})
-		.toThrowError(msg);*/
+	it(`removeComponentState throw when a couple of componentName,
+		collectionId doesn't exist`, () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_REMOVE_STATE',
+			componentName: 'component',
+			key: 'key',
+		};
+		expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
 	});
 });

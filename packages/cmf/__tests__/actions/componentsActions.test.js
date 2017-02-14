@@ -1,6 +1,3 @@
-import thunk from 'redux-thunk';
-import { Map } from 'immutable';
-
 import {
 	addComponentState,
 	mergeComponentState,
@@ -23,5 +20,4 @@ describe('test component state management action creators', () => {
 	it('removeComponentState dispatch well formed acton object', () => {
 		expect(removeComponentState('componentName', 'key')).toMatchSnapshot();
 	});
-
 });
