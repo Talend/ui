@@ -106,7 +106,12 @@ export default function ExampleHomeListView() {
 	return (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<HomeListView sidepanel={sidepanel} list={listProps} />
+			<HomeListView
+				sidepanel={sidepanel}
+				list={listProps}
+			>
+				<h1>hello children</h1>
+			</HomeListView>
 		</div>
 	);
 }
