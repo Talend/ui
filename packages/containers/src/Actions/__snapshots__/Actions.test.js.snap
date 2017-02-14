@@ -2,6 +2,12 @@ exports[`Actions should render 1`] = `
 <div
   className="mock-provider">
   <div
-    className="tc-actions" />
+    actions={
+      Array [
+        "menu:demo",
+      ]
+    }
+    className="tc-actions"
+    onClick={[Function]} />
 </div>
 `;
