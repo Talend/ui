@@ -11,7 +11,7 @@ import Connected, {
 } from './HomeListView.connect';
 
 const sidepanel = {
-	actionIds: ['menu:first', 'menu:second', 'menu:third'],
+	actionIds: ['menu:demo', 'menu:article'],
 };
 
 const list = {
@@ -28,9 +28,9 @@ const list = {
 };
 
 const actions = {
-	title: 'object:view',
-	left: ['object:add'],
-	items: ['object:delete'],
+	//title: 'object:view',
+	//left: ['object:add'],
+	//items: ['object:delete'],
 };
 
 const toolbar =	{
@@ -82,11 +82,12 @@ const listProps = {
 	toolbar,
 	items,
 };
+const state = mock.state();
+state.cmf.components = new Map({});
+state.cmf.collections = new Map({});
 
 describe('Component HomeListView', () => {
 	it('should render', () => {
-		const state = mock.state();
-		console.log(state);
 		const wrapper = renderer.create(
 			<Provider state={state}>
 				<Component sidepanel={sidepanel} list={listProps}>
@@ -101,8 +102,8 @@ describe('Component HomeListView', () => {
 describe('Container HomeListView', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
-			<Provider>
-				<Container>
+			<Provider state={state}>
+				<Container sidepanel={sidepanel} list={listProps}>
 					<h1>Hello children</h1>
 				</Container>
 			</Provider>
