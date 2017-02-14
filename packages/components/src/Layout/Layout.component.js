@@ -49,7 +49,7 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 	return (
 		<div className={appCSS}>
 			<div className={headerCSS}>
-				<AppHeaderBar {...header} />
+				{header}
 			</div>
 			{Component ? (
 				<Component {...rest}>
@@ -68,7 +68,7 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 }
 
 Layout.propTypes = {
-	header: PropTypes.shape(AppHeaderBar.propTypes),
+	header: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.element,
