@@ -11,9 +11,9 @@ export function getActionsProps(context, ids, model) {
 	}
 
 	const infos = tmpIds.map(id => api.action.getActionInfo(context, id));
-	infos.forEach((info) => {
-		info.model = model; // eslint-disable-line no-param-reassign
-		info.onClick = (event, data) => { // eslint-disable-line no-param-reassign
+	const props = infos.map(info => Object.assign({
+		model,
+		onClick(event, data) {
 			if (info.actionCreator) {
 				context.store.dispatch(
 					api.action.getActionObject(context, info.id, event, data)
@@ -23,14 +23,14 @@ export function getActionsProps(context, ids, model) {
 					model: info.model,
 				}, info.payload));
 			}
-		};
-	});
+		},
+	}, info));
 
 	if (typeof ids === 'string') {
-		return infos[0];
+		return props[0];
 	}
 
-	return infos;
+	return props;
 }
 
 export default {
