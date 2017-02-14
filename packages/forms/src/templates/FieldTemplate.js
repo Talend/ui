@@ -38,7 +38,7 @@ const CustomFieldTemplate = ({
 			<Label className="form-label" label={label} required={required} id={id} />}
 			{children}
 			{!hasLabelBefore && !isToggle && displayLabel &&
-			<Label label={label} required={required} id={id} />}
+			<Label label={label} required={required} id={id} className="control-label" />}
 			{displayLabel && description ? description : null}
 			{errors}
 			{help}
