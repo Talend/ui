@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { api } from 'react-cmf';
 import { Layout } from 'react-talend-components';
 
 import AppHeaderBar from '../AppHeaderBar';
