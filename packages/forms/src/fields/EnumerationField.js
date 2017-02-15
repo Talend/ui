@@ -68,7 +68,7 @@ class EnumerationField extends React.Component {
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
 		this.setState({
-			items: items,
+			items,
 		});
 	}
 
@@ -78,8 +78,8 @@ class EnumerationField extends React.Component {
 		items.splice(value.index, 1);
 
 		this.setState({
-			items: items,
-		});
+			items,
+		}, this.setFormData.bind(this));
 	}
 
 	// edit mode
@@ -87,7 +87,7 @@ class EnumerationField extends React.Component {
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
 		this.setState({
-			items: items,
+			items,
 		});
 	}
 
@@ -98,7 +98,7 @@ class EnumerationField extends React.Component {
 
 		this.setState({
 			items,
-		});
+		}, this.setFormData.bind(this));
 	}
 
 	onChangeDisplay() {
@@ -133,9 +133,13 @@ class EnumerationField extends React.Component {
 				id: -1,
 				values: [value.value],
 			}]),
-		}, () => this.props.onChange(this.state.items));
+		}, this.setFormData.bind(this));
 
 		this.updateHeaderInputDisabled('');
+	}
+
+	setFormData() {
+		this.props.onChange((this.state.items || []).map(item => item.values));
 	}
 
 	updateHeaderInputDisabled(value) {
