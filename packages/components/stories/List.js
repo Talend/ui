@@ -34,6 +34,36 @@ const selected = [
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-json-o',
 	}];
+
+const actions = [
+	{
+		label: 'edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+	},
+	{
+		label: 'delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+	},
+	{
+		displayMode: 'dropdown',
+		label: 'related items',
+		icon: 'talend-folder',
+		items: [
+			{
+				label: 'document 1',
+				onClick: action('document 1 click'),
+			},
+			{
+				label: 'document 2',
+				onClick: action('document 2 click'),
+			},
+		],
+		pullRight: true,
+	},
+];
+
 const props = {
 	id: 'talend',
 	displayMode: 'table',
@@ -52,33 +82,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
-				actions: [
-					{
-						label: 'edit',
-						icon: 'talend-pencil',
-						onClick: action('onEdit'),
-					},
-					{
-						label: 'delete',
-						icon: 'talend-trash',
-						onClick: action('onDelete'),
-					},
-					{
-						displayMode: 'dropdown',
-						label: 'related items',
-						icon: 'talend-folder',
-						items: [
-							{
-								label: 'document 1',
-								onClick: action('document 1 click'),
-							},
-							{
-								label: 'document 2',
-								onClick: action('document 2 click'),
-							},
-						],
-					},
-				],
+				actions,
 				icon: 'talend-file-xls-o',
 				display: 'text',
 				className: 'item-0-class',
@@ -107,33 +111,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
-				actions: [
-					{
-						label: 'edit',
-						icon: 'talend-pencil',
-						onClick: action('onEdit'),
-					},
-					{
-						label: 'delete',
-						icon: 'talend-trash',
-						onClick: action('onDelete'),
-					},
-					{
-						displayMode: 'dropdown',
-						label: 'related items',
-						icon: 'talend-folder',
-						items: [
-							{
-								label: 'document 1',
-								onClick: action('document 1 click'),
-							},
-							{
-								label: 'document 2',
-								onClick: action('document 2 click'),
-							},
-						],
-					},
-				],
+				actions,
 				icon: 'talend-file-xls-o',
 				display: 'text',
 				className: 'item-3-class',
