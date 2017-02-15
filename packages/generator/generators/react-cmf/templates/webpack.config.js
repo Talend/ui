@@ -1,8 +1,13 @@
+const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+
+const SASS_DATA = `$brand-primary: #77828A;
+@import '~bootstrap-talend-theme/src/theme/guidelines';
+`;
 
 module.exports = {
 	entry: './src/app/index.js',
@@ -23,19 +28,43 @@ module.exports = {
 				publicPath: './',
 			}),
 		}, {
+			test: /theme.scss$/,
+			loader: ExtractTextPlugin.extract(
+				'style',
+				'css!postcss!sass', {
+					publicPath: './',
+				}
+			),
+		}, {
 			test: /\.scss$/,
+			exclude: /theme.scss/,
 			loader: ExtractTextPlugin.extract(
 				'style',
 				'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass', {
 					publicPath: './',
 				}
 			),
+		}, {
+			test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+			loader: 'url',
+			query: {
+				limit: 50000,
+				mimetype: 'application/font-woff',
+				name: './fonts/[name].[ext]',
+			},
 		}],
 	},
 	sassLoader: {
 		includePaths: [
-			path.resolve(__dirname, './src/app'),
+			path.resolve(
+				__dirname,
+				'node_modules'
+			),
 		],
+		data: SASS_DATA,
+	},
+	postcss() {
+		return [autoprefixer({ browsers: ['last 2 versions'] })];
 	},
 	plugins: [
 		new ExtractTextPlugin('[hash].style.css', {
@@ -51,6 +80,6 @@ module.exports = {
 		]),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('developpement'),
-		})
+		}),
 	],
 };

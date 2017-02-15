@@ -70,7 +70,7 @@ Layout.propTypes = {
 	header: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
-	children: PropTypes.element,
+	children: PropTypes.node,
 };
 
 export default Layout;
