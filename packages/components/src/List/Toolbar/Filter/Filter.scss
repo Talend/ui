@@ -11,6 +11,10 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 		margin: $padding-small;
 	}
 
+	.input-group {
+		display: flex;
+	}
+
 	input.search {
 		width: $tc-list-filter-input-size;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
