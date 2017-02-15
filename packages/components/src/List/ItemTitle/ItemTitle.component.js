@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
+
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './ItemTitle.scss';
@@ -12,10 +13,10 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 function renderButton({ id, value, className, item, onClick }) {
-	const click = (event) => {
+	function click(event) {
 		event.stopPropagation();
 		onClick(event, item);
-	};
+	}
 
 	return (
 		<Button id={id} className={className} onClick={click} role="link" bsStyle="link">
@@ -23,6 +24,7 @@ function renderButton({ id, value, className, item, onClick }) {
 		</Button>
 	);
 }
+
 renderButton.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
@@ -32,8 +34,9 @@ renderButton.propTypes = {
 };
 
 function renderText({ id, value, className }) {
-	return (<span id={id} className={className}>{value}</span>);
+	return <span id={id} className={className}>{value}</span>;
 }
+
 renderText.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
@@ -85,6 +88,7 @@ class TitleInput extends React.Component {
 		/>);
 	}
 }
+
 TitleInput.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
@@ -129,9 +133,11 @@ function ItemTitle({ id, className, item, titleProps }) {
 
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
-		titleElement = onClick ?
-			renderButton({ id, value, className, item, onClick }) :
-			renderText({ id, value, className });
+		if (onClick) {
+			titleElement = renderButton({ id, value, className, item, onClick });
+		} else {
+			titleElement = renderText({ id, value, className });
+		}
 	} else if (displayMode === TITLE_MODE_INPUT) {
 		const props = { id, value, item, onEditSubmit, onEditCancel };
 		titleElement = <TitleInput {...props} />;

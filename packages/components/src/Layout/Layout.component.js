@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+
 import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
@@ -10,6 +11,7 @@ import {
 	DISPLAY_MODE_ONE_COLUMN,
 	DISPLAY_MODE_TWO_COLUMNS,
 } from './constants';
+
 /**
  * The Layout component is a container
  * that should follow the body of your App.
@@ -29,11 +31,11 @@ body > div {
 function Layout({ header, mode, drawers, children, ...rest }) {
 	const appCSS = classnames(
 		'tc-layout',
-		theme.layout
+		theme.layout,
 	);
 	const headerCSS = classnames(
 		'tc-layout-header',
-		theme.header
+		theme.header,
 	);
 	let Component;
 	switch (mode) {

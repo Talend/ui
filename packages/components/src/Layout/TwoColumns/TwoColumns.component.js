@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+
 import theme from './TwoColumns.scss';
 
 /**
@@ -10,25 +11,21 @@ import theme from './TwoColumns.scss';
 function TwoColumns({ one, children, ...props }) {
 	const containerCSS = classnames(
 		'tc-layout-two-columns',
-		theme.container
+		theme.container,
 	);
 	const sidemenuCSS = classnames(
 		'tc-layout-two-columns-left',
-		theme.sidemenu
+		theme.sidemenu,
 	);
 	const mainCSS = classnames(
 		'tc-layout-two-columns-main',
-		theme.main
+		theme.main,
 	);
 
 	return (
 		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>
-				{one}
-			</div>
-			<div className={mainCSS}>
-				{children}
-			</div>
+			<div className={sidemenuCSS}>{one}</div>
+			<div className={mainCSS}>{children}</div>
 		</div>
 	);
 }

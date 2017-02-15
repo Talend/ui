@@ -88,7 +88,7 @@ Actions.propTypes = {
 				displayMode: PropTypes.oneOf([TYPE_DROPDOWN]),
 				...ActionDropdown.propTypes,
 			}),
-		])
+		]),
 	),
 	hideLabel: PropTypes.bool,
 	tooltipPlacement: Action.propTypes.tooltipPlacement,

@@ -4,6 +4,7 @@ import {
 	MenuItem,
 	OverlayTrigger,
 } from 'react-bootstrap';
+
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 
@@ -68,16 +69,15 @@ function ActionDropdown(props) {
 		</DropdownButton>
 	);
 
-	return hideLabel ?
-		(
-			<TooltipTrigger
-				label={label}
-				tooltipPlacement={tooltipPlacement}
-			>
-				{dropdown}
-			</TooltipTrigger>
-		) :
-		dropdown;
+	if (hideLabel) {
+		return (<TooltipTrigger
+			label={label}
+			tooltipPlacement={tooltipPlacement}
+		>
+			{dropdown}
+		</TooltipTrigger>);
+	}
+	return dropdown;
 }
 
 ActionDropdown.propTypes = {
