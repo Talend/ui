@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Action from '../Actions/Action';
-import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
+import { Action, Actions, ActionSplitDropdown } from '../Actions';
 import css from './ActionBar.scss';
 
-const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
+const DISPLAY_MODES = {
+	SPLIT_DROPDOWN: 'splitDropdown',
+	BTN_GROUP: 'btnGroup',
+};
 
 function ActionBar({ selected, actions, multiSelectActions }) {
 	function getActionsToRender() {
@@ -17,10 +19,20 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 	function renderActions(actionsToRender) {
 		return actionsToRender.map((action, index) => {
 			const { displayMode, ...rest } = action;
-			if (displayMode === TYPE_SPLIT_DROPDOWN) {
-				return <ActionSplitDropdown key={index} {...rest} />;
+			switch(displayMode) {
+			case DISPLAY_MODES.SPLIT_DROPDOWN:
+				return (
+					<ActionSplitDropdown key={index} {...rest} />
+				);
+			case DISPLAY_MODES.BTN_GROUP:
+				return (
+					<Actions key={index} {...rest} />
+				);
+			default:
+				return (
+					<Action key={index} {...rest} />
+				);
 			}
-			return <Action key={index} {...rest} />;
 		});
 	}
 
@@ -75,5 +87,7 @@ ActionBar.propTypes = {
 	actions: PropTypes.shape(actionsShape).isRequired,
 	multiSelectActions: PropTypes.shape(actionsShape),
 };
+
+ActionBar.DISPLAY_MODES = DISPLAY_MODES;
 
 export default ActionBar;

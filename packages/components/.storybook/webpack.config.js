@@ -16,11 +16,25 @@ module.exports = {
 	module: {
 		loaders: [
 			{
+				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+				loader: 'url-loader',
+				options: {
+					limit: 50000,
+					mimetype: 'application/font-woff',
+					name: './fonts/[name].[ext]'
+				}
+			},
+			{
 				test: /\.scss$/,
 				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss', 'sass'],
 			},
 		],
 	},
+	postcss: [
+		require('autoprefixer')({
+			browsers: ['last 2 versions']
+		})
+	],
 	sassLoader: {
 		data: SASS_DATA,
 	},

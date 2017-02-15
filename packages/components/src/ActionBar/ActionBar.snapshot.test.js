@@ -34,6 +34,24 @@ const splitAction = {
 	emptyDropdownLabel: 'No option',
 };
 
+const btnGroupAction = {
+	displayMode: 'btnGroup',
+	actions: [
+		{
+			label: 'hidden mean tooltips',
+			icon: 'talend-cog',
+			hideLabel: true,
+			onClick: jest.fn(),
+		},
+		{
+			label: 'you are a super star',
+			icon: 'talend-badge',
+			hideLabel: true,
+			onClick: jest.fn(),
+		},
+	],
+};
+
 describe('ActionBar', () => {
 	it('should render no-selected actions, all on left ', () => {
 		// given
@@ -134,6 +152,18 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		).toJSON();
 		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a btn-group', () => {
+		const props = {
+			actions: {
+				left: [btnGroupAction],
+			},
+		};
+		const wrapper = renderer.create(
+			<ActionBar {...props} />
+		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });
