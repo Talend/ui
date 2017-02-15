@@ -23,7 +23,13 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import SidePanel from './SidePanel';
 
+import actionAPI from './actionAPI';
+import componentState from './state';
+
 export {
+	actionAPI,
+	componentState,
+
 	Action,
 	ActionBar,
 	Actions,

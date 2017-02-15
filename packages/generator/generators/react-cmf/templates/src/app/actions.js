@@ -1,4 +1,4 @@
-export const MY_ACTION = "REACT_CMF_EXAMPLE_ACTION";
+export const MY_ACTION = 'REACT_CMF_EXAMPLE_ACTION';
 
 export function doSomething() {
 	return {
