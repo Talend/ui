@@ -22,7 +22,6 @@
 /// @access public
 /// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
 @mixin btn-colors($btn-bg: $btn-default-bg) {
-	transition: box-shadow 0.1s ease-out;
 	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
 
 	&:hover {

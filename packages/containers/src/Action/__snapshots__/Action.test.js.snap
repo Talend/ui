@@ -2,6 +2,20 @@ exports[`Action should render its name 1`] = `
 <div
   className="mock-provider">
   <button
-    className="tc-action" />
+    available="model.actions.delete"
+    className="tc-action"
+    icon="icon-article"
+    id="menu:article"
+    name="My article"
+    onClick={[Function]}
+    payload={
+      Object {
+        "args": Array [
+          "/myarticle",
+        ],
+        "method": "push",
+        "type": "@@router/CALL_HISTORY_METHOD",
+      }
+    } />
 </div>
 `;

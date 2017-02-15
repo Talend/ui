@@ -15,7 +15,7 @@ const ENTER_KEY = 13;
 function renderButton({ id, value, className, item, onClick }) {
 	function click(event) {
 		event.stopPropagation();
-		onClick(event, { model: item });
+		onClick(event, item);
 	}
 
 	return (

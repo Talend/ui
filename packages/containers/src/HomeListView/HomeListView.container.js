@@ -26,12 +26,15 @@ class HomeListView extends React.Component {
 	}
 
 	render() {
-		const { sidepanel, list } = this.props;
+		const { sidepanel, list, children, ...props } = this.props;
 		return (
 			<Component
 				sidepanel={sidepanel}
 				list={list}
-			/>
+				{...props}
+			>
+				{children}
+			</Component>
 		);
 	}
 }

@@ -1,19 +1,16 @@
 import { api, configureStore, settings } from 'react-cmf';
+import { Redirect, HomeListView } from 'react-talend-containers';
 
 import App from './components/App.container';
 import rootReducer from './reducers';
 
 const registerComponent = api.route.registerComponent;
 // const registerActionCreator =  api.registry.registerActionCreator;
+registerComponent('App', App);
+registerComponent('Redirect', Redirect);
+registerComponent('HomeListView', HomeListView);
 
 export default {
 	initialize() {
-		registerComponent('App', App);
 	},
-	getStore() {
-		// import your reducers from here
-		const store = configureStore(rootReducer);
-		store.dispatch(settings.actions.fetchSettings());
-		return store;
-	}
 };
