@@ -1,7 +1,7 @@
 /**
  * @module react-cmf/lib/RegistryProvider
  */
-import React from 'react';
+import React, { Children, PropTypes } from 'react';
 import Registry from './registry';
 
 /**
@@ -22,21 +22,13 @@ export default class RegistryProvider extends React.Component {
 	 * @return {object} ReactElement
 	 */
 	render() {
-		// FIXME: what is that .onClick ?
-		const childrenWithProps = React.Children.map(
-			this.props.children,
-			(child) => React.cloneElement(child, {
-				onClick: this.onClick,
-			})
-		);
-		const child = React.Children.only(childrenWithProps[0]);
-		return (child);
+		return Children.only(this.props.children);
 	}
 }
 
 RegistryProvider.propTypes = {
-	children: React.PropTypes.object,
+	children: PropTypes.element.isRequired,
 };
 RegistryProvider.childContextTypes = {
-	registry: React.PropTypes.object,
+	registry: PropTypes.object,
 };
