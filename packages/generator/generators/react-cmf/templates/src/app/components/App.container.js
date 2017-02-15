@@ -1,8 +1,16 @@
 import React from 'react';
+import {
+	IconsProvider,
+} from 'react-talend-components';
+
+import {
+	Notification,
+} from 'react-talend-containers';
 
 const App = (props) => (
 	<div>
-		<h1>Hello</h1>
+		<IconsProvider />
+		<Notification />
 		{props.children}
 	</div>
 );

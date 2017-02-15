@@ -1,0 +1,79 @@
+{
+  "contentTypes": {},
+  "actions": {
+    "menu:datasets": {
+      "id": "menu:datasets",
+      "label": "Datasets",
+      "icon": "talend-folder",
+      "type": "MENU_LINK",
+      "cmf": {
+        "routerReplace": "/datasets"
+      }
+    }
+  },
+  "views":{
+    "indexRouteRedirect": {
+      "path": "/datasets"
+    },
+    "datasets": {
+      "header": {"_ref": "AppHeaderBar#default"},
+      "sidepanel": {"_ref": "SidePanel#default"},
+      "list": {
+        "collectionId": "datasets",
+        "list": {
+          "columns":[
+            {"key": "label", "label": "Name"},
+            {"key": "updated", "label": "Updated"},
+            {"key": "created", "label": "Created"},
+            {"key": "tags", "label": "Tags"}
+          ],
+          "titleProps": {
+            "key": "label"
+          }
+        },
+        "toolbar": {
+          "filter": {
+            "placeholder": "find a dataset"
+          },
+          "sort": {
+            "options": [
+              { "id": "label", "name": "Name" },
+              { "id": "updated", "name": "Updated" },
+              { "id": "created", "name": "Created"}
+            ]
+          }
+        },
+        "actions": {
+        },
+        "initialState": {
+          "sortOn": "updated"
+        }
+      }
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": {
+      "component": "Redirect",
+      "view": "indexRouteRedirect"
+    },
+    "childRoutes": [
+      {
+        "path": "datasets",
+        "component": "HomeListView",
+        "view": "datasets"
+      }
+    ]
+  },
+  "ref": {
+    "AppHeaderBar#default": {
+      "app": "Data Streams"
+    },
+    "SidePanel#default" : {
+      "actionIds": [
+        "menu:datasets"
+      ]
+    }
+  }
+}
