@@ -8,10 +8,82 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import theme from './List.scss';
 
+function ListToolbar({ id, toolbar, displayMode, list }) {
+	if (!toolbar) {
+		return null;
+	}
+
+	const toolbarProps = {
+		...toolbar,
+		id,
+	};
+
+	if (toolbar.display) {
+		toolbarProps.display.mode = displayMode;
+	}
+
+	if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+		toolbarProps.selectAllCheckbox = {
+			id,
+			items: list.items,
+			isSelected: list.itemProps.isSelected,
+			onToggleAll: list.itemProps.onToggleAll,
+		};
+	}
+	return (<Toolbar {...toolbarProps} />);
+}
+ListToolbar.propTypes = {
+	id: PropTypes.string,
+	displayMode: PropTypes.string,
+	list: PropTypes.oneOfType([
+		PropTypes.shape(DisplayPropTypes),
+		PropTypes.shape(Content.propTypes),
+	]),
+	toolbar: PropTypes.shape(Toolbar.propTypes),
+};
+
+function DisplayModeComponent({ id, useContent, displayMode, list }) {
+	if (useContent) {
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+	}
+
+	switch (displayMode) {
+	case 'tile': return <DisplayTile id={id} {...list} />;
+	case 'large': return <DisplayLarge id={id} {...list} />;
+	default: return <DisplayTable id={id} {...list} />;
+	}
+}
+DisplayModeComponent.propTypes = {
+	id: PropTypes.string,
+	displayMode: PropTypes.string,
+	list: PropTypes.oneOfType([
+		PropTypes.shape(DisplayPropTypes),
+		PropTypes.shape(Content.propTypes),
+	]),
+	useContent: PropTypes.bool,
+};
+
+function ListDisplay({ id, useContent, displayMode, list }) {
+	if (list.items && list.items.length) {
+		return (
+			<DisplayModeComponent
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
+		);
+	}
+
+	return (<span className={theme['no-result']}>No result found</span>);
+}
+ListDisplay.propTypes = DisplayModeComponent.propTypes;
+
+
 /**
  * @param {object} props react props
  * @example
-const props = {
+ const props = {
 	displayMode: 'table' / 'large' / 'tile' / component
 	list: {
 		items: [{}, {}, ...],
@@ -41,60 +113,34 @@ const props = {
 		},
 	}
 }
-<List {...props}></List>
+ <List {...props}></List>
  */
 function List({ id, displayMode, toolbar, list, useContent }) {
-	const getDisplayModeComponent = () => {
-		switch (displayMode) {
-		case 'tile':
-			return <DisplayTile id={id} {...list} />;
-		case 'large':
-			return <DisplayLarge id={id} {...list} />;
-		default:
-			return <DisplayTable id={id} {...list} />;
-		}
-	};
-	const getContent = () => (
-		<Content id={id && `${id}-content`} displayMode={displayMode} {...list} />
-	);
-
-	let toolbarProps;
-	if (toolbar) {
-		toolbarProps = Object.assign({}, toolbar, { id });
-		if (toolbar.display) {
-			toolbarProps.display.mode = displayMode;
-		}
-		if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
-			toolbarProps.selectAllCheckbox = {
-				id,
-				items: list.items,
-				isSelected: list.itemProps.isSelected,
-				onToggleAll: list.itemProps.onToggleAll,
-			};
-		}
-	}
-
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
 	);
 	return (
 		<div className={classnames}>
-			{toolbar && (<Toolbar {...toolbarProps} />)}
-			{useContent ? getContent() : getDisplayModeComponent()}
+			<ListToolbar
+				id={id}
+				toolbar={toolbar}
+				displayMode={displayMode}
+				list={list}
+			/>
+			<ListDisplay
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
 		</div>
 	);
 }
 
 List.propTypes = {
-	id: PropTypes.string,
-	displayMode: PropTypes.string,
-	list: PropTypes.oneOfType([
-		PropTypes.shape(DisplayPropTypes),
-		PropTypes.shape(Content.propTypes),
-	]),
-	toolbar: PropTypes.shape(Toolbar.propTypes),
-	useContent: PropTypes.bool,
+	...ListToolbar.propTypes,
+	...ListDisplay.propTypes,
 };
 
 List.defaultProps = {

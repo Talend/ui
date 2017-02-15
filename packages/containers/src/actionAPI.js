@@ -8,7 +8,9 @@ export function getActionProps(context, id) {
 				api.action.getActionObject(context, id, event, data)
 			);
 		} else {
-			context.store.dispatch(info);
+			context.store.dispatch(Object.assign({
+				model: info.model,
+			}, info.payload));
 		}
 	};
 	return info;
@@ -27,7 +29,9 @@ export function getActionsProps(context, ids, model) {
 					api.action.getActionObject(context, a.id, event, data)
 				);
 			} else {
-				context.store.dispatch(a);
+				context.store.dispatch(Object.assign({
+					model: a.model,
+				}, a.payload));
 			}
 		};
 	});

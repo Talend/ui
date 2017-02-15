@@ -777,6 +777,16 @@ exports[`List should render 1`] = `
 </div>
 `;
 
+exports[`List should render empty list 1`] = `
+<div
+  className="tc-list">
+  <span
+    className={undefined}>
+    No result found
+  </span>
+</div>
+`;
+
 exports[`List should render id if provided 1`] = `
 <div
   className="tc-list">
