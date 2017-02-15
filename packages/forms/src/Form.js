@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/lib/Button';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
-import ObjectEnumerationField from './fields/ObjectEnumerationField';
+import EnumerationField from './fields/EnumerationField';
 import FieldTemplate from './templates/FieldTemplate';
 import SwitchWidget from './widgets/SwitchWidget';
 import TabsWidget from './widgets/TabsWidget';
@@ -109,7 +109,7 @@ class Form extends React.Component {
 			BooleanField,
 			ObjectField,
 			StringField,
-			ObjectEnumerationField,
+			EnumerationField,
 		};
 
 		const customFormContext = {

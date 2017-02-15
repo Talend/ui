@@ -25,7 +25,7 @@
   },
   "uiSchema": {
     "documents": {
-      "ui:field": "ObjectEnumerationField"
+      "ui:field": "EnumerationField"
     }
   },
   "properties": {}
