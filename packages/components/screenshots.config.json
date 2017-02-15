@@ -17,7 +17,7 @@
       "default": [
         {
           "name": "actionbar-default",
-          "selector": ["#default", "#selected", "#right"]
+          "selector": ["#default", "#selected", "#right", "#btn-group"]
         }
       ]
     },
