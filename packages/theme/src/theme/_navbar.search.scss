@@ -2,7 +2,7 @@
 .navbar {
 	[role='search'] {
 		.btn {
-			display: flex;
+			display: inline-flex;
 			align-items: center;
 
 			&:before,
