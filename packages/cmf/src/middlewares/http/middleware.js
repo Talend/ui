@@ -86,6 +86,7 @@ export function HTTPError(response) {
 	this.name = `HTTP ${response.status}`;
 	this.message = response.statusText;
 	this.stack = {
+		response,
 		headers,
 		status: response.status,
 		statusText: response.statusText,
