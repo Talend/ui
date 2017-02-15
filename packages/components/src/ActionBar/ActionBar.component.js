@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Action from '../Actions/Action';
-import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
+import { Action, Actions, ActionSplitDropdown } from '../Actions';
 import css from './ActionBar.scss';
 
-const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
+export const DISPLAY_MODES = {
+	SPLIT_DROPDOWN: 'splitDropdown',
+	BTN_GROUP: 'btnGroup',
+};
 
 function ActionBar({ selected, actions, multiSelectActions }) {
 	const getActionsToRender = () => (selected > 0 ? multiSelectActions : actions);
@@ -12,15 +14,21 @@ function ActionBar({ selected, actions, multiSelectActions }) {
 	const renderActions = actionsToRender =>
 		actionsToRender.map((action, index) => {
 			const { displayMode, ...rest } = action;
-			if (displayMode === TYPE_SPLIT_DROPDOWN) {
+
+			switch(displayMode) {
+			case DISPLAY_MODES.SPLIT_DROPDOWN:
 				return (
 					<ActionSplitDropdown key={index} {...rest} />
 				);
+			case DISPLAY_MODES.BTN_GROUP:
+				return (
+					<Actions key={index} {...rest} />
+				);
+			default:
+				return (
+					<Action key={index} {...rest} />
+				);
 			}
-
-			return (
-				<Action key={index} {...rest} />
-			);
 		});
 
 	const renderSelectedCount = () =>
