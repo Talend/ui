@@ -3,7 +3,7 @@ import Enumeration from 'react-talend-components/lib/Enumeration';
 
 const KEY_CODE_ENTER = 13;
 
-class ObjectEnumerationField extends React.Component {
+class EnumerationField extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -161,4 +161,4 @@ class ObjectEnumerationField extends React.Component {
 	}
 }
 
-export default ObjectEnumerationField;
+export default EnumerationField;
