@@ -132,4 +132,3 @@ describe('Connected HomeListView', () => {
 		expect(typeof props).toBe('object');
 	});
 });
-
