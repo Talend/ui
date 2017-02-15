@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import Drawer from '../Drawer';
