@@ -28,19 +28,5 @@
       "ui:field": "ObjectEnumerationField"
     }
   },
-  "properties": {
-    "documents": [{
-      "id": 1,
-      "values": ["Loreum lopsum 1"]
-    }, {
-      "id": 2,
-      "values": ["Loreum lopsum 2"]
-    }, {
-      "id": 3,
-      "values": ["Loreum lopsum 3"]
-    }, {
-      "id": 4,
-      "values": ["Loreum lopsum 4"]
-    }]
-  }
+  "properties": {}
 }
