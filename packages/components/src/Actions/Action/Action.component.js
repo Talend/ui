@@ -3,6 +3,7 @@ import {
 	Button,
 	OverlayTrigger,
 } from 'react-bootstrap';
+
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
@@ -34,6 +35,7 @@ function getLabel({ hideLabel, label }) {
 	}
 	return (<span>{label}</span>);
 }
+
 getLabel.propTypes = {
 	label: PropTypes.string,
 	hideLabel: PropTypes.bool,
@@ -50,7 +52,7 @@ function getContent(props) {
 	return adjustContentPlacement(
 		getIcon(props),
 		getLabel(props),
-		props.iconPosition
+		props.iconPosition,
 	);
 }
 
@@ -102,9 +104,10 @@ function Action(props) {
 		</Button>
 	);
 
-	return hideLabel ?
-		(<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>{btn}</TooltipTrigger>) :
-		btn;
+	if (hideLabel) {
+		return <TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>{btn}</TooltipTrigger>;
+	}
+	return btn;
 }
 
 Action.propTypes = {

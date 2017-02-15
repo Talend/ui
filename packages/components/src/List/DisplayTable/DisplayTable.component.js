@@ -74,7 +74,7 @@ function RowRenderer(props) {
 						<div
 							className={classnames(
 								'tc-list-display-table-td',
-								theme['tc-list-display-table-td']
+								theme['tc-list-display-table-td'],
 							)}
 						>
 							<div className={classnames('cell', theme.cell)}>{cell}</div>
@@ -168,9 +168,10 @@ function ListHeaders(props) {
 		</tr>
 	);
 }
+
 ListHeaders.propTypes = {
 	columns: PropTypes.arrayOf(
-		PropTypes.shape({ label: PropTypes.string })
+		PropTypes.shape({ label: PropTypes.string }),
 	),
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
@@ -274,7 +275,7 @@ function DisplayTable(props) {
 									itemProps={itemProps}
 									titleProps={titleProps}
 								/>
-							)
+							),
 						)}
 					</tbody>
 				</table>

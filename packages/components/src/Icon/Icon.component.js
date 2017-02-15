@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import invariant from 'invariant';
 import classnames from 'classnames';
-import theme from './Icon.scss';
 
+import theme from './Icon.scss';
 
 export const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -22,9 +22,7 @@ export const SVG_TRANSFORMS = {
 	'flip-vertical': theme['flip-vertical'],
 };
 
-
 export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
-
 
 /**
  * SVG implementation is inspired by
@@ -43,7 +41,7 @@ function Icon({ className, name, title, transform }) {
 			'fa',
 			name,
 			className,
-			transform && FA_TRANSFORMS[transform]
+			transform && FA_TRANSFORMS[transform],
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
@@ -51,7 +49,7 @@ function Icon({ className, name, title, transform }) {
 		const classes = classnames(
 			name,
 			className,
-			transform && FA_TRANSFORMS[transform]
+			transform && FA_TRANSFORMS[transform],
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
@@ -60,7 +58,7 @@ function Icon({ className, name, title, transform }) {
 			theme['svg-icon'],
 			'tc-svg-icon',
 			className,
-			SVG_TRANSFORMS[transform]
+			SVG_TRANSFORMS[transform],
 		);
 		return (
 			<svg className={classname} {...accessibility}>

@@ -26,9 +26,9 @@ import Icon from '../../Icon';
 };
  <ActionSplitDropdown {...props} />
  */
-const rClick = (event, onClick, action, model) => {
-	onClick(event, { action, model });
-};
+function rClick(event, onClick, action, model) {
+	return onClick(event, { action, model });
+}
 
 function ActionSplitDropdown(props) {
 	const {

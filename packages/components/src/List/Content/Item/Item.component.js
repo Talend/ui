@@ -18,9 +18,9 @@ function getDefinitionItem(column, value, index) {
 function Item({ id, columns, actions, item, itemProps }) {
 	const { classNameKey, onSelect, onOpen, isSelected, onChange, onSubmit, onCancel } = itemProps;
 	let top = 5;
-	const increaseTopIndent = () => {
+	function increaseTopIndent() {
 		top += 30;
-	};
+	}
 	const onItemOpen = onOpen && ((event) => {
 		event.stopPropagation();
 		onOpen(event, item);
@@ -42,15 +42,18 @@ function Item({ id, columns, actions, item, itemProps }) {
 		onCancel(event, item);
 	});
 
-	const getIcon = (column, index) => (item[column.key] ? (
-		<div key={index} className="tc-list-item-icon">
-			<Icon name={item[column.key]} />
-		</div>
-	) : (
-		<div key={index} className="tc-list-item-icon" />
-	));
+	function getIcon(column, index) {
+		if (item[column.key]) {
+			return (
+				<div key={index} className="tc-list-item-icon">
+					<Icon name={item[column.key]} />
+				</div>
+			);
+		}
+		return <div key={index} className="tc-list-item-icon" />;
+	}
 
-	const getTitle = (column, index) => {
+	function getTitle(column, index) {
 		const titleProperties = {
 			id: id && `${id}-title`,
 			value: item[column.key],
@@ -61,9 +64,9 @@ function Item({ id, columns, actions, item, itemProps }) {
 			onCancel: onTitleCancel,
 		};
 		return <ItemTitle key={index} {...titleProperties} />;
-	};
+	}
 
-	const getCheckbox = () => {
+	function getCheckbox() {
 		const className = classNames('tc-list-item-checkbox', isSelected(item) && 'checked');
 		const style = { top: `${top}px` };
 		increaseTopIndent();
@@ -77,10 +80,13 @@ function Item({ id, columns, actions, item, itemProps }) {
 				/>
 			</div>
 		);
-	};
+	}
 
-	const getActionByKey = key => actions.find(action => action.key === key);
-	const getAction = (action, className, index) => {
+	function getActionByKey(key) {
+		return actions.find(action => action.key === key);
+	}
+
+	function getAction(action, className, index) {
 		const style = { top: `${top}px` };
 		increaseTopIndent();
 		const actionProps = {
@@ -98,15 +104,16 @@ function Item({ id, columns, actions, item, itemProps }) {
 				<Action {...actionProps} />
 			</div>
 		);
-	};
-	const getActionColumn = (column, index) => {
+	}
+
+	function getActionColumn(column, index) {
 		const action = getActionByKey(column.key);
 		const className = classNames('tc-list-item-action', item[column.key] && 'pinned');
 		return getAction(action, className, index);
-	};
+	}
 
 	const actionsOnHover = actions.filter(action =>
-		columns.findIndex(column => action.key === column.key) < 0
+		columns.findIndex(column => action.key === column.key) < 0,
 	);
 	const getActionOnHover = (action, index) => getAction(action, 'tc-actions', index);
 
@@ -128,6 +135,7 @@ function Item({ id, columns, actions, item, itemProps }) {
 			return null;
 		}
 	};
+
 	return (
 		<div className={itemClasses}>
 			{(onSelect && isSelected) && getCheckbox()}

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import theme from './CircularProgress.scss';
 
 const RADIUS = 20;
@@ -40,7 +41,7 @@ function CircularProgress({ size, light, percent }) {
 			[theme.small]: size === SIZE.small,
 			[theme.default]: size === SIZE.default,
 			[theme.large]: size === SIZE.large,
-		}
+		},
 	);
 
 	return (

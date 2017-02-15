@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
+
 import { Action } from '../Actions';
 import theme from './Notification.scss';
 
@@ -18,13 +19,13 @@ export const Registry = {
 	isRegistered: notification => !!timerRegistry[notification.id],
 };
 
-export const onMouseEnter = (notification) => {
+export function onMouseEnter(notification) {
 	if (notification.type !== 'error') {
 		Registry.cancel(notification);
 	}
-};
+}
 
-export const onMouseOut = (event, notification, leaveFn, autoLeaveTimeout) => {
+export function onMouseOut(event, notification, leaveFn, autoLeaveTimeout) {
 	if (notification.type === 'error' || event.currentTarget.getAttribute('pin') === 'true') {
 		return;
 	}
@@ -32,9 +33,9 @@ export const onMouseOut = (event, notification, leaveFn, autoLeaveTimeout) => {
 		notification,
 		setTimeout(() => leaveFn(notification), autoLeaveTimeout),
 	);
-};
+}
 
-export const onClick = (event, notification) => {
+export function onClick(event, notification) {
 	if (notification.type !== 'error') {
 		if (event.currentTarget.getAttribute('pin') !== 'true') {
 			event.currentTarget.setAttribute('pin', 'true');
@@ -42,13 +43,13 @@ export const onClick = (event, notification) => {
 			event.currentTarget.setAttribute('pin', 'false');
 		}
 	}
-};
+}
 
-export const onManuallyClose = (event, notification, leaveFn) => {
+export function onManuallyClose(event, notification, leaveFn) {
 	event.stopPropagation();
 	Registry.cancel(notification);
 	leaveFn(notification);
-};
+}
 
 function CloseButton({ notification, leaveFn }) {
 	return (
@@ -58,7 +59,7 @@ function CloseButton({ notification, leaveFn }) {
 			icon={'talend-cross'}
 			bsClass={classNames(
 				theme['tc-notification-action'], 'tc-notification-action',
-				theme['tc-notification-close'], '.tc-notification-close'
+				theme['tc-notification-close'], '.tc-notification-close',
 			)}
 		/>
 	);
@@ -70,7 +71,7 @@ function MessageAction({ action }) {
 			{...action}
 			bsClass={classNames(
 				theme['tc-notification-action'], 'tc-notification-action',
-				theme['tc-notification-message-action'], 'tc-notification-message-action'
+				theme['tc-notification-message-action'], 'tc-notification-message-action',
 			)}
 		/>;
 }
@@ -95,7 +96,7 @@ function Message({ notification }) {
 function TimerBar({ type }) {
 	return type !== 'error' && <div
 		className={classNames(
-			theme['tc-notification-timer-bar'], 'tc-notification-timer-bar'
+			theme['tc-notification-timer-bar'], 'tc-notification-timer-bar',
 		)}
 	/>;
 }
@@ -136,7 +137,7 @@ function renderNotifications({ notifications, leaveFn, autoLeaveTimeout }) {
 			if (!Registry.isRegistered(notification) && notification.type !== 'error') {
 				Registry.register(
 					notification,
-					setTimeout(() => leaveFn(notification), autoLeaveTimeout)
+					setTimeout(() => leaveFn(notification), autoLeaveTimeout),
 				);
 			}
 			return (
@@ -145,7 +146,7 @@ function renderNotifications({ notifications, leaveFn, autoLeaveTimeout }) {
 					{...{ notification, leaveFn, autoLeaveTimeout }}
 				/>
 			);
-		}
+		},
 	);
 }
 
