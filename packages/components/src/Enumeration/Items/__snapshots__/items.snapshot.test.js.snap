@@ -8,7 +8,8 @@ exports[`Items should display one item in edit mode and the other in default 1`]
       autoFocus={true}
       className="undefined tc-enumeration-item-label"
       onBlur={[Function]}
-      onKeyUp={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
       type="text" />
     <div
       className="undefined tc-enumeration-item-actions">

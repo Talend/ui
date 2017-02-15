@@ -7,6 +7,20 @@ import Item from './Item.component';
 const item = {
 	id: 1,
 	values: ['toto'],
+    itemProps: {
+        key: 'values',
+        onSubmitItem: jest.fn(), // provided click callback
+        onAbortItem: jest.fn(), // provided click callback
+        actions: [{
+            label: 'Edit',
+            id: 'edit',
+            onClick: jest.fn(), // provided click callback
+        }, {
+            label: 'Delete',
+            id: 'delete',
+            onClick: jest.fn(), // provided click callback
+        }]
+    },
 };
 
 describe('Item', () => {
@@ -14,20 +28,6 @@ describe('Item', () => {
 		// given
 		const props = {
 			item: item,
-			itemProps: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // provided click callback
-				onAbortItem: jest.fn(), // provided click callback
-				actions: [{
-					label: 'Edit',
-					id: 'edit',
-					onClick: jest.fn(), // provided click callback
-				}, {
-					label: 'Delete',
-					id: 'delete',
-					onClick: jest.fn(), // provided click callback
-				}]
-			},
 		};
 		const itemInstance = <Item {...props} />;
 
@@ -39,6 +39,6 @@ describe('Item', () => {
 
 		// then
 		expect(buttons.length).toBe(2);
-		expect(props.itemProps.actions[1].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
 	});
 });

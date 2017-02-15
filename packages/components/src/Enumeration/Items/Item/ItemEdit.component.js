@@ -26,13 +26,14 @@ const ENTER_KEY = 13;
 class ItemEdit extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onKeyUp = this.onKeyUp.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 		this.submit = this.submit.bind(this);
+		this.itemChange = this.itemChange.bind(this);
 		this.cancel = this.cancel.bind(this);
 	}
 
 	componentDidMount() {
-		this.itemInput.value = this.props.item[this.props.itemProps.key].join(',');
+		this.itemInput.value = this.props.item[this.props.item.itemProps.key].join(',');
 	}
 
 	getAction = (action, index) => {
@@ -44,6 +45,7 @@ class ItemEdit extends React.Component {
 				key={index}
 				label={action.label}
 				icon={action.icon}
+				disabled={action.disabled}
 				onClick={onClick}
 				tooltipPlacement="bottom"
 				hideLabel
@@ -53,28 +55,36 @@ class ItemEdit extends React.Component {
 	};
 
 	submit(event) {
-		return this.props.itemProps.onSubmitItem(event, {
+		return this.props.item.itemProps.onSubmitItem(event, {
 			value: event.target.value,
 			model: this.props.item,
 			index: this.props.item.index,
 		});
+	}
+
+	itemChange(event) {
+        return this.props.item.itemProps.onItemChange(event, {
+            value: event.target.value,
+            model: this.props.item,
+            index: this.props.item.index,
+        });
 	}
 
 	cancel(event) {
-		return this.props.itemProps.onAbortItem(event, {
+		return this.props.item.itemProps.onAbortItem(event, {
 			value: event.target.value,
 			model: this.props.item,
 			index: this.props.item.index,
 		});
 	}
 
-	onKeyUp(event) {
+	onKeyDown(event) {
 		switch (event.keyCode) {
 		case ESC_KEY:
-			this.cancel(event);
+            this.cancel(event);
 			break;
 		case ENTER_KEY:
-			this.submit(event);
+            this.submit(event);
 			break;
 		default:
 			break;
@@ -87,12 +97,13 @@ class ItemEdit extends React.Component {
 				<input className={itemLabelClasses()}
 					   ref={(input) => { this.itemInput = input; }}
 					   type="text"
-					   onKeyUp={this.onKeyUp}
+					   onKeyDown={this.onKeyDown}
 					   onBlur={this.submit}
+					   onChange={this.itemChange}
 					   autoFocus
 				/>
 				<div className={itemEditActionsClasses()}>
-					{this.props.itemProps.actions.map((action, index) => this.getAction(action, index))}
+					{this.props.item.itemProps.actions.map((action, index) => this.getAction(action, index))}
 				</div>
 			</li>
 		);
