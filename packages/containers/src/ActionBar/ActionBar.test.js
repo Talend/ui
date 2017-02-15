@@ -1,14 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import { Provider } from 'react-cmf/lib/mock';
-import { Map } from 'immutable';
 
 import { ActionBar as Component } from 'react-talend-components';
-import Container, { DEFAULT_STATE } from './ActionBar.container';
+import Container from './ActionBar.container';
 import Connected, {
 	mapDispatchToProps,
-	mapStateToProps,
 } from './ActionBar.connect';
 
 describe('Component ActionBar', () => {
@@ -41,4 +38,3 @@ describe('Connected ActionBar', () => {
 		expect(typeof props).toBe('object');
 	});
 });
-
