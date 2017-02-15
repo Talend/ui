@@ -109,6 +109,10 @@ function Filter(props) {
 		theme.filter,
 		{ [theme.highlight]: highlight },
 	);
+	const inputGroupClasses = classNames(
+		'form-group',
+		theme['input-group'],
+	);
 
 	return (
 		<form
@@ -117,7 +121,7 @@ function Filter(props) {
 			onSubmit={onSubmit}
 		>
 			<Icon name="talend-search" className={theme['search-icon']} />
-			<div className="form-group">
+			<div className={inputGroupClasses}>
 				<FilterInput
 					id={id && `${id}-input`}
 					debounceMinLength={debounceMinLength}
