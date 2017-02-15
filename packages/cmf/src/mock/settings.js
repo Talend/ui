@@ -36,8 +36,8 @@ const settings = {
 			name: 'My article',
 			icon: 'icon-article',
 			available: 'model.actions.delete',
-			type: '@@router/CALL_HISTORY_METHOD',
 			payload: {
+				type: '@@router/CALL_HISTORY_METHOD',
 				method: 'push',
 				args: ['/myarticle'],
 			},
@@ -46,7 +46,9 @@ const settings = {
 			id: 'menu',
 			name: 'Menu',
 			icon: 'fa-bars',
-			type: 'TEST_MENU',
+			payload: {
+				type: 'TEST_MENU',
+			},
 		},
 	},
 	views: {
