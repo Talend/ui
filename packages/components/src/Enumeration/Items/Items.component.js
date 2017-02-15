@@ -30,19 +30,21 @@ function Items({ items, itemsProp }) {
 					actions: itemsProp.actionsEdit,
 					onSubmitItem: itemsProp.onSubmitItem,
 					onAbortItem: itemsProp.onAbortItem,
+                    onItemChange: itemsProp.onItemChange,
 				};
+				item.itemProps = itemPropsEdit;
 
 				return <ItemEdit
 					key={`${index}-item`}
 					id={`${index}-item`}
 					item={item}
-					itemProps={itemPropsEdit}
 				/>;
 			default:
 				let itemPropDefault = {
 					key: itemsProp.key,
 					actions: itemsProp.actionsDefault,
 				};
+                item.itemProps = itemPropDefault;
 
 				return <Item
 					key={`${index}-item`}

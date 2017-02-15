@@ -20,11 +20,11 @@ const itemDefaultActionsClasses = () => classNames({
 	[theme['editable']]: true,
 });
 
-function Item({ id, item, itemProps }) {
+function Item({ id, item }) {
 	const {
 		key,
 		actions,
-	} = itemProps;
+	} = item.itemProps;
 
 	const getAction = (action, index) => {
 		const onClick = action.onClick &&

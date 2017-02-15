@@ -238,7 +238,8 @@ exports[`Enumeration should render with header in default state and first item i
         autoFocus={true}
         className="undefined tc-enumeration-item-label"
         onBlur={[Function]}
-        onKeyUp={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
         type="text" />
       <div
         className="undefined tc-enumeration-item-actions">

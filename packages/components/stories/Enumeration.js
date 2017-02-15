@@ -32,7 +32,8 @@ const props = {
 	itemsProp: {
 		key: 'values',
 		onSubmitItem: action('itemEdit.onSubmit'),
-		onAbortItem: action('itemEdit.onCancel'),
+        onItemChange: action('itemEdit.onItemchange'),
+        onAbortItem: action('itemEdit.onCancel'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',

@@ -8,6 +8,20 @@ const item = {
 	id: 1,
 	values: ['toto'],
 	index: 0,
+    itemProps: {
+        key: 'values',
+        onSubmitItem: jest.fn(), // provided click callback
+        onAbortItem: jest.fn(), // provided click callback
+        actions: [{
+            label: 'Validate',
+            id: 'validate',
+            onClick: jest.fn(), // provided click callback
+        }, {
+            label: 'Cancel',
+            id: 'cancel',
+            onClick: jest.fn(), // provided click callback
+        }]
+    },
 };
 
 describe('Item', () => {
@@ -15,20 +29,6 @@ describe('Item', () => {
 		// given
 		const props = {
 			item: item,
-			itemProps: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // provided click callback
-				onAbortItem: jest.fn(), // provided click callback
-				actions: [{
-					label: 'Validate',
-					id: 'validate',
-					onClick: jest.fn(), // provided click callback
-				}, {
-					label: 'Cancel',
-					id: 'cancel',
-					onClick: jest.fn(), // provided click callback
-				}]
-			},
 		};
 		const itemInstance = <ItemEdit {...props} />;
 
@@ -40,7 +40,7 @@ describe('Item', () => {
 
 		// then
 		expect(buttons.length).toBe(2);
-		expect(props.itemProps.actions[1].onClick).toBeCalled();
+		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
 	});
 
 	it('should trigger callback on input title blur', () => {
@@ -70,8 +70,8 @@ describe('Item', () => {
 		wrapper.find('input').simulate('blur', { target: { value: 'my new title' } });
 
 		// then
-		expect(props.itemProps.onSubmitItem).toBeCalled();
-		const callArgs = props.itemProps.onSubmitItem.mock.calls[0];
+		expect(props.item.itemProps.onSubmitItem).toBeCalled();
+		const callArgs = props.item.itemProps.onSubmitItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0 });
 	});
 
@@ -99,11 +99,11 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemEditInstance);
-		wrapper.find('input').simulate('keyUp', { keyCode: 13, target: { value: 'my new title' } });
+		wrapper.find('input').simulate('keyDown', { keyCode: 13, target: { value: 'my new title' } });
 
 		// then
-		expect(props.itemProps.onSubmitItem).toBeCalled();
-		const callArgs = props.itemProps.onSubmitItem.mock.calls[0];
+		expect(props.item.itemProps.onSubmitItem).toBeCalled();
+		const callArgs = props.item.itemProps.onSubmitItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0  });
 	});
 
@@ -131,11 +131,11 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemEditInstance);
-		wrapper.find('input').simulate('keyUp', { keyCode: 27 });
+		wrapper.find('input').simulate('keyDown', { keyCode: 27 });
 
 		// then
-		expect(props.itemProps.onAbortItem).toBeCalled();
-		const callArgs = props.itemProps.onAbortItem.mock.calls[0];
+		expect(props.item.itemProps.onAbortItem).toBeCalled();
+		const callArgs = props.item.itemProps.onAbortItem.mock.calls[0];
 		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0  });
 	});
 });
