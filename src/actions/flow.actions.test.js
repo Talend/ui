@@ -8,3 +8,13 @@ describe('Check that flowActions generate proper action objects', () => {
 		});
 	});
 });
+
+describe('setZoom', () => {
+	it('should generate an action with proper shape', () => {
+		expect(flowActions.setZoom({ k: 0, x: 0, y: 0 })).toMatchSnapshot();
+	});
+
+	it('if transform object is not well set return null', () => {
+		expect(flowActions.setZoom({ k: 'yolo', x: 0, y: 0 })).toMatchSnapshot();
+	});
+});

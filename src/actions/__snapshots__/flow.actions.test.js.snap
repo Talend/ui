@@ -1,0 +1,12 @@
+exports[`setZoom if transform object is not well set return null 1`] = `null`;
+
+exports[`setZoom should generate an action with proper shape 1`] = `
+Object {
+  "transform": Object {
+    "k": 0,
+    "x": 0,
+    "y": 0,
+  },
+  "type": "FLOWDESINGER.FLOW_SET_ZOOM",
+}
+`;
