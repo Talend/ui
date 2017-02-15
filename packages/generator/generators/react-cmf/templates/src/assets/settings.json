@@ -44,9 +44,6 @@
           }
         },
         "actions": {
-          "title": "dataset:open",
-          "left": ["dataset:create"],
-          "items": ["dataset:delete"]
         },
         "initialState": {
           "sortOn": "updated"
