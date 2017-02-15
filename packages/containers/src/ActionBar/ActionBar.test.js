@@ -34,20 +34,8 @@ describe('Connected ActionBar', () => {
 		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					ActionBar: {
-						ActionBar: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
+
+	it('should map dispatch to props', () => {
 		const dispatch = () => {};
 		const props = mapDispatchToProps(dispatch);
 		expect(typeof props).toBe('object');
