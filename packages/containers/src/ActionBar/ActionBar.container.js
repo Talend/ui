@@ -1,8 +1,25 @@
 import React, { PropTypes } from 'react';
-import { Map } from 'immutable';
 
 import { ActionBar as Component } from 'react-talend-components';
 import { getActionsProps } from '../actionAPI';
+
+function getActions(context, idOrInfo, model) {
+	if (typeof idOrInfo === 'string') {
+		return getActionsProps(context, idOrInfo, model);
+	} else if (idOrInfo.displayMode === 'splitDropdown') {
+		return Object.assign({
+			displayMode: idOrInfo.displayMode,
+			items: getActionsProps(context, idOrInfo.items, model),
+		}, getActionsProps(context, idOrInfo.name, model));
+	} else if (idOrInfo.displayMode === 'btnGroup') {
+		return {
+			displayMode: idOrInfo.displayMode,
+			actions: getActionsProps(context, idOrInfo.actions, model),
+		};
+	}
+	return undefined;
+}
+
 
 class ActionBar extends React.Component {
 	static displayName = 'CMFContainer(ActionBar)';
@@ -25,10 +42,10 @@ class ActionBar extends React.Component {
 		if (names) {
 			const { left, right } = names;
 			if (left) {
-				actionsProps.left = getActionsProps(this.context, left, this.props.model);
+				actionsProps.left = left.map(info => getActions(this.context, info, this.props.model));
 			}
 			if (right) {
-				actionsProps.right = getActionsProps(this.context, right, this.props.model);
+				actionsProps.right = right.map(info => getActions(this.context, info, this.props.model));
 			}
 		}
 

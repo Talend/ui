@@ -43,6 +43,29 @@ export default function ExampleActions() {
 			<IconsProvider />
 			<p>using action ids</p>
 			<ActionBar names={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
+			<p>using btn groups</p>
+			<ActionBar
+				names={{
+					left: [
+						{
+							displayMode: 'btnGroup',
+							actions: ['menu:first', 'menu:second', 'menu:third'],
+						},
+					],
+				}}
+			/>
+			<p>using split dropdown</p>
+			<ActionBar
+				names={{
+					left: [
+						{
+							displayMode: 'splitDropdown',
+							name: 'menu:first',
+							items: ['menu:second', 'menu:third'],
+						},
+					],
+				}}
+			/>
 			<p>Using pure component props</p>
 			<ActionBar actions={{ left: infos }} />
 		</div>
