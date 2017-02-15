@@ -28,7 +28,7 @@ class ObjectEnumerationField extends React.Component {
 				id: 'abort',
 				onClick: this.onAbortHandler.bind(this),
 			}],
-			items: props.formData.map((item) => {
+			items: (props.formData || []).map((item) => {
 				return {
 					id: item.id,
 					values: item.values,
@@ -97,7 +97,7 @@ class ObjectEnumerationField extends React.Component {
 		items[value.index].values[0] = value.value;
 
 		this.setState({
-			items: items,
+			items,
 		});
 	}
 
@@ -139,12 +139,14 @@ class ObjectEnumerationField extends React.Component {
 	}
 
 	updateHeaderInputDisabled(value) {
-		const [validateAction, abortAction] = this.state.headerInput;
+		this.setState((prevState) => {
+			const [validateAction, abortAction] = prevState.headerInput;
 
-		validateAction.disabled = value === '';
+			validateAction.disabled = value === '';
 
-		this.setState({
-			headerInput: [validateAction, abortAction],
+			return {
+				headerInput: [validateAction, abortAction],
+			};
 		});
 	}
 
