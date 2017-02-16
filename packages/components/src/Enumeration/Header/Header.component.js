@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action';
@@ -33,6 +33,8 @@ function Header({ headerDefault }) {
 	);
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+};
 
 export default Header;

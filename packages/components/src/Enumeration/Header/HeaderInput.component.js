@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action';
@@ -9,7 +9,7 @@ const headerClasses = () => classNames({
 	'tc-enumeration-header': true,
 });
 
-function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
+function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
 	const getAction = (action, index) => {
 		const onClick = action.onClick && (
 			event => action.onClick(event, { value: inputRef.value })
@@ -60,6 +60,10 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown, valueAdded }) {
 	);
 }
 
-HeaderInput.propTypes = {};
+HeaderInput.propTypes = {
+	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	onAddChange: PropTypes.func,
+	onAddKeyDown: PropTypes.func,
+};
 
 export default HeaderInput;

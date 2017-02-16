@@ -35,8 +35,8 @@ describe('Items', () => {
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(),
-				},],
-			}
+				}],
+			},
 		};
 
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';

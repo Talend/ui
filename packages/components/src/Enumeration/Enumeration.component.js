@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import headerPropTypes from './Header/Header.propTypes';
+import Action from '../Actions/Action';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
-import ItemPropTypes from './Items/Item/Item.propTypes';
 import Items from './Items/Items.component';
 import theme from './Enumeration.scss';
 
@@ -16,10 +16,11 @@ const enumerationClasses = () => classNames({
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 
-function Enumeration({ displayMode, headerDefault, headerInput, items, itemsProp, onAddChange, onAddKeyDown }) {
+function Enumeration({ displayMode, headerDefault, headerInput,
+	items, itemsProp, onAddChange, onAddKeyDown }) {
 	const getHeaderFor = () => {
 		switch (displayMode) {
-		case DISPLAY_MODE_ADD:
+		case DISPLAY_MODE_ADD: {
 			const propsInput = {
 				headerInput,
 				onAddChange,
@@ -27,13 +28,15 @@ function Enumeration({ displayMode, headerDefault, headerInput, items, itemsProp
 			};
 
 			return <HeaderInput {...propsInput} />;
-		default:
+		}
+		default: {
 			const propsDefault = {
 				headerDefault,
 				onAddChange,
 			};
 
 			return <Header {...propsDefault} />;
+		}
 		}
 	};
 
@@ -53,6 +56,13 @@ Enumeration.propTypes = {
 		id: PropTypes.number,
 		values: PropTypes.arrayOf(PropTypes.string),
 	})).isRequired,
+	itemsProp: PropTypes.shape({
+		key: PropTypes.string,
+		onSubmitItem: PropTypes.func,
+		onItemChange: PropTypes.func,
+		onAbortItem: PropTypes.func,
+		actions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	}).isRequired,
 	onAddChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 };

@@ -19,7 +19,7 @@ describe('Header input', () => {
 				icon: 'talend-cross',
 				id: 'abort',
 				onClick: jest.fn(), // provided click callback
-			}]
+			}],
 		};
 		const headerInputInstance = <HeaderInput {...props} />;
 
