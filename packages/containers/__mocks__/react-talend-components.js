@@ -3,7 +3,7 @@ import React from 'react';
 const mock = {
 	AppHeaderBar: props => (<div className="tc-appheaderbar" {...props} />),
 	Action: props => (<button className="tc-action" {...props} />),
-	ActionBar: props => (<button className="tc-action-bar" {...props} />),
+	ActionBar: props => (<div className="tc-action-bar" {...props} />),
 	Actions: props => (<div className="tc-actions" {...props} />),
 	CircularProgress: props => (<div className="tc-circular-project" {...props}/>),
 	Layout: props => (

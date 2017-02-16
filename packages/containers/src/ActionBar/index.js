@@ -1,3 +1,3 @@
-import ActionBar from './ActionBar.connect';
+import ActionBar from './ActionBar.container';
 
 export default ActionBar;

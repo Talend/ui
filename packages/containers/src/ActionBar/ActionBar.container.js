@@ -20,42 +20,47 @@ function getActions(context, idOrInfo, model) {
 	return undefined;
 }
 
-
-class ActionBar extends React.Component {
-	static displayName = 'CMFContainer(ActionBar)';
-	static propTypes = {
-		...Component.propTypes,
-		names: PropTypes.shape({
-			left: PropTypes.arrayOf(PropTypes.string),
-			right: PropTypes.arrayOf(PropTypes.string),
-		}),
-	};
-	static contextTypes = {
-		store: PropTypes.object,
-		registry: PropTypes.object,
-		router: PropTypes.object,
-	};
-
-	render() {
-		const { actions, names, props } = this.props;
-		const actionsProps = actions || {};
-		if (names) {
-			const { left, right } = names;
-			if (left) {
-				actionsProps.left = left.map(info => getActions(this.context, info, this.props.model));
-			}
-			if (right) {
-				actionsProps.right = right.map(info => getActions(this.context, info, this.props.model));
-			}
+function ActionBar({ actions, actionIds, ...props }, context) {
+	const actionsProps = actions || {};
+	if (actionIds) {
+		const { left, right } = actionIds;
+		if (left) {
+			actionsProps.left = left.map(info => getActions(context, info, props.model));
 		}
-
-		return (
-			<Component
-				actions={actionsProps}
-				{...props}
-			/>
-		);
+		if (right) {
+			actionsProps.right = right.map(info => getActions(context, info, props.model));
+		}
 	}
+
+	return (
+		<Component
+			actions={actionsProps}
+			{...props}
+		/>
+	);
 }
+
+const actionPropTypes = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.shape({
+		displayMode: PropTypes.string.isRequired,
+		actions: PropTypes.arrayOf(PropTypes.string),
+		items: PropTypes.arrayOf(PropTypes.string),
+	}),
+]);
+
+ActionBar.displayName = 'CMFContainer(ActionBar)';
+ActionBar.propTypes = {
+	...Component.propTypes,
+	actionIds: PropTypes.shape({
+		left: PropTypes.arrayOf(actionPropTypes),
+		right: PropTypes.arrayOf(actionPropTypes),
+	}),
+};
+ActionBar.contextTypes = {
+	store: PropTypes.object,
+	registry: PropTypes.object,
+	router: PropTypes.object,
+};
 
 export default ActionBar;
