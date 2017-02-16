@@ -42,10 +42,10 @@ export default function ExampleActions() {
 		<div>
 			<IconsProvider />
 			<p>using action ids</p>
-			<ActionBar names={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
+			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
 			<p>using btn groups</p>
 			<ActionBar
-				names={{
+				actionIds={{
 					left: [
 						{
 							displayMode: 'btnGroup',
@@ -56,7 +56,7 @@ export default function ExampleActions() {
 			/>
 			<p>using split dropdown</p>
 			<ActionBar
-				names={{
+				actionIds={{
 					left: [
 						{
 							displayMode: 'splitDropdown',

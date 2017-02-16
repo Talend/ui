@@ -1,76 +1,148 @@
-exports[`Component ActionBar should render 1`] = `
-<button
-  className="tc-action-bar" />
+exports[`Container ActionBar should compute props using CMF with array of string 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "model": undefined,
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+      Object {
+        "available": "model.actions.delete",
+        "icon": "icon-article",
+        "id": "menu:article",
+        "model": undefined,
+        "name": "My article",
+        "onClick": [Function],
+        "payload": Object {
+          "args": Array [
+            "/myarticle",
+          ],
+          "method": "push",
+          "type": "@@router/CALL_HISTORY_METHOD",
+        },
+      },
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "fa-bars",
+            "id": "menu",
+            "model": undefined,
+            "name": "Menu",
+            "onClick": [Function],
+            "payload": Object {
+              "type": "TEST_MENU",
+            },
+          },
+          Object {
+            "available": "model.actions.delete",
+            "icon": "icon-article",
+            "id": "menu:article",
+            "model": undefined,
+            "name": "My article",
+            "onClick": [Function],
+            "payload": Object {
+              "args": Array [
+                "/myarticle",
+              ],
+              "method": "push",
+              "type": "@@router/CALL_HISTORY_METHOD",
+            },
+          },
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
+    "right": Array [
+      Object {
+        "displayMode": "splitDropdown",
+        "icon": "fa-bars",
+        "id": "menu",
+        "items": Array [
+          Object {
+            "available": "model.actions.delete",
+            "icon": "icon-article",
+            "id": "menu:article",
+            "model": undefined,
+            "name": "My article",
+            "onClick": [Function],
+            "payload": Object {
+              "args": Array [
+                "/myarticle",
+              ],
+              "method": "push",
+              "type": "@@router/CALL_HISTORY_METHOD",
+            },
+          },
+        ],
+        "model": undefined,
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+    ],
+  },
+}
 `;
 
-exports[`Container ActionBar should render 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <ActionBar
-    actions={Object {}} />,
-  "nodes": Array [
-    <ActionBar
-      actions={Object {}} />,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <CMFContainer(ActionBar) />,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": ActionBar {
-        "_reactInternalInstance": [Circular],
-        "context": Object {
-          "registry": undefined,
-          "router": undefined,
-          "store": undefined,
-        },
-        "props": Object {},
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
+exports[`Container ActionBar should pass the props 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "bsStyle": "primary",
+        "icon": "fa fa-asterisk",
+        "label": "Preparations",
+        "onClick": [Function],
       },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <ActionBar
-          actions={Object {}} />,
-        "_debugID": 2,
-        "_renderedOutput": <ActionBar
-          actions={Object {}} />,
+      Object {
+        "displayMode": "dropdown",
+        "icon": "fa fa-file-excel-o",
+        "items": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ],
+        "label": "related items",
       },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+    ],
+    "right": Array [
+      Object {
+        "icon": "fa fa-file-excel-o",
+        "label": "Datasets",
+        "onClick": [Function],
+      },
+      Object {
+        "icon": "fa fa-star",
+        "label": "Favorites",
+        "onClick": [Function],
+      },
+      Object {
+        "actions": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
   },
-  "root": [Circular],
-  "unrendered": <CMFContainer(ActionBar) />,
 }
 `;
