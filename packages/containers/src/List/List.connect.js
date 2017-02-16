@@ -45,7 +45,6 @@ export default connect(
 		pure: true,
 		areStatePropsEqual: (prev, next) => (
 			prev.state === next.state
-			&& prev.list === next.list
 		),
 	}
 )(Container);
