@@ -5,48 +5,87 @@
       "id": "menu:datasets",
       "label": "Datasets",
       "icon": "talend-folder",
-      "type": "MENU_LINK",
-      "cmf": {
-        "routerReplace": "/datasets"
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/datasets"
+        }
+      }
+    },
+    "menu:datastores": {
+      "id": "menu:datastores",
+      "label": "Datastores",
+      "icon": "talend-datastore",
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/datastores"
+        }
       }
     }
   },
-  "views":{
+  "views": {
     "indexRouteRedirect": {
-      "path": "/datasets"
+      "path": "/datastores"
     },
     "datasets": {
-      "header": {"_ref": "AppHeaderBar#default"},
-      "sidepanel": {"_ref": "SidePanel#default"},
+      "didMountActionCreator": "dataset:fetchAll",
+      "header": { "_ref": "AppHeaderBar#default" },
+      "sidepanel": { "_ref": "SidePanel#default" },
       "list": {
         "collectionId": "datasets",
         "list": {
-          "columns":[
-            {"key": "label", "label": "Name"},
-            {"key": "updated", "label": "Updated"},
-            {"key": "created", "label": "Created"},
-            {"key": "tags", "label": "Tags"}
-          ],
-          "titleProps": {
-            "key": "label"
-          }
+          "columns": [
+            { "key": "id", "label": "ID" },
+            { "key": "label", "label": "Name" },
+            { "key": "created",  "label": "Created" },
+            { "key": "tags", "label": "Tags" }
+          ]
         },
         "toolbar": {
           "filter": {
-            "placeholder": "find a dataset"
+            "placeholder": "Find a dataset"
           },
           "sort": {
             "options": [
               { "id": "label", "name": "Name" },
-              { "id": "updated", "name": "Updated" },
-              { "id": "created", "name": "Created"}
+              { "id": "created", "name": "Created" }
             ]
           }
         },
-        "actions": {
+        "initialState": {
+          "sortOn": "label"
+        }
+      }
+    },
+    "datastores": {
+      "didMountActionCreator": "datastore:fetchAll",
+      "header": { "_ref": "AppHeaderBar#default" },
+      "sidepanel": { "_ref": "SidePanel#default" },
+      "list": {
+        "collectionId": "datastores",
+        "list": {
+          "columns": [
+            { "key": "id", "label": "ID" },
+            { "key": "label", "label": "Name" },
+            { "key": "type",  "label": "Type" },
+            { "key": "datasets", "label": "Number of datasets" }
+          ]
+        },
+        "toolbar": {
+          "filter": {
+            "placeholder": "Find a datastore"
+          },
+          "sort": {
+            "options": [
+              { "id": "label", "name": "Name" },
+              { "id": "type", "name": "Type" },
+              { "id": "datasets", "name": "Number of datasets" }
+            ]
+          }
         },
         "initialState": {
-          "sortOn": "updated"
+          "sortOn": "label"
         }
       }
     }
@@ -63,17 +102,20 @@
         "path": "datasets",
         "component": "HomeListView",
         "view": "datasets"
+      },
+      {
+        "path": "datastores",
+        "component": "HomeListView",
+        "view": "datastores"
       }
     ]
   },
   "ref": {
     "AppHeaderBar#default": {
-      "app": "Data Streams"
+      "app": "CMF starter"
     },
     "SidePanel#default" : {
-      "actionIds": [
-        "menu:datasets"
-      ]
+      "actionIds": ["menu:datastores", "menu:datasets"]
     }
   }
 }
