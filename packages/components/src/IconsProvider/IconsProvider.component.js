@@ -28,6 +28,7 @@ function IconsProvider({ defaultIcons, icons }) {
 		</svg>
 	);
 }
+
 IconsProvider.propTypes = {
 	defaultIcons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	icons: PropTypes.object, // eslint-disable-line react/forbid-prop-types

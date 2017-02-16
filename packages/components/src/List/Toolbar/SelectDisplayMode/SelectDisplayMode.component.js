@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
+
 import Icon from '../../../Icon';
 
 function getIcon(selected) {
@@ -26,11 +27,12 @@ const options = ['table', 'large', 'tile'];
 function SelectDisplayMode({ id, mode, onChange }) {
 	const selected = mode || 'table';
 	const displayIcon = (<Icon name={getIcon(selected)} />);
-	const onChangeMode = (value, event) => {
-		onChange(event, value);
-	};
-	const getMenuItem = option => (
-		<MenuItem
+	function onChangeMode(value, event) {
+		return onChange(event, value);
+	}
+
+	function getMenuItem(option) {
+		return (<MenuItem
 			id={id && `${id}-${option}`}
 			key={option}
 			eventKey={option}
@@ -38,7 +40,8 @@ function SelectDisplayMode({ id, mode, onChange }) {
 			<Icon name={getIcon(option)} />
 			{getLabel(option)}
 		</MenuItem>
-	);
+		);
+	}
 	return (
 		<Nav>
 			<NavDropdown
@@ -51,6 +54,7 @@ function SelectDisplayMode({ id, mode, onChange }) {
 		</Nav>
 	);
 }
+
 SelectDisplayMode.propTypes = {
 	id: PropTypes.string,
 	mode: PropTypes.string,

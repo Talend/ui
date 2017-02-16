@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
+
 import theme from './Drawer.scss';
 
 function DrawerAnimation({ children }) {

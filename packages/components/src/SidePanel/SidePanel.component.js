@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import theme from './SidePanel.scss';
+
 import Action from '../Actions/Action';
 
-/* eslint-disable jsx-a11y/href-no-hash */
+import theme from './SidePanel.scss';
 
 /**
  * This component aims to display links as a menu.
@@ -29,12 +29,12 @@ function SidePanel(props) {
 	const navCSS = classNames(
 		theme['tc-side-panel'],
 		dockedCSS,
-		'tc-side-panel'
+		'tc-side-panel',
 	);
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',
-		theme['action-list']
+		theme['action-list'],
 	);
 
 	return (
@@ -57,7 +57,7 @@ function SidePanel(props) {
 						key={action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
-							{ active: !!action.active }
+							{ active: !!action.active },
 						)}
 					>
 						<Action
@@ -85,7 +85,7 @@ SidePanel.propTypes = {
 			label: React.PropTypes.string,
 			icon: React.PropTypes.string,
 			onClick: React.PropTypes.func,
-		})
+		}),
 	),
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
