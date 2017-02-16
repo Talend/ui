@@ -19,5 +19,4 @@ export default function App(props) {
 
 App.propTypes = {
 	children: React.PropTypes.element,
-	// store: React.PropTypes.object.isRequired,
 };
