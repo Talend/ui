@@ -6,9 +6,11 @@ import Filter from './Filter.component';
 jest.mock('react-dom');
 
 describe('Filter', () => {
-	it('should render its name', () => {
+	const noOp = jest.fn();
+
+	it('should render', () => {
 		// when
-		const wrapper = renderer.create(<Filter name="Hello world" />).toJSON();
+		const wrapper = renderer.create(<Filter onFilter={noOp} onToggle={noOp} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -16,7 +18,23 @@ describe('Filter', () => {
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = renderer.create(<Filter id="toolbar-filter" name="Hello world" />).toJSON();
+		const wrapper = renderer.create(<Filter id="toolbar-filter" onFilter={noOp} onToggle={noOp} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render highlighted filter', () => {
+		// when
+		const wrapper = renderer.create(<Filter highlight onFilter={noOp} onToggle={noOp} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render only toggle icon', () => {
+		// when
+		const wrapper = renderer.create(<Filter onFilter={noOp} onToggle={noOp} docked />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

@@ -10,20 +10,24 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>
@@ -560,39 +564,25 @@ exports[`List should render 1`] = `
             </a>
           </li>
         </ul>
-        <form
-          className="navbar-form navbar-right"
-          onSubmit={[Function]}
-          role="search">
-          <div
-            className="form-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id={undefined}
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id={undefined}
-              title="Filter"
-              type="submit">
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                title={null}>
-                <use
-                  xlinkHref="#talend-search" />
-              </svg>
-              <span
-                className="sr-only">
-                Filter
-              </span>
-            </button>
-          </div>
-        </form>
+        <button
+          aria-describedby={42}
+          className="navbar-right btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role={null}
+          type="button">
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -605,20 +595,24 @@ exports[`List should render 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>
@@ -780,6 +774,16 @@ exports[`List should render 1`] = `
       </table>
     </div>
   </div>
+</div>
+`;
+
+exports[`List should render empty list 1`] = `
+<div
+  className="tc-list">
+  <span
+    className={undefined}>
+    No result found
+  </span>
 </div>
 `;
 
@@ -1155,39 +1159,26 @@ exports[`List should render id if provided 1`] = `
             </a>
           </li>
         </ul>
-        <form
-          className="navbar-form navbar-right"
-          onSubmit={[Function]}
-          role="search">
-          <div
-            className="form-group">
-            <input
-              aria-label="Filter"
-              className="form-control"
-              id="context-filter-input"
-              onChange={[Function]}
-              placeholder="Filter"
-              type="search" />
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="context-filter-submit"
-              title="Filter"
-              type="submit">
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                title={null}>
-                <use
-                  xlinkHref="#talend-search" />
-              </svg>
-              <span
-                className="sr-only">
-                Filter
-              </span>
-            </button>
-          </div>
-        </form>
+        <button
+          aria-describedby={42}
+          className="navbar-right btn btn-link"
+          disabled={false}
+          id="context-filter"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role={null}
+          type="button">
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}>
+            <use
+              xlinkHref="#talend-search" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -1200,20 +1191,24 @@ exports[`List should render id if provided 1`] = `
           <tr>
             <th />
             <th>
-              Id
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Id
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Id
+              </span>
             </th>
             <th>
-              Name
-              <div
-                aria-hidden="true"
+              <span
                 className={undefined}>
                 Name
-              </div>
+              </span>
+              <span
+                aria-hidden="true">
+                Name
+              </span>
             </th>
           </tr>
         </thead>

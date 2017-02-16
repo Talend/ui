@@ -7,29 +7,26 @@ import theme from './SelectSortBy.scss';
 function SelectSortBy({ field, id, isDescending, onChange, options }) {
 	const order = isDescending || false;
 	const selected = field && options.find(item => item.id === field);
-	const onChangeField = (newField, event) => onChange(
-		event,
-		{
-			field: newField.id,
-			isDescending: order,
-		}
-	);
-	const onChangeOrder = event => onChange(
-		event,
-		{
-			field: selected.id,
-			isDescending: !order,
-		}
-	);
-	const getMenuItem = (option, index) => (
-		<MenuItem
+
+	function onChangeField(newField, event) {
+		return onChange(event, { field: newField.id, isDescending: order });
+	}
+
+	function onChangeOrder(event) {
+		return onChange(event, { field: selected.id, isDescending: !order });
+	}
+
+	function getMenuItem(option, index) {
+		return (<MenuItem
 			id={id && `${id}-by-item-${option.id}`}
 			key={index}
 			eventKey={option}
 		>
 			{option.name || option.id}
 		</MenuItem>
-	);
+		);
+	}
+
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			<NavDropdown
@@ -60,7 +57,7 @@ SelectSortBy.propTypes = {
 		React.PropTypes.shape({
 			id: React.PropTypes.string.isRequired,
 			name: React.PropTypes.string,
-		})
+		}),
 	).isRequired,
 };
 

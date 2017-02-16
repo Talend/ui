@@ -50,23 +50,16 @@ $tc-list-table-header-height: 36px !default;
 		.header {
 			color: $tc-list-table-header-color;
 			font-size: 1.4rem;
+			font-weight: bold;
 			height: auto;
 			line-height: normal;
 			padding: 8px 0;
 			position: absolute;
 			top: 0;
 
-			> button {
-				padding: 0;
-				color: inherit;
-				font-size: inherit;
-				font-weight: inherit;
-				line-height: inherit;
-
-				> svg {
-					height: $svg-xs-size;
-					width: $svg-xs-size;
-				}
+			> svg {
+				height: $svg-xs-size;
+				width: $svg-xs-size;
 			}
 		}
 	}
@@ -86,7 +79,8 @@ $tc-list-table-header-height: 36px !default;
 			.tc-list-display-table-td {
 
 				.cell + .actions {
-					width: auto;
+					opacity: 1;
+					visibility: visible;
 				}
 			}
 		}
@@ -100,9 +94,17 @@ $tc-list-table-header-height: 36px !default;
 				min-width: 0;
 
 				+ .actions {
+					transition: opacity 0.15s ease-in;
 					flex-shrink: 0;
 					flex-grow: 0;
-					width: 0;
+					opacity: 0;
+					visibility: hidden;
+					z-index: 1;
+
+					position: absolute;
+					right: 0;
+					background: linear-gradient(to right, transparent, $tc-list-table-hover-bg $padding-large);
+					padding-left: $padding-large;
 				}
 			}
 		}

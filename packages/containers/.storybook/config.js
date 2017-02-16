@@ -2,6 +2,9 @@ import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
 import cmf from 'react-storybook-cmf';
 import mock from 'react-cmf/lib/mock';
 import { api } from 'react-cmf';
+
+import '!style!css!postcss!sass!bootstrap-talend-theme/src/theme/theme.scss';
+
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -12,11 +15,10 @@ const reducer = (state = {}, a) => {
 	return state;
 };
 
-function objectView(...args) {
-	return {
+function objectView(event, data) {
+	return Object.assign({
 		type: 'OBJECT_VIEW',
-		args,
-	};
+	}, data);
 }
 
 const registerActionCreator = api.action.registerActionCreator;
@@ -32,33 +34,45 @@ function loadStories() {
 		actions['menu:first'] = {
 			label: 'First',
 			icon: 'talend-streams',
-			type: 'MENU_',
+			payload: {
+				type: 'MENU_',
+			},
 		};
 		actions['menu:second'] = {
 			label: 'Second',
 			icon: 'talend-dataprep',
-			type: 'MENU_',
+			payload: {
+				type: 'MENU_',
+			},
 		};
 		actions['menu:third'] = {
 			label: 'Configuration',
 			icon: 'talend-cog',
-			type: 'MENU_',
+			payload: {
+				type: 'MENU_',
+			},
 		};
 		actions['object:add'] = {
 			label: 'Add',
 			icon: 'talend-plus',
-			type: 'APP_OBJECT_ADD',
 			bsStyle: 'success',
+			payload: {
+				type: 'APP_OBJECT_ADD',
+			},
 		};
 		actions['object:edit'] = {
 			label: 'Edit',
 			icon: 'talend-pencil',
-			type: 'APP_OBJECT_EDIT',
+			payload: {
+				type: 'APP_OBJECT_EDIT',
+			},
 		};
 		actions['object:delete'] = {
 			label: 'Delete',
 			icon: 'talend-trash',
-			type: 'APP_OBJECT_DELETE',
+			payload: {
+				type: 'APP_OBJECT_DELETE',
+			},
 		};
 
 		const story = storiesOf(example);

@@ -1,4 +1,5 @@
 const NATIVE_PROPS = [
+	'aria-label',
 	'className',
 	'id',
 ];

@@ -1,8 +1,5 @@
 # Breaking changes log
 
-Before 1.0, `react-talend-components` do NOT follow semver version in releases.
-This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
-
 ## v0.46.1
 * Component: List
 * PR: [fix(List): revert list breaks](https://github.com/Talend/react-talend-components/pull/225)

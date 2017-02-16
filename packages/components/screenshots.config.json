@@ -17,7 +17,7 @@
       "default": [
         {
           "name": "actionbar-default",
-          "selector": ["#default", "#selected", "#right"]
+          "selector": ["#default", "#selected", "#right", "#btn-group"]
         }
       ]
     },
@@ -90,19 +90,19 @@
       ]
     },
     "List": {
-      "table (default)": [
+      "Table (default)": [
         {
           "name": "list-table-default",
           "selector": ".tc-list"
         }
       ],
-      "large": [
+      "Large": [
         {
           "name": "list-large-default",
           "selector": ".tc-list"
         }
       ],
-      "tile": [
+      "Tile": [
         {
           "name": "list-tile-default",
           "selector": ".tc-list"

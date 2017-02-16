@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
+import { componentState } from 'react-talend-containers';
 
 import Component from './<%= props.name %>.component';
-import { statePropTypes, stateWillMount } from '../state';
 
 export const DEFAULT_STATE = new Map({
 
@@ -12,7 +12,7 @@ class <%= props.name %> extends React.Component {
 	static displayName = 'CMFContainer(<%= props.name %>)';
 	static propTypes = {
 		name: PropTypes.string,
-		...statePropTypes,
+		...componentState.propTypes,
 
 	};
 
@@ -20,8 +20,8 @@ class <%= props.name %> extends React.Component {
 		super(props);
 	}
 
-	componentWillMount() {
-		stateWillMount(this.props);
+	componentDidMount() {
+		componentState.init(this.props);
 	}
 
 	render() {
