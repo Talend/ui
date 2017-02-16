@@ -44,8 +44,7 @@ export default connect(
 	{
 		pure: true,
 		areStatePropsEqual: (prev, next) => (
-			prev.item === next.item
-			&& prev.state === next.state
+			prev.state === next.state
 			&& prev.list === next.list
 		),
 	}
