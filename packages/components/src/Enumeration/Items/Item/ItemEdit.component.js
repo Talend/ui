@@ -63,11 +63,11 @@ class ItemEdit extends React.Component {
 	}
 
 	itemChange(event) {
-        return this.props.item.itemProps.onItemChange(event, {
-            value: event.target.value,
-            model: this.props.item,
-            index: this.props.item.index,
-        });
+		return this.props.item.itemProps.onItemChange(event, {
+			value: event.target.value,
+			model: this.props.item,
+			index: this.props.item.index,
+		});
 	}
 
 	cancel(event) {
@@ -81,10 +81,10 @@ class ItemEdit extends React.Component {
 	onKeyDown(event) {
 		switch (event.keyCode) {
 		case ESC_KEY:
-            this.cancel(event);
+			this.cancel(event);
 			break;
 		case ENTER_KEY:
-            this.submit(event);
+			this.submit(event);
 			break;
 		default:
 			break;
@@ -94,13 +94,14 @@ class ItemEdit extends React.Component {
 	render() {
 		return (
 			<li className={itemClasses()} id={this.props.id}>
-				<input className={itemLabelClasses()}
-					   ref={(input) => { this.itemInput = input; }}
-					   type="text"
-					   onKeyDown={this.onKeyDown}
-					   onBlur={this.submit}
-					   onChange={this.itemChange}
-					   autoFocus
+				<input
+					className={itemLabelClasses()}
+					ref={(input) => { this.itemInput = input; }}
+					type="text"
+					onKeyDown={this.onKeyDown}
+					onBlur={this.submit}
+					onChange={this.itemChange}
+					autoFocus
 				/>
 				<div className={itemEditActionsClasses()}>
 					{this.props.item.itemProps.actions.map((action, index) => this.getAction(action, index))}

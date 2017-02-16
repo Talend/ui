@@ -8,27 +8,27 @@ const item = {
 	id: 1,
 	values: ['toto'],
 	index: 0,
-    itemProps: {
-        key: 'values',
-        onSubmitItem: jest.fn(), // provided click callback
-        onAbortItem: jest.fn(), // provided click callback
-        actions: [{
-            label: 'Validate',
-            id: 'validate',
-            onClick: jest.fn(), // provided click callback
-        }, {
-            label: 'Cancel',
-            id: 'cancel',
-            onClick: jest.fn(), // provided click callback
-        }]
-    },
+	itemProps: {
+		key: 'values',
+		onSubmitItem: jest.fn(), // provided click callback
+		onAbortItem: jest.fn(), // provided click callback
+		actions: [{
+			label: 'Validate',
+			id: 'validate',
+			onClick: jest.fn(), // provided click callback
+		}, {
+			label: 'Cancel',
+			id: 'cancel',
+			onClick: jest.fn(), // provided click callback
+		}],
+	},
 };
 
 describe('Item', () => {
 	it('should display value with two buttons and trigger callback on button title click', () => {
 		// given
 		const props = {
-			item: item,
+			item,
 		};
 		const itemInstance = <ItemEdit {...props} />;
 
@@ -46,7 +46,7 @@ describe('Item', () => {
 	it('should trigger callback on input title blur', () => {
 		// given
 		const props = {
-			item: item,
+			item,
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
@@ -59,7 +59,7 @@ describe('Item', () => {
 					label: 'Cancel',
 					id: 'cancel',
 					onClick: jest.fn(), // provided click callback
-				}]
+				}],
 			},
 		};
 
@@ -78,7 +78,7 @@ describe('Item', () => {
 	it('should trigger callback on input title ENTER', () => {
 		// given
 		const props = {
-			item: item,
+			item,
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
@@ -91,7 +91,7 @@ describe('Item', () => {
 					label: 'Cancel',
 					id: 'cancel',
 					onClick: jest.fn(), // provided click callback
-				}]
+				}],
 			},
 		};
 
@@ -104,13 +104,13 @@ describe('Item', () => {
 		// then
 		expect(props.item.itemProps.onSubmitItem).toBeCalled();
 		const callArgs = props.item.itemProps.onSubmitItem.mock.calls[0];
-		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0  });
+		expect(callArgs[1]).toEqual({ value: 'my new title', model: props.item, index: 0 });
 	});
 
 	it('should trigger callback on input title ESC', () => {
 		// given
 		const props = {
-			item: item,
+			item,
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
@@ -123,7 +123,7 @@ describe('Item', () => {
 					label: 'Cancel',
 					id: 'cancel',
 					onClick: jest.fn(), // provided click callback
-				}]
+				}],
 			},
 		};
 
@@ -136,6 +136,6 @@ describe('Item', () => {
 		// then
 		expect(props.item.itemProps.onAbortItem).toBeCalled();
 		const callArgs = props.item.itemProps.onAbortItem.mock.calls[0];
-		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0  });
+		expect(callArgs[1]).toEqual({ value: 'toto', model: props.item, index: 0 });
 	});
 });

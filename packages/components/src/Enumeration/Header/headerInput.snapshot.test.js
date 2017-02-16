@@ -19,7 +19,7 @@ describe('Header', () => {
 				icon: 'talend-cross',
 				id: 'abort',
 				onClick: jest.fn(), // provided click callback
-			}]
+			}],
 		};
 
 		function createNodeMock(element) {

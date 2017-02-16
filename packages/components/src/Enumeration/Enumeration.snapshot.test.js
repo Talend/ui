@@ -53,7 +53,7 @@ describe('Enumeration', () => {
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				},],
+				}],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
@@ -113,7 +113,7 @@ describe('Enumeration', () => {
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				},],
+				}],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback

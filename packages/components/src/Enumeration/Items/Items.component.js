@@ -17,41 +17,44 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 function Items({ items, itemsProp }) {
 	const getItem = (item, index) => {
-		let itemProps = {
-			key: itemsProp.key,
-		};
 		// affecting index to the item
 		item.index = index;
 
 		switch (item.displayMode) {
-			case DISPLAY_MODE_EDIT:
-				let itemPropsEdit = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsEdit,
-					onSubmitItem: itemsProp.onSubmitItem,
-					onAbortItem: itemsProp.onAbortItem,
-                    onItemChange: itemsProp.onItemChange,
-				};
-				item.itemProps = itemPropsEdit;
+		case DISPLAY_MODE_EDIT: {
+			const itemPropsEdit = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsEdit,
+				onSubmitItem: itemsProp.onSubmitItem,
+				onAbortItem: itemsProp.onAbortItem,
+				onItemChange: itemsProp.onItemChange,
+			};
+			item.itemProps = itemPropsEdit;
 
-				return <ItemEdit
+			return (
+				<ItemEdit
 					key={`${index}-item`}
 					id={`${index}-item`}
 					item={item}
-				/>;
-			default:
-				let itemPropDefault = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsDefault,
-				};
-                item.itemProps = itemPropDefault;
+				/>
+			);
+		}
+		default: {
+			const itemPropDefault = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsDefault,
+			};
+			item.itemProps = itemPropDefault;
 
-				return <Item
+			return (
+				<Item
 					key={`${index}-item`}
 					id={`${index}-item`}
 					item={item}
 					itemProps={itemPropDefault}
-				/>;
+				/>
+			);
+		}
 		}
 	};
 
