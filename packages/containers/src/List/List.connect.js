@@ -40,4 +40,12 @@ export function mapStateToProps(state, ownProps) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
+	undefined,
+	{
+		pure: true,
+		areStatePropsEqual: (prev, next) => (
+			prev.state === next.state
+			&& prev.list === next.list
+		),
+	}
 )(Container);
