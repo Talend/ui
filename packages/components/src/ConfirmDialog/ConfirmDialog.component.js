@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { ProgressBar, Modal } from 'react-bootstrap';
+
 import theme from './ConfirmDialog.scss';
 import Action from '../Actions/Action';
 
@@ -60,7 +61,6 @@ function ConfirmDialog({
 				<Action {...validateAction} />
 			</Modal.Footer>
 		</Modal>
-
 	);
 }
 

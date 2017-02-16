@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import ItemTitle from '../ItemTitle';
 import DisplayPropTypes from '../Display/Display.propTypes';
 import theme from './DisplayTile.scss';
@@ -46,10 +47,11 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 		theme.title,
 		theme.titlelink,
 	);
+
 	const tileClasses = classNames(
 		theme.tile,
 		classNameKey && item[classNameKey],
-		isSelected && isSelected(item) && (selectedClass || 'active')
+		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
 
 	return (

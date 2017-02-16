@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+
 import Icon from '../../../Icon';
 
 import css from './Pagination.scss';
@@ -11,21 +12,26 @@ const PREV = 'prev';
 const NEXT = 'next';
 const LAST = 'last';
 
-const getItemsPerPageTitle = option => (option > 0 ? option : 'All');
+function getItemsPerPageTitle(option) {
+	if (option > 0) {
+		return option;
+	}
+	return 'All';
+}
 
-const getMenuItem = (option, index) => (
-	<MenuItem key={index} eventKey={option}>
+function getMenuItem(option, index) {
+	return (<MenuItem key={index} eventKey={option}>
 		{getItemsPerPageTitle(option)}
-	</MenuItem>
-);
+	</MenuItem>);
+}
 
 function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOptions, onChange }) {
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
-	const onChangeItemsPerPage = (value) => {
-		onChange(1, value);
-	};
-	const changePageTo = (type) => {
+	function onChangeItemsPerPage(value) {
+		return onChange(1, value);
+	}
+	function changePageTo(type) {
 		let from;
 		switch (type) {
 		case FIRST: {
@@ -48,7 +54,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 			return;
 		}
 		onChange(from, itemsPerPage);
-	};
+	}
 	return (
 		<Nav onSelect={selectedKey => changePageTo(selectedKey)}>
 			<NavDropdown

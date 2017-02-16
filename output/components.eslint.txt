@@ -1,12 +1,12 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.61.2 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.61.3 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
-  18:4  error  Expected space(s) after "switch"  keyword-spacing
+  22:4  error  Expected space(s) after "switch"  keyword-spacing
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
   7:27  error  'name' is missing in props validation  react/prop-types

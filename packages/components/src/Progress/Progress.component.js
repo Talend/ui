@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import TooltipTrigger from '../TooltipTrigger';
 
 import theme from './Progress.scss';
@@ -20,7 +21,7 @@ function Progress({ id, percent, tooltip }) {
 
 	const rootClassNames = classNames(
 		theme.progress,
-		{ [theme.hidden]: normalizedPercent === 0 }
+		{ [theme.hidden]: normalizedPercent === 0 },
 	);
 
 	let progress = (

@@ -7,17 +7,24 @@ import getClassNames from '../getClassNames';
 import theme from './TreeViewItem.scss';
 
 const getClassName = getClassNames(theme);
-const getActionHandler = (func, item) => (e) => { e.stopPropagation(); func(item); };
-const getIconAction = (label, iconName, onClickHandler, item) => (
-	<Action
+
+function getActionHandler(func, item) {
+	return function actionHandler(event) {
+		event.stopPropagation();
+		func(item);
+	};
+}
+
+function getIconAction(label, iconName, onClickHandler, item) {
+	return (<Action
 		label={label}
 		icon={iconName}
 		onClick={getActionHandler(onClickHandler, item)}
 		tooltipPlacement="right"
 		hideLabel
 		link
-	/>
-);
+	/>);
+}
 
 /**
  *
@@ -58,7 +65,7 @@ function TreeViewItem({
 						data-tc-treeview-toggled={item.toggled}
 					>
 						{getIconAction(
-							toggleIconLabel, 'talend-caret-down', itemToggleCallback, item
+							toggleIconLabel, 'talend-caret-down', itemToggleCallback, item,
 						)}
 					</div>
 				)}
@@ -69,7 +76,7 @@ function TreeViewItem({
 				{itemRemoveCallback && (
 					<div className={getClassName('tc-treeview-remove')}>
 						{getIconAction(
-							itemRemoveLabel, 'talend-trash', itemRemoveCallback, item
+							itemRemoveLabel, 'talend-trash', itemRemoveCallback, item,
 						)}
 					</div>
 				)}
