@@ -102,26 +102,8 @@ const listProps = {
 	items,
 };
 
-const ExampleList = {
-	default: () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} />
-			</div>
-		</div>
-	),
-	'no toolbar': () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List list={list} actions={actions} items={items} />
-			</div>
-		</div>
-	),
-};
 const ExampleHomeListView = {
-	default:() => (
+	default: () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<HomeListView
@@ -144,4 +126,3 @@ const ExampleHomeListView = {
 };
 
 export default ExampleHomeListView;
-
