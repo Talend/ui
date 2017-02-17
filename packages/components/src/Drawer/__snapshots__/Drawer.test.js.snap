@@ -1,3 +1,5 @@
+exports[`Drawer should not render if no children 1`] = `null`;
+
 exports[`Drawer should render 1`] = `
 <div
   className="tc-drawer"

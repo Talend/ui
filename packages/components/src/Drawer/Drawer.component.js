@@ -22,6 +22,9 @@ DrawerAnimation.propTypes = {
 };
 
 function Drawer({ className, style, children }) {
+	if (!children) {
+		return null;
+	}
 	const drawerClasses = classnames(theme.drawer, className, 'tc-drawer');
 	return (
 		<div className={drawerClasses} style={style}>
