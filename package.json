@@ -16,7 +16,10 @@
     "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && ./copylibs.js --scope=theme",
     "test": "lerna exec --concurrency 1 -- yarn test",
     "start": "lerna exec -- yarn start",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "publish": "lerna publish --force-publish=*",
+    "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh",
+    "publish-storybook": "npm run build-storybook && cd .static && surge"
   },
   "watch": {
     "build-cmf": {
