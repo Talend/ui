@@ -1,7 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Autowhatever from 'react-autowhatever';
 import theme from './DatalistWidget.scss';
+
+function escapeRegexCharacters(str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 /**
  * Render Simple typeahead widget for filtering among a list
@@ -25,7 +29,7 @@ class DatalistWidget extends React.Component {
 
 		this.inputProps = {
 			placeholder: 'Search ...',
-			required: this.props.required,
+			required: props.required,
 			onBlur: () => {
 				this.setState({ items: [] });
 			},
@@ -65,6 +69,8 @@ class DatalistWidget extends React.Component {
 						itemIndex: newFocusedItemIndex,
 					});
 					break;
+				default:
+					break;
 				}
 			},
 		};
@@ -96,12 +102,8 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	escapeRegexCharacters(str) {
-		return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-	}
-
 	getMatchingSuggestions(value) {
-		const escapedValue = this.escapeRegexCharacters(value.trim());
+		const escapedValue = escapeRegexCharacters(value.trim());
 
 		if (escapedValue === '') {
 			return this.props.schema.enum;
@@ -173,7 +175,7 @@ class DatalistWidget extends React.Component {
 		this.inputProps.value = this.state.value;
 		return (
 			<Autowhatever
-				id={'exampleId'}
+				id={this.props.id}
 				items={this.state.items}
 				renderItem={this.renderItem}
 				inputProps={this.inputProps}
@@ -191,20 +193,9 @@ class DatalistWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	DatalistWidget.propTypes = {
 		id: PropTypes.string,
-		formData: PropTypes.object,
+		required: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
-		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(PropTypes.oneOfType([
-				PropTypes.func,
-				PropTypes.object,
-			])).isRequired,
-			fields: PropTypes.objectOf(PropTypes.func).isRequired,
-			definitions: PropTypes.object.isRequired,
-			formContext: PropTypes.object.isRequired,
-		}),
 		schema: PropTypes.object.isRequired,
-		uiSchema: PropTypes.object,
-		definitions: PropTypes.object,
 	};
 }
 
