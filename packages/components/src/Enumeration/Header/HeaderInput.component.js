@@ -10,6 +10,8 @@ const headerClasses = () => classNames({
 });
 
 function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
+	let inputRef;
+
 	const getAction = (action, index) => {
 		const onClick = action.onClick && (
 			event => action.onClick(event, { value: inputRef.value })
@@ -40,8 +42,6 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
 			value: event.target.value,
 		});
 	};
-
-	let inputRef;
 
 	return (
 		<header className={headerClasses()}>
