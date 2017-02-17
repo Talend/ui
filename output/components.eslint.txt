@@ -16,101 +16,13 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Display/Display.propTypes.js
-  15:14  error  'ItemTitle' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
-   7:8   error  'ItemPropTypes' is defined but never used       no-unused-vars
-  19:1   error  Line 19 exceeds the maximum line length of 100  max-len
-  19:72  error  'itemsProp' is missing in props validation      react/prop-types
-  22:3   error  Unexpected lexical declaration in case block    no-case-declarations
-  30:3   error  Unexpected lexical declaration in case block    no-case-declarations
-
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.snapshot.test.js
    29:50  error  Unexpected block statement surrounding arrow body  arrow-body-style
-   56:6   error  Unexpected trailing comma                          comma-dangle
-   56:6   error  A space is required after ','                      comma-spacing
    89:50  error  Unexpected block statement surrounding arrow body  arrow-body-style
-  116:6   error  Unexpected trailing comma                          comma-dangle
-  116:6   error  A space is required after ','                      comma-spacing
   149:50  error  Unexpected block statement surrounding arrow body  arrow-body-style
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/Header.component.js
-  12:19  error  'headerDefault' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
-  12:24  error  'headerInput' is missing in props validation   react/prop-types
-  12:37  error  'onAddChange' is missing in props validation   react/prop-types
-  12:50  error  'onAddKeyDown' is missing in props validation  react/prop-types
-  12:64  error  'valueAdded' is defined but never used         no-unused-vars
-  12:64  error  'valueAdded' is missing in props validation    react/prop-types
-  15:44  error  'inputRef' was used before it was defined      no-use-before-define
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.snapshot.test.js
-  22:6  error  Missing trailing comma  comma-dangle
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.test.js
-  22:6  error  Missing trailing comma  comma-dangle
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.component.js
-  20:9  error  ["editable"] is better written in dot notation  dot-notation
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/item.snapshot.test.js
-  16:4  error  Expected property shorthand  object-shorthand
-  29:7  error  Missing trailing comma       comma-dangle
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.test.js
-  16:4  error  Expected property shorthand  object-shorthand
-  29:7  error  Missing trailing comma       comma-dangle
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
-  71:2   error  onKeyUp should be placed before getAction  react/sort-comp
-  87:12  error  Property should be placed on a new line    react/jsx-first-prop-new-line
-  88:2   error  Mixed spaces and tabs                      no-mixed-spaces-and-tabs
-  89:2   error  Mixed spaces and tabs                      no-mixed-spaces-and-tabs
-  90:2   error  Mixed spaces and tabs                      no-mixed-spaces-and-tabs
-  91:2   error  Mixed spaces and tabs                      no-mixed-spaces-and-tabs
-  92:2   error  Mixed spaces and tabs                      no-mixed-spaces-and-tabs
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/itemEdit.snapshot.test.js
-  15:4  error  Expected property shorthand  object-shorthand
-  28:7  error  Missing trailing comma       comma-dangle
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.test.js
-   17:4   error  Expected property shorthand       object-shorthand
-   30:7   error  Missing trailing comma            comma-dangle
-   49:4   error  Expected property shorthand       object-shorthand
-   62:7   error  Missing trailing comma            comma-dangle
-   81:4   error  Expected property shorthand       object-shorthand
-   94:7   error  Missing trailing comma            comma-dangle
-  107:85  error  Multiple spaces found before '}'  no-multi-spaces
-  113:4   error  Expected property shorthand       object-shorthand
-  126:7   error  Missing trailing comma            comma-dangle
-  139:77  error  Multiple spaces found before '}'  no-multi-spaces
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
-  15:7   error  'DISPLAY_MODE_DEFAULT' is assigned a value but never used   no-unused-vars
-  20:7   error  'itemProps' is never reassigned. Use 'const' instead        prefer-const
-  20:7   error  'itemProps' is assigned a value but never used              no-unused-vars
-  24:3   error  Assignment to property of function parameter 'item'         no-param-reassign
-  27:4   error  Expected indentation of 2 tabs but found 3                  indent
-  27:4   error  Unexpected lexical declaration in case block                no-case-declarations
-  28:5   error  Expected indentation of 3 tabs but found 4                  indent
-  28:9   error  'itemPropsEdit' is never reassigned. Use 'const' instead    prefer-const
-  35:5   error  Expected indentation of 3 tabs but found 4                  indent
-  35:12  error  Missing parentheses around multilines JSX                   react/jsx-wrap-multilines
-  41:4   error  Unexpected lexical declaration in case block                no-case-declarations
-  41:4   error  Expected indentation of 2 tabs but found 3                  indent
-  42:5   error  Expected indentation of 3 tabs but found 4                  indent
-  42:9   error  'itemPropDefault' is never reassigned. Use 'const' instead  prefer-const
-  47:5   error  Expected indentation of 3 tabs but found 4                  indent
-  47:12  error  Missing parentheses around multilines JSX                   react/jsx-wrap-multilines
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/items.snapshot.test.js
   11:50  error  Unexpected block statement surrounding arrow body  arrow-body-style
-  38:6   error  Unexpected trailing comma                          comma-dangle
-  38:6   error  A space is required after ','                      comma-spacing
-  39:5   error  Missing trailing comma                             comma-dangle
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
@@ -125,7 +37,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 77 problems (77 errors, 0 warnings)
+✖ 15 problems (15 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
