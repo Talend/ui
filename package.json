@@ -19,7 +19,8 @@
     "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
     "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh",
-    "publish-storybook": "npm run build-storybook && cd .static && surge"
+    "publish-storybook": "npm run build-storybook && cd .static && surge",
+    "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color"
   },
   "watch": {
     "build-cmf": {
