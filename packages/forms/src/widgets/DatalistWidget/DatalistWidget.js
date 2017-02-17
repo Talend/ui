@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Autowhatever from 'react-autowhatever';
 import theme from './DatalistWidget.scss';
@@ -32,7 +32,7 @@ class DatalistWidget extends React.Component {
 			onFocus: () => {
 				this.setState({ items: this.getMatchingSuggestions(this.state.value) });
 			},
-			onChange: event => {
+			onChange: (event) => {
 				const newValue = event.target.value;
 				this.setState({
 					value: newValue,

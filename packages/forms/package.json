@@ -60,7 +60,7 @@
     "react": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.50.0"
+    "react-talend-components": "^0.61.3"
   },
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
