@@ -1,6 +1,5 @@
 import {
 	ActionDropdown,
-	ActionBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
@@ -14,6 +13,7 @@ import {
 } from 'react-talend-components';
 
 import Action from './Action';
+import ActionBar from './ActionBar';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import HomeListView from './HomeListView';
@@ -31,6 +31,7 @@ export {
 	componentState,
 
 	Action,
+	ActionBar,
 	Actions,
 	AppHeaderBar,
 	HomeListView,
@@ -40,7 +41,6 @@ export {
 	SidePanel,
 
 	ActionDropdown,
-	ActionBar,
 	Notification,
 	Breadcrumbs,
 	CircularProgress,
