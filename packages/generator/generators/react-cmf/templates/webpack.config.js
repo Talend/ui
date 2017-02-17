@@ -10,49 +10,52 @@ const SASS_DATA = `$brand-primary: #77828A;
 `;
 
 module.exports = {
-	entry: './src/app/index.js',
+	entry: ['babel-polyfill', './src/app/index.js'],
 	output: {
 		path: `${__dirname}/build`,
 		filename: '[hash].app.js',
 	},
-	devtool: 'inline-source-map',
 	resolve: ['', '.scss', '.css', 'js', 'jsx'],
 	module: {
-		loaders: [{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader',
-		}, {
-			test: /\.css$/,
-			loader: ExtractTextPlugin.extract('style', 'css', {
-				publicPath: './',
-			}),
-		}, {
-			test: /theme.scss$/,
-			loader: ExtractTextPlugin.extract(
-				'style',
-				'css!postcss!sass', {
-					publicPath: './',
-				}
-			),
-		}, {
-			test: /\.scss$/,
-			exclude: /theme.scss/,
-			loader: ExtractTextPlugin.extract(
-				'style',
-				'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass', {
-					publicPath: './',
-				}
-			),
-		}, {
-			test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-			loader: 'url',
-			query: {
-				limit: 50000,
-				mimetype: 'application/font-woff',
-				name: './fonts/[name].[ext]',
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader',
 			},
-		}],
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract('style', 'css', {
+					publicPath: './',
+				}),
+			},
+			{
+				test: /theme.scss$/,
+				loader: ExtractTextPlugin.extract(
+					'css!postcss!sass', {
+						publicPath: './',
+					}
+				),
+			},
+			{
+				test: /\.scss$/,
+				exclude: /theme.scss/,
+				loader: ExtractTextPlugin.extract(
+					'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass', {
+						publicPath: './',
+					}
+				),
+			},
+			{
+				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+				loader: 'url',
+				query: {
+					limit: 50000,
+					mimetype: 'application/font-woff',
+					name: './fonts/[name].[ext]',
+				},
+			}
+		],
 	},
 	sassLoader: {
 		includePaths: [
@@ -78,8 +81,5 @@ module.exports = {
 		new CopyWebpackPlugin([
 			{ from: 'src/assets' },
 		]),
-		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('developpement'),
-		}),
 	],
 };
