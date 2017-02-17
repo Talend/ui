@@ -17,7 +17,7 @@ const itemLabelClasses = () => classNames({
 const itemDefaultActionsClasses = () => classNames({
 	[theme['tc-enumeration-item-actions']]: true,
 	'tc-enumeration-item-actions': true,
-	[theme['editable']]: true,
+	[theme.editable]: true,
 });
 
 function Item({ id, item }) {

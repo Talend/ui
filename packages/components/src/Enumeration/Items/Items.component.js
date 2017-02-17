@@ -11,14 +11,15 @@ const itemsClasses = () => classNames({
 	'tc-enumeration-items': true,
 });
 
-
-const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 function Items({ items, itemsProp }) {
 	const getItem = (item, index) => {
 		// affecting index to the item
-		item.index = index;
+		const itemWithIndex = {
+			...item,
+			index,
+		};
 
 		switch (item.displayMode) {
 		case DISPLAY_MODE_EDIT: {
@@ -29,13 +30,13 @@ function Items({ items, itemsProp }) {
 				onAbortItem: itemsProp.onAbortItem,
 				onItemChange: itemsProp.onItemChange,
 			};
-			item.itemProps = itemPropsEdit;
+			itemWithIndex.itemProps = itemPropsEdit;
 
 			return (
 				<ItemEdit
 					key={`${index}-item`}
 					id={`${index}-item`}
-					item={item}
+					item={itemWithIndex}
 				/>
 			);
 		}
@@ -44,13 +45,13 @@ function Items({ items, itemsProp }) {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 			};
-			item.itemProps = itemPropDefault;
+			itemWithIndex.itemProps = itemPropDefault;
 
 			return (
 				<Item
 					key={`${index}-item`}
 					id={`${index}-item`}
-					item={item}
+					item={itemWithIndex}
 					itemProps={itemPropDefault}
 				/>
 			);

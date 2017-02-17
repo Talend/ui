@@ -36,6 +36,19 @@ class ItemEdit extends React.Component {
 		this.itemInput.value = this.props.item[this.props.item.itemProps.key].join(',');
 	}
 
+	onKeyDown(event) {
+		switch (event.keyCode) {
+		case ESC_KEY:
+			this.cancel(event);
+			break;
+		case ENTER_KEY:
+			this.submit(event);
+			break;
+		default:
+			break;
+		}
+	}
+
 	getAction = (action, index) => {
 		const onClick = action.onClick &&
 			(event => action.onClick(event, { value: event.target.value, index: this.props.item.index }));
@@ -76,19 +89,6 @@ class ItemEdit extends React.Component {
 			model: this.props.item,
 			index: this.props.item.index,
 		});
-	}
-
-	onKeyDown(event) {
-		switch (event.keyCode) {
-		case ESC_KEY:
-			this.cancel(event);
-			break;
-		case ENTER_KEY:
-			this.submit(event);
-			break;
-		default:
-			break;
-		}
 	}
 
 	render() {
