@@ -132,8 +132,7 @@ class DatalistWidget extends React.Component {
 	onBlur() {
 		if (this.props.schema.enum.indexOf(this.state.value) === -1) {
 			this.resetValue();
-		}
-		else {
+		} else {
 			this.resetSuggestions();
 		}
 	}
