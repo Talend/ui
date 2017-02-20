@@ -1,19 +1,98 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Autowhatever from 'react-autowhatever';
+import keycode from 'keycode';
 import theme from './DatalistWidget.scss';
 
-function escapeRegexCharacters(str) {
+/**
+ * Escape regexp special chars
+ */
+export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**
- * Render Simple typeahead widget for filtering among a list
- * @param props
- * @returns {*} DatalistWidget
- * @constructor
+ * Filter suggestions
+ * @param suggestions
+ * @param value
  */
+export function getMatchingSuggestions(suggestions, value) {
+	if (!value) {
+		return suggestions;
+	}
 
+	const escapedValue = escapeRegexCharacters(value.trim());
+	const regex = new RegExp(escapedValue, 'i');
+	return suggestions.filter(item => regex.test(item));
+}
+
+/**
+ * Render the datalist input
+ * @param props
+ */
+export function renderDatalistInput(props) {
+	return (
+		<div className={theme['typeahead-input-icon']}>
+			<FormControl {...props} />
+			<div className={theme['dropdown-toggle']}>
+				<span className="caret" />
+			</div>
+		</div>);
+}
+
+/**
+ * Render the datalist suggestion items container
+ * @param props
+ */
+export function renderDatalistItemContainer(props) {
+	return (<div {...props} />);
+}
+
+/**
+ * Render the datalist suggestion item
+ * @param item
+ * @param value
+ */
+export function renderDatalistItem(item, { value }) {
+	let emphasisedText = [item];
+	if (value) {
+		emphasisedText = [];
+		const regex = new RegExp(escapeRegexCharacters(value), 'gi');
+		const matchedValues = item.match(regex);
+		const restValues = item.split(regex);
+
+		for (let i = 0; i < restValues.length; i++) {
+			emphasisedText.push(restValues[i]);
+			if (matchedValues[i]) {
+				emphasisedText.push(
+					<em className={theme['highlight-match']}>{matchedValues[i]}</em>
+				);
+			}
+		}
+	}
+
+	return (
+		<div className={theme.item}>
+			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
+		</div>
+	);
+}
+
+/**
+ * Render an empty container
+ */
+export function renderNoMatch() {
+	return (
+		<div className={`${theme['items-container']} ${theme['no-result']}`}>
+			<span>No match.</span>
+		</div>
+	);
+}
+
+/**
+ * Render a typeahead for filtering among a list
+ * @param props
+ */
 class DatalistWidget extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,71 +103,19 @@ class DatalistWidget extends React.Component {
 			noMatch: false,
 		};
 
-		this.renderItem = this.renderItem.bind(this);
-		this.renderInputComponent = this.renderInputComponent.bind(this);
-
 		this.inputProps = {
 			placeholder: 'Search ...',
 			required: props.required,
-			onBlur: () => {
-				this.setState({ items: [] });
-			},
-			onFocus: () => {
-				this.setState({ items: this.getMatchingSuggestions(this.state.value) });
-			},
-			onChange: (event) => {
-				const newValue = event.target.value;
-				this.setState({
-					value: newValue,
-					items: this.getMatchingSuggestions(newValue),
-				});
-			},
-			onKeyDown: (event, { focusedItemIndex, newFocusedItemIndex }) => {
-				switch (event.which) {
-				case 27:
-					this.setState({
-						value: '',
-						items: [],
-						noMatch: false,
-					});
-					event.preventDefault();
-					break;
-				case 13:
-					if (focusedItemIndex != null) { // could be null in case of no match
-						this.setState({
-							value: this.state.items[focusedItemIndex],
-							items: [],
-						});
-						this.props.onChange(this.state.items[focusedItemIndex]);
-					}
-					event.preventDefault();
-					break;
-				case 38:
-				case 40:
-					this.setState({
-						itemIndex: newFocusedItemIndex,
-					});
-					break;
-				default:
-					break;
-				}
-			},
+			onBlur: () => this.onBlur(),
+			onFocus: () => this.initSuggestions(this.state.value),
+			onChange: event => this.initSuggestions(event.target.value),
+			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
 
 		this.itemProps = {
-			onMouseEnter: (event, { itemIndex }) => {
-				this.setState({ itemIndex });
-			},
-			onMouseLeave: () => {
-				this.setState({ itemIndex: null });
-			},
-			onMouseDown: (event, { itemIndex }) => {
-				this.setState({
-					value: this.state.items[itemIndex],
-					items: [],
-				});
-				this.props.onChange(this.state.items[itemIndex]);
-			},
+			onMouseEnter: (event, { itemIndex }) => this.focusOnItem(itemIndex),
+			onMouseLeave: () => this.focusOnItem(),
+			onMouseDown: (event, { itemIndex }) => this.selectItem(itemIndex),
 		};
 
 		this.style = {
@@ -102,72 +129,72 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	getMatchingSuggestions(value) {
-		const escapedValue = escapeRegexCharacters(value.trim());
-
-		if (escapedValue === '') {
-			return this.props.schema.enum;
+	onBlur() {
+		if (this.props.schema.enum.indexOf(this.state.value) === -1) {
+			this.resetValue();
 		}
-
-		const regex = new RegExp(escapedValue, 'i');
-
-		const matchingItems = this.props.schema.enum.filter(item => regex.test(item));
-		this.setState({ noMatch: !matchingItems.length });
-		return matchingItems;
-	}
-
-	renderItem(item, { value }) {
-		let emphasisedItem = [];
-		if (value) {
-			const matchPositions = [];
-			const regExp = new RegExp(value, 'gi');
-			let match;
-			while ((match = regExp.exec(item)) != null) { // eslint-disable-line no-cond-assign
-				matchPositions.push(match.index);
-			}
-			const matchSize = value.length;
-			for (let i = 0; i < item.length; i++) {
-				if (matchPositions.indexOf(i) === -1) {
-					emphasisedItem.push(item[i]);
-				} else {
-					emphasisedItem.push((<em className={theme['highlight-match']}>
-						{item.substring(i, i + matchSize)}</em>));
-					i += matchSize - 1;
-				}
-			}
-		} else {
-			emphasisedItem = item;
+		else {
+			this.resetSuggestions();
 		}
-		return (
-			<div className={theme.item}>
-				<span className={theme['item-title']}>{emphasisedItem}</span>
-			</div>
-		);
 	}
 
-	renderInputComponent(props) {
-		return (
-			<div className={theme['typeahead-input-icon']}>
-				<FormControl {...props} />
-				<div className={theme['dropdown-toggle']}>
-					<span className="caret"/>
-				</div>
-			</div>);
-	}
-
-	getItemContainer() {
-		return (props) => {
-			if (this.state.noMatch) {
-				return (
-					<div className={`${theme['items-container']} ${theme['no-result']}`}>
-						<span>No match.</span>
-					</div>
-				);
+	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
+		switch (event.which) {
+		case keycode.codes.esc:
+			this.resetValue();
+			event.preventDefault();
+			break;
+		case keycode.codes.enter:
+			if (focusedItemIndex != null) { // could be null in case of no match
+				this.selectItem(focusedItemIndex);
 			}
-			return (
-				<div {...props} />
-			);
-		};
+			event.preventDefault();
+			break;
+		case keycode.codes.up:
+		case keycode.codes.down:
+			this.focusOnItem(newFocusedItemIndex);
+			break;
+		default:
+			break;
+		}
+	}
+
+	setValue(value) {
+		this.setState({ value });
+	}
+
+	resetValue() {
+		this.setValue('');
+		this.resetSuggestions();
+	}
+
+	initSuggestions(value) {
+		const suggestions = getMatchingSuggestions(this.props.schema.enum, value);
+		this.setState({
+			value,
+			items: suggestions,
+			itemIndex: null,
+			noMatch: value && !suggestions.length,
+		});
+	}
+
+	resetSuggestions() {
+		this.setState({
+			items: [],
+			itemIndex: null,
+			noMatch: false,
+		});
+	}
+
+	focusOnItem(itemIndex) {
+		this.setState({ itemIndex });
+	}
+
+	selectItem(itemIndex) {
+		const selectedItem = this.state.items[itemIndex];
+		this.setValue(selectedItem);
+		this.resetSuggestions();
+		this.props.onChange(selectedItem);
 	}
 
 	render() {
@@ -177,12 +204,12 @@ class DatalistWidget extends React.Component {
 			<Autowhatever
 				id={this.props.id}
 				items={this.state.items}
-				renderItem={this.renderItem}
+				renderItem={renderDatalistItem}
 				inputProps={this.inputProps}
 				theme={this.style}
 				renderItemData={renderItemData}
-				renderInputComponent={this.renderInputComponent}
-				renderItemsContainer={this.getItemContainer.call(this)}
+				renderInputComponent={renderDatalistInput}
+				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderDatalistItemContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
@@ -195,7 +222,9 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		required: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
-		schema: PropTypes.object.isRequired,
+		schema: PropTypes.shape({
+			enum: PropTypes.arrayOf(PropTypes.string),
+		}).isRequired,
 	};
 }
 
