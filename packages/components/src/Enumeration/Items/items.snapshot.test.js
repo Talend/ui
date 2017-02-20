@@ -8,11 +8,9 @@ describe('Items', () => {
 	it('should display one item in edit mode and the other in default', () => {
 		// given
 		const props = {
-			items: Array(3).fill('').map((item, index) => {
-				return {
-					values: [`Lorem ipsum dolor sit amet ${index}`],
-				};
-			}),
+			items: Array(3).fill('').map((item, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(),

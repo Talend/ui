@@ -26,11 +26,9 @@ describe('Enumeration', () => {
 				id: 'abort',
 				onClick: jest.fn(), // no click callback
 			}],
-			items: Array(3).fill('').map((item, index) => {
-				return {
-					values: [`Lorem ipsum dolor sit amet ${index}`],
-				};
-			}),
+			items: Array(3).fill('').map((item, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
@@ -86,11 +84,9 @@ describe('Enumeration', () => {
 				id: 'abort',
 				onClick: jest.fn(), // no click callback
 			}],
-			items: Array(3).fill('').map((item, index) => {
-				return {
-					values: [`Lorem ipsum dolor sit amet ${index}`],
-				};
-			}),
+			items: Array(3).fill('').map((item, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
@@ -146,11 +142,9 @@ describe('Enumeration', () => {
 				id: 'abort',
 				onClick: jest.fn(), // no click callback
 			}],
-			items: Array(3).fill('').map((item, index) => {
-				return {
-					values: [`Lorem ipsum dolor sit amet ${index}`],
-				};
-			}),
+			items: Array(3).fill('').map((item, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
