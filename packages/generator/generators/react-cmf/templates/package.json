@@ -85,6 +85,7 @@
     "redux-thunk": "2.1.0",
     "reselect": "^2.5.4",
     "talend-icons": "^0.61.2",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "whatwg-fetch": "^2.0.2"
   }
 }
