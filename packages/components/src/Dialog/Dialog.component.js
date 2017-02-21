@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Modal from 'react-bootstrap/lib/Modal';
+
 import Action from '../Actions/Action';
 
 /**
@@ -9,10 +10,7 @@ import Action from '../Actions/Action';
  */
 function Dialog(props) {
 	return (
-		<Modal
-			bsSize={props.size}
-			show={props.show}
-		>
+		<Modal bsSize={props.size} show={props.show}>
 			{props.header && (
 				<Modal.Header closeButton>
 					<Modal.Title>{props.header}</Modal.Title>

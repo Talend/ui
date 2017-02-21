@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 import JSONLike from '../JSONLike';
 import theme from './List.scss';
 
@@ -23,7 +24,7 @@ function List({ data, ...props }) {
 
 List.propTypes = {
 	data: PropTypes.arrayOf(
-		PropTypes.object
+		PropTypes.object,
 	),
 };
 

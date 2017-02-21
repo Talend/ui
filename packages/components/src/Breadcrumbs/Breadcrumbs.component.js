@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import uuid from 'uuid';
+
 import theme from './Breadcrumbs.scss';
 import { ActionDropdown } from '../Actions';
 
@@ -33,7 +34,7 @@ function Breadcrumbs(props) {
 				label: hiddenItem.text,
 				title: hiddenItem.title,
 				onClick: event => hiddenItem.onClick(event, hiddenItem),
-			})
+			}),
 		);
 	/**
 	 * Render breadcrumb item
@@ -41,7 +42,7 @@ function Breadcrumbs(props) {
 	 * @param index Item position
 	 * @returns {*} Breadcrumb item rendering depending of its position
 	 */
-	const renderBreadcrumbItem = (item, index) => {
+	function renderBreadcrumbItem(item, index) {
 		const { text, title, onClick } = item;
 		const isActive = index === (nbItems - 1);
 		const id = `${props.id}-item-${index}`;
@@ -97,7 +98,7 @@ function Breadcrumbs(props) {
 				}
 			</li>
 		);
-	};
+	}
 
 	return (
 		<ol id={props.id} className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
@@ -113,7 +114,7 @@ Breadcrumbs.propTypes = {
 			text: React.PropTypes.string.isRequired,
 			title: React.PropTypes.string,
 			onClick: React.PropTypes.func,
-		})
+		}),
 	),
 	maxItems: React.PropTypes.number,
 };

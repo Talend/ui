@@ -52,3 +52,10 @@ export const statePropTypes = {
 	updateState: PropTypes.func,
 	initState: PropTypes.func,
 };
+
+export default {
+	propTypes: statePropTypes,
+	init: initState,
+	getProps: getStateProps,
+	getAccessors: getStateAccessors,
+};

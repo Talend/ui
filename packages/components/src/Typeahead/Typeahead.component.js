@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
+
 import theme from './Typeahead.scss';
 import {
 	renderItemsContainerFactory,
