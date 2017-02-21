@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems,
+	computeSelectedOnDelete } from '../../utils/utils.js';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -14,6 +16,12 @@ class EnumerationWidget extends React.Component {
 				icon: 'talend-plus',
 				id: 'add',
 				onClick: this.onChangeDisplay.bind(this),
+			}],
+			headerSelected: [{
+				label: 'Delete items',
+				icon: 'talend-trash',
+				id: 'del',
+				onClick: this.onDeleteItems.bind(this),
 			}],
 			headerInput: [{
 				disabled: true,
@@ -35,6 +43,7 @@ class EnumerationWidget extends React.Component {
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
+				onSelectItem: this.onSelectItem.bind(this),
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -63,6 +72,7 @@ class EnumerationWidget extends React.Component {
 			},
 			onAddChange: this.onAddChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
+			selectedItems: [],
 		};
 	}
 
@@ -74,18 +84,30 @@ class EnumerationWidget extends React.Component {
 
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_EDIT',
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
 	}
 
 	onDeleteItem(event, value) {
+        // dont want to fire select item on icon click
+		event.stopPropagation();
 		const items = [...this.state.items];
+		let selectedItems = [...this.state.selectedItems];
 		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
 		items.splice(value.index, 1);
+		let displayMode = this.state.displayMode;
+		selectedItems = computeSelectedOnDelete(selectedItems, value.index);
+
+		if (selectedItems.length === 0) {
+			displayMode = 'DISPLAY_MODE_DEFAULT';
+		}
 
 		this.setState({
 			items,
+			selectedItems,
+			displayMode,
 		}, this.setFormData.bind(this));
 	}
 
@@ -104,6 +126,8 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSubmitItem(event, value) {
+        // dont want to fire select item on icon click
+		event.stopPropagation();
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
 
@@ -113,6 +137,7 @@ class EnumerationWidget extends React.Component {
 		}
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 		}, this.setFormData.bind(this));
 	}
 
@@ -139,6 +164,42 @@ class EnumerationWidget extends React.Component {
 			event.preventDefault();
 			this.onAddHandler(event, value);
 		}
+	}
+
+	onSelectItem(item, event) {
+  		const selectedItems = [...this.state.selectedItems];
+		let result = [];
+		if (event.ctrlKey) {
+			result = manageCtrlKey(item, selectedItems);
+		}		else if (event.shiftKey) {
+			result = manageShiftKey(item, selectedItems, this.state.items);
+		}		else {
+			result.push(item.index);
+		}
+
+		// if unselect all, return to default mode
+		if (!result || result.length === 0) {
+			this.setState({
+				displayMode: 'DISPLAY_MODE_DEFAULT',
+				selectedItems: [],
+			});
+		}		else {
+			this.setState({
+				displayMode: 'DISPLAY_MODE_SELECTED',
+				selectedItems: result,
+			});
+		}
+	}
+
+	onDeleteItems() {
+		const items = [...this.state.items];
+		const selectedItems = [...this.state.selectedItems];
+		const result = deleteSelectedItems(items, selectedItems);
+		this.setState({
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			selectedItems: [],
+			items: result,
+		});
 	}
 
 	onAddHandler(event, value) {

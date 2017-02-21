@@ -1,11 +1,36 @@
-exports[`Item should display value with two buttons 1`] = `
+exports[`Item should display a selected item 1`] = `
 <li
-  className="undefined tc-enumeration-item"
+  className="undefined tc-enumeration-item selected-item"
   id="0-item">
+  <button
+    className="undefined tc-enumeration-item-label btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    role={null}
+    type="button">
+    <span>
+      toto
+    </span>
+  </button>
   <div
-    className="undefined tc-enumeration-item-label">
-    toto
-  </div>
+    className="undefined tc-enumeration-item-actions" />
+</li>
+`;
+
+exports[`Item should display value with three buttons 1`] = `
+<li
+  className="tc-enumeration-item"
+  id="0-item">
+  <button
+    className="undefined tc-enumeration-item-label btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    role={null}
+    type="button">
+    <span>
+      toto
+    </span>
+  </button>
   <div
     className="undefined tc-enumeration-item-actions">
     <button

@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-
 import Items from './Items.component';
 
 describe('Items', () => {
@@ -20,6 +19,7 @@ describe('Items', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
+				onSelectItem: jest.fn(),
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -40,6 +40,7 @@ describe('Items', () => {
 					onClick: jest.fn(),
 				}],
 			},
+			selectedItems: [],
 		};
 
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';

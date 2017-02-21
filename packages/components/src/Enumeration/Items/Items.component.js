@@ -16,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp, currentEdit }) {
+function Items({ items, itemsProp, selectedItems, currentEdit }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -48,6 +48,8 @@ function Items({ items, itemsProp, currentEdit }) {
 			const itemPropDefault = {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
+				onSelectItem: itemsProp.onSelectItem,
+				selectedItems,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -81,7 +83,10 @@ Items.propTypes = {
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
-	...ItemEditPropTypes,
+	selectedItems: PropTypes.arrayOf(PropTypes.shape({
+		index: PropTypes.number,
+	})).isRequired,
+    ...ItemEditPropTypes,
 };
 
 export default Items;
