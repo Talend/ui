@@ -2,13 +2,22 @@ import { connect } from 'react-redux';
 
 import { getStateAccessors, getStateProps } from '../state';
 import Container, { DEFAULT_STATE } from './List.container';
-import configureGetFilteredItems from './selector';
+import { configureGetFilteredItems, configureGetPagination } from './selector';
 
 export function getContainerInfo(ownProps) {
 	return {
 		name: 'List',
 		id: ownProps.collectionId || 'default',
 	};
+}
+
+function getItems(state, config) {
+	const items = configureGetFilteredItems(config)(state);
+
+	if (items) {
+		return items.toJS();
+	}
+	return [];
 }
 
 export function mapDispatchToProps(dispatch, ownProps) {
@@ -21,18 +30,15 @@ export function mapDispatchToProps(dispatch, ownProps) {
 export function mapStateToProps(state, ownProps) {
 	const { name, id } = getContainerInfo(ownProps);
 	const props = getStateProps(state, name, id);
-
-	let items = configureGetFilteredItems({
+	const config = {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
-	})(state);
+	};
 
-	if (items) {
-		items = items.toJS();
-	} else {
-		items = [];
+	props.items = getItems(state, config);
+	if (props.state && props.state.has('toolbar')) {
+		props.state = props.state.setIn(['toolbar', 'pagination'], configureGetPagination(state, config));
 	}
-	props.items = items;
 
 	return props;
 }

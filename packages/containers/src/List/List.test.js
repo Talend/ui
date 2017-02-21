@@ -147,12 +147,14 @@ describe('Connected List', () => {
 		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
-	it('should map state to props', () => {
+
+	it('should map items to props from collection List', () => {
+		// given
 		const state = {
 			cmf: {
-				components: new Map({
+				components: Immutable.fromJS({
 					List: {
-						default: DEFAULT_STATE.toJS(),
+						cid: DEFAULT_STATE.toJS(),
 					},
 				}),
 				collections: Immutable.fromJS({
@@ -160,19 +162,69 @@ describe('Connected List', () => {
 				}),
 			},
 		};
-		let props = mapStateToProps(state, {
-			settings: {
-				collectionId: 'cid',
+
+		// when
+		const props = mapStateToProps(state, { collectionId: 'cid' });
+
+		// then
+		expect(props).toMatchSnapshot();
+	});
+
+	it('should map items to props from default collection List', () => {
+		// given
+		const state = {
+			cmf: {
+				components: Immutable.fromJS({
+					List: {
+						default: DEFAULT_STATE.toJS(),
+					},
+				}),
+				collections: new Map(),
 			},
-		});
-		expect(typeof props).toBe('object');
-		props = mapStateToProps(state, {
-			settings: {},
+		};
+
+		// when : no collectionId defined
+		const props = mapStateToProps(state, {
 			items: Immutable.fromJS(items),
 		});
-		expect(typeof props).toBe('object');
+
+		// then
+		expect(props).toMatchSnapshot();
 	});
-	it('should map state to props', () => {
+
+	it('should map items to props from collection Map', () => {
+		// given
+		const state = {
+			cmf: {
+				components: Immutable.fromJS({
+					List: {
+						cid: {
+							...(DEFAULT_STATE.toJS()),
+							toolbar: {},
+						},
+					},
+				}),
+				collections: Immutable.fromJS({
+					cid: {
+						pagination: {
+							totalResults: 36,
+							itemsPerPage: 25,
+							startIndex: 1,
+						},
+						items,
+					},
+				}),
+			},
+		};
+
+		// when
+		const props = mapStateToProps(state, { collectionId: 'cid', toolbar: {} });
+
+		// then
+		expect(props).toMatchSnapshot();
+	});
+
+	it('should map dispatch to props', () => {
 		const dispatch = () => {};
 		const props = mapDispatchToProps(dispatch, {
 			settings: {},

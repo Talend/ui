@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
-export function contains(ob, query) {
+function contains(ob, query) {
 	let item = ob;
 	if (Map.isMap(ob)) {
 		item = ob.toJS();
@@ -16,12 +16,35 @@ export function contains(ob, query) {
 	return false;
 }
 
-export default function configureGetFilteredItems(configure) {
+function getCollection(state, collectionId) {
+	return state.cmf
+		.collections
+		.get(collectionId);
+}
+
+function getCollectionItems(state, collectionId) {
+	const collection = getCollection(state, collectionId);
+
+	if (Map.isMap(collection)) {
+		return collection.get('items');
+	}
+	return collection;
+}
+
+export function configureGetPagination(state, { collectionId }) {
+	const collection = getCollection(state, collectionId);
+
+	if (Map.isMap(collection)) {
+		return collection.get('pagination');
+	}
+
+	return null;
+}
+
+export function configureGetFilteredItems(configure) {
 	const localConfig = configure;
 
-	const getCollectionData = state => state.cmf
-		.collections
-		.get(localConfig.collectionId);
+	const getCollectionData = state => getCollectionItems(state, localConfig.collectionId);
 
 	const getComponentState = state => state.cmf
 		.components.getIn(['List', localConfig.collectionId || 'default']);
