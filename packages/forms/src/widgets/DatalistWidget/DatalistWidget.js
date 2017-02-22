@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import classnames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
 import theme from './DatalistWidget.scss';
@@ -104,7 +105,6 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.inputProps = {
-			placeholder: 'Search ...',
 			required: props.required,
 			onBlur: () => this.onBlur(),
 			onFocus: () => this.initSuggestions(this.state.value),
@@ -119,7 +119,7 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.style = {
-			container: theme['tf-typeahead-container'],
+			container: classnames('form-control', theme['tf-typeahead-container']),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],

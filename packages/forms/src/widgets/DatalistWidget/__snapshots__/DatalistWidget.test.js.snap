@@ -25,7 +25,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
-        "placeholder": "Search ...",
         "required": true,
         "value": "noMatchingValue",
       }
@@ -51,7 +50,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": undefined,
+        "container": "form-control",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -61,7 +60,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
       }
     }>
     <div
-      style={Object {}}>
+      className="form-control">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -76,7 +75,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="Search ..."
           required={true}
           role="combobox"
           style={Object {}}
@@ -94,7 +92,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Search ..."
             required={true}
             role="combobox"
             style={Object {}}
@@ -144,7 +141,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
-        "placeholder": "Search ...",
         "required": true,
         "value": "",
       }
@@ -178,7 +174,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": undefined,
+        "container": "form-control",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -188,7 +184,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
       }
     }>
     <div
-      style={Object {}}>
+      className="form-control">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -203,7 +199,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="Search ..."
           required={true}
           role="combobox"
           style={Object {}}
@@ -221,7 +216,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Search ..."
             required={true}
             role="combobox"
             style={Object {}}
@@ -448,7 +442,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
-        "placeholder": "Search ...",
         "required": true,
         "value": "aze",
       }
@@ -480,7 +473,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": undefined,
+        "container": "form-control",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -490,7 +483,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
       }
     }>
     <div
-      style={Object {}}>
+      className="form-control">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -505,7 +498,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="Search ..."
           required={true}
           role="combobox"
           style={Object {}}
@@ -523,7 +515,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Search ..."
             required={true}
             role="combobox"
             style={Object {}}
@@ -683,7 +674,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
 
 exports[`DatalistWidget should render input 1`] = `
 <div
-  style={Object {}}>
+  className="form-control">
   <div
     className={undefined}>
     <input
@@ -699,7 +690,6 @@ exports[`DatalistWidget should render input 1`] = `
       onChange={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
-      placeholder="Search ..."
       required={true}
       role="combobox"
       style={Object {}}
@@ -744,7 +734,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
-        "placeholder": "Search ...",
         "required": true,
         "value": "",
       }
@@ -770,7 +759,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": undefined,
+        "container": "form-control",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -780,7 +769,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
       }
     }>
     <div
-      style={Object {}}>
+      className="form-control">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -795,7 +784,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="Search ..."
           required={true}
           role="combobox"
           style={Object {}}
@@ -813,7 +801,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Search ..."
             required={true}
             role="combobox"
             style={Object {}}
@@ -860,7 +847,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
-        "placeholder": "Search ...",
         "required": true,
         "value": "aze",
       }
@@ -886,7 +872,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": undefined,
+        "container": "form-control",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -896,7 +882,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
       }
     }>
     <div
-      style={Object {}}>
+      className="form-control">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -911,7 +897,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="Search ..."
           required={true}
           role="combobox"
           style={Object {}}
@@ -929,7 +914,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Search ..."
             required={true}
             role="combobox"
             style={Object {}}

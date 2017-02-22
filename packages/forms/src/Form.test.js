@@ -160,21 +160,6 @@ describe('<Form/>', () => {
 			// then
 			expect(input.props().value).toEqual('App');
 		});
-
-		// it('should display items matching with "App" filter', () => {
-		// 	// given
-		// 	const form = renderer.create(<Form
-		// 		className="form"
-		// 		data={dataListData}
-		// 		onSubmit={onSubmit}
-		// 		onChange={onChange}
-		// 	/>).toJSON();
-		// 	// when
-		// 	// const input = form.find('input');
-		// 	// input.simulate('click');
-		// 	// then
-		// 	expect(form).toMatchSnapshot();
-		// });
 	});
 
 	describe('events', () => {
