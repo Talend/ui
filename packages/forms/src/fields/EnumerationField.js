@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 
@@ -180,5 +180,13 @@ class EnumerationField extends React.Component {
 		);
 	}
 }
+
+Enumeration.propTypes = {
+	onChange: PropTypes.func.isRequired,
+	formData: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number,
+		values: PropTypes.arrayOf(PropTypes.string),
+	})),
+};
 
 export default EnumerationField;
