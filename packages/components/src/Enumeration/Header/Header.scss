@@ -1,4 +1,3 @@
-$tc-enumeration-main-color: $brand-primary !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-normal-padding: $padding-normal !default;
@@ -53,8 +52,6 @@ $tc-enumeration-header-height: 28px !default;
 		:global(.tc-svg-icon) {
 			height: $tc-enumeration-small-padding;
 			width: $tc-enumeration-small-padding;
-			stroke: $tc-enumeration-main-color;
-			fill: $tc-enumeration-main-color;
 			margin-right: 0;
 			vertical-align: top;
 		}
