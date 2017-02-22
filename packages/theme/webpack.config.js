@@ -6,8 +6,9 @@ module.exports = () => {
 	return {
 		entry: './src/index.js',
 		output: {
-			path: `${__dirname}/dist`,
 			filename: 'bootstrap.js',
+			path: `${__dirname}/dist`,
+			publicPath: '/dist',
 		},
 		module: {
 			rules: [
@@ -73,7 +74,13 @@ module.exports = () => {
 			}),
 		],
 		devServer: {
-			contentBase: ['./', './example'],
+			inline: true,
+			noInfo: true,
+			contentBase: `${__dirname}/example`,
+			watchContentBase: true,
+			watchOptions: {
+				poll: true,
+			},
 		},
 	};
 };
