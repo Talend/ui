@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import Actions from './../Actions/Actions.component';
 import CircularProgress from './../CircularProgress/CircularProgress.component';
 import Icon from './../Icon/Icon.component';
+
 import css from './Status.scss';
 
 /**
@@ -49,7 +51,10 @@ function getbsStyleFromStatus(status) {
 
 function renderIcon(status, icon, progress) {
 	if (status === STATUS_IN_PROGRESS) {
-		return (icon ? <Icon name={icon} /> : <CircularProgress size={'small'} percent={progress} />);
+		if (icon) {
+			return <Icon name={icon} />;
+		}
+		return <CircularProgress size={'small'} percent={progress} />;
 	}
 	return (icon && <Icon name={icon} />);
 }
@@ -67,7 +72,7 @@ function Status(props) {
 		css['tc-status'],
 		'tc-status',
 		`text-${getbsStyleFromStatus(status)}`,
-		{ [css.action]: actions && actions.length }
+		{ [css.action]: actions && actions.length },
 	);
 
 	return (

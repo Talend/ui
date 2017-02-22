@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
+
 import theme from './Drawer.scss';
 
 function DrawerAnimation({ children }) {
@@ -21,6 +22,9 @@ DrawerAnimation.propTypes = {
 };
 
 function Drawer({ className, style, children }) {
+	if (!children) {
+		return null;
+	}
 	const drawerClasses = classnames(theme.drawer, className, 'tc-drawer');
 	return (
 		<div className={drawerClasses} style={style}>

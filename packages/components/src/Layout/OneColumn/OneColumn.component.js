@@ -10,7 +10,7 @@ import theme from './OneColumn.scss';
 function OneColumn({ children, ...props }) {
 	const container = classnames(
 		'tc-layout-one-column',
-		theme.main
+		theme.main,
 	);
 	return (<div className={container} {...props}>{children}</div>);
 }

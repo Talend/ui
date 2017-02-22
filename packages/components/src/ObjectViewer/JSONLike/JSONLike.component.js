@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import invariant from 'invariant';
+
 import Icon from '../../Icon';
 import theme from './JSONLike.scss';
 
@@ -21,9 +22,7 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 		inputType = 'text';
 	}
 	if (edit) {
-		return (
-			<input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />
-		);
+		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 	return (
 		<button
@@ -138,7 +137,6 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 		'btn btn-xs btn-link',
 		theme.btn,
 	);
-
 
 	return (
 		<LineItem name={name} mouseOverData={{ data, isOpened, isEdited }}>

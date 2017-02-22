@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
 import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
 import theme from './Table.scss';
@@ -12,7 +13,10 @@ function getKeys(data, isFlat) {
 }
 
 function getAbsolutePath(index, key, flat) {
-	return flat ? `$[${index}]${key.replace('$', '')}` : `$[${index}]['${key}']`;
+	if (flat) {
+		return `$[${index}]${key.replace('$', '')}`;
+	}
+	return `$[${index}]['${key}']`;
 }
 
 function Table({ flat, data, ...props }) {

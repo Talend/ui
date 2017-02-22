@@ -2,13 +2,11 @@ const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('yeoman-assert');
 
-var deps = [
-	[helpers.createDummyGenerator(), 'talend:dotfiles']
+const deps = [
+	[helpers.createDummyGenerator(), 'talend:dotfiles'],
 ];
 
 describe('talend:react-cmf', function () {
-	const appPath = 'customAppPath';
-
 	beforeEach(function () {
 		this.app = helpers
 			.run(path.join(__dirname, '../generators/react-cmf'))
@@ -26,6 +24,7 @@ describe('talend:react-cmf', function () {
 
 		it('generates base files', function () {
 			assert.file([
+				'env.js',
 				'package.json',
 				'webpack.config.js',
 				'webpack.config.dev.js',

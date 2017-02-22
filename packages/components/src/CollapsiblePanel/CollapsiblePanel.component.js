@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel } from 'react-bootstrap';
+
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
 import Status from '../Status';
@@ -12,10 +13,12 @@ export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
 export const TYPE_BADGE = 'badge';
 
-const getActionHandler = (func, item) => (e) => {
-	e.stopPropagation();
-	func(e, item);
-};
+function getActionHandler(func, item) {
+	return function actionHandler(e) {
+		e.stopPropagation();
+		func(e, item);
+	};
+}
 
 const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
 
@@ -44,7 +47,7 @@ function renderHeaderItem({ displayMode, ...headerItem }, key) {
 			action => ({
 				...action,
 				onClick: getActionHandler(action.onClick, headerItem),
-			})
+			}),
 		);
 		return (<Status key={key} actions={adaptActions} {...restStatus} />);
 	}
@@ -101,7 +104,7 @@ function renderHeader({ header, caret }) {
 				key={header.length}
 				className={css.caret}
 				name={'talend-caret-down'}
-			/>
+			/>,
 		);
 	}
 
@@ -168,7 +171,7 @@ function CollapsiblePanel({ header, content }) {
 							<div className={css.label}><Label>{item.label}</Label></div>
 							<div className={css.description}>{item.description}</div>
 						</div>
-						))
+						)),
 					)}
 			</Panel>
 		);

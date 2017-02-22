@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 
 import Action from '../Actions/Action';
-
 import TreeViewItem from './TreeViewItem/';
 import getClassNames from './getClassNames';
+
 import theme from './TreeView.scss';
 
 const getClassName = getClassNames(theme);
+
 /**
  * A view component to display any tree structure, like folders or categories.
  *
@@ -48,7 +49,6 @@ const getClassName = getClassNames(theme);
  * <TreeView {...defaultProps} />
  *
  */
-
 const TreeView = ({
 	headerText,
 	structure,

@@ -89,7 +89,10 @@ class Form extends React.Component {
 	}
 
 	handleActionClick(onClick) {
-		return event => onClick(event, this.form.state);
+		if (onClick) {
+			return event => onClick(event, this.form.state);
+		}
+		return null;
 	}
 
 	render() {
