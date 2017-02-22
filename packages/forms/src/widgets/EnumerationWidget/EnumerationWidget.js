@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 
-class EnumerationField extends React.Component {
+class EnumerationWidget extends React.Component {
 	constructor(props) {
 		console.dir(props);
 		super(props);
@@ -190,4 +190,4 @@ class EnumerationField extends React.Component {
 	})),
 };*/
 
-export default EnumerationField;
+export default EnumerationWidget;
