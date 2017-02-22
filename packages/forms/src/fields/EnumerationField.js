@@ -28,18 +28,16 @@ class EnumerationField extends React.Component {
 				id: 'abort',
 				onClick: this.onAbortHandler.bind(this),
 			}],
-			items: (props.formData || []).map((item) => {
-				return {
-					id: item.id,
-					values: item.values,
-				};
-			}),
+			items: (props.formData || []).map((item) => ({
+				id: item.id,
+				values: item.values,
+			})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: this.onSubmit.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
-                onItemChange: this.onItemChange.bind(this),
-                actionsDefault: [{
+				onItemChange: this.onItemChange.bind(this),
+				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
 					icon: 'talend-pencil',
@@ -71,7 +69,7 @@ class EnumerationField extends React.Component {
 		this.setState({
 			items,
 		});
-    }
+	}
 
 	onDelete(event, value) {
 		const items = [...this.state.items];
@@ -92,22 +90,22 @@ class EnumerationField extends React.Component {
 		});
 	}
 
-    // edit mode
-    onItemChange(event, value) {
-        this.updateItemValidateDisabled(value);
-    }
+		// edit mode
+	onItemChange(event, value) {
+		this.updateItemValidateDisabled(value);
+	}
 
 	onSubmit(event, value) {
-        const items = [...this.state.items];
-        items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		const items = [...this.state.items];
+		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
 
-        // if the value is empty, no value update is done
+		// if the value is empty, no value update is done
 		if (value.value) {
 			items[value.index].values[0] = value.value;
-        }
-        this.setState({
-            items,
-        }, this.setFormData.bind(this));
+		}
+		this.setState({
+			items,
+		}, this.setFormData.bind(this));
 	}
 
 	onChangeDisplay() {
@@ -162,16 +160,16 @@ class EnumerationField extends React.Component {
 		});
 	}
 
-    updateItemValidateDisabled(value) {
-        this.setState((prevState) => {
+	updateItemValidateDisabled(value) {
+		this.setState((prevState) => {
 			const items = [...prevState.items];
 			const [itemToProcess] = prevState.items[value.index].itemProps.actions;
 			itemToProcess.disabled = value.value === '';
 			return {
-				items: items,
+				items,
 			};
 		});
-    }
+	}
 
 	render() {
 		return (

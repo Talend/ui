@@ -24,16 +24,14 @@ const props = {
 		id: 'abort',
 		onClick: action('headerInput.onAbort'),
 	}],
-	items: Array(50).fill('').map((item, index) => {
-		return {
-			values: [`Lorem ipsum dolor sit amet ${index}`],
-		};
-	}),
+	items: Array(50).fill('').map((item, index) => ({
+		values: [`Lorem ipsum dolor sit amet ${index}`],
+	})),
 	itemsProp: {
 		key: 'values',
 		onSubmitItem: action('itemEdit.onSubmit'),
-        onItemChange: action('itemEdit.onItemchange'),
-        onAbortItem: action('itemEdit.onCancel'),
+		onItemChange: action('itemEdit.onItemchange'),
+		onAbortItem: action('itemEdit.onCancel'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -65,11 +63,9 @@ const props = {
 
 const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
 const editItemProps = { ...props, displayMode: 'DISPLAY_MODE_DEFAULT' };
-editItemProps.items = Array(50).fill('').map((item, index) => {
-	return {
-		values: [`Lorem ipsum dolor sit amet ${index}`],
-	};
-});
+editItemProps.items = Array(50).fill('').map((item, index) => ({
+	values: [`Lorem ipsum dolor sit amet ${index}`],
+}));
 
 editItemProps.items[0] = {
 	values: ['Lorem ipsum dolor sit amet 0'],
