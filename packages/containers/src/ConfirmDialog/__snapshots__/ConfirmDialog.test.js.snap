@@ -4,7 +4,7 @@ exports[`Container ConfirmDialog should render 1`] = `
   <div
     cancelAction={
       Object {
-        "label": "No !",
+        "label": "No",
         "onClick": [Function],
       }
     }

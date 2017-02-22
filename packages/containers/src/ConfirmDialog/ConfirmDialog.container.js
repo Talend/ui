@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { ConfirmDialog as Component } from 'react-talend-components';
 
@@ -14,7 +15,7 @@ export const DEFAULT_STATE = new Map({
 		bsStyle: 'primary',
 	},
 	cancelAction: {
-		label: 'No !',
+		label: 'No',
 	},
 });
 
@@ -24,12 +25,36 @@ class ConfirmDialog extends React.Component {
 		...statePropTypes,
 	};
 
+	static contextTypes = {
+		store: PropTypes.object,
+		registry: PropTypes.object,
+	};
+
 	componentDidMount() {
 		initState(this.props);
 	}
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const actions = this.props.actions;
+		state.validateAction.onClick = (event, data) => {
+			this.props.dispatch(
+				api.action.getActionCreatorFunction(
+					this.context,
+					actions.removeSmType
+				)(event, data, this.context),
+			);
+		};
+
+		state.cancelAction.onClick = (event, data) => {
+			this.props.dispatch(
+				api.action.getActionCreatorFunction(
+					this.context,
+					actions.cancelRemoveSmType
+				)(event, data, this.context),
+			);
+		};
+
 		return (
 			<Component
 				{...state}

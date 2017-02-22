@@ -21,8 +21,28 @@ function objectView(event, data) {
 	}, data);
 }
 
+function objectView(event, data) {
+	return Object.assign({
+		type: 'OBJECT_VIEW',
+	}, data);
+}
+
+function hideRemoveDialog(event, data) {
+	return Object.assign({
+		type: 'SLA_HIDE_REMOVE_SEMANTIC_TYPE',
+	}, data);
+}
+
+function confirmRemoveSmType(event, data) {
+	return Object.assign({
+		type: 'SLA_REMOVE_SEMANTIC_TYPE',
+	}, data);
+}
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
+registerActionCreator('object:cancel:remove:semantic', hideRemoveDialog);
+registerActionCreator('object:remove:semantic', confirmRemoveSmType);
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {
