@@ -88,6 +88,7 @@ import SidePanel from './SidePanel';
 import Status from './Status';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
+import Toggle from './Toggle';
 
 export {
 	Action,
@@ -178,6 +179,7 @@ export {
 	Table,
 	TabPane,
 	Tabs,
+	Toggle,
 	Thumbnail,
 	Tooltip,
 	Well,

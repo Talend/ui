@@ -1,0 +1,75 @@
+// all
+$toggle-height: 20px;
+
+$toggle-track-height: 10px;
+$toggle-track-width: 40px;
+$toggle-thumb-size: 20px;
+
+.tc-toggle {
+	display: flex;
+	height: $toggle-height;
+	line-height: $toggle-track-height;
+	padding: ($toggle-height - $toggle-track-height) / 2 0;
+
+	.tc-toggle-model {
+		display: none;
+
+		&:checked ~ .tc-toggle-element {
+			background: rgba($scooter, 0.6);
+
+			&:after {
+				left: $toggle-track-width - $toggle-thumb-size;
+				background: $scooter;
+			}
+		}
+
+		&:disabled ~ .tc-toggle-element {
+			background: rgba($dove-gray, 0.25);
+			cursor: not-allowed;
+
+			&:after {
+				background: $concrete;
+			}
+		}
+
+		&:disabled ~ .tc-toggle-status-label {
+			color: rgba(0, 0, 0, 0.6);
+		}
+	}
+
+	.tc-toggle-element {
+		position: relative;
+		display: block;
+		height: $toggle-track-height;
+		width: $toggle-track-width;
+		background: rgba($dove-gray, 0.6);
+		border-radius: 100px;
+		cursor: pointer;
+		transition: background 0.3s ease;
+		margin-bottom: 0;
+
+		&:after {
+			position: absolute;
+			left: 0;
+			top: -($toggle-height - $toggle-track-height) / 2;
+			display: block;
+			width: $toggle-thumb-size;
+			height: $toggle-thumb-size;
+			border-radius: 100px;
+			background: $white;
+			box-shadow: 0 3px 3px rgba($dove-gray, 0.25);
+			content: '';
+			transition: transform 0.3s ease, background 0.3s ease, left 0.3s ease;
+		}
+
+		&:active:after {
+			transform: scale(1.15, 0.85);
+		}
+	}
+
+	.tc-toggle-status-label {
+		display: block;
+		margin: 0 0 0 $padding-small;
+		transition: color 0.3s ease;
+	}
+}
