@@ -1,0 +1,25 @@
+exports[`Container ConfirmDialog should render 1`] = `
+<div
+  className="mock-provider">
+  <div
+    cancelAction={
+      Object {
+        "label": "No !",
+        "onClick": [Function],
+      }
+    }
+    className="tc-confirm-dialog"
+    header=""
+    show={false}
+    size="small"
+    validateAction={
+      Object {
+        "bsStyle": "primary",
+        "label": "Ok",
+        "onClick": [Function],
+      }
+    }>
+    
+  </div>
+</div>
+`;
