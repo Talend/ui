@@ -28,6 +28,7 @@
     "classnames": "^2.2.5",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
+    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
@@ -79,9 +80,13 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
+    "testPathDirs": [
+      "src",
+      "__mocks__"
+    ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/__tests__/styleMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
   "version": "0.61.4"

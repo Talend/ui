@@ -30,7 +30,7 @@ export function getMatchingSuggestions(suggestions, value) {
  * Render the datalist input
  * @param props
  */
-export function renderDatalistInput(props) {
+function renderDatalistInput(props) {
 	return (
 		<div className={theme['typeahead-input-icon']}>
 			<FormControl {...props} />
@@ -44,7 +44,7 @@ export function renderDatalistInput(props) {
  * Render the datalist suggestion items container
  * @param props
  */
-export function renderDatalistItemContainer(props) {
+function renderDatalistItemContainer(props) {
 	return (<div {...props} />);
 }
 
@@ -53,7 +53,7 @@ export function renderDatalistItemContainer(props) {
  * @param item
  * @param value
  */
-export function renderDatalistItem(item, { value }) {
+function renderDatalistItem(item, { value }) {
 	let emphasisedText = [item];
 	if (value) {
 		emphasisedText = [];
@@ -81,7 +81,7 @@ export function renderDatalistItem(item, { value }) {
 /**
  * Render an empty container
  */
-export function renderNoMatch() {
+function renderNoMatch() {
 	return (
 		<div className={`${theme['items-container']} ${theme['no-result']}`}>
 			<span>No match.</span>

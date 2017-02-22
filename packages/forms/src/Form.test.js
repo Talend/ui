@@ -14,8 +14,8 @@ import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
-import Form, { renderActionIcon, renderActions } from '../src/Form';
-import DatalistWidget from '../src/widgets/DatalistWidget/DatalistWidget';
+import Form, { renderActionIcon, renderActions } from './Form';
+import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 
 const data = {
 	jsonSchema: {
