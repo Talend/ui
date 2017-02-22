@@ -15,8 +15,8 @@ import theme from './Toggle.scss';
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({id, isChecked, isDisabled, onChange, label}) {
-	return <div className={theme['tc-toggle']}>
+function Toggle({ id, isChecked, isDisabled, onChange, label }) {
+	return (<div className={theme['tc-toggle']}>
 		<input
 			type="checkbox"
 			id={id}
@@ -27,7 +27,7 @@ function Toggle({id, isChecked, isDisabled, onChange, label}) {
 		/>
 		<label htmlFor={id} className={theme['tc-toggle-element']} />
 		{label && <label htmlFor={id} className={theme['tc-toggle-status-label']}>{label}</label>}
-	</div>;
+	</div>);
 }
 
 Toggle.propTypes = {
