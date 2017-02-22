@@ -6,15 +6,17 @@ import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
 import theme from './Items.scss';
 
-const itemsClasses = () => classNames({
-	[theme['tc-enumeration-items']]: true,
-	'tc-enumeration-items': true,
-});
+function itemsClasses() {
+	return classNames({
+		[theme['tc-enumeration-items']]: true,
+		'tc-enumeration-items': true,
+	});
+}
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 function Items({ items, itemsProp }) {
-	const getItem = (item, index) => {
+	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
 			...item,
@@ -57,7 +59,7 @@ function Items({ items, itemsProp }) {
 			);
 		}
 		}
-	};
+	}
 
 	return (
 		<ul className={itemsClasses()}>

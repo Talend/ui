@@ -5,20 +5,27 @@ import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 
-const itemClasses = () => classNames({
-	[theme['tc-enumeration-item']]: true,
-	'tc-enumeration-item': true,
-});
-const itemLabelClasses = () => classNames({
-	[theme['tc-enumeration-item-label']]: true,
-	'tc-enumeration-item-label': true,
-});
+function itemClasses() {
+	return classNames({
+		[theme['tc-enumeration-item']]: true,
+		'tc-enumeration-item': true,
+	});
+}
 
-const itemDefaultActionsClasses = () => classNames({
-	[theme['tc-enumeration-item-actions']]: true,
-	'tc-enumeration-item-actions': true,
-	[theme.editable]: true,
-});
+function itemLabelClasses() {
+	return classNames({
+		[theme['tc-enumeration-item-label']]: true,
+		'tc-enumeration-item-label': true,
+	});
+}
+
+function itemDefaultActionsClasses() {
+	return classNames({
+		[theme['tc-enumeration-item-actions']]: true,
+		'tc-enumeration-item-actions': true,
+		[theme.editable]: true,
+	});
+}
 
 function Item({ id, item }) {
 	const {
@@ -27,8 +34,14 @@ function Item({ id, item }) {
 	} = item.itemProps;
 
 	const getAction = (action, index) => {
-		const onClick = action.onClick &&
-			(event => action.onClick(event, { value: event.target.value, index: item.index }));
+		function onClick(event) {
+			if (action.onClick) {
+				action.onClick(event, {
+					value: event.target.value,
+					index: item.index,
+				});
+			}
+		}
 
 		return (
 			<Action
