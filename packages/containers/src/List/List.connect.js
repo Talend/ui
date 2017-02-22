@@ -37,7 +37,8 @@ export function mapStateToProps(state, ownProps) {
 
 	props.items = getItems(state, config);
 	if (props.state && props.state.has('toolbar')) {
-		props.state = props.state.setIn(['toolbar', 'pagination'], configureGetPagination(state, config));
+		const dynamicPagination = configureGetPagination(state, config);
+		props.state = props.state.mergeIn(['toolbar', 'pagination'], dynamicPagination);
 	}
 
 	return props;

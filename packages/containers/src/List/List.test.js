@@ -33,6 +33,12 @@ const toolbar = {
 		field: 'id',
 		isDescending: false,
 	},
+	pagination: {
+		startIndex: 1,
+		itemsPerPage: 25,
+		totalResults: 36,
+		onChange: 'pagination:change',
+	},
 };
 
 const actions = {
@@ -99,6 +105,7 @@ describe('Container List', () => {
 		expect(props.toolbar.sort.options.length).toBe(2);
 		expect(props).toMatchSnapshot();
 	});
+
 	it('should render without toolbar', () => {
 		const wrapper = shallow(
 			<Container items={items} />
@@ -106,6 +113,7 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
+
 	it('should support displayMode as props', () => {
 		const wrapper = shallow(
 			<Container displayMode="large" items={items} />
@@ -139,6 +147,34 @@ describe('Container List', () => {
 		expect(calls[0][0]).toBe(e);
 		expect(calls[0][1]).toBe(data);
 		expect(calls[0][2].registry).toBe(context.registry);
+	});
+
+	it('should call action creator on pagination change', () => {
+		// given
+		const dispatch = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:pagination:change': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container {...settings} items={items} dispatch={dispatch} />,
+			{
+				lifecycleExperimental: true,
+				context,
+			});
+		const props = wrapper.props();
+		const event = {};
+		const data = { foo: 'bar' };
+
+		expect(actionCreator).not.toBeCalled();
+
+		// when
+		props.toolbar.pagination.onChange(event, data);
+
+		// then
+		expect(actionCreator).toBeCalledWith(event, data, context);
 	});
 });
 
@@ -200,7 +236,11 @@ describe('Connected List', () => {
 					List: {
 						cid: {
 							...(DEFAULT_STATE.toJS()),
-							toolbar: {},
+							toolbar: {
+								pagination: {
+									onChange: 'pagination:change',
+								},
+							},
 						},
 					},
 				}),

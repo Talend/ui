@@ -83,6 +83,7 @@ Object {
     "toolbar": Object {
       "pagination": Object {
         "itemsPerPage": 25,
+        "onChange": "pagination:change",
         "startIndex": 1,
         "totalResults": 36,
       },
@@ -209,6 +210,12 @@ Object {
       "onFilter": [Function],
       "onToggle": [Function],
       "placeholder": "find an object",
+    },
+    "pagination": Object {
+      "itemsPerPage": 25,
+      "onChange": [Function],
+      "startIndex": 1,
+      "totalResults": 36,
     },
     "sort": Object {
       "field": "name",
