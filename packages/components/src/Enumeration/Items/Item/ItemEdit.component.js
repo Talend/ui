@@ -1,27 +1,31 @@
 import React from 'react';
 import classNames from 'classnames';
+import keycode from 'keycode';
 
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 
-const itemClasses = () => classNames({
-	[theme['tc-enumeration-item']]: true,
-	'tc-enumeration-item': true,
-});
+function itemClasses() {
+	return classNames({
+		[theme['tc-enumeration-item']]: true,
+		'tc-enumeration-item': true,
+	});
+}
 
-const itemLabelClasses = () => classNames({
-	[theme['tc-enumeration-item-label']]: true,
-	'tc-enumeration-item-label': true,
-});
+function itemLabelClasses() {
+	return classNames({
+		[theme['tc-enumeration-item-label']]: true,
+		'tc-enumeration-item-label': true,
+	});
+}
 
-const itemEditActionsClasses = () => classNames({
-	[theme['tc-enumeration-item-actions']]: true,
-	'tc-enumeration-item-actions': true,
-});
-
-const ESC_KEY = 27;
-const ENTER_KEY = 13;
+function itemEditActionsClasses() {
+	return classNames({
+		[theme['tc-enumeration-item-actions']]: true,
+		'tc-enumeration-item-actions': true,
+	});
+}
 
 class ItemEdit extends React.Component {
 	constructor(props) {
@@ -38,10 +42,10 @@ class ItemEdit extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-		case ESC_KEY:
+		case keycode('escape'):
 			this.cancel(event);
 			break;
-		case ENTER_KEY:
+		case keycode('enter'):
 			this.submit(event);
 			break;
 		default:
@@ -49,9 +53,17 @@ class ItemEdit extends React.Component {
 		}
 	}
 
-	getAction = (action, index) => {
-		const onClick = action.onClick &&
-			(event => action.onClick(event, { value: event.target.value, index: this.props.item.index }));
+	getAction(action, index) {
+		const indexItem = this.props.item.index;
+
+		function onClick(event) {
+			if (action.onClick) {
+				action.onClick(event, {
+					value: event.target.value,
+					index: indexItem,
+				});
+			}
+		}
 
 		return (
 			<Action
@@ -65,7 +77,7 @@ class ItemEdit extends React.Component {
 				link
 			/>
 		);
-	};
+	}
 
 	submit(event) {
 		return this.props.item.itemProps.onSubmitItem(event, {

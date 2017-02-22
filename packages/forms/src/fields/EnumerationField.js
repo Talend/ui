@@ -1,7 +1,6 @@
 import React from 'react';
+import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-
-const KEY_CODE_ENTER = 13;
 
 class EnumerationField extends React.Component {
 	constructor(props) {
@@ -126,7 +125,7 @@ class EnumerationField extends React.Component {
 	}
 
 	onAddKeyDown(event, value) {
-		if (event.keyCode === KEY_CODE_ENTER) {
+		if (event.keyCode === keycode('enter')) {
 			event.stopPropagation();
 			event.preventDefault();
 			this.onAddHandler(event, value);

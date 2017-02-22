@@ -8,17 +8,19 @@ import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
 import theme from './Enumeration.scss';
 
-const enumerationClasses = () => classNames({
-	[theme['tc-enumeration']]: true,
-	'tc-enumeration': true,
-});
-
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 
+function enumerationClasses() {
+	return classNames({
+		[theme['tc-enumeration']]: true,
+		'tc-enumeration': true,
+	});
+}
+
 function Enumeration({ displayMode, headerDefault, headerInput,
 	items, itemsProp, onAddChange, onAddKeyDown }) {
-	const getHeaderFor = () => {
+	function getHeaderFor() {
 		switch (displayMode) {
 		case DISPLAY_MODE_ADD: {
 			const propsInput = {
@@ -38,7 +40,7 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 			return <Header {...propsDefault} />;
 		}
 		}
-	};
+	}
 
 	return (
 		<div className={enumerationClasses()}>

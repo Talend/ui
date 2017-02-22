@@ -9,22 +9,27 @@ const headerClasses = () => classNames({
 	'tc-enumeration-header': true,
 });
 
+function getAction(action, index) {
+	function onClick(event) {
+		if (action.onClick) {
+			action.onClick(event, { value: event.target.value });
+		}
+	}
+
+	return (
+		<Action
+			key={`${index}-enum-header-action`}
+			label={action.label}
+			icon={action.icon}
+			onClick={onClick}
+			btooltipPlacement="bottom"
+			hideLabel
+			link
+		/>
+	);
+}
+
 function Header({ headerDefault }) {
-	const getAction = (action, index) => {
-		const onClick = action.onClick &&
-			(event => action.onClick(event, { value: event.target.value }));
-		return (
-			<Action
-				key={`${index}-enum-header-action`}
-				label={action.label}
-				icon={action.icon}
-				onClick={onClick}
-				btooltipPlacement="bottom"
-				hideLabel
-				link
-			/>
-		);
-	};
 	return (
 		<header className={headerClasses()}>
 			<span>Values</span>
