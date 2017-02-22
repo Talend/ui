@@ -14,7 +14,7 @@ import {
   shouldRender,
   getDefaultRegistry,
   setState,
-} from '../../utils';
+} from 'react-jsonschema-form/lib/utils';
 
 function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
 	if (!title) {
