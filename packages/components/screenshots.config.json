@@ -180,7 +180,13 @@
           "name": "enumeration-add",
           "selector":  [".tc-enumeration"]
         }
-      ]
+      ],
+			"edit": [
+				{
+          "name": "enumeration-edit",
+          "selector":  [".tc-enumeration"]
+        }
+			]
     }
   }
 }
