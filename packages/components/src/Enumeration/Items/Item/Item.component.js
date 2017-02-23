@@ -33,7 +33,7 @@ function Item({ id, item }) {
 		actions,
 	} = item.itemProps;
 
-	const getAction = (action, index) => {
+	function getAction(action, index) {
 		function onClick(event) {
 			if (action.onClick) {
 				action.onClick(event, {
@@ -54,7 +54,7 @@ function Item({ id, item }) {
 				link
 			/>
 		);
-	};
+	}
 
 	return (
 		<li className={itemClasses()} id={id}>
