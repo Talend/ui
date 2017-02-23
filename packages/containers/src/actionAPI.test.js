@@ -14,11 +14,37 @@ describe('actionAPI.getActionsProps', () => {
 		const props = action.getProps(context, 'menu:demo', model);
 		expect(props.id).toBe('menu');
 		expect(typeof props.onClick).toBe('function');
-
 		props.onClick();
+
 		const calls = context.store.dispatch.mock.calls;
 		expect(calls[0][0].model).toBe(props.model);
 		expect(calls[0][0].type).toBe('TEST_MENU');
+	});
+
+	it('should return props for one action using action creator', () => {
+		const context = mock.context();
+		const model = { model: true };
+		context.store.dispatch = jest.fn();
+		context.registry['actionCreator:action-creator'] = jest.fn();
+
+		const props = action.getProps(context, 'menu:actionCreator', model);
+		expect(props.id).toBe('menu:actionCreator');
+		expect(props.actionCreator).toBe('action-creator');
+
+		expect(typeof props.onClick).toBe('function');
+		props.onClick();
+
+		expect(context.registry['actionCreator:action-creator']).toHaveBeenCalled();
+	});
+
+	it('should return input when ids is neither a string neither an array', () => {
+		const context = mock.context();
+		const model = { model: true };
+		const idsObj = {};
+		context.store.dispatch = jest.fn();
+		const props = action.getProps(context, idsObj, model);
+		expect(props).toBe(idsObj);
+		expect(props.onClick).toBeUndefined();
 	});
 
 	it('should return props for multiple actions', () => {

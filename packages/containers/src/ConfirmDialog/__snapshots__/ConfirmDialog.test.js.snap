@@ -9,17 +9,13 @@ exports[`Container ConfirmDialog should render 1`] = `
       }
     }
     className="tc-confirm-dialog"
-    header=""
     show={false}
-    size="small"
     validateAction={
       Object {
         "bsStyle": "primary",
         "label": "Ok",
         "onClick": [Function],
       }
-    }>
-    
-  </div>
+    } />
 </div>
 `;

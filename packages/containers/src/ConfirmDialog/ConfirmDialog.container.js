@@ -1,21 +1,23 @@
 import React, { PropTypes } from 'react';
-import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { ConfirmDialog as Component } from 'react-talend-components';
 
+import { getActionsProps } from '../actionAPI';
 import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
-	size: 'small',
-	header: '',
+	// size: 'small',
+	// header: '',
 	show: false,
-	children: '',
+	// children: '',
 	validateAction: {
 		label: 'Ok',
 		bsStyle: 'primary',
+		onClick: () => {},
 	},
 	cancelAction: {
 		label: 'No',
+		onClick: () => {},
 	},
 });
 
@@ -36,24 +38,10 @@ class ConfirmDialog extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const actions = this.props.actions;
-		state.validateAction.onClick = (event, data) => {
-			this.props.dispatch(
-				api.action.getActionCreatorFunction(
-					this.context,
-					actions.removeSmType
-				)(event, data, this.context),
-			);
-		};
-
-		state.cancelAction.onClick = (event, data) => {
-			this.props.dispatch(
-				api.action.getActionCreatorFunction(
-					this.context,
-					actions.cancelRemoveSmType
-				)(event, data, this.context),
-			);
-		};
+		// looking for the given action setting
+		// and adding onClick event using the retrieved  action creator
+		state.validateAction = getActionsProps(this.context, state.validateAction, state.model);
+		state.cancelAction = getActionsProps(this.context, state.cancelAction, state.model);
 
 		return (
 			<Component

@@ -35,7 +35,7 @@ describe('Container ConfirmDialog', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider>
-				<Container initialState={initialState} { ...actionsProps }/>
+				<Container initialState={initialState} />
 			</Provider>,
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
@@ -64,33 +64,6 @@ describe('Connected ConfirmDialog', () => {
 		const dispatch = () => {};
 		const props = mapDispatchToProps(dispatch);
 		expect(typeof props).toBe('object');
-	});
-
-	it('should on cancel click call action creator', () => {
-		const dispatch = jest.fn();
-		const actionCreator = jest.fn();
-		const context = {
-			registry: {
-				'actionCreator:object:cancel:remove:semantic': actionCreator,
-			},
-		};
-		const wrapper = shallow(
-			<Container initialState={initialState} { ...actionsProps } dispatch={dispatch} />
-			, {
-				lifecycleExperimental: true,
-				context,
-			});
-		const props = wrapper.props();
-		const onClick = props.cancelAction.onClick
-		const e = {};
-		const data = { foo: 'bar' };
-
-		onClick(e, data);
-		const calls = actionCreator.mock.calls;
-		expect(calls.length).toBe(1);
-		expect(calls[0][0]).toBe(e);
-		expect(calls[0][1]).toBe(data);
-		expect(calls[0][2].registry).toBe(context.registry);
 	});
 });
 
