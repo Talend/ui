@@ -50,19 +50,27 @@ const props = {
 			icon: 'talend-check',
 			id: 'validate',
 			onClick: action('itemEdit.onSubmit'),
-		}, /* {
+		}, {
 			label: 'Abort',
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: action('itemEdit.onCancel'),
-		} */],
+		}],
 	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
 const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
-const editItemProps = { ...props, displayMode: 'DISPLAY_MODE_DEFAULT' };
+const editItemProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_DEFAULT',
+	currentEdit: {
+		validate: {
+			disabled: false,
+		},
+	},
+};
 editItemProps.items = Array(50).fill('').map((item, index) => ({
 	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
