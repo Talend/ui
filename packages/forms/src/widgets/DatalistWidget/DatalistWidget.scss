@@ -1,22 +1,14 @@
-$tf-typeahead-input-color: #000 !default;
 $tf-typeahead-input-width: 262px !default;
-$tf-typeahead-opened-items-container-color: #AAA !default;
-$tf-typeahead-opened-items-container-background-color: #FFF !default;
-$tf-typeahead-focused-item-background-color: rgba(255, 0, 0, .6) !default;
-$tf-typeahead-item-description-color: #C0C0C0 !default;
-$tf-typeahead-section-border-color: #E0E0E0 !default;
-$tf-typeahead-icon-color: #CCC !default;
-$tf-typeahead-only-icon-color: #CCC !default;
-$tf-typeahead-section-header-color: #63AEBD !default;
-$tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
+$tf-typeahead-opened-items-container-background-color: $white !default;
+$tf-typeahead-focused-item-background-color: shade($tf-typeahead-opened-items-container-background-color, 5) !default;
+$tf-typeahead-item-description-color: $silver !default;
+$tf-typeahead-items-shadow-color: $shadow !default;
 
 .tf-typeahead-container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	width: auto;
-	height: auto;
 	padding: 0;
 	border: 0;
 	box-shadow: none;
@@ -26,22 +18,23 @@ $tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 	min-width: $tf-typeahead-input-width;
 
 	&-icon {
-		position: relative;
 		display: flex;
 		align-items: center;
+		width: 100%;
 	}
 }
 
 .items-container {
-	display: none;
 	position: absolute;
 	margin-top: $padding-smaller;
 	top: 100%;
+	right: 0;
+	left: 0;
 	max-height: 70vh;
 	min-width: $tf-typeahead-input-width;
 	font-size: 1.5rem;
 	background-color: $tf-typeahead-opened-items-container-background-color;
-	border-radius: 4px;
+	border-radius: $border-radius-base;
 	box-shadow: 0 1px 3px 0 $tf-typeahead-items-shadow-color;
 	overflow-y: auto;
 }
@@ -60,7 +53,6 @@ $tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 
 .no-result,
 .container-open .items-container {
-	display: block;
 	padding-top: 1px;
 	padding-bottom: 1px;
 }
@@ -77,8 +69,7 @@ $tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 	cursor: pointer;
 
 	&-focused {
-		background-color: rgba(255, 0, 0, .6);
-		color: #ffffff
+		background-color: $tf-typeahead-focused-item-background-color;
 	}
 }
 
@@ -89,8 +80,8 @@ $tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 
 .dropdown-toggle {
 	position: absolute;
-	right: 5px;
 	top: 50%;
+	right: 5px;
 	transform: translateY(-50%);
-	pointer-events: none
+	pointer-events: none;
 }
