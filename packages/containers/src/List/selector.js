@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
-function contains(ob, query) {
-	let item = ob;
-	if (Map.isMap(ob)) {
-		item = ob.toJS();
+function contains(listItem, query) {
+	let item = listItem;
+	if (Map.isMap(listItem)) {
+		item = listItem.toJS();
 	}
 	for (const pp of Object.keys(item)) {
 		if (typeof item[pp] === 'string') {
