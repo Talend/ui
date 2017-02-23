@@ -4,7 +4,6 @@ import Enumeration from 'react-talend-components/lib/Enumeration';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
-		console.dir(props);
 		super(props);
 
 		this.state = {
@@ -55,6 +54,12 @@ class EnumerationWidget extends React.Component {
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: this.onSubmitItem.bind(this),
+				}, {
+					disabled: false,
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: this.onAbortItem.bind(this),
 				}],
 			},
 			onAddChange: this.onAddChange.bind(this),
@@ -65,11 +70,14 @@ class EnumerationWidget extends React.Component {
 	// default mode
 	onEnterEditModeItem(event, value) {
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
-		//items[value.index].itemProps.actions;
+		const item = items[value.index];
+		item.displayMode = 'DISPLAY_MODE_EDIT';
+
 		this.setState({
 			items,
 		});
+
+		this.updateItemValidateDisabled(item.values[0]);
 	}
 
 	onDeleteItem(event, value) {
@@ -162,14 +170,13 @@ class EnumerationWidget extends React.Component {
 	}
 
 	updateItemValidateDisabled(value) {
-		this.setState((prevState) => {
-			const items = [...prevState.items];
-			const [itemToProcess] = prevState.items[value.index].itemProps.actions;
-			itemToProcess.disabled = value.value === '';
-			return {
-				items,
-			};
-		});
+		this.setState(() => ({
+			currentEdit: {
+				validate: {
+					disabled: value.value === '',
+				},
+			},
+		}));
 	}
 
 	render() {

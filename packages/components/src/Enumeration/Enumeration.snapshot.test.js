@@ -120,10 +120,14 @@ describe('Enumeration', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with header in default state and first item in edit mode', () => {
+	it('should render with header in default state and first item in edit mode, validate button disabled is disabled', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
-
+			currentEdit: {
+				validate: {
+					disabled: true,
+				},
+			},
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -166,6 +170,12 @@ describe('Enumeration', () => {
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
+					onClick: jest.fn(), // no click callback
+				}, {
+					disabled: false,
+					label: 'Cancel',
+					icon: 'talend-cross',
+					id: 'abort',
 					onClick: jest.fn(), // no click callback
 				}],
 			},

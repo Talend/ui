@@ -28,6 +28,41 @@ describe('Item', () => {
 		const props = {
 			id: '0-item',
 			item,
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
+		};
+
+		function createNodeMock(element) {
+			if (element.type === 'input') {
+				return {};
+			}
+			return null;
+		}
+		const rendererOptions = { createNodeMock };
+
+		// when
+		const wrapper = renderer.create(
+			<ItemEdit {...props} />,
+			rendererOptions
+		).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should display input value with two buttons. The vamidate button is disabled', () => {
+		// given
+		const props = {
+			id: '0-item',
+			item,
+			currentEdit: {
+				validate: {
+					disabled: true,
+				},
+			},
 		};
 
 		function createNodeMock(element) {

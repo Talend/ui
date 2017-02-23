@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
+import ItemEditPropTypes from './Item/ItemEdit.propTypes';
 import theme from './Items.scss';
 
 function itemsClasses() {
@@ -15,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp }) {
+function Items({ items, itemsProp, currentEdit }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -39,6 +40,7 @@ function Items({ items, itemsProp }) {
 					key={`${index}-item`}
 					id={`${index}-item`}
 					item={itemWithIndex}
+					currentEdit={currentEdit}
 				/>
 			);
 		}
@@ -79,6 +81,7 @@ Items.propTypes = {
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
+	...ItemEditPropTypes,
 };
 
 export default Items;

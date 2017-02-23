@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
+import ItemEditPropTypes from './ItemEdit.propTypes';
 
 function itemClasses() {
 	return classNames({
@@ -103,7 +104,23 @@ class ItemEdit extends React.Component {
 		});
 	}
 
+
 	render() {
+		function updateDisabledStatus(action, currentEdit) {
+			if (currentEdit[action.id] !== undefined && 'disabled' in currentEdit[action.id]) {
+				return {
+					...action,
+					disabled: currentEdit[action.id].disabled,
+				};
+			}
+
+			return action;
+		}
+
+		const editActions = this.props.item.itemProps.actions.map(
+			action => updateDisabledStatus(action, this.props.currentEdit)
+		);
+
 		return (
 			<li className={itemClasses()} id={this.props.id}>
 				<input
@@ -116,13 +133,24 @@ class ItemEdit extends React.Component {
 					autoFocus
 				/>
 				<div className={itemEditActionsClasses()}>
-					{this.props.item.itemProps.actions.map((action, index) => this.getAction(action, index))}
+					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
 			</li>
 		);
 	}
 }
 
-ItemEdit.propTypes = ItemPropTypes;
+ItemEdit.propTypes = {
+	...ItemPropTypes,
+	...ItemEditPropTypes,
+	currentEdit: PropTypes.shape({
+		validate: PropTypes.shape({
+			disabled: PropTypes.bool,
+		}),
+		abort: PropTypes.shape({
+			disabled: PropTypes.bool,
+		}),
+	}),
+};
 
 export default ItemEdit;
