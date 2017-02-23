@@ -98,7 +98,7 @@ class DatalistWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: '',
+			value: props.value || '',
 			items: [],
 			itemIndex: null,
 			noMatch: false,
@@ -219,6 +219,7 @@ class DatalistWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	DatalistWidget.propTypes = {
 		id: PropTypes.string,
+		value: PropTypes.string,
 		required: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({

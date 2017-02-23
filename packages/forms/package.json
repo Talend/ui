@@ -25,7 +25,6 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-talend-theme": "^0.13.20",
     "chokidar": "^1.6.1",
-    "classnames": "^2.2.5",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
     "enzyme-to-json": "^1.5.0",
@@ -54,6 +53,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "keycode": "^2.1.8",
     "react-autowhatever": "^7.0.0",
     "react-jsonschema-form": "^0.42.0"
