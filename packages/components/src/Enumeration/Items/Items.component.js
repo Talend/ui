@@ -30,7 +30,7 @@ function Items({ items, itemsProp }) {
 				actions: itemsProp.actionsEdit,
 				onSubmitItem: itemsProp.onSubmitItem,
 				onAbortItem: itemsProp.onAbortItem,
-				onItemChange: itemsProp.onItemChange,
+				onChangeItem: itemsProp.onChangeItem,
 			};
 			itemWithIndex.itemProps = itemPropsEdit;
 

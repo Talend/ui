@@ -61,7 +61,7 @@ Enumeration.propTypes = {
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
 		onSubmitItem: PropTypes.func,
-		onItemChange: PropTypes.func,
+		onChangeItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
