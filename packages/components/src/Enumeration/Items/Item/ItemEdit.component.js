@@ -88,7 +88,7 @@ class ItemEdit extends React.Component {
 	}
 
 	itemChange(event) {
-		return this.props.item.itemProps.onItemChange(event, {
+		return this.props.item.itemProps.onChangeItem(event, {
 			value: event.target.value,
 			model: this.props.item,
 			index: this.props.item.index,

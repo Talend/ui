@@ -8,7 +8,7 @@ const item = {
 	itemProps: {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback
-		onItemChange: jest.fn(),
+		onChangeItem: jest.fn(),
 		onAbortItem: jest.fn(), // provided click callback
 		actions: [{
 			label: 'Validate',

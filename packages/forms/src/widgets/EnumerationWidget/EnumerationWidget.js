@@ -34,27 +34,27 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				onSubmitItem: this.onSubmit.bind(this),
+				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
-				onItemChange: this.onItemChange.bind(this),
+				onChangeItem: this.onChangeItem.bind(this),
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
 					icon: 'talend-pencil',
 					id: 'edit',
-					onClick: this.onEnterEditMode.bind(this),
+					onClick: this.onEnterEditModeItem.bind(this),
 				}, {
 					label: 'Delete',
 					icon: 'talend-trash',
 					id: 'delete',
-					onClick: this.onDelete.bind(this),
+					onClick: this.onDeleteItem.bind(this),
 				}],
 				actionsEdit: [{
 					disabled: true,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
-					onClick: this.onSubmit.bind(this),
+					onClick: this.onSubmitItem.bind(this),
 				}],
 			},
 			onAddChange: this.onAddChange.bind(this),
@@ -63,15 +63,16 @@ class EnumerationWidget extends React.Component {
 	}
 
 	// default mode
-	onEnterEditMode(event, value) {
+	onEnterEditModeItem(event, value) {
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
+		//items[value.index].itemProps.actions;
 		this.setState({
 			items,
 		});
 	}
 
-	onDelete(event, value) {
+	onDeleteItem(event, value) {
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
 		items.splice(value.index, 1);
@@ -91,11 +92,11 @@ class EnumerationWidget extends React.Component {
 	}
 
 		// edit mode
-	onItemChange(event, value) {
+	onChangeItem(event, value) {
 		this.updateItemValidateDisabled(value);
 	}
 
-	onSubmit(event, value) {
+	onSubmitItem(event, value) {
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
 
