@@ -29,6 +29,11 @@ describe('Item', () => {
 		// given
 		const props = {
 			item,
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
 		};
 		const itemInstance = <ItemEdit {...props} />;
 
@@ -47,6 +52,11 @@ describe('Item', () => {
 		// given
 		const props = {
 			item,
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
@@ -79,6 +89,11 @@ describe('Item', () => {
 		// given
 		const props = {
 			item,
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback
@@ -111,6 +126,11 @@ describe('Item', () => {
 		// given
 		const props = {
 			item,
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
 			itemProps: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // provided click callback

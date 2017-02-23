@@ -11,6 +11,11 @@ describe('Items', () => {
 			items: Array(3).fill('').map((item, index) => ({
 				values: [`Lorem ipsum dolor sit amet ${index}`],
 			})),
+			currentEdit: {
+				validate: {
+					disabled: false,
+				},
+			},
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(),
