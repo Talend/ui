@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ActionTooltip should render tooltip 1`] = `
 <div
   aria-describedby={42}
@@ -5,7 +7,8 @@ exports[`ActionTooltip should render tooltip 1`] = `
   onClick={null}
   onFocus={[Function]}
   onMouseOut={[Function]}
-  onMouseOver={[Function]}>
+  onMouseOver={[Function]}
+>
   Action
 </div>
 `;

@@ -37,7 +37,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "6.1.2",
-    "babel-jest": "^17.0.2",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
@@ -96,16 +96,18 @@
     }
   },
   "peerDependencies": {
+    "immutable": "3",
+    "invariant": "^2.2.2",
+    "lodash": "4.17.2",
     "react": "^15.4.2",
     "react-bootstrap": "0",
     "react-cmf": "^0.61.4",
-    "react-talend-components": "^0.61.4",
     "react-redux": "^4.4.6",
-    "reselect": "^2.5.4",
-    "immutable": "3",
-    "invariant": "^2.2.2",
-    "lodash": "4.17.2"
+    "react-talend-components": "^0.61.4",
+    "reselect": "^2.5.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jest": "^19.0.1"
+  },
   "version": "0.61.4"
 }

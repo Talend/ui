@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ConfirmDialog from './ConfirmDialog.component';
 
 
-function getFakeComponent(name) {
+function mockFakeComponent(name) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name);
 		return (<div {...rest} className={mergedClassName}>{children}</div>);
@@ -18,15 +18,15 @@ function getFakeComponent(name) {
 
 jest.mock('react-dom');
 jest.mock('react-bootstrap/lib/Modal', () => {
-	const Modal = getFakeComponent('Modal');
-	Modal.Header = getFakeComponent('Header');
-	Modal.Title = getFakeComponent('Title');
-	Modal.Body = getFakeComponent('Body');
-	Modal.Footer = getFakeComponent('Footer');
+	const Modal = mockFakeComponent('Modal');
+	Modal.Header = mockFakeComponent('Header');
+	Modal.Title = mockFakeComponent('Title');
+	Modal.Body = mockFakeComponent('Body');
+	Modal.Footer = mockFakeComponent('Footer');
 
 	return Modal;
 });
-jest.mock('react-bootstrap/lib/ProgressBar', () => getFakeComponent('ProgressBar'));
+jest.mock('react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
 
 const children = (<div>BODY</div>);
 
