@@ -9,9 +9,6 @@
         "items": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "number"
-            },
             "values": {
               "type": "array",
               "items": {
@@ -30,12 +27,10 @@
   },
   "properties": {
     "documents": [{
-      "id": 1,
       "values": [
         "France"
       ]
     }, {
-      "id": 2,
       "values": [
         "Espagne"
       ]

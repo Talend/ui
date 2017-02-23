@@ -56,7 +56,6 @@ Enumeration.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	items: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
 		values: PropTypes.arrayOf(PropTypes.string),
 	})).isRequired,
 	itemsProp: PropTypes.shape({
