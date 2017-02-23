@@ -28,7 +28,6 @@ class EnumerationWidget extends React.Component {
 				onClick: this.onAbortHandler.bind(this),
 			}],
 			items: (props.formData || []).map((item) => ({
-				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {
@@ -143,10 +142,15 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onAddHandler(event, value) {
+		if (!value.value) {
+			this.setState({
+				displayMode: 'DISPLAY_MODE_DEFAULT',
+			});
+			return;
+		}
 		this.setState({
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: this.state.items.concat([{
-				id: -1,
 				values: [value.value],
 			}]),
 		}, this.setFormData.bind(this));
