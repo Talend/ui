@@ -22,13 +22,16 @@ const actions = {
 	items: ['object:delete'],
 };
 
-const toolbar =	{
+const toolbar = {
 	sort: {
 		field: 'id',
 		options: [
 			{ id: 'id', name: 'Id' },
 			{ id: 'label', name: 'Name' },
 		],
+	},
+	display: {
+		availableModes: ['large', 'table'],
 	},
 	filter: {
 		placeholder: 'find an object',
