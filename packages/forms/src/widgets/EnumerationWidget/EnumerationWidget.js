@@ -194,12 +194,4 @@ class EnumerationWidget extends React.Component {
 	}
 }
 
-/*Enumeration.propTypes = {
-	onChange: PropTypes.func.isRequired,
-	formData: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
-		values: PropTypes.arrayOf(PropTypes.string),
-	})),
-};*/
-
 export default EnumerationWidget;

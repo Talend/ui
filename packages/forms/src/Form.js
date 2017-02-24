@@ -25,11 +25,11 @@ const customWidgets = {
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
-	enumerationWidget: EnumerationWidget,
+	enumeration: EnumerationWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'enumerationWidget'],
+	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'enumeration'],
 };
 
 export function renderActionIcon(icon) {

@@ -21,7 +21,7 @@ function enumerationClasses() {
 
 function Enumeration({ displayMode, headerDefault, headerInput,
 	items, itemsProp, onAddChange, onAddKeyDown, currentEdit }) {
-	function getHeaderFor() {
+	function getHeader() {
 		switch (displayMode) {
 		case DISPLAY_MODE_ADD: {
 			const propsInput = {
@@ -32,7 +32,7 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 
 			return <HeaderInput {...propsInput} />;
 		}
-		default: {
+		case DISPLAY_MODE_DEFAULT: {
 			const propsDefault = {
 				headerDefault,
 				onAddChange,
@@ -40,12 +40,14 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 
 			return <Header {...propsDefault} />;
 		}
+		default:
+			return null;
 		}
 	}
 
 	return (
 		<div className={enumerationClasses()}>
-			{getHeaderFor()}
+			{getHeader()}
 			<Items items={items} itemsProp={itemsProp} currentEdit={currentEdit} />
 		</div>
 	);
