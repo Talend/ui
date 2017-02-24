@@ -1205,7 +1205,7 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.61.3:
+bootstrap-talend-theme@^0.61.4:
   version "0.61.4"
   resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.61.4.tgz#57d1b607c52d49c9b5497d3a901a748f31df9edc"
   dependencies:
@@ -4827,7 +4827,7 @@ react-bootstrap@^0.30.7:
     uncontrollable "^4.0.1"
     warning "^3.0.0"
 
-react-cmf@^0.61.3:
+react-cmf@^0.61.4:
   version "0.61.4"
   resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.61.4.tgz#59db47dfaf0ae1ac9defd83d29bf92931c4ea029"
 
@@ -4966,7 +4966,7 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.61.3:
+react-talend-components@^0.61.4:
   version "0.61.4"
   resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.61.4.tgz#71106605d82995e2d1ae326d203acb540fb481f9"
   dependencies:
@@ -5653,7 +5653,7 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-talend-icons@^0.61.3:
+talend-icons@^0.61.4:
   version "0.61.4"
   resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.61.4.tgz#7633b4d0e13825364b9ba429c3999cd971f3c1e4"
 

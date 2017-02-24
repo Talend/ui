@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Immutable, { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
@@ -188,12 +188,12 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: Immutable.fromJS({
+				components: fromJS({
 					List: {
 						cid: DEFAULT_STATE.toJS(),
 					},
 				}),
-				collections: Immutable.fromJS({
+				collections: fromJS({
 					cid: items,
 				}),
 			},
@@ -210,7 +210,7 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: Immutable.fromJS({
+				components: fromJS({
 					List: {
 						default: DEFAULT_STATE.toJS(),
 					},
@@ -221,7 +221,7 @@ describe('Connected List', () => {
 
 		// when : no collectionId defined
 		const props = mapStateToProps(state, {
-			items: Immutable.fromJS(items),
+			items: fromJS(items),
 		});
 
 		// then
@@ -232,7 +232,7 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: Immutable.fromJS({
+				components: fromJS({
 					List: {
 						cid: {
 							...(DEFAULT_STATE.toJS()),
@@ -244,7 +244,7 @@ describe('Connected List', () => {
 						},
 					},
 				}),
-				collections: Immutable.fromJS({
+				collections: fromJS({
 					cid: {
 						pagination: {
 							totalResults: 36,
