@@ -22,7 +22,7 @@
   },
   "uiSchema": {
     "documents": {
-      "ui:widget": "enumerationWidget"
+      "ui:widget": "enumeration"
     }
   },
   "properties": {

@@ -4,10 +4,12 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-const headerClasses = () => classNames({
-	[theme['tc-enumeration-header']]: true,
-	'tc-enumeration-header': true,
-});
+function headerClasses() {
+	return classNames({
+		[theme['tc-enumeration-header']]: true,
+		'tc-enumeration-header': true,
+	});
+}
 
 function getAction(action, index) {
 	function onClick(event) {

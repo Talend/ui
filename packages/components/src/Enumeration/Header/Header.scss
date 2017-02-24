@@ -28,18 +28,8 @@ $tc-enumeration-header-height: 28px !default;
 		background-color: transparent;
 	}
 
-	/*
-		this allows to set a custom style on the first element if there is not the first child
-		.btn-link {
-			// apply css on all matches
-		}
-
-		.btn-link ~ .btn-link {
-			// abort the rule on the others elements
-		}
-	*/
-
 	:global(.btn-link ~ .btn-link) {
+		// this abort margin-left: auto; set in the selector .btn-link. We want to target only the first element
 		margin-left: $tc-enumeration-smaller-padding;
 	}
 	:global(.btn-link) {
