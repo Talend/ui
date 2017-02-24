@@ -1,4 +1,4 @@
-exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
+exports[`<Form/> actions should render form with custom css 1`] = `
 <form
   acceptCharset={undefined}
   action={undefined}

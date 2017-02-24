@@ -78,32 +78,16 @@
 
 		> li {
 
-			&.active {
-
-				button {
-					box-shadow: 0 -2px 0 $brand-primary inset;
-				}
-			}
-
-			&.disabled button {
-				cursor: not-allowed;
-				color: rgba(1, 1, 1, 0.4);
-
-				&:focus,
-				&:hover {
-					background: transparent;
-				}
-			}
-
+			> a,
 			> button {
-				background: transparent;
-				border: none;
-				color: rgba(1, 1, 1, 0.6);
+				padding: $padding-normal;
 				letter-spacing: 0.6px;
 				line-height: 1;
-				outline: none;
-				padding: $padding-normal;
 				text-transform: uppercase;
+				color: rgba(1, 1, 1, 0.6);
+				background: transparent;
+				border: none;
+				outline: none;
 
 				&:focus {
 					background: rgba(0, 0, 0, 0.06);
@@ -113,6 +97,39 @@
 					background: rgba(0, 0, 0, 0.03);
 				}
 			}
+
+			&.active {
+				> a,
+				> button {
+					box-shadow: 0 -2px 0 $brand-primary inset;
+
+					&,
+					&:focus,
+					&:hover {
+						background: transparent;
+						border: none;
+					}
+				}
+			}
+
+			&.disabled {
+				> a,
+				> button {
+					cursor: not-allowed;
+					color: rgba(1, 1, 1, 0.4);
+
+					&,
+					&:focus,
+					&:hover {
+						background: transparent;
+						border: none;
+					}
+				}
+			}
+		}
+
+		+ .tab-content {
+			padding-top: $padding-large;
 		}
 	}
 }
