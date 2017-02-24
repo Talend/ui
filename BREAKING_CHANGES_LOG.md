@@ -2,6 +2,11 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## next release
+* containers: getActionProps
+* PR: [chore(containers): expose state and actions APIs](https://github.com/Talend/ui/pull/146)
+* Changes: this function doesn't exists anymore. Please use getActionsProps instead.
+
 ## v0.61.0
 * Component: List
 * PR: [feat(List): filter dock mode](https://github.com/Talend/ui/pull/74)

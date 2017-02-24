@@ -1,6 +1,10 @@
 import { Map } from 'immutable';
 
-import componentsReducers, { defaultState } from '../../src/reducers/componentsReducers';
+import componentsReducers, {
+	defaultState,
+	componentAlreadyExists,
+	componentDoesntExists,
+} from '../../src/reducers/componentsReducers';
 
 describe('check component management reducer', () => {
 	const initialState = defaultState
@@ -68,6 +72,15 @@ describe('check component management reducer', () => {
 		}
 	);
 
+	it('REACT_CMF.COMPONENT_ADD_STATE throw when a couple of componentName, key already exist', () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_ADD_STATE',
+			componentName: 'component1',
+			key: 'key1',
+			initialComponentState: 'initialState',
+		};
+		expect(() => componentsReducers(initialState, action)).toThrow(componentAlreadyExists(action));
+	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`,
 		() => {
@@ -85,6 +98,20 @@ describe('check component management reducer', () => {
 		}
 	);
 
+	it(`REACT_CMF.COMPONENT_MERGE_STATE should throw when a couple of
+		componentName, keyId doesn't exist`,
+		() => {
+			const action = {
+				type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+				componentName: 'component',
+				key: 'key',
+				componentState: { searchQuery: 'data' },
+			};
+			expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
+		}
+	);
+
+
 	it(`REACT_CMF.COMPONENT_REMOVE_STATE should properly add
 		component/key state tracking to the store`,
 		() => {
@@ -97,4 +124,13 @@ describe('check component management reducer', () => {
 			);
 		}
 	);
+	it(`removeComponentState throw when a couple of componentName,
+		collectionId doesn't exist`, () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_REMOVE_STATE',
+			componentName: 'component',
+			key: 'key',
+		};
+		expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
+	});
 });

@@ -1,11 +1,12 @@
 import React from 'react';
+import talendIcons from 'talend-icons/dist/react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { ActionBar } from '../src/index';
+import { ActionBar, IconsProvider } from '../src/index';
 
 const primary = {
 	label: 'Primary',
-	icon: 'fa fa-asterisk',
+	icon: 'talend-cog',
 	bsStyle: 'primary',
 	onClick: action('You clicked me'),
 };
@@ -15,13 +16,13 @@ const actions = {
 		primary,
 		{
 			label: 'Secondary1',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
 		{
 			displayMode: 'splitDropdown',
 			label: 'Secondary3',
-			icon: 'fa fa-plus',
+			icon: 'talend-cog',
 			onClick: action('on split button click'),
 			items: [
 				{
@@ -39,19 +40,19 @@ const actions = {
 	right: [
 		{
 			label: 'Secondary4',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
 		{
 			label: 'Secondary5',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
 	],
 };
 const multi3 = {
 	label: 'multi3',
-	icon: 'fa fa-asterisk',
+	icon: 'talend-cog',
 	onClick: action('You clicked me'),
 };
 
@@ -59,12 +60,12 @@ const multiSelectActions = {
 	left: [
 		{
 			label: 'multi1',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
 		{
 			label: 'multi2',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
 	],
@@ -72,9 +73,86 @@ const multiSelectActions = {
 		multi3,
 		{
 			label: 'multi4',
-			icon: 'fa fa-asterisk',
+			icon: 'talend-cog',
 			onClick: action('You clicked me'),
 		},
+	],
+};
+
+const btnGroupActions = {
+	left: [
+		{
+			displayMode: 'btnGroup',
+			actions: [
+				{
+					label: 'hidden mean tooltips',
+					icon: 'talend-cog',
+					hideLabel: true,
+					onClick: action('cog'),
+				},
+				{
+					label: 'you are a super star',
+					icon: 'talend-badge',
+					hideLabel: true,
+					onClick: action('badge'),
+				},
+				{
+					label: 'but don t click this',
+					icon: 'talend-cross',
+					hideLabel: true,
+					onClick: action('boom'),
+				},
+				{
+					label: 'edit me',
+					icon: 'talend-pencil',
+					hideLabel: true,
+					onClick: action('oh yes'),
+				},
+			],
+		},
+		{
+			displayMode: 'btnGroup',
+			actions: [
+				{
+					label: 'you can also add',
+					icon: 'talend-plus-circle',
+					hideLabel: true,
+					onClick: action('add !'),
+				},
+				{
+					label: 'search',
+					icon: 'talend-search',
+					hideLabel: true,
+					onClick: action('search'),
+				},
+				{
+					label: 'star',
+					icon: 'talend-star',
+					hideLabel: true,
+					onClick: action('star'),
+				},
+			],
+		},
+	],
+	right: [
+		{
+			displayMode: 'btnGroup',
+			actions: [
+				{
+					label: 'table',
+					icon: 'talend-table',
+					hideLabel: true,
+					onClick: action('table'),
+				},
+				{
+					label: 'trash',
+					icon: 'talend-trash',
+					hideLabel: true,
+					onClick: action('trash'),
+				},
+			],
+		},
+
 	],
 };
 
@@ -83,9 +161,22 @@ const basicProps = {
 	multiSelectActions,
 };
 
+const icons = {
+	'talend-badge': talendIcons['talend-badge'],
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-cog': talendIcons['talend-cog'],
+	'talend-pencil': talendIcons['talend-pencil'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
+	'talend-search': talendIcons['talend-search'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-table': talendIcons['talend-table'],
+	'talend-trash': talendIcons['talend-trash'],
+};
+
 storiesOf('ActionBar', module)
 	.addWithInfo('default', () => (
 		<nav>
+			<IconsProvider defaultIcons={icons} />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
 				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
@@ -101,6 +192,12 @@ storiesOf('ActionBar', module)
 					selected={1}
 					actions={{ left: [primary] }}
 					multiSelectActions={{ right: [multi3] }}
+				/>
+			</div>
+			<p>Toolbar with btn-group and only icons</p>
+			<div id="btn-group">
+				<ActionBar
+					actions={btnGroupActions}
 				/>
 			</div>
 		</nav>

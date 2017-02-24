@@ -14,8 +14,8 @@ exports[`Action should render its name 1`] = `
           "/myarticle",
         ],
         "method": "push",
+        "type": "@@router/CALL_HISTORY_METHOD",
       }
-    }
-    type="@@router/CALL_HISTORY_METHOD" />
+    } />
 </div>
 `;

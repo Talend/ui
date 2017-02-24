@@ -9,6 +9,7 @@ import {
 	NavDropdown,
 	NavItem,
 } from 'react-bootstrap';
+
 import Icon from '../Icon';
 import Typeahead from '../Typeahead';
 import theme from './AppHeaderBar.scss';
@@ -24,6 +25,7 @@ export function renderNavItem(props, index) {
 		</NavItem>
 	);
 }
+
 renderNavItem.propTypes = {
 	icon: React.PropTypes.string,
 	...NavItem.propTypes,
@@ -38,6 +40,7 @@ export function renderDropdownItem(props, index) {
 		</MenuItem>
 	);
 }
+
 renderDropdownItem.propTypes = {
 	icon: React.PropTypes.string,
 	name: React.PropTypes.string,
@@ -61,7 +64,7 @@ export function renderDropdown(props, index) {
 renderDropdown.propTypes = {
 	dropdown: React.PropTypes.shape(NavDropdown.propTypes),
 	items: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderDropdownItem.propTypes)
+		React.PropTypes.shape(renderDropdownItem.propTypes),
 	),
 };
 
@@ -91,7 +94,7 @@ renderNav.propTypes = {
 				React.PropTypes.shape(renderNavItem.propTypes),
 				React.PropTypes.shape(renderDropdown.propTypes),
 			]),
-		})
+		}),
 	),
 };
 
@@ -121,7 +124,7 @@ export function renderForm(props, index) {
 renderForm.propTypes = {
 	form: React.PropTypes.shape(Navbar.Form.propTypes),
 	formgroups: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderFormGroup.propTypes)
+		React.PropTypes.shape(renderFormGroup.propTypes),
 	),
 	button: React.PropTypes.shape(Button.propTypes),
 	buttonLabel: React.PropTypes.string,
@@ -150,10 +153,10 @@ export function renderContent(props, index) {
 }
 renderContent.propTypes = {
 	navs: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderNav.propTypes)
+		React.PropTypes.shape(renderNav.propTypes),
 	),
 	forms: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderForm.propTypes)
+		React.PropTypes.shape(renderForm.propTypes),
 	),
 	search: React.PropTypes.shape(Typeahead.propTypes),
 };
@@ -197,6 +200,7 @@ function AppHeaderBar(props) {
 		</Navbar>
 	);
 }
+
 AppHeaderBar.propTypes = {
 	app: React.PropTypes.string.isRequired,
 	brandLink: React.PropTypes.shape({
@@ -204,7 +208,7 @@ AppHeaderBar.propTypes = {
 		className: React.PropTypes.string,
 	}),
 	content: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderContent.propTypes)
+		React.PropTypes.shape(renderContent.propTypes),
 	),
 };
 

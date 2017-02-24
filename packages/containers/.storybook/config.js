@@ -2,6 +2,9 @@ import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
 import cmf from 'react-storybook-cmf';
 import mock from 'react-cmf/lib/mock';
 import { api } from 'react-cmf';
+
+import '!style!css!postcss!sass!bootstrap-talend-theme/src/theme/theme.scss';
+
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -51,8 +54,8 @@ function loadStories() {
 		};
 		actions['object:add'] = {
 			label: 'Add',
-			icon: 'talend-plus',
-			bsStyle: 'success',
+			icon: 'talend-plus-circle',
+			bsStyle: 'primary',
 			payload: {
 				type: 'APP_OBJECT_ADD',
 			},

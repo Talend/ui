@@ -1,0 +1,148 @@
+exports[`Container ActionBar should compute props using CMF with array of string 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "model": undefined,
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+      Object {
+        "available": "model.actions.delete",
+        "icon": "icon-article",
+        "id": "menu:article",
+        "model": undefined,
+        "name": "My article",
+        "onClick": [Function],
+        "payload": Object {
+          "args": Array [
+            "/myarticle",
+          ],
+          "method": "push",
+          "type": "@@router/CALL_HISTORY_METHOD",
+        },
+      },
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "fa-bars",
+            "id": "menu",
+            "model": undefined,
+            "name": "Menu",
+            "onClick": [Function],
+            "payload": Object {
+              "type": "TEST_MENU",
+            },
+          },
+          Object {
+            "available": "model.actions.delete",
+            "icon": "icon-article",
+            "id": "menu:article",
+            "model": undefined,
+            "name": "My article",
+            "onClick": [Function],
+            "payload": Object {
+              "args": Array [
+                "/myarticle",
+              ],
+              "method": "push",
+              "type": "@@router/CALL_HISTORY_METHOD",
+            },
+          },
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
+    "right": Array [
+      Object {
+        "displayMode": "splitDropdown",
+        "icon": "fa-bars",
+        "id": "menu",
+        "items": Array [
+          Object {
+            "available": "model.actions.delete",
+            "icon": "icon-article",
+            "id": "menu:article",
+            "model": undefined,
+            "name": "My article",
+            "onClick": [Function],
+            "payload": Object {
+              "args": Array [
+                "/myarticle",
+              ],
+              "method": "push",
+              "type": "@@router/CALL_HISTORY_METHOD",
+            },
+          },
+        ],
+        "model": undefined,
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`Container ActionBar should pass the props 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "bsStyle": "primary",
+        "icon": "fa fa-asterisk",
+        "label": "Preparations",
+        "onClick": [Function],
+      },
+      Object {
+        "displayMode": "dropdown",
+        "icon": "fa fa-file-excel-o",
+        "items": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ],
+        "label": "related items",
+      },
+    ],
+    "right": Array [
+      Object {
+        "icon": "fa fa-file-excel-o",
+        "label": "Datasets",
+        "onClick": [Function],
+      },
+      Object {
+        "icon": "fa fa-star",
+        "label": "Favorites",
+        "onClick": [Function],
+      },
+      Object {
+        "actions": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
+  },
+}
+`;

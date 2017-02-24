@@ -1,4 +1,4 @@
-exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
+exports[`<Form/> actions should render form with custom css 1`] = `
 <form
   acceptCharset={undefined}
   action={undefined}
@@ -34,6 +34,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
           type="text"
           value="John Doe" />
         <label
+          className="control-label"
           htmlFor="root_name">
           Name
         </label>
@@ -68,6 +69,7 @@ exports[`<Form/> <Form actions/> Renders form with custom css 1`] = `
           </option>
         </select>
         <label
+          className="control-label"
           htmlFor="root_roles">
           roles
         </label>
