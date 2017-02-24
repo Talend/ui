@@ -89,5 +89,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.61.4"
+  "version": "0.62.0"
 }
