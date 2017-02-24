@@ -5,13 +5,6 @@ import { IconsProvider } from 'react-talend-components';
 import { List, Map } from 'immutable';
 import { ConfirmDialog } from '../src';
 
-const actionsProps = {
-	actions : {
-		cancelRemoveSmType: 'object:cancel:remove:semantic',
-		removeSmType: 'object:remove:semantic',
-	},
-};
-
 const initialState = new Map({
 	size: 'small',
 	header: 'DO SOMETHING',
@@ -20,9 +13,11 @@ const initialState = new Map({
 	validateAction: {
 		label: 'Ok',
 		bsStyle: 'primary',
+		onClick: stAction('You clicked validate'),
 	},
 	cancelAction: {
 		label: 'No !',
+		onClick: stAction('You clicked cancel'),
 	},
 });
 
@@ -30,7 +25,7 @@ export default function ExampleConfirmDialog() {
 	return (
 		<div>
 			<IconsProvider />
-			<ConfirmDialog initialState={initialState} { ...actionsProps }/>
+			<ConfirmDialog initialState={initialState} />
 		</div>
 	);
 }
