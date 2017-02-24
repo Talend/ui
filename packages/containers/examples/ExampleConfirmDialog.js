@@ -10,15 +10,8 @@ const initialState = new Map({
 	header: 'DO SOMETHING',
 	show: true,
 	children: 'Confirm this !',
-	validateAction: {
-		label: 'Ok',
-		bsStyle: 'primary',
-		onClick: stAction('You clicked validate'),
-	},
-	cancelAction: {
-		label: 'No !',
-		onClick: stAction('You clicked cancel'),
-	},
+	validateAction: 'object:confirm:dialog',
+	cancelAction: 'object:hide:dialog',
 });
 
 export default function ExampleConfirmDialog() {

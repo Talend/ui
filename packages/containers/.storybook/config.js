@@ -27,22 +27,22 @@ function objectView(event, data) {
 	}, data);
 }
 
-function hideRemoveDialog(event, data) {
+function hideDialog(event, data) {
 	return Object.assign({
-		type: 'SLA_HIDE_REMOVE_SEMANTIC_TYPE',
+		type: 'HIDE_DIALOG',
 	}, data);
 }
 
-function confirmRemoveSmType(event, data) {
+function confirmDialog(event, data) {
 	return Object.assign({
-		type: 'SLA_REMOVE_SEMANTIC_TYPE',
+		type: 'CONFIRM_DIALOG',
 	}, data);
 }
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
-registerActionCreator('object:cancel:remove:semantic', hideRemoveDialog);
-registerActionCreator('object:remove:semantic', confirmRemoveSmType);
+registerActionCreator('cancel:hide:dialog', hideDialog);
+registerActionCreator('confirm:dialog', confirmDialog);
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {
@@ -93,6 +93,17 @@ function loadStories() {
 			payload: {
 				type: 'APP_OBJECT_DELETE',
 			},
+		};
+		actions['object:confirm:dialog'] = {
+			label: 'Remove',
+			bsStyle: 'primary',
+			id: 'object:confirm:dialog',
+			actionCreator: 'confirm:dialog',
+		};
+		actions['object:hide:dialog'] = {
+			label: 'Cancel',
+			id: 'object:hide:dialog',
+			actionCreator: 'cancel:hide:dialog',
 		};
 
 		const story = storiesOf(example);
