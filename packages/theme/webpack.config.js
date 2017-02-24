@@ -24,8 +24,8 @@ module.exports = () => {
 				{
 					test: /bootstrap\.scss$/,
 					loader: ExtractTextPlugin.extract({
-						fallbackLoader: 'style-loader',
-						loader: [
+						fallback: 'style-loader',
+						use: [
 							{
 								loader: 'css-loader',
 								options: {
@@ -40,8 +40,6 @@ module.exports = () => {
 									plugins: () => [
 										autoprefixer({
 											browsers: ['last 2 versions'],
-											cascade: true,
-											remove: true,
 										}),
 									],
 								},
@@ -84,4 +82,3 @@ module.exports = () => {
 		},
 	};
 };
-
