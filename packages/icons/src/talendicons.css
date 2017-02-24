@@ -3,13 +3,17 @@
 }
 
 .ti-elastic-light {
-	opacity:0.8;
+	opacity: 0.8;
 }
 
 .ti-elastic-lighter {
-	opacity:0.6;
+	opacity: 0.6;
 }
 
 .ti-elastic-lightest {
-	opacity:0.4;
+	opacity: 0.4;
+}
+
+.ti-googlecloudplatform{
+	fill: #4586F8;
 }

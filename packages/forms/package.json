@@ -25,9 +25,10 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-talend-theme": "^0.13.20",
     "chokidar": "^1.6.1",
-    "classnames": "^2.2.5",
+    "keycode": "^2.1.8",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
+    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
@@ -53,13 +54,16 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "keycode": "^2.1.8",
+    "react-autowhatever": "^7.0.0",
     "react-jsonschema-form": "^0.42.0"
   },
   "peerDependencies": {
     "react": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.50.0"
+    "react-talend-components": "^0.61.3"
   },
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
@@ -77,10 +81,14 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
+    "testPathDirs": [
+      "src",
+      "__mocks__"
+    ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/__tests__/styleMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.61.4"
+  "version": "0.62.0"
 }
