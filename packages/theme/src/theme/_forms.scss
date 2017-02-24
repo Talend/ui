@@ -61,8 +61,6 @@ form {
 		border: none;
 		border-radius: 0;
 		appearance: none;
-		-moz-appearance: none;
-		-webkit-appearance: none;
 		padding-left: 0;
 		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
 		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
@@ -120,7 +118,6 @@ form {
 		border: none;
 		background-color: transparent;
 		appearance: none;
-		-webkit-appearance: none;
 		cursor: pointer;
 
 		&:focus {
@@ -176,7 +173,6 @@ form {
 		border: none;
 		margin-bottom: -4px;
 		appearance: none;
-		-webkit-appearance: none;
 		cursor: pointer;
 
 		&:focus {
