@@ -88,6 +88,7 @@ import SidePanel from './SidePanel';
 import Status from './Status';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
+import Enumeration from './Enumeration';
 
 export {
 	Action,
@@ -100,6 +101,7 @@ export {
 	CircularProgress,
 	CollapsiblePanel,
 	Dialog,
+	Enumeration,
 	ConfirmDialog,
 	Drawer,
 	TreeView,

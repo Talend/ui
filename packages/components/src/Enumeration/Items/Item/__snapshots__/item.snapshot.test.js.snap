@@ -1,0 +1,35 @@
+exports[`Item should display value with two buttons 1`] = `
+<li
+  className="undefined tc-enumeration-item"
+  id="0-item">
+  <div
+    className="undefined tc-enumeration-item-label">
+    toto
+  </div>
+  <div
+    className="undefined tc-enumeration-item-actions">
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button" />
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button" />
+  </div>
+</li>
+`;
