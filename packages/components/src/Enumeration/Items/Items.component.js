@@ -80,13 +80,12 @@ Items.propTypes = {
 		key: PropTypes.string.isRequired,
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
+		onSelectItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
-	selectedItems: PropTypes.arrayOf(PropTypes.shape({
-		index: PropTypes.number,
-	})).isRequired,
-    ...ItemEditPropTypes,
+	selectedItems: PropTypes.arrayOf(PropTypes.number).isRequired,
+	...ItemEditPropTypes,
 };
 
 export default Items;

@@ -35,14 +35,14 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 
 			return <HeaderInput {...propsInput} />;
 		}
-        case DISPLAY_MODE_DEFAULT: {
-            const propsDefault = {
-                headerDefault,
-                onAddChange,
-            };
+		case DISPLAY_MODE_DEFAULT: {
+			const propsDefault = {
+				headerDefault,
+				onAddChange,
+			};
 
-            return <Header {...propsDefault} />;
-        }
+			return <Header {...propsDefault} />;
+		}
 
 		case DISPLAY_MODE_EDIT: {
 			const propsDefault = {
@@ -50,26 +50,31 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 				onAddChange,
 			};
 
-			return <Header {...propsDefault} isEdit={true} />;
+			return <Header {...propsDefault} isEdit />;
 		}
 
-        case DISPLAY_MODE_SELECTED: {
-            const propsInputSelected = {
-                headerSelected,
-                selectedItems,
-            };
-            return <HeaderSelected {...propsInputSelected} />;
-        }
+		case DISPLAY_MODE_SELECTED: {
+			const propsInputSelected = {
+				headerSelected,
+				selectedItems,
+			};
+			return <HeaderSelected {...propsInputSelected} />;
+		}
 
-        default:
-            return null;
+		default:
+			return null;
 		}
 	}
 
 	return (
 		<div className={enumerationClasses()}>
 			{getHeader()}
-			<Items items={items} itemsProp={itemsProp} currentEdit={currentEdit} selectedItems={selectedItems}/>
+			<Items
+				items={items}
+				itemsProp={itemsProp}
+				currentEdit={currentEdit}
+				selectedItems={selectedItems}
+			/>
 		</div>
 	);
 }
@@ -87,13 +92,12 @@ Enumeration.propTypes = {
 		key: PropTypes.string,
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
+		onSelectItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
-	selectedItems: PropTypes.arrayOf(PropTypes.shape({
-		index: PropTypes.number,
-	})).isRequired,
+	selectedItems: PropTypes.arrayOf(PropTypes.number).isRequired,
 	onAddChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 	...ItemEditPropTypes,

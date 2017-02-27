@@ -2,7 +2,7 @@ import React from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems,
-	computeSelectedOnDelete } from '../../utils/utils.js';
+	computeSelectedOnDelete } from './utils/utils.js';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -20,7 +20,7 @@ class EnumerationWidget extends React.Component {
 			headerSelected: [{
 				label: 'Delete items',
 				icon: 'talend-trash',
-				id: 'del',
+				id: 'delete',
 				onClick: this.onDeleteItems.bind(this),
 			}],
 			headerInput: [{

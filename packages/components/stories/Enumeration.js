@@ -12,6 +12,12 @@ const props = {
 		id: 'add',
 		onClick: action('header.onAdd'),
 	}],
+	headerSelected: [{
+		label: 'Delete items',
+		icon: 'talend-trash',
+		id: 'del',
+		onClick: action('headerSelected.deleteAll'),
+	}],
 	headerInput: [{
 		disabled: false,
 		label: 'Validate',
@@ -32,6 +38,7 @@ const props = {
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
+		onSelectItem:  action('itemEdit.onSelect'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -59,9 +66,13 @@ const props = {
 	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
+	selectedItems: [],
 };
 
-const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
+const addProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_ADD'
+};
 const editItemProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
@@ -71,6 +82,12 @@ const editItemProps = {
 		},
 	},
 };
+const selectedValuesProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_SELECTED',
+	selectedItems: [1, 3],
+
+};
 editItemProps.items = Array(50).fill('').map((item, index) => ({
 	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
@@ -79,7 +96,6 @@ editItemProps.items[0] = {
 	values: ['Lorem ipsum dolor sit amet 0'],
 	displayMode: 'DISPLAY_MODE_EDIT',
 };
-
 
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
@@ -106,6 +122,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemProps}
+			/>
+		</div>
+	))
+	.addWithInfo('selected values', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...selectedValuesProps}
 			/>
 		</div>
 	));

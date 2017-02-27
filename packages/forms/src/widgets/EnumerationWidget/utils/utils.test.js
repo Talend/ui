@@ -1,4 +1,5 @@
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems, computeSelectedOnDelete } from './utils.js';
+import { manageCtrlKey, manageShiftKey,
+	deleteSelectedItems, computeSelectedOnDelete } from './utils.js';
 
 describe('Enumeration', () => {
 	describe('Ctrl key', () => {

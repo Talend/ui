@@ -10,6 +10,7 @@ export default {
 			onSubmitItem: PropTypes.func,
 			onChangeItem: PropTypes.func,
 			onAbortItem: PropTypes.func,
+			onSelectItem: PropTypes.func,
 			actions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 		}),
 	}).isRequired,

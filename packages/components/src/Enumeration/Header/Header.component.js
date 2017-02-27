@@ -34,9 +34,8 @@ function getAction(action, index) {
 function Header({ headerDefault, isEdit }) {
 	return (
 		<header className={headerClasses()}>
-			{isEdit && <span>Edit a value</span>}
-			{!isEdit && <span>Values</span>}
-			{!isEdit && headerDefault.map((action, index) => getAction(action, index))}
+			{isEdit ? (<span>Edit a value</span>) : (<span>Values</span>)}
+			{headerDefault.map((action, index) => getAction(action, index))}
 		</header>
 	);
 }
