@@ -22,7 +22,7 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 	return transformedPayload;
 }
 
-function getDefaultPayloadMiddleware(payload) {
+function defaultPayloadMiddleware(payload) {
 	return {
 		time: new Date(),
 		...payload,
@@ -31,9 +31,9 @@ function getDefaultPayloadMiddleware(payload) {
 
 const defaultHandlers = {
 	success: (response) => { console.info('Logging: reported', response); },
-	failedTry: function failedTry(error, payload, transportOpts, attempt) {
+	failedTry: function failedTry(error, report, payload, transportOpts, attempt) {
 		setTimeout(() => {
-			sendReport(payload, transportOpts, attempt + 1);
+			report(payload, transportOpts, attempt + 1);
 		}, transportOpts.retryTimeout);
 		console.warn('Logging: Looks like logging host is unreachable, ' +
 			`retrying in ${transportOpts.retryTimeout / 1000} seconds`);
@@ -69,7 +69,7 @@ export const getDefaultTransport = url => ({
 	successHandler: defaultHandlers.success,
 	failedTryHandler: defaultHandlers.failedTry,
 	failedReportHandler: defaultHandlers.failedReport,
-	payloadMiddleware: getDefaultPayloadMiddleware,
+	payloadMiddleware: defaultPayloadMiddleware,
 	retryCount: 2,
 	retryTimeout: 60 * 1000,
 });

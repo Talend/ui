@@ -32,14 +32,16 @@
     "babel-jest": "15.0.0",
     "babel-loader": "6.2.5",
     "babel-plugin-transform-object-rest-spread": "6.16.0",
-    "babel-preset-es2015": "6.14.0"
+    "babel-preset-es2015": "6.14.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2"
   },
   "jest": {
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
     "setupFiles": [
-      "env__tests.js"
+      "./env__tests.js"
     ]
   },
   "peerDependencies": {},

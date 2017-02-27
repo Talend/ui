@@ -19,18 +19,18 @@ const defaultOptions = {
  * @param fallback - original TraceKit.report method
  * @returns Report, wrapped TraceKit.report method which no longer rethrows an error
 **/
-function safeWrapReport(fallback) {
+function safeWrapReport() {
 	function report(ex) {
 		try {
-			fallback(ex);
+			TraceKit.report(ex);
 		} catch (e) {
 			// TraceKit throws error bringing down current application, but we don't want that
 			// currently there is no way to fix it with some TraceKit option, thus monkey-patching
 		}
 	}
-	report.subscribe = fallback.subscribe;
-	report.unsubscribe = fallback.unsubscribe;
-	report.fallback = fallback;
+	report.subscribe = TraceKit.report.subscribe;
+	report.unsubscribe = TraceKit.report.unsubscribe;
+	TraceKit.fallback = TraceKit.report;
 	return report;
 }
 
@@ -53,34 +53,36 @@ function safeWrapReport(fallback) {
  *   failedReportHandler: function to be called on report general failure,
  *                        takes Error object, return is ignored,
  *   payloadMiddleware: function to be applied on payload, to attach store state, time, etc,
- *   retryCount: number # of max retries, by-default 2,
- *   retryTimeout: number, by-default 60 seconds,
+ *   retryCount: number # of max retries, by-default 2, set to 0 if you don't want retries
+ *   retryTimeout: number in ms, by-default 60 seconds,
  * }
  * @param options - object {
  *   stackTraceLimit: number, max call stack size, applied globally on Error object,
  *   linesOfContext: number, should be odd and >=3, by-default 15,
  *   rethrowError: boolean, tells to either monkey-patch TraceKit.report method or no, false by-def,
+ *   otherTraceKitOptions can be any options that TraceKit understands
  * }
  * @returns function, redux-logger compatible middleware for messages
  **/
-export default function initialize(logServerUrl, transport = {}, options = {}) {
+export default function initErrorTransformer(logServerUrl, transport = {}, options = {}) {
 	const {
 		stackTraceLimit,
-		linesOfContext,
 		rethrowError,
+		linesOfContext,
+		...otherTraceKitOptions
 	} = Object.assign(defaultOptions, options);
 
 	const mergedTransport = Object.assign(getDefaultTransport(logServerUrl), transport);
 
 	Error.stackTraceLimit = stackTraceLimit;
 	Object.assign(TraceKit, {
-		remoteFetching: true,
 		fetchContext: !!linesOfContext,
 		linesOfContext,
+		...otherTraceKitOptions,
 	});
 
 	if (!rethrowError) {
-		TraceKit.report = safeWrapReport(TraceKit.report);
+		TraceKit.report = safeWrapReport();
 	}
 
 	function listener(payload) {
