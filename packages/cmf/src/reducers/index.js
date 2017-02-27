@@ -8,6 +8,7 @@ import { combineReducers } from 'redux';
 
 import { collectionsReducers } from './collectionsReducers';
 import { componentsReducers } from './componentsReducers';
+import { httpRequestReducer } from './httpReducers';
 import { settingsReducers } from './settingsReducers';
 
 /**
@@ -18,6 +19,7 @@ import { settingsReducers } from './settingsReducers';
  */
 export default combineReducers({
 	collections: collectionsReducers,
+	httpRequests: httpRequestReducer,
 	components: componentsReducers,
 	settings: settingsReducers,
 });

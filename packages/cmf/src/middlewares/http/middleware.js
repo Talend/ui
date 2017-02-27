@@ -145,7 +145,13 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 		.then(status)
 		.then(handleResponse)
 		.then((response) => {
-			const newAction = Object.assign({}, action);
+			const newAction = Object.assign({
+				http: {
+
+					url: action.url,
+					config,
+				},
+			}, action);
 			dispatch(httpResponse(response));
 			if (newAction.transform) {
 				newAction.response = newAction.transform(response);
