@@ -7,6 +7,7 @@ Exports redux-logger compatible error logging middleware. Also patches (by-defau
 #### Minimum-config usage:
 
 your configStore.js file:
+
 ```ecmascript 6
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
@@ -29,7 +30,8 @@ export default function configureStore(reducer, initialState) {
 ```
 
 #### Advanced config
-Look in ./src/errorTransformer.js for jsDoc on each parameter 
+
+Look at ./src/errorTransformer.js for jsDoc on each parameter 
 
 ```ecmascript 6
 import LOGGING_SERVER_URL from 'somewhere';
@@ -78,6 +80,7 @@ Notable details:
 If you have some warning-level issues that should be reported, but should not break application, then use TraceKit.report with rethrowError: false (its false by-default) option:
 
 in your config file:
+
 ```ecmascript 6
     import LOGGING_SERVER_URL from 'somewhere';
     import initErrorTransformer from './src/errorTransformer';
@@ -90,9 +93,11 @@ in your config file:
 ```
 
 somewhere in your application:
+
 ```ecmascript 6
     fetch('google.com').catch(errorResponse => TraceKit.report(new Error(errorResponse)));
 ```
 
 ### Under the hood
+
 TraceKit - Cross browser stack traces. https://github.com/csnover/TraceKit
