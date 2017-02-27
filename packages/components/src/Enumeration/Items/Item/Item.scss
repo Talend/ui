@@ -2,8 +2,8 @@ $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 
 .tc-enumeration-item {
-    display: flex;
-    font-size: 14px;
+	display: flex;
+	font-size: 14px;
 	font-weight: 400;
 	line-height: 11px;
 	text-align: left;
@@ -35,7 +35,7 @@ $tc-enumeration-small-padding: $padding-small !default;
 		overflow: hidden;
 		outline:none;
 		box-shadow: none;
-        text-align: left;
+		text-align: left;
 	}
 
 	.tc-enumeration-item-actions {
@@ -64,7 +64,7 @@ $tc-enumeration-small-padding: $padding-small !default;
 
 .tc-enumeration-item:hover{
   .tc-enumeration-item-actions {
-    visibility: visible;
+	visibility: visible;
   }
 }
 

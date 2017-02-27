@@ -26,7 +26,7 @@ const item = {
 
 const selectedItem = {
 	values: ['toto'],
-    index: 0, // item selected, see selectedItems below
+	index: 0, // item selected, see selectedItems below
 	itemProps: {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback
@@ -39,34 +39,34 @@ const selectedItem = {
 
 describe('Item', () => {
 	it('should display value with three buttons', () => {
-        // given
+		// given
 		const props = {
 			id: '0-item',
 			item,
 		};
 
-        // when
+		// when
 		const wrapper = renderer.create(
 			<Item {...props} />
-        ).toJSON();
+		).toJSON();
 
-        // then
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should display a selected item', () => {
-        // given
+		// given
 		const props = {
 			id: '0-item',
 			item: selectedItem,
 		};
 
-        // when
+		// when
 		const wrapper = renderer.create(
 			<Item {...props} />
-        ).toJSON();
+		).toJSON();
 
-        // then
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 });

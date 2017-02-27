@@ -91,7 +91,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onDeleteItem(event, value) {
-        // dont want to fire select item on icon click
+		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
 		let selectedItems = [...this.state.selectedItems];
@@ -126,7 +126,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSubmitItem(event, value) {
-        // dont want to fire select item on icon click
+		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
 		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
@@ -167,7 +167,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-  		const selectedItems = [...this.state.selectedItems];
+		const selectedItems = [...this.state.selectedItems];
 		let result = [];
 		if (event.ctrlKey) {
 			result = manageCtrlKey(item, selectedItems);

@@ -5,7 +5,7 @@ import HeaderSelected from './HeaderSelected.component';
 
 describe('Header', () => {
 	it('should render header with trash icon in case of multiple selection', () => {
-        // given
+		// given
 		const props = {
 			headerSelected: [{
 				disabled: false,
@@ -25,18 +25,18 @@ describe('Header', () => {
 		}
 		const rendererOptions = { createNodeMock };
 
-        // when
+		// when
 		const wrapper = renderer.create(
 			<HeaderSelected {...props} />,
-            rendererOptions
-        ).toJSON();
+			rendererOptions
+		).toJSON();
 
-        // then
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should render header without trash icon in case of single selection)', () => {
-        // given
+		// given
 		const props = {
 			headerSelected: [{
 				disabled: false,
@@ -61,13 +61,13 @@ describe('Header', () => {
 		}
 		const rendererOptions = { createNodeMock };
 
-        // when
+		// when
 		const wrapper = renderer.create(
 			<HeaderSelected {...props} />,
-            rendererOptions
-        ).toJSON();
+			rendererOptions
+		).toJSON();
 
-        // then
+		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 });
