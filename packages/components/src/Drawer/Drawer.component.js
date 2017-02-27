@@ -50,7 +50,7 @@ DrawerContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-function DrawerTitle({ title, onCancelAction }) {
+function DrawerTitle({ title, children, onCancelAction }) {
 	if (!title) {
 		return null;
 	}
@@ -67,9 +67,14 @@ function DrawerTitle({ title, onCancelAction }) {
 		);
 	}
 	return (
-		<div className={theme.header}>
-			<h1>{title}</h1>
-			{onCancelActionComponent}
+		<div>
+			<div className={theme['tc-drawer-header']}>
+				<h1>{title}</h1>
+				{onCancelActionComponent}
+			</div>
+			<div className={theme['tc-drawer-header-with-tabs']}>
+				{children}
+			</div>
 		</div>
 	);
 }
@@ -77,11 +82,12 @@ function DrawerTitle({ title, onCancelAction }) {
 DrawerTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	onCancelAction: PropTypes.object,
+	children: PropTypes.nodes,
 };
 
 function DrawerContent({ style, children }) {
 	return (
-		<div style={style} className={theme.content}>
+		<div style={style} className={theme['tc-drawer-content']}>
 			{children}
 		</div>
 	);
@@ -153,6 +159,7 @@ Drawer.propTypes = {
 
 Drawer.Animation = DrawerAnimation;
 Drawer.Container = DrawerContainer;
+Drawer.Title = DrawerTitle;
 Drawer.Content = DrawerContent;
 Drawer.Footer = DrawerFooter;
 

@@ -33,14 +33,14 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
 .drawer.drawerStacked {
 	left: 15px;
-    width: initial;
+	width: initial;
 }
 
 .drawer.drawerTight {
 	width: 20vw;
 }
 
-.header {
+.tc-drawer-header {
 	padding: $padding-normal;
 	background-color: $brand-primary-lighter;
 	h1 {
@@ -50,6 +50,11 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	}
 }
 
+.tc-drawer-header-with-tabs {
+	padding: 0;
+	background-color: $gray-lighter;
+}
+
 .tc-drawer-close-action {
 	top: $padding-normal / 2;
 	right: 0;
@@ -57,7 +62,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	color: set-text-color($brand-primary-lighter);
 }
 
-.content {
+.tc-drawer-content {
 	padding: $padding-large $padding-normal;
 	flex-grow: 1;
 	overflow-y: auto;

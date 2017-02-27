@@ -174,21 +174,23 @@ storiesOf('Drawer', module)
 				<Tab.Container
 					defaultActiveKey="info"
 				>
-					<div>
-						<Nav bsClass="nav nav-tabs">
-							<NavItem componentClass="button" eventKey="info">
-								Info
-							</NavItem>
-							<NavItem componentClass="button" eventKey="navigator">
-								Navigator
-							</NavItem>
-							<NavItem componentClass="button" eventKey="profile">
-								Profile
-							</NavItem>
-							<NavItem componentClass="button" eventKey="metrics">
-								Metrics
-							</NavItem>
-						</Nav>
+					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+						<Drawer.Title title="custom with tabs" onCancelAction={onCancelAction}>
+							<Nav bsClass="nav nav-tabs">
+								<NavItem componentClass="button" eventKey="info">
+									Info
+								</NavItem>
+								<NavItem componentClass="button" eventKey="navigator">
+									Navigator
+								</NavItem>
+								<NavItem componentClass="button" eventKey="profile">
+									Profile
+								</NavItem>
+								<NavItem componentClass="button" eventKey="metrics">
+									Metrics
+								</NavItem>
+							</Nav>
+						</Drawer.Title>
 						<Tab.Content animation>
 							<Tab.Pane eventKey="info">
 								<Drawer.Content>
