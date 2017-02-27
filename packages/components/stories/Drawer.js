@@ -14,6 +14,7 @@ const icons = {
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-cross': talendIcons['talend-cross'],
 };
 
 const actions = [
@@ -45,13 +46,13 @@ const primary = {
 	onClick: action('You clicked me'),
 };
 
+const onCancelAction = {
+	label: 'Cancel',
+	onClick: action('You clicked on cancel action'),
+};
+
 const panelActions = {
-	left: [
-		{
-			label: 'Cancel',
-			onClick: action('You clicked me'),
-		},
-	],
+	left: [],
 	right: [
 		connect,
 		primary,
@@ -94,15 +95,20 @@ const basicProps = {
 
 
 const drawers = [
-	(<Drawer stacked title="Im stacked drawer 1" footer={Object.assign({}, basicProps, { selected: 0 })}>
+	(<Drawer stacked title="Im stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>),
-	(<Drawer title="Im drawer 2" footer={Object.assign({}, basicProps, { selected: 0 })}>
+	(<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 2</h1>
 		<p>The content dictate the width</p>
 	</Drawer>),
-	(<Drawer tight title="Im drawer 3" footer={Object.assign({}, basicProps, { selected: 0 })}>
+	(<Drawer
+		tight
+		title="Im drawer 3"
+		onCancelAction={onCancelAction}
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+	>
 		<h1>Hello drawer 3</h1>
 		<p>The content dictate the width</p>
 		<p>The content dictate the width</p>
