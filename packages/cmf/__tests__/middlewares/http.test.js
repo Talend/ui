@@ -164,6 +164,9 @@ describe('CMF http middleware', () => {
 				statusText: 'Internal Server Error',
 				type: 'basic',
 				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('{"foo":"bar"}')),
+				}),
 			},
 		};
 		const middleware = httpMiddleware(store)(next);
@@ -171,17 +174,60 @@ describe('CMF http middleware', () => {
 		const newState = middleware(action);
 		newState.then(() => {
 			expect(store.dispatch.mock.calls.length).toBe(4);
-			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			const errorCallbackAction = store.dispatch.mock.calls[3][0];
+			const errorHTTPAction = store.dispatch.mock.calls[3][0];
+			const errorCallbackAction = store.dispatch.mock.calls[2][0];
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.response).toBe(action.response);
 			expect(errorHTTPAction.error.stack.status).toBe(500);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.messageBody).toEqual({
+				foo: 'bar',
+			});
 			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
 			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
 			expect(errorCallbackAction.error.stack.status).toBe(500);
 			expect(errorCallbackAction.error.stack.ok).toBe(false);
-			expect(errorCallbackAction.error.stack.response).toEqual(action.response);
+			expect(errorCallbackAction.error.stack.response.status).toBe(500);
+			done();
+		});
+	});
+	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: false,
+				status: 500,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorHTTPAction = store.dispatch.mock.calls[3][0];
+			const errorCallbackAction = store.dispatch.mock.calls[2][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(500);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.messageBody).toBe(undefined);
+			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
+			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
+			expect(errorCallbackAction.error.stack.status).toBe(500);
+			expect(errorCallbackAction.error.stack.ok).toBe(false);
+			expect(errorCallbackAction.error.stack.response.status).toBe(500);
 			done();
 		});
 	});
