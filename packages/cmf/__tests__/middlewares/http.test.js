@@ -182,11 +182,12 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.messageBody).toEqual({
 				foo: 'bar',
 			});
+			expect(errorHTTPAction.error.stack.response).toEqual(action.response);
 			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
 			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
 			expect(errorCallbackAction.error.stack.status).toBe(500);
 			expect(errorCallbackAction.error.stack.ok).toBe(false);
-			expect(errorCallbackAction.error.stack.response.status).toBe(500);
+			expect(errorCallbackAction.error.stack.response).toEqual(action.response);
 			done();
 		});
 	});
@@ -223,11 +224,12 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.status).toBe(500);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
 			expect(errorHTTPAction.error.stack.messageBody).toBe(undefined);
+			expect(errorHTTPAction.error.stack.response).toEqual(action.response);
 			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
 			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
 			expect(errorCallbackAction.error.stack.status).toBe(500);
 			expect(errorCallbackAction.error.stack.ok).toBe(false);
-			expect(errorCallbackAction.error.stack.response.status).toBe(500);
+			expect(errorCallbackAction.error.stack.response).toEqual(action.response);
 			done();
 		});
 	});
