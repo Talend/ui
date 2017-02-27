@@ -2,7 +2,7 @@
 
 A small library that provides redux-logger middleware for error logging to be applied as errorTransformer.
 
-Exports redux-logger compatible error logging middleware.
+Exports redux-logger compatible error logging middleware. Also patches (by-default) TraceKit.report to not rethrow an error.
 
 #### Minimum-config usage:
 
@@ -70,8 +70,8 @@ Notable details:
  - Depending on the parameters you provide, TraceKit.report function may be patched to rethrow no error. 
  - transport.send is called with fetchOptions defined on transport.fetchOptions
  - TraceKit.store should be defined in your configStore.js file if you want to attach state to report
- - fetchOptions are merged with Object.assign to default options, so don't expect deepMerge
- - that is also true for default transport and default options objects
+ - fetchOptions are merged with Object.assign to default fetchOptions, so don't expect deep merge
+ - that is also true for default transport and default TraceKit config objects
 
 #### Log warnings
 
