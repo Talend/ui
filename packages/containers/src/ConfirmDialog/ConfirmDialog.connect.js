@@ -23,7 +23,6 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const info = getContainerInfo(ownProps);
 	return Object.assign({}, ownProps, stateProps, dispatchProps);
 }
 

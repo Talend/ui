@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
@@ -9,13 +8,6 @@ import Connected, {
 	mapDispatchToProps,
 	mapStateToProps,
 } from './ConfirmDialog.connect';
-
-const actionsProps = {
-	actions : {
-		cancelRemoveSmType: 'object:cancel:remove:semantic',
-		removeSmType: 'object:remove:semantic',
-	},
-};
 
 const initialState = new Map({
 	size: 'small',
