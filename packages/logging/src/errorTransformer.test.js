@@ -68,7 +68,7 @@ describe('ErrorTransformer', () => {
 			return message;
 		};
 		// before:
-		expect(testReport(TraceKit.fallback)).toBe(someString);
+		expect(testReport(TraceKit.report)).toBe(someString);
 		// when:
 		et();
 		// then:
