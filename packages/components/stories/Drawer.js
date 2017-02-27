@@ -194,19 +194,28 @@ storiesOf('Drawer', module)
 						<Tab.Content animation>
 							<Tab.Pane eventKey="info">
 								<Drawer.Content>
-									content
+									<p>content</p>
 								</Drawer.Content>
 								<Drawer.Footer>
 									Test
 								</Drawer.Footer>
 							</Tab.Pane>
 							<Tab.Pane eventKey="navigator">
+								<Drawer.Content>
+									content
+								</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 							<Tab.Pane eventKey="profile">
+								<Drawer.Content>
+									content
+								</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 							<Tab.Pane eventKey="metrics">
+								<Drawer.Content>
+									content
+								</Drawer.Content>
 								<Drawer.Footer />
 							</Tab.Pane>
 						</Tab.Content>

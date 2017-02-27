@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import Drawer from '../Drawer';
 
+import theme from './withDrawer.scss'
+
 /**
  * The Layout component is a container
  * that should follow the body of your App.
@@ -19,13 +21,13 @@ body > div {
  */
 function WithDrawer({ drawers, children, ...rest }) {
 	return (
-		<div style={{ height: '100%', position: 'relative' }}>
+		<div className={theme['tc-with-drawer']}>
 			<div>
 				{children}
 			</div>
-			<Drawer.Animation style={{ height: '100%', position: 'absolute', top: 0, right: 0 }}>
+			<Drawer.Animation className={theme['tc-with-drawer-container']}>
 				{drawers && drawers.map((drawer, key) => (
-					<div drawer key={key} style={{ height: '100%' }} >
+					<div drawer key={key} className={theme['tc-with-drawer-wrapper']}>
 						{drawer}
 					</div>
 				))}
