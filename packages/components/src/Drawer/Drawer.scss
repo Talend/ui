@@ -51,7 +51,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 .tc-drawer-close-action {
-	top: 0;
+	top: $padding-normal / 2;
 	right: 0;
 	position: absolute;
 	color: set-text-color($brand-primary-lighter);

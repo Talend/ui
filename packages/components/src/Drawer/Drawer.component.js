@@ -63,9 +63,7 @@ function DrawerTitle({ title, onCancelAction }) {
 	let onCancelActionComponent = null;
 	if (onCancelAction) {
 		onCancelActionComponent = (
-			<div style={{ top: '7px', right: '0', position: 'absolute' }}>
-				<Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />
-			</div>
+			<Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />
 		);
 	}
 	return (
