@@ -4,8 +4,12 @@ import et from './errorTransformer';
 
 const someString = 'hello';
 
+afterEach(() => {
+	TraceKit.report = TraceKit.fallback || TraceKit.report;
+});
+
 describe('ErrorTransformer', () => {
-	xdescribe('listener', () => {
+	describe('listener', () => {
 		it('should be function on minimum config', () => {
 			expect(typeof et()).toBe('function');
 		});
@@ -54,21 +58,20 @@ describe('ErrorTransformer', () => {
 
 	it('should patch TraceKit so it does not throw error', () => {
 		// given:
-		TraceKit.report = TraceKit.fallback || TraceKit.report;
-		const testReport = () => {
+		const testReport = (report) => {
 			let message;
 			try {
-				TraceKit.report(new Error(someString));
+				report(new Error(someString));
 			} catch (e) {
 				message = e.message;
 			}
 			return message;
 		};
 		// before:
-		expect(testReport()).toBe(someString);
+		expect(testReport(TraceKit.fallback)).toBe(someString);
 		// when:
 		et();
 		// then:
-		expect(testReport()).toBe(undefined);
+		expect(testReport(TraceKit.report)).toBe(undefined);
 	});
 });
