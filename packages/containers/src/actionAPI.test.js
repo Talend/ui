@@ -1,6 +1,6 @@
 import mock from 'react-cmf/lib/mock';
 
-import action, { getActionsProps, } from './actionAPI';
+import action, { getActionsProps } from './actionAPI';
 
 describe('actionAPI.getActionsProps', () => {
 	it('should default import have all the things', () => {
