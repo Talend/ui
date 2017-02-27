@@ -12,7 +12,7 @@ export const DEFAULT_HTTP_HEADERS = {
 };
 
 export function isHTTPRequest(action) {
-	return action.type in HTTP_METHODS;
+	return action && action.type in HTTP_METHODS;
 }
 
 /**
@@ -137,7 +137,14 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 				stack: error.stack,
 			},
 		}, action);
-		dispatch(httpError(newAction.error));
+
+		newAction.error.stack.response.clone().text().then((response) => {
+			try {
+				newAction.error.stack.messageBody = JSON.parse(response);
+			} finally {
+				dispatch(httpError(newAction.error));
+			}
+		});
 		if (newAction.onError) {
 			dispatch(onError(newAction, newAction.error));
 		}
