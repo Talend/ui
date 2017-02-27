@@ -62,18 +62,19 @@ Look in ./src/errorTransformer.js for jsDoc on each parameter
                 retryTimeout: 3000,
                 failedTryHandler: function failedTry(error, payload, transportOpts, attempt) {
                     alert('Oh no! ' + error);
-                transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
-            },
-            failedReportHandler: (errorResponse) => {
-                alert('oh no! ' + errorResponse)
-            },
-        }, {
-            stackTraceLimit: 100,
-            linesOfContext: 13,
-            rethrowError: true,
-            remoteFetching: true,
-            collectWindowErrors: true,
-        })
+                    transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
+                },
+                failedReportHandler: (errorResponse) => {
+                    alert('oh no! ' + errorResponse)
+                },
+            }, {
+                stackTraceLimit: 100,
+                linesOfContext: 13,
+                rethrowError: true,
+                remoteFetching: true,
+                collectWindowErrors: true,
+            }
+        )
     });
 
 Notable details:
