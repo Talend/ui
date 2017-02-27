@@ -37,9 +37,6 @@ Scoping to packages that match 'react-talend-components'
   72:1    error  Line 72 exceeds the maximum line length of 100      max-len
   72:102  error  A space is required before closing bracket          react/jsx-space-before-closing
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/item.snapshot.test.js
-  29:5  error  Expected indentation of 1 tab but found 4 spaces  indent
-
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
   89:5  error  Expected indentation of 1 tab but found 4 spaces  indent
 
@@ -56,7 +53,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 33 problems (33 errors, 0 warnings)
+✖ 32 problems (32 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
