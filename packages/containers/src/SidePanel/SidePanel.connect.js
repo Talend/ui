@@ -1,4 +1,4 @@
-import cmfConnect from '../connect';
+import cmfConnect from '../cmfConnect';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 
 export default cmfConnect({

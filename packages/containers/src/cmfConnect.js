@@ -83,7 +83,7 @@ export default function cmfConnect({
 		keepComponentState,
 		mapStateToProps,
 		mapDispatchToProps,
-		mergeProps,
+		...rest
 	}) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
@@ -163,7 +163,7 @@ export default function cmfConnect({
 				ownProps,
 				WrappedComponent,
 			}),
-			mergeProps,
+			...rest,
 		)(hoistStatics(CMFContainer, WrappedComponent));
 	};
 }

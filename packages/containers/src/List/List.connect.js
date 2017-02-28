@@ -1,4 +1,4 @@
-import connect from '../connect';
+import cmfConnect from '../cmfConnect';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
 
@@ -32,7 +32,7 @@ export function mapStateToProps(state, ownProps) {
 	return props;
 }
 
-export default connect({
+export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	componentId,
 	mapStateToProps,
