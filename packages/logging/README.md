@@ -70,7 +70,7 @@ Look in ./src/errorTransformer.js for jsDoc on each parameter
             }, {
                 stackTraceLimit: 100,
                 linesOfContext: 13,
-                rethrowError: true,
+                rethrowErrorHandler: () => {},
                 remoteFetching: true,
                 collectWindowErrors: true,
             }
