@@ -31,7 +31,7 @@
 
     "plugins": [],
     "templates": {
-        "license": "MIT",
+        "license": "Apache-2.0",
         "outputSourceFiles"     : true,
         "systemName"            : "React CMF",
         "navType"               : "vertical",
