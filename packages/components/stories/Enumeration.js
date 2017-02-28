@@ -72,7 +72,7 @@ const editItemProps = {
 		},
 	},
 };
-editItemProps.items = Array(50).fill('').map((item, index) => ({
+editItemProps.items = Array(10000).fill('').map((item, index) => ({
 	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
 

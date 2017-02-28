@@ -4,8 +4,14 @@
 	overflow-y: auto;
 	list-style: none;
 	box-shadow: inset 0px 21px 3px -20px $shadow, inset 0px -21px 3px -20px $shadow;
+	outline: none;
+	height: 100%;
 
-	li:first-child:hover{
+	.tc-list-items {
+		outline: none;
+	}
+
+	.tc-enumeration-item:first-child:hover{
 		box-shadow: inset 0px 21px 3px -20px $shadow
 	}
 }

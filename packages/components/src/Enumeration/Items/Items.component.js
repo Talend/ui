@@ -15,6 +15,12 @@ function itemsClasses() {
 	});
 }
 
+function listClasses() {
+	return classNames({
+		[theme['tc-list-items']]: true,
+	});
+}
+
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 function Items({ items, itemsProp, currentEdit }) {
@@ -30,10 +36,7 @@ function Items({ items, itemsProp, currentEdit }) {
 		style        // Style object to be applied to row (to position it)
 	}) {
 		return (
-			<div
-				key={key}
-				style={style}
-			>
+			<div key={key} style={style}>
 				{getItem(items[index], index)}
 			</div>
 		)
@@ -86,17 +89,20 @@ function Items({ items, itemsProp, currentEdit }) {
 	}
 
 	return (
-		<AutoSizer>
-			{({ height, width }) => (
-				<List
-					rowRenderer={rowRenderer}
-					width={width}
-					height={height}
-					rowCount={items.length}
-					rowHeight={getRowHeight}
-				/>
-			)}
-		</AutoSizer>
+		<ul className={itemsClasses()}>
+			<AutoSizer>
+				{({ height, width }) => (
+					<List
+						className={listClasses()}
+						rowRenderer={rowRenderer}
+						width={width}
+						height={height}
+						rowCount={items.length}
+						rowHeight={getRowHeight}
+					/>
+				)}
+			</AutoSizer>
+		</ul>
 	);
 }
 
