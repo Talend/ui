@@ -26,7 +26,7 @@ DrawerAnimation.propTypes = {
 
 function DrawerContainer({ stacked, tight, className, style, children }) {
 	const drawerContainerClasses = classnames(
-		theme.drawer,
+		theme['tc-drawer'],
 		className,
 		'tc-drawer',
 		{
@@ -35,7 +35,7 @@ function DrawerContainer({ stacked, tight, className, style, children }) {
 		});
 	return (
 		<div className={drawerContainerClasses} style={style}>
-			<div className={theme.drawerContainer}>
+			<div className={theme['tc-drawer-containe']}>
 				{children}
 			</div>
 		</div>

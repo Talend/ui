@@ -14,7 +14,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
   }
 }
 
-.drawer {
+.tc-drawer {
 	background-color: $tc-drawer-bgcolor;
 	position: absolute;
 	top: 0;
@@ -25,7 +25,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	width: 40vw;
 }
 
-.drawerContainer {
+.tc-drawer-container {
 	display: flex;
 	flex-direction: column;
 	height: 100%;

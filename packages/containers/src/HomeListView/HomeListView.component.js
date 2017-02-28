@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Layout } from 'react-talend-components';
+import { Layout, WithDrawer } from 'react-talend-components';
 
 import AppHeaderBar from '../AppHeaderBar';
 import List from '../List';
@@ -14,9 +14,10 @@ function HomeListView({ sidepanel, list, header, children }) {
 			mode="TwoColumns"
 			header={(<AppHeaderBar {...header} />)}
 			one={(<SidePanel {...sidepanel} />)}
-			drawers={[children]}
 		>
-			<List {...list} />
+			<WithDrawer drawers={[children]}>
+				<List {...list} />
+			</WithDrawer>
 		</Layout>
 	);
 }
