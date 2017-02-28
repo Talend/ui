@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
 
 import { getActionsProps } from '../actionAPI';
+import { statePropTypes } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
@@ -53,6 +53,7 @@ class List extends React.Component {
 		}),
 		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
+		...statePropTypes,
 	};
 
 	static contextTypes = {
@@ -70,26 +71,26 @@ class List extends React.Component {
 	}
 
 	onSelectSortBy(event, payload) {
-		this.updateState({
+		this.props.updateState({
 			sortOn: payload.field,
 			sortAsc: !payload.isDescending,
 		});
 	}
 
 	onFilter(event, payload) {
-		this.updateState({ searchQuery: payload });
+		this.props.updateState({ searchQuery: payload });
 	}
 
 	onToggle() {
-		this.updateState({ filterDocked: !this.state.get('filterDocked') });
+		this.props.updateState({ filterDocked: !this.props.state.get('filterDocked') });
 	}
 
 	onSelectDisplayMode(event, payload) {
-		this.updateState({ displayMode: payload });
+		this.props.updateState({ displayMode: payload });
 	}
 
 	render() {
-		const state = (this.state || DEFAULT_STATE).toJS();
+		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const items = getItems(this.context, this.props);
 		const props = {
 			displayMode: this.props.displayMode || state.displayMode,
@@ -102,12 +103,7 @@ class List extends React.Component {
 
 		if (props.list.titleProps) {
 			props.list.titleProps.onClick = (event, data) => {
-				this.dispatch(
-					api.action.getActionCreatorFunction(
-						this.context,
-						this.props.actions.title,
-					)(event, data, this.context),
-				);
+				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
 			};
 		}
 
@@ -162,12 +158,7 @@ class List extends React.Component {
 				props.toolbar.pagination = {
 					...pagination,
 					onChange: (event, data) => {
-						this.dispatch(
-							api.action.getActionCreatorFunction(
-								this.context,
-								pagination.onChange,
-							)(event, data, this.context),
-						);
+						props.dispatchActionCreator(pagination.onChange, event, data, this.context);
 					},
 				};
 			}

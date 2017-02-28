@@ -10,11 +10,11 @@ import {
 	getStateProps,
 } from './state';
 
-function getComponentName(WrappedComponent) {
+export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-function getComponentId(componentId, props) {
+export function getComponentId(componentId, props) {
 	if (typeof componentId === 'function') {
 		return componentId(props) || 'default';
 	} else if (typeof componentId === 'string') {
@@ -25,7 +25,7 @@ function getComponentId(componentId, props) {
 	return 'default';
 }
 
-function getStateToProps({
+export function getStateToProps({
 	componentId,
 	ownProps,
 	state,
@@ -43,7 +43,7 @@ function getStateToProps({
 	return props;
 }
 
-function getDispatchToProps({
+export function getDispatchToProps({
 	defaultState,
 	dispatch,
 	componentId,
@@ -61,6 +61,15 @@ function getDispatchToProps({
 	if (mapDispatchToProps) {
 		props = Object.assign(props, mapDispatchToProps(dispatch, ownProps));
 	}
+	props.dispatchActionCreator = (actionId, event, data, context) => {
+		dispatch(
+			api.action.getActionCreatorFunction(
+				context,
+				actionId,
+			)(event, data, context)
+		);
+	};
+
 	return props;
 }
 
@@ -121,19 +130,6 @@ export default function cmfConnect({
 				if (!keepComponentState) {
 					this.props.updateState();
 				}
-			}
-
-			updateState(state) {
-				this.props.updateState(state);
-			}
-
-			callActionCreator(actionId, event, data) {
-				this.props.dispatch(
-					api.action.getActionCreatorFunction(
-						this.context,
-						actionId,
-					)(event, data, this.context),
-				);
 			}
 
 			render() {
