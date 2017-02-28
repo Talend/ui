@@ -1,4 +1,4 @@
-# Error logging service library
+# Talend-log - error logging library
 
 A small library that provides redux-logger middleware for error logging to be applied as errorTransformer.
 

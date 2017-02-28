@@ -1,5 +1,5 @@
 {
-  "name": "error-logging",
+  "name": "talend-log",
   "description": "Small wrapper over TraceKit, that allows to inject error reporting as redux-logger middleware",
   "main": "lib/index.js",
   "scripts": {
@@ -16,8 +16,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
-    "react",
-    "framework"
+    "redux",
+    "logger",
+    "logging",
+    "tracekit"
   ],
   "author": "Victor Musienko <vmusienko@talend.com>",
   "license": "Apache-2.0",
