@@ -6,10 +6,7 @@ import { getActionsProps } from '../actionAPI';
 import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
-	// size: 'small',
-	// header: '',
 	show: false,
-	// children: '',
 	validateAction: {
 		label: 'Ok',
 		bsStyle: 'primary',
