@@ -5,7 +5,7 @@
 	list-style: none;
 	box-shadow: inset 0px 21px 3px -20px $shadow, inset 0px -21px 3px -20px $shadow;
 	outline: none;
-	height: 100%;
+	flex-grow: 1;
 
 	.tc-list-items {
 		outline: none;

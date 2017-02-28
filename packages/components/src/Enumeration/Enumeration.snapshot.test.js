@@ -1,6 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+jest.mock('../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => (props) =>
+	{
+		console.log('LES PROPS **********************************');
 
+		console.log(props);
+		console.log(props.children);
+		return (<div id="autoSizer">{props.children()}</div>);
+	}
+);
+	/*(props) => (<div id="AutoSizer">{ props.children }</div>)
+);*/
 import Enumeration from './Enumeration.component';
 
 describe('Enumeration', () => {
