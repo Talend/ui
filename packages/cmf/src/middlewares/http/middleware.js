@@ -12,7 +12,7 @@ export const DEFAULT_HTTP_HEADERS = {
 };
 
 export function isHTTPRequest(action) {
-	return action && action.type in HTTP_METHODS;
+	return action.type in HTTP_METHODS;
 }
 
 /**
@@ -142,14 +142,18 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 		// triggers an exception Already use
 		newAction.error.stack.response.clone().text().then((response) => {
 			try {
-				newAction.error.stack.messageBody = JSON.parse(response);
+				newAction.error.stack.response = response;
+				newAction.error.stack.messageObject = JSON.parse(response);
 			} finally {
 				dispatch(httpError(newAction.error));
+				if (newAction.onError) {
+					const onErrorAction = onError(newAction, newAction.error);
+					if (onErrorAction) {
+						dispatch(onError(newAction, newAction.error));
+					}
+				}
 			}
 		});
-		if (newAction.onError) {
-			dispatch(onError(newAction, newAction.error));
-		}
 	};
 	return fetch(action.url, config)
 		.then(status)
