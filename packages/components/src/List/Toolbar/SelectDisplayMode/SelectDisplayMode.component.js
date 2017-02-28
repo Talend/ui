@@ -33,19 +33,13 @@ function getLabel(selected) {
 
 const options = ['table', 'large', 'tile'];
 
-function SelectDisplayMode({ id, mode, availableModes, onChange }) {
+function SelectDisplayMode({ id, mode, displayModes, onChange }) {
 	const selected = mode || 'table';
+	const modes = displayModes || options;
 	const displayIcon = (<Icon name={getIcon(selected)} />);
 
 	function onChangeMode(value, event) {
 		return onChange(event, value);
-	}
-
-	function getAvailablesOptions(modes) {
-		if (modes) {
-			return _intersection(modes, options);
-		}
-		return options;
 	}
 
 	function getMenuItem(option) {
@@ -68,7 +62,7 @@ function SelectDisplayMode({ id, mode, availableModes, onChange }) {
 				title={displayIcon}
 				onSelect={onChangeMode}
 			>
-				{getAvailablesOptions(availableModes).map(option => getMenuItem(option))}
+				{modes.map(option => getMenuItem(option))}
 			</NavDropdown>
 		</Nav>
 	);
@@ -77,7 +71,7 @@ function SelectDisplayMode({ id, mode, availableModes, onChange }) {
 SelectDisplayMode.propTypes = {
 	id: PropTypes.string,
 	mode: PropTypes.string,
-	availableModes: PropTypes.arrayOf(PropTypes.string),
+	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
 };
 

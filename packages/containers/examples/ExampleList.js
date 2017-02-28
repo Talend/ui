@@ -31,7 +31,7 @@ const toolbar = {
 		],
 	},
 	display: {
-		availableModes: ['large', 'table'],
+		displayModes: ['large', 'table'],
 	},
 	filter: {
 		placeholder: 'find an object',

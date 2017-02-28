@@ -331,7 +331,7 @@ storiesOf('List', module)
 			toolbar: {
 				display: {
 					onChange: action('display.onChange'),
-					availableModes: ['large', 'table'],
+					displayModes: ['large', 'table'],
 				},
 			},
 		};
