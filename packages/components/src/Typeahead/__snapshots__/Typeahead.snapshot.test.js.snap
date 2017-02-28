@@ -1,11 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Typeahead items should render typeahead results with match 1`] = `
 <div
-  style={Object {}}>
+  style={Object {}}
+>
   <div
-    className={undefined}>
+    className={undefined}
+  >
     <label
       className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input">
+      htmlFor="react-autowhatever-my-search-input"
+    >
       Search
     </label>
     <input
@@ -25,51 +30,65 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
       role="combobox"
       style={Object {}}
       type="text"
-      value="le" />
+      value="le"
+    />
   </div>
   <div
-    id="react-autowhatever-my-search">
+    id="react-autowhatever-my-search"
+  >
     <div
-      style={Object {}}>
+      style={Object {}}
+    >
       <div
-        style={Object {}}>
+        style={Object {}}
+      >
         <div
-          style={Object {}}>
+          style={Object {}}
+        >
           <div
-            className={undefined}>
+            className={undefined}
+          >
             <i
               aria-hidden="true"
               className="fa fa-filter"
-              title="icon" />
+              title="icon"
+            />
             <span
-              className={undefined}>
+              className={undefined}
+            >
               category 1
             </span>
           </div>
         </div>
         <ul
           role="listbox"
-          style={Object {}}>
+          style={Object {}}
+        >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
                 <span>
                    tit
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
@@ -78,7 +97,8 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
               </p>
             </div>
@@ -87,43 +107,51 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
             id="react-autowhatever-my-search-section-0-item-1"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   tit
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
                 <span>
                    2 
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
                 <span>
                   s e
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
                 <span>
                   phants e
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
                 <span>
                   mentaires ont des ai
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
@@ -132,7 +160,8 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
               </p>
             </div>
@@ -140,37 +169,47 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
         </ul>
       </div>
       <div
-        style={Object {}}>
+        style={Object {}}
+      >
         <div
-          style={Object {}}>
+          style={Object {}}
+        >
           <div
-            className={undefined}>
+            className={undefined}
+          >
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
-              title="icon" />
+              title="icon"
+            />
             <span
-              className={undefined}>
+              className={undefined}
+            >
               category 2
             </span>
           </div>
         </div>
         <ul
           role="listbox"
-          style={Object {}}>
+          style={Object {}}
+        >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   tit
                   <em
-                    className={undefined}>
+                    className={undefined}
+                  >
                     le
                   </em>
                 </span>
@@ -179,7 +218,8 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
               </p>
             </div>
@@ -193,12 +233,15 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
 
 exports[`Typeahead items should render typeahead with results 1`] = `
 <div
-  style={Object {}}>
+  style={Object {}}
+>
   <div
-    className={undefined}>
+    className={undefined}
+  >
     <label
       className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input">
+      htmlFor="react-autowhatever-my-search-input"
+    >
       Search
     </label>
     <input
@@ -218,46 +261,59 @@ exports[`Typeahead items should render typeahead with results 1`] = `
       role="combobox"
       style={Object {}}
       type="text"
-      value={undefined} />
+      value={undefined}
+    />
   </div>
   <div
-    id="react-autowhatever-my-search">
+    id="react-autowhatever-my-search"
+  >
     <div
-      style={Object {}}>
+      style={Object {}}
+    >
       <div
-        style={Object {}}>
+        style={Object {}}
+      >
         <div
-          style={Object {}}>
+          style={Object {}}
+        >
           <div
-            className={undefined}>
+            className={undefined}
+          >
             <i
               aria-hidden="true"
               className="fa fa-filter"
-              title="icon" />
+              title="icon"
+            />
             <span
-              className={undefined}>
+              className={undefined}
+            >
               category 1
             </span>
           </div>
         </div>
         <ul
           role="listbox"
-          style={Object {}}>
+          style={Object {}}
+        >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   le title 1
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
               </p>
             </div>
@@ -266,17 +322,21 @@ exports[`Typeahead items should render typeahead with results 1`] = `
             id="react-autowhatever-my-search-section-0-item-1"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   title 2 les elephants elementaires ont des aile 
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
               </p>
             </div>
@@ -284,39 +344,49 @@ exports[`Typeahead items should render typeahead with results 1`] = `
         </ul>
       </div>
       <div
-        style={Object {}}>
+        style={Object {}}
+      >
         <div
-          style={Object {}}>
+          style={Object {}}
+        >
           <div
-            className={undefined}>
+            className={undefined}
+          >
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
-              title="icon" />
+              title="icon"
+            />
             <span
-              className={undefined}>
+              className={undefined}
+            >
               category 2
             </span>
           </div>
         </div>
         <ul
           role="listbox"
-          style={Object {}}>
+          style={Object {}}
+        >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
             onClick={undefined}
             role="option"
-            style={Object {}}>
+            style={Object {}}
+          >
             <div
-              className={undefined}>
+              className={undefined}
+            >
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 <span>
                   title 3
                 </span>
               </span>
               <p
-                className={undefined}>
+                className={undefined}
+              >
                 description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
               </p>
             </div>
@@ -330,12 +400,15 @@ exports[`Typeahead items should render typeahead with results 1`] = `
 
 exports[`Typeahead items should render typeahead without results 1`] = `
 <div
-  style={Object {}}>
+  style={Object {}}
+>
   <div
-    className={undefined}>
+    className={undefined}
+  >
     <label
       className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input">
+      htmlFor="react-autowhatever-my-search-input"
+    >
       Search
     </label>
     <input
@@ -355,15 +428,19 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       role="combobox"
       style={Object {}}
       type="text"
-      value={undefined} />
+      value={undefined}
+    />
   </div>
   <div
-    id="react-autowhatever-my-search">
+    id="react-autowhatever-my-search"
+  >
     <div
       className="undefined undefined"
-      style={Object {}}>
+      style={Object {}}
+    >
       <span
-        className="no-result">
+        className="no-result"
+      >
         No result.
       </span>
     </div>
@@ -373,12 +450,15 @@ exports[`Typeahead items should render typeahead without results 1`] = `
 
 exports[`Typeahead position should render search bar on the right 1`] = `
 <div
-  style={Object {}}>
+  style={Object {}}
+>
   <div
-    className={undefined}>
+    className={undefined}
+  >
     <label
       className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input">
+      htmlFor="react-autowhatever-my-search-input"
+    >
       Search
     </label>
     <input
@@ -398,12 +478,15 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       role="combobox"
       style={Object {}}
       type="text"
-      value={undefined} />
+      value={undefined}
+    />
   </div>
   <div
-    id="react-autowhatever-my-search">
+    id="react-autowhatever-my-search"
+  >
     <div
-      style={Object {}} />
+      style={Object {}}
+    />
   </div>
 </div>
 `;
@@ -419,10 +502,12 @@ exports[`Typeahead with toggle should render button 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <i
     aria-hidden="true"
     className="fa fa-search"
-    title={null} />
+    title={null}
+  />
 </button>
 `;

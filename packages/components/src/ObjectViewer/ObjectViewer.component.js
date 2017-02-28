@@ -27,7 +27,7 @@ export default function ObjectViewer({ displayMode, ...props }) {
 }
 
 ObjectViewer.propTypes = {
-	displayMode: PropTypes.oneOf(Object.values(DISPLAY_MODES)),
+	displayMode: PropTypes.oneOf(Object.keys(DISPLAY_MODES).map(key => DISPLAY_MODES[key])),
 };
 
 ObjectViewer.Table = Table;

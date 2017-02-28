@@ -1,8 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
-  className="tc-treeview">
+  className="tc-treeview"
+>
   <header
-    className="tc-treeview-header">
+    className="tc-treeview-header"
+  >
     <span>
       some elements
     </span>
@@ -16,31 +20,39 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-plus" />
+          xlinkHref="#talend-plus"
+        />
       </svg>
     </button>
   </header>
   <nav
-    className="tc-treeview-nav">
+    className="tc-treeview-nav"
+  >
     <ul
-      className="tc-treeview-ul">
+      className="tc-treeview-ul"
+    >
       <li
         className="tc-treeview-li"
-        data-tc-treeview-hidden={undefined}>
+        data-tc-treeview-hidden={undefined}
+      >
         <div
           className="tc-treeview-item"
           data-tc-treeview-depth={0}
           data-tc-treeview-selected={undefined}
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           <div
             className="tc-treeview-toggle"
-            data-tc-treeview-toggled={true}>
+            data-tc-treeview-toggled={true}
+          >
             <button
               aria-describedby={42}
               className="btn btn-link"
@@ -51,31 +63,38 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
-              type="button">
+              type="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-caret-down" />
+                  xlinkHref="#talend-caret-down"
+                />
               </svg>
             </button>
           </div>
           <span
-            className="tc-treeview-folder">
+            className="tc-treeview-folder"
+          >
             <svg
               aria-hidden="true"
               className="tc-svg-icon"
-              title={null}>
+              title={null}
+            >
               <use
-                xlinkHref="#talend-folder" />
+                xlinkHref="#talend-folder"
+              />
             </svg>
           </span>
           <span>
             grandpa
           </span>
           <div
-            className="tc-treeview-remove">
+            className="tc-treeview-remove"
+          >
             <button
               aria-describedby={42}
               className="btn btn-link"
@@ -86,30 +105,37 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
-              type="button">
+              type="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-trash" />
+                  xlinkHref="#talend-trash"
+                />
               </svg>
             </button>
           </div>
         </div>
         <ul
-          className="tc-treeview-ul">
+          className="tc-treeview-ul"
+        >
           <li
             className="tc-treeview-li"
-            data-tc-treeview-hidden={undefined}>
+            data-tc-treeview-hidden={undefined}
+          >
             <div
               className="tc-treeview-item"
               data-tc-treeview-depth={1}
               data-tc-treeview-selected={undefined}
-              onClick={[Function]}>
+              onClick={[Function]}
+            >
               <div
                 className="tc-treeview-toggle"
-                data-tc-treeview-toggled={true}>
+                data-tc-treeview-toggled={true}
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
@@ -120,31 +146,38 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-caret-down" />
+                      xlinkHref="#talend-caret-down"
+                    />
                   </svg>
                 </button>
               </div>
               <span
-                className="tc-treeview-folder">
+                className="tc-treeview-folder"
+              >
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
-                  title={null}>
+                  title={null}
+                >
                   <use
-                    xlinkHref="#talend-folder" />
+                    xlinkHref="#talend-folder"
+                  />
                 </svg>
               </span>
               <span>
                 mami
               </span>
               <div
-                className="tc-treeview-remove">
+                className="tc-treeview-remove"
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
@@ -155,42 +188,52 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-trash" />
+                      xlinkHref="#talend-trash"
+                    />
                   </svg>
                 </button>
               </div>
             </div>
             <ul
-              className="tc-treeview-ul">
+              className="tc-treeview-ul"
+            >
               <li
                 className="tc-treeview-li"
-                data-tc-treeview-hidden={undefined}>
+                data-tc-treeview-hidden={undefined}
+              >
                 <div
                   className="tc-treeview-item"
                   data-tc-treeview-depth={2}
                   data-tc-treeview-selected={true}
-                  onClick={[Function]}>
+                  onClick={[Function]}
+                >
                   <span
-                    className="tc-treeview-folder">
+                    className="tc-treeview-folder"
+                  >
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}>
+                      title={null}
+                    >
                       <use
-                        xlinkHref="#talend-folder" />
+                        xlinkHref="#talend-folder"
+                      />
                     </svg>
                   </span>
                   <span>
                     me
                   </span>
                   <div
-                    className="tc-treeview-remove">
+                    className="tc-treeview-remove"
+                  >
                     <button
                       aria-describedby={42}
                       className="btn btn-link"
@@ -201,13 +244,16 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                       onMouseOut={[Function]}
                       onMouseOver={[Function]}
                       role="link"
-                      type="button">
+                      type="button"
+                    >
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
-                        title={null}>
+                        title={null}
+                      >
                         <use
-                          xlinkHref="#talend-trash" />
+                          xlinkHref="#talend-trash"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -215,27 +261,33 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               </li>
               <li
                 className="tc-treeview-li"
-                data-tc-treeview-hidden={undefined}>
+                data-tc-treeview-hidden={undefined}
+              >
                 <div
                   className="tc-treeview-item"
                   data-tc-treeview-depth={2}
                   data-tc-treeview-selected={undefined}
-                  onClick={[Function]}>
+                  onClick={[Function]}
+                >
                   <span
-                    className="tc-treeview-folder">
+                    className="tc-treeview-folder"
+                  >
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}>
+                      title={null}
+                    >
                       <use
-                        xlinkHref="#talend-folder" />
+                        xlinkHref="#talend-folder"
+                      />
                     </svg>
                   </span>
                   <span>
                     bro
                   </span>
                   <div
-                    className="tc-treeview-remove">
+                    className="tc-treeview-remove"
+                  >
                     <button
                       aria-describedby={42}
                       className="btn btn-link"
@@ -246,13 +298,16 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                       onMouseOut={[Function]}
                       onMouseOver={[Function]}
                       role="link"
-                      type="button">
+                      type="button"
+                    >
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
-                        title={null}>
+                        title={null}
+                      >
                         <use
-                          xlinkHref="#talend-trash" />
+                          xlinkHref="#talend-trash"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -262,15 +317,18 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
           </li>
           <li
             className="tc-treeview-li"
-            data-tc-treeview-hidden={undefined}>
+            data-tc-treeview-hidden={undefined}
+          >
             <div
               className="tc-treeview-item"
               data-tc-treeview-depth={1}
               data-tc-treeview-selected={undefined}
-              onClick={[Function]}>
+              onClick={[Function]}
+            >
               <div
                 className="tc-treeview-toggle"
-                data-tc-treeview-toggled={false}>
+                data-tc-treeview-toggled={false}
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
@@ -281,31 +339,38 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-caret-down" />
+                      xlinkHref="#talend-caret-down"
+                    />
                   </svg>
                 </button>
               </div>
               <span
-                className="tc-treeview-folder">
+                className="tc-treeview-folder"
+              >
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
-                  title={null}>
+                  title={null}
+                >
                   <use
-                    xlinkHref="#talend-folder" />
+                    xlinkHref="#talend-folder"
+                  />
                 </svg>
               </span>
               <span>
                 aunt
               </span>
               <div
-                className="tc-treeview-remove">
+                className="tc-treeview-remove"
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
@@ -316,13 +381,16 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-trash" />
+                      xlinkHref="#talend-trash"
+                    />
                   </svg>
                 </button>
               </div>
