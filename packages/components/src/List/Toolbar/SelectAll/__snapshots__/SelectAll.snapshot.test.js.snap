@@ -1,17 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectAll should be unchecked when there is no items 1`] = `
+<form
+  className="navbar-form navbar-left"
+>
+  <div
+    className="navbar-text"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id={undefined}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="tc-list-toolbar-select-all"
+      htmlFor={undefined}
+    >
+      Select All
+    </label>
+  </div>
+</form>
+`;
+
 exports[`SelectAll should render 1`] = `
 <form
-  className="navbar-form navbar-left">
+  className="navbar-form navbar-left"
+>
   <div
-    className="navbar-text">
+    className="navbar-text"
+  >
     <input
       checked={false}
       disabled={false}
       id={undefined}
       onChange={[Function]}
-      type="checkbox" />
+      type="checkbox"
+    />
     <label
       className="tc-list-toolbar-select-all"
-      htmlFor={undefined}>
+      htmlFor={undefined}
+    >
       Select All
     </label>
   </div>
@@ -20,38 +50,22 @@ exports[`SelectAll should render 1`] = `
 
 exports[`SelectAll should render id if provided 1`] = `
 <form
-  className="navbar-form navbar-left">
+  className="navbar-form navbar-left"
+>
   <div
-    className="navbar-text">
+    className="navbar-text"
+  >
     <input
       checked={false}
       disabled={false}
       id="list-toolbar-check-all"
       onChange={[Function]}
-      type="checkbox" />
+      type="checkbox"
+    />
     <label
       className="tc-list-toolbar-select-all"
-      htmlFor="list-toolbar-check-all">
-      Select All
-    </label>
-  </div>
-</form>
-`;
-
-exports[`SelectAll should be unchecked when there is no items 1`] = `
-<form
-  className="navbar-form navbar-left">
-  <div
-    className="navbar-text">
-    <input
-      checked={false}
-      disabled={true}
-      id={undefined}
-      onChange={[Function]}
-      type="checkbox" />
-    <label
-      className="tc-list-toolbar-select-all"
-      htmlFor={undefined}>
+      htmlFor="list-toolbar-check-all"
+    >
       Select All
     </label>
   </div>
