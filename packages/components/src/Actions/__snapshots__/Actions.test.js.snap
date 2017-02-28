@@ -1,16 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Actions should render actions 1`] = `
 <div
-  className="tc-actions btn-group">
+  className="tc-actions btn-group"
+>
   <button
     className="btn btn-primary"
     disabled={false}
     onClick={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-asterisk"
-      title={null} />
+      title={null}
+    />
     <span>
       Preparations
     </span>
@@ -20,11 +25,13 @@ exports[`Actions should render actions 1`] = `
     disabled={false}
     onClick={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
-      title={null} />
+      title={null}
+    />
     <span>
       Datasets
     </span>
@@ -34,17 +41,20 @@ exports[`Actions should render actions 1`] = `
     disabled={false}
     onClick={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-star"
-      title={null} />
+      title={null}
+    />
     <span>
       Favorites
     </span>
   </button>
   <div
-    className="dropdown btn-group btn-group-default">
+    className="dropdown btn-group btn-group-default"
+  >
     <button
       aria-expanded={false}
       aria-haspopup={true}
@@ -54,49 +64,57 @@ exports[`Actions should render actions 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
-      type="button">
+      type="button"
+    >
       <span>
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
-          title={null} />
+          title={null}
+        />
         <span>
           related items
         </span>
       </span>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </button>
     <ul
       aria-labelledby="dropdown-id"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 1
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 2
         </a>
       </li>
@@ -107,17 +125,20 @@ exports[`Actions should render actions 1`] = `
 
 exports[`Actions should render actions with "link" theme 1`] = `
 <div
-  className="tc-actions btn-group">
+  className="tc-actions btn-group"
+>
   <button
     className="btn btn-link"
     disabled={false}
     onClick={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-asterisk"
-      title={null} />
+      title={null}
+    />
     <span>
       Preparations
     </span>
@@ -127,11 +148,13 @@ exports[`Actions should render actions with "link" theme 1`] = `
     disabled={false}
     onClick={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
-      title={null} />
+      title={null}
+    />
     <span>
       Datasets
     </span>
@@ -141,17 +164,20 @@ exports[`Actions should render actions with "link" theme 1`] = `
     disabled={false}
     onClick={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-star"
-      title={null} />
+      title={null}
+    />
     <span>
       Favorites
     </span>
   </button>
   <div
-    className="dropdown btn-group btn-group-link">
+    className="dropdown btn-group btn-group-link"
+  >
     <button
       aria-expanded={false}
       aria-haspopup={true}
@@ -161,49 +187,57 @@ exports[`Actions should render actions with "link" theme 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
-      type="button">
+      type="button"
+    >
       <span>
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
-          title={null} />
+          title={null}
+        />
         <span>
           related items
         </span>
       </span>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </button>
     <ul
       aria-labelledby="dropdown-id"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 1
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 2
         </a>
       </li>
@@ -214,7 +248,8 @@ exports[`Actions should render actions with "link" theme 1`] = `
 
 exports[`Actions should render actions with defined tooltip placement 1`] = `
 <div
-  className="tc-actions btn-group">
+  className="tc-actions btn-group"
+>
   <button
     aria-describedby={42}
     className="btn btn-link"
@@ -225,11 +260,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-asterisk"
-      title={null} />
+      title={null}
+    />
   </button>
   <button
     aria-describedby={42}
@@ -241,11 +278,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
-      title={null} />
+      title={null}
+    />
   </button>
   <button
     aria-describedby={42}
@@ -257,14 +296,17 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-star"
-      title={null} />
+      title={null}
+    />
   </button>
   <div
-    className="dropdown btn-group btn-group-link">
+    className="dropdown btn-group btn-group-link"
+  >
     <button
       aria-describedby={42}
       aria-expanded={false}
@@ -279,46 +321,54 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="button"
-      type="button">
+      type="button"
+    >
       <span>
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
-          title={null} />
+          title={null}
+        />
       </span>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </button>
     <ul
       aria-labelledby="dropdown-id"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 1
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 2
         </a>
       </li>
@@ -329,7 +379,8 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
 
 exports[`Actions should render actions with hidden labels and tooltips 1`] = `
 <div
-  className="tc-actions btn-group">
+  className="tc-actions btn-group"
+>
   <button
     aria-describedby={42}
     className="btn btn-primary"
@@ -340,11 +391,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-asterisk"
-      title={null} />
+      title={null}
+    />
   </button>
   <button
     aria-describedby={42}
@@ -356,11 +409,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
-      title={null} />
+      title={null}
+    />
   </button>
   <button
     aria-describedby={42}
@@ -372,14 +427,17 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <i
       aria-hidden="true"
       className="fa fa-star"
-      title={null} />
+      title={null}
+    />
   </button>
   <div
-    className="dropdown btn-group btn-group-default">
+    className="dropdown btn-group btn-group-default"
+  >
     <button
       aria-describedby={42}
       aria-expanded={false}
@@ -394,46 +452,54 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="button"
-      type="button">
+      type="button"
+    >
       <span>
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
-          title={null} />
+          title={null}
+        />
       </span>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </button>
     <ul
       aria-labelledby="dropdown-id"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 1"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 1
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           label="document 2"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           document 2
         </a>
       </li>
