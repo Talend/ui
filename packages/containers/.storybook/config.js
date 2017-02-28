@@ -16,27 +16,24 @@ const reducer = (state = {}, a) => {
 };
 
 function objectView(event, data) {
-	return Object.assign({
+	return {
 		type: 'OBJECT_VIEW',
-	}, data);
-}
-
-function objectView(event, data) {
-	return Object.assign({
-		type: 'OBJECT_VIEW',
-	}, data);
+		...data
+	};
 }
 
 function hideDialog(event, data) {
-	return Object.assign({
+	return {
 		type: 'HIDE_DIALOG',
-	}, data);
+		...data
+	};
 }
 
 function confirmDialog(event, data) {
-	return Object.assign({
+	return {
 		type: 'CONFIRM_DIALOG',
-	}, data);
+		...data
+	};
 }
 
 const registerActionCreator = api.action.registerActionCreator;
