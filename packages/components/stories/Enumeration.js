@@ -29,6 +29,7 @@ const props = {
 	})),
 	itemsProp: {
 		key: 'values',
+		getItemHeight: (isInEdit) => { return isInEdit ? 45 : 33; },
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),

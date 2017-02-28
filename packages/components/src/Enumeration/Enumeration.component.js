@@ -62,6 +62,10 @@ Enumeration.propTypes = {
 	})).isRequired,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
+		getItemHeight: React.PropTypes.oneOfType([
+			React.PropTypes.func,
+			React.PropTypes.number,
+		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
