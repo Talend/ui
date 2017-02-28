@@ -4,7 +4,6 @@ import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
 
-import { statePropTypes, stateWillMount } from '../state';
 import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
@@ -48,9 +47,12 @@ class List extends React.Component {
 		toolbar: PropTypes.shape({
 			sort: PropTypes.object,
 			filter: PropTypes.object,
+			pagination: PropTypes.shape({
+				onChange: PropTypes.func,
+			}),
 		}),
+		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		...statePropTypes,
 	};
 
 	static contextTypes = {
@@ -67,31 +69,27 @@ class List extends React.Component {
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 	}
 
-	componentWillMount() {
-		stateWillMount(this.props);
-	}
-
 	onSelectSortBy(event, payload) {
-		this.props.updateState({
+		this.updateState({
 			sortOn: payload.field,
 			sortAsc: !payload.isDescending,
 		});
 	}
 
 	onFilter(event, payload) {
-		this.props.updateState({ searchQuery: payload });
+		this.updateState({ searchQuery: payload });
 	}
 
 	onToggle() {
-		this.props.updateState({ filterDocked: !this.props.state.get('filterDocked') });
+		this.updateState({ filterDocked: !this.state.get('filterDocked') });
 	}
 
 	onSelectDisplayMode(event, payload) {
-		this.props.updateState({ displayMode: payload });
+		this.updateState({ displayMode: payload });
 	}
 
 	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = (this.state || DEFAULT_STATE).toJS();
 		const items = getItems(this.context, this.props);
 		const props = {
 			displayMode: this.props.displayMode || state.displayMode,
@@ -104,7 +102,7 @@ class List extends React.Component {
 
 		if (props.list.titleProps) {
 			props.list.titleProps.onClick = (event, data) => {
-				this.props.dispatch(
+				this.dispatch(
 					api.action.getActionCreatorFunction(
 						this.context,
 						this.props.actions.title,
@@ -164,7 +162,7 @@ class List extends React.Component {
 				props.toolbar.pagination = {
 					...pagination,
 					onChange: (event, data) => {
-						this.props.dispatch(
+						this.dispatch(
 							api.action.getActionCreatorFunction(
 								this.context,
 								pagination.onChange,

@@ -3,14 +3,14 @@ import { SidePanel as Component } from 'react-talend-components';
 import { api } from 'react-cmf';
 import { Map } from 'immutable';
 
-import { statePropTypes, stateWillMount } from '../state';
+import { statePropTypes } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
 });
 
 /**
- * Checkout the {@link http://talend.github.io/react-talend-containers/examples/build/#/SidePanel|examples}
+ * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
  * @param {object} props react props
  */
 class SidePanel extends React.Component {
@@ -27,10 +27,6 @@ class SidePanel extends React.Component {
 		store: React.PropTypes.object,
 		router: React.PropTypes.object,
 	};
-
-	componentWillMount() {
-		stateWillMount(this.props);
-	}
 
 	render() {
 		const { actionIds = [], state = DEFAULT_STATE, ...rest } = this.props;

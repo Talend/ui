@@ -96,16 +96,18 @@
     }
   },
   "peerDependencies": {
+    "immutable": "3",
+    "invariant": "^2.2.2",
+    "lodash": "4.17.2",
     "react": "^15.4.2",
     "react-bootstrap": "0",
     "react-cmf": "^0.62.0",
-    "react-talend-components": "^0.62.0",
     "react-redux": "^4.4.6",
-    "reselect": "^2.5.4",
-    "immutable": "3",
-    "invariant": "^2.2.2",
-    "lodash": "4.17.2"
+    "react-talend-components": "^0.62.0",
+    "reselect": "^2.5.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "hoist-non-react-statics": "^1.2.0"
+  },
   "version": "0.62.0"
 }

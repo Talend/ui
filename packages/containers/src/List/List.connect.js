@@ -1,14 +1,9 @@
-import { connect } from 'react-redux';
-
-import { getStateAccessors, getStateProps } from '../state';
+import connect from '../connect';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
 
-export function getContainerInfo(ownProps) {
-	return {
-		name: 'List',
-		id: ownProps.collectionId || 'default',
-	};
+function componentId(ownProps) {
+	return ownProps.collectionId;
 }
 
 function getItems(state, config) {
@@ -20,33 +15,25 @@ function getItems(state, config) {
 	return [];
 }
 
-export function mapDispatchToProps(dispatch, ownProps) {
-	const { name, id } = getContainerInfo(ownProps);
-	const props = getStateAccessors(dispatch, name, id, DEFAULT_STATE);
-	props.dispatch = dispatch;
-	return props;
-}
-
 export function mapStateToProps(state, ownProps) {
-	const { name, id } = getContainerInfo(ownProps);
-	const props = getStateProps(state, name, id);
+	const props = {};
 	const config = {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
 	};
-
 	props.items = getItems(state, config);
+	// FIXME: this will not work here...
 	if (props.state && props.state.has('toolbar')) {
 		props.state = props.state.mergeIn(
 			['toolbar', 'pagination'],
 			configureGetPagination(state, config)
 		);
 	}
-
 	return props;
 }
 
-export default connect(
+export default connect({
+	defaultState: DEFAULT_STATE,
+	componentId,
 	mapStateToProps,
-	mapDispatchToProps,
-)(Container);
+})(Container);
