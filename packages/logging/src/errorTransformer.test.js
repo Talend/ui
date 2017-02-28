@@ -3,6 +3,7 @@ import TraceKit from 'tracekit';
 import et from './errorTransformer';
 
 const someString = 'hello';
+const rethrowErrorHandler = () => {};
 
 afterEach(() => {
 	TraceKit.report = TraceKit.fallback || TraceKit.report;
@@ -19,15 +20,7 @@ describe('ErrorTransformer', () => {
 			et('', {
 				successHandler,
 				fetchOptions: { response: { text: () => someString, ok: true } },
-			})();
-		});
-
-		it('should call failedTryHandler internally', () => {
-			const failedTryHandler = (e, sr, p) => { expect(p).toBe(someString); };
-			et('', {
-				failedTryHandler,
-				fetchOptions: { response: { error: true, ok: true } },
-			})(someString);
+			}, { rethrowErrorHandler })();
 		});
 
 		it('should call failedReportHandler internally', () => {
@@ -35,13 +28,13 @@ describe('ErrorTransformer', () => {
 			et('', {
 				failedReportHandler,
 				fetchOptions: { response: someString },
-			})();
+			}, { rethrowErrorHandler })();
 		});
 
 		it('should return payload', () => {
 			const returnedData = et('', {
 				fetchOptions: { response: { text: () => someString, ok: true } },
-			})({ some: someString });
+			}, { rethrowErrorHandler })({ some: someString });
 
 			expect(returnedData).toMatchObject({ some: someString });
 		});
@@ -51,27 +44,41 @@ describe('ErrorTransformer', () => {
 			const returnedData = et('', {
 				payloadMiddleware: () => expected,
 				fetchOptions: { response: { text: () => null, ok: true } },
-			})();
+			}, { rethrowErrorHandler })();
 			expect(returnedData).toMatchObject(expected);
 		});
 	});
 
-	it('should patch TraceKit so it does not throw error', () => {
+	it('should patch TraceKit so it calls rethrowErrorHandler internally', () => {
 		// given:
-		const testReport = (report) => {
+		const report = (error) => {
 			let message;
 			try {
-				report(new Error(someString));
+				TraceKit.report(error);
 			} catch (e) {
-				message = e.message;
+				message = e;
 			}
 			return message;
 		};
-		// before:
-		expect(testReport(TraceKit.report)).toBe(someString);
-		// when:
-		et();
 		// then:
-		expect(testReport(TraceKit.report)).toBe(undefined);
+		expect(report(new Error(someString)).message).toBe(someString);
+		expect(report(someString)).toBe(someString);
+
+		// when:
+		et('', {}, { rethrowErrorHandler });
+		// then:
+		expect(report()).toBe(undefined);
+	});
+
+	it('should call failedTryHandler internally', () => {
+		const failedTryHandler = (r, sr, p, to, c) => {
+			expect(p).toBe(someString);
+			sr(p, to, c + 1);
+		};
+		et('', {
+			failedTryHandler,
+			retryCount: 5,
+			fetchOptions: { response: { ok: false } },
+		}, { rethrowErrorHandler })(someString);
 	});
 });

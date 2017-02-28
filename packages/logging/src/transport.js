@@ -12,11 +12,11 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 
 	send(transformedPayload, fetchOptions)
 		.then(successHandler)
-		.catch((error) => {
-			if (attempt < retryCount && error instanceof TypeError) {
-				failedTryHandler(error, sendReport, payload, transportOpts, attempt);
+		.catch((errorResponse) => {
+			if (attempt < retryCount) {
+				failedTryHandler(errorResponse, sendReport, payload, transportOpts, attempt);
 			} else {
-				failedReportHandler(error, payload, transportOpts);
+				failedReportHandler(errorResponse, payload, transportOpts);
 			}
 		});
 	return transformedPayload;

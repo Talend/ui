@@ -87,7 +87,7 @@ Notable details:
 
 #### Log warnings
 
-If you have some warning-level issues that should be reported, but should not break application, then use TraceKit.report with rethrowError: false (its false by-default) option:
+If you have some non-critical exceptions that should be reported, but should not break application, then use a possibility to provide handler for better microcontrol:
 
 in your config file:
 
@@ -97,14 +97,13 @@ in your config file:
 
     // this:
     initErrorTransformer(LOGGING_SERVER_URL, transportConfig, {
-        rethrowError: false,
+        rethrowErrorHandler: (e) => { if (e.type === 'critical') { throw e; } else { console.error(e); } },
     })
-    // is the same as this:
-    initErrorTransformer(LOGGING_SERVER_URL, transportConfig, {})
 
 somewhere in your application:
 
     fetch('google.com').catch(errorResponse => TraceKit.report(new Error(errorResponse)));
 
 ### Under the hood
+
 TraceKit - Cross browser stack traces. https://github.com/csnover/TraceKit

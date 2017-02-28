@@ -12,20 +12,18 @@ import { sendReport, getDefaultTransport } from './transport';
 const defaultOptions = {
 	stackTraceLimit: Error.stackTraceLimit,
 	linesOfContext: 15,
-	rethrowError: false,
 };
 
 /**
- * @param fallback - original TraceKit.report method
+ * @param rethrowErrorHandler - handler for rethrown errors
  * @returns Report, wrapped TraceKit.report method which no longer rethrows an error
 **/
-function safeWrapReport() {
+function safeWrapReport(rethrowErrorHandler) {
 	function report(ex) {
 		try {
 			TraceKit.report(ex);
 		} catch (e) {
-			// TraceKit throws error bringing down current application, but we don't want that
-			// currently there is no way to fix it with some TraceKit option, thus monkey-patching
+			rethrowErrorHandler(ex);
 		}
 	}
 	report.subscribe = TraceKit.report.subscribe;
@@ -67,7 +65,7 @@ function safeWrapReport() {
 export default function initErrorTransformer(logServerUrl, transport = {}, options = {}) {
 	const {
 		stackTraceLimit,
-		rethrowError,
+		rethrowErrorHandler,
 		linesOfContext,
 		...otherTraceKitOptions
 	} = Object.assign(defaultOptions, options);
@@ -81,8 +79,8 @@ export default function initErrorTransformer(logServerUrl, transport = {}, optio
 		...otherTraceKitOptions,
 	});
 
-	if (!rethrowError) {
-		TraceKit.report = safeWrapReport();
+	if (rethrowErrorHandler) {
+		TraceKit.report = safeWrapReport(rethrowErrorHandler);
 	}
 
 	function listener(payload) {
