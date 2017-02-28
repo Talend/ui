@@ -50,6 +50,17 @@ const settings = {
 				type: 'TEST_MENU',
 			},
 		},
+		'menu:routerReplace': {
+			id: 'routerReplace',
+			name: 'Menu',
+			icon: 'fa-bars',
+			payload: {
+				type: 'TEST_MENU',
+				cmf: {
+					routerReplace: '/test',
+				},
+			},
+		},
 	},
 	views: {
 		appmenu: {
