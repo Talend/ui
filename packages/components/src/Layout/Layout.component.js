@@ -54,17 +54,10 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 				<AppHeaderBar {...header} />
 			</div>
 			{Component ? (
-				<Component {...rest}>
+				<Component drawers={drawers} {...rest}>
 					{children}
 				</Component>
 			) : null}
-			<Drawer.Animation>
-				{drawers && drawers.map((drawer, key) => (
-					<Drawer key={key} className={theme.drawer}>
-						{drawer}
-					</Drawer>
-				))}
-			</Drawer.Animation>
 		</div>
 	);
 }

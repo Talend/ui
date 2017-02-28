@@ -22,9 +22,7 @@ body > div {
 function WithDrawer({ drawers, children, ...rest }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
-			<div>
-				{children}
-			</div>
+			{children}
 			<Drawer.Animation className={theme['tc-with-drawer-container']}>
 				{drawers && drawers.map((drawer, key) => (
 					<div drawer key={key} className={theme['tc-with-drawer-wrapper']}>

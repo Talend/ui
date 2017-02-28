@@ -35,7 +35,7 @@ function DrawerContainer({ stacked, tight, className, style, children }) {
 		});
 	return (
 		<div className={drawerContainerClasses} style={style}>
-			<div className={theme['tc-drawer-containe']}>
+			<div className={theme['tc-drawer-container']}>
 				{children}
 			</div>
 		</div>
@@ -162,6 +162,7 @@ Drawer.Container = DrawerContainer;
 Drawer.Title = DrawerTitle;
 Drawer.Content = DrawerContent;
 Drawer.Footer = DrawerFooter;
+Drawer.FooterStyle = theme['tc-drawer-footer'];
 
 
 export default Drawer;

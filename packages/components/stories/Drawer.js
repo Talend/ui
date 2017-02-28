@@ -158,12 +158,43 @@ storiesOf('Drawer', module)
 				header={header}
 				mode="TwoColumns"
 				one={sidePanel}
+				drawers={drawers}
 			>
-				<WithDrawer
-					drawers={drawers}
-				>
-					<span>zone with drawer</span>
-				</WithDrawer>
+				<span>zone with drawer</span>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
+				<p>The content dictate the width</p>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
@@ -232,12 +263,9 @@ storiesOf('Drawer', module)
 				header={header}
 				mode="TwoColumns"
 				one={sidePanel}
+				drawers={customDrawers}
 			>
-				<WithDrawer
-					drawers={customDrawers}
-				>
-					<span>zone with drawer</span>
-				</WithDrawer>
+				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
