@@ -24,7 +24,7 @@ const props = {
 		id: 'abort',
 		onClick: action('headerInput.onAbort'),
 	}],
-	items: Array(50).fill('').map((item, index) => ({
+	items: Array(10000).fill('').map((item, index) => ({
 		values: [`Lorem ipsum dolor sit amet ${index}`],
 	})),
 	itemsProp: {
