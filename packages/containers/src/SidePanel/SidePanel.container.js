@@ -10,6 +10,22 @@ export const DEFAULT_STATE = new Map({
 	docked: false,
 });
 
+
+export function getActions(actionIds, context) {
+	return actionIds.map((id) => {
+		const info = api.action.getActionInfo(context, id);
+		info.onClick = () => context.store.dispatch(info.payload);
+		const route = get(info, 'payload.cmf.routerReplace');
+		if (route) {
+			const currentRoute = context.router.location.pathname;
+			if (currentRoute.indexOf(route) !== -1) {
+				info.active = true;
+			}
+		}
+		return info;
+	});
+}
+
 /**
  * Checkout the {@link http://talend.github.io/react-talend-containers/examples/build/#/SidePanel|examples}
  * @param {object} props react props
@@ -35,18 +51,7 @@ class SidePanel extends React.Component {
 
 	render() {
 		const { actionIds = [], state = DEFAULT_STATE, ...rest } = this.props;
-		const actions = actionIds.map((id) => {
-			const info = api.action.getActionInfo(this.context, id);
-			info.onClick = () => this.context.store.dispatch(info.payload);
-			const route = get(info, 'payload.cmf.routerReplace');
-			if (route) {
-				const currentRoute = this.context.router.location.pathname;
-				if (currentRoute.indexOf(route) !== -1) {
-					info.active = true;
-				}
-			}
-			return info;
-		});
+		const actions = getActions(actionIds, this.context);
 		const props = Object.assign({
 			actions,
 			docked: state.get('docked'),
