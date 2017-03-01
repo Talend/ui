@@ -7,15 +7,6 @@ import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	show: false,
-	validateAction: {
-		label: 'Ok',
-		bsStyle: 'primary',
-		onClick: () => {},
-	},
-	cancelAction: {
-		label: 'No',
-		onClick: () => {},
-	},
 });
 
 class ConfirmDialog extends React.Component {
@@ -35,6 +26,9 @@ class ConfirmDialog extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		if (!state.validateAction || !state.cancelAction) {
+			return null;
+		}
 		// looking for the given action setting
 		// and adding onClick event using the retrieved  action creator
 		state.validateAction = getActionsProps(this.context, state.validateAction, state.model);
