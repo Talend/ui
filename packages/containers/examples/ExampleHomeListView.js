@@ -29,6 +29,10 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 };
 
+const header = {
+	app: 'Example app',
+};
+
 const sidepanel = {
 	actionIds: ['menu:first', 'menu:second', 'menu:third'],
 };
@@ -116,6 +120,7 @@ const ExampleHomeListView = {
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<HomeListView
+				header={header}
 				sidepanel={sidepanel}
 				list={listProps}
 			>
