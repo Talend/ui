@@ -41,14 +41,14 @@ function addToRegistry(id, item) {
 		);
 	}
 
-	const reg = Registry.getRegistry();
-	if (reg[id]) {
+	const registry = Registry.getRegistry();
+	if (registry[id]) {
 		console.warn( // eslint-disable-line no-console
-			`CMF: The '${id}' object is registered, overriding and existing '${id}' object. ` +
+			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
 			'Please check your CMF configuration, you might not want that.'
 		);
 	}
-	reg[id] = item;
+	registry[id] = item;
 }
 
 /**
