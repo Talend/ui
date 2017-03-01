@@ -28,4 +28,10 @@ describe('Drawer', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should not render if no children', () => {
+		const wrapper = renderer.create(
+			<Drawer />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });

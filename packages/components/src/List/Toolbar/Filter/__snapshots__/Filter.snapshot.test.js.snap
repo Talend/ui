@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Filter should render 1`] = `
 <button
   aria-describedby={42}
@@ -9,13 +11,16 @@ exports[`Filter should render 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-search" />
+      xlinkHref="#talend-search"
+    />
   </svg>
 </button>
 `;
@@ -31,13 +36,16 @@ exports[`Filter should render highlighted filter 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-search" />
+      xlinkHref="#talend-search"
+    />
   </svg>
 </button>
 `;
@@ -54,13 +62,16 @@ exports[`Filter should render id if provided 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-search" />
+      xlinkHref="#talend-search"
+    />
   </svg>
 </button>
 `;
@@ -76,13 +87,16 @@ exports[`Filter should render only toggle icon 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-search" />
+      xlinkHref="#talend-search"
+    />
   </svg>
 </button>
 `;

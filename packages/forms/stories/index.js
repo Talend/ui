@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
 import { storiesOf, action } from '@kadira/storybook';
@@ -10,14 +10,12 @@ import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
 import Form from '../src/Form';
 
-a11y(React);
+a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
-		<div
-			className="container-fluid"
-		>
+		<div className="container-fluid">
 			<div
 				className="col-md-offset-1 col-md-10"
 				style={{ marginTop: '20px', marginBottom: '20px' }}
@@ -57,22 +55,26 @@ sampleFilenames
 		});
 
 decoratedStories.add('Multiple actions', () => {
-	const actions = [{
-		name: 'cancel',
-		style: 'link',
-		onClick: action('CANCEL'),
-		type: 'button',
-		label: 'CANCEL',
-	}, {
-		name: 'other',
-		type: 'button',
-		label: 'Other Button',
-		onClick: action('OTHER'),
-	},	{
-		style: 'primary',
-		type: 'submit',
-		label: 'VALIDATE',
-	}];
+	const actions = [
+		{
+			name: 'cancel',
+			style: 'link',
+			onClick: action('CANCEL'),
+			type: 'button',
+			label: 'CANCEL',
+		},
+		{
+			name: 'other',
+			type: 'button',
+			label: 'Other Button',
+			onClick: action('OTHER'),
+		},
+		{
+			style: 'primary',
+			type: 'submit',
+			label: 'VALIDATE',
+		},
+	];
 	const schema = {
 		jsonSchema: {
 			title: 'Please select a datastore',

@@ -1,0 +1,11 @@
+.tc-enumeration-items{
+	padding-left: 0px;
+	min-height: 0;
+	overflow-y: auto;
+	list-style: none;
+	box-shadow: inset 0px 21px 3px -20px $shadow, inset 0px -21px 3px -20px $shadow;
+
+	li:first-child:hover{
+		box-shadow: inset 0px 21px 3px -20px $shadow
+	}
+}

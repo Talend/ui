@@ -1,16 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Action should apply transformation on icon 1`] = `
 <button
   className="btn btn-default"
   disabled={false}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-caret-down" />
+      xlinkHref="#talend-caret-down"
+    />
   </svg>
   <span>
     Click me
@@ -24,10 +29,12 @@ exports[`Action should display a Progress indicator if set 1`] = `
   disabled={true}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     className=""
-    viewBox="0 0 50 50">
+    viewBox="0 0 50 50"
+  >
     <circle
       className={undefined}
       cx={25}
@@ -39,7 +46,8 @@ exports[`Action should display a Progress indicator if set 1`] = `
           "strokeDasharray": 12.566370614359172,
           "strokeDashoffset": 0,
         }
-      } />
+      }
+    />
   </svg>
   <span>
     Click me
@@ -53,13 +61,16 @@ exports[`Action should display a disabled Icon 1`] = `
   disabled={true}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-caret-down" />
+      xlinkHref="#talend-caret-down"
+    />
   </svg>
   <span>
     Click me
@@ -73,13 +84,16 @@ exports[`Action should pass all props to the Button 1`] = `
   disabled={false}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-caret-down" />
+      xlinkHref="#talend-caret-down"
+    />
   </svg>
   <span>
     Click me
@@ -93,13 +107,16 @@ exports[`Action should render a button 1`] = `
   disabled={false}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-caret-down" />
+      xlinkHref="#talend-caret-down"
+    />
   </svg>
   <span>
     Click me
@@ -113,16 +130,19 @@ exports[`Action should reverse icon/label 1`] = `
   disabled={false}
   onClick={[Function]}
   role={null}
-  type="button">
+  type="button"
+>
   <span>
     Click me
   </span>
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
-    title={null}>
+    title={null}
+  >
     <use
-      xlinkHref="#talend-caret-down" />
+      xlinkHref="#talend-caret-down"
+    />
   </svg>
 </button>
 `;

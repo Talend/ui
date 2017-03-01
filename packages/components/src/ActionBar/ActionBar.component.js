@@ -88,6 +88,10 @@ ActionBar.propTypes = {
 	multiSelectActions: PropTypes.shape(actionsShape),
 };
 
+ActionBar.defaultProps = {
+	actions: [],
+};
+
 ActionBar.DISPLAY_MODES = DISPLAY_MODES;
 
 export default ActionBar;

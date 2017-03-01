@@ -6,6 +6,10 @@ $tc-dialog-body-padding: 30px !default;
 
 .tc-confirm-dialog {
 
+	:global(.modal-content) {
+		background-color: tint($tc-dialog-header-color, 90%);
+	}
+
 	:global(.modal-header) {
 		padding: $tc-dialog-medium-padding;
 		background-color: $tc-dialog-header-color;
@@ -19,7 +23,7 @@ $tc-dialog-body-padding: 30px !default;
 	}
 
 	:global(.modal-body) {
-		padding: $tc-dialog-body-padding;
+		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 
 		:global(.progress) {
 			position: relative;
@@ -42,7 +46,7 @@ $tc-dialog-body-padding: 30px !default;
 
 
 	:global(.modal-footer) {
-		padding: $tc-dialog-medium-padding;
+		padding: 0 $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 		display: flex;
 		justify-content: flex-start;
 

@@ -1,10 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`SelectDisplayMode should render 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -13,39 +17,48 @@ exports[`SelectDisplayMode should render 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-table" />
+          xlinkHref="#talend-table"
+        />
       </svg>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-table" />
+              xlinkHref="#talend-table"
+            />
           </svg>
           Table
         </a>
@@ -53,20 +66,24 @@ exports[`SelectDisplayMode should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-expanded" />
+              xlinkHref="#talend-expanded"
+            />
           </svg>
           Expanded
         </a>
@@ -74,20 +91,24 @@ exports[`SelectDisplayMode should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-tiles" />
+              xlinkHref="#talend-tiles"
+            />
           </svg>
           Tile
         </a>
@@ -100,10 +121,12 @@ exports[`SelectDisplayMode should render 1`] = `
 exports[`SelectDisplayMode should render id if provided 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -112,39 +135,48 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       id="toolbar-display-mode"
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-table" />
+          xlinkHref="#talend-table"
+        />
       </svg>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby="toolbar-display-mode"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id="toolbar-display-mode-table"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-table" />
+              xlinkHref="#talend-table"
+            />
           </svg>
           Table
         </a>
@@ -152,20 +184,24 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id="toolbar-display-mode-large"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-expanded" />
+              xlinkHref="#talend-expanded"
+            />
           </svg>
           Expanded
         </a>
@@ -173,20 +209,24 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id="toolbar-display-mode-tile"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-tiles" />
+              xlinkHref="#talend-tiles"
+            />
           </svg>
           Tile
         </a>
@@ -199,10 +239,12 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
 exports[`SelectDisplayMode should render with displayMode = large 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -211,39 +253,48 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-expanded" />
+          xlinkHref="#talend-expanded"
+        />
       </svg>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-table" />
+              xlinkHref="#talend-table"
+            />
           </svg>
           Table
         </a>
@@ -251,20 +302,24 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-expanded" />
+              xlinkHref="#talend-expanded"
+            />
           </svg>
           Expanded
         </a>
@@ -272,20 +327,24 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-tiles" />
+              xlinkHref="#talend-tiles"
+            />
           </svg>
           Tile
         </a>
@@ -298,10 +357,12 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
 exports[`SelectDisplayMode should render with displayMode = table 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -310,39 +371,48 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-table" />
+          xlinkHref="#talend-table"
+        />
       </svg>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-table" />
+              xlinkHref="#talend-table"
+            />
           </svg>
           Table
         </a>
@@ -350,20 +420,24 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-expanded" />
+              xlinkHref="#talend-expanded"
+            />
           </svg>
           Expanded
         </a>
@@ -371,20 +445,24 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-tiles" />
+              xlinkHref="#talend-tiles"
+            />
           </svg>
           Tile
         </a>
@@ -397,10 +475,12 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
 exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -409,39 +489,48 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-tiles" />
+          xlinkHref="#talend-tiles"
+        />
       </svg>
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-table" />
+              xlinkHref="#talend-table"
+            />
           </svg>
           Table
         </a>
@@ -449,20 +538,24 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-expanded" />
+              xlinkHref="#talend-expanded"
+            />
           </svg>
           Expanded
         </a>
@@ -470,20 +563,24 @@ exports[`SelectDisplayMode should render with displayMode = tile 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-tiles" />
+              xlinkHref="#talend-tiles"
+            />
           </svg>
           Tile
         </a>
