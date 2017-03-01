@@ -14,20 +14,29 @@ const initialState = new Map({
 	header: 'DO SOMETHING',
 	show: true,
 	children: 'Confirm this !',
-	validateAction: {
-		label: 'Ok',
-		bsStyle: 'primary',
-	},
-	cancelAction: {
-		label: 'No !',
-	},
 });
 
 describe('Container ConfirmDialog', () => {
-	it('should render', () => {
+	it('should not render', () => {
 		const wrapper = renderer.create(
 			<Provider>
 				<Container initialState={initialState} />
+			</Provider>,
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render', () => {
+		const state = new Map({
+			size: 'small',
+			header: 'DO SOMETHING',
+			show: true,
+			children: 'Confirm this !',
+			validateAction: 'menu:demo',
+			cancelAction: 'menu:demo',
+		});
+		const wrapper = renderer.create(
+			<Provider>
+				<Container state={state} />
 			</Provider>,
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();

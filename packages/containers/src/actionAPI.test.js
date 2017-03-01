@@ -37,16 +37,6 @@ describe('actionAPI.getActionsProps', () => {
 		expect(context.registry['actionCreator:action-creator']).toHaveBeenCalled();
 	});
 
-	it('should return input when ids is neither a string neither an array', () => {
-		const context = mock.context();
-		const model = { model: true };
-		const idsObj = {};
-		context.store.dispatch = jest.fn();
-		const props = action.getProps(context, idsObj, model);
-		expect(props).toBe(idsObj);
-		expect(props.onClick).toBeUndefined();
-	});
-
 	it('should return props for multiple actions', () => {
 		const context = mock.context();
 		const model = { model: true };
