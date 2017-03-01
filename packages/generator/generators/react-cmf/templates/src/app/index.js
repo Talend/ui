@@ -4,7 +4,6 @@
  * and other style can override it
  */
 import 'bootstrap-talend-theme/src/theme/theme.scss';
-import 'whatwg-fetch';
 import React from 'react';
 import { render } from 'react-dom';
 import { App, store as cmfstore, actions } from 'react-cmf';
