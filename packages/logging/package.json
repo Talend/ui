@@ -47,7 +47,7 @@
     ]
   },
   "peerDependencies": {},
-  "version": "0.0.1",
+  "version": "0.63.0",
   "dependencies": {
     "tracekit": "^0.4.4",
     "whatwg-fetch": "^2.0.2"
