@@ -105,10 +105,7 @@ export function status(response) {
 	return Promise.reject(new HTTPError(response));
 }
 
-export function handleResponse(response) {
-	if (response.status === 204) {
-		return Promise.resolve({});
-	}
+export function json(response) {
 	if (response.json) {
 		return response.json();
 	}
@@ -143,7 +140,7 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 	};
 	return fetch(action.url, config)
 		.then(status)
-		.then(handleResponse)
+		.then(json)
 		.then((response) => {
 			const newAction = Object.assign({}, action);
 			dispatch(httpResponse(response));
