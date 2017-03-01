@@ -3,11 +3,7 @@ import renderer from 'react-test-renderer';
 
 jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',  () => (props) =>
 	{
-		console.log('LES PROPS **********************************');
-
-		console.log(props);
-		console.log(props.children);
-		return (<div id="autoSizer">{props.children()}</div>);
+		return (<div id="autoSizer">{props.children({height: 30, width: 30})}</div>);
 	}
 );
 
@@ -29,6 +25,9 @@ describe('Items', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
+				getItemHeight: () => {
+					return 42;
+				},
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',

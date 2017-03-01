@@ -2,15 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 jest.mock('../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => (props) =>
 	{
-		console.log('LES PROPS **********************************');
-
-		console.log(props);
-		console.log(props.children);
-		return (<div id="autoSizer">{props.children()}</div>);
+		return (<div id="autoSizer">{props.children({height: 30, width: 30})}</div>);
 	}
 );
-	/*(props) => (<div id="AutoSizer">{ props.children }</div>)
-);*/
+
 import Enumeration from './Enumeration.component';
 
 describe('Enumeration', () => {
@@ -43,6 +38,9 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => {
+					return 42;
+				},
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -101,6 +99,9 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => {
+					return 42;
+				},
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -163,6 +164,9 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => {
+					return 42;
+				},
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
