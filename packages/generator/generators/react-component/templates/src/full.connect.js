@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { actions } from 'react-cmf';
+import { componentState } from 'react-talend-containers';
 
 import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
-import { getStateAccessors, getStateProps } from '../state';
 
 export function getContainerInfo(ownProps) {
 	return {
@@ -13,17 +13,17 @@ export function getContainerInfo(ownProps) {
 
 export function mapDispatchToProps(dispatch, ownProps) {
 	const info = getContainerInfo(ownProps);
-	const props = getStateAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
+	const props = componentState.getAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
 	props.dispatch = dispatch;
 	return props;
 }
 
 export function mapStateToProps(state, ownProps) {
 	const info = getContainerInfo(ownProps);
-	return getStateProps(state, info.name, info.id);
+	return componentState.getProps(state, info.name, info.id);
 }
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
 )(Container);

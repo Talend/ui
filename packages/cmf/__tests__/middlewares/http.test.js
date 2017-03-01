@@ -11,7 +11,7 @@ import {
 	httpMiddleware,
 	HTTPError,
 	status,
-	json,
+	handleResponse,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -221,16 +221,24 @@ describe('json function', () => {
 		const response = {
 			status: 502,
 		};
-		return json(response).catch((err) => {
+		return handleResponse(response).catch((err) => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
 	it('should resolve if attr json is on response', () => {
 		const response = {
-			status: 204,
+			status: 200,
 			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
 		};
-		return json(response).then((r) => {
+		return handleResponse(response).then((r) => {
+			expect(r).toMatchSnapshot();
+		});
+	});
+	it('should resolve status 204 but without json function', () => {
+		const response = {
+			status: 204,
+		};
+		return handleResponse(response).then((r) => {
 			expect(r).toMatchSnapshot();
 		});
 	});

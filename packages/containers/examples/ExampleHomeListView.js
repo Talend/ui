@@ -106,8 +106,17 @@ const listProps = {
 	items,
 };
 
-export default function ExampleHomeListView() {
-	return (
+const ExampleHomeListView = {
+	default: () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<HomeListView
+				sidepanel={sidepanel}
+				list={listProps}
+			/>
+		</div>
+	),
+	drawer: () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<HomeListView
@@ -118,5 +127,7 @@ export default function ExampleHomeListView() {
 				<h1>hello children</h1>
 			</HomeListView>
 		</div>
-	);
-}
+	),
+};
+
+export default ExampleHomeListView;
