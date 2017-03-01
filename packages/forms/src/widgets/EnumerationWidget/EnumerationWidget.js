@@ -8,6 +8,19 @@ class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.defaultActions = [{
+			disabled: false,
+			label: 'Edit',
+			icon: 'talend-pencil',
+			id: 'edit',
+			onClick: this.onEnterEditModeItem.bind(this),
+		}, {
+			label: 'Delete',
+			icon: 'talend-trash',
+			id: 'delete',
+			onClick: this.onDeleteItem.bind(this),
+		}];
+
 		this.state = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 
@@ -44,18 +57,7 @@ class EnumerationWidget extends React.Component {
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
 				onSelectItem: this.onSelectItem.bind(this),
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
-					onClick: this.onEnterEditModeItem.bind(this),
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: this.onDeleteItem.bind(this),
-				}],
+				actionsDefault: this.defaultActions,
 				actionsEdit: [{
 					disabled: true,
 					label: 'Validate',
@@ -183,10 +185,23 @@ class EnumerationWidget extends React.Component {
 				displayMode: 'DISPLAY_MODE_DEFAULT',
 				selectedItems: [],
 			});
+		}		else if (result.length > 1) {
+			// remove delete action when multiselection
+			const newActions = this.state.itemsProp.actionsDefault
+                .filter((action) => action.id !== 'delete');
+			const itemsProp = { ...this.state.itemsProp, actionsDefault: newActions };
+			this.setState({
+				displayMode: 'DISPLAY_MODE_SELECTED',
+				selectedItems: result,
+				itemsProp,
+			});
 		}		else {
 			this.setState({
 				displayMode: 'DISPLAY_MODE_SELECTED',
 				selectedItems: result,
+				itemsProp: { ...this.state.itemsProp,
+					actionsDefault: this.defaultActions,
+				},
 			});
 		}
 	}
