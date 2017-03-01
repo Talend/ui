@@ -1,12 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
 <div
   className="panel panel-default"
-  id={null}>
+  id={null}
+>
   <div
-    className="panel-heading">
+    className="panel-heading"
+  >
     <h4
       className="panel-title"
-      role="presentation">
+      role="presentation"
+    >
       <a
         aria-controls={undefined}
         aria-expanded={false}
@@ -14,35 +19,44 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
         className="collapsed"
         href={undefined}
         onClick={[Function]}
-        role={undefined}>
+        role={undefined}
+      >
         <div
-          className={undefined}>
+          className={undefined}
+        >
           <div
-            className="tc-status text-info undefined">
+            className="tc-status text-info undefined"
+          >
             <i
               aria-hidden="true"
               className="fa fa-check"
-              title={null} />
+              title={null}
+            />
             <span
-              className="tc-status-label">
+              className="tc-status-label"
+            >
                
               inProgress
                
             </span>
             <span
-              className={undefined}>
+              className={undefined}
+            >
               <div
-                className="tc-actions btn-group">
+                className="tc-actions btn-group"
+              >
                 <button
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
                   role={null}
-                  type="button">
+                  type="button"
+                >
                   <i
                     aria-hidden="true"
                     className="fa fa-cancel"
-                    title={null} />
+                    title={null}
+                  />
                   <span>
                     cancel
                   </span>
@@ -52,11 +66,13 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
                   disabled={false}
                   onClick={[Function]}
                   role={null}
-                  type="button">
+                  type="button"
+                >
                   <i
                     aria-hidden="true"
                     className="fa fa-delete"
-                    title={null} />
+                    title={null}
+                  />
                   <span>
                     delete
                   </span>
@@ -66,7 +82,8 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           </div>
         </div>
         <div
-          className={undefined}>
+          className={undefined}
+        >
           <button
             aria-describedby={42}
             className="btn btn-link"
@@ -77,34 +94,40 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
             onMouseOut={[Function]}
             onMouseOver={[Function]}
             role="link"
-            type="button">
+            type="button"
+          >
             <i
               aria-hidden="true"
               className="fa fa-edit"
-              title={null} />
+              title={null}
+            />
           </button>
         </div>
         <div
-          className={undefined}>
+          className={undefined}
+        >
           <span
             aria-describedby={42}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
             onMouseOut={[Function]}
-            onMouseOver={[Function]}>
+            onMouseOver={[Function]}
+          >
             by Charles
           </span>
         </div>
         <div
-          className="">
+          className=""
+        >
           <span
             aria-describedby={42}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
             onMouseOut={[Function]}
-            onMouseOver={[Function]}>
+            onMouseOver={[Function]}
+          >
             on TDP
           </span>
           <span
@@ -114,16 +137,19 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
             onClick={null}
             onFocus={[Function]}
             onMouseOut={[Function]}
-            onMouseOver={[Function]}>
+            onMouseOver={[Function]}
+          >
             XML
           </span>
         </div>
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-caret-down" />
+            xlinkHref="#talend-caret-down"
+          />
         </svg>
       </a>
     </h4>
@@ -133,20 +159,26 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
     aria-hidden={true}
     className="panel-collapse collapse"
     id={undefined}
-    role={undefined}>
+    role={undefined}
+  >
     <div
-      className="panel-body">
+      className="panel-body"
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <div
-          className={undefined}>
+          className={undefined}
+        >
           <span
-            className="label label-default">
+            className="label label-default"
+          >
             Content
           </span>
         </div>
         <div
-          className={undefined}>
+          className={undefined}
+        >
           Description3
         </div>
       </div>
@@ -158,37 +190,47 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
 exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
 <div
   className="tc-collapsible-panel undefined panel panel-default"
-  id={undefined}>
+  id={undefined}
+>
   <div
-    className="panel-heading">
+    className="panel-heading"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className="tc-status text-info undefined">
+        className="tc-status text-info undefined"
+      >
         <i
           aria-hidden="true"
           className="fa fa-check"
-          title={null} />
+          title={null}
+        />
         <span
-          className="tc-status-label">
+          className="tc-status-label"
+        >
            
           inProgress
            
         </span>
         <span
-          className={undefined}>
+          className={undefined}
+        >
           <div
-            className="tc-actions btn-group">
+            className="tc-actions btn-group"
+          >
             <button
               className="btn btn-default"
               disabled={false}
               onClick={[Function]}
               role={null}
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-cancel"
-                title={null} />
+                title={null}
+              />
               <span>
                 cancel
               </span>
@@ -198,11 +240,13 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
               disabled={false}
               onClick={[Function]}
               role={null}
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-delete"
-                title={null} />
+                title={null}
+              />
               <span>
                 delete
               </span>
@@ -212,7 +256,8 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <button
         aria-describedby={42}
         className="btn btn-link"
@@ -223,34 +268,40 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <i
           aria-hidden="true"
           className="fa fa-edit"
-          title={null} />
+          title={null}
+        />
       </button>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <span
         aria-describedby={42}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
         onMouseOut={[Function]}
-        onMouseOver={[Function]}>
+        onMouseOver={[Function]}
+      >
         by Charles
       </span>
     </div>
     <div
-      className="">
+      className=""
+    >
       <span
         aria-describedby={42}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
         onMouseOut={[Function]}
-        onMouseOver={[Function]}>
+        onMouseOver={[Function]}
+      >
         on TDP
       </span>
       <span
@@ -260,7 +311,8 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
         onClick={null}
         onFocus={[Function]}
         onMouseOut={[Function]}
-        onMouseOver={[Function]}>
+        onMouseOver={[Function]}
+      >
         XML
       </span>
     </div>

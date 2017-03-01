@@ -1,12 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Header should render header input with two buttons 1`] = `
 <header
-  className="undefined tc-enumeration-header">
+  className="undefined tc-enumeration-header"
+>
   <input
     autoFocus={true}
     onChange={[Function]}
     onKeyDown={[Function]}
     placeholder="New entry"
-    type="text" />
+    type="text"
+  />
   <button
     aria-describedby={42}
     className="btn btn-link"
@@ -17,13 +21,16 @@ exports[`Header should render header input with two buttons 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-check" />
+        xlinkHref="#talend-check"
+      />
     </svg>
   </button>
   <button
@@ -36,13 +43,16 @@ exports[`Header should render header input with two buttons 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-cross" />
+        xlinkHref="#talend-cross"
+      />
     </svg>
   </button>
 </header>
