@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -33,7 +33,7 @@ const actions = [
 const drawers = [
 	(<div style={{ width: 500 }}>
 		<h1>Hello drawers</h1>
-		<p>You should not being able to read this because I'm first</p>
+		<p>You should not being able to read this because I&rsquo;m first</p>
 	</div>),
 	(<div style={{ width: 400 }}>
 		<h1>Hello drawers</h1>
@@ -91,9 +91,12 @@ const sidePanel = (<SidePanel
 	onToggleDock={action('Toggle dock clicked')}
 	docked={false}
 />);
-const header = {
-	app: 'Example App Name',
-};
+const dockedSidePanel = (<SidePanel
+	actions={actions}
+	onToggleDock={action('Toggle dock clicked')}
+	docked
+/>);
+const header = (<AppHeaderBar app="Example App Name" />);
 
 const listItem = {
 	id: 1,
@@ -273,75 +276,46 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('TwoColumns with big Table list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Large list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'large'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Tile list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'tile'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns docked', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				{content}
-				<IconsProvider defaultIcons={icons} />
-			</Layout>
-		);
-	})
+	.addWithInfo('TwoColumns with big Table list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with big Large list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} displayMode={'large'} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with big Tile list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} displayMode={'tile'} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns docked', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
 	.addWithInfo('TwoColumns with drawers', () => (
 		<Layout
 			header={header}
