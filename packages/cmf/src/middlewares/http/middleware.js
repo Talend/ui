@@ -147,10 +147,7 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 			} finally {
 				dispatch(httpError(newAction.error));
 				if (newAction.onError) {
-					const onErrorAction = onError(newAction, newAction.error);
-					if (onErrorAction) {
-						dispatch(onError(newAction, newAction.error));
-					}
+					dispatch(onError(newAction, newAction.error));
 				}
 			}
 		});

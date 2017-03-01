@@ -238,44 +238,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle only HTTP_ERROR if the callback don\'t return a action', (done) => {
-		const store = {
-			dispatch: jest.fn(),
-		};
-		const next = jest.fn();
-		const action = {
-			type: HTTP_METHODS.POST,
-			body: { label: 'great test' },
-			onSend: 'CALL_ME_BACK on send',
-			onResponse: 'CALL_ME_BACK on response',
-			onError: () => {},
-			response: {
-				ok: false,
-				status: 500,
-				statusText: 'Internal Server Error',
-				type: 'basic',
-				url: '//foo/bar',
-				clone: () => ({
-					text: () => new Promise(resolve => resolve('invalid json')),
-				}),
-			},
-		};
-		const middleware = httpMiddleware(store)(next);
-		expect(typeof middleware).toBe('function');
-		const newState = middleware(action);
-		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(3);
-			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.status).toBe(500);
-			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
-			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
-			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-			done();
-		});
-	});
-
-	it('should httpMiddleware handle only HTTP_ERROR if the callback don\'t return a action', (done) => {
+	it('should httpMiddleware handle callback onError', (done) => {
 		const store = {
 			dispatch: jest.fn(),
 		};
