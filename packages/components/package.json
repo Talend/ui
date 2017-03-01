@@ -52,7 +52,7 @@
     "babel-cli": "6.14.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "6.1.2",
-    "babel-jest": "^17.0.0",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -60,7 +60,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.61.3",
+    "bootstrap-talend-theme": "^0.62.0",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
@@ -73,7 +73,7 @@
     "eslint-plugin-react": "^6.4.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.1",
-    "jest": "^17.0.0",
+    "jest": "^19.0.1",
     "keycode": "^2.1.8",
     "node-sass": "^3.10.1",
     "npm-watch": "^0.1.6",
@@ -91,7 +91,7 @@
     "slimerjs": "^0.10.2",
     "storyshots": "^3.2.0",
     "style-loader": "^0.13.1",
-    "talend-icons": "^0.61.3",
+    "talend-icons": "^0.62.0",
     "uuid": "^2.0.3",
     "webpack": "1.13.1"
   },
@@ -99,7 +99,7 @@
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "testPathDirs": [
+    "roots": [
       "src",
       "__mocks__"
     ],
@@ -110,15 +110,15 @@
   },
   "peerDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.61.3",
+    "bootstrap-talend-theme": "^0.62.0",
     "classnames": "^2.2.5",
     "invariant": "^2.2.1",
     "keycode": "^2.1.8",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.1",
     "react-bootstrap": "0",
-    "talend-icons": "^0.61.3",
+    "talend-icons": "^0.62.0",
     "uuid": "^2.0.3"
   },
-  "version": "0.61.3"
+  "version": "0.62.0"
 }

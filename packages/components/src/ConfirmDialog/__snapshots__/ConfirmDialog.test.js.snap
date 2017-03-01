@@ -1,31 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   bsSize="large"
   className="Modal"
   keyboard={true}
-  show={true}>
+  show={true}
+>
   <div
     className="Header"
-    closeButton={false}>
+    closeButton={false}
+  >
     <div
-      className="Title">
+      className="Title"
+    >
       Hello world
     </div>
   </div>
   <div
-    className="Body">
+    className="Body"
+  >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer">
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         CANCEL
       </span>
@@ -35,7 +43,8 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         OK
       </span>
@@ -49,32 +58,39 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   bsSize="large"
   className="Modal"
   keyboard={true}
-  show={true}>
+  show={true}
+>
   <div
     className="Header"
-    closeButton={false}>
+    closeButton={false}
+  >
     <div
-      className="Title">
+      className="Title"
+    >
       Hello world
     </div>
   </div>
   <div
-    className="Body">
+    className="Body"
+  >
     <div
       className="ProgressBar"
-      now={25} />
+      now={25}
+    />
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer">
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         CANCEL
       </span>
@@ -84,7 +100,8 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         OK
       </span>
@@ -98,29 +115,35 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   bsSize="small"
   className="Modal"
   keyboard={true}
-  show={true}>
+  show={true}
+>
   <div
     className="Header"
-    closeButton={false}>
+    closeButton={false}
+  >
     <div
-      className="Title">
+      className="Title"
+    >
       Hello world
     </div>
   </div>
   <div
-    className="Body">
+    className="Body"
+  >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer">
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         CANCEL
       </span>
@@ -130,7 +153,8 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         OK
       </span>
@@ -144,29 +168,35 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   bsSize={undefined}
   className="Modal"
   keyboard={true}
-  show={true}>
+  show={true}
+>
   <div
     className="Header"
-    closeButton={false}>
+    closeButton={false}
+  >
     <div
-      className="Title">
+      className="Title"
+    >
       Hello world
     </div>
   </div>
   <div
-    className="Body">
+    className="Body"
+  >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer">
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         CANCEL
       </span>
@@ -176,7 +206,8 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         OK
       </span>
@@ -190,21 +221,25 @@ exports[`ConfirmDialog should render without header 1`] = `
   bsSize={undefined}
   className="Modal"
   keyboard={true}
-  show={true}>
+  show={true}
+>
   <div
-    className="Body">
+    className="Body"
+  >
     <div>
       BODY
     </div>
   </div>
   <div
-    className="Footer">
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         CANCEL
       </span>
@@ -214,7 +249,8 @@ exports[`ConfirmDialog should render without header 1`] = `
       disabled={false}
       onClick={[Function]}
       role={null}
-      type="button">
+      type="button"
+    >
       <span>
         OK
       </span>

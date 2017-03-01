@@ -29,8 +29,8 @@
     "babel-jest": "14.1.0",
     "babel-loader": "6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "6.13.2",
     "babel-preset-react": "6.11.1",
     "copy-webpack-plugin": "3.0.1",
@@ -43,12 +43,11 @@
     "eslint-plugin-react": "6.2.0",
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
-    "jest": "14.1.0",
-    "jest-cli": "14.1.0",
+    "jest-cli": "^18.1.0",
     "node-sass": "3.10.0",
     "postcss-loader": "^1.2.2",
-    "react-addons-test-utils": "15.3.1",
-    "react-test-renderer": "15.3.1",
+    "react-addons-test-utils": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "sass-loader": "4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -57,11 +56,13 @@
     "webpack-dev-server": "1.14.1"
   },
   "jest": {
-    "testRegex": "/.*\\.tests.js",
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "automock": false
+    "testRegex": "/.*\\.test.js$",
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/src/test/styleMock.js"
+    }
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "bootstrap-sass": "^3.3.7",
     "bootstrap-talend-theme": "^0.61.2",
     "classnames": "2.2.5",
@@ -78,6 +79,7 @@
     "react-router-redux": "4.0.5",
     "react-talend-components": "^0.61.2",
     "react-talend-containers": "^0.61.2",
+    "react-talend-forms": "^0.61.2",
     "redux": "3.5.2",
     "redux-batched-actions": "^0.1.5",
     "redux-logger": "2.6.1",

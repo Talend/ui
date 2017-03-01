@@ -42,6 +42,7 @@ module.exports = yeoman.Base.extend({
 	writing() {
 		const fileToCopy = [
 			'src',
+			'env.js',
 			'webpack.config.js',
 			'webpack.config.dev.js',
 			'webpack.config.prod.js',

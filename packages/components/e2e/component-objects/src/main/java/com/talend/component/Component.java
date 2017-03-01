@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Parent class for API react-talend-component components.
@@ -35,6 +36,8 @@ public class Component {
         this.driver = driver;
         this.name = name;
         this.selector = selector;
+
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     /**

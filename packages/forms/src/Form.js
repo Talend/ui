@@ -7,11 +7,14 @@ import Button from 'react-bootstrap/lib/Button';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
+import ArrayField from './fields/ArrayField';
 import FieldTemplate from './templates/FieldTemplate';
 import SwitchWidget from './widgets/SwitchWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
+import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
+import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -23,10 +26,12 @@ const customWidgets = {
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
+	datalist: DatalistWidget,
+	enumeration: EnumerationWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag'],
+	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist', 'enumeration'],
 };
 
 export function renderActionIcon(icon) {
@@ -108,6 +113,7 @@ class Form extends React.Component {
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
+			ArrayField,
 			BooleanField,
 			ObjectField,
 			StringField,
