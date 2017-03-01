@@ -33,11 +33,22 @@ const Registry = {
  * @param {any} item Everything you want, a function, an object or whatever
  */
 function addToRegistry(id, item) {
-	const r = Registry.getRegistry();
-	if (!r.isLocked) {
-		r[id] = item;
+	if (Registry.isLocked()) {
+		throw new Error(
+			`CMF: The registry is locked, you cannot therefore add '${id}' in it. ` +
+			'Please check your CMF configuration, it should not move after the initial ' +
+			'configuration before bootstrap.'
+		);
 	}
-	// Should it do nothing ?
+
+	const registry = Registry.getRegistry();
+	if (registry[id]) {
+		console.warn( // eslint-disable-line no-console
+			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
+			'Please check your CMF configuration, you might not want that.'
+		);
+	}
+	registry[id] = item;
 }
 
 /**
@@ -55,9 +66,17 @@ function getFromRegistry(id) {
 	return getRegistry()[id];
 }
 
+/**
+ * Lock the registry
+ */
+function lock() {
+	Registry.lock();
+}
+
 export default {
 	Registry,
 	addToRegistry,
 	getRegistry,
 	getFromRegistry,
+	lock,
 };
