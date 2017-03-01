@@ -1,13 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Item should display value with two buttons 1`] = `
 <li
   className="undefined tc-enumeration-item"
-  id="0-item">
+  id="0-item"
+>
   <div
-    className="undefined tc-enumeration-item-label">
+    className="undefined tc-enumeration-item-label"
+  >
     toto
   </div>
   <div
-    className="undefined tc-enumeration-item-actions">
+    className="undefined tc-enumeration-item-actions"
+  >
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -18,7 +23,8 @@ exports[`Item should display value with two buttons 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button" />
+      type="button"
+    />
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -29,7 +35,8 @@ exports[`Item should display value with two buttons 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button" />
+      type="button"
+    />
   </div>
 </li>
 `;

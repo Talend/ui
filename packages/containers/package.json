@@ -37,7 +37,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "6.1.2",
-    "babel-jest": "^17.0.2",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
@@ -57,6 +57,7 @@
     "eslint-plugin-react": "^6.2.0",
     "immutable": "3",
     "invariant": "^2.2.2",
+    "jest": "^19.0.1",
     "jest-cli": "^17.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.2",
@@ -96,15 +97,15 @@
     }
   },
   "peerDependencies": {
+    "immutable": "3",
+    "invariant": "^2.2.2",
+    "lodash": "4.17.2",
     "react": "^15.4.2",
     "react-bootstrap": "0",
     "react-cmf": "^0.62.0",
     "react-talend-components": "^0.62.0",
     "react-redux": "^4.4.6",
-    "reselect": "^2.5.4",
-    "immutable": "3",
-    "invariant": "^2.2.2",
-    "lodash": "4.17.2"
+    "reselect": "^2.5.4"
   },
   "dependencies": {},
   "version": "0.62.0"
