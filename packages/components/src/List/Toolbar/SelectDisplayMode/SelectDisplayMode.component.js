@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-import _intersection from 'lodash/intersection';
 
 import Icon from '../../../Icon';
 
