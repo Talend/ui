@@ -79,6 +79,7 @@
     "react-router-redux": "4.0.5",
     "react-talend-components": "^0.61.2",
     "react-talend-containers": "^0.61.2",
+    "react-talend-forms": "^0.61.2",
     "redux": "3.5.2",
     "redux-batched-actions": "^0.1.5",
     "redux-logger": "2.6.1",

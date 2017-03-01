@@ -3,6 +3,21 @@
     "title": "Widgets",
     "type": "object",
     "properties": {
+      "enumeration": {
+        "type": "array",
+        "title": "Enumeration",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "stringFormats": {
         "type": "object",
         "title": "String formats",
@@ -71,6 +86,9 @@
     }
   },
   "uiSchema": {
+    "enumeration": {
+      "ui.widget": "enumeration"
+    },
     "boolean": {
       "radio": {
         "ui:widget": "radio"
@@ -98,6 +116,19 @@
     }
   },
   "properties": {
+    "enumeration": [{
+      "id": 1,
+      "label": "Loreum lopsum 1"
+    }, {
+      "id": 2,
+      "label": "Loreum lopsum 2"
+    }, {
+      "id": 3,
+      "label": "Loreum lopsum 3"
+    }, {
+      "id": 4,
+      "label": "Loreum lopsum 4"
+    }],
     "stringFormats": {
       "email": "chuck@norris.net",
       "uri": "http://chucknorris.com/"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Immutable, { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
@@ -32,6 +32,12 @@ const toolbar = {
 		],
 		field: 'id',
 		isDescending: false,
+	},
+	pagination: {
+		startIndex: 1,
+		itemsPerPage: 25,
+		totalResults: 36,
+		onChange: 'pagination:change',
 	},
 };
 
@@ -99,6 +105,7 @@ describe('Container List', () => {
 		expect(props.toolbar.sort.options.length).toBe(2);
 		expect(props).toMatchSnapshot();
 	});
+
 	it('should render without toolbar', () => {
 		const wrapper = shallow(
 			<Container items={items} />
@@ -106,6 +113,7 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
+
 	it('should support displayMode as props', () => {
 		const wrapper = shallow(
 			<Container displayMode="large" items={items} />
@@ -140,6 +148,34 @@ describe('Container List', () => {
 		expect(calls[0][1]).toBe(data);
 		expect(calls[0][2].registry).toBe(context.registry);
 	});
+
+	it('should call action creator on pagination change', () => {
+		// given
+		const dispatch = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:pagination:change': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container {...settings} items={items} dispatch={dispatch} />,
+			{
+				lifecycleExperimental: true,
+				context,
+			});
+		const props = wrapper.props();
+		const event = {};
+		const data = { foo: 'bar' };
+
+		expect(actionCreator).not.toBeCalled();
+
+		// when
+		props.toolbar.pagination.onChange(event, data);
+
+		// then
+		expect(actionCreator).toBeCalledWith(event, data, context);
+	});
 });
 
 describe('Connected List', () => {
@@ -147,32 +183,88 @@ describe('Connected List', () => {
 		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
-	it('should map state to props', () => {
+
+	it('should map items to props from collection List', () => {
+		// given
 		const state = {
 			cmf: {
-				components: new Map({
+				components: fromJS({
 					List: {
-						default: DEFAULT_STATE.toJS(),
+						cid: DEFAULT_STATE.toJS(),
 					},
 				}),
-				collections: Immutable.fromJS({
+				collections: fromJS({
 					cid: items,
 				}),
 			},
 		};
-		let props = mapStateToProps(state, {
-			settings: {
-				collectionId: 'cid',
-			},
-		});
-		expect(typeof props).toBe('object');
-		props = mapStateToProps(state, {
-			settings: {},
-			items: Immutable.fromJS(items),
-		});
-		expect(typeof props).toBe('object');
+
+		// when
+		const props = mapStateToProps(state, { collectionId: 'cid' });
+
+		// then
+		expect(props).toMatchSnapshot();
 	});
-	it('should map state to props', () => {
+
+	it('should map items to props from default collection List', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					List: {
+						default: DEFAULT_STATE.toJS(),
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+
+		// when : no collectionId defined
+		const props = mapStateToProps(state, {
+			items: fromJS(items),
+		});
+
+		// then
+		expect(props).toMatchSnapshot();
+	});
+
+	it('should map items to props from collection Map', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					List: {
+						cid: {
+							...(DEFAULT_STATE.toJS()),
+							toolbar: {
+								pagination: {
+									onChange: 'pagination:change',
+								},
+							},
+						},
+					},
+				}),
+				collections: fromJS({
+					cid: {
+						pagination: {
+							totalResults: 36,
+							itemsPerPage: 25,
+							startIndex: 1,
+						},
+						items,
+					},
+				}),
+			},
+		};
+
+		// when
+		const props = mapStateToProps(state, { collectionId: 'cid', toolbar: {} });
+
+		// then
+		expect(props).toMatchSnapshot();
+	});
+
+	it('should map dispatch to props', () => {
 		const dispatch = () => {};
 		const props = mapDispatchToProps(dispatch, {
 			settings: {},

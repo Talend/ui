@@ -6,8 +6,9 @@ module.exports = () => {
 	return {
 		entry: './src/index.js',
 		output: {
-			path: `${__dirname}/dist`,
 			filename: 'bootstrap.js',
+			path: `${__dirname}/dist`,
+			publicPath: '/dist',
 		},
 		module: {
 			rules: [
@@ -23,8 +24,8 @@ module.exports = () => {
 				{
 					test: /bootstrap\.scss$/,
 					loader: ExtractTextPlugin.extract({
-						fallbackLoader: 'style-loader',
-						loader: [
+						fallback: 'style-loader',
+						use: [
 							{
 								loader: 'css-loader',
 								options: {
@@ -39,8 +40,6 @@ module.exports = () => {
 									plugins: () => [
 										autoprefixer({
 											browsers: ['last 2 versions'],
-											cascade: true,
-											remove: true,
 										}),
 									],
 								},
@@ -73,8 +72,13 @@ module.exports = () => {
 			}),
 		],
 		devServer: {
-			contentBase: ['./', './example'],
+			inline: true,
+			noInfo: true,
+			contentBase: `${__dirname}/example`,
+			watchContentBase: true,
+			watchOptions: {
+				poll: true,
+			},
 		},
 	};
 };
-

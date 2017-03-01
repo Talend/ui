@@ -325,6 +325,25 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Get limited options for displayMode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
 	.add('Empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];

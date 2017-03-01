@@ -13,6 +13,7 @@ module.exports = {
 	entry: ['babel-polyfill', 'whatwg-fetch', './src/app/index.js'],
 	output: {
 		path: `${__dirname}/build`,
+		publicPath: '/',
 		filename: '[hash].app.js',
 	},
 	resolve: ['', '.scss', '.css', 'js', 'jsx'],
