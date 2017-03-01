@@ -1,35 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 
 import {
-	deepEquals,
-	getDefaultFormState,
 	orderProperties,
 	retrieveSchema,
 	shouldRender,
-	getDefaultRegistry,
-	setState,
 	getUiOptions,
 	getWidget,
+	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
-
-
-function objectKeysHaveChanged(formData, state) {
-	// for performance, first check for lengths
-	const newKeys = Object.keys(formData);
-	const oldKeys = Object.keys(state);
-	if (newKeys.length < oldKeys.length) {
-		return true;
-	}
-	// deep check on sorted keys
-	if (!deepEquals(newKeys.sort(), oldKeys.sort())) {
-		return true;
-	}
-	return false;
-}
 
 class ObjectField extends Component {
 	static defaultProps = {
 		uiSchema: {},
+		formData: {},
 		errorSchema: {},
 		idSchema: {},
 		registry: getDefaultRegistry(),
@@ -38,36 +21,17 @@ class ObjectField extends Component {
 		readonly: false,
 	};
 
-	constructor(props) {
-		super(props);
-		this.state = this.getStateFromProps(props);
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const state = this.getStateFromProps(nextProps);
-		const { formData } = nextProps;
-		if (formData && objectKeysHaveChanged(formData, this.state)) {
-			// We *need* to replace state entirely here has we have received formData
-			// holding different keys (so with some removed).
-			this.state = state;
-			this.forceUpdate();
-		} else {
-			this.setState(state);
-		}
-	}
-
 	shouldComponentUpdate(nextProps, nextState) {
 		return shouldRender(this, nextProps, nextState);
 	}
 
-	onPropertyChange = (id, name) => (value, options) => {
-		this.asyncSetState({ [name]: value }, options, id, name, value);
+	onPropertyChange = (name) => (value, options, changeName) => {
+		const newFormData = { ...this.props.formData, [name]: value };
+		if (this.props.registry.formContext.handleSchemaChange && changeName) {
+			this.props.registry.formContext.handleSchemaChange(newFormData, changeName, options);
+		}
+		this.props.onChange(newFormData, options, name);
 	};
-
-	getStateFromProps(props) {
-		const { schema, formData, registry } = props;
-		return getDefaultFormState(schema, formData, registry.definitions) || {};
-	}
 
 	isRequired(name) {
 		const schema = this.props.schema;
@@ -75,25 +39,17 @@ class ObjectField extends Component {
 			schema.required.indexOf(name) !== -1;
 	}
 
-	asyncSetState(state, options = { validate: false }, id, name, value) {
-		setState(this, state, () => {
-			if (this.props.registry.formContext.handleSchemaChange) {
-				this.props.registry.formContext.handleSchemaChange(this.state, id, name, value, options);
-			}
-			this.props.onChange(this.state, options);
-		});
-	}
-
 	render() {
 		const {
 			uiSchema,
+			formData,
 			errorSchema,
 			idSchema,
 			name,
 			required,
 			disabled,
 			readonly,
-			formData,
+			onBlur,
 			onChange,
 		} = this.props;
 
@@ -110,6 +66,7 @@ class ObjectField extends Component {
 			return (<Widget
 				id={idSchema && idSchema.$id}
 				onChange={onChangeHandler}
+				onBlur={onBlur}
 				schema={schema}
 				formData={formData}
 				uiSchema={uiSchema}
@@ -159,8 +116,8 @@ class ObjectField extends Component {
 							uiSchema={uiSchema[propertyName]}
 							errorSchema={errorSchema[propertyName]}
 							idSchema={idSchema[propertyName]}
-							formData={this.state[propertyName]}
-							onChange={this.onPropertyChange(schema.id, propertyName)}
+							formData={formData[propertyName]}
+							onChange={this.onPropertyChange(propertyName)}
 							registry={this.props.registry}
 							disabled={disabled}
 							readonly={readonly}
@@ -179,6 +136,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSchema: PropTypes.object,
 		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onBlur: PropTypes.func.isRequired,
 		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([

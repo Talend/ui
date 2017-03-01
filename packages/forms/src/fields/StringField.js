@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 
 import {
-	defaultFieldValue,
 	getWidget,
 	getUiOptions,
 	optionsList,
@@ -22,6 +21,7 @@ function StringField(props) {
 		autofocus,
 		registry,
 		onChange,
+		onBlur,
 	} = props;
 	const { title, format } = schema;
 	const { widgets, formContext } = registry;
@@ -40,8 +40,9 @@ function StringField(props) {
 			schema={schema}
 			id={idSchema && idSchema.$id}
 			label={title === undefined ? name : title}
-			value={defaultFieldValue(formData, schema)}
+			value={formData}
 			onChange={onChangeHandler}
+			onBlur={onBlur}
 			required={required}
 			disabled={disabled}
 			readonly={readonly}
@@ -64,6 +65,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSchema: PropTypes.object,
 		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onBlur: PropTypes.func.isRequired,
 		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
 			definitions: PropTypes.object.isRequired,

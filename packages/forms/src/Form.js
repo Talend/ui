@@ -78,16 +78,14 @@ class Form extends React.Component {
 	/**
 	 * Handle changes only if modified field has "ui:trigger" option
 	 * @param changes New formData
-	 * @param id Form id is provided
 	 * @param name Name of the modified field
-	 * @param value New value of the field
 	 * @param options Options from uiSchema for this field
 	 */
-	handleSchemaChange(changes, id, name, value, options) {
+	handleSchemaChange(changes, name, options) {
 		const triggers = options && options.trigger;
 		if (triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
 			if (this.props.onChange) {
-				this.props.onChange(changes, id, name, value);
+				this.props.onChange(changes, name);
 			}
 		}
 	}
@@ -133,7 +131,7 @@ class Form extends React.Component {
 				fields={customFields}
 				FieldTemplate={FieldTemplate}
 				widgets={customWidgets}
-				onChange={undefined}
+				onChange={this.handleSchemaChange}
 				onSubmit={this.handleSchemaSubmit}
 				ref={(c) => { this.form = c; }}
 			>
