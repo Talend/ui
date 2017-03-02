@@ -167,6 +167,26 @@
           "selector": ".tc-side-panel"
         }
       ]
+    },
+    "Enumeration": {
+      "default": [
+        {
+          "name": "enumeration-default",
+          "selector":  [".tc-enumeration"]
+        }
+      ],
+      "add": [
+        {
+          "name": "enumeration-add",
+          "selector":  [".tc-enumeration"]
+        }
+      ],
+			"edit": [
+				{
+          "name": "enumeration-edit",
+          "selector":  [".tc-enumeration"]
+        }
+			]
     }
   }
 }

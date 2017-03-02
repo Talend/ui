@@ -11,6 +11,7 @@ import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Dialog';
 import './Drawer';
+import './Enumeration';
 import './Icon';
 import './Layout';
 import './List';
@@ -23,4 +24,3 @@ import './TooltipTrigger';
 import './TreeView';
 import './Toggle';
 import './Typeahead';
-

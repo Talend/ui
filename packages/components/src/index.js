@@ -77,6 +77,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
+import Enumeration from './Enumeration';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -86,9 +87,9 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import Toggle from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
-import Toggle from './Toggle';
 
 export {
 	Action,
@@ -101,6 +102,7 @@ export {
 	CircularProgress,
 	CollapsiblePanel,
 	Dialog,
+	Enumeration,
 	ConfirmDialog,
 	Drawer,
 	TreeView,
@@ -114,6 +116,7 @@ export {
 	Progress,
 	SidePanel,
 	Status,
+	Toggle,
 	TooltipTrigger,
 	Typeahead,
 
@@ -179,7 +182,6 @@ export {
 	Table,
 	TabPane,
 	Tabs,
-	Toggle,
 	Thumbnail,
 	Tooltip,
 	Well,

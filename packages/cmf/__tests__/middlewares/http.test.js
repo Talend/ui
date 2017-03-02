@@ -11,7 +11,7 @@ import {
 	httpMiddleware,
 	HTTPError,
 	status,
-	json,
+	handleResponse,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -164,6 +164,9 @@ describe('CMF http middleware', () => {
 				statusText: 'Internal Server Error',
 				type: 'basic',
 				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('{"foo":"bar"}')),
+				}),
 			},
 		};
 		const middleware = httpMiddleware(store)(next);
@@ -176,12 +179,104 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
 			expect(errorHTTPAction.error.stack.status).toBe(500);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
+			expect(errorHTTPAction.error.stack.messageObject).toEqual({
+				foo: 'bar',
+			});
 			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
 			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
 			expect(errorCallbackAction.error.stack.status).toBe(500);
 			expect(errorCallbackAction.error.stack.ok).toBe(false);
+			expect(errorCallbackAction.error.stack.response).toBe('{"foo":"bar"}');
+			expect(errorCallbackAction.error.stack.messageObject).toEqual({
+				foo: 'bar',
+			});
 			done();
-		}).catch(() => done());
+		});
+	});
+	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: false,
+				status: 500,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('invalid json')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorHTTPAction = store.dispatch.mock.calls[2][0];
+			const errorCallbackAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(500);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
+			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
+			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
+			expect(errorCallbackAction.error.stack.status).toBe(500);
+			expect(errorCallbackAction.error.stack.ok).toBe(false);
+			expect(errorCallbackAction.error.stack.response).toBe('invalid json');
+			expect(errorCallbackAction.error.stack.messageObject).toBe(undefined);
+			done();
+		});
+	});
+
+	it('should httpMiddleware handle callback onError', (done) => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: () => ({
+				type: 'CUSTOM_ACTION',
+			}),
+			response: {
+				ok: false,
+				status: 500,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('invalid json')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorHTTPAction = store.dispatch.mock.calls[2][0];
+			const errorCallbackAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(500);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
+			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+			expect(errorCallbackAction.type).toBe('CUSTOM_ACTION');
+			done();
+		});
 	});
 });
 
@@ -221,16 +316,24 @@ describe('json function', () => {
 		const response = {
 			status: 502,
 		};
-		return json(response).catch((err) => {
+		return handleResponse(response).catch((err) => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
 	it('should resolve if attr json is on response', () => {
 		const response = {
-			status: 204,
+			status: 200,
 			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
 		};
-		return json(response).then((r) => {
+		return handleResponse(response).then((r) => {
+			expect(r).toMatchSnapshot();
+		});
+	});
+	it('should resolve status 204 but without json function', () => {
+		const response = {
+			status: 204,
+		};
+		return handleResponse(response).then((r) => {
 			expect(r).toMatchSnapshot();
 		});
 	});

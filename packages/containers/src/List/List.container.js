@@ -36,7 +36,11 @@ export function getItems(context, props) {
 class List extends React.Component {
 	static displayName = 'Container(List)';
 	static propTypes = {
-		actions: PropTypes.object,
+		actions: PropTypes.shape({
+			title: PropTypes.string,
+			left: PropTypes.arrayOf(PropTypes.string),
+			right: PropTypes.arrayOf(PropTypes.string),
+		}),
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -113,13 +117,13 @@ class List extends React.Component {
 		if (this.props.toolbar) {
 			props.toolbar = {
 				display: {
+					...this.props.toolbar.display,
 					onChange: (e, p) => {
 						this.onSelectDisplayMode(e, p);
 					},
 				},
 			};
 			props.toolbar.sort = this.props.toolbar.sort;
-
 			if (props.toolbar.sort) {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
@@ -129,7 +133,6 @@ class List extends React.Component {
 			}
 
 			props.toolbar.filter = this.props.toolbar.filter;
-
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.onToggle(event, data);
@@ -142,7 +145,6 @@ class List extends React.Component {
 
 			props.toolbar.actionBar = { actions: {} };
 			const actions = this.props.actions;
-
 			if (actions) {
 				if (actions.left) {
 					props.toolbar.actionBar.actions.left = getActionsProps(
@@ -156,6 +158,21 @@ class List extends React.Component {
 						actions.right,
 					);
 				}
+			}
+
+			const pagination = this.props.toolbar.pagination;
+			if (pagination) {
+				props.toolbar.pagination = {
+					...pagination,
+					onChange: (event, data) => {
+						this.props.dispatch(
+							api.action.getActionCreatorFunction(
+								this.context,
+								pagination.onChange,
+							)(event, data, this.context),
+						);
+					},
+				};
 			}
 		}
 

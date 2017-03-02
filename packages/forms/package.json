@@ -16,7 +16,7 @@
     "babel-cli": "^6.14.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
-    "babel-jest": "^17.0.2",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -25,16 +25,17 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-talend-theme": "^0.13.20",
     "chokidar": "^1.6.1",
-    "classnames": "^2.2.5",
+    "keycode": "^2.1.8",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
+    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.0",
     "eslint-plugin-react": "^6.2.0",
     "invariant": "^2.2.1",
-    "jest": "^15.1.1",
+    "jest": "^19.0.1",
     "jest-cli": "^17.0.3",
     "json-loader": "^0.5.4",
     "node-sass": "^4.3.0",
@@ -53,13 +54,16 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "keycode": "^2.1.8",
+    "react-autowhatever": "^7.0.0",
     "react-jsonschema-form": "^0.42.0"
   },
   "peerDependencies": {
     "react": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.50.0"
+    "react-talend-components": "^0.61.3"
   },
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
@@ -77,10 +81,14 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
+    "testPathDirs": [
+      "src",
+      "__mocks__"
+    ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/__tests__/styleMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.61.4"
+  "version": "0.63.1"
 }

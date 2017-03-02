@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`OneColumn should render 1`] = `
 <div
-  className="tc-layout-one-column">
+  className="tc-layout-one-column"
+>
   <span>
     children
   </span>
