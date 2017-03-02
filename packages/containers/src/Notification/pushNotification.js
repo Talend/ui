@@ -1,7 +1,8 @@
+import get from 'lodash/get';
 import objectId from 'bson-objectid';
 
 export default function pushNotification(state, notification) {
-	if (!notification.message) {
+	if (!get(notification, 'message')) {
 		return state;
 	}
 	const path = ['Notification', 'Notification', 'notifications'];
