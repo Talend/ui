@@ -2,6 +2,7 @@
  * The purpose of this file is to provide redux-logger middleware for error logging
  * To be applied as errorTransformer, or even actionTransformer
  * @exports redux-logger compatible error logging middleware
+ * @export TraceKit, to avoid adding dependency to customer's code
  **/
 
 import TraceKit_ from 'tracekit';
