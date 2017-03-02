@@ -86,6 +86,7 @@ export function HTTPError(response) {
 	this.name = `HTTP ${response.status}`;
 	this.message = response.statusText;
 	this.stack = {
+		response,
 		headers,
 		status: response.status,
 		statusText: response.statusText,
@@ -136,10 +137,20 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 				stack: error.stack,
 			},
 		}, action);
-		dispatch(httpError(newAction.error));
-		if (newAction.onError) {
-			dispatch(onError(newAction, newAction.error));
-		}
+
+		// clone the response object else the next call to text or json
+		// triggers an exception Already use
+		newAction.error.stack.response.clone().text().then((response) => {
+			try {
+				newAction.error.stack.response = response;
+				newAction.error.stack.messageObject = JSON.parse(response);
+			} finally {
+				dispatch(httpError(newAction.error));
+				if (newAction.onError) {
+					dispatch(onError(newAction, newAction.error));
+				}
+			}
+		});
 	};
 	return fetch(action.url, config)
 		.then(status)
