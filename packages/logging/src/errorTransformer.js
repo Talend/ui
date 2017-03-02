@@ -4,7 +4,7 @@
  * @exports redux-logger compatible error logging middleware
  **/
 
-import TraceKit from 'tracekit';
+import TraceKit_ from 'tracekit';
 import 'whatwg-fetch';
 
 import { sendReport, getDefaultTransport } from './transport';
@@ -21,14 +21,14 @@ const defaultOptions = {
 function safeWrapReport(rethrowErrorHandler) {
 	function report(ex) {
 		try {
-			TraceKit.report(ex);
+			TraceKit_.report(ex);
 		} catch (e) {
 			rethrowErrorHandler(ex);
 		}
 	}
-	report.subscribe = TraceKit.report.subscribe;
-	report.unsubscribe = TraceKit.report.unsubscribe;
-	TraceKit.fallback = TraceKit.report;
+	report.subscribe = TraceKit_.report.subscribe;
+	report.unsubscribe = TraceKit_.report.unsubscribe;
+	TraceKit_.fallback = TraceKit_.report;
 	return report;
 }
 
@@ -73,21 +73,23 @@ export default function initErrorTransformer(logServerUrl, transport = {}, optio
 	const mergedTransport = Object.assign(getDefaultTransport(logServerUrl), transport);
 
 	Error.stackTraceLimit = stackTraceLimit;
-	Object.assign(TraceKit, {
+	Object.assign(TraceKit_, {
 		fetchContext: !!linesOfContext,
 		linesOfContext,
 		...otherTraceKitOptions,
 	});
 
 	if (rethrowErrorHandler) {
-		TraceKit.report = safeWrapReport(rethrowErrorHandler);
+		TraceKit_.report = safeWrapReport(rethrowErrorHandler);
 	}
 
 	function listener(payload) {
 		return sendReport(payload, mergedTransport);
 	}
 
-	TraceKit.report.subscribe(listener);
+	TraceKit_.report.subscribe(listener);
 
 	return listener;
 }
+
+export const TraceKit = TraceKit_;
