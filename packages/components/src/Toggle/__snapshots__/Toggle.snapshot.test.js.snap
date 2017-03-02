@@ -8,8 +8,6 @@ exports[`Toggle should render a Toggle 1`] = `
     htmlFor="id"
   >
     <input
-      checked={false}
-      disabled={false}
       id="id"
       onChange={[Function]}
       type="checkbox"
@@ -27,8 +25,6 @@ exports[`Toggle should render a Toggle with label 1`] = `
     htmlFor="id"
   >
     <input
-      checked={false}
-      disabled={false}
       id="id"
       onChange={[Function]}
       type="checkbox"
@@ -49,7 +45,6 @@ exports[`Toggle should render a checked Toggle 1`] = `
   >
     <input
       checked={true}
-      disabled={false}
       id="id"
       onChange={[Function]}
       type="checkbox"
@@ -67,7 +62,6 @@ exports[`Toggle should render a disabled Toggle 1`] = `
     htmlFor="id"
   >
     <input
-      checked={false}
       disabled={true}
       id="id"
       onChange={[Function]}

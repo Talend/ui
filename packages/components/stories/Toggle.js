@@ -9,15 +9,15 @@ const defaultProps = {
 	id: 'id1',
 	onChange,
 };
-const isChecked = {
+const checked = {
 	id: 'id2',
 	onChange,
-	isChecked: true,
+	checked: true,
 };
-const isDisabled = {
+const disabled = {
 	id: 'id3',
 	onChange,
-	isDisabled: true,
+	disabled: true,
 };
 const withLabel = {
 	id: 'id4',
@@ -39,11 +39,11 @@ storiesOf('Toggle', module)
 				<h3>Default Toggle</h3>
 				<Toggle {...defaultProps}>On/Off</Toggle>
 
-				<h3>Toggle with <code>isChecked: true</code></h3>
-				<Toggle {...isChecked} />
+				<h3>Toggle with <code>checked: true</code></h3>
+				<Toggle {...checked} />
 
-				<h3>Toggle with <code>isDisabled: true</code></h3>
-				<Toggle {...isDisabled} />
+				<h3>Toggle with <code>disabled: true</code></h3>
+				<Toggle {...disabled} />
 
 				<h3>Toggle with <code>label: 'Some label'</code></h3>
 				<Toggle {...withLabel} />

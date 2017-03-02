@@ -22,7 +22,7 @@ describe('Toggle', () => {
 		// given
 		const props = {
 			...defaultProps,
-			isChecked: true,
+			checked: true,
 		};
 
 		// when
@@ -35,7 +35,7 @@ describe('Toggle', () => {
 		// given
 		const props = {
 			...defaultProps,
-			isDisabled: true,
+			disabled: true,
 		};
 
 		// when
