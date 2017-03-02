@@ -101,49 +101,42 @@ const drawers = [
 	</Drawer>),
 	(<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 2</h1>
-		<p>The content dictate the width</p>
-	</Drawer>),
-	(<Drawer
-		tight
-		title="Im drawer 3"
-		onCancelAction={onCancelAction}
-		footerActions={Object.assign({}, basicProps, { selected: 0 })}
-	>
+		<p>The content dictate the scroll</p>
 		<h1>Hello drawer 3</h1>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
-		<p>The content dictate the width</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
+		<p>The content dictate the scroll</p>
 	</Drawer>),
 ];
 

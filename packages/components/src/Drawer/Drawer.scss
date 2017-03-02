@@ -22,7 +22,19 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	right: 0;
 	bottom: 0;
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-	width: 40vw;
+	width: 50vw;
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	.tc-drawer {
+		width: 40vw;
+	}
+}
+
+@media (min-width: $screen-lg-min){
+	.tc-drawer {
+		width: 30vw;
+	}
 }
 
 .tc-drawer-container {
@@ -34,10 +46,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 .drawerStacked {
 	left: 15px;
 	width: initial;
-}
-
-.drawerTight {
-	width: 20vw;
 }
 
 .tc-drawer-header {

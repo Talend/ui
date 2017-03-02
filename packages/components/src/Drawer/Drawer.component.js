@@ -24,14 +24,13 @@ DrawerAnimation.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContainer({ stacked, tight, className, style, children }) {
+function DrawerContainer({ stacked, className, style, children }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
 		{
 			[theme.drawerStacked]: stacked,
-			[theme.drawerTight]: tight,
 		});
 	return (
 		<div className={drawerContainerClasses} style={style}>
@@ -44,7 +43,6 @@ function DrawerContainer({ stacked, tight, className, style, children }) {
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
-	tight: PropTypes.bool,
 	className: PropTypes.string,
 	style: PropTypes.object,
 	children: PropTypes.node.isRequired,
@@ -113,7 +111,6 @@ DrawerFooter.propTypes = {
 
 function Drawer({
 	stacked,
-	tight,
 	title,
 	className,
 	style,
@@ -133,7 +130,7 @@ function Drawer({
 		}
 	}
 	return (
-		<DrawerContainer stacked={stacked} tight={tight} className={className} style={style}>
+		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
 				<DrawerContent>
@@ -147,7 +144,6 @@ function Drawer({
 
 Drawer.propTypes = {
 	stacked: PropTypes.bool,
-	tight: PropTypes.bool,
 	title: PropTypes.string,
 	children: PropTypes.node,
 	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types

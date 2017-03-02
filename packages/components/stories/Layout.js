@@ -31,10 +31,10 @@ const actions = [
 ];
 
 const drawers = [
-	(<Drawer title="Hello drawers">
+	(<Drawer stacked title="Hello drawers">
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>),
-	(<Drawer tight title="Hello drawers">
+	(<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
 	</Drawer>),
 ];
