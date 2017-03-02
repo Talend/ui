@@ -38,21 +38,6 @@
                 {% endif %}
             </div>
 
-            {% if page.disqus == 1 %}
-            <div class="row">
-              {% if site.navigation == 1 or post_count > 0 %}
-                <div id="navigation" class="col-sm-2"></div>
-                <div id="disqus" class="col-sm-10">
-                    {% include disqus.html %}
-                </div>
-              {% else %}
-                <div id="disqus" class="col-sm-12">
-                    {% include disqus.html %}
-                </div>
-              {% endif %}
-            </div>
-            {% endif %}
-
             <div class="row">
                 <div id="footer" class="col-sm-12">
                     {% include footer.html %}
