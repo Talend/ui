@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import theme from './Toggle.scss';
+import classNames from 'classnames';
 
 /**
  * The Toggle component is basically a fancy checkbox like you have in your iphone.
@@ -15,19 +15,21 @@ import theme from './Toggle.scss';
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({ id, isChecked, isDisabled, onChange, label }) {
-	return (<div className={theme['tc-toggle']}>
-		<input
-			type="checkbox"
-			id={id}
-			className={theme['tc-toggle-model']}
-			onChange={onChange}
-			checked={isChecked}
-			disabled={isDisabled}
-		/>
-		<label htmlFor={id} className={theme['tc-toggle-element']} />
-		{label && <label htmlFor={id} className={theme['tc-toggle-status-label']}>{label}</label>}
-	</div>);
+function Toggle({ id, isChecked, isDisabled, onChange, label, children }) {
+	return (
+		<div className="tc-toggle switch checkbox">
+			<label htmlFor={id}>
+				<input
+					type="checkbox"
+					id={id}
+					onChange={onChange}
+					checked={isChecked}
+					disabled={isDisabled}
+				/>
+				<span>{label || children}</span>
+			</label>
+		</div>
+	);
 }
 
 Toggle.propTypes = {
@@ -36,6 +38,7 @@ Toggle.propTypes = {
 	isDisabled: PropTypes.bool,
 	label: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
+	children: PropTypes.node,
 };
 
 Toggle.defaultProps = {

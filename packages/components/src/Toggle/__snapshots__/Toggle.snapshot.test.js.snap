@@ -1,68 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Toggle should render a Toggle 1`] = `
 <div
-  className={undefined}>
-  <input
-    checked={false}
-    className={undefined}
-    disabled={false}
-    id="id"
-    onChange={[Function]}
-    type="checkbox" />
+  className="tc-toggle switch checkbox"
+>
   <label
-    className={undefined}
-    htmlFor="id" />
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span />
+  </label>
 </div>
 `;
 
 exports[`Toggle should render a Toggle with label 1`] = `
 <div
-  className={undefined}>
-  <input
-    checked={false}
-    className={undefined}
-    disabled={false}
-    id="id"
-    onChange={[Function]}
-    type="checkbox" />
+  className="tc-toggle switch checkbox"
+>
   <label
-    className={undefined}
-    htmlFor="id" />
-  <label
-    className={undefined}
-    htmlFor="id">
-    some label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      some label
+    </span>
   </label>
 </div>
 `;
 
 exports[`Toggle should render a checked Toggle 1`] = `
 <div
-  className={undefined}>
-  <input
-    checked={true}
-    className={undefined}
-    disabled={false}
-    id="id"
-    onChange={[Function]}
-    type="checkbox" />
+  className="tc-toggle switch checkbox"
+>
   <label
-    className={undefined}
-    htmlFor="id" />
+    htmlFor="id"
+  >
+    <input
+      checked={true}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span />
+  </label>
 </div>
 `;
 
 exports[`Toggle should render a disabled Toggle 1`] = `
 <div
-  className={undefined}>
-  <input
-    checked={false}
-    className={undefined}
-    disabled={true}
-    id="id"
-    onChange={[Function]}
-    type="checkbox" />
+  className="tc-toggle switch checkbox"
+>
   <label
-    className={undefined}
-    htmlFor="id" />
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span />
+  </label>
 </div>
 `;
