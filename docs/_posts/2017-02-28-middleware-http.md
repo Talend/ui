@@ -37,7 +37,7 @@ dispatch(action);
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
-| type | string | One of the supported HTTP method. | true |
+| type | string | One of the supported HTTP methods. | true |
 | body | object | The body to send. | false |
 | transform | function | The transformation method to call on response, to adapt it before dispatch. | false |
 | onSend | string | The action type to dispatch before fetch. This is optional but CMF will still dispatch an `@@HTTP/REQUEST` action on every request. By providing this option, CMF will dispatch an action for your specific case after the global one. | false |

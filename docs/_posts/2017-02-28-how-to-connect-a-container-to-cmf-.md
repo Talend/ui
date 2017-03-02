@@ -6,8 +6,8 @@ date: 2017-02-28 10:19:10
 order: 2
 ---
 
-CMF manage your route to render the requested container depending on the [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}).
-When you develop those containers (or other containers in you app), you need to access to resources and utilities that CMF provide
+CMF manages your routes to render the requested container depending on the [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}).
+When you develop those containers (or other containers in you app), you need to access to resources and utilities that CMF provides
 * the store
 * the register
 * the action utility
@@ -18,12 +18,12 @@ CMF provides a [React Context](https://facebook.github.io/react/docs/context.htm
 ## App
 
 CMF provides an `<App />` component to bootstrap pour app. This component
-* connect `react-router` with the provided history
 * plug [react-redux](https://github.com/reactjs/react-redux) `Provider` with the store you pass
 * plug CMF `RegistryProvider`
-* connect [react-router](https://github.com/ReactTraining/react-router) with the history you pass and the `routes` [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %})
+* connect [react-router](https://github.com/ReactTraining/react-router) with the `history you pass and the `routes` [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %})
 
 ```javascript
+import React from 'react';
 import { App } from 'react-cmf';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';

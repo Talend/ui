@@ -8,7 +8,7 @@ order: 1
 
 CMF has a system to manage collections by a combination of store middleware, action, reducer.
 
-Using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that store a collection under unique identifier. 
+By using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that store a collection under unique identifiers. 
 
 **Pre-requisite**
 You can store anything you want in the collections dictionary, but to use the element operations (mutate collection) : 
@@ -18,7 +18,7 @@ You can store anything you want in the collections dictionary, but to use the el
 
 ## Add or replace a collection
 
-The examples will insert the collection in `state.cmf.collections.datastores`.
+The example will insert the collection in `state.cmf.collections.datastores`.
 
 **Via middleware**
 ```javascript
@@ -49,7 +49,7 @@ addOrReplaceCollection(collectionId, data)
 
 ## Remove a collection
 
-The examples will insert the collection in `state.cmf.collections.datastores`.
+The example will remove the collection `state.cmf.collections.datastores`.
 
 ```javascript
 import { actions } from 'react-cmf';
@@ -66,7 +66,7 @@ removeCollection(collectionId)
 
 ## Mutate a collection
 
-The examples will insert the collection in `state.cmf.collections.datastores`.
+The example will mutate the collection in `state.cmf.collections.datastores`.
 
 ```javascript
 import { actions } from 'react-cmf';

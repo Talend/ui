@@ -6,7 +6,7 @@ date: 2017-02-28 10:09:02
 order: 1
 ---
 
-CMF stands for Content Management Framework. It help you build an application in React with a system to configure your contents and much more.
+CMF stands for Content Management Framework. It helps you build an application in React with a system to configure your contents and much more.
 
 It combines
 * [Redux](http://redux.js.org/) to manage app state
@@ -30,17 +30,17 @@ Based on a `component / action creator` registry and a `settings` format, you co
 * Register your `action creators` with unique names.
 
 *Settings*
-* Settings > routes refers to registered `components` names and `views` settings names.
+* Settings > routes map `urls` to registered `components` names and `views` settings names.
 * Settings > views contains the `components` props and can refers to `actions` settings names.
-* Settings > actions contains either static action definition or can refers to registered `action creators` name.
+* Settings > actions contains either static actions definition or can refers to registered `action creators` names.
 
 *Bootstrap and runtime*
 * Bootstrap your app with the provided `<App />` component
-* CMF instantiate the right component on a requested route, injecting the state that contains the `views` settings
+* CMF instantiate the right component on a requested route, injecting the props
 
 ## Extra features
 CMF comes with handy features
 * Error redux `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-error-logging.md %}).
 * HTTP operations `actions` and redux `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-http.md %}).
 * CMF internal `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-cmf.md %}).
-* Actions utility to get and configure easily the `action creators` [Store doc]({{ site.baseurl }}{% link _posts/2017-02-28-core-store.md %}). 
+* Actions utility to get and configure easily the `action creators` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}). 

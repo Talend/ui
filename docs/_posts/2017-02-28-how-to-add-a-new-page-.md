@@ -10,8 +10,8 @@ To add a new page on a new route using CMF, you need to perform the steps :
 * Create your connected container that will be displayed on the new route. ([How to connect a container to CMF ?]({{ site.baseurl }}{% link _posts/2017-02-28-how-to-connect-a-container-to-cmf-.md %}))
 * [Registry]({{ site.baseurl }}{% link _posts/2017-02-28-core-registry.md %}): register your component
 * [Registry]({{ site.baseurl }}{% link _posts/2017-02-28-core-registry.md %}): register your action creators
-* [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}): add your routes configuration
-* [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}): add your views configuration
+* [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}): add your route configuration
+* [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}): add your view configuration
 * [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}): add your actions configuration
 
 Then your component will be rendered in your new route.
@@ -21,8 +21,6 @@ The examples below configure
 * dispatch a click action via the `my:action` action creator 
 
 ## Create your connected container
-
-Your connected container need to
 
 ```javascript
 import React, { PropTypes } from 'react';
@@ -49,7 +47,7 @@ MyComponent.propTypes = {
 };
 
 /**
- * The container will resolve the action and pass the the dispatcher to the pure component
+ * The container will resolve the action from actionId and pass the dispatcher to the pure component
  */
 class MyContainer extends React.Component {
     static contextTypes = {
@@ -64,7 +62,6 @@ class MyContainer extends React.Component {
     }
 
     render() {
-        const registry = this.context.registry;
         const props = {
             ...this.props,
             onClick: getAction(this.context, this.props.onClick), // the context is available, containing the registry
@@ -76,9 +73,9 @@ class MyContainer extends React.Component {
 }
 
 /**
- * Create a function that
+ * Creates a function that
  * - get the action payload or action creator to call
- * - dispatch the action to the reduc store
+ * - dispatch the action to the redux store
  */
 function getAction(context, actionId) {
     const actionSetting = api.action.getActionInfo(context, actionId);
@@ -110,8 +107,8 @@ export default connect(mapStateToProps)(MyContainer);
 In your app configuration phase
  
 ```javascript
-import MyContainer from '../components/my-container';
 import { api } from 'react-cmf';
+import MyContainer from '../components/my-container';
 
 const registerComponent = api.route.registerComponent;
 registerComponent('MyContainer', MyContainer);
@@ -122,8 +119,8 @@ registerComponent('MyContainer', MyContainer);
 In your app configuration phase
 
 ```javascript
-import myAction from '../actions/my-action';
 import { api } from 'react-cmf';
+import myAction from '../actions/my-action';
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('my:action', myAction);

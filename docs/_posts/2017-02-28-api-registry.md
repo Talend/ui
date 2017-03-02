@@ -6,7 +6,7 @@ date: 2017-02-28 22:10:34
 order: 1
 ---
 
-The registry expose a simple api to add and get elements.
+The registry exposes a simple api to add and get elements.
 In a common use of CMF, you won't have to manipulate the registry with this api, but through utility services. 
 
 ## addToRegistry

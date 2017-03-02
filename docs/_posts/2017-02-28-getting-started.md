@@ -46,12 +46,12 @@ To serve the example project on http://localhost:8080/, run
 
 ![Project hierarchy]({{ site.url }}/assets/Getting-started-hierarchy.png)
 
-`/assets` contains your assets (images, static settings, ...)
-`/app/actions` contains your app actions creator
-`/app/components` contains your app components
-`/app/constants` contains your app constants (redux actions types, ...)
-`/app/reducers` contains your app reducers
-`configure.js` is your app configuration before bootstrap
+`/assets` contains your assets (images, static settings, ...)<br>
+`/app/actions` contains your app action creators<br>
+`/app/components` contains your app components<br>
+`/app/constants` contains your app constants (redux actions types, ...)<br>
+`/app/reducers` contains your app reducers<br>
+`configure.js` is your app configuration before bootstrap<br>
 
 ## App entry point
 
@@ -141,16 +141,9 @@ In this part, we'll go through the code allowing to display the list of datastor
   "routes": {
     "path": "/",
     "component": "App",
-    "indexRoute": {
-      "component": "Redirect",
-      "view": "indexRouteRedirect"
-    },
+    ...
     "childRoutes": [
-      {
-        "path": "datasets",
-        "component": "HomeListView",
-        "view": "datasets"
-      },
+      ...
       {
         "path": "datastores",
         "component": "HomeListView",
@@ -232,7 +225,7 @@ This action creator uses the [http]({{ site.baseurl }}{% link _posts/2017-02-28-
 `HomeListView` container is from [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers).
 * it receives the `datastores views settings` as props
 * it is connected to the redux store to get the collection in `state.cmf.collections.datastores`
-* it use the [actions utility]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}) to resolve the `datastore:fetchAll` action.
+* it uses the [actions utility]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}) to resolve the `datastore:fetchAll` action.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ order: 2
 ---
 
 The registry is a simple singleton that can store anything under a string key.
-It is used internally to register `route components` and store `actions creator`.
+It is used internally to register `route components` and store `action creators`.
 
 For more info, take a look at the complete [api]({{ site.baseurl }}{% link _posts/2017-02-28-api-registry.md %}).
 
