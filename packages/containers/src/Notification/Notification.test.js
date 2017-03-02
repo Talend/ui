@@ -62,4 +62,16 @@ describe('Notification.pushNotification', () => {
 		expect(notifications.size).toBe(1);
 		expect(notifications.get(0).message).toBe('hello world');
 	});
+	it('should change the state if no notification', () => {
+		const state = store.state();
+		state.cmf.components = fromJS({
+			Notification: {
+				Notification: {
+					notifications: [],
+				},
+			},
+		});
+		const newState = pushNotification(state);
+		expect(newState).toBe(state);
+	});
 });
