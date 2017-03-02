@@ -22,7 +22,7 @@ const defaultOptions = {
 function safeWrapReport(rethrowErrorHandler) {
 	function report(ex) {
 		try {
-			TraceKit_.report(ex);
+			TraceKit_.fallback(ex);
 		} catch (e) {
 			rethrowErrorHandler(ex);
 		}
