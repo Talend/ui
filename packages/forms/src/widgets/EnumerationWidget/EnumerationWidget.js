@@ -87,6 +87,7 @@ class EnumerationWidget extends React.Component {
 		this.setState({
 			items,
 			displayMode: 'DISPLAY_MODE_EDIT',
+			selectedItems: [],
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
@@ -122,7 +123,7 @@ class EnumerationWidget extends React.Component {
 		});
 	}
 
-		// edit mode
+	// edit mode
 	onChangeItem(event, value) {
 		this.updateItemValidateDisabled(value);
 	}
@@ -171,7 +172,7 @@ class EnumerationWidget extends React.Component {
 	onSelectItem(item, event) {
 		const selectedItems = [...this.state.selectedItems];
 		let result = [];
-		if (event.ctrlKey) {
+		if (event.ctrlKey || event.metaKey) {
 			result = manageCtrlKey(item, selectedItems);
 		}		else if (event.shiftKey) {
 			result = manageShiftKey(item, selectedItems, this.state.items);
