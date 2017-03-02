@@ -6,7 +6,7 @@ date: 2017-02-28 10:09:02
 order: 1
 ---
 
-CMF stands for Content Management Framework. It helps you build an application in React with a system to configure your contents and much more.
+CMF stands for Content Management Framework. It helps you to build an application in React with a system to configure your contents and much more.
 
 It combines
 * [Redux](http://redux.js.org/) to manage app state
@@ -14,9 +14,9 @@ It combines
 
 Based on a `component / action creator` registry and a `settings` format, you configure your entire app
 * the routes
-* what component to load on a route
-* what props to pass to this component to load
-* what action is dispatched
+* which component to load on a route
+* which props to pass to this component to load
+* which action is dispatched
 
 ## The core concepts 
 * [Store]({{ site.baseurl }}{% link _posts/2017-02-28-core-store.md %}) : CMF is coupled to `redux` to manage your app state with internal CMF state
@@ -31,12 +31,12 @@ Based on a `component / action creator` registry and a `settings` format, you co
 
 *Settings*
 * Settings > routes map `urls` to registered `components` names and `views` settings names.
-* Settings > views contains the `components` props and can refers to `actions` settings names.
-* Settings > actions contains either static actions definition or can refers to registered `action creators` names.
+* Settings > views contains the `components` props and can refer to `actions` settings names.
+* Settings > actions contains either static actions definition or can refer to registered `action creators` names.
 
 *Bootstrap and runtime*
 * Bootstrap your app with the provided `<App />` component
-* CMF instantiate the right component on a requested route, injecting the props
+* CMF instantiates the right component on a requested route, injecting the props
 
 ## Extra features
 CMF comes with handy features

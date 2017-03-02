@@ -35,7 +35,7 @@ The CMF store comes with some reducers out of the box
 
 ## Middlewares
 
-The CMF store comes with some middleware out of the box
+The CMF store comes with some middlewares out of the box
 * router middleware from [react-router-redux](https://github.com/reactjs/react-router-redux) using `hash` history
 * [redux-thunk](https://github.com/gaearon/redux-thunk)
 * CMF [http]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-http.md %}) middleware

@@ -18,9 +18,9 @@ CMF provides a [React Context](https://facebook.github.io/react/docs/context.htm
 ## App
 
 CMF provides an `<App />` component to bootstrap pour app. This component
-* plug [react-redux](https://github.com/reactjs/react-redux) `Provider` with the store you pass
-* plug CMF `RegistryProvider`
-* connect [react-router](https://github.com/ReactTraining/react-router) with the `history you pass and the `routes` [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %})
+* plugs [react-redux](https://github.com/reactjs/react-redux) `Provider` with the store you pass
+* plugs CMF `RegistryProvider`
+* connects [react-router](https://github.com/ReactTraining/react-router) with the `history you pass and the `routes` [settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %})
 
 ```javascript
 import React from 'react';
@@ -38,7 +38,7 @@ render(
 );
 ```
 
-The `<App />` component wrap your app with `react-redux` provider and CMF `RegistryProvider`.
+The `<App />` component wraps your app with `react-redux` provider and CMF `RegistryProvider`.
 So in your containers, you can 
 * get `this.context` containing the registry.
 * connect to redux using [react-redux](https://github.com/reactjs/react-redux)

@@ -6,7 +6,7 @@ date: 2017-02-28 10:19:22
 order: 3
 ---
 
-To add a new page on a new route using CMF, you need to perform the steps : 
+To add a new page on a new route using CMF, you need to perform these steps : 
 * Create your connected container that will be displayed on the new route. ([How to connect a container to CMF ?]({{ site.baseurl }}{% link _posts/2017-02-28-how-to-connect-a-container-to-cmf-.md %}))
 * [Registry]({{ site.baseurl }}{% link _posts/2017-02-28-core-registry.md %}): register your component
 * [Registry]({{ site.baseurl }}{% link _posts/2017-02-28-core-registry.md %}): register your action creators
@@ -43,7 +43,7 @@ function MyComponent(props) {
 MyComponent.propTypes = {
     label: PropTypes.string.isRequired,
     link: PropTypes.bool,
-    onClick: PropTypes.func.isRequired, // the pure component wait for the dispatch action
+    onClick: PropTypes.func.isRequired, // the pure component waits for the dispatch action
 };
 
 /**
