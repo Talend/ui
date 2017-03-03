@@ -157,7 +157,6 @@ describe('CMF http middleware', () => {
 			body: { label: 'great test' },
 			onSend: 'CALL_ME_BACK on send',
 			onResponse: 'CALL_ME_BACK on response',
-			onError: 'CALL_ME_BACK on error',
 			response: {
 				ok: false,
 				status: 500,
@@ -173,22 +172,13 @@ describe('CMF http middleware', () => {
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(4);
+			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			const errorCallbackAction = store.dispatch.mock.calls[3][0];
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
 			expect(errorHTTPAction.error.stack.status).toBe(500);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
 			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
 			expect(errorHTTPAction.error.stack.messageObject).toEqual({
-				foo: 'bar',
-			});
-			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
-			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
-			expect(errorCallbackAction.error.stack.status).toBe(500);
-			expect(errorCallbackAction.error.stack.ok).toBe(false);
-			expect(errorCallbackAction.error.stack.response).toBe('{"foo":"bar"}');
-			expect(errorCallbackAction.error.stack.messageObject).toEqual({
 				foo: 'bar',
 			});
 			done();
@@ -204,7 +194,6 @@ describe('CMF http middleware', () => {
 			body: { label: 'great test' },
 			onSend: 'CALL_ME_BACK on send',
 			onResponse: 'CALL_ME_BACK on response',
-			onError: 'CALL_ME_BACK on error',
 			response: {
 				ok: false,
 				status: 500,
@@ -220,20 +209,13 @@ describe('CMF http middleware', () => {
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(4);
+			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			const errorCallbackAction = store.dispatch.mock.calls[3][0];
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
 			expect(errorHTTPAction.error.stack.status).toBe(500);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
 			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
 			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-			expect(errorCallbackAction.type).toBe('CALL_ME_BACK on error');
-			expect(errorCallbackAction.error.message).toBe('Internal Server Error');
-			expect(errorCallbackAction.error.stack.status).toBe(500);
-			expect(errorCallbackAction.error.stack.ok).toBe(false);
-			expect(errorCallbackAction.error.stack.response).toBe('invalid json');
-			expect(errorCallbackAction.error.stack.messageObject).toBe(undefined);
 			done();
 		});
 	});
@@ -266,14 +248,8 @@ describe('CMF http middleware', () => {
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(4);
-			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			const errorCallbackAction = store.dispatch.mock.calls[3][0];
-			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.status).toBe(500);
-			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
-			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
-			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+			expect(store.dispatch.mock.calls.length).toBe(3);
+			const errorCallbackAction = store.dispatch.mock.calls[2][0];
 			expect(errorCallbackAction.type).toBe('CUSTOM_ACTION');
 			done();
 		});
