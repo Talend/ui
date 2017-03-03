@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
 import talendIcons from 'talend-icons/dist/react';
-import { Layout, WithDrawer, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab } from '../src/index';
+import { Layout, WithDrawer, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar } from '../src/index';
 
-const header = {
-	app: 'Example App Name',
-};
+const header = <AppHeaderBar app="Example App Name" />;
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -93,52 +91,28 @@ const basicProps = {
 	multiSelectActions,
 };
 
+function scrollableContent() {
+	const content = [];
+	for (let i = 0; i < 42; i += 1) {
+		content.push(<p>The content dictate the scroll {i}</p>);
+	}
+	return content;
+}
 
 const drawers = [
 	(<Drawer stacked title="Im stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 1</h1>
-		<p>You should not being able to read this because I'm first</p>
+		<p>{ "You should not being able to read this because I'm first" }</p>
 	</Drawer>),
 	(<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 2</h1>
 		<p>The content dictate the scroll</p>
 		<h1>Hello drawer 3</h1>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
-		<p>The content dictate the scroll</p>
+		{scrollableContent()}
 	</Drawer>),
 ];
+
+
 
 storiesOf('Drawer', module)
 	.addWithInfo('test', () => {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Drawer from '../Drawer';
 
-import theme from './withDrawer.scss'
+import theme from './withDrawer.scss';
 
 /**
  * The Layout component is a container

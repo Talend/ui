@@ -6,7 +6,6 @@ import Action from '../Actions/Action';
 
 import theme from './Drawer.scss';
 
-
 function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
@@ -48,27 +47,27 @@ DrawerContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
+export function cancelActionComponent(onCancelAction) {
+	if (!onCancelAction) {
+		return null;
+	}
+	const enhancedCancelAction = Object.assign({
+		icon: 'talend-cross',
+		hideLabel: true,
+		link: true,
+	}, onCancelAction);
+	return <Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
+}
+
 function DrawerTitle({ title, children, onCancelAction }) {
 	if (!title) {
 		return null;
-	}
-	const enhancedCancelAction = Object.assign({}, onCancelAction);
-	if (onCancelAction) {
-		enhancedCancelAction.icon = 'talend-cross';
-		enhancedCancelAction.hideLabel = true;
-		enhancedCancelAction.link = true;
-	}
-	let onCancelActionComponent = null;
-	if (onCancelAction) {
-		onCancelActionComponent = (
-			<Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />
-		);
 	}
 	return (
 		<div>
 			<div className={theme['tc-drawer-header']}>
 				<h1>{title}</h1>
-				{onCancelActionComponent}
+				{cancelActionComponent(onCancelAction)}
 			</div>
 			<div className={theme['tc-drawer-header-with-tabs']}>
 				{children}
@@ -108,6 +107,18 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
+function combinedFooterActions(onCancelAction, footerActions) {
+	if (!onCancelAction) {
+		return footerActions;
+	}
+	const enhancedFooterActions = Object.assign({}, footerActions);
+	if (footerActions && footerActions.actions && footerActions.actions.left) {
+		enhancedFooterActions.actions.left.push(onCancelAction);
+	} else {
+		enhancedFooterActions.actions.left = [].push(onCancelAction);
+	}
+	return enhancedFooterActions;
+}
 
 function Drawer({
 	stacked,
@@ -121,14 +132,6 @@ function Drawer({
 	if (!children) {
 		return null;
 	}
-	const enhancedFooterActions = Object.assign({}, footerActions);
-	if (onCancelAction) {
-		if (footerActions && footerActions.actions && footerActions.actions.left) {
-			enhancedFooterActions.actions.left.push(onCancelAction);
-		} else {
-			enhancedFooterActions.actions.left = [].push(onCancelAction);
-		}
-	}
 	return (
 		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
@@ -136,7 +139,7 @@ function Drawer({
 				<DrawerContent>
 					{children}
 				</DrawerContent>
-				<ActionBar {...enhancedFooterActions} />
+				<ActionBar {...combinedFooterActions(onCancelAction, footerActions)} />
 			</div>
 		</DrawerContainer>
 	);
@@ -159,6 +162,5 @@ Drawer.Title = DrawerTitle;
 Drawer.Content = DrawerContent;
 Drawer.Footer = DrawerFooter;
 Drawer.FooterStyle = theme['tc-drawer-footer'];
-
 
 export default Drawer;
