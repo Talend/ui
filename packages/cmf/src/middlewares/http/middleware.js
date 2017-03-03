@@ -136,9 +136,10 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 				stack: error.stack,
 			},
 		}, action);
-		dispatch(httpError(newAction.error));
 		if (newAction.onError) {
 			dispatch(onError(newAction, newAction.error));
+		} else {
+			dispatch(httpError(newAction.error));
 		}
 	};
 	return fetch(action.url, config)
