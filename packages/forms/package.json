@@ -16,7 +16,7 @@
     "babel-cli": "^6.14.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
-    "babel-jest": "^17.0.2",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -25,6 +25,7 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-talend-theme": "^0.13.20",
     "chokidar": "^1.6.1",
+    "keycode": "^2.1.8",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
     "enzyme-to-json": "^1.5.0",
@@ -34,7 +35,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.0",
     "eslint-plugin-react": "^6.2.0",
     "invariant": "^2.2.1",
-    "jest": "^15.1.1",
+    "jest": "^19.0.1",
     "jest-cli": "^17.0.3",
     "json-loader": "^0.5.4",
     "node-sass": "^4.3.0",
@@ -89,5 +90,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.61.4"
+  "version": "0.63.1"
 }

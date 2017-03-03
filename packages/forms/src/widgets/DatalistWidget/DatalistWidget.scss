@@ -1,9 +1,8 @@
 $tf-typeahead-input-width: 260px !default;
-$tf-typeahead-items-background-color: #FFF !default;
-$tf-typeahead-items-focus-background-color: rgba(255, 0, 0, .6) !default;
-$tf-typeahead-items-focus-color: #FFF !default;
-$tf-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
-$tf-typeahead-no-result-color: #C0C0C0 !default;
+$tf-typeahead-items-background-color: $white !default;
+$tf-typeahead-items-focus-background-color: shade($tf-typeahead-items-background-color, 5) !default;
+$tf-typeahead-items-shadow-color: $shadow !default;
+$tf-typeahead-no-result-color: $silver !default;
 
 .tf-typeahead-container {
 	display: flex;
@@ -67,7 +66,6 @@ $tf-typeahead-no-result-color: #C0C0C0 !default;
 	cursor: pointer;
 
 	&-focused {
-		color: $tf-typeahead-items-focus-color;
 		background-color: $tf-typeahead-items-focus-background-color;
 	}
 }

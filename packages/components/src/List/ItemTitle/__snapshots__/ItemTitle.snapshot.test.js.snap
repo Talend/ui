@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ItemTitle should render button title 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <button
     aria-describedby={42}
     className="my-title btn btn-link"
@@ -12,7 +15,8 @@ exports[`ItemTitle should render button title 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     Hello world
   </button>
 </div>
@@ -20,11 +24,13 @@ exports[`ItemTitle should render button title 1`] = `
 
 exports[`ItemTitle should render icon 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <i
     aria-hidden="true"
     className="fa fa-file-excel-o tc-list-icon"
-    title={null} />
+    title={null}
+  />
   <span
     aria-describedby={42}
     className="my-title"
@@ -33,7 +39,8 @@ exports[`ItemTitle should render icon 1`] = `
     onClick={null}
     onFocus={[Function]}
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     Hello world
   </span>
 </div>
@@ -41,18 +48,21 @@ exports[`ItemTitle should render icon 1`] = `
 
 exports[`ItemTitle should render input title 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <input
     autoFocus={true}
     id="title"
     onBlur={[Function]}
-    onKeyUp={[Function]} />
+    onKeyUp={[Function]}
+  />
 </div>
 `;
 
 exports[`ItemTitle should render text title 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <span
     aria-describedby={42}
     className="my-title"
@@ -61,7 +71,8 @@ exports[`ItemTitle should render text title 1`] = `
     onClick={null}
     onFocus={[Function]}
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     Hello world
   </span>
 </div>

@@ -1,10 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Pagination should disable all navigation when there is no items 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -13,65 +17,76 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       5
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           50
         </a>
       </li>
@@ -80,7 +95,8 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -91,17 +107,20 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-backward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link tc-pagination-ctrl-prev disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -112,17 +131,20 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       onClick={[Function]}
@@ -132,9 +154,11 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <span
-        className="btn-link">
+        className="btn-link"
+      >
         1
         /
         0
@@ -144,7 +168,8 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -155,17 +180,20 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -176,11 +204,13 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-forward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
 </ul>
@@ -189,10 +219,12 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
 exports[`Pagination should disable navigation when there is only one page 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -201,65 +233,76 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       5
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           50
         </a>
       </li>
@@ -268,7 +311,8 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -279,17 +323,20 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-backward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link tc-pagination-ctrl-prev disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -300,17 +347,20 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       onClick={[Function]}
@@ -320,9 +370,11 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <span
-        className="btn-link">
+        className="btn-link"
+      >
         1
         /
         1
@@ -332,7 +384,8 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -343,17 +396,20 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
@@ -364,11 +420,13 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <i
         aria-hidden="true"
         className="fa fa-forward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
 </ul>
@@ -377,10 +435,12 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
 exports[`Pagination should not render navigation when show all items 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -389,65 +449,76 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       All
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           50
         </a>
       </li>
@@ -459,10 +530,12 @@ exports[`Pagination should not render navigation when show all items 1`] = `
 exports[`Pagination should render 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -471,65 +544,76 @@ exports[`Pagination should render 1`] = `
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       5
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           50
         </a>
       </li>
@@ -538,37 +622,44 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-backward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link tc-pagination-ctrl-prev"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       onClick={[Function]}
@@ -578,9 +669,11 @@ exports[`Pagination should render 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <span
-        className="btn-link">
+        className="btn-link"
+      >
         2
         /
         4
@@ -590,31 +683,37 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id={undefined}
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-forward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
 </ul>
@@ -623,10 +722,12 @@ exports[`Pagination should render 1`] = `
 exports[`Pagination should render id if provided 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -635,65 +736,76 @@ exports[`Pagination should render id if provided 1`] = `
       id="toolbar-pagination-size"
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       5
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby="toolbar-pagination-size"
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           50
         </a>
       </li>
@@ -702,37 +814,44 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-backward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link tc-pagination-ctrl-prev"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="disabled"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       onClick={[Function]}
@@ -742,9 +861,11 @@ exports[`Pagination should render id if provided 1`] = `
           "pointerEvents": "none",
         }
       }
-      tabIndex={-1}>
+      tabIndex={-1}
+    >
       <span
-        className="btn-link">
+        className="btn-link"
+      >
         2
         /
         4
@@ -754,31 +875,37 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-play"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       href="#"
       id="toolbar-pagination-nav-to-last"
       onClick={[Function]}
-      role="button">
+      role="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-forward"
-        title={null} />
+        title={null}
+      />
     </a>
   </li>
 </ul>
@@ -787,10 +914,12 @@ exports[`Pagination should render id if provided 1`] = `
 exports[`Pagination should render menu item with "All" title when size is -1 1`] = `
 <ul
   className="nav"
-  role={null}>
+  role={null}
+>
   <li
     className="dropdown"
-    style={undefined}>
+    style={undefined}
+  >
     <a
       aria-expanded={false}
       aria-haspopup={true}
@@ -799,65 +928,76 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       id={42}
       onClick={[Function]}
       onKeyDown={[Function]}
-      role="button">
+      role="button"
+    >
       All
        
       <span
-        className="caret" />
+        className="caret"
+      />
     </a>
     <ul
       aria-labelledby={42}
       className="dropdown-menu"
-      role="menu">
+      role="menu"
+    >
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           5
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           10
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           20
         </a>
       </li>
       <li
         className=""
         role="presentation"
-        style={undefined}>
+        style={undefined}
+      >
         <a
           href="#"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1">
+          tabIndex="-1"
+        >
           All
         </a>
       </li>

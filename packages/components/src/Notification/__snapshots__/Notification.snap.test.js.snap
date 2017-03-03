@@ -1,49 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Notification should render 1`] = `
 <div
-  className="tc-notification-container">
+  className="tc-notification-container"
+>
   <div
     className="react-addons-css-transition-group"
     transitionEnterTimeout={300}
     transitionLeaveTimeout={280}
-    transitionName="tc-notification">
+    transitionName="tc-notification"
+  >
     <div
       className="tc-notification tc-notification-info"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status">
+      role="status"
+    >
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         role={null}
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-cross" />
+            xlinkHref="#talend-cross"
+          />
         </svg>
         <span>
           
         </span>
       </button>
       <p
-        className="tc-notification-message">
+        className="tc-notification-message"
+      >
         This is a feedback of your operation1, This is a feedback of your operation1
         <button
           className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
           disabled={false}
           onClick={[Function]}
           role={null}
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-undo" />
+              xlinkHref="#talend-undo"
+            />
           </svg>
           <span>
             Haha
@@ -51,26 +63,31 @@ exports[`Notification should render 1`] = `
         </button>
       </p>
       <div
-        className="tc-notification-timer-bar" />
+        className="tc-notification-timer-bar"
+      />
     </div>
     <div
       className="undefined tc-notification tc-notification-error"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status">
+      role="status"
+    >
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         role={null}
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-cross" />
+            xlinkHref="#talend-cross"
+          />
         </svg>
         <span>
           
@@ -78,24 +95,29 @@ exports[`Notification should render 1`] = `
       </button>
       <article>
         <p
-          className="tc-notification-message">
+          className="tc-notification-message"
+        >
           This is a feedback of your operation2
         </p>
         <p
-          className="tc-notification-message">
+          className="tc-notification-message"
+        >
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
             className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
             role={null}
-            type="button">
+            type="button"
+          >
             <svg
               aria-hidden="true"
               className="tc-svg-icon"
-              title={null}>
+              title={null}
+            >
               <use
-                xlinkHref="#talend-undo" />
+                xlinkHref="#talend-undo"
+              />
             </svg>
             <span>
               undo
@@ -109,19 +131,23 @@ exports[`Notification should render 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status">
+      role="status"
+    >
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         role={null}
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-cross" />
+            xlinkHref="#talend-cross"
+          />
         </svg>
         <span>
           
@@ -129,46 +155,55 @@ exports[`Notification should render 1`] = `
       </button>
       <article>
         <p
-          className="tc-notification-message">
+          className="tc-notification-message"
+        >
           This is a feedback of your operation3
         </p>
         <p
-          className="tc-notification-message">
+          className="tc-notification-message"
+        >
           details
         </p>
       </article>
       <div
-        className="tc-notification-timer-bar" />
+        className="tc-notification-timer-bar"
+      />
     </div>
     <div
       className="tc-notification tc-notification-warning"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status">
+      role="status"
+    >
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         role={null}
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-cross" />
+            xlinkHref="#talend-cross"
+          />
         </svg>
         <span>
           
         </span>
       </button>
       <p
-        className="tc-notification-message">
+        className="tc-notification-message"
+      >
         This is a feedback of your operation4
       </p>
       <div
-        className="tc-notification-timer-bar" />
+        className="tc-notification-timer-bar"
+      />
     </div>
   </div>
 </div>
