@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Header should render header input with one button 1`] = `
 <header
-  className="undefined tc-enumeration-header">
+  className="undefined tc-enumeration-header"
+>
   <span>
     Values
   </span>
@@ -14,13 +17,16 @@ exports[`Header should render header input with one button 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-plus" />
+        xlinkHref="#talend-plus"
+      />
     </svg>
   </button>
 </header>
