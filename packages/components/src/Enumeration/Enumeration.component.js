@@ -81,7 +81,7 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 
 Enumeration.propTypes = {
 	displayMode: PropTypes.oneOf(
-		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED]),
+		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED, DISPLAY_MODE_EDIT]),
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),

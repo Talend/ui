@@ -27,17 +27,12 @@ export function manageShiftKey(item, selectedItems, items) {
 	if (itemFound !== undefined) {
 		return selectAllBetween(indexMinimumSelected, item.index, items);
 	}
-		// add all between the min/max and the selected
 	const indexMaximumSelected = Math.max(...selectedItems);
-		// select all "before" values
 	if (item.index < indexMinimumSelected) {
-			// select all between index and minimum
 		return selectAllBetween(item.index, indexMaximumSelected, items);
 	} else if (item.index > indexMaximumSelected) {
-			// select all between maximum and index
 		return selectAllBetween(indexMinimumSelected, item.index, items);
 	}
-
 	return undefined;
 }
 

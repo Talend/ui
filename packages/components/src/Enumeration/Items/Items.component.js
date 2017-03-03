@@ -45,11 +45,12 @@ function Items({ items, itemsProp, selectedItems, currentEdit }) {
 			);
 		}
 		default: {
+			const isSelected = selectedItems.find(selectedItem => selectedItem === index) !== undefined;
 			const itemPropDefault = {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 				onSelectItem: itemsProp.onSelectItem,
-				selectedItems,
+				isSelected,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 

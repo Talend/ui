@@ -174,9 +174,9 @@ class EnumerationWidget extends React.Component {
 		let result = [];
 		if (event.ctrlKey || event.metaKey) {
 			result = manageCtrlKey(item, selectedItems);
-		}		else if (event.shiftKey) {
+		} else if (event.shiftKey) {
 			result = manageShiftKey(item, selectedItems, this.state.items);
-		}		else {
+		} else {
 			result.push(item.index);
 		}
 
@@ -186,7 +186,7 @@ class EnumerationWidget extends React.Component {
 				displayMode: 'DISPLAY_MODE_DEFAULT',
 				selectedItems: [],
 			});
-		}		else if (result.length > 1) {
+		} else if (result.length > 1) {
 			// remove delete action when multiselection
 			const newActions = this.state.itemsProp.actionsDefault
                 .filter((action) => action.id !== 'delete');
@@ -196,7 +196,7 @@ class EnumerationWidget extends React.Component {
 				selectedItems: result,
 				itemsProp,
 			});
-		}		else {
+		} else {
 			this.setState({
 				displayMode: 'DISPLAY_MODE_SELECTED',
 				selectedItems: result,

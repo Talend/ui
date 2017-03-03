@@ -11,7 +11,7 @@ const item = {
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
 		onSelectItem: jest.fn(), // provided click callback
-		selectedItems: [],
+		isSelected: false,
 		actions: [{
 			label: 'Edit',
 			id: 'edit',
@@ -32,7 +32,7 @@ const selectedItem = {
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
 		onSelectItem: jest.fn(), // provided click callback
-		selectedItems: [0], // index of the item selected
+		isSelected: true,
 		actions: [],
 	},
 };

@@ -11,6 +11,7 @@ export default {
 			onChangeItem: PropTypes.func,
 			onAbortItem: PropTypes.func,
 			onSelectItem: PropTypes.func,
+			isSelected: PropTypes.bool,
 			actions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 		}),
 	}).isRequired,

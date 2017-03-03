@@ -34,7 +34,7 @@ function Item({ id, item }) {
 		key,
 		actions,
 		onSelectItem,
-		selectedItems,
+		isSelected,
 	} = item.itemProps;
 
 	function getAction(action, index) {
@@ -60,10 +60,8 @@ function Item({ id, item }) {
 		);
 	}
 
-	const selected = selectedItems.find(selectedItem => selectedItem === item.index);
-
 	return (
-		<li className={itemClasses(selected !== undefined)} id={id}>
+		<li className={itemClasses(isSelected)} id={id}>
 			<Action
 				key={item.index}
 				label={item[key].join(',')}
