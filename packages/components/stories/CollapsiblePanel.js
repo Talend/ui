@@ -9,6 +9,7 @@ const icons = {
 	'talend-download': talendIcons['talend-download'],
 	'talend-check': talendIcons['talend-check'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };
 
 const content = [
@@ -57,7 +58,6 @@ const label2 = {
 	tooltipPlacement: 'top',
 };
 
-
 const label3 = {
 	displayMode: 'badge',
 	label: 'XML',
@@ -80,6 +80,7 @@ const propsPanel = {
 		label3,
 	],
 	content: [],
+	theme: 'default-collapsible-panel',
 };
 
 const propsPanelWithActions = {
@@ -91,6 +92,7 @@ const propsPanelWithActions = {
 		label3,
 	],
 	content,
+	theme: 'default-collapsible-panel',
 };
 
 const propsPanelWithoutActions = {
@@ -102,6 +104,7 @@ const propsPanelWithoutActions = {
 		label3,
 	],
 	content: [],
+	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanel = {
@@ -113,6 +116,7 @@ const propsCollapsiblePanel = {
 		label3,
 	],
 	content,
+	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanelWithHeaderGroups = {
@@ -123,6 +127,7 @@ const propsCollapsiblePanelWithHeaderGroups = {
 		[button, label3],
 	],
 	content,
+	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
@@ -133,8 +138,73 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 		[button, label3],
 	],
 	content,
+	theme: 'default-collapsible-panel',
 };
 
+const version1 = {
+	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+};
+const readOnlyLabel = {
+	label: '(Read Only)',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+};
+const timeStamp = {
+	label: '03/02/2017 14:44',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+};
+
+const propsCollapsibleSelectablePanel = {
+	header: [
+		[version1, readOnlyLabel],
+		timeStamp,
+	],
+	content: {
+		details: ['21 steps', {
+			label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+			bsStyle: 'default',
+			tooltipPlacement: 'top',
+		}],
+		description: 'Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
+		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
+		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
+		' adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
+		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
+		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
+		' adipiscing elit',
+	},
+	theme: 'collapsible-selectable-panel',
+	onSelect: action('onselect'),
+	icon: {
+		open: 'talend-plus-circle',
+		close: 'talend-caret-down',
+	},
+};
+
+const propsCollapsibleSelectedPanel = {
+	...propsCollapsibleSelectablePanel,
+	selected: true,
+};
+
+const propsCollapsibleSelectablePanelWithoutContent = {
+	header: [
+		[version1, readOnlyLabel],
+		timeStamp,
+	],
+	content: {},
+	theme: 'collapsible-selectable-panel',
+	onSelect: action('onselect'),
+};
+
+const propsSelectedPanelWithoutContent = {
+	...propsCollapsibleSelectablePanelWithoutContent,
+	selected: true,
+};
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -160,4 +230,22 @@ storiesOf('CollapsiblePanel', module)
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
 		</div>
+	))
+	.addWithInfo('Selectable Panel', () => (
+		(<div>
+			<IconsProvider defaultIcons={icons} />
+			<p>Selected Panel With Content:</p>
+			<div id="selectable-panel-with-content1">
+				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
+			</div>
+			<p>Selectable Panel With Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
+			</div>
+			<br />
+			<p>Selected Panel Without content:</p>
+			<div id="selected-panel-without-content">
+				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
+			</div>
+		</div>)
 	));
