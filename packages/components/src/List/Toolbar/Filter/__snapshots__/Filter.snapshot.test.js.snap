@@ -25,6 +25,120 @@ exports[`Filter should render 1`] = `
 </button>
 `;
 
+exports[`Filter should render filter input with defaut placeholder 1`] = `
+<form
+  className="navbar-form navbar-right"
+  onSubmit={[Function]}
+  role="search"
+>
+  <svg
+    aria-hidden="true"
+    className="tc-svg-icon"
+    title={null}
+  >
+    <use
+      xlinkHref="#talend-search"
+    />
+  </svg>
+  <div
+    className="form-group"
+  >
+    <input
+      aria-label="Filter"
+      autoFocus={true}
+      className="form-control"
+      id={undefined}
+      name="search"
+      onBlur={undefined}
+      onChange={[Function]}
+      onFocus={undefined}
+      onKeyDown={[Function]}
+      placeholder="Filter"
+      type="search"
+    />
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role={null}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-cross"
+        />
+      </svg>
+    </button>
+  </div>
+</form>
+`;
+
+exports[`Filter should render filter input with given placeholder 1`] = `
+<form
+  className="navbar-form navbar-right"
+  onSubmit={[Function]}
+  role="search"
+>
+  <svg
+    aria-hidden="true"
+    className="tc-svg-icon"
+    title={null}
+  >
+    <use
+      xlinkHref="#talend-search"
+    />
+  </svg>
+  <div
+    className="form-group"
+  >
+    <input
+      aria-label="Filter"
+      autoFocus={true}
+      className="form-control"
+      id={undefined}
+      name="search"
+      onBlur={undefined}
+      onChange={[Function]}
+      onFocus={undefined}
+      onKeyDown={[Function]}
+      placeholder="find something"
+      type="search"
+    />
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role={null}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-cross"
+        />
+      </svg>
+    </button>
+  </div>
+</form>
+`;
+
 exports[`Filter should render highlighted filter 1`] = `
 <button
   aria-describedby={42}

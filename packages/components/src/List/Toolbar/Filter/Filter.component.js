@@ -30,13 +30,14 @@ function FilterInput(props) {
 		onFocus,
 		onFilter,
 		onToggle,
+		placeholder
 	} = props;
 
 	const inputProps = {
 		id,
 		name: 'search',
 		type: 'search',
-		placeholder: 'Filter',
+		placeholder: placeholder ? placeholder : 'Filter',
 		className: theme.search,
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
@@ -65,6 +66,7 @@ FilterInput.propTypes = {
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,
+	placeholder: PropTypes.string,
 };
 
 /**
@@ -83,6 +85,7 @@ function Filter(props) {
 		onFocus,
 		onFilter,
 		onToggle,
+		placeholder
 	} = props;
 	if (docked) {
 		return (
@@ -126,6 +129,7 @@ function Filter(props) {
 					onFocus={onFocus}
 					onFilter={onFilter}
 					onToggle={onToggle}
+					placeholder={placeholder}
 				/>
 				<Action
 					id={id && `${id}-cross-icon`}
@@ -150,6 +154,7 @@ Filter.propTypes = {
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func.isRequired,
 	highlight: PropTypes.bool,
+	placeholder: PropTypes.string,
 };
 
 Filter.defaultProps = {
