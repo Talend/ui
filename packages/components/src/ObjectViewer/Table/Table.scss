@@ -1,11 +1,23 @@
 .table {
+	td {
+		line-height: 25px;
+	}
+
 	&:global(.table-hover) >tbody > tr:hover {
 		font-weight: initial;
 	}
 
 	&:global(.table) > thead > tr {
-		background-color: $brand-primary;
+		background-color: $dove-gray;
 		color: $white;
-		font-weight: bold;
+		font-family: 'Source Sans Pro';
+		text-transform: uppercase;
+		font-weight: 900;
+	}
+
+	:global(.btn-link) {
+		font-family: 'Inconsolata';
+		font-size: 12px;
+		color: $mine-shaft;
 	}
 }
