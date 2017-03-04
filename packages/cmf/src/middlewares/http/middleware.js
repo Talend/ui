@@ -145,9 +145,10 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 				newAction.error.stack.response = response;
 				newAction.error.stack.messageObject = JSON.parse(response);
 			} finally {
-				dispatch(httpError(newAction.error));
 				if (newAction.onError) {
 					dispatch(onError(newAction, newAction.error));
+				} else {
+					dispatch(httpError(newAction.error));
 				}
 			}
 		});
