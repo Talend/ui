@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider } from 'react-cmf/lib/mock';
-import SidePanel from './SidePanel.container';
+import { store, Provider } from 'react-cmf/lib/mock';
+import SidePanel, { getActions } from './SidePanel.container';
 
 jest.mock('react-talend-components');
 jest.mock('react-dom');
@@ -24,5 +24,25 @@ describe('SidePanel', () => {
 			</Provider>,
 		).toJSON();
 		expect(sidepanel).toMatchSnapshot();
+	});
+});
+
+describe('SidePanel:getActions', () => {
+	it('should add onClick on info', () => {
+		const context = store.context();
+		const actions = getActions(['menu:article'], context);
+		expect(actions.length).toBe(1);
+		expect(typeof actions[0].onClick).toBe('function');
+	});
+
+	it('should check for each action if one goes to the current route', () => {
+		const context = store.context();
+		context.router = { location: { pathname: '/test' } };
+		const active = getActions(['menu:routerReplace'], context)[0];
+		expect(active.active).toBe(true);
+
+		context.router = { location: { pathname: '/different' } };
+		const notactive = getActions(['menu:routerReplace'], context)[0];
+		expect(notactive.active).toBe(undefined);
 	});
 });

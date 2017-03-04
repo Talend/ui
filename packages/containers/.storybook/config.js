@@ -16,13 +16,30 @@ const reducer = (state = {}, a) => {
 };
 
 function objectView(event, data) {
-	return Object.assign({
+	return {
 		type: 'OBJECT_VIEW',
-	}, data);
+		...data
+	};
+}
+
+function hideDialog(event, data) {
+	return {
+		type: 'HIDE_DIALOG',
+		...data
+	};
+}
+
+function confirmDialog(event, data) {
+	return {
+		type: 'CONFIRM_DIALOG',
+		...data
+	};
 }
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
+registerActionCreator('cancel:hide:dialog', hideDialog);
+registerActionCreator('confirm:dialog', confirmDialog);
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {
@@ -73,6 +90,17 @@ function loadStories() {
 			payload: {
 				type: 'APP_OBJECT_DELETE',
 			},
+		};
+		actions['object:confirm:dialog'] = {
+			label: 'Remove',
+			bsStyle: 'primary',
+			id: 'object:confirm:dialog',
+			actionCreator: 'confirm:dialog',
+		};
+		actions['object:hide:dialog'] = {
+			label: 'Cancel',
+			id: 'object:hide:dialog',
+			actionCreator: 'cancel:hide:dialog',
 		};
 
 		const story = storiesOf(example);

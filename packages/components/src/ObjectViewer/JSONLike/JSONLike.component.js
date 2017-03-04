@@ -18,7 +18,6 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 		display = data.toString();
 		inputType = 'checkbox';
 	} else if (type === 'string') {
-		display = `"${data}"`;
 		inputType = 'text';
 	}
 	if (edit) {

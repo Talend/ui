@@ -2,4 +2,10 @@
 	&:global(.table-hover) >tbody > tr:hover {
 		font-weight: initial;
 	}
+
+	&:global(.table) > thead > tr {
+		background-color: $brand-primary;
+		color: $white;
+		font-weight: bold;
+	}
 }

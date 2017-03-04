@@ -111,6 +111,7 @@ class List extends React.Component {
 		if (this.props.toolbar) {
 			props.toolbar = {
 				display: {
+					...this.props.toolbar.display,
 					onChange: (e, p) => {
 						this.onSelectDisplayMode(e, p);
 					},
