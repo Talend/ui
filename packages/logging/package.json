@@ -1,7 +1,7 @@
 {
   "name": "talend-log",
   "description": "Small wrapper over TraceKit, that allows to inject error reporting as redux-logger middleware",
-  "main": "lib/index.js",
+  "main": "lib/errorTransformer.js",
   "scripts": {
     "prepublish": "babel -d lib ./src/",
     "start": "echo nothing to start",
@@ -47,7 +47,7 @@
     ]
   },
   "peerDependencies": {},
-  "version": "0.63.0",
+  "version": "0.63.1",
   "dependencies": {
     "tracekit": "^0.4.4",
     "whatwg-fetch": "^2.0.2"

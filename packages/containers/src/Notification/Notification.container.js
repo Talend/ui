@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { List, Map } from 'immutable';
 import { Notification as Component } from 'react-talend-components';
 
-import { statePropTypes, stateWillMount } from '../state';
+import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	notifications: new List(),
@@ -15,8 +15,8 @@ class Notification extends React.Component {
 		...statePropTypes,
 	};
 
-	componentWillMount() {
-		stateWillMount(this.props);
+	componentDidMount() {
+		initState(this.props);
 	}
 
 	render() {

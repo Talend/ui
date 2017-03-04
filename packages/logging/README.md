@@ -13,7 +13,7 @@ your configStore.js file:
     import promise from 'redux-promise-middleware';
     import createLogger from 'redux-logger';
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from './src/errorTransformer';
+    import initErrorTransformer, { TraceKit } from 'talend-log';
 
     // important part:
     const logger = createLogger({ errorTransformer: initErrorTransformer(LOGGING_SERVER_URL) });
@@ -31,7 +31,7 @@ your configStore.js file:
 Look in ./src/errorTransformer.js for jsDoc on each parameter 
 
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from './src/errorTransformer';
+    import initErrorTransformer from 'talend-log';
 
     const logger = createLogger({
         errorTransformer: initErrorTransformer(
@@ -92,7 +92,7 @@ If you have some non-critical exceptions that should be reported, but should not
 in your config file:
 
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from './src/errorTransformer';
+    import initErrorTransformer from 'talend-log';
     import transportConfig from 'somewhere';
 
     // this:
@@ -102,6 +102,8 @@ in your config file:
 
 somewhere in your application:
 
+    import { TraceKit } from 'talend-log';
+    
     fetch('google.com').catch(errorResponse => TraceKit.report(new Error(errorResponse)));
 
 ### Under the hood

@@ -1,6 +1,4 @@
-import TraceKit from 'tracekit';
-
-import et from './errorTransformer';
+import et, { TraceKit } from './errorTransformer';
 
 const someString = 'hello';
 const rethrowErrorHandler = () => {};
@@ -49,7 +47,7 @@ describe('ErrorTransformer', () => {
 		});
 	});
 
-	it('should patch TraceKit so it calls rethrowErrorHandler internally', () => {
+	it('should patch TraceKit_ so it calls rethrowErrorHandler internally', () => {
 		// given:
 		const report = (error) => {
 			let message;
