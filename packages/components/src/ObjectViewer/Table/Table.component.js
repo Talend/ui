@@ -19,11 +19,26 @@ function getAbsolutePath(index, key, flat) {
 	return `$[${index}]['${key}']`;
 }
 
+function getHeaders(keys, isFlat) {
+	if (isFlat) {
+		// $['id'][0]['foo'] -> id[0].foo
+		return keys.map(str => str
+			.replace('$[\'', '')
+			.replace('\'][\'', '.')
+			.replace('][\'', '].')
+			.replace('\'][', '[')
+			.replace('\']', '')
+		);
+	}
+	return keys;
+}
+
 function Table({ flat, data, ...props }) {
 	if (!Array.isArray(data)) {
 		return null;
 	}
 	const keys = getKeys(data[0], flat);
+	const headers = getHeaders(keys, flat);
 	const tableClassName = classNames(
 		theme.table,
 		'tc-object-viewer',
@@ -34,7 +49,7 @@ function Table({ flat, data, ...props }) {
 		<table className={tableClassName}>
 			<thead>
 				<tr>
-					{keys.map((key, index) => (<td key={index}>{key}</td>))}
+					{headers.map((key, index) => (<td key={index}>{key}</td>))}
 				</tr>
 			</thead>
 			<tbody>
