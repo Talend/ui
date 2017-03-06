@@ -5,21 +5,21 @@ import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
 import theme from './Table.scss';
 
-function getKeys(data, isFlat) {
+export function getKeys(data, isFlat) {
 	if (isFlat) {
 		return Object.keys(toFlat(data));
 	}
 	return Object.keys(data);
 }
 
-function getAbsolutePath(index, key, flat) {
+export function getAbsolutePath(index, key, flat) {
 	if (flat) {
 		return `$[${index}]${key.replace('$', '')}`;
 	}
 	return `$[${index}]['${key}']`;
 }
 
-function getHeaders(keys, isFlat) {
+export function getHeaders(keys, isFlat) {
 	if (isFlat) {
 		// $['id'][0]['foo'] -> id[0].foo
 		return keys.map(str => str
