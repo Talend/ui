@@ -14,7 +14,6 @@
 		color: $white;
 		font-family: 'Source Sans Pro';
 		text-transform: uppercase;
-		font-weight: 900;
 
 		& > td {
 			padding: $padding-smaller;
@@ -26,6 +25,7 @@
 
 		:global(.btn) {
 			text-transform: none;
+			letter-spacing: none;
 		}
 	}
 
