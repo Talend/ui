@@ -20,11 +20,11 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
               >
                 Id
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
@@ -32,11 +32,11 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
               >
                 Name
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>
@@ -716,11 +716,11 @@ exports[`List should render 1`] = `
               >
                 Id
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
@@ -728,11 +728,11 @@ exports[`List should render 1`] = `
               >
                 Name
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>
@@ -1425,11 +1425,11 @@ exports[`List should render id if provided 1`] = `
               >
                 Id
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
@@ -1437,11 +1437,11 @@ exports[`List should render id if provided 1`] = `
               >
                 Name
               </span>
-              <span
+              <div
                 aria-hidden="true"
               >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>

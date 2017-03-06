@@ -88,6 +88,7 @@ import SidePanel from './SidePanel';
 import Status from './Status';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
+import WithDrawer from './WithDrawer';
 import Enumeration from './Enumeration';
 
 export {
@@ -117,6 +118,7 @@ export {
 	Status,
 	TooltipTrigger,
 	Typeahead,
+	WithDrawer,
 
 	Alert,
 	Badge as BootstrapBadge,

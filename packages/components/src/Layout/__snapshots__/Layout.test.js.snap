@@ -14,17 +14,32 @@ exports[`Layout should render Layout OneColumn 1`] = `
   <div
     className="tc-layout-one-column"
   >
-    <h1>
-      Column one
-    </h1>
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className="react-addons-css-transition-group"
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
+        transitionName="tc-drawer"
+      />
+    </div>
   </div>
-  <div
-    className="react-addons-css-transition-group"
-    transitionAppearTimeout={230}
-    transitionEnterTimeout={230}
-    transitionLeaveTimeout={230}
-    transitionName="tc-drawer"
-  />
 </div>
 `;
 
@@ -52,18 +67,33 @@ exports[`Layout should render Layout TwoColumns 1`] = `
     <div
       className="tc-layout-two-columns-main"
     >
-      <h1>
-        Column two
-      </h1>
+      <div
+        className={undefined}
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": "100%",
+              "overflow": "auto",
+            }
+          }
+        >
+          <h1>
+            Column two
+          </h1>
+        </div>
+        <div
+          className="react-addons-css-transition-group"
+          transitionAppearTimeout={230}
+          transitionEnterTimeout={230}
+          transitionLeaveTimeout={230}
+          transitionName="tc-drawer"
+        />
+      </div>
     </div>
   </div>
-  <div
-    className="react-addons-css-transition-group"
-    transitionAppearTimeout={230}
-    transitionEnterTimeout={230}
-    transitionLeaveTimeout={230}
-    transitionName="tc-drawer"
-  />
 </div>
 `;
 
@@ -91,54 +121,69 @@ exports[`Layout should render layout with Drawer component 1`] = `
     <div
       className="tc-layout-two-columns-main"
     >
-      <h1>
-        Column two
-      </h1>
-    </div>
-  </div>
-  <div
-    className="react-addons-css-transition-group"
-    transitionAppearTimeout={230}
-    transitionEnterTimeout={230}
-    transitionLeaveTimeout={230}
-    transitionName="tc-drawer"
-  >
-    <div
-      className="tc-drawer"
-      style={undefined}
-    >
       <div
-        style={
-          Object {
-            "width": 500,
-          }
-        }
+        className={undefined}
       >
-        <h1>
-          Hello drawers
-        </h1>
-        <p>
-          You should not being able to read this because I'm first
-        </p>
-      </div>
-    </div>
-    <div
-      className="tc-drawer"
-      style={undefined}
-    >
-      <div
-        style={
-          Object {
-            "width": 400,
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": "100%",
+              "overflow": "auto",
+            }
           }
-        }
-      >
-        <h1>
-          Hello drawers
-        </h1>
-        <p>
-          The content dictate the width
-        </p>
+        >
+          <h1>
+            Column two
+          </h1>
+        </div>
+        <div
+          className="react-addons-css-transition-group"
+          transitionAppearTimeout={230}
+          transitionEnterTimeout={230}
+          transitionLeaveTimeout={230}
+          transitionName="tc-drawer"
+        >
+          <div
+            className={undefined}
+            drawer={true}
+          >
+            <div
+              style={
+                Object {
+                  "width": 500,
+                }
+              }
+            >
+              <h1>
+                Hello drawers
+              </h1>
+              <p>
+                You should not being able to read this because I'm first
+              </p>
+            </div>
+          </div>
+          <div
+            className={undefined}
+            drawer={true}
+          >
+            <div
+              style={
+                Object {
+                  "width": 400,
+                }
+              }
+            >
+              <h1>
+                Hello drawers
+              </h1>
+              <p>
+                The content dictate the width
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

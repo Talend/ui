@@ -185,6 +185,7 @@ const props = {
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),
+			placeholder: 'search for something',
 		},
 	},
 };
