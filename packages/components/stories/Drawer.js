@@ -113,7 +113,7 @@ const drawers = [
 ];
 
 storiesOf('Drawer', module)
-	.addWithInfo('test', () => {
+	.addWithInfo('Default', () => {
 		const sidePanel = (<SidePanel
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
@@ -234,46 +234,4 @@ storiesOf('Drawer', module)
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
-	})
-	.addWithInfo('Default', () => (
-		<div>
-			<h1>Hello world</h1>
-			<Drawer.Animation>
-				<Drawer>
-					<h1>I am a drawer</h1>
-				</Drawer>
-				<Drawer>
-					<h1>I am an other drawer</h1>
-				</Drawer>
-			</Drawer.Animation>
-		</div>
-	))
-	.addWithInfo('custom classname', () => (
-		<div>
-			<h1>Hello world</h1>
-			<Drawer.Animation>
-				<Drawer className="drawer-custom">
-					<h1>I am a customized drawer</h1>
-					<p>Using className props</p>
-				</Drawer>
-			</Drawer.Animation>
-		</div>
-	))
-	.addWithInfo('with title bar', () => (
-		<div>
-			<h1>Hello world</h1>
-			<Drawer title="Im a title">
-				<p>using title</p>
-			</Drawer>
-		</div>
-	))
-	.addWithInfo('custom styles without animation', () => (
-		<div>
-			<h1>Hello world</h1>
-			<Drawer style={{ width: 400, backgroundColor: '#ddd' }}>
-				<h1>I am a custom drawer</h1>
-				<p>Using style props</p>
-			</Drawer>
-		</div>
-	));
-
+	});
