@@ -15,11 +15,24 @@
 		font-family: 'Source Sans Pro';
 		text-transform: uppercase;
 		font-weight: 900;
+
+		& > td {
+			padding: $padding-smaller;
+		}
+	}
+
+	&:global(.table) > tbody > tr > td {
+		padding: $padding-smaller;
+
+		:global(.btn) {
+			text-transform: none;
+		}
 	}
 
 	:global(.btn-link) {
 		font-family: 'Inconsolata';
 		font-size: 12px;
 		color: $mine-shaft;
+		padding: 0;
 	}
 }
