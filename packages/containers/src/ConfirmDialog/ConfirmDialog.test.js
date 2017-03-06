@@ -1,13 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider } from 'react-cmf/lib/mock';
-import { Map } from 'immutable';
+import { fromJS, Map } from 'immutable';
+import { store, Provider } from 'react-cmf/lib/mock';
 
 import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
 import Connected, {
 	mapDispatchToProps,
 	mapStateToProps,
 } from './ConfirmDialog.connect';
+
+import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
 const initialState = new Map({
 	size: 'small',
@@ -65,6 +67,55 @@ describe('Connected ConfirmDialog', () => {
 		const dispatch = () => {};
 		const props = mapDispatchToProps(dispatch);
 		expect(typeof props).toBe('object');
+	});
+});
+
+describe('ConfirmDialog.show/hide', () => {
+	it('should change the visibility to true in the state', () => {
+		const state = store.state();
+		state.cmf.components = fromJS({
+			ConfirmDialog: {
+				ConfirmDialog: {
+					show: false,
+				},
+			},
+		});
+
+		const dialog = new Map({
+			size: 'small',
+			header: 'REMOVE SEMANTIC TYPE',
+			children: 'Are you sure you want to remove the semantic type ?',
+			model: {},
+			// these two actions are contained in show:remove:semantic action payload
+			validateAction: '',
+			cancelAction: '',
+		});
+
+		const action = {
+			confirmDialogConf: dialog,
+			model: {},
+		};
+
+		const newState = showConfirmDialog(state, action);
+		expect(newState).not.toBe(state);
+		const confirmDialoVisibility = newState.cmf.components.getIn(['ConfirmDialog', 'ConfirmDialog', 'show']);
+		expect(confirmDialoVisibility).toBeTruthy();
+	});
+
+	it('should change the visibility to false in the state', () => {
+		const state = store.state();
+		state.cmf.components = fromJS({
+			ConfirmDialog: {
+				ConfirmDialog: {
+					show: true,
+				},
+			},
+		});
+
+		const newState = hideConfirmDialog(state);
+		expect(newState).not.toBe(state);
+		const confirmDialogVisibility = newState.cmf.components.getIn(['ConfirmDialog', 'ConfirmDialog', 'show']);
+		expect(confirmDialogVisibility).toBeFalsy();
 	});
 });
 
