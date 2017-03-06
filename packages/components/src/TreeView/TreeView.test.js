@@ -8,6 +8,11 @@ jest.mock('react-dom');
 const defaultProps = {
 	structure: [{
 		name: 'grandpa',
+		actions: [{
+			action: () => ('itemRemoveCallback'),
+			icon: 'talend-trash',
+			label: 'remove element',
+		}],
 		children: [
 			{
 				name: 'mami',
@@ -26,7 +31,7 @@ const defaultProps = {
 	addActionLabel: 'add element',
 	itemSelectCallback: () => null,
 	itemToggleCallback: () => null,
-	itemRemoveCallback: () => null,
+	showCounter: true,
 };
 
 describe('TreeView', () => {
