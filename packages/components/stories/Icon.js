@@ -64,9 +64,13 @@ storiesOf('Icon', module)
 			<ul>
 				<li><Icon name="talend-apache" /></li>
 				<li><Icon name="talend-apache" transform="spin" /> : <strong>spin</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-45" /> : <strong>rotate-45</strong></li>
 				<li><Icon name="talend-apache" transform="rotate-90" /> : <strong>rotate-90</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-135" /> : <strong>rotate-135</strong></li>
 				<li><Icon name="talend-apache" transform="rotate-180" /> : <strong>rotate-180</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-225" /> : <strong>rotate-225</strong></li>
 				<li><Icon name="talend-apache" transform="rotate-270" /> : <strong>rotate-270</strong></li>
+				<li><Icon name="talend-apache" transform="rotate-315" /> : <strong>rotate-315</strong></li>
 				<li><Icon name="talend-apache" transform="flip-horizontal" /> : <strong>flip-horizontal</strong></li>
 				<li><Icon name="talend-apache" transform="flip-vertical" /> : <strong>flip-vertical</strong></li>
 			</ul>
