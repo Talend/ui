@@ -40,6 +40,7 @@ function TwoColumns({ one, drawers, children, ...props }) {
 TwoColumns.propTypes = {
 	one: React.PropTypes.element,
 	children: React.PropTypes.element,
+	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
 };
 
 export default TwoColumns;

@@ -23,7 +23,7 @@ DrawerAnimation.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContainer({ stacked, className, style, children }) {
+function DrawerContainer({ stacked, className, children, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
@@ -32,7 +32,7 @@ function DrawerContainer({ stacked, className, style, children }) {
 			[theme.drawerStacked]: stacked,
 		});
 	return (
-		<div className={drawerContainerClasses} style={style}>
+		<div className={drawerContainerClasses} {...rest}>
 			<div className={theme['tc-drawer-container']}>
 				{children}
 			</div>
@@ -43,7 +43,6 @@ function DrawerContainer({ stacked, className, style, children }) {
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
 	className: PropTypes.string,
-	style: PropTypes.shape({}),
 	children: PropTypes.node.isRequired,
 };
 
@@ -82,16 +81,15 @@ DrawerTitle.propTypes = {
 	children: PropTypes.nodes,
 };
 
-function DrawerContent({ style, children }) {
+function DrawerContent({ children, ...rest }) {
 	return (
-		<div style={style} className={theme['tc-drawer-content']}>
+		<div className={theme['tc-drawer-content']} {...rest}>
 			{children}
 		</div>
 	);
 }
 
 DrawerContent.propTypes = {
-	style: PropTypes.shape({}),
 	children: PropTypes.node,
 };
 

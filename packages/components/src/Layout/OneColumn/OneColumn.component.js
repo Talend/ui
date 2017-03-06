@@ -27,6 +27,7 @@ function OneColumn({ drawers, children, ...props }) {
 
 OneColumn.propTypes = {
 	children: React.PropTypes.node,
+	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
 };
 
 export default OneColumn;
