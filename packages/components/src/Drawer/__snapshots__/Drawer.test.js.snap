@@ -22,7 +22,6 @@ exports[`Drawer should render 1`] = `
     >
       <div
         className={undefined}
-        style={undefined}
       >
         <h1>
           Hello world
@@ -56,7 +55,6 @@ exports[`Drawer should render using custom className 1`] = `
     >
       <div
         className={undefined}
-        style={undefined}
       >
         <h1>
           Hello world
@@ -94,7 +92,6 @@ exports[`Drawer should render using custom styles 1`] = `
     >
       <div
         className={undefined}
-        style={undefined}
       >
         <h1>
           Hello world
