@@ -17,25 +17,29 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 	}
 
 	function getMenuItem(option, index) {
-		return (<MenuItem
-			id={id && `${id}-by-item-${option.id}`}
-			key={index}
-			eventKey={option}
-		>
-			{option.name || option.id}
-		</MenuItem>
+		return (
+			<MenuItem
+				id={id && `${id}-by-item-${option.id}`}
+				key={index}
+				eventKey={option}
+			>
+				{option.name || option.id}
+			</MenuItem>
 		);
 	}
 
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
-			<NavDropdown
-				id={id ? `${id}-by` : uuid.v4()}
-				title={selected ? (selected.name || selected.id) : 'N.C'}
-				onSelect={onChangeField}
-			>
-				{options.map((option, index) => getMenuItem(option, index, id))}
-			</NavDropdown>
+			{options.length === 1 ?
+				(<NavItem>{options[0].name}</NavItem>) :
+				(<NavDropdown
+					id={id ? `${id}-by` : uuid.v4()}
+					title={selected ? (selected.name || selected.id) : 'N.C'}
+					onSelect={onChangeField}
+				>
+					{options.map((option, index) => getMenuItem(option, index, id))}
+				</NavDropdown>)
+			}
 			{selected && (
 				<NavItem
 					id={id && `${id}-order`}
