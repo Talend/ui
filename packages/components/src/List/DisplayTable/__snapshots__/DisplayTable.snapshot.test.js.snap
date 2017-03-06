@@ -16,11 +16,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -28,11 +28,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -40,11 +40,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -52,11 +52,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -64,11 +64,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -76,11 +76,11 @@ exports[`DisplayTable should render column actions 1`] = `
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -651,11 +651,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -663,11 +663,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -675,11 +675,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -687,11 +687,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -699,11 +699,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -1169,11 +1169,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -1181,11 +1181,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -1193,11 +1193,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -1205,11 +1205,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -1217,11 +1217,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -1694,11 +1694,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Id
               </span>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1722,11 +1722,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 />
               </svg>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1741,11 +1741,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 
               </span>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1760,11 +1760,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Author
               </span>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1779,11 +1779,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Created
               </span>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1798,11 +1798,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 Modified
               </span>
             </button>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -2373,11 +2373,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2385,11 +2385,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2397,11 +2397,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2409,11 +2409,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2421,11 +2421,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -2891,11 +2891,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2903,11 +2903,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2915,11 +2915,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2927,11 +2927,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -2939,11 +2939,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -3428,11 +3428,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3440,11 +3440,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3452,11 +3452,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3464,11 +3464,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3476,11 +3476,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -3946,11 +3946,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
             >
               Id
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3958,11 +3958,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
             >
               Name
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3970,11 +3970,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
             >
               Author
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3982,11 +3982,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
             >
               Created
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
@@ -3994,11 +3994,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
             >
               Modified
             </span>
-            <span
+            <div
               aria-hidden="true"
             >
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
