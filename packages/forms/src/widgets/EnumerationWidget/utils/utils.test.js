@@ -1,32 +1,41 @@
-import { manageCtrlKey, manageShiftKey,
-	deleteSelectedItems, computeSelectedOnDelete } from './utils.js';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils.js';
 
 describe('Enumeration', () => {
 	describe('Ctrl key', () => {
 		it('should unselect a value by pressing ctrl key', () => {
 			// given
-
-			const item = { index: 0 };
-			const selectedItems = [0, 1];
+			const items = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+			];
+			const expectedItems = [
+				{ values: ['toto'], isSelected: false },
+				{ values: ['tata'], isSelected: true },
+			];
 
 			// when
-			const result = manageCtrlKey(item, selectedItems);
+			const result = manageCtrlKey(0, items);
 
 			// then
-			expect(result).toEqual([1]);
+			expect(result).toEqual(expectedItems);
 		});
 
 		it('should select a value by pressing ctrl key', () => {
 			// given
-
-			const item = { index: 1 };
-			const selectedItems = [0];
+			const items = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'] },
+			];
+			const expectedItems = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+			];
 
 			// when
-			const result = manageCtrlKey(item, selectedItems);
+			const result = manageCtrlKey(1, items);
 
 			// then
-			expect(result).toEqual([0, 1]);
+			expect(result).toEqual(expectedItems);
 		});
 	});
 
@@ -34,70 +43,91 @@ describe('Enumeration', () => {
 		it('should unselect a range', () => {
 			// given
 
-			const item = { index: 2 };
-			const items = [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 3 }];
-			const selectedItems = [0, 1, 2, 3];
+			const items = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+				{ values: ['titi'], isSelected: true },
+				{ values: ['tutu'], isSelected: true },
+			];
+
+			const expectedItems = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+				{ values: ['titi'], isSelected: false },
+				{ values: ['tutu'], isSelected: false },
+			];
 
 			// when
-			const result = manageShiftKey(item, selectedItems, items);
+			const result = manageShiftKey(1, items);
 
 			// then
-			expect(result).toEqual([0, 1, 2]);
+			expect(result).toEqual(expectedItems);
 		});
 
 		it('should select a range after current item', () => {
 			// given
-			const item = { index: 3 };
-			const items = [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 3 }];
-			const selectedItems = [0, 1];
+			const items = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+				{ values: ['titi'] },
+				{ values: ['tutu'] },
+			];
+			const expectedItems = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+				{ values: ['titi'], isSelected: true },
+				{ values: ['tutu'], isSelected: true },
+			];
 
 			// when
-			const result = manageShiftKey(item, selectedItems, items);
+			const result = manageShiftKey(3, items);
 
 			// then
-			expect(result).toEqual([0, 1, 2, 3]);
+			expect(result).toEqual(expectedItems);
 		});
 
 		it('should select a range before current item', () => {
 			// given
-			const item = { index: 0 };
-			const items = [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 3 }];
-			const selectedItems = [2, 3];
+			const items = [
+				{ values: ['toto'] },
+				{ values: ['tata'] },
+				{ values: ['titi'], isSelected: true },
+				{ values: ['tutu'], isSelected: true },
+			];
+			const expectedItems = [
+				{ values: ['toto'], isSelected: true },
+				{ values: ['tata'], isSelected: true },
+				{ values: ['titi'], isSelected: true },
+				{ values: ['tutu'], isSelected: true },
+			];
 
 			// when
-			const result = manageShiftKey(item, selectedItems, items);
+			const result = manageShiftKey(0, items);
 
 			// then
-			expect(result).toEqual([0, 1, 2, 3]);
+			expect(result).toEqual(expectedItems);
 		});
 	});
 
 	describe('manage items deletion ', () => {
 		it('should delete selected items', () => {
 			// given
-
-			const items = [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 3 }];
-			const selectedItems = [1, 2];
-
-			// when
-			const result = deleteSelectedItems(items, selectedItems);
-
-			// then
-			expect(result).toEqual([{ index: 0 }, { index: 3 }]);
-		});
-	});
-
-	describe('manage selected item when deleeting one ', () => {
-		it('should delete selected items', () => {
-			// given
-			const selectedItems = [0, 1, 2];
-			const index = 1;
+			const items = [
+				{ values: ['toto'] },
+				{ values: ['tata'] },
+				{ values: ['titi'], isSelected: true },
+				{ values: ['tutu'], isSelected: true },
+			];
+			const expectedItems = [
+				{ values: ['toto'] },
+				{ values: ['tata'] },
+			];
 
 			// when
-			const result = computeSelectedOnDelete(selectedItems, index);
+			const result = deleteSelectedItems(items);
 
 			// then
-			expect(result).toEqual([0, 1]);
+			expect(result).toEqual(expectedItems);
 		});
 	});
 });

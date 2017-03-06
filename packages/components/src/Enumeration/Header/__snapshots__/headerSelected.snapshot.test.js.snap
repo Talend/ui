@@ -1,3 +1,12 @@
+exports[`Header should render header in selected state without trash icon in case of single selection) 1`] = `
+<header
+  className="undefined tc-enumeration-header">
+  <span>
+    1 selected value
+  </span>
+</header>
+`;
+
 exports[`Header should render header with trash icon in case of multiple selection 1`] = `
 <header
   className="undefined tc-enumeration-header">
@@ -23,14 +32,5 @@ exports[`Header should render header with trash icon in case of multiple selecti
         xlinkHref="#talend-check" />
     </svg>
   </button>
-</header>
-`;
-
-exports[`Header should render header without trash icon in case of single selection) 1`] = `
-<header
-  className="undefined tc-enumeration-header">
-  <span>
-    0 selected value
-  </span>
 </header>
 `;

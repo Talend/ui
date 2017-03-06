@@ -2,55 +2,55 @@
 function selectAllBetween(min, max, items) {
 	return items.map((item, index) => {
 		if (index >= min && index <= max) {
-			return index;
+			return { ...item, isSelected: true };
 		}
-		return undefined;
-	}).filter((item) => item !== undefined);
+		return { ...item, isSelected: false };
+	});
 }
 
-export function manageCtrlKey(item, selectedItems) {
-	const itemFound = selectedItems.find(currentItem => currentItem === item.index);
-	// if index present, remove it
-	if (itemFound !== undefined) {
-		return selectedItems.filter((indexSelected) => indexSelected !== item.index);
+export function manageCtrlKey(indexSelected, items) {
+	const copy = [...items];
+	const itemSelected = copy[indexSelected] && copy[indexSelected].isSelected;
+	if (itemSelected) {
+		copy[indexSelected].isSelected = false;
+	} else {
+		copy[indexSelected].isSelected = true;
 	}
-
-	selectedItems.push(item.index);
-
-	return selectedItems;
+	return copy;
 }
 
-export function manageShiftKey(item, selectedItems, items) {
-	const itemFound = selectedItems.find(currentItem => currentItem === item.index);
-	const indexMinimumSelected = Math.min(...selectedItems);
-	// if item existing, remove it
-	if (itemFound !== undefined) {
-		return selectAllBetween(indexMinimumSelected, item.index, items);
+export function manageShiftKey(indexSelected, items) {
+	const itemSelected = items[indexSelected].isSelected && items[indexSelected].isSelected === true;
+	let firstIndex = 0;
+	let	lastIndex = 0;
+	// get first item selected
+	items.find((item, index) => {
+		if (item.isSelected) {
+			firstIndex = index;
+			return true;
+		}
+		return false;
+	});
+	// get last item selected
+	const itemsReversed = [...items].reverse();
+	itemsReversed.find((item, index) => {
+		if (item.isSelected && item.isSelected === true) {
+			lastIndex = items.length - index - 1;
+			return true;
+		}
+		return false;
+	});
+	if (itemSelected) {
+		return selectAllBetween(firstIndex, indexSelected, items);
 	}
-	const indexMaximumSelected = Math.max(...selectedItems);
-	if (item.index < indexMinimumSelected) {
-		return selectAllBetween(item.index, indexMaximumSelected, items);
-	} else if (item.index > indexMaximumSelected) {
-		return selectAllBetween(indexMinimumSelected, item.index, items);
+	if (indexSelected < firstIndex) {
+		return selectAllBetween(indexSelected, lastIndex, items);
+	} else if (indexSelected > lastIndex) {
+		return selectAllBetween(firstIndex, indexSelected, items);
 	}
 	return undefined;
 }
 
-export function deleteSelectedItems(items, selectedItems) {
-	return items.filter((item, index) => {
-		const selectedItem = selectedItems.find(it => it === index);
-		return selectedItem === undefined;
-	});
+export function deleteSelectedItems(items) {
+	return items.filter((item) => !item.isSelected);
 }
-
-export function computeSelectedOnDelete(selectedItems, index) {
-	return selectedItems
-		.filter(selectedIndex => selectedIndex !== index)
-		.map(selectedIndex => {
-			if (selectedIndex > index) {
-				return selectedIndex - 1;
-			}
-			return selectedIndex;
-		});
-}
-

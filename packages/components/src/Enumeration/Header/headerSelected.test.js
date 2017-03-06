@@ -12,10 +12,10 @@ describe('Header selected', () => {
 				disabled: false,
 				label: 'Delete',
 				icon: 'talend-check',
-				id: 'validate',
+				id: 'delete',
 				onClick: jest.fn(), // provided click callback
 			}],
-			selectedItems: [{ index: 0 }, { index: 1 }],
+			nbItemsSelected: 2,
 		};
 		const headerInputInstance = <HeaderSelected{...props} />;
 

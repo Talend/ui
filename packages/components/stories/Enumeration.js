@@ -66,7 +66,6 @@ const props = {
 	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
-	selectedItems: [],
 };
 
 const addProps = {
@@ -85,7 +84,6 @@ const editItemProps = {
 const selectedValuesProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_SELECTED',
-	selectedItems: [1, 3],
 
 };
 editItemProps.items = Array(50).fill('').map((item, index) => ({

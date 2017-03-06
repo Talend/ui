@@ -16,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp, selectedItems, currentEdit }) {
+function Items({ items, itemsProp, currentEdit }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -45,12 +45,10 @@ function Items({ items, itemsProp, selectedItems, currentEdit }) {
 			);
 		}
 		default: {
-			const isSelected = selectedItems.find(selectedItem => selectedItem === index) !== undefined;
 			const itemPropDefault = {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 				onSelectItem: itemsProp.onSelectItem,
-				isSelected,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -85,7 +83,6 @@ Items.propTypes = {
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
-	selectedItems: PropTypes.arrayOf(PropTypes.number).isRequired,
 	...ItemEditPropTypes,
 };
 

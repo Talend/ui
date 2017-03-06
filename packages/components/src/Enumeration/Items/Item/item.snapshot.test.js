@@ -26,7 +26,7 @@ const item = {
 
 const selectedItem = {
 	values: ['toto'],
-	index: 0, // item selected, see selectedItems below
+	isSelected: true,
 	itemProps: {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback

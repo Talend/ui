@@ -20,7 +20,6 @@ const item = {
 			id: 'delete',
 			onClick: jest.fn(), // provided click callback
 		}],
-		selectedItems: [],
 	},
 };
 

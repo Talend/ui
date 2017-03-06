@@ -40,7 +40,6 @@ describe('Items', () => {
 					onClick: jest.fn(),
 				}],
 			},
-			selectedItems: [],
 		};
 
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';

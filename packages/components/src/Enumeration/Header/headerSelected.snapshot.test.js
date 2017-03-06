@@ -14,7 +14,7 @@ describe('Header', () => {
 				id: 'validate',
 				onClick: jest.fn(), // provided click callback
 			}],
-			selectedItems: [{ index: 0 }, { index: 1 }],
+			nbItemsSelected: 2,
 		};
 
 		function createNodeMock(element) {
@@ -35,22 +35,11 @@ describe('Header', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render header without trash icon in case of single selection)', () => {
+	it('should render header in selected state without trash icon in case of single selection)', () => {
 		// given
 		const props = {
-			headerSelected: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // provided click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // provided click callback
-			}],
-			selectedItems: [],
+			headerSelected: [],
+			nbItemsSelected: 1,
 		};
 
 		function createNodeMock(element) {

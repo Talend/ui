@@ -39,7 +39,6 @@ describe('Enumeration', () => {
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
-				selectedItems: [],
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -60,7 +59,6 @@ describe('Enumeration', () => {
 					onClick: jest.fn(), // no click callback
 				}],
 			},
-			selectedItems: [],
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
@@ -124,7 +122,6 @@ describe('Enumeration', () => {
 					onClick: jest.fn(), // no click callback
 				}],
 			},
-			selectedItems: [],
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
@@ -198,7 +195,6 @@ describe('Enumeration', () => {
 					onClick: jest.fn(), // no click callback
 				}],
 			},
-			selectedItems: [],
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
@@ -220,7 +216,7 @@ describe('Enumeration', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with header in selected state and first item in selected mode', () => {
+	it('should render with header in selected state with trash icon, and two items in selected mode', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_SELECTED',
 			currentEdit: {
@@ -278,11 +274,11 @@ describe('Enumeration', () => {
 					onClick: jest.fn(), // no click callback
 				}],
 			},
-			selectedItems: [0],
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';
+		props.items[0].isSelected = true;
+		props.items[1].isSelected = true;
 
 		function createNodeMock(element) {
 			if (element.type === 'input') {

@@ -34,7 +34,6 @@ function Item({ id, item }) {
 		key,
 		actions,
 		onSelectItem,
-		isSelected,
 	} = item.itemProps;
 
 	function getAction(action, index) {
@@ -61,7 +60,7 @@ function Item({ id, item }) {
 	}
 
 	return (
-		<li className={itemClasses(isSelected)} id={id}>
+		<li className={itemClasses(item.isSelected)} id={id}>
 			<Action
 				key={item.index}
 				label={item[key].join(',')}

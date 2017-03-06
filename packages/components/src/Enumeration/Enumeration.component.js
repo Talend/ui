@@ -23,7 +23,7 @@ function enumerationClasses() {
 }
 
 function Enumeration({ displayMode, headerDefault, headerInput,
-	headerSelected, selectedItems, items, itemsProp, onAddChange, onAddKeyDown, currentEdit }) {
+	headerSelected, items, itemsProp, onAddChange, onAddKeyDown, currentEdit }) {
 	function getHeader() {
 		switch (displayMode) {
 		case DISPLAY_MODE_ADD: {
@@ -54,11 +54,11 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 		}
 
 		case DISPLAY_MODE_SELECTED: {
-			const propsInputSelected = {
+			const propsSelected = {
 				headerSelected,
-				selectedItems,
+				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
 			};
-			return <HeaderSelected {...propsInputSelected} />;
+			return <HeaderSelected {...propsSelected} />;
 		}
 
 		default:
@@ -73,7 +73,6 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 				items={items}
 				itemsProp={itemsProp}
 				currentEdit={currentEdit}
-				selectedItems={selectedItems}
 			/>
 		</div>
 	);
@@ -97,7 +96,6 @@ Enumeration.propTypes = {
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
-	selectedItems: PropTypes.arrayOf(PropTypes.number).isRequired,
 	onAddChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 	...ItemEditPropTypes,

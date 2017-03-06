@@ -1,8 +1,7 @@
 import React from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems,
-	computeSelectedOnDelete } from './utils/utils.js';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils.js';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -74,7 +73,6 @@ class EnumerationWidget extends React.Component {
 			},
 			onAddChange: this.onAddChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
-			selectedItems: [],
 		};
 	}
 
@@ -87,7 +85,6 @@ class EnumerationWidget extends React.Component {
 		this.setState({
 			items,
 			displayMode: 'DISPLAY_MODE_EDIT',
-			selectedItems: [],
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
@@ -97,20 +94,13 @@ class EnumerationWidget extends React.Component {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
-		let selectedItems = [...this.state.selectedItems];
-		items[value.index].displayMode = 'DISPLAY_MODE_EDIT';
+		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
 		items.splice(value.index, 1);
-		let displayMode = this.state.displayMode;
-		selectedItems = computeSelectedOnDelete(selectedItems, value.index);
-
-		if (selectedItems.length === 0) {
-			displayMode = 'DISPLAY_MODE_DEFAULT';
-		}
+		const countnbItems = items.filter((item) => item.isSelected).length;
 
 		this.setState({
 			items,
-			selectedItems,
-			displayMode,
+			displayMode: countnbItems > 0 ? 'DISPLAY_MODE_SELECTED' : 'DISPLAY_MODE_DEFAULT',
 		}, this.setFormData.bind(this));
 	}
 
@@ -170,50 +160,47 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		const selectedItems = [...this.state.selectedItems];
 		let result = [];
 		if (event.ctrlKey || event.metaKey) {
-			result = manageCtrlKey(item, selectedItems);
+			result = manageCtrlKey(item.index, this.state.items);
 		} else if (event.shiftKey) {
-			result = manageShiftKey(item, selectedItems, this.state.items);
+			result = manageShiftKey(item.index, this.state.items);
 		} else {
-			result.push(item.index);
+			result = [...this.state.items].map((currentItem) => ({ ...currentItem, isSelected: false }));
+			result[item.index].isSelected = true;
 		}
+		const countItems = result.filter((currentItem) => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
-		if (!result || result.length === 0) {
+		if (countItems === 0) {
 			this.setState({
+				items: result,
 				displayMode: 'DISPLAY_MODE_DEFAULT',
-				selectedItems: [],
 			});
-		} else if (result.length > 1) {
+		} else if (countItems > 1) {
 			// remove delete action when multiselection
 			const newActions = this.state.itemsProp.actionsDefault
                 .filter((action) => action.id !== 'delete');
 			const itemsProp = { ...this.state.itemsProp, actionsDefault: newActions };
 			this.setState({
+				items: result,
 				displayMode: 'DISPLAY_MODE_SELECTED',
-				selectedItems: result,
 				itemsProp,
 			});
 		} else {
 			this.setState({
+				items: result,
 				displayMode: 'DISPLAY_MODE_SELECTED',
-				selectedItems: result,
-				itemsProp: { ...this.state.itemsProp,
-					actionsDefault: this.defaultActions,
+				itemsProp: { ...this.state.itemsProp, actionsDefault: this.defaultActions,
 				},
 			});
 		}
 	}
 
 	onDeleteItems() {
-		const items = [...this.state.items];
-		const selectedItems = [...this.state.selectedItems];
-		const result = deleteSelectedItems(items, selectedItems);
+		const result = deleteSelectedItems([...this.state.items]);
 		this.setState({
 			displayMode: 'DISPLAY_MODE_DEFAULT',
-			selectedItems: [],
 			items: result,
 		});
 	}
