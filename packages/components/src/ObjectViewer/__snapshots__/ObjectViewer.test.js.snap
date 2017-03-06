@@ -51,31 +51,31 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
         <thead>
           <tr>
             <td>
-              $['int']
+              int
             </td>
             <td>
-              $['str']
+              str
             </td>
             <td>
-              $['bool']
+              bool
             </td>
             <td>
-              $['obj']['bool']
+              obj.bool
             </td>
             <td>
-              $['arrayInt'][0]
+              arrayInt[0]
             </td>
             <td>
-              $['arrayInt'][1]
+              arrayInt[1]
             </td>
             <td>
-              $['arrayInt'][2]
+              arrayInt[2]
             </td>
             <td>
-              $['arrayInt'][3]
+              arrayInt[3]
             </td>
             <td>
-              $['arrayOb'][0]['foo']
+              arrayOb[0].foo
             </td>
           </tr>
         </thead>
@@ -1165,31 +1165,31 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
         <thead>
           <tr>
             <td>
-              $['int']
+              int
             </td>
             <td>
-              $['str']
+              str
             </td>
             <td>
-              $['bool']
+              bool
             </td>
             <td>
-              $['obj']['bool']
+              obj.bool
             </td>
             <td>
-              $['arrayInt'][0]
+              arrayInt[0]
             </td>
             <td>
-              $['arrayInt'][1]
+              arrayInt[1]
             </td>
             <td>
-              $['arrayInt'][2]
+              arrayInt[2]
             </td>
             <td>
-              $['arrayInt'][3]
+              arrayInt[3]
             </td>
             <td>
-              $['arrayOb'][0]['foo']
+              arrayOb[0].foo
             </td>
           </tr>
         </thead>
