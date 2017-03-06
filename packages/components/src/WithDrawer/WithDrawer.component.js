@@ -19,7 +19,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function WithDrawer({ drawers, children, ...rest }) {
+function WithDrawer({ drawers, children }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
