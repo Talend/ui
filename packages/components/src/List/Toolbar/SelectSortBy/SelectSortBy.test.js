@@ -31,6 +31,25 @@ describe('SelectSortBy', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should render with no dropdown', () => {
+		// given
+		const props = {
+			field,
+			...requiredProps,
+			options: [
+				{ id: 'id', name: 'Id' },
+			],
+		};
+
+		// when
+		const wrapper = renderer.create(
+			<SelectSortBy {...props} />
+		).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render without field selected', () => {
 		// when
 		const wrapper = renderer.create(

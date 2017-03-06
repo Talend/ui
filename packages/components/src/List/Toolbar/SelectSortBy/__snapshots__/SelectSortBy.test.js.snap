@@ -162,6 +162,41 @@ exports[`SelectSortBy should render id if provided 1`] = `
 </ul>
 `;
 
+exports[`SelectSortBy should render with no dropdown 1`] = `
+<ul
+  className="nav"
+  role={null}
+>
+  <li
+    className=""
+    role="presentation"
+    style={undefined}
+  >
+    <a
+      href="#"
+      onClick={[Function]}
+      role="button"
+    >
+      Id
+    </a>
+  </li>
+  <li
+    className=""
+    role="presentation"
+    style={undefined}
+  >
+    <a
+      href="#"
+      id={undefined}
+      onClick={[Function]}
+      role="button"
+    >
+      ASCENDING
+    </a>
+  </li>
+</ul>
+`;
+
 exports[`SelectSortBy should render without field selected 1`] = `
 <ul
   className="nav"
