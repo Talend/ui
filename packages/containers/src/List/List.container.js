@@ -83,7 +83,11 @@ class List extends React.Component {
 	}
 
 	onToggle() {
-		this.props.updateState({ filterDocked: !this.props.state.get('filterDocked') });
+		// clearing filter when toggle
+		this.props.updateState({
+			filterDocked: !this.props.state.get('filterDocked'),
+			searchQuery: '',
+		});
 	}
 
 	onSelectDisplayMode(event, payload) {
