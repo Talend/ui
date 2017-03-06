@@ -46,18 +46,18 @@ describe('Filter', () => {
 			docked: false,
 			placeholder: 'find something',
 		};
-		const wrapper = renderer.create(<Filter {...defaultProps}/>).toJSON();
+		const wrapper = renderer.create(<Filter {...defaultProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render filter input with defaut placeholder', () => {
+	it('should render filter input with default placeholder', () => {
 		// when
 		const defaultProps = {
 			docked: false,
 		};
-		const wrapper = renderer.create(<Filter {...defaultProps}/>).toJSON();
+		const wrapper = renderer.create(<Filter {...defaultProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

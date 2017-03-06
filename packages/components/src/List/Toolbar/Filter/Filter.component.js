@@ -30,14 +30,14 @@ function FilterInput(props) {
 		onFocus,
 		onFilter,
 		onToggle,
-		placeholder
+		placeholder,
 	} = props;
 
 	const inputProps = {
 		id,
 		name: 'search',
 		type: 'search',
-		placeholder: placeholder ? placeholder : 'Filter',
+		placeholder,
 		className: theme.search,
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
@@ -85,7 +85,7 @@ function Filter(props) {
 		onFocus,
 		onFilter,
 		onToggle,
-		placeholder
+		placeholder,
 	} = props;
 	if (docked) {
 		return (
@@ -159,6 +159,7 @@ Filter.propTypes = {
 
 Filter.defaultProps = {
 	docked: true,
+	placeholder: 'Filter',
 };
 
 export default Filter;
