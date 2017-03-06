@@ -257,28 +257,28 @@ function DisplayTable(props) {
 			<div>
 				<table className={tableClassName}>
 					<thead>
-					<ListHeaders
-						id={id}
-						columns={columns}
-						isSelected={isSelected}
-						items={items}
-						onToggleAll={onToggleAll}
-						sort={sort}
-					/>
+						<ListHeaders
+							id={id}
+							columns={columns}
+							isSelected={isSelected}
+							items={items}
+							onToggleAll={onToggleAll}
+							sort={sort}
+						/>
 					</thead>
 					<tbody>
-					{items.map(
-						(item, index) => (
-							<RowRenderer
-								id={id && `${id}-${index}`}
-								key={index}
-								columns={columns}
-								item={item}
-								itemProps={itemProps}
-								titleProps={titleProps}
-							/>
-						),
-					)}
+						{items.map(
+							(item, index) => (
+								<RowRenderer
+									id={id && `${id}-${index}`}
+									key={index}
+									columns={columns}
+									item={item}
+									itemProps={itemProps}
+									titleProps={titleProps}
+								/>
+							),
+						)}
 					</tbody>
 				</table>
 			</div>
