@@ -43,7 +43,7 @@ function DrawerContainer({ stacked, className, style, children }) {
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
 	className: PropTypes.string,
-	style: PropTypes.object,
+	style: PropTypes.shape({}),
 	children: PropTypes.node.isRequired,
 };
 
@@ -78,7 +78,7 @@ function DrawerTitle({ title, children, onCancelAction }) {
 
 DrawerTitle.propTypes = {
 	title: PropTypes.string.isRequired,
-	onCancelAction: PropTypes.object,
+	onCancelAction: Action.propTypes,
 	children: PropTypes.nodes,
 };
 
@@ -91,7 +91,7 @@ function DrawerContent({ style, children }) {
 }
 
 DrawerContent.propTypes = {
-	style: PropTypes.object,
+	style: PropTypes.shape({}),
 	children: PropTypes.node,
 };
 
@@ -152,8 +152,8 @@ Drawer.propTypes = {
 	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.object.isRequired,
-	onCancelAction: PropTypes.object,
+	footerActions: PropTypes.arrayOf(Action.propTypes).isRequired,
+	onCancelAction: Action.propTypes,
 };
 
 Drawer.Animation = DrawerAnimation;
