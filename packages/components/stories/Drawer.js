@@ -112,8 +112,6 @@ const drawers = [
 	</Drawer>),
 ];
 
-
-
 storiesOf('Drawer', module)
 	.addWithInfo('test', () => {
 		const sidePanel = (<SidePanel

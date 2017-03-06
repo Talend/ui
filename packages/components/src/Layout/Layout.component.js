@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
-import Drawer from '../Drawer';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
