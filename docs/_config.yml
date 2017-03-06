@@ -55,3 +55,5 @@ redcarpet:
         'tables',
         'hardwrap'
     ]
+
+theme: jekyll-theme-cayman
