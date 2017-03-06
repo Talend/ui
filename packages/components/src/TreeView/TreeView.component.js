@@ -1,25 +1,21 @@
 import React, { PropTypes } from 'react';
 
-import Action from '../Actions/Action';
+import { Action } from '../';
 import TreeViewItem from './TreeViewItem/';
-import getClassNames from './getClassNames';
 
 import theme from './TreeView.scss';
-
-const getClassName = getClassNames(theme);
 
 /**
  * A view component to display any tree structure, like folders or categories.
  *
  * @param structure optional, tree structure to display, see example below
  * @param headerText optional, specifies text in component's header
- * @param addAction optional, defines either 'add' button will be displayed and
+ * @param addAction optional, defines if 'add' button is displayed and
  *        specifies button click event callback
  * @param addActionLabel optional, specifies tooltip label for 'add' button
- * @param itemRemoveLabel optional, specifies tooltip label for 'remove' button
  * @param itemSelectCallback required, tree item click event callback function
  * @param itemToggleCallback required, tree item expand/collapse event callback function
- * @param itemRemoveCallback optional, tree item removal event callback function
+ * @param showCounter optional, flags that counter badge should be displayed
  *
  * const defaultProps = {
  * 	structure: [{
@@ -40,10 +36,8 @@ const getClassName = getClassNames(theme);
  * 	headerText: 'some elements',
  * 	addAction: () => null,
  * 	addActionLabel: 'add element',
- * 	itemRemoveLabel: 'remove element',
  * 	itemSelectCallback: () => null,
  * 	itemToggleCallback: () => null,
- * 	itemRemoveCallback: () => null,
  * }
  *
  * <TreeView {...defaultProps} />
@@ -54,13 +48,12 @@ const TreeView = ({
 	structure,
 	addAction,
 	addActionLabel,
-	itemRemoveLabel,
 	itemSelectCallback,
 	itemToggleCallback,
-	itemRemoveCallback,
+	showCounter,
 }) => (
-	<div className={getClassName('tc-treeview')}>
-		<header className={getClassName('tc-treeview-header')}>
+	<div className={theme['tc-treeview']}>
+		<header className={theme['tc-treeview-header']}>
 			<span>{headerText}</span>
 			{ addAction && <Action
 				label={addActionLabel}
@@ -69,18 +62,17 @@ const TreeView = ({
 				tooltipPlacement="right"
 				hideLabel
 				link
+				key={addActionLabel}
 			/>}
 		</header>
-		<nav className={getClassName('tc-treeview-nav')}>
-			<ul className={getClassName('tc-treeview-ul')}>
-				{structure.map(item => <TreeViewItem
+		<nav className={theme['tc-treeview-nav']}>
+			<ul className={theme['tc-treeview-ul']}>
+				{structure.map((item, i) => <TreeViewItem
 					item={item}
 					itemSelectCallback={itemSelectCallback}
 					itemToggleCallback={itemToggleCallback}
-					itemRemoveCallback={itemRemoveCallback}
-					itemRemoveLabel={itemRemoveLabel}
-					depth={0}
-					key={item.name}
+					showCounter={showCounter}
+					key={i}
 				/>)}
 			</ul>
 		</nav>
@@ -89,24 +81,17 @@ const TreeView = ({
 
 TreeView.propTypes = {
 	headerText: PropTypes.string,
-	structure: PropTypes.arrayOf(PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		toggled: PropTypes.bool,
-		selected: PropTypes.bool,
-		children: PropTypes.array,
-	})),
+	structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 	addAction: PropTypes.func,
 	addActionLabel: PropTypes.string,
-	itemRemoveLabel: PropTypes.string,
 	itemSelectCallback: PropTypes.func.isRequired,
 	itemToggleCallback: PropTypes.func.isRequired,
-	itemRemoveCallback: PropTypes.func,
+	showCounter: PropTypes.bool,
 };
 
 TreeView.defaultProps = {
 	addActionLabel: 'Add folder',
 	headerText: 'Folders',
-	itemRemoveLabel: 'Remove folder',
 };
 
 export default TreeView;
