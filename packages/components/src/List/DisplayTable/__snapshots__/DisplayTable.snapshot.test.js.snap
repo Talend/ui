@@ -1,101 +1,82 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`DisplayTable should render column actions 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -103,26 +84,21 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -131,18 +107,15 @@ exports[`DisplayTable should render column actions 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -153,13 +126,11 @@ exports[`DisplayTable should render column actions 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -171,13 +142,11 @@ exports[`DisplayTable should render column actions 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -185,14 +154,11 @@ exports[`DisplayTable should render column actions 1`] = `
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="favorite btn btn-link"
@@ -203,16 +169,13 @@ exports[`DisplayTable should render column actions 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}
-                    >
+                      title={null}>
                       <use
-                        xlinkHref="#talend-star"
-                      />
+                        xlinkHref="#talend-star" />
                     </svg>
                   </button>
                   <button
@@ -225,32 +188,26 @@ exports[`DisplayTable should render column actions 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}
-                    >
+                      title={null}>
                       <use
-                        xlinkHref="#talend-badge"
-                      />
+                        xlinkHref="#talend-badge" />
                     </svg>
                   </button>
                 </div>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -258,23 +215,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -282,23 +235,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -306,28 +255,23 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -335,26 +279,21 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -363,28 +302,23 @@ exports[`DisplayTable should render column actions 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -392,21 +326,17 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                />
+                  onMouseOver={[Function]} />
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -414,23 +344,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -438,23 +364,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -462,28 +384,23 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -491,26 +408,21 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -519,28 +431,23 @@ exports[`DisplayTable should render column actions 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -548,21 +455,17 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                />
+                  onMouseOver={[Function]} />
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -570,23 +473,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -594,23 +493,19 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -618,14 +513,12 @@ exports[`DisplayTable should render column actions 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -637,88 +530,73 @@ exports[`DisplayTable should render column actions 1`] = `
 
 exports[`DisplayTable should render selected list element with custom selectedClass if set 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className="something"
-          id="table-list-0"
-        >
+          id="table-list-0">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -726,26 +604,21 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -754,18 +627,15 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -776,13 +646,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -794,13 +662,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -808,11 +674,9 @@ exports[`DisplayTable should render selected list element with custom selectedCl
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -820,23 +684,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -844,23 +704,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -868,28 +724,23 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className="something"
-          id="table-list-1"
-        >
+          id="table-list-1">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -897,26 +748,21 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -925,28 +771,23 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -954,23 +795,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -978,23 +815,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1002,28 +835,23 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className="something"
-          id="table-list-2"
-        >
+          id="table-list-2">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1031,26 +859,21 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -1059,28 +882,23 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1088,23 +906,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1112,23 +926,19 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1136,14 +946,12 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -1155,88 +963,73 @@ exports[`DisplayTable should render selected list element with custom selectedCl
 
 exports[`DisplayTable should render selected list element with defaut 'active' class 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className="active"
-          id="table-list-0"
-        >
+          id="table-list-0">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1244,26 +1037,21 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -1272,18 +1060,15 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -1294,13 +1079,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -1312,13 +1095,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -1326,11 +1107,9 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1338,23 +1117,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1362,23 +1137,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1386,28 +1157,23 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className="active"
-          id="table-list-1"
-        >
+          id="table-list-1">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1415,26 +1181,21 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -1443,28 +1204,23 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1472,23 +1228,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1496,23 +1248,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1520,28 +1268,23 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className="active"
-          id="table-list-2"
-        >
+          id="table-list-2">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1549,26 +1292,21 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -1577,28 +1315,23 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1606,23 +1339,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1630,23 +1359,19 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1654,14 +1379,12 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -1673,12 +1396,10 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
 
 exports[`DisplayTable should render sortable headers 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
@@ -1688,17 +1409,15 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 Id
               </span>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1707,26 +1426,22 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 Name
               </span>
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}
-              >
+                title={null}>
                 <use
-                  xlinkHref="#talend-caret-down"
-                />
+                  xlinkHref="#talend-caret-down" />
               </svg>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1735,17 +1450,15 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 
               </span>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1754,17 +1467,15 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 Author
               </span>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1773,17 +1484,15 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 Created
               </span>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <button
@@ -1792,32 +1501,27 @@ exports[`DisplayTable should render sortable headers 1`] = `
               disabled={false}
               onClick={[Function]}
               role="link"
-              type="button"
-            >
+              type="button">
               <span>
                 Modified
               </span>
             </button>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1825,26 +1529,21 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -1853,18 +1552,15 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -1875,13 +1571,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -1893,13 +1587,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -1907,14 +1599,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="favorite btn btn-link"
@@ -1925,16 +1614,13 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}
-                    >
+                      title={null}>
                       <use
-                        xlinkHref="#talend-star"
-                      />
+                        xlinkHref="#talend-star" />
                     </svg>
                   </button>
                   <button
@@ -1947,32 +1633,26 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}
-                    >
+                      title={null}>
                       <use
-                        xlinkHref="#talend-badge"
-                      />
+                        xlinkHref="#talend-badge" />
                     </svg>
                   </button>
                 </div>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -1980,23 +1660,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2004,23 +1680,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2028,28 +1700,23 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2057,26 +1724,21 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -2085,28 +1747,23 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2114,21 +1771,17 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                />
+                  onMouseOver={[Function]} />
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2136,23 +1789,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2160,23 +1809,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2184,28 +1829,23 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2213,26 +1853,21 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -2241,28 +1876,23 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2270,21 +1900,17 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                />
+                  onMouseOver={[Function]} />
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2292,23 +1918,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2316,23 +1938,19 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2340,14 +1958,12 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -2359,88 +1975,73 @@ exports[`DisplayTable should render sortable headers 1`] = `
 
 exports[`DisplayTable should render with default title property (name) 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2448,26 +2049,21 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -2476,18 +2072,15 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -2498,13 +2091,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -2516,13 +2107,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -2530,11 +2119,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2542,23 +2129,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2566,23 +2149,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2590,28 +2169,23 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2619,26 +2193,21 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -2647,28 +2216,23 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2676,23 +2240,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2700,23 +2260,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2724,28 +2280,23 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2753,26 +2304,21 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -2781,28 +2327,23 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2810,23 +2351,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2834,23 +2371,19 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -2858,14 +2391,12 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -2877,96 +2408,79 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
 
 exports[`DisplayTable should render with defined title property 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <i
                     aria-hidden="true"
                     className="fa fa-file-excel-o tc-list-icon"
-                    title={null}
-                  />
+                    title={null} />
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -2978,18 +2492,15 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     1
                   </button>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -3000,13 +2511,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -3018,13 +2527,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -3032,11 +2539,9 @@ exports[`DisplayTable should render with defined title property 1`] = `
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3044,23 +2549,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Hello world
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3068,23 +2569,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3092,23 +2589,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3116,36 +2609,29 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <i
                     aria-hidden="true"
                     className="fa fa-file-pdf-o tc-list-icon"
-                    title={null}
-                  />
+                    title={null} />
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -3157,28 +2643,23 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     2
                   </button>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3186,23 +2667,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Foo
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3210,23 +2687,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3234,23 +2707,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3258,31 +2727,25 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id={undefined}
-        >
+          id={undefined}>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -3294,28 +2757,23 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     2
                   </button>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3323,23 +2781,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Bar
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3347,23 +2801,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3371,23 +2821,19 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3395,14 +2841,12 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -3414,88 +2858,73 @@ exports[`DisplayTable should render with defined title property 1`] = `
 
 exports[`DisplayTable should render with id if provided 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className=""
-          id="table-list-0"
-        >
+          id="table-list-0">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3503,26 +2932,21 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -3531,18 +2955,15 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -3553,13 +2974,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -3571,13 +2990,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -3585,11 +3002,9 @@ exports[`DisplayTable should render with id if provided 1`] = `
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3597,23 +3012,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3621,23 +3032,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3645,28 +3052,23 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id="table-list-1"
-        >
+          id="table-list-1">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3674,26 +3076,21 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -3702,28 +3099,23 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3731,23 +3123,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3755,23 +3143,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3779,28 +3163,23 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id="table-list-2"
-        >
+          id="table-list-2">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3808,26 +3187,21 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -3836,28 +3210,23 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3865,23 +3234,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3889,23 +3254,19 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -3913,14 +3274,12 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
@@ -3932,88 +3291,73 @@ exports[`DisplayTable should render with id if provided 1`] = `
 
 exports[`DisplayTable should render with item custom className if provided 1`] = `
 <div
-  className="tc-list-display"
->
+  className="tc-list-display">
   <div>
     <table
-      className="table tc-list-display-table"
-    >
+      className="table tc-list-display-table">
       <thead>
         <tr>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Id
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Id
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Name
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Name
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Author
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Author
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Created
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Created
-            </span>
+            </div>
           </th>
           <th>
             <span
-              className={undefined}
-            >
+              className={undefined}>
               Modified
             </span>
-            <span
-              aria-hidden="true"
-            >
+            <div
+              aria-hidden="true">
               Modified
-            </span>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           className="item-0-class"
-          id="table-list-0"
-        >
+          id="table-list-0">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4021,26 +3365,21 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   1
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -4049,18 +3388,15 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Hello world
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                >
+                  className="tc-actions btn-group">
                   <button
                     aria-describedby={42}
                     className="btn btn-link"
@@ -4071,13 +3407,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                   <button
                     aria-describedby={42}
@@ -4089,13 +3423,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
                     role="link"
-                    type="button"
-                  >
+                    type="button">
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
-                      title={null}
-                    />
+                      title={null} />
                   </button>
                 </div>
               </div>
@@ -4103,11 +3435,9 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4115,23 +3445,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4139,23 +3465,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4163,28 +3485,23 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className="item-1-class"
-          id="table-list-1"
-        >
+          id="table-list-1">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4192,26 +3509,21 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -4220,28 +3532,23 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Foo
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4249,23 +3556,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4273,23 +3576,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4297,28 +3596,23 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
         <tr
           className=""
-          id="table-list-2"
-        >
+          id="table-list-2">
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4326,26 +3620,21 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <div
-                  className={undefined}
-                >
+                  className={undefined}>
                   <span
                     aria-describedby={42}
                     className={undefined}
@@ -4354,28 +3643,23 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}
-                  >
+                    onMouseOver={[Function]}>
                     Bar
                   </span>
                 </div>
               </div>
               <div
-                className="actions"
-              >
+                className="actions">
                 <div
-                  className="tc-actions btn-group"
-                />
+                  className="tc-actions btn-group" />
               </div>
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4383,23 +3667,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   Jean-Pierre DUPONT
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4407,23 +3687,19 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
           <td>
             <div
-              className="tc-list-display-table-td"
-            >
+              className="tc-list-display-table-td">
               <div
-                className="cell"
-              >
+                className="cell">
                 <span
                   aria-describedby={42}
                   className="item-text"
@@ -4431,14 +3707,12 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onClick={null}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                >
+                  onMouseOver={[Function]}>
                   2016-09-22
                 </span>
               </div>
               <div
-                className="actions"
-              />
+                className="actions" />
             </div>
           </td>
         </tr>
