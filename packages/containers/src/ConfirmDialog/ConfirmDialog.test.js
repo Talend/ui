@@ -84,8 +84,7 @@ describe('ConfirmDialog.show/hide', () => {
 		const dialog = new Map({
 			size: 'small',
 			header: 'REMOVE SEMANTIC TYPE',
-			show: true,
-			children: `Are you sure you want to remove the semantic type ?`,
+			children: 'Are you sure you want to remove the semantic type ?',
 			model: {},
 			// these two actions are contained in show:remove:semantic action payload
 			validateAction: '',
