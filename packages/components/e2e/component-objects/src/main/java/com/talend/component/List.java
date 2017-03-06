@@ -27,7 +27,7 @@ public class List extends Component {
 
     static final String LIST_ITEMS_SELECTOR = ".tc-list-display-table div:first-child button";
 
-    static final String ACTION_BTN_ITEM_XPATH = "//*[@class='tc-list']//button[text()='{label}']/../following-sibling::div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
+    static final String ACTION_BTN_ITEM_XPATH = "//*[contains(@class,'tc-list-display-table-td')]//button[text()='{label}']/../../following-sibling::div[contains(@class, 'actions')]/div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
 
     /**
      * List constructor
