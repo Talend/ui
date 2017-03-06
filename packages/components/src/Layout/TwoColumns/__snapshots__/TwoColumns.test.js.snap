@@ -19,9 +19,31 @@ exports[`TwoColumns should render two columns 1`] = `
   <div
     className="tc-layout-two-columns-main"
   >
-    <span>
-      children
-    </span>
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <span>
+          children
+        </span>
+      </div>
+      <div
+        className="react-addons-css-transition-group"
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
+        transitionName="tc-drawer"
+      />
+    </div>
   </div>
 </div>
 `;
