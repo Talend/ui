@@ -4,8 +4,30 @@ exports[`OneColumn should render 1`] = `
 <div
   className="tc-layout-one-column"
 >
-  <span>
-    children
-  </span>
+  <div
+    className={undefined}
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "height": "100%",
+          "overflow": "auto",
+        }
+      }
+    >
+      <span>
+        children
+      </span>
+    </div>
+    <div
+      className="react-addons-css-transition-group"
+      transitionAppearTimeout={230}
+      transitionEnterTimeout={230}
+      transitionLeaveTimeout={230}
+      transitionName="tc-drawer"
+    />
+  </div>
 </div>
 `;

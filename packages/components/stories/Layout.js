@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer, WithDrawer } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -31,14 +31,12 @@ const actions = [
 ];
 
 const drawers = [
-	(<div style={{ width: 500 }}>
-		<h1>Hello drawers</h1>
-		<p>You should not being able to read this because I&rsquo;m first</p>
-	</div>),
-	(<div style={{ width: 400 }}>
-		<h1>Hello drawers</h1>
+	(<Drawer stacked title="Hello drawers">
+		<p>You should not being able to read this because I'm first</p>
+	</Drawer>),
+	(<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
-	</div>),
+	</Drawer>),
 ];
 
 const content = (

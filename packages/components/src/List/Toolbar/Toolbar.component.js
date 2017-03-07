@@ -25,10 +25,11 @@ function adaptActionsIds(actions, parentId) {
 }
 
 function adaptLeftAndRightActions(actions, parentId) {
-	return actions && {
-		left: adaptActionsIds(actions.left, parentId),
-		right: adaptActionsIds(actions.right, parentId),
-	};
+	return actions &&
+		{
+			left: adaptActionsIds(actions.left, parentId),
+			right: adaptActionsIds(actions.right, parentId),
+		};
 }
 
 /**

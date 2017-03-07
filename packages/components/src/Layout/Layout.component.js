@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
-import Drawer from '../Drawer';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -52,17 +51,10 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 				{header}
 			</div>
 			{Component ? (
-				<Component {...rest}>
+				<Component drawers={drawers} {...rest}>
 					{children}
 				</Component>
 			) : null}
-			<Drawer.Animation>
-				{drawers && drawers.map((drawer, key) => (
-					<Drawer key={key} className={theme.drawer}>
-						{drawer}
-					</Drawer>
-				))}
-			</Drawer.Animation>
 		</div>
 	);
 }
