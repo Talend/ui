@@ -31,7 +31,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			{options.length === 1 ?
-				(<NavItem>{options[0].name}</NavItem>) :
+				(<p className="navbar-text">{ options[0].name }</p>) :
 				(<NavDropdown
 					id={id ? `${id}-by` : uuid.v4()}
 					title={selected ? (selected.name || selected.id) : 'N.C'}

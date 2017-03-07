@@ -167,19 +167,15 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   className="nav"
   role={null}
 >
-  <li
-    className=""
-    role="presentation"
-    style={undefined}
+  <p
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="navbar-text"
+    onSelect={null}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      role="button"
-    >
-      Id
-    </a>
-  </li>
+    Id
+  </p>
   <li
     className=""
     role="presentation"
