@@ -180,15 +180,15 @@ const propsCollapsibleSelectablePanel = {
 	},
 	theme: 'collapsible-selectable-panel',
 	onSelect: action('onselect'),
-	icon: {
-		open: 'talend-plus-circle',
-		close: 'talend-caret-down', // TO DO replace it with coming minus-circle icon
-	},
 };
 
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
 	selected: true,
+	icon: {
+		open: 'talend-plus-circle',
+		close: 'talend-caret-down', // TO DO replace it with coming minus-circle icon
+	},
 };
 
 const propsSelectedPanelWithoutContent = {

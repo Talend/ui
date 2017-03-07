@@ -78,7 +78,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 	margin-bottom: 0;
 
 	&.selected-panel {
-		border-left: 4px solid #6aa9d1;
+		border-left: 5px solid #6aa9d1;
 	}
 
 	:global(.panel-heading) {
@@ -88,9 +88,33 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 		border-color: transparent;
 		padding: 0;
 
+		> * {
+			padding: 10px 0;
+		}
+
+		:nth-child(2) {
+			color: $tc-collapsible-selectable-panel-title-color;
+			white-space: nowrap;
+		}
+
 		.group {
 			> * {
+				color: $tc-collapsible-selectable-panel-title-color;
 				margin: 0 $tc-collapsible-panel-padding-smaller;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 70px;
+				white-space: nowrap;
+
+				&:nth-child(1) {
+					font-weight: 600;
+					white-space: nowrap;
+				}
+
+				&:nth-child(2) {
+					color: $tc-collapsible-selectable-panel-content-description-color;
+					white-space: nowrap;
+				}
 			}
 		}
 
@@ -113,7 +137,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 	.caret {
 		position: absolute;
 		right: 5px;
-		top: 5px;
+		top: 10px;
 		bottom: 0;
 	}
 
