@@ -38,10 +38,10 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 	margin-top: $padding-normal;
 	display: flex;
 
-	& ul {
+	ul {
 		flex: 1;
 		overflow: hidden;
-		& li {
+		li {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
