@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
-function contains(listItem, query) {
+function contains(listItem, query, columns) {
 	let item = listItem;
 	if (Map.isMap(listItem)) {
 		item = listItem.toJS();
 	}
-	for (const pp of Object.keys(item)) {
-		if (typeof item[pp] === 'string') {
-			if (item[pp].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+	for (const column of columns) {
+		if (typeof item[column.key] === 'string') {
+			if (item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
 				return true;
 			}
 		}
@@ -55,8 +55,8 @@ export function configureGetFilteredItems(configure) {
 			let results = items || localConfig.items;
 			if (componentState) {
 				const searchQuery = componentState.get('searchQuery');
-				if (searchQuery !== '' && !!searchQuery) {
-					results = results.filter(item => contains(item, searchQuery));
+				if (searchQuery) {
+					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
 				}
 			}
 			return results;
