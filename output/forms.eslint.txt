@@ -1,31 +1,131 @@
-Lerna v2.0.0-beta.32
+Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
-yarn run v0.17.10
-$ eslint --config .eslintrc src 
+
+> react-talend-forms@0.64.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> eslint --config .eslintrc src
+
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/Users/jmfrancois/github/talend/ui/packages/forms/src/fields/BooleanField.js
-   8:20  error  Missing trailing comma                 comma-dangle
-  16:16  error  Strings must use singlequote           quotes
-  16:24  error  Strings must use singlequote           quotes
-  17:23  error  Missing trailing comma                 comma-dangle
-  18:39  error  Missing trailing comma                 comma-dangle
-  25:3   error  'name' is missing in props validation  react/prop-types
-  33:11  error  Missing trailing comma                 comma-dangle
-  37:26  error  Strings must use singlequote           quotes
-  61:30  error  Strings must use singlequote           quotes
-  79:5   error  Missing trailing comma                 comma-dangle
+/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
+   19:28  error  'TitleField' is missing in props validation                                                    react/prop-types
+   19:40  error  'idSchema' is missing in props validation                                                      react/prop-types
+   19:50  error  'title' is missing in props validation                                                         react/prop-types
+   19:57  error  'required' is missing in props validation                                                      react/prop-types
+   28:34  error  'DescriptionField' is missing in props validation                                              react/prop-types
+   28:52  error  'idSchema' is missing in props validation                                                      react/prop-types
+   28:62  error  'description' is missing in props validation                                                   react/prop-types
+   38:10  error  'type' is missing in props validation                                                          react/prop-types
+   38:28  error  'icon' is missing in props validation                                                          react/prop-types
+   38:34  error  'className' is missing in props validation                                                     react/prop-types
+   50:19  error  'index' is missing in props validation                                                         react/prop-types
+   50:43  error  'className' is missing in props validation                                                     react/prop-types
+   52:26  error  'hasToolbar' is missing in props validation                                                    react/prop-types
+   53:12  error  'children' is missing in props validation                                                      react/prop-types
+   56:11  error  'hasToolbar' is missing in props validation                                                    react/prop-types
+   60:14  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
+   60:33  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
+   65:25  error  'disabled' is missing in props validation                                                      react/prop-types
+   65:43  error  'readonly' is missing in props validation                                                      react/prop-types
+   65:62  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
+   66:24  error  'onReorderClick' is missing in props validation                                                react/prop-types
+   66:45  error  'index' is missing in props validation                                                         react/prop-types
+   66:58  error  'index' is missing in props validation                                                         react/prop-types
+   70:14  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
+   70:33  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
+   75:25  error  'disabled' is missing in props validation                                                      react/prop-types
+   75:43  error  'readonly' is missing in props validation                                                      react/prop-types
+   75:62  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
+   76:24  error  'onReorderClick' is missing in props validation                                                react/prop-types
+   76:45  error  'index' is missing in props validation                                                         react/prop-types
+   76:58  error  'index' is missing in props validation                                                         react/prop-types
+   80:14  error  'hasRemove' is missing in props validation                                                     react/prop-types
+   85:25  error  'disabled' is missing in props validation                                                      react/prop-types
+   85:43  error  'readonly' is missing in props validation                                                      react/prop-types
+   86:24  error  'onDropIndexClick' is missing in props validation                                              react/prop-types
+   86:47  error  'index' is missing in props validation                                                         react/prop-types
+   99:30  error  'className' is missing in props validation                                                     react/prop-types
+  102:37  error  'idSchema' is missing in props validation                                                      react/prop-types
+  102:46  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  103:23  error  'TitleField' is missing in props validation                                                    react/prop-types
+  104:21  error  'idSchema' is missing in props validation                                                      react/prop-types
+  105:18  error  'title' is missing in props validation                                                         react/prop-types
+  106:21  error  'required' is missing in props validation                                                      react/prop-types
+  109:11  error  'schema' is missing in props validation                                                        react/prop-types
+  109:18  error  'schema.description' is missing in props validation                                            react/prop-types
+  110:72  error  'idSchema' is missing in props validation                                                      react/prop-types
+  110:81  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  111:13  error  'schema' is missing in props validation                                                        react/prop-types
+  111:20  error  'schema.description' is missing in props validation                                            react/prop-types
+  117:35  error  'idSchema' is missing in props validation                                                      react/prop-types
+  117:44  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  119:12  error  'items' is missing in props validation                                                         react/prop-types
+  119:27  error  'items' is missing in props validation                                                         react/prop-types
+  119:33  error  'items.map' is missing in props validation                                                     react/prop-types
+  122:11  error  'canAdd' is missing in props validation                                                        react/prop-types
+  123:20  error  'onAddClick' is missing in props validation                                                    react/prop-types
+  124:21  error  'disabled' is missing in props validation                                                      react/prop-types
+  124:39  error  'readonly' is missing in props validation                                                      react/prop-types
+  132:30  error  'className' is missing in props validation                                                     react/prop-types
+  135:37  error  'idSchema' is missing in props validation                                                      react/prop-types
+  135:46  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  136:23  error  'TitleField' is missing in props validation                                                    react/prop-types
+  137:21  error  'idSchema' is missing in props validation                                                      react/prop-types
+  138:18  error  'title' is missing in props validation                                                         react/prop-types
+  139:21  error  'required' is missing in props validation                                                      react/prop-types
+  142:11  error  'schema' is missing in props validation                                                        react/prop-types
+  142:18  error  'schema.description' is missing in props validation                                            react/prop-types
+  144:44  error  'idSchema' is missing in props validation                                                      react/prop-types
+  144:53  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  145:30  error  'DescriptionField' is missing in props validation                                              react/prop-types
+  146:22  error  'idSchema' is missing in props validation                                                      react/prop-types
+  147:25  error  'schema' is missing in props validation                                                        react/prop-types
+  147:32  error  'schema.description' is missing in props validation                                            react/prop-types
+  153:35  error  'idSchema' is missing in props validation                                                      react/prop-types
+  153:44  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
+  155:12  error  'items' is missing in props validation                                                         react/prop-types
+  155:27  error  'items' is missing in props validation                                                         react/prop-types
+  155:33  error  'items.map' is missing in props validation                                                     react/prop-types
+  155:42  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  158:11  error  'canAdd' is missing in props validation                                                        react/prop-types
+  159:20  error  'onAddClick' is missing in props validation                                                    react/prop-types
+  160:21  error  'disabled' is missing in props validation                                                      react/prop-types
+  160:39  error  'readonly' is missing in props validation                                                      react/prop-types
+  213:2   error  onAddClick should be placed before getStateFromProps                                           react/sort-comp
+  258:32  error  Arrow function used ambiguously with a conditional expression                                  no-confusing-arrow
+  266:2   error  render should be placed after renderArrayFieldItem                                             react/sort-comp
+  286:7   error  'name' is missing in props validation                                                          react/prop-types
+  381:39  error  'name' is missing in props validation                                                          react/prop-types
+  410:7   error  'name' is missing in props validation                                                          react/prop-types
+  447:26  error  Do not nest ternary expressions                                                                no-nested-ternary
+  538:22  error  'onClick' is missing in props validation                                                       react/prop-types
+  538:31  error  'disabled' is missing in props validation                                                      react/prop-types
 
-/Users/jmfrancois/github/talend/ui/packages/forms/src/Form.js
-  143:16  error  'autocomplete' PropType is defined but prop is never used  react/no-unused-prop-types
+/home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
+  25:3  error  'name' is missing in props validation  react/prop-types
 
-/Users/jmfrancois/github/talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  4:1  error  'classnames' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
+   30:10  error  Missing trailing comma                                comma-dangle
+   72:10  error  Missing trailing comma                                comma-dangle
+   81:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+   96:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+   97:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+   97:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
+  103:53  error  Multiple spaces found before 'target'                 no-multi-spaces
+  114:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+  132:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+  139:53  error  Multiple spaces found before 'target'                 no-multi-spaces
+  151:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+  153:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+  153:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
+  172:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
 
-✖ 12 problems (12 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
+    1:17  error  'PropTypes' is defined but never used      no-unused-vars
+   30:18  error  'formData' is missing in props validation  react/prop-types
+  162:14  error  'onChange' is missing in props validation  react/prop-types
 
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-Errored while running command 'yarn' with arguments 'run lint:es' in 'react-talend-forms'
+✖ 110 problems (110 errors, 0 warnings)
+
+Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
-Command failed: yarn run lint:es
-Waiting for 1 child process to exit. CTRL-C to exit immediately.
+Command exited with status 1: npm run lint:es
