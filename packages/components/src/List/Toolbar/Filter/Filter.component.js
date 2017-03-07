@@ -16,6 +16,11 @@ function onKeyDown(event, escAction, enterAction) {
 			enterAction(event);
 		}
 		break;
+	case keycode.codes.esc:
+		if (escAction) {
+			escAction(event);
+		}
+		break;
 	default:
 		break;
 	}
