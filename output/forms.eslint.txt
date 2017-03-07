@@ -103,11 +103,23 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   25:3  error  'name' is missing in props validation  react/prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
+   30:10  error  Missing trailing comma                        comma-dangle
+   72:10  error  Missing trailing comma                        comma-dangle
+   81:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+   96:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  103:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  114:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  132:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  139:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
    50:18  error  'formData' is missing in props validation  react/prop-types
   226:14  error  'onChange' is missing in props validation  react/prop-types
 
-✖ 95 problems (95 errors, 0 warnings)
+✖ 105 problems (105 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
