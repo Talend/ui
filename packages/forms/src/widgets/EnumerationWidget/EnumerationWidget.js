@@ -78,9 +78,11 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		const items = [...this.state.items];
+		let items = [...this.state.items];
 		const item = items[value.index];
 		item.displayMode = 'DISPLAY_MODE_EDIT';
+		// reset selection
+		items = items.map((currentItem) => ({ ...currentItem, isSelected: false }));
 
 		this.setState({
 			items,
@@ -180,7 +182,7 @@ class EnumerationWidget extends React.Component {
 		} else if (countItems > 1) {
 			// remove delete action when multiselection
 			const newActions = this.state.itemsProp.actionsDefault
-                .filter((action) => action.id !== 'delete');
+				.filter((action) => action.id !== 'delete');
 			const itemsProp = { ...this.state.itemsProp, actionsDefault: newActions };
 			this.setState({
 				items: result,
