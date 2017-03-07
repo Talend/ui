@@ -5,13 +5,16 @@ import Filter from './Filter.component';
 
 jest.useFakeTimers();
 
-const defaultProps = {
-	docked: false,
-	onBlur: jest.fn(),
-	onFilter: jest.fn(),
-	onToggle: jest.fn(),
-	ref: 'inputFilter',
-};
+let defaultProps = {};
+beforeEach(() => {
+	defaultProps = {
+		docked: false,
+		onBlur: jest.fn(),
+		onFilter: jest.fn(),
+		onToggle: jest.fn(),
+		ref: 'inputFilter',
+	};
+});
 
 describe('Filter', () => {
 	it('should call onToggle on search icon click', () => {
@@ -55,7 +58,7 @@ describe('Filter', () => {
 		expect(props.onFilter).toBeCalled();
 	});
 
-	it('should call onToggle on input blur', () => {
+	it('should call onBlur on input blur', () => {
 		// given
 		const props = { ...defaultProps };
 		const filterInstance = mount(<Filter {...props} />);
@@ -64,7 +67,7 @@ describe('Filter', () => {
 		filterInstance.find('input').simulate('blur');
 
 		// then
-		expect(props.onToggle).toBeCalled();
+		expect(props.onBlur).toBeCalled();
 	});
 
 	it('should call onToggle on ESC keydown', () => {
