@@ -16,6 +16,11 @@ function onKeyDown(event, escAction, enterAction) {
 			enterAction(event);
 		}
 		break;
+	case keycode.codes.esc:
+		if (escAction) {
+			escAction(event);
+		}
+		break;
 	default:
 		break;
 	}
@@ -30,13 +35,14 @@ function FilterInput(props) {
 		onFocus,
 		onFilter,
 		onToggle,
+		placeholder,
 	} = props;
 
 	const inputProps = {
 		id,
 		name: 'search',
 		type: 'search',
-		placeholder: 'Filter',
+		placeholder,
 		className: theme.search,
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
@@ -65,6 +71,7 @@ FilterInput.propTypes = {
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,
+	placeholder: PropTypes.string,
 };
 
 /**
@@ -83,6 +90,7 @@ function Filter(props) {
 		onFocus,
 		onFilter,
 		onToggle,
+		placeholder,
 	} = props;
 	if (docked) {
 		return (
@@ -126,6 +134,7 @@ function Filter(props) {
 					onFocus={onFocus}
 					onFilter={onFilter}
 					onToggle={onToggle}
+					placeholder={placeholder}
 				/>
 				<Action
 					id={id && `${id}-cross-icon`}
@@ -150,10 +159,12 @@ Filter.propTypes = {
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func.isRequired,
 	highlight: PropTypes.bool,
+	placeholder: PropTypes.string,
 };
 
 Filter.defaultProps = {
 	docked: true,
+	placeholder: 'Filter',
 };
 
 export default Filter;
