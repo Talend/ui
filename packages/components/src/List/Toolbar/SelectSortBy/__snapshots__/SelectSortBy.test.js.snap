@@ -167,7 +167,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   className="nav"
   role={null}
 >
-  <p
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -175,7 +175,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     onSelect={null}
   >
     Id
-  </p>
+  </li>
   <li
     className=""
     role="presentation"
