@@ -117,7 +117,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
    50:18  error  'formData' is missing in props validation  react/prop-types
-  226:14  error  'onChange' is missing in props validation  react/prop-types
+  228:14  error  'onChange' is missing in props validation  react/prop-types
 
 ✖ 105 problems (105 errors, 0 warnings)
 
