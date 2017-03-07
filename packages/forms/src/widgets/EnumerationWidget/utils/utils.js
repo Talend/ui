@@ -9,14 +9,14 @@ function selectAllBetween(min, max, items) {
 }
 
 export function manageCtrlKey(indexSelected, items) {
-	const copy = [...items];
-	const itemSelected = copy[indexSelected] && copy[indexSelected].isSelected;
+	const itemsList = [...items];
+	const itemSelected = itemsList[indexSelected] && itemsList[indexSelected].isSelected;
 	if (itemSelected) {
-		copy[indexSelected].isSelected = false;
+		itemsList[indexSelected].isSelected = false;
 	} else {
-		copy[indexSelected].isSelected = true;
+		itemsList[indexSelected].isSelected = true;
 	}
-	return copy;
+	return itemsList;
 }
 
 export function manageShiftKey(indexSelected, items) {

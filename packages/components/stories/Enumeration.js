@@ -82,19 +82,24 @@ const editItemProps = {
 	},
 };
 const selectedValuesProps = {
-	...props,
-	displayMode: 'DISPLAY_MODE_SELECTED',
-
+    ...props,
+    displayMode: 'DISPLAY_MODE_SELECTED',
 };
+
+// custom edit props
 editItemProps.items = Array(50).fill('').map((item, index) => ({
-	values: [`Lorem ipsum dolor sit amet ${index}`],
+    values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
-
 editItemProps.items[0] = {
-	values: ['Lorem ipsum dolor sit amet 0'],
-	displayMode: 'DISPLAY_MODE_EDIT',
+    values: ['Lorem ipsum dolor sit amet 0'],
+    displayMode: 'DISPLAY_MODE_EDIT',
 };
 
+// custom selected props
+selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
+    values: [`Lorem ipsum dolor sit amet ${index}`],
+    isSelected: index%2===0,
+}));
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
 		<div>
