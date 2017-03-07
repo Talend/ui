@@ -1,7 +1,7 @@
 import React from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils.js';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {

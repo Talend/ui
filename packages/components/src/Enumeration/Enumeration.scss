@@ -1,16 +1,16 @@
 $tc-enumeration-height: 50vh !default;
 
-.tc-enumeration{
+.tc-enumeration {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	height: $tc-enumeration-height;
 
-	:global(.btn.btn-link){
+	:global(.btn.btn-link) {
 		color: inherit;;
 	}
 
-	header{
+	header {
 		flex-shrink: 0;
 	}
 }
