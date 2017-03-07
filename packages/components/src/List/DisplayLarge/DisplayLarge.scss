@@ -40,6 +40,13 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 
 	& ul {
 		flex: 1;
+		overflow: hidden;
+		& li {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			list-style-position: inside;
+		}
 	}
 }
 

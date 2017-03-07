@@ -102,7 +102,7 @@ const props = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
+				author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
@@ -250,7 +250,7 @@ const itemsForItems = [
 	{
 		id: 3,
 		name: 'Super long title to trigger overflow on tile rendering',
-		author: 'Jean-Pierre DUPONT with super long name',
+		author: 'Jean-Pierre DUPONT with long name',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		favorite: true,
