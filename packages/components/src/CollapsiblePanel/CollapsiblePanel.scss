@@ -150,6 +150,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 
 			&[aria-expanded='true'] .custom-caret-close {
 				display: block;
+				transform: rotate(180deg);
 			}
 
 			&[aria-expanded='false'] .custom-caret-close {

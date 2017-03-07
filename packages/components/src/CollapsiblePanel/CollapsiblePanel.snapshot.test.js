@@ -79,7 +79,6 @@ const timeStamp = {
 	tooltipPlacement: 'top',
 };
 
-
 const propsCollapsibleSelectablePanel = {
 	header: [
 		[version1, readOnlyLabel],
@@ -102,11 +101,22 @@ const propsCollapsibleSelectablePanel = {
 		' adipiscing elit',
 	},
 	theme: 'collapsible-selectable-panel',
-	onSelect: action('onselect'),
+	onSelect: jest.fn(),
 	icon: {
 		open: 'talend-plus-circle',
 		close: 'talend-caret-down',
 	},
+};
+
+const propsSelectablePanelWithoutContent = {
+	header: [
+		[version1, readOnlyLabel],
+		timeStamp,
+	],
+	content: {},
+	theme: 'collapsible-selectable-panel',
+	onSelect: jest.fn(),
+	selected: true,
 };
 
 describe('CollapsiblePanel', () => {
@@ -119,15 +129,15 @@ describe('CollapsiblePanel', () => {
 	});
 	it('should render CollapsiblePanel without content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...props} content={[]} />).toJSON();
+		const wrapper = renderer.create(<CollapsiblePanel {...props} content={[]}/>).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 });
 
-describe('Collapsible Selectable Panel', () => {
-	it('should render CollapsiblePanel with content', () => {
+describe('Selectable Collapsible Panel', () => {
+	it('should render with content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...propsCollapsibleSelectablePanel} />)
 			.toJSON();
@@ -135,11 +145,13 @@ describe('Collapsible Selectable Panel', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	//it('should render CollapsiblePanel without content', () => {
-	//	// when
-	//	const wrapper = renderer.create(<CollapsiblePanel {...props} content={[]} />).toJSON();
-	//
-	//	// then
-	//	expect(wrapper).toMatchSnapshot();
-	//});
+
+	it('should render without content', () => {
+		// when
+		const wrapper = renderer.create(<CollapsiblePanel {...propsSelectablePanelWithoutContent} />)
+			.toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

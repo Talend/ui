@@ -22,7 +22,6 @@ $tc-layout-header-height: $navbar-height !default;
 
 .main {
 	flex-grow: 1;
-	overflow: auto;
 	/*safari need a fixed height (not in %) to manage flex columns to fit container height*/
 	height: calc(100vh - #{$tc-layout-header-height});
 }

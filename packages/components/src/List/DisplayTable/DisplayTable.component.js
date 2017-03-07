@@ -40,7 +40,9 @@ function RowRenderer(props) {
 			<input
 				id={id && `${id}-check`}
 				type="checkbox"
-				onChange={(e) => { onToggle(e, item); }}
+				onChange={(e) => {
+					onToggle(e, item);
+				}}
 				checked={isSelected(item)}
 			/>
 		</td>) :
@@ -149,7 +151,7 @@ function columnHeader(index, column, sort) {
 	return (
 		<th key={index}>
 			{header}
-			<span aria-hidden="true">{column.label}</span>
+			<div aria-hidden="true">{column.label}</div>
 		</th>
 	);
 }

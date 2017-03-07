@@ -185,6 +185,7 @@ const props = {
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),
+			placeholder: 'search for something',
 		},
 	},
 };
@@ -298,10 +299,11 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Large', () => {
-		const tprops = {
-			...props,
-			displayMode: 'large',
-		};
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.displayMode = 'large';
+		tprops.toolbar.sort.options = [
+			{ id: 'name', name: 'Name' },
+		];
 		return (
 			<div>
 				<h1>List</h1>
@@ -315,6 +317,7 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			displayMode: 'tile',
+
 		};
 		return (
 			<div>

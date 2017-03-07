@@ -182,7 +182,7 @@ const propsCollapsibleSelectablePanel = {
 	onSelect: action('onselect'),
 	icon: {
 		open: 'talend-plus-circle',
-		close: 'talend-caret-down',
+		close: 'talend-caret-down', // TO DO replace it with coming minus-circle icon
 	},
 };
 
@@ -191,7 +191,7 @@ const propsCollapsibleSelectedPanel = {
 	selected: true,
 };
 
-const propsCollapsibleSelectablePanelWithoutContent = {
+const propsSelectedPanelWithoutContent = {
 	header: [
 		[version1, readOnlyLabel],
 		timeStamp,
@@ -199,12 +199,9 @@ const propsCollapsibleSelectablePanelWithoutContent = {
 	content: {},
 	theme: 'collapsible-selectable-panel',
 	onSelect: action('onselect'),
-};
-
-const propsSelectedPanelWithoutContent = {
-	...propsCollapsibleSelectablePanelWithoutContent,
 	selected: true,
 };
+
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
