@@ -1,18 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Items should display one item in edit mode and the other in default 1`] = `
 <ul
-  className="undefined tc-enumeration-items">
+  className="undefined tc-enumeration-items"
+>
   <li
     className="undefined tc-enumeration-item"
-    id="0-item">
+    id="0-item"
+  >
     <input
       autoFocus={true}
       className="undefined tc-enumeration-item-label"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
-      type="text" />
+      type="text"
+    />
     <div
-      className="undefined tc-enumeration-item-actions">
+      className="undefined tc-enumeration-item-actions"
+    >
       <button
         aria-describedby={42}
         className="btn btn-link"
@@ -23,32 +29,32 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-check" />
+            xlinkHref="#talend-check"
+          />
         </svg>
       </button>
     </div>
   </li>
   <li
-    className="tc-enumeration-item"
-    id="1-item">
-    <button
-      className="undefined tc-enumeration-item-label btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button">
-      <span>
-        Lorem ipsum dolor sit amet 1
-      </span>
-    </button>
+    className="undefined tc-enumeration-item"
+    id="1-item"
+  >
     <div
-      className="undefined tc-enumeration-item-actions">
+      className="undefined tc-enumeration-item-label"
+    >
+      Lorem ipsum dolor sit amet 1
+    </div>
+    <div
+      className="undefined tc-enumeration-item-actions"
+    >
       <button
         aria-describedby={42}
         className="btn btn-link"
@@ -59,13 +65,16 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-pencil" />
+            xlinkHref="#talend-pencil"
+          />
         </svg>
       </button>
       <button
@@ -78,32 +87,32 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-trash" />
+            xlinkHref="#talend-trash"
+          />
         </svg>
       </button>
     </div>
   </li>
   <li
-    className="tc-enumeration-item"
-    id="2-item">
-    <button
-      className="undefined tc-enumeration-item-label btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button">
-      <span>
-        Lorem ipsum dolor sit amet 2
-      </span>
-    </button>
+    className="undefined tc-enumeration-item"
+    id="2-item"
+  >
     <div
-      className="undefined tc-enumeration-item-actions">
+      className="undefined tc-enumeration-item-label"
+    >
+      Lorem ipsum dolor sit amet 2
+    </div>
+    <div
+      className="undefined tc-enumeration-item-actions"
+    >
       <button
         aria-describedby={42}
         className="btn btn-link"
@@ -114,13 +123,16 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-pencil" />
+            xlinkHref="#talend-pencil"
+          />
         </svg>
       </button>
       <button
@@ -133,13 +145,16 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
-        type="button">
+        type="button"
+      >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
-          title={null}>
+          title={null}
+        >
           <use
-            xlinkHref="#talend-trash" />
+            xlinkHref="#talend-trash"
+          />
         </svg>
       </button>
     </div>

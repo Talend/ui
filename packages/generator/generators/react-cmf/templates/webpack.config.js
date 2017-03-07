@@ -10,7 +10,7 @@ const SASS_DATA = `$brand-primary: #77828A;
 `;
 
 module.exports = {
-	entry: ['babel-polyfill', './src/app/index.js'],
+	entry: ['babel-polyfill', 'whatwg-fetch', './src/app/index.js'],
 	output: {
 		path: `${__dirname}/build`,
 		publicPath: '/',

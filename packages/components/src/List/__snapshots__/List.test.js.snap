@@ -1,52 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`List should not render the toolbar without toolbar props 1`] = `
 <div
-  className="tc-list">
+  className="tc-list"
+>
   <div
-    className="tc-list-display">
+    className="tc-list-display"
+  >
     <div>
       <table
-        className="table tc-list-display-table">
+        className="table tc-list-display-table"
+      >
         <thead>
           <tr>
             <th />
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Id
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Name
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -54,19 +67,23 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     1
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -74,30 +91,36 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Hello world
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -105,19 +128,23 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     2
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -125,30 +152,36 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Foo
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -156,19 +189,23 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     3
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -176,12 +213,14 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Bar
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
@@ -194,44 +233,56 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
 
 exports[`List should render 1`] = `
 <div
-  className="tc-list">
+  className="tc-list"
+>
   <div
-    className="tc-list-toolbar">
+    className="tc-list-toolbar"
+  >
     <div
       className="navbar navbar-default"
-      role="toolbar">
+      role="toolbar"
+    >
       <div
-        className="container-fluid">
+        className="container-fluid"
+      >
         <form
-          className="navbar-form navbar-left">
+          className="navbar-form navbar-left"
+        >
           <div
-            className="navbar-text">
+            className="navbar-text"
+          >
             <input
               checked={false}
               disabled={false}
               id={undefined}
               onChange={[Function]}
-              type="checkbox" />
+              type="checkbox"
+            />
             <label
               className="tc-list-toolbar-select-all"
-              htmlFor={undefined}>
+              htmlFor={undefined}
+            >
               Select All
             </label>
           </div>
         </form>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor={undefined}>
+            htmlFor={undefined}
+          >
             Display:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -240,39 +291,48 @@ exports[`List should render 1`] = `
               id={42}
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-table" />
+                  xlinkHref="#talend-table"
+                />
               </svg>
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby={42}
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id={undefined}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-table" />
+                      xlinkHref="#talend-table"
+                    />
                   </svg>
                   Table
                 </a>
@@ -280,20 +340,24 @@ exports[`List should render 1`] = `
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id={undefined}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-expanded" />
+                      xlinkHref="#talend-expanded"
+                    />
                   </svg>
                   Expanded
                 </a>
@@ -301,20 +365,24 @@ exports[`List should render 1`] = `
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id={undefined}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-tiles" />
+                      xlinkHref="#talend-tiles"
+                    />
                   </svg>
                   Tile
                 </a>
@@ -323,18 +391,22 @@ exports[`List should render 1`] = `
           </li>
         </ul>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor={undefined}>
+            htmlFor={undefined}
+          >
             Sort by:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -343,41 +415,48 @@ exports[`List should render 1`] = `
               id={42}
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               Name
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby={42}
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id={undefined}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   Id
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id={undefined}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   Name
                 </a>
               </li>
@@ -386,29 +465,35 @@ exports[`List should render 1`] = `
           <li
             className=""
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id={undefined}
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               ASCENDING
             </a>
           </li>
         </ul>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor={undefined}>
+            htmlFor={undefined}
+          >
             Show:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -417,65 +502,76 @@ exports[`List should render 1`] = `
               id={42}
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               5
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby={42}
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   5
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   10
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   20
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   50
                 </a>
               </li>
@@ -484,37 +580,44 @@ exports[`List should render 1`] = `
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id={undefined}
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-backward"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="btn-link tc-pagination-ctrl-prev"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id={undefined}
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-play"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="disabled"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               onClick={[Function]}
@@ -524,9 +627,11 @@ exports[`List should render 1`] = `
                   "pointerEvents": "none",
                 }
               }
-              tabIndex={-1}>
+              tabIndex={-1}
+            >
               <span
-                className="btn-link">
+                className="btn-link"
+              >
                 2
                 /
                 3
@@ -536,31 +641,37 @@ exports[`List should render 1`] = `
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id={undefined}
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-play"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id={undefined}
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-forward"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
         </ul>
@@ -574,64 +685,77 @@ exports[`List should render 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role={null}
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-search" />
+              xlinkHref="#talend-search"
+            />
           </svg>
         </button>
       </div>
     </div>
   </div>
   <div
-    className="tc-list-display">
+    className="tc-list-display"
+  >
     <div>
       <table
-        className="table tc-list-display-table">
+        className="table tc-list-display-table"
+      >
         <thead>
           <tr>
             <th />
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Id
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Name
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -639,19 +763,23 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     1
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -659,30 +787,36 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Hello world
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -690,19 +824,23 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     2
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -710,30 +848,36 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Foo
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id={undefined}>
+            id={undefined}
+          >
             <td>
               <input
                 checked={false}
                 id={undefined}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -741,19 +885,23 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     3
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -761,12 +909,14 @@ exports[`List should render 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Bar
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
@@ -779,9 +929,11 @@ exports[`List should render 1`] = `
 
 exports[`List should render empty list 1`] = `
 <div
-  className="tc-list">
+  className="tc-list"
+>
   <span
-    className={undefined}>
+    className={undefined}
+  >
     No result found
   </span>
 </div>
@@ -789,44 +941,56 @@ exports[`List should render empty list 1`] = `
 
 exports[`List should render id if provided 1`] = `
 <div
-  className="tc-list">
+  className="tc-list"
+>
   <div
-    className="tc-list-toolbar">
+    className="tc-list-toolbar"
+  >
     <div
       className="navbar navbar-default"
-      role="toolbar">
+      role="toolbar"
+    >
       <div
-        className="container-fluid">
+        className="container-fluid"
+      >
         <form
-          className="navbar-form navbar-left">
+          className="navbar-form navbar-left"
+        >
           <div
-            className="navbar-text">
+            className="navbar-text"
+          >
             <input
               checked={false}
               disabled={false}
               id="context-check-all"
               onChange={[Function]}
-              type="checkbox" />
+              type="checkbox"
+            />
             <label
               className="tc-list-toolbar-select-all"
-              htmlFor="context-check-all">
+              htmlFor="context-check-all"
+            >
               Select All
             </label>
           </div>
         </form>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor="context-display-mode">
+            htmlFor="context-display-mode"
+          >
             Display:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -835,39 +999,48 @@ exports[`List should render id if provided 1`] = `
               id="context-display-mode"
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-table" />
+                  xlinkHref="#talend-table"
+                />
               </svg>
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby="context-display-mode"
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id="context-display-mode-table"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-table" />
+                      xlinkHref="#talend-table"
+                    />
                   </svg>
                   Table
                 </a>
@@ -875,20 +1048,24 @@ exports[`List should render id if provided 1`] = `
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id="context-display-mode-large"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-expanded" />
+                      xlinkHref="#talend-expanded"
+                    />
                   </svg>
                   Expanded
                 </a>
@@ -896,20 +1073,24 @@ exports[`List should render id if provided 1`] = `
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id="context-display-mode-tile"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-tiles" />
+                      xlinkHref="#talend-tiles"
+                    />
                   </svg>
                   Tile
                 </a>
@@ -918,18 +1099,22 @@ exports[`List should render id if provided 1`] = `
           </li>
         </ul>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor="context-sort-by">
+            htmlFor="context-sort-by"
+          >
             Sort by:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -938,41 +1123,48 @@ exports[`List should render id if provided 1`] = `
               id="context-sort-by"
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               Name
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby="context-sort-by"
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id="context-sort-by-item-id"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   Id
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   id="context-sort-by-item-name"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   Name
                 </a>
               </li>
@@ -981,29 +1173,35 @@ exports[`List should render id if provided 1`] = `
           <li
             className=""
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id="context-sort-order"
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               ASCENDING
             </a>
           </li>
         </ul>
         <p
-          className="navbar-text">
+          className="navbar-text"
+        >
           <label
-            htmlFor="context-pagination-size">
+            htmlFor="context-pagination-size"
+          >
             Show:
           </label>
         </p>
         <ul
           className="nav navbar-nav"
-          role={null}>
+          role={null}
+        >
           <li
             className="dropdown"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               aria-expanded={false}
               aria-haspopup={true}
@@ -1012,65 +1210,76 @@ exports[`List should render id if provided 1`] = `
               id="context-pagination-size"
               onClick={[Function]}
               onKeyDown={[Function]}
-              role="button">
+              role="button"
+            >
               5
                
               <span
-                className="caret" />
+                className="caret"
+              />
             </a>
             <ul
               aria-labelledby="context-pagination-size"
               className="dropdown-menu"
-              role="menu">
+              role="menu"
+            >
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   5
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   10
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   20
                 </a>
               </li>
               <li
                 className=""
                 role="presentation"
-                style={undefined}>
+                style={undefined}
+              >
                 <a
                   href="#"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="menuitem"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   50
                 </a>
               </li>
@@ -1079,37 +1288,44 @@ exports[`List should render id if provided 1`] = `
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id="context-pagination-nav-to-first"
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-backward"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="btn-link tc-pagination-ctrl-prev"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id="context-pagination-nav-to-prev"
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-play"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="disabled"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               onClick={[Function]}
@@ -1119,9 +1335,11 @@ exports[`List should render id if provided 1`] = `
                   "pointerEvents": "none",
                 }
               }
-              tabIndex={-1}>
+              tabIndex={-1}
+            >
               <span
-                className="btn-link">
+                className="btn-link"
+              >
                 2
                 /
                 3
@@ -1131,31 +1349,37 @@ exports[`List should render id if provided 1`] = `
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id="context-pagination-nav-to-next"
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-play"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
           <li
             className="btn-link"
             role="presentation"
-            style={undefined}>
+            style={undefined}
+          >
             <a
               href="#"
               id="context-pagination-nav-to-last"
               onClick={[Function]}
-              role="button">
+              role="button"
+            >
               <i
                 aria-hidden="true"
                 className="fa fa-forward"
-                title={null} />
+                title={null}
+              />
             </a>
           </li>
         </ul>
@@ -1170,64 +1394,77 @@ exports[`List should render id if provided 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role={null}
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-search" />
+              xlinkHref="#talend-search"
+            />
           </svg>
         </button>
       </div>
     </div>
   </div>
   <div
-    className="tc-list-display">
+    className="tc-list-display"
+  >
     <div>
       <table
-        className="table tc-list-display-table">
+        className="table tc-list-display-table"
+      >
         <thead>
           <tr>
             <th />
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Id
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Id
-              </span>
+              </div>
             </th>
             <th>
               <span
-                className={undefined}>
+                className={undefined}
+              >
                 Name
               </span>
-              <span
-                aria-hidden="true">
+              <div
+                aria-hidden="true"
+              >
                 Name
-              </span>
+              </div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
             className=""
-            id="context-0">
+            id="context-0"
+          >
             <td>
               <input
                 checked={false}
                 id="context-0-check"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1235,19 +1472,23 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     1
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1255,30 +1496,36 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Hello world
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id="context-1">
+            id="context-1"
+          >
             <td>
               <input
                 checked={false}
                 id="context-1-check"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1286,19 +1533,23 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     2
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1306,30 +1557,36 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Foo
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>
           <tr
             className=""
-            id="context-2">
+            id="context-2"
+          >
             <td>
               <input
                 checked={false}
                 id="context-2-check"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1337,19 +1594,23 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     3
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
             <td>
               <div
-                className="tc-list-display-table-td">
+                className="tc-list-display-table-td"
+              >
                 <div
-                  className="cell">
+                  className="cell"
+                >
                   <span
                     aria-describedby={42}
                     className="item-text"
@@ -1357,12 +1618,14 @@ exports[`List should render id if provided 1`] = `
                     onClick={null}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
-                    onMouseOver={[Function]}>
+                    onMouseOver={[Function]}
+                  >
                     Bar
                   </span>
                 </div>
                 <div
-                  className="actions" />
+                  className="actions"
+                />
               </div>
             </td>
           </tr>

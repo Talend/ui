@@ -14,6 +14,7 @@ const mock = {
 		</div>
 	),
 	Notification: props => (<div className="tc-notifications" notifications={props.notifications} />),
+	ConfirmDialog: props => (<div className="tc-confirm-dialog" {...props} />),
 	ObjectViewer: props => (<div className="tc-object-viewer" {...props} />),
 	SidePanel: props => (<div className="tc-side-panel" {...props} />),
 	List: props => (<div className="tc-list" {...props} />),

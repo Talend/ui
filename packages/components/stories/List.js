@@ -185,6 +185,7 @@ const props = {
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),
+			placeholder: 'search for something',
 		},
 	},
 };
@@ -298,10 +299,11 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Large', () => {
-		const tprops = {
-			...props,
-			displayMode: 'large',
-		};
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.displayMode = 'large';
+		tprops.toolbar.sort.options = [
+			{ id: 'name', name: 'Name' },
+		];
 		return (
 			<div>
 				<h1>List</h1>
@@ -315,11 +317,31 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			displayMode: 'tile',
+
 		};
 		return (
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Get limited options for displayMode</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>

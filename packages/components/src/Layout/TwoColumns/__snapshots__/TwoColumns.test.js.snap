@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TwoColumns should render two columns 1`] = `
 <div
   className="tc-layout-two-columns"
@@ -5,18 +7,43 @@ exports[`TwoColumns should render two columns 1`] = `
     Object {
       "display": "flex",
     }
-  }>
+  }
+>
   <div
-    className="tc-layout-two-columns-left">
+    className="tc-layout-two-columns-left"
+  >
     <div>
       Hello world
     </div>
   </div>
   <div
-    className="tc-layout-two-columns-main">
-    <span>
-      children
-    </span>
+    className="tc-layout-two-columns-main"
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <span>
+          children
+        </span>
+      </div>
+      <div
+        className="react-addons-css-transition-group"
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
+        transitionName="tc-drawer"
+      />
+    </div>
   </div>
 </div>
 `;

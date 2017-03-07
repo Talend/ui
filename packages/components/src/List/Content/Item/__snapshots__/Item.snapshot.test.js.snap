@@ -1,49 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Item should render 1`] = `
 <div
-  className="tc-list-item">
+  className="tc-list-item"
+>
   <div
-    className="tc-list-item-title">
+    className="tc-list-item-title"
+  >
     <div
       className="tc-list-item-title-text"
-      id={undefined}>
+      id={undefined}
+    >
       Bar
     </div>
   </div>
   <div
-    className="tc-list-item-definition-list">
+    className="tc-list-item-definition-list"
+  >
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Author
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
+        title="Jean-Pierre DUPONT"
+      >
         Jean-Pierre DUPONT
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Created
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Modified
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
@@ -53,12 +68,15 @@ exports[`Item should render 1`] = `
 
 exports[`Item should render with actions 1`] = `
 <div
-  className="tc-list-item">
+  className="tc-list-item"
+>
   <div
-    className="tc-list-item-title">
+    className="tc-list-item-title"
+  >
     <div
       className="tc-list-item-title-text"
-      id={undefined}>
+      id={undefined}
+    >
       Bar
     </div>
   </div>
@@ -68,7 +86,8 @@ exports[`Item should render with actions 1`] = `
       Object {
         "top": "5px",
       }
-    }>
+    }
+  >
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -79,11 +98,13 @@ exports[`Item should render with actions 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-edit"
-        title={null} />
+        title={null}
+      />
     </button>
   </div>
   <div
@@ -92,7 +113,8 @@ exports[`Item should render with actions 1`] = `
       Object {
         "top": "35px",
       }
-    }>
+    }
+  >
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -103,48 +125,60 @@ exports[`Item should render with actions 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <i
         aria-hidden="true"
         className="fa fa-trash-o"
-        title={null} />
+        title={null}
+      />
     </button>
   </div>
   <div
-    className="tc-list-item-definition-list">
+    className="tc-list-item-definition-list"
+  >
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Author
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
+        title="Jean-Pierre DUPONT"
+      >
         Jean-Pierre DUPONT
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Created
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Modified
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
@@ -154,209 +188,63 @@ exports[`Item should render with actions 1`] = `
 
 exports[`Item should render with custom selected class 1`] = `
 <div
-  className="tc-list-item selectedClass">
+  className="tc-list-item selectedClass"
+>
   <div
-    className="tc-list-item-title">
+    className="tc-list-item-title"
+  >
     <div
       className="tc-list-item-title-text"
-      id={undefined}>
+      id={undefined}
+    >
       Bar
     </div>
   </div>
   <div
-    className="tc-list-item-definition-list">
+    className="tc-list-item-definition-list"
+  >
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Author
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
+        title="Jean-Pierre DUPONT"
+      >
         Jean-Pierre DUPONT
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Created
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Modified
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Item should render with id if provided 1`] = `
-<div
-  className="tc-list-item">
-  <div
-    className="tc-list-item-title">
-    <div
-      className="tc-list-item-title-text"
-      id="list-item-title">
-      Bar
-    </div>
-  </div>
-  <div
-    className="tc-list-item-definition-list">
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Author
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
-        Jean-Pierre DUPONT
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Created
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Modified
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Item should render with item custom className 1`] = `
-<div
-  className="tc-list-item item-1-class">
-  <div
-    className="tc-list-item-title">
-    <div
-      className="tc-list-item-title-text"
-      id={undefined}>
-      Bar
-    </div>
-  </div>
-  <div
-    className="tc-list-item-definition-list">
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Author
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
-        Jean-Pierre DUPONT
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Created
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Modified
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Item should render with selected item 1`] = `
-<div
-  className="tc-list-item active">
-  <div
-    className="tc-list-item-title">
-    <div
-      className="tc-list-item-title-text"
-      id={undefined}>
-      Bar
-    </div>
-  </div>
-  <div
-    className="tc-list-item-definition-list">
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Author
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
-        Jean-Pierre DUPONT
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Created
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
-        2016-09-22
-      </div>
-    </div>
-    <div
-      className="tc-list-item-definition-item">
-      <div
-        className="tc-list-item-definition-term">
-        Modified
-      </div>
-      <div
-        className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
@@ -366,57 +254,270 @@ exports[`Item should render with selected item 1`] = `
 
 exports[`Item should render with icon 1`] = `
 <div
-  className="tc-list-item">
+  className="tc-list-item"
+>
   <div
-    className="tc-list-item-icon">
+    className="tc-list-item-icon"
+  >
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
-      title={null} />
+      title={null}
+    />
   </div>
   <div
-    className="tc-list-item-title">
+    className="tc-list-item-title"
+  >
     <div
       className="tc-list-item-title-text"
-      id={undefined}>
+      id={undefined}
+    >
       Bar
     </div>
   </div>
   <div
-    className="tc-list-item-definition-list">
+    className="tc-list-item-definition-list"
+  >
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Author
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT">
+        title="Jean-Pierre DUPONT"
+      >
         Jean-Pierre DUPONT
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Created
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>
     <div
-      className="tc-list-item-definition-item">
+      className="tc-list-item-definition-item"
+    >
       <div
-        className="tc-list-item-definition-term">
+        className="tc-list-item-definition-term"
+      >
         Modified
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="2016-09-22">
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Item should render with id if provided 1`] = `
+<div
+  className="tc-list-item"
+>
+  <div
+    className="tc-list-item-title"
+  >
+    <div
+      className="tc-list-item-title-text"
+      id="list-item-title"
+    >
+      Bar
+    </div>
+  </div>
+  <div
+    className="tc-list-item-definition-list"
+  >
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Author
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="Jean-Pierre DUPONT"
+      >
+        Jean-Pierre DUPONT
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Created
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Modified
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Item should render with item custom className 1`] = `
+<div
+  className="tc-list-item item-1-class"
+>
+  <div
+    className="tc-list-item-title"
+  >
+    <div
+      className="tc-list-item-title-text"
+      id={undefined}
+    >
+      Bar
+    </div>
+  </div>
+  <div
+    className="tc-list-item-definition-list"
+  >
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Author
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="Jean-Pierre DUPONT"
+      >
+        Jean-Pierre DUPONT
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Created
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Modified
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Item should render with selected item 1`] = `
+<div
+  className="tc-list-item active"
+>
+  <div
+    className="tc-list-item-title"
+  >
+    <div
+      className="tc-list-item-title-text"
+      id={undefined}
+    >
+      Bar
+    </div>
+  </div>
+  <div
+    className="tc-list-item-definition-list"
+  >
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Author
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="Jean-Pierre DUPONT"
+      >
+        Jean-Pierre DUPONT
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Created
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
+        2016-09-22
+      </div>
+    </div>
+    <div
+      className="tc-list-item-definition-item"
+    >
+      <div
+        className="tc-list-item-definition-term"
+      >
+        Modified
+      </div>
+      <div
+        className="tc-list-item-definition-description"
+        title="2016-09-22"
+      >
         2016-09-22
       </div>
     </div>

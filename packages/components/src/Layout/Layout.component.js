@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-
-import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
-import Drawer from '../Drawer';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -51,26 +48,19 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 	return (
 		<div className={appCSS}>
 			<div className={headerCSS}>
-				<AppHeaderBar {...header} />
+				{header}
 			</div>
 			{Component ? (
-				<Component {...rest}>
+				<Component drawers={drawers} {...rest}>
 					{children}
 				</Component>
 			) : null}
-			<Drawer.Animation>
-				{drawers && drawers.map((drawer, key) => (
-					<Drawer key={key} className={theme.drawer}>
-						{drawer}
-					</Drawer>
-				))}
-			</Drawer.Animation>
 		</div>
 	);
 }
 
 Layout.propTypes = {
-	header: PropTypes.shape(AppHeaderBar.propTypes),
+	header: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,

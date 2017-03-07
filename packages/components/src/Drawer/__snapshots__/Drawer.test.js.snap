@@ -1,22 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Drawer should not render if no children 1`] = `null`;
 
 exports[`Drawer should render 1`] = `
 <div
   className="tc-drawer"
-  style={undefined}>
-  <h1>
-    Hello world
-  </h1>
+  style={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "auto",
+        }
+      }
+    >
+      <div
+        className={undefined}
+      >
+        <h1>
+          Hello world
+        </h1>
+      </div>
+      <nav
+        className="tc-actionbar-container nav"
+      />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Drawer should render using custom className 1`] = `
 <div
   className="my-custom-drawer tc-drawer"
-  style={undefined}>
-  <h1>
-    Hello world
-  </h1>
+  style={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "auto",
+        }
+      }
+    >
+      <div
+        className={undefined}
+      >
+        <h1>
+          Hello world
+        </h1>
+      </div>
+      <nav
+        className="tc-actionbar-container nav"
+      />
+    </div>
+  </div>
 </div>
 `;
 
@@ -27,9 +75,32 @@ exports[`Drawer should render using custom styles 1`] = `
     Object {
       "top": 45,
     }
-  }>
-  <h1>
-    Hello world
-  </h1>
+  }
+>
+  <div
+    className={undefined}
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "auto",
+        }
+      }
+    >
+      <div
+        className={undefined}
+      >
+        <h1>
+          Hello world
+        </h1>
+      </div>
+      <nav
+        className="tc-actionbar-container nav"
+      />
+    </div>
+  </div>
 </div>
 `;

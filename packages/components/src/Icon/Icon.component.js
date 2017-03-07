@@ -15,9 +15,13 @@ export const FA_TRANSFORMS = {
 
 export const SVG_TRANSFORMS = {
 	spin: theme.spin,
+	'rotate-45': theme['rotate-45'],
 	'rotate-90': theme['rotate-90'],
+	'rotate-135': theme['rotate-135'],
 	'rotate-180': theme['rotate-180'],
+	'rotate-225': theme['rotate-225'],
 	'rotate-270': theme['rotate-270'],
+	'rotate-315': theme['rotate-315'],
 	'flip-horizontal': theme['flip-horizontal'],
 	'flip-vertical': theme['flip-vertical'],
 };

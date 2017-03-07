@@ -1,8 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Badge should render Badge with icon in outline style 1`] = `
 <div
-  className="undefined tc-badge tc-badge-outline tc-badge-with-icon">
+  className="undefined tc-badge tc-badge-outline tc-badge-with-icon"
+>
   <span
-    className="undefined tc-badge-label tc-badge-label-with-icon">
+    className="undefined tc-badge-label tc-badge-label-with-icon"
+  >
     Label 1
   </span>
   <button
@@ -15,13 +19,16 @@ exports[`Badge should render Badge with icon in outline style 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-cross" />
+        xlinkHref="#talend-cross"
+      />
     </svg>
   </button>
 </div>
@@ -29,9 +36,11 @@ exports[`Badge should render Badge with icon in outline style 1`] = `
 
 exports[`Badge should render Badge with icon in solid style 1`] = `
 <div
-  className="undefined tc-badge tc-badge-solid tc-badge-with-icon">
+  className="undefined tc-badge tc-badge-solid tc-badge-with-icon"
+>
   <span
-    className="undefined tc-badge-label tc-badge-label-with-icon">
+    className="undefined tc-badge-label tc-badge-label-with-icon"
+  >
     Label 1
   </span>
   <button
@@ -44,13 +53,16 @@ exports[`Badge should render Badge with icon in solid style 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-cross" />
+        xlinkHref="#talend-cross"
+      />
     </svg>
   </button>
 </div>
@@ -58,9 +70,11 @@ exports[`Badge should render Badge with icon in solid style 1`] = `
 
 exports[`Badge should render Badge without icon in outline style 1`] = `
 <div
-  className="tc-badge tc-badge-outline">
+  className="tc-badge tc-badge-outline"
+>
   <span
-    className="tc-badge-label">
+    className="tc-badge-label"
+  >
     Label 1
   </span>
 </div>
@@ -68,9 +82,11 @@ exports[`Badge should render Badge without icon in outline style 1`] = `
 
 exports[`Badge should render Badge without icon in solid style 1`] = `
 <div
-  className="tc-badge tc-badge-solid">
+  className="tc-badge tc-badge-solid"
+>
   <span
-    className="tc-badge-label">
+    className="tc-badge-label"
+  >
     Label 1
   </span>
 </div>
