@@ -31,11 +31,19 @@ src/Enumeration/Header/Header.scss
   35:1  warning  Space expected between blocks  empty-line-between-blocks
 
 src/Enumeration/Items/Item/Item.scss
-  10:17  warning  No unit allowed for values of 0                                                                                                                      zero-unit
-  17:1   warning  Space expected between blocks                                                                                                                        empty-line-between-blocks
-  38:11  warning  Property `margin` should be written more concisely as `auto $tc-enumeration-smaller-padding` instead of `auto $tc-enumeration-smaller-padding auto`  shorthand-values
-  46:26  warning  Whitespace required before {                                                                                                                         space-before-brace
-  48:1   warning  Space expected between blocks                                                                                                                        empty-line-between-blocks
+  15:1   warning  Space expected between blocks                                                                                                                        empty-line-between-blocks
+  33:20  warning  Space expected after `:`                                                                                                                             space-after-colon
+  36:10  warning  Space expected after `:`                                                                                                                             space-after-colon
+  43:11  warning  Property `margin` should be written more concisely as `auto $tc-enumeration-smaller-padding` instead of `auto $tc-enumeration-smaller-padding auto`  shorthand-values
+  50:7   warning  Whitespace required before {                                                                                                                         space-before-brace
+  52:19  warning  No unit allowed for values of 0                                                                                                                      zero-unit
+  56:6   warning  Whitespace required before {                                                                                                                         space-before-brace
+  61:14  warning  Whitespace required before {                                                                                                                         space-before-brace
+  62:20  warning  Hex notation should all be upper case                                                                                                                hex-notation
+  65:26  warning  Whitespace required before {                                                                                                                         space-before-brace
+  66:3   warning  Mixed tabs and spaces                                                                                                                                indentation
+  67:2   warning  Expected indentation of 2 tabs but found 1                                                                                                           indentation
+  72:46  warning  Whitespace required before {                                                                                                                         space-before-brace
 
 src/Enumeration/Items/Items.scss
   1:21  warning  Whitespace required before {     space-before-brace
@@ -63,7 +71,7 @@ src/WithDrawer/withDrawer.scss
   15:5  warning  Mixed tabs and spaces           indentation
   16:1  warning  Files must end with a new line  final-newline
 
-✖ 44 problems (5 errors, 39 warnings)
+✖ 52 problems (5 errors, 47 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
