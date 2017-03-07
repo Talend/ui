@@ -20,32 +20,6 @@ src/Drawer/Drawer.scss
   46:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
   54:1   warning  Space expected between blocks                                             empty-line-between-blocks
 
-src/Enumeration/Enumeration.scss
-   3:15  warning  Whitespace required before {  space-before-brace
-   9:23  warning  Whitespace required before {  space-before-brace
-  13:7   warning  Whitespace required before {  space-before-brace
-
-src/Enumeration/Header/Header.scss
-  14:5  warning  Whitespace required before {   space-before-brace
-  22:6  warning  Whitespace required before {   space-before-brace
-  35:1  warning  Space expected between blocks  empty-line-between-blocks
-
-src/Enumeration/Items/Item/Item.scss
-  10:17  warning  No unit allowed for values of 0                                                                                                                      zero-unit
-  17:1   warning  Space expected between blocks                                                                                                                        empty-line-between-blocks
-  38:11  warning  Property `margin` should be written more concisely as `auto $tc-enumeration-smaller-padding` instead of `auto $tc-enumeration-smaller-padding auto`  shorthand-values
-  46:26  warning  Whitespace required before {                                                                                                                         space-before-brace
-  48:1   warning  Space expected between blocks                                                                                                                        empty-line-between-blocks
-
-src/Enumeration/Items/Items.scss
-  1:21  warning  Whitespace required before {     space-before-brace
-  2:16  warning  No unit allowed for values of 0  zero-unit
-  6:20  warning  No unit allowed for values of 0  zero-unit
-  6:54  warning  No unit allowed for values of 0  zero-unit
-  8:21  warning  Whitespace required before {     space-before-brace
-  9:15  error    Trailing semicolons required     trailing-semicolon
-  9:21  warning  No unit allowed for values of 0  zero-unit
-
 src/List/Toolbar/Filter/Filter.scss
   14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   18:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
@@ -63,7 +37,7 @@ src/WithDrawer/withDrawer.scss
   15:5  warning  Mixed tabs and spaces           indentation
   16:1  warning  Files must end with a new line  final-newline
 
-✖ 44 problems (5 errors, 39 warnings)
+✖ 26 problems (4 errors, 22 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute

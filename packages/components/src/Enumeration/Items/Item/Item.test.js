@@ -5,12 +5,12 @@ import { Button } from 'react-bootstrap';
 import Item from './Item.component';
 
 const item = {
-	id: 1,
 	values: ['toto'],
 	itemProps: {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
+		onSelectItem: jest.fn(), // provided click callback
 		actions: [{
 			label: 'Edit',
 			id: 'edit',
@@ -24,7 +24,7 @@ const item = {
 };
 
 describe('Item', () => {
-	it('should display value with two buttons and trigger callback on button title click', () => {
+	it('should display value with three buttons and trigger callback on button title click', () => {
 		// given
 		const props = {
 			item,
@@ -38,7 +38,27 @@ describe('Item', () => {
 		buttons.at(1).simulate('click', { stopPropagation: () => {} });
 
 		// then
-		expect(buttons.length).toBe(2);
-		expect(props.item.itemProps.actions[1].onClick).toBeCalled();
+		expect(buttons.length).toBe(3);
+		expect(props.item.itemProps.actions[0].onClick).toBeCalled();
+	});
+
+
+	it('should display value with three buttons and trigger callback on item click', () => {
+		// given
+		const props = {
+			item,
+		};
+
+		const itemInstance = <Item {...props} />;
+
+		// when
+		const wrapper = mount(itemInstance);
+		const buttons = wrapper.find(Button);
+
+		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+
+		// then
+		expect(buttons.length).toBe(3);
+		expect(props.item.itemProps.onSelectItem).toBeCalled();
 	});
 });
