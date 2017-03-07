@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Header should render header in selected state without trash icon in case of single selection) 1`] = `
 <header
-  className="undefined tc-enumeration-header">
+  className="undefined tc-enumeration-header"
+>
   <span>
     1 selected value
   </span>
@@ -9,7 +12,8 @@ exports[`Header should render header in selected state without trash icon in cas
 
 exports[`Header should render header with trash icon in case of multiple selection 1`] = `
 <header
-  className="undefined tc-enumeration-header">
+  className="undefined tc-enumeration-header"
+>
   <span>
     2 selected values
   </span>
@@ -23,13 +27,16 @@ exports[`Header should render header with trash icon in case of multiple selecti
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
-    type="button">
+    type="button"
+  >
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}>
+      title={null}
+    >
       <use
-        xlinkHref="#talend-check" />
+        xlinkHref="#talend-check"
+      />
     </svg>
   </button>
 </header>

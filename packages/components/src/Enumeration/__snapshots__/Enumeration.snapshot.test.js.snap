@@ -63,14 +63,20 @@ exports[`Enumeration should render with header in add state and list in default 
     className="undefined tc-enumeration-items"
   >
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="0-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 0
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -121,14 +127,20 @@ exports[`Enumeration should render with header in add state and list in default 
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="1-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 1
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -179,14 +191,20 @@ exports[`Enumeration should render with header in add state and list in default 
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="2-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 2
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -338,14 +356,20 @@ exports[`Enumeration should render with header in default state and first item i
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="1-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 1
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -396,14 +420,20 @@ exports[`Enumeration should render with header in default state and first item i
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="2-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 2
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -494,14 +524,20 @@ exports[`Enumeration should render with header in default state and list in defa
     className="undefined tc-enumeration-items"
   >
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="0-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 0
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -552,14 +588,20 @@ exports[`Enumeration should render with header in default state and list in defa
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="1-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 1
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
@@ -610,14 +652,20 @@ exports[`Enumeration should render with header in default state and list in defa
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
+      className="tc-enumeration-item"
       id="2-item"
     >
-      <div
-        className="undefined tc-enumeration-item-label"
+      <button
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        role={null}
+        type="button"
       >
-        Lorem ipsum dolor sit amet 2
-      </div>
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
       <div
         className="undefined tc-enumeration-item-actions"
       >
