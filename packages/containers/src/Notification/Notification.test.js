@@ -8,6 +8,7 @@ import Connected, {
 	mapStateToProps,
 } from './Notification.connect';
 import pushNotification from './pushNotification';
+import clearNotifications from './clearNotifications';
 
 describe('Container Notification', () => {
 	it('should render', () => {
@@ -62,6 +63,25 @@ describe('Notification.pushNotification', () => {
 		expect(notifications.size).toBe(1);
 		expect(notifications.get(0).message).toBe('hello world');
 	});
+
+	it('should delete all Notification in the state', () => {
+		const state = store.state();
+		state.cmf.components = fromJS({
+			Notification: {
+				Notification: {
+					notifications: [
+						{ message: 'hello world' },
+						{ message: 'hello world2' },
+					],
+				},
+			},
+		});
+		const newState = clearNotifications(state);
+		expect(newState).not.toBe(state);
+		const notifications = newState.cmf.components.getIn(['Notification', 'Notification', 'notifications']);
+		expect(notifications.size).toBe(0);
+	});
+
 	it('should change the state if no notification', () => {
 		const state = store.state();
 		state.cmf.components = fromJS({
