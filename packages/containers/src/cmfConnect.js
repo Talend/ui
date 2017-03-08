@@ -32,15 +32,21 @@ export function getStateToProps({
 	mapStateToProps,
 	WrappedComponent,
 }) {
-	let props = getStateProps(
+	const cmfProps = getStateProps(
 		state,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 	);
+	cmfProps.getCollection = function getCollection(id) {
+		return state.cmf.collections.get(id);
+	};
+
+	let userProps = {};
 	if (mapStateToProps) {
-		props = Object.assign(props, mapStateToProps(state, ownProps));
+		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
-	return props;
+
+	return { ...cmfProps, ...userProps };
 }
 
 export function getDispatchToProps({
@@ -51,17 +57,14 @@ export function getDispatchToProps({
 	ownProps,
 	WrappedComponent,
 }) {
-	let props = getStateAccessors(
+	const cmfProps = getStateAccessors(
 		dispatch,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 		defaultState,
 	);
-	props.dispatch = dispatch;
-	if (mapDispatchToProps) {
-		props = Object.assign(props, mapDispatchToProps(dispatch, ownProps));
-	}
-	props.dispatchActionCreator = (actionId, event, data, context) => {
+	cmfProps.dispatch = dispatch;
+	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
 		dispatch(
 			api.action.getActionCreatorFunction(
 				context,
@@ -70,7 +73,12 @@ export function getDispatchToProps({
 		);
 	};
 
-	return props;
+	let userProps = {};
+	if (mapDispatchToProps) {
+		userProps = mapDispatchToProps(dispatch, ownProps, cmfProps);
+	}
+
+	return { ...cmfProps, ...userProps };
 }
 
 /**
@@ -78,6 +86,8 @@ export function getDispatchToProps({
  * - props.state
  * - props.updateState
  * - props.initState (call it un didMount)
+ * - props.getCollection
+ * - props.
  *
  * support for the following props
  * - initialState (called by props.initState)
@@ -111,20 +121,22 @@ export default function cmfConnect({
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.didMountActionCreator) {
-					this.props.dispatch(
-						api.action.getActionCreatorFunction(
-							this.context, this.props.didMountActionCreator
-						)(null, this.props, this.context)
+					this.props.dispatchActionCreator(
+						this.props.didMountActionCreator,
+						null,
+						this.props,
+						this.context,
 					);
 				}
 			}
 
 			componentWillUnmount() {
 				if (this.props.willUnmountActionCreator) {
-					this.props.dispatch(
-						api.action.getActionCreatorFunction(
-							this.context, this.props.didMountActionCreator
-						)(null, this.props, this.context)
+					this.props.dispatchActionCreator(
+						this.props.willUnmountActionCreator,
+						null,
+						this.props,
+						this.context
 					);
 				}
 				if (!keepComponentState) {
