@@ -66,10 +66,11 @@ $tc-list-table-header-height: 36px !default;
 
 	tbody {
 		:global(.btn-link) {
-			color: $tc-list-table-color;
+			color: $tc-list-table-header-color;
 			font-size: inherit;
-			letter-spacing: inherit;
 			font-weight: 600;
+			text-transform: none;
+			letter-spacing: 0;
 		}
 
 		tr:hover {

@@ -9,7 +9,7 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
   >
     <li>
       <div
-        className="something"
+        className="panel panel-default something"
         id="tile-list-0"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -82,7 +82,7 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
     </li>
     <li>
       <div
-        className="something"
+        className="panel panel-default something"
         id="tile-list-1"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -155,7 +155,7 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
     </li>
     <li>
       <div
-        className="something"
+        className="panel panel-default something"
         id="tile-list-2"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -239,7 +239,7 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
   >
     <li>
       <div
-        className="active"
+        className="panel panel-default active"
         id="tile-list-0"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -312,7 +312,7 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
     </li>
     <li>
       <div
-        className="active"
+        className="panel panel-default active"
         id="tile-list-1"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -385,7 +385,7 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
     </li>
     <li>
       <div
-        className="active"
+        className="panel panel-default active"
         id="tile-list-2"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -469,7 +469,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
   >
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}
@@ -550,7 +550,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}
@@ -631,7 +631,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={[Function]}
@@ -718,7 +718,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
   >
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -796,7 +796,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -874,7 +874,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -958,7 +958,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
   >
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1031,7 +1031,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1104,7 +1104,7 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id={undefined}
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1188,7 +1188,7 @@ exports[`DisplayTile should render with id if provided 1`] = `
   >
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id="tile-list-0"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1261,7 +1261,7 @@ exports[`DisplayTile should render with id if provided 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id="tile-list-1"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1334,7 +1334,7 @@ exports[`DisplayTile should render with id if provided 1`] = `
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id="tile-list-2"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1418,7 +1418,7 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
   >
     <li>
       <div
-        className="item-0-class"
+        className="panel panel-default item-0-class"
         id="tile-list-0"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1491,7 +1491,7 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
     </li>
     <li>
       <div
-        className="item-1-class"
+        className="panel panel-default item-1-class"
         id="tile-list-1"
         onClick={undefined}
         onDoubleClick={undefined}
@@ -1564,7 +1564,7 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
     </li>
     <li>
       <div
-        className=""
+        className="panel panel-default"
         id="tile-list-2"
         onClick={undefined}
         onDoubleClick={undefined}

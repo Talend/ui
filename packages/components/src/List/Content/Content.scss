@@ -13,7 +13,6 @@ $description-width: 130px;
 $icon-column-width: 30px;
 $line-height: 30px;
 
-
 .tc-list-content {
 	list-style: none;
 	overflow: auto;
@@ -53,7 +52,7 @@ $line-height: 30px;
 
 			:global(.btn-link) {
 				border: none;
-				color: $mine-shaft;
+				color: inherit;
 				font-size: $text-size;
 				font-weight: 600;
 				letter-spacing: 0;
@@ -62,7 +61,7 @@ $line-height: 30px;
 				overflow: hidden;
 				padding: 0;
 				text-overflow: ellipsis;
-				text-transform: uppercase;
+				text-transform: none;
 				white-space: nowrap;
 			}
 

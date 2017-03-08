@@ -22,6 +22,8 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		text-transform: none;
+		letter-spacing: 0;
 
 		&:first-child {
 			padding-left: 0;
