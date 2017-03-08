@@ -46,14 +46,10 @@ src/Enumeration/Items/Items.scss
   9:15  error    Trailing semicolons required     trailing-semicolon
   9:21  warning  No unit allowed for values of 0  zero-unit
 
-src/List/Content/Content.scss
-  65:17  warning  Mixed tabs and spaces  indentation
-
-src/List/DisplayTable/DisplayTable.scss
-  73:13  warning  Mixed tabs and spaces  indentation
-
-src/List/ItemTitle/ItemTitle.scss
-  25:9  warning  Mixed tabs and spaces  indentation
+src/List/DisplayLarge/DisplayLarge.scss
+  45:3  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  46:3  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  62:1  warning  Space expected between blocks       empty-line-between-blocks
 
 src/List/Toolbar/Filter/Filter.scss
   14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
