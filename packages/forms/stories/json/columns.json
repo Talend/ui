@@ -1,0 +1,60 @@
+{
+  "jsonSchema": {
+    "title": "A list of tasks",
+    "type": "object",
+    "required": [
+      "title"
+    ],
+    "properties": {
+      "columns": {
+        "type": "object",
+        "properties": {
+          "column1": {
+            "type": "object",
+            "title": "Column 1",
+            "properties": {
+              "field1": {
+                "type": "string"
+              },
+              "field2": {
+                "type": "string"
+              }
+            }
+          },
+          "column2": {
+            "type": "object",
+            "title": "Column 2",
+            "properties": {
+              "field1": {
+                "type": "string"
+              },
+              "field2": {
+                "type": "string"
+             }
+            }
+          },
+          "column3": {
+            "type": "object",
+            "title": "Column 3",
+            "properties": {
+              "field1": {
+                "type": "string"
+              },
+              "field2": {
+                "type": "string"
+             }
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": {
+    "columns": {
+      "ui:widget": "columns"
+    }
+  },
+  "properties": {
+    "title": "My current tasks"
+  }
+}

@@ -48,6 +48,7 @@ sampleFilenames
 						autocomplete="off"
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
 						onChange={action('Change')}
+						onBlur={action('Blur')}
 						onSubmit={action('Submit')}
 					/>
 				</section>

@@ -15,6 +15,7 @@ import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
+import ColumnsWidget from './widgets/ColumnsWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -28,10 +29,19 @@ const customWidgets = {
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
+	columns: ColumnsWidget,
 };
 
 const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist', 'enumeration'],
+	'ui:widget': [
+		'toggle',
+		'tabs',
+		'keyValue',
+		'multiSelectTag',
+		'datalist',
+		'enumeration',
+		'columns',
+	],
 };
 
 export function renderActionIcon(icon) {
@@ -122,7 +132,6 @@ class Form extends React.Component {
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
 		};
-
 		return (
 			<RJSForm
 				{...this.props}
