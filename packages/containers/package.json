@@ -103,9 +103,9 @@
     "lodash": "4.17.2",
     "react": "^15.4.2",
     "react-bootstrap": "0",
-    "react-cmf": "^0.64.0",
+    "react-cmf": "^0.63.1",
     "react-redux": "^4.4.6",
-    "react-talend-components": "^0.64.0",
+    "react-talend-components": "^0.63.1",
     "reselect": "^2.5.4"
   },
   "dependencies": {
