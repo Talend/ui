@@ -69,11 +69,12 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 	return (
 		<div className={enumerationClasses()}>
 			{getHeader()}
-			<Items
-				items={items}
-				itemsProp={itemsProp}
-				currentEdit={currentEdit}
-			/>
+			{items.length > 0 &&
+				<Items
+					items={items}
+					itemsProp={itemsProp}
+					currentEdit={currentEdit}
+				/>}
 		</div>
 	);
 }
