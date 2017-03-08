@@ -78,8 +78,8 @@ export function configureGetFilteredItems(configure) {
 						if (a.get(sortBy).localCompare) {
 							return a.get(sortBy).localeCompare(b.get(sortBy));
 						}
-						const aValue = (a.get(sortBy) === null) ? '' : `${a.get(sortBy)}`.toLowerCase();
-						const bValue = (b.get(sortBy) === null) ? '' : `${b.get(sortBy)}`.toLowerCase();
+						const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
+						const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
 						if (aValue < bValue) {
 							return -1;
 						}
