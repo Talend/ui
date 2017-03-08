@@ -4,7 +4,7 @@ import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
 
 import { getActionsProps } from '../actionAPI';
-import { statePropTypes } from '../state';
+import { componentState } from 'react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
@@ -53,7 +53,7 @@ class List extends React.Component {
 		}),
 		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		...statePropTypes,
+		...componentState.propTypes,
 	};
 
 	static contextTypes = {

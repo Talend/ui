@@ -1,4 +1,4 @@
-import cmfConnect from '../cmfConnect';
+import { cmfConnect } from 'react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
 

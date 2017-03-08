@@ -8,7 +8,7 @@ import {
 	initState,
 	getStateAccessors,
 	getStateProps,
-} from './state';
+} from './componentState';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
