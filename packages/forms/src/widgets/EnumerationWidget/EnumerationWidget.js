@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
@@ -259,6 +259,15 @@ class EnumerationWidget extends React.Component {
 			</div>
 		);
 	}
+}
+
+if (process.env.NODE_ENV !== 'production') {
+	EnumerationWidget.propTypes = {
+		id: PropTypes.string,
+		formData: PropTypes.object,
+		onChange: PropTypes.func,
+		onBlur: PropTypes.func,
+	};
 }
 
 export default EnumerationWidget;
