@@ -20,9 +20,6 @@ src/Drawer/Drawer.scss
   46:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
   54:1   warning  Space expected between blocks                                             empty-line-between-blocks
 
-src/List/DisplayLarge/DisplayLarge.scss
-  44:1  warning  Space expected between blocks  empty-line-between-blocks
-
 src/List/Toolbar/Filter/Filter.scss
   14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   18:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
@@ -40,7 +37,7 @@ src/WithDrawer/withDrawer.scss
   15:5  warning  Mixed tabs and spaces           indentation
   16:1  warning  Files must end with a new line  final-newline
 
-✖ 27 problems (4 errors, 23 warnings)
+✖ 26 problems (4 errors, 22 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
