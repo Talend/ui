@@ -6,9 +6,12 @@ $tile-background: #FFF;
 /// tile border color
 /// @type Color
 $tile-border-color: #CCC;
-/// all tile title color
+/// tile title color
 /// @type Color
-$title-color: #555;
+$title-color: $black;
+/// sub tile title color
+/// @type Color
+$subtitle-color: #555;
 /// Global font size for tile rendering
 /// @type Number (Unit)
 $text-size: 15px;
@@ -36,9 +39,9 @@ $tile-width: 16em;
 	transition: 0.13s background cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.13s border-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
 	&:hover {
-		background: lighten($title-color, 60%);
-		border-color: darken($tile-border-color, 40%);
+		background: lighten($subtitle-color, 60%);
 	}
+
 }
 
 .title {
@@ -81,14 +84,13 @@ $tile-width: 16em;
 }
 
 .itemtitle {
-	color: $title-color;
+	color: $subtitle-color;
 	clear: left;
-	font-size: 0.8em;
 	font-weight: 400;
-	line-height: 2.5em;
+	line-height: 2em;
 	margin-left: -($tile-width / 2) - 0.5;
 	text-align: right;
-	text-transform: uppercase;
+	text-transform: none;
 	width: ($tile-width / 2) - 1;
 
 	&:after {

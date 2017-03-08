@@ -38,7 +38,9 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 		(<input
 			id={id && `${id}-check`}
 			type="checkbox"
-			onChange={(e) => { onToggle(e, item); }}
+			onChange={(e) => {
+				onToggle(e, item);
+			}}
 			checked={isSelected(item)}
 		/>) :
 		null;
@@ -50,6 +52,8 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 
 	const tileClasses = classNames(
 		theme.tile,
+		'panel',
+		'panel-default',
 		classNameKey && item[classNameKey],
 		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
@@ -93,7 +97,7 @@ Tile.propTypes = {
  * @param {object} itemProps the item configuration props
  * @param {object} titleProps the title configuration props
  * @example
-const props = {
+ const props = {
 	items: [
 		{
 			id: 1,
@@ -139,7 +143,7 @@ const props = {
 		width: '250px'
 	}
 };
-<DisplayTile {...props} />
+ <DisplayTile {...props} />
  */
 function DisplayTile(props) {
 	const {
