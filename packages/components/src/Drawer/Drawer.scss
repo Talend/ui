@@ -23,7 +23,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	bottom: 0;
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 	width: 50vw;
-	/** should always stay lower than dialog z-index wich is set at 1040 */
+	// should always stay lower than dialog z-index wich is set to 1040
 	z-index: 100;
 }
 
