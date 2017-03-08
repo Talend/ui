@@ -310,6 +310,7 @@ class ArrayField extends Component {
 			return (<Widget
 				id={idSchema && idSchema.$id}
 				onChange={onChangeHandler}
+				onBlur={onblur}
 				schema={schema}
 				formData={formData}
 				uiSchema={uiSchema}
