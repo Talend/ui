@@ -78,10 +78,12 @@ export function configureGetFilteredItems(configure) {
 						if (a.get(sortBy).localCompare) {
 							return a.get(sortBy).localeCompare(b.get(sortBy));
 						}
-						if (a.get(sortBy) < b.get(sortBy)) {
+						const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
+						const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
+						if (aValue < bValue) {
 							return -1;
 						}
-						if (a.get(sortBy) > b.get(sortBy)) {
+						if (aValue > bValue) {
 							return 1;
 						}
 						return 0;

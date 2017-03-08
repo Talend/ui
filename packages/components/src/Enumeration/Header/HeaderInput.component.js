@@ -13,7 +13,6 @@ function headerClasses() {
 	});
 }
 
-
 function getAction(action, index) {
 	function onClick(event) {
 		if (action.onClick) {

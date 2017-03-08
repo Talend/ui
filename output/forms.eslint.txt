@@ -108,25 +108,20 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:1  error  Line 42 exceeds the maximum line length of 100  max-len
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
-   30:10  error  Missing trailing comma                                comma-dangle
-   72:10  error  Missing trailing comma                                comma-dangle
-   81:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-   96:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-   97:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   97:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
-  103:53  error  Multiple spaces found before 'target'                 no-multi-spaces
-  114:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  132:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  139:53  error  Multiple spaces found before 'target'                 no-multi-spaces
-  151:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  153:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-  153:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
-  172:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+   30:10  error  Missing trailing comma                        comma-dangle
+   72:10  error  Missing trailing comma                        comma-dangle
+   81:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+   96:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  103:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  114:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  132:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  139:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-    1:17  error  'PropTypes' is defined but never used      no-unused-vars
-   30:18  error  'formData' is missing in props validation  react/prop-types
-  162:14  error  'onChange' is missing in props validation  react/prop-types
+   50:18  error  'formData' is missing in props validation  react/prop-types
+  228:14  error  'onChange' is missing in props validation  react/prop-types
 
 ✖ 112 problems (112 errors, 0 warnings)
 
