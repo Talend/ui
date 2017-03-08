@@ -1,9 +1,69 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider, Drawer } from 'react-talend-components';
 import talendIcons from 'talend-icons/dist/react';
+import { storiesOf, action } from '@kadira/storybook';
 import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
+
+
+const primary = {
+	label: 'Primary',
+	bsStyle: 'primary',
+	onClick: action('You clicked me'),
+};
+
+const onCancelAction = {
+	label: 'Cancel',
+	onClick: action('You clicked on cancel action'),
+};
+
+const connect = {
+	label: 'Connect',
+	onClick: action('You clicked me'),
+};
+
+const panelActions = {
+	left: [],
+	right: [
+		connect,
+		primary,
+	],
+};
+
+const multi3 = {
+	label: 'multi3',
+	icon: 'talend-cog',
+	onClick: action('You clicked me'),
+};
+
+const multiSelectActions = {
+	left: [
+		{
+			label: 'multi1',
+			icon: 'talend-cog',
+			onClick: action('You clicked me'),
+		},
+		{
+			label: 'multi2',
+			icon: 'talend-cog',
+			onClick: action('You clicked me'),
+		},
+	],
+	right: [
+		multi3,
+		{
+			label: 'multi4',
+			icon: 'talend-cog',
+			onClick: action('You clicked me'),
+		},
+	],
+};
+
+const basicProps = {
+	actions: panelActions,
+	multiSelectActions,
+};
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -27,6 +87,10 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
+};
+
+const header = {
+	app: 'Example app',
 };
 
 const sidepanel = {
@@ -116,10 +180,18 @@ const ExampleHomeListView = {
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<HomeListView
+				header={header}
 				sidepanel={sidepanel}
 				list={listProps}
 			>
-				<h1>hello children</h1>
+				<Drawer stacked title="Im stacked drawer 1">
+					<h1>Hello drawer 1</h1>
+					<p>You should not being able to read this because I'm first</p>
+				</Drawer>
+				<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+					<h1>Hello drawer 2</h1>
+					<p>The content dictate the width</p>
+				</Drawer>
 			</HomeListView>
 		</div>
 	),

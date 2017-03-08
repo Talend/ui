@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import React, { PropTypes } from 'react';
 import { SidePanel as Component } from 'react-talend-components';
 import { api } from 'react-cmf';
@@ -8,6 +9,22 @@ import { statePropTypes } from '../state';
 export const DEFAULT_STATE = new Map({
 	docked: false,
 });
+
+
+export function getActions(actionIds, context) {
+	return actionIds.map((id) => {
+		const info = api.action.getActionInfo(context, id);
+		info.onClick = () => context.store.dispatch(info.payload);
+		const route = get(info, 'payload.cmf.routerReplace');
+		if (route) {
+			const currentRoute = context.router.location.pathname;
+			if (currentRoute.indexOf(route) !== -1) {
+				info.active = true;
+			}
+		}
+		return info;
+	});
+}
 
 /**
  * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
@@ -30,20 +47,7 @@ class SidePanel extends React.Component {
 
 	render() {
 		const { actionIds = [], state = DEFAULT_STATE, ...rest } = this.props;
-		const actions = actionIds.map((id) => {
-			const info = api.action.getActionInfo(this.context, id);
-			info.onClick = () => this.context.store.dispatch(info.payload);
-			if (info.cmf) {
-				if (info.cmf.routerReplace) {
-					const route = info.cmf.routerReplace;
-					const currentRoute = this.context.router.location.pathname;
-					if (currentRoute.indexOf(route) !== -1) {
-						info.active = true;
-					}
-				}
-			}
-			return info;
-		});
+		const actions = getActions(actionIds, this.context);
 		const props = Object.assign({
 			actions,
 			docked: state.get('docked'),

@@ -5,7 +5,7 @@ import Layout from './Layout.component';
 
 jest.mock('react-dom');
 
-const header = { app: 'My app' };
+const header = (<h1>Header</h1>);
 const one = (<h1>Column one</h1>);
 const two = (<h1>Column two</h1>);
 const drawers = [

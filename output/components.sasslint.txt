@@ -1,88 +1,44 @@
-Lerna v2.0.0-beta.32
+Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
-yarn run v0.17.10
-$ sass-lint -v -q 
 
-src/Badge/Badge.scss
-   2:3   warning  Mixed tabs and spaces           indentation
-   3:3   warning  Mixed tabs and spaces           indentation
-   4:3   warning  Mixed tabs and spaces           indentation
-   4:43  warning  Space expected around operator  space-around-operator
-   5:3   warning  Mixed tabs and spaces           indentation
-   6:3   warning  Mixed tabs and spaces           indentation
-   7:3   warning  Mixed tabs and spaces           indentation
-   8:3   warning  Mixed tabs and spaces           indentation
-  10:3   warning  Mixed tabs and spaces           indentation
-  11:5   warning  Mixed tabs and spaces           indentation
-  12:5   warning  Mixed tabs and spaces           indentation
-  13:5   warning  Mixed tabs and spaces           indentation
-  14:5   warning  Mixed tabs and spaces           indentation
-  16:5   warning  Mixed tabs and spaces           indentation
-  17:7   warning  Mixed tabs and spaces           indentation
-  20:5   warning  Mixed tabs and spaces           indentation
-  21:7   warning  Mixed tabs and spaces           indentation
-  21:19  error    Trailing semicolons required    trailing-semicolon
-  25:3   warning  Mixed tabs and spaces           indentation
-  26:5   warning  Mixed tabs and spaces           indentation
-  27:5   warning  Mixed tabs and spaces           indentation
-  28:5   warning  Mixed tabs and spaces           indentation
-  29:5   warning  Mixed tabs and spaces           indentation
-  30:5   warning  Mixed tabs and spaces           indentation
-  31:5   warning  Mixed tabs and spaces           indentation
-  33:5   warning  Mixed tabs and spaces           indentation
-  34:7   warning  Mixed tabs and spaces           indentation
-  37:5   warning  Mixed tabs and spaces           indentation
-  38:7   warning  Mixed tabs and spaces           indentation
-  42:3   warning  Mixed tabs and spaces           indentation
-  43:5   warning  Mixed tabs and spaces           indentation
-  44:5   warning  Mixed tabs and spaces           indentation
-  45:5   warning  Mixed tabs and spaces           indentation
-  46:5   warning  Mixed tabs and spaces           indentation
-  48:5   warning  Mixed tabs and spaces           indentation
-  49:7   warning  Mixed tabs and spaces           indentation
-  53:3   warning  Mixed tabs and spaces           indentation
-  54:5   warning  Mixed tabs and spaces           indentation
-  55:5   warning  Mixed tabs and spaces           indentation
-  56:5   warning  Mixed tabs and spaces           indentation
-  57:5   warning  Mixed tabs and spaces           indentation
-  58:5   warning  Mixed tabs and spaces           indentation
-  59:5   warning  Mixed tabs and spaces           indentation
-  60:5   warning  Mixed tabs and spaces           indentation
-  61:5   warning  Mixed tabs and spaces           indentation
-  62:5   warning  Mixed tabs and spaces           indentation
-  64:5   warning  Mixed tabs and spaces           indentation
-  65:7   warning  Mixed tabs and spaces           indentation
-  67:7   warning  Mixed tabs and spaces           indentation
-  68:9   warning  Mixed tabs and spaces           indentation
+> react-talend-components@0.64.0 lint:style /home/travis/build/Talend/ui/packages/components
+> sass-lint -v -q
 
-src/CollapsiblePanel/CollapsiblePanel.scss
-    8:19  warning  Selectors must be placed on new lines  single-line-per-selector
-   24:16  warning  Whitespace required before {           space-before-brace
-   66:1   warning  Space expected between blocks          empty-line-between-blocks
-   69:1   warning  Space expected between blocks          empty-line-between-blocks
-   69:16  warning  Whitespace required before {           space-before-brace
-  130:1   warning  Space expected between blocks          empty-line-between-blocks
-  135:1   warning  Space expected between blocks          empty-line-between-blocks
 
-src/List/Content/Content.scss
-  97:5  warning  Vendor prefixes should not be used  no-vendor-prefixes
-  98:5  warning  Vendor prefixes should not be used  no-vendor-prefixes
+src/Drawer/Drawer.scss
+  10:3   warning  Mixed tabs and spaces                                                     indentation
+  11:5   warning  Mixed tabs and spaces                                                     indentation
+  11:13  error    Hex values should use the shorthand format - 3 characters where possible  hex-length
+  12:5   warning  Statement must begin on a new line                                        brace-style
+  13:5   warning  Mixed tabs and spaces                                                     indentation
+  13:13  error    Hex values should use the shorthand format - 3 characters where possible  hex-length
+  13:13  warning  Hex notation should all be upper case                                     hex-notation
+  24:14  warning  No unit allowed for values of 0                                           zero-unit
+  24:18  warning  No unit allowed for values of 0                                           zero-unit
+  24:27  warning  No unit allowed for values of 0                                           zero-unit
+  36:34  warning  Whitespace required before {                                              space-before-brace
+  48:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
+  56:1   warning  Space expected between blocks                                             empty-line-between-blocks
 
-src/ObjectViewer/JSONLike/JSONLike.scss
-  26:10  warning  Hex notation should all be upper case  hex-notation
-  30:10  warning  Hex notation should all be upper case  hex-notation
+src/List/Toolbar/Filter/Filter.scss
+  14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  18:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  33:1  warning  Space expected between blocks                            empty-line-between-blocks
+  36:1  warning  Space expected between blocks                            empty-line-between-blocks
 
-src/SidePanel/SidePanel.scss
-  87:1  warning  Space expected between blocks  empty-line-between-blocks
+src/WithDrawer/withDrawer.scss
+   2:5  warning  Mixed tabs and spaces           indentation
+   3:5  warning  Mixed tabs and spaces           indentation
+   4:5  warning  Mixed tabs and spaces           indentation
+   8:5  warning  Mixed tabs and spaces           indentation
+   9:5  warning  Mixed tabs and spaces           indentation
+  10:5  warning  Mixed tabs and spaces           indentation
+  11:5  warning  Mixed tabs and spaces           indentation
+  15:5  warning  Mixed tabs and spaces           indentation
+  16:1  warning  Files must end with a new line  final-newline
 
-src/Status/Status.scss
-  2:1   error  Variable 'tc-status-action_min-size' should be written in lowercase with hyphens  variable-name-format
-  8:14  error  Variable 'tc-status-action_min-size' should be written in lowercase with hyphens  variable-name-format
+✖ 26 problems (4 errors, 22 warnings)
 
-✖ 64 problems (3 errors, 61 warnings)
-
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-Errored while running command 'yarn' with arguments 'run lint:style' in 'react-talend-components'
+Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
-Command failed: yarn run lint:style
-Waiting for 1 child process to exit. CTRL-C to exit immediately.
+Command exited with status 1: npm run lint:style

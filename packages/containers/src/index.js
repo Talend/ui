@@ -2,7 +2,6 @@ import {
 	ActionDropdown,
 	Breadcrumbs,
 	CircularProgress,
-	ConfirmDialog,
 	Drawer,
 	TreeView,
 	Icon,
@@ -16,6 +15,7 @@ import Action from './Action';
 import ActionBar from './ActionBar';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
+import ConfirmDialog from './ConfirmDialog';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';

@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-import Drawer from './Drawer.component';
+import Drawer, { cancelActionComponent } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
@@ -33,5 +34,12 @@ describe('Drawer', () => {
 			<Drawer />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render cancelActionComponent', () => {
+		const wrapper = shallow(cancelActionComponent({}));
+		expect(wrapper.find('<button />')).toBeTruthy();
+	});
+	it('should not render cancelActionComponent', () => {
+		expect(cancelActionComponent()).toBe(null);
 	});
 });

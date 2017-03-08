@@ -102,7 +102,7 @@ const props = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
+				author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
@@ -185,6 +185,7 @@ const props = {
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),
+			placeholder: 'search for something',
 		},
 	},
 };
@@ -249,7 +250,7 @@ const itemsForItems = [
 	{
 		id: 3,
 		name: 'Super long title to trigger overflow on tile rendering',
-		author: 'Jean-Pierre DUPONT with super long name',
+		author: 'Jean-Pierre DUPONT with long name',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		favorite: true,
@@ -298,10 +299,11 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Large', () => {
-		const tprops = {
-			...props,
-			displayMode: 'large',
-		};
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.displayMode = 'large';
+		tprops.toolbar.sort.options = [
+			{ id: 'name', name: 'Name' },
+		];
 		return (
 			<div>
 				<h1>List</h1>
@@ -315,11 +317,31 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			displayMode: 'tile',
+
 		};
 		return (
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Get limited options for displayMode</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>

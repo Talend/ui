@@ -50,6 +50,26 @@ const settings = {
 				type: 'TEST_MENU',
 			},
 		},
+		'menu:actionCreator': {
+			id: 'menu:actionCreator',
+			actionCreator: 'action-creator',
+			name: 'Action creator',
+			icon: 'fa-bars',
+			payload: {
+				type: 'TEST_ACTION_CREATOR',
+			},
+		},
+		'menu:routerReplace': {
+			id: 'routerReplace',
+			name: 'Menu',
+			icon: 'fa-bars',
+			payload: {
+				type: 'TEST_MENU',
+				cmf: {
+					routerReplace: '/test',
+				},
+			},
+		},
 	},
 	views: {
 		appmenu: {

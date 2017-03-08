@@ -51,31 +51,31 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
         <thead>
           <tr>
             <td>
-              $['int']
+              int
             </td>
             <td>
-              $['str']
+              str
             </td>
             <td>
-              $['bool']
+              bool
             </td>
             <td>
-              $['obj']['bool']
+              obj.bool
             </td>
             <td>
-              $['arrayInt'][0]
+              arrayInt[0]
             </td>
             <td>
-              $['arrayInt'][1]
+              arrayInt[1]
             </td>
             <td>
-              $['arrayInt'][2]
+              arrayInt[2]
             </td>
             <td>
-              $['arrayInt'][3]
+              arrayInt[3]
             </td>
             <td>
-              $['arrayOb'][0]['foo']
+              arrayOb[0].foo
             </td>
           </tr>
         </thead>
@@ -106,7 +106,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "test data for the object viewer"
+                    test data for the object viewer
                   </button>
                 </span>
               </div>
@@ -211,7 +211,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "bar"
+                    bar
                   </button>
                 </span>
               </div>
@@ -243,7 +243,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "hello world"
+                    hello world
                   </button>
                 </span>
               </div>
@@ -1165,31 +1165,31 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
         <thead>
           <tr>
             <td>
-              $['int']
+              int
             </td>
             <td>
-              $['str']
+              str
             </td>
             <td>
-              $['bool']
+              bool
             </td>
             <td>
-              $['obj']['bool']
+              obj.bool
             </td>
             <td>
-              $['arrayInt'][0]
+              arrayInt[0]
             </td>
             <td>
-              $['arrayInt'][1]
+              arrayInt[1]
             </td>
             <td>
-              $['arrayInt'][2]
+              arrayInt[2]
             </td>
             <td>
-              $['arrayInt'][3]
+              arrayInt[3]
             </td>
             <td>
-              $['arrayOb'][0]['foo']
+              arrayOb[0].foo
             </td>
           </tr>
         </thead>
@@ -1220,7 +1220,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "test data for the object viewer"
+                    test data for the object viewer
                   </button>
                 </span>
               </form>
@@ -1332,7 +1332,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "bar"
+                    bar
                   </button>
                 </span>
               </form>
@@ -1366,7 +1366,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "hello world"
+                    hello world
                   </button>
                 </span>
               </form>
@@ -2565,7 +2565,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        "test data for the object viewer"
+                        test data for the object viewer
                       </button>
                     </span>
                   </li>
@@ -2821,7 +2821,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                                         onClick={[Function]}
                                         type="button"
                                       >
-                                        "bar"
+                                        bar
                                       </button>
                                     </span>
                                   </li>
@@ -2898,7 +2898,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        "hello world"
+                        hello world
                       </button>
                     </span>
                   </li>
@@ -3975,7 +3975,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        "test data for the object viewer"
+                        test data for the object viewer
                       </button>
                     </span>
                   </li>
@@ -4231,7 +4231,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                                         onClick={[Function]}
                                         type="button"
                                       >
-                                        "bar"
+                                        bar
                                       </button>
                                     </span>
                                   </li>
@@ -4309,7 +4309,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        "hello world"
+                        hello world
                       </button>
                     </span>
                   </li>
@@ -5589,7 +5589,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "test data for the object viewer"
+                    test data for the object viewer
                   </button>
                 </span>
               </div>
@@ -5841,7 +5841,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                                     onClick={[Function]}
                                     type="button"
                                   >
-                                    "bar"
+                                    bar
                                   </button>
                                 </span>
                               </li>
@@ -5881,7 +5881,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "hello world"
+                    hello world
                   </button>
                 </span>
               </div>
@@ -6948,7 +6948,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "test data for the object viewer"
+                    test data for the object viewer
                   </button>
                 </span>
               </form>
@@ -7204,7 +7204,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                                     onClick={[Function]}
                                     type="button"
                                   >
-                                    "bar"
+                                    bar
                                   </button>
                                 </span>
                               </li>
@@ -7246,7 +7246,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    "hello world"
+                    hello world
                   </button>
                 </span>
               </form>
@@ -8571,7 +8571,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                             onClick={[Function]}
                             type="button"
                           >
-                            "test data for the object viewer"
+                            test data for the object viewer
                           </button>
                         </span>
                       </li>
@@ -8827,7 +8827,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                             onClick={[Function]}
                                             type="button"
                                           >
-                                            "bar"
+                                            bar
                                           </button>
                                         </span>
                                       </li>
@@ -8905,7 +8905,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                             onClick={[Function]}
                             type="button"
                           >
-                            "hello world"
+                            hello world
                           </button>
                         </span>
                       </li>
@@ -9987,7 +9987,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                             onClick={[Function]}
                             type="button"
                           >
-                            "test data for the object viewer"
+                            test data for the object viewer
                           </button>
                         </span>
                       </li>
@@ -10243,7 +10243,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                             onClick={[Function]}
                                             type="button"
                                           >
-                                            "bar"
+                                            bar
                                           </button>
                                         </span>
                                       </li>
@@ -10321,7 +10321,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                             onClick={[Function]}
                             type="button"
                           >
-                            "hello world"
+                            hello world
                           </button>
                         </span>
                       </li>
