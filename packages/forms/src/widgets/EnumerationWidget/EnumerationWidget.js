@@ -226,7 +226,9 @@ class EnumerationWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(this.state.items);
-		this.props.onBlur(this.props.id, this.state.items);
+		if (this.props.onBlur) {
+			this.props.onBlur(this.props.id, this.state.items);
+		}
 	}
 
 	updateHeaderInputDisabled(value) {
@@ -264,8 +266,8 @@ class EnumerationWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationWidget.propTypes = {
 		id: PropTypes.string,
-		formData: PropTypes.object,
-		onChange: PropTypes.func,
+		formData: PropTypes.array,
+		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 	};
 }
