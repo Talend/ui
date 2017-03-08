@@ -103,6 +103,9 @@ class ObjectField extends Component {
 		const { widget, ...options } = getUiOptions(uiSchema);
 		// widget
 		if (typeof widget === 'string') {
+			if (widget === 'hidden') {
+				return (<input type='hidden'/>);
+			}
 			const Widget = getWidget(schema, widget, widgets);
 			const onChangeHandler = (value) => {
 				onChange(value, options);
