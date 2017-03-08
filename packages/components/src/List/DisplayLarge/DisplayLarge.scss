@@ -40,6 +40,7 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 	display: flex;
 
 	ul {
+		// sass-lint:disable-block no-vendor-prefixes
 		flex: 1;
 		list-style: none;
 		-webkit-padding-start: 15px;
@@ -59,6 +60,7 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 .title {
 	color: $tc-list-display-large-title-color;
 	font-weight: bold;
+
 	&:hover {
 		color: $tc-list-display-large-title-color;
 	}
