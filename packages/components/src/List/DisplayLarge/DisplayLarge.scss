@@ -39,12 +39,10 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 	margin-top: $padding-smaller;
 	display: flex;
 
-	ul {
-		// sass-lint:disable-block no-vendor-prefixes
+	dl {
 		flex: 1;
-		list-style: none;
-		-webkit-padding-start: 15px;
-		-moz-padding-start: 15px;
+		padding-left: $padding-normal;
+		margin-bottom: $padding-small;
 	}
 }
 

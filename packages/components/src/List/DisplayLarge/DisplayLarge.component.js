@@ -49,7 +49,9 @@ function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
 		(<input
 			id={id && `${id}-check`}
 			type="checkbox"
-			onChange={(e) => { onToggle(e, item); }}
+			onChange={(e) => {
+				onToggle(e, item);
+			}}
 			checked={isSelected(item)}
 		/>) :
 		null;
@@ -79,14 +81,14 @@ function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
 			</div>
 			<div className={theme.columns}>
 				{info.map((group, i) => (
-					<ul key={i}>
+					<dl key={i}>
 						{group.map((obj, j) => (
-							<li key={j}>
+							<dd key={j}>
 								<span className={theme.label}>{obj.label}</span>
 								<span className={theme.value}>{obj.value}</span>
-							</li>
+							</dd>
 						))}
-					</ul>
+					</dl>
 				))}
 			</div>
 		</div>
@@ -107,7 +109,7 @@ rowRenderer.propTypes = {
  * @param {array} items the array of items to display
  * @param {object} titleProps the title configuration props
  * @example
-const props = {
+ const props = {
 	items: [
 		{
 			id: 1,
@@ -149,7 +151,7 @@ const props = {
 		onEditValidate: action('onEditValidate'),
 	},
 };
-<DisplayLarge {...props} />
+ <DisplayLarge {...props} />
  */
 function DisplayLarge(props) {
 	const {
