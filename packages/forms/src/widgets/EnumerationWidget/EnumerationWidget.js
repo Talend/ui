@@ -204,7 +204,7 @@ class EnumerationWidget extends React.Component {
 		this.setState({
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: result,
-		});
+		}, this.setFormData.bind(this));
 	}
 
 	onAddHandler(event, value) {
@@ -226,6 +226,7 @@ class EnumerationWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(this.state.items);
+		this.props.onBlur(this.props.id, this.state.items);
 	}
 
 	updateHeaderInputDisabled(value) {
