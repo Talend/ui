@@ -52,8 +52,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   155:25  error  'jest' is not defined                                                         no-undef
   181:48  error  Strings must use singlequote                                                  quotes
 
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.connect.js
+  1:10  error  'actions' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:18  error  'Map' is defined but never used                                                            no-unused-vars
+  5:21  error  'DEFAULT_STATE' is defined but never used                                                  no-unused-vars
+  7:2   error  'mergeProps' is defined but never used                                                     no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/pushNotification.js
   2:1  error  'bson-objectid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -83,7 +89,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   10:1  warning  Unexpected console statement  no-console
 
-✖ 41 problems (40 errors, 1 warning)
+✖ 45 problems (44 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
 Errored while running ExecCommand.execute
