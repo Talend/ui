@@ -5,7 +5,7 @@ export default function pushNotification(state, notification) {
 	if (!get(notification, 'message')) {
 		return state;
 	}
-	const path = ['Notification', 'Notification', 'notifications'];
+	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path);
 	notifs = notifs.push(Object.assign({
 		id: objectId(),

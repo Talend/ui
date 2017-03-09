@@ -4,8 +4,7 @@ import { store, Provider } from 'react-cmf/lib/mock';
 import { fromJS, Map } from 'immutable';
 import Container, { DEFAULT_STATE } from './Notification.container';
 import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
+	mergeProps,
 } from './Notification.connect';
 import pushNotification from './pushNotification';
 import clearNotifications from './clearNotifications';
@@ -23,26 +22,8 @@ describe('Container Notification', () => {
 
 describe('Connected Notification', () => {
 	it('should connect Notification', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					Notification: {
-						Notification: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
-		expect(typeof props).toBe('object');
 	});
 });
 
@@ -50,7 +31,7 @@ describe('Notification.pushNotification', () => {
 	it('should add a Notification in the state', () => {
 		const state = store.state();
 		state.cmf.components = fromJS({
-			Notification: {
+			'Container(Notification)': {
 				Notification: {
 					notifications: [],
 				},
@@ -59,7 +40,7 @@ describe('Notification.pushNotification', () => {
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn(['Notification', 'Notification', 'notifications']);
+		const notifications = newState.cmf.components.getIn(['Container(Notification)', 'Notification', 'notifications']);
 		expect(notifications.size).toBe(1);
 		expect(notifications.get(0).message).toBe('hello world');
 	});
@@ -67,7 +48,7 @@ describe('Notification.pushNotification', () => {
 	it('should delete all Notification in the state', () => {
 		const state = store.state();
 		state.cmf.components = fromJS({
-			Notification: {
+			'Container(Notification)': {
 				Notification: {
 					notifications: [
 						{ message: 'hello world' },
@@ -78,14 +59,14 @@ describe('Notification.pushNotification', () => {
 		});
 		const newState = clearNotifications(state);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn(['Notification', 'Notification', 'notifications']);
+		const notifications = newState.cmf.components.getIn(['Container(Notification)', 'Notification', 'notifications']);
 		expect(notifications.size).toBe(0);
 	});
 
 	it('should change the state if no notification', () => {
 		const state = store.state();
 		state.cmf.components = fromJS({
-			Notification: {
+			'Container(Notification)': {
 				Notification: {
 					notifications: [],
 				},
