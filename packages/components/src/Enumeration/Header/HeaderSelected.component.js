@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
@@ -14,7 +13,7 @@ function headerClasses() {
 function getAction(action, index) {
 	function onClick(event) {
 		if (action.onClick) {
-			action.onClick(event, { value: event.target.value });
+			action.onClick(event);
 		}
 	}
 
@@ -24,25 +23,29 @@ function getAction(action, index) {
 			label={action.label}
 			icon={action.icon}
 			onClick={onClick}
-			btooltipPlacement="bottom"
+			disabled={action.disabled}
+			tooltipPlacement="bottom"
 			hideLabel
 			link
 		/>
 	);
 }
 
-function Header({ headerDefault, isEdit }) {
+function HeaderSelected({ headerSelected, nbItemsSelected }) {
+	let txtHeader = `${nbItemsSelected} selected value`;
+	txtHeader = nbItemsSelected > 1 ? `${txtHeader}s` : txtHeader;
+
 	return (
 		<header className={headerClasses()}>
-			{isEdit ? (<span>Edit a value</span>) : (<span>Values</span>)}
-			{headerDefault.map((action, index) => getAction(action, index))}
+			<span>{txtHeader}</span>
+			{nbItemsSelected > 1 && headerSelected.map((action, index) => getAction(action, index))}
 		</header>
 	);
 }
 
-Header.propTypes = {
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	isEdit: PropTypes.bool,
+HeaderSelected.propTypes = {
+	headerSelected: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	nbItemsSelected: PropTypes.number,
 };
 
-export default Header;
+export default HeaderSelected;
