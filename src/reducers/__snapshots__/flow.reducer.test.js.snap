@@ -89,7 +89,7 @@ Object {
         },
         "properties": Object {
           "index": 0,
-          "type": "EMITTER",
+          "type": "SOURCE",
         },
       },
       "id": "portId",
@@ -268,7 +268,7 @@ Object {
         },
         "properties": Object {
           "index": 0,
-          "type": "EMITTER",
+          "type": "SOURCE",
         },
       },
       "id": "portId",

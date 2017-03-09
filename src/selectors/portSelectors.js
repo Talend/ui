@@ -2,6 +2,8 @@ import { createSelector } from 'reselect';
 import memoize from 'lodash/memoize';
 import { Map } from 'immutable';
 
+import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
+
 const getNodes = state => state.get('nodes');
 const getPorts = state => state.get('ports');
 const getLinks = state => state.get('links');
@@ -40,7 +42,7 @@ export const getPortsForNode = createSelector(
 export const getEmitterPorts = createSelector(
 	getPorts,
 	ports => (
-		ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === 'EMITTER')
+		ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === PORT_SOURCE)
 	),
 );
 
@@ -52,7 +54,7 @@ export const getEmitterPorts = createSelector(
 export const getSinkPorts = createSelector(
 	getPorts,
 	ports => (
-		ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === 'SINK')
+		ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === PORT_SINK)
 	),
 );
 

@@ -7,6 +7,7 @@ import {
 	NodeRecord,
 	PortRecord,
 } from '../constants/flowdesigner.model';
+import { PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS', () => {
 	it('should batch one element creation', () => {
@@ -60,7 +61,7 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS', () => {
 					{
 						graphicalAttributes: {
 							properties: {
-								type: 'EMITTER',
+								type: PORT_SOURCE,
 							},
 						},
 					},
@@ -142,7 +143,7 @@ describe('FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not t
 						{
 							graphicalAttributes: {
 								properties: {
-									type: 'EMITTER',
+									type: PORT_SOURCE,
 								},
 							},
 						},

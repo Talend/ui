@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store';
 import { Map } from 'immutable';
 
 import * as portActions from './port.actions';
+import { PORT_SINK } from '../constants/flowdesigner.constants';
 
 const mockStore = configureMockStore();
 
@@ -26,7 +27,7 @@ describe('Check that port action creators generate proper' +
 					graphicalAttributes: {
 						portType: 'test',
 						properties: {
-							type: 'SINK',
+							type: PORT_SINK,
 						},
 					},
 					data: {

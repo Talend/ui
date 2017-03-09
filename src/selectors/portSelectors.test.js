@@ -5,26 +5,27 @@ import {
 	LinkRecord,
 	PortRecord,
 } from '../constants/flowdesigner.model';
+import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 const port1 = new PortRecord({
 	id: 'id1',
 	nodeId: 'nodeId1',
-	graphicalAttributes: fromJS({ properties: { type: 'SINK' } }),
+	graphicalAttributes: fromJS({ properties: { type: PORT_SINK } }),
 });
 const port2 = new PortRecord({
 	id: 'id2',
 	nodeId: 'nodeId1',
-	graphicalAttributes: fromJS({ properties: { type: 'EMITTER' } }),
+	graphicalAttributes: fromJS({ properties: { type: PORT_SOURCE } }),
 });
 const port3 = new PortRecord({
 	id: 'id3',
 	nodeId: 'nodeId2',
-	graphicalAttributes: fromJS({ properties: { type: 'SINK' } }),
+	graphicalAttributes: fromJS({ properties: { type: PORT_SINK } }),
 });
 const port4 = new PortRecord({
 	id: 'id4',
 	nodeId: 'nodeId2',
-	graphicalAttributes: fromJS({ properties: { type: 'EMITTER' } }),
+	graphicalAttributes: fromJS({ properties: { type: PORT_SOURCE } }),
 });
 const givenState = defaultState.set('links', new Map().set('id1', new LinkRecord({
 	id: 'id1',

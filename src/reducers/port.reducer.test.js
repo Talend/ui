@@ -4,6 +4,7 @@ import { Map, OrderedMap } from 'immutable';
 import { defaultState } from './flow.reducer';
 import portReducer from './port.reducer';
 import { PortRecord, PositionRecord } from '../constants/flowdesigner.model';
+import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 describe('Check port reducer', () => {
 	const initialState = defaultState.set('ports', new OrderedMap()
@@ -29,7 +30,7 @@ describe('Check port reducer', () => {
 			nodeId: 'nodeId',
 			id: 'portId',
 			data: {	flowType: 'string',	properties: {} },
-			graphicalAttributes: { portType: 'portType', properties: { type: 'EMITTER', index: 1 } },
+			graphicalAttributes: { portType: 'portType', properties: { type: PORT_SOURCE, index: 1 } },
 		})).toMatchSnapshot();
 	});
 
@@ -41,17 +42,17 @@ describe('Check port reducer', () => {
 				id: 'portId1',
 				nodeId: 'nodeId',
 				data: {	flowType: 'string',	properties: {} },
-				graphicalAttributes: { portType: 'portType', properties: { type: 'EMITTER' } },
+				graphicalAttributes: { portType: 'portType', properties: { type: PORT_SOURCE } },
 			}, {
 				id: 'portId2',
 				nodeId: 'nodeId',
 				data: {	flowType: 'string',	properties: {} },
-				graphicalAttributes: { portType: 'portType', properties: { type: 'SINK' } },
+				graphicalAttributes: { portType: 'portType', properties: { type: PORT_SINK } },
 			}, {
 				id: 'portId3',
 				nodeId: 'nodeId',
 				data: {	flowType: 'string',	properties: {} },
-				graphicalAttributes: { portType: 'portType', properties: { type: 'SINK' } },
+				graphicalAttributes: { portType: 'portType', properties: { type: PORT_SINK } },
 			}],
 		})).toMatchSnapshot();
 	});

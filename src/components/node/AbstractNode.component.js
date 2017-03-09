@@ -20,8 +20,8 @@ ex: <AbstractNode><rect /></AbstractNode>`;
  */
 function calculatePortPosition(ports, nodePosition, nodeSize) {
 	let portsWithPosition = new Map();
-	const emitterPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'EMITTER');
-	const sinkPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === 'SINK');
+	const emitterPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SOURCE);
+	const sinkPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SINK);
 	const range = [nodePosition.get('y'), nodePosition.get('y') + nodeSize.get('height')];
 	const scaleYEmitter = scaleLinear()
 		.domain([0, emitterPorts.size + 1])

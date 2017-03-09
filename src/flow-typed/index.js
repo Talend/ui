@@ -1,5 +1,6 @@
 /* @flow */
 import type { Record, Map } from 'immutable';
+import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 /** $BASIC */
 
@@ -19,7 +20,7 @@ export type Action = {
 	type: string
 }
 
-export type PortDirection = 'SINK' | 'EMITTER';
+export type PortDirection = typeof PORT_SINK | typeof PORT_SOURCE;
 
 export type PortGraphicalAttributes = {
 	portType: string,
