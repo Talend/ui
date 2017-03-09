@@ -53,7 +53,7 @@ function TreeViewItem({
 	function getTreeViewItem(child, i) {
 		return (<TreeViewItem
 			{...{
-				id: child.id ? child.id : id && `${id}-${i}`,
+				id: id && `${id}-${i}`,
 				item: child,
 				itemSelectCallback,
 				itemToggleCallback,
@@ -94,7 +94,7 @@ function TreeViewItem({
 				<span>{name}</span>
 				<div className={'tc-treeview-item-ctrl'}>
 					{showCounter && <Badge label={((children && children.length) || 0).toString()} />}
-					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action, a.id))}
+					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
 			</div>
 			{children && toggled &&
@@ -118,7 +118,6 @@ TreeViewItem.propTypes = {
 			action: PT.func,
 			label: PT.string,
 			icon: PT.string,
-			id: PT.string,
 		})),
 	}).isRequired,
 	itemSelectCallback: PT.func.isRequired,
