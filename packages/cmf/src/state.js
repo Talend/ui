@@ -39,7 +39,7 @@ export function initState(props) {
 
 // BBB
 export function stateWillMount(props) {
-	console.log(  // eslint-disable-line no-console
+	console.error(  // eslint-disable-line no-console
 		`DEPRECATION Warning: you should use initState
 		in componentDidMount instead.
 		https://github.com/facebook/react/issues/7671`);
