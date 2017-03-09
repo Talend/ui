@@ -16,6 +16,7 @@ function getActionHandler(func, item) {
  *
  * Single item of TreeView component
  *
+ * @param id, for qa purposes
  * @param item required, item to display
  * 		  item.actions optional, array with actions' to be displayed meta-info
  * @param showCounter optional, flags that counter badge should be shown
@@ -27,6 +28,7 @@ function getActionHandler(func, item) {
  */
 
 function TreeViewItem({
+	id,
 	item,
 	showCounter,
 	depth = 0,
@@ -51,6 +53,7 @@ function TreeViewItem({
 	function getTreeViewItem(child, i) {
 		return (<TreeViewItem
 			{...{
+				id: child.id ? child.id : id && `${id}-${i}`,
 				item: child,
 				itemSelectCallback,
 				itemToggleCallback,
@@ -60,7 +63,7 @@ function TreeViewItem({
 		/>);
 	}
 
-	function getIconAction(label, icon_, action) {
+	function getIconAction(label, icon_, action, id_) {
 		return (<Action
 			label={label}
 			icon={icon_}
@@ -68,6 +71,7 @@ function TreeViewItem({
 			tooltipPlacement="right"
 			hideLabel
 			key={label}
+			id={id_ || `${id}-${icon_}`}
 			link
 		/>);
 	}
@@ -79,17 +83,18 @@ function TreeViewItem({
 				data-depth={depth}
 				data-selected={selected}
 				onClick={selectHandler}
+				id={id}
 			>
 				{children &&
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
-						{getIconAction(toggleIconLabel, 'talend-caret-down', itemToggleCallback)}
+						{getIconAction(toggleIconLabel, 'talend-caret-down', itemToggleCallback, `${id}-toggle`)}
 					</div>
 				}
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
 				<div className={'tc-treeview-item-ctrl'}>
 					{showCounter && <Badge label={((children && children.length) || 0).toString()} />}
-					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
+					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action, a.id))}
 				</div>
 			</div>
 			{children && toggled &&
@@ -102,6 +107,7 @@ function TreeViewItem({
 }
 
 TreeViewItem.propTypes = {
+	id: PT.string,
 	item: PT.shape({
 		name: PT.string.isRequired,
 		toggled: PT.bool,
@@ -112,6 +118,7 @@ TreeViewItem.propTypes = {
 			action: PT.func,
 			label: PT.string,
 			icon: PT.string,
+			id: PT.string,
 		})),
 	}).isRequired,
 	itemSelectCallback: PT.func.isRequired,

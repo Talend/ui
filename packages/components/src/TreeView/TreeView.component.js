@@ -8,6 +8,7 @@ import theme from './TreeView.scss';
 /**
  * A view component to display any tree structure, like folders or categories.
  *
+ * @param id, for qa purposes
  * @param structure optional, tree structure to display, see example below
  * @param headerText optional, specifies text in component's header
  * @param addAction optional, defines if 'add' button is displayed and
@@ -44,6 +45,7 @@ import theme from './TreeView.scss';
  *
  */
 const TreeView = ({
+	id,
 	headerText,
 	structure,
 	addAction,
@@ -62,12 +64,14 @@ const TreeView = ({
 				tooltipPlacement="right"
 				hideLabel
 				link
+				id={`${id}-add`}
 				key={addActionLabel}
 			/>}
 		</header>
 		<nav className={theme['tc-treeview-nav']}>
 			<ul className={theme['tc-treeview-ul']}>
 				{structure.map((item, i) => <TreeViewItem
+					id={item.id ? item.id : id && `${id}-${i}`}
 					item={item}
 					itemSelectCallback={itemSelectCallback}
 					itemToggleCallback={itemToggleCallback}
@@ -80,6 +84,7 @@ const TreeView = ({
 );
 
 TreeView.propTypes = {
+	id: PropTypes.string,
 	headerText: PropTypes.string,
 	structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 	addAction: PropTypes.func,

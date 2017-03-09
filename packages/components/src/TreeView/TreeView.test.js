@@ -6,6 +6,7 @@ import TreeView from './TreeView.component';
 jest.mock('react-dom');
 
 const defaultProps = {
+	id: 'id',
 	structure: [{
 		name: 'grandpa',
 		actions: [{
