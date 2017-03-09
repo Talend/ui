@@ -40,7 +40,7 @@ function TreeViewItem({
 		selected,
 		hidden,
 		name,
-		children,
+		children = [],
 		actions,
 		icon = 'talend-folder',
 	} = item;
@@ -93,7 +93,7 @@ function TreeViewItem({
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
 				<div className={'tc-treeview-item-ctrl'}>
-					{showCounter && <Badge label={((children && children.length) || 0).toString()} />}
+					{showCounter && <Badge label={children.length.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
 			</div>
