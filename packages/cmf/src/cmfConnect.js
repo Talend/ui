@@ -102,7 +102,7 @@ export default function cmfConnect({
 		keepComponentState,
 		mapStateToProps,
 		mapDispatchToProps,
-		...rest
+		...rest,
 	}) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
@@ -117,6 +117,7 @@ export default function cmfConnect({
 				registry: PropTypes.object,
 				router: PropTypes.object,
 			};
+			static WrappedComponent = WrappedComponent;
 
 			componentDidMount() {
 				initState(this.props);

@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import { cmfConnect } from 'react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
@@ -15,16 +16,16 @@ function getItems(state, config) {
 	return [];
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
 	const config = {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
 	};
 	props.items = getItems(state, config);
-	// FIXME: this will not work here...
-	if (props.state && props.state.has('toolbar')) {
-		props.state = props.state.mergeIn(
+	const cmfState = get(cmfProps, 'state');
+	if (cmfState && cmfState.has('toolbar')) {
+		props.state = cmfState.mergeIn(
 			['toolbar', 'pagination'],
 			configureGetPagination(state, config)
 		);

@@ -163,7 +163,7 @@ class List extends React.Component {
 				props.toolbar.pagination = {
 					...pagination,
 					onChange: (event, data) => {
-						props.dispatchActionCreator(pagination.onChange, event, data, this.context);
+						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
 					},
 				};
 			}
