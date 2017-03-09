@@ -25,6 +25,25 @@ describe('Connected Notification', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
+	it('mergeProps should merge the props', () => {
+		const message = { message: 'hello world' };
+		const stateProps = {
+			state: fromJS({ notifications: [ message ] }),
+		};
+		const dispatchProps = {
+			updateState: jest.fn(),
+		};
+		const ownProps = { foo: 'bar' };
+		const props = mergeProps(stateProps, dispatchProps, ownProps);
+		expect(props.foo).toBe('bar');
+		expect(props.state.get('notifications').size).toBe(1);
+		expect(typeof props.updateState).toBe('function');
+		expect(typeof props.deleteNotification).toBe('function');
+		props.deleteNotification(message);
+		expect(dispatchProps.updateState).toHaveBeenCalledTimes(1);
+		const newState = dispatchProps.updateState.mock.calls[0][0];
+		expect(newState.get('notifications').size).toBe(0);
+	});
 });
 
 describe('Notification.pushNotification', () => {
