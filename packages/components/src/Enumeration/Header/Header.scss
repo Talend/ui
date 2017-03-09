@@ -11,7 +11,7 @@ $tc-enumeration-header-height: 28px !default;
 	align-items: center;
 	height: $tc-enumeration-header-height;
 
-	span{
+	span {
 		font-size: 12px;
 		font-weight: 700;
 		letter-spacing: 0.6px;
@@ -19,7 +19,7 @@ $tc-enumeration-header-height: 28px !default;
 		text-align: left;
 	}
 
-	input{
+	input {
 		box-shadow: none;
 		outline: none;
 		border: none;
@@ -32,6 +32,7 @@ $tc-enumeration-header-height: 28px !default;
 		// this abort margin-left: auto; set in the selector .btn-link. We want to target only the first element
 		margin-left: $tc-enumeration-smaller-padding;
 	}
+
 	:global(.btn-link) {
 		margin-left: auto;
 		margin-right: $tc-enumeration-smaller-padding;
