@@ -36,7 +36,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
         <label
           className="control-label"
           htmlFor="root_name">
-          Name
+          Name*
         </label>
         <div />
         <div />
