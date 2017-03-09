@@ -12,6 +12,8 @@ import {
 	getWidget,
 } from 'react-jsonschema-form/lib/utils';
 
+import HiddenWidget from 'react-jsonschema-form/lib/components/widgets/HiddenWidget';
+
 
 function objectKeysHaveChanged(formData, state) {
 	// for performance, first check for lengths
@@ -104,7 +106,7 @@ class ObjectField extends Component {
 		// widget
 		if (typeof widget === 'string') {
 			if (widget === 'hidden') {
-				return (<input type='hidden'/>);
+				return (<HiddenWidget />);
 			}
 			const Widget = getWidget(schema, widget, widgets);
 			const onChangeHandler = (value) => {

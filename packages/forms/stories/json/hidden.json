@@ -46,15 +46,7 @@
   },
   "uiSchema": {
     "talendTab": {
-      "ui:widget": "hidden",
-      "main": {
-          "password": {
-            "ui:widget": "password"
-          },
-          "password2":{
-            "ui:widget": "password"
-          }
-      }
+      "ui:widget": "hidden"
     }
   },
   "properties": {
