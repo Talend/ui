@@ -111,11 +111,7 @@ abab@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.3.tgz#b81de5f7274ec4e756d797cd834f303642724e5d"
 
-abbrev@1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
-
-abbrev@1.0.x:
+abbrev@1, abbrev@1.0.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
 
@@ -1252,9 +1248,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.64.0:
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.64.0.tgz#fa2b1c6430fd855620a1129a934f850b92b03725"
+bootstrap-talend-theme@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.65.0.tgz#57f87d6d7a4ebf048664f06230efb32a9c62b0d8"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -4010,17 +4006,17 @@ lodash.uniq@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.17.2, lodash@^4.0.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1:
+lodash@4.17.2, lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
-
-lodash@4.x.x, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@^3.10.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
+lodash@^4.17.4:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@~4.16.4:
   version "4.16.6"
@@ -5106,9 +5102,9 @@ react-bootstrap@^0.30.7:
     uncontrollable "^4.0.1"
     warning "^3.0.0"
 
-react-cmf@^0.64.0:
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.64.0.tgz#db6f51ca3d02ac84dfe96912d551bffdc9701d15"
+react-cmf@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.65.0.tgz#19f23124efff5fc9977fdc05ed9f615d337ef627"
 
 react-debounce-input@^2.4.2:
   version "2.4.2"
@@ -5246,9 +5242,9 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.64.0:
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.64.0.tgz#cbcf7e711527a193a3570fa0ae7a1e2650ce9a64"
+react-talend-components@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.65.0.tgz#de4879169849dcbaec5d60844d600bd7b65d5c25"
   dependencies:
     lodash "^4.17.4"
     react-autowhatever "^7.0.0"
@@ -5962,9 +5958,9 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-talend-icons@^0.64.0:
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.64.0.tgz#ec3d057a811c124bbe593192a47cc544cc08d49d"
+talend-icons@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.65.0.tgz#a0e5a454011428d8288e679804790d89a2fb5825"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

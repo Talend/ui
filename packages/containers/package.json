@@ -108,8 +108,6 @@
     "react-talend-components": "^0.65.0",
     "reselect": "^2.5.4"
   },
-  "dependencies": {
-    "hoist-non-react-statics": "^1.2.0"
-  },
+  "dependencies": {},
   "version": "0.65.0"
 }
