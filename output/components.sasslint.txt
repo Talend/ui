@@ -26,6 +26,9 @@ src/List/Toolbar/Filter/Filter.scss
   33:1  warning  Space expected between blocks                            empty-line-between-blocks
   36:1  warning  Space expected between blocks                            empty-line-between-blocks
 
+src/TreeView/TreeViewItem/TreeViewItem.scss
+  127:12  error  A value of `0` is not allowed. `none` must be used  border-zero
+
 src/WithDrawer/withDrawer.scss
    2:5  warning  Mixed tabs and spaces           indentation
    3:5  warning  Mixed tabs and spaces           indentation
@@ -37,7 +40,7 @@ src/WithDrawer/withDrawer.scss
   15:5  warning  Mixed tabs and spaces           indentation
   16:1  warning  Files must end with a new line  final-newline
 
-✖ 26 problems (4 errors, 22 warnings)
+✖ 27 problems (5 errors, 22 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
