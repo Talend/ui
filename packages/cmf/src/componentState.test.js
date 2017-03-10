@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import Immutable, { Map, fromJS } from 'immutable';
+import Immutable, { Map } from 'immutable';
 import actions from './actions/';
 
 import state, {
