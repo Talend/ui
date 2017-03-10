@@ -94,14 +94,25 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   258:32  error  Arrow function used ambiguously with a conditional expression                                  no-confusing-arrow
   266:2   error  render should be placed after renderArrayFieldItem                                             react/sort-comp
   286:7   error  'name' is missing in props validation                                                          react/prop-types
-  381:39  error  'name' is missing in props validation                                                          react/prop-types
-  410:7   error  'name' is missing in props validation                                                          react/prop-types
-  447:26  error  Do not nest ternary expressions                                                                no-nested-ternary
-  538:22  error  'onClick' is missing in props validation                                                       react/prop-types
-  538:31  error  'disabled' is missing in props validation                                                      react/prop-types
+  382:39  error  'name' is missing in props validation                                                          react/prop-types
+  411:7   error  'name' is missing in props validation                                                          react/prop-types
+  448:26  error  Do not nest ternary expressions                                                                no-nested-ternary
+  539:22  error  'onClick' is missing in props validation                                                       react/prop-types
+  539:31  error  'disabled' is missing in props validation                                                      react/prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   25:3  error  'name' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
+   82:2   error  onPropertyChange should be placed before getStateFromProps  react/sort-comp
+   91:4   error  'name' is missing in props validation                       react/prop-types
+   97:4   error  'onBlur' is missing in props validation                     react/prop-types
+  150:29  error  'name' is already declared in the upper scope               no-shadow
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
+  14:3   error  'name' is missing in props validation                     react/prop-types
+  71:21  error  Missing trailing comma                                    comma-dangle
+  77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   21:2  error  'schema' is missing in props validation         react/prop-types
@@ -119,11 +130,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-   50:18  error  'formData' is missing in props validation  react/prop-types
-  228:14  error  'onChange' is missing in props validation  react/prop-types
-
-✖ 107 problems (107 errors, 0 warnings)
+✖ 112 problems (112 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

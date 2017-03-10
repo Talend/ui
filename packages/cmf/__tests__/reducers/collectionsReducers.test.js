@@ -32,88 +32,153 @@ describe('check collection management reducer', () => {
 });
 
 describe('REACT_CMF.COLLECTION_MUTATE', () => {
-	const listInitialState = defaultState.set('collectionid', new List().set(-1, 'test data'));
-	const mapInitialState = defaultState.set('collectionid', new Map().set('test', 'test data'));
+	const listInitialState = defaultState.set(
+		'collectionid',
+		// fromJS([{ id: 0, label: 'test data 0' }, { id: 1, label: 'test data 1' }])
+		new List().set(0, { id: 0, label: 'test data 0' }).set(1, { id: 1, label: 'test data 1' })
+	);
+	const mapInitialState = defaultState.set(
+		'collectionid',
+		// fromJS({
+		// 	test0: 'test data 0',
+		// 	test1: 'test data 1',
+		// })
+		new Map().set('test0', 'test data 0').set('test1', 'test data 1')
+	);
 
-	it('Collection id doesn\'t exist', () => {
+	it('shouldn\'t mutate if id doesn\'t exist', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
 			id: 'wrongCollectionid',
 			operation: {},
 		})).toEqual(mapInitialState);
 	});
-	it('Doesn\'t mutate if no operations', () => {
+
+	it('shouldn\'t mutate if no operations', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
 			id: 'collectionid',
 		})).toEqual(mapInitialState);
 	});
 
-	it('Adds elements to List properly', () => {
-		expect(collectionsReducers(listInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				add: ['test1'],
-			},
-		})).toEqual(new Map()
-			.set('collectionid', fromJS(['test data', 'test1'])));
-	});
-	it('Adds elements to Map properly', () => {
-		expect(collectionsReducers(mapInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				add: [{ test2: 'test2' }],
-			},
-		})).toEqual(new Map()
-			.set('collectionid', fromJS({
-				test: 'test data',
-				test2: 'test2',
-			})));
+	describe('#add', () => {
+		it('should insert elements to List properly', () => {
+			const nextState = collectionsReducers(listInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					add: [{ id: 2, label: 'test data 2' }],
+				},
+			});
+			expect(nextState.get('collectionid').toJS()).toEqual([
+				{ id: 0, label: 'test data 0' },
+				{ id: 1, label: 'test data 1' },
+				{ id: 2, label: 'test data 2' },
+			]);
+		});
+		it('should insert elements to Map properly', () => {
+			const nextState = collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					add: [{ test2: 'test data 2' }],
+				},
+			});
+			expect(nextState).toEqual(
+				new Map().set('collectionid', fromJS({
+					test0: 'test data 0',
+					test1: 'test data 1',
+					test2: 'test data 2',
+				}))
+			);
+		});
 	});
 
-	it('Deletes elements from List properly', () => {
-		expect(collectionsReducers(listInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				delete: [0],
-			},
-		})).toEqual(new Map().set('collectionid', new List()));
-	});
-	it('Deletes elements from Map properly', () => {
-		expect(collectionsReducers(mapInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				delete: ['test'],
-			},
-		})).toEqual(new Map().set('collectionid', new Map()));
+	describe('#delete', () => {
+		it('should delete elements from List properly', () => {
+			const nextState = collectionsReducers(listInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					delete: [0],
+				},
+			});
+			expect(nextState.get('collectionid').toJS()).toEqual([
+				{ id: 1, label: 'test data 1' },
+			]);
+		});
+
+		it('should delete elements from Map properly', () => {
+			const nextState = collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					delete: ['test0'],
+				},
+			});
+			expect(nextState).toEqual(
+				new Map().set('collectionid', fromJS({
+					test1: 'test data 1',
+				}))
+			);
+		});
+
+		it('should delete nothing when ids don\'t match in List', () => {
+			const nextState = collectionsReducers(listInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					delete: ['unknown'],
+				},
+			});
+			expect(nextState).toEqual(listInitialState);
+		});
+
+		it('should delete nothing when ids don\'t match in Map', () => {
+			const nextState = collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					delete: ['unknown'],
+				},
+			});
+			expect(nextState).toEqual(mapInitialState);
+		});
 	});
 
-	it('Updates elements of List properly', () => {
-		expect(collectionsReducers(listInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				update: {
-					0: 'new test data',
+	describe('#update', () => {
+		it('should update elements of List properly', () => {
+			const nextState = collectionsReducers(listInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					update: {
+						0: { id: 0, label: 'new test data 0' },
+					},
 				},
-			},
-		})).toEqual(new Map()
-			.set('collectionid', new List().set(-1, 'new test data')));
-	});
-	it('Updates elements of Map properly', () => {
-		expect(collectionsReducers(mapInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
-			operations: {
-				update: {
-					test: 'new test data',
+			});
+			expect(nextState.get('collectionid').toJS()).toEqual([
+				{ id: 0, label: 'new test data 0' },
+				{ id: 1, label: 'test data 1' },
+			]);
+		});
+
+		it('should update elements of Map properly', () => {
+			const nextState = collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: 'collectionid',
+				operations: {
+					update: {
+						'test0': 'new test data 0',
+					},
 				},
-			},
-		})).toEqual(new Map()
-			.set('collectionid', new Map().set('test', 'new test data')));
+			});
+			expect(nextState).toEqual(
+				new Map().set('collectionid', fromJS({
+					test0: 'new test data 0',
+					test1: 'test data 1',
+				}))
+			);
+		});
 	});
 });
