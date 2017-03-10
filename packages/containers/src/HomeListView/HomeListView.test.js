@@ -4,11 +4,7 @@ import mock, { Provider } from 'react-cmf/lib/mock';
 import { fromJS, Map } from 'immutable';
 
 import Component from './HomeListView.component';
-import Container, { DEFAULT_STATE } from './HomeListView.container';
-import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
-} from './HomeListView.connect';
+import Connected from './HomeListView.connect';
 
 const header = {
 	app: 'Test App Name',
@@ -99,40 +95,9 @@ describe('Component HomeListView', () => {
 	});
 });
 
-describe('Container HomeListView', () => {
-	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider state={reduxState}>
-				<Container header={header} sidepanel={sidepanel} list={listProps}>
-					<h1>Hello children</h1>
-				</Container>
-			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-});
-
 describe('Connected HomeListView', () => {
 	it('should connect HomeListView', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
-		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					HomeListView: {
-						HomeListView: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
-		expect(typeof props).toBe('object');
+		expect(Connected.displayName).toBe(`Connect(CMF(${Component.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(Component);
 	});
 });
