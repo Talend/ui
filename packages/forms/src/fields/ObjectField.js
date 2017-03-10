@@ -35,7 +35,7 @@ class ObjectField extends Component {
 		required: false,
 		disabled: false,
 		readonly: false,
-	};
+	}
 
 	constructor(props) {
 		super(props);
@@ -55,17 +55,13 @@ class ObjectField extends Component {
 		}
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		return shouldRender(this, nextProps, nextState);
-	}
-
-	onPropertyChange = (id, name) => (value, options) => {
-		this.asyncSetState({ [name]: value }, options, id, name, value);
-	};
-
 	getStateFromProps(props) {
 		const { schema, formData, registry } = props;
 		return getDefaultFormState(schema, formData, registry.definitions) || {};
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return shouldRender(this, nextProps, nextState);
 	}
 
 	isRequired(name) {
@@ -83,6 +79,10 @@ class ObjectField extends Component {
 		});
 	}
 
+	onPropertyChange = (id, name) => (value, options) => {
+		this.asyncSetState({ [name]: value }, options, id, name, value);
+	};
+
 	render() {
 		const {
 			uiSchema,
@@ -94,8 +94,8 @@ class ObjectField extends Component {
 			readonly,
 			formData,
 			onChange,
+			onBlur,
 		} = this.props;
-
 		const { definitions, fields, formContext, widgets } = this.props.registry;
 		const { SchemaField, TitleField, DescriptionField } = fields;
 		const schema = retrieveSchema(this.props.schema, definitions);
@@ -119,7 +119,6 @@ class ObjectField extends Component {
 				definitions={definitions}
 			/>);
 		}
-
 		const title = (schema.title === undefined) ? name : schema.title;
 		let orderedProperties;
 		try {
@@ -136,7 +135,6 @@ class ObjectField extends Component {
 				</div>
 			);
 		}
-
 		return (
 			<fieldset>
 				{title ? <TitleField
@@ -152,35 +150,38 @@ class ObjectField extends Component {
 						formContext={formContext}
 					/> : null}
 				{
-					orderedProperties.map((propertyName, index) => (
+					orderedProperties.map((name, index) => (
 						<SchemaField
 							key={index}
-							name={propertyName}
-							required={this.isRequired(propertyName)}
-							schema={schema.properties[propertyName]}
-							uiSchema={uiSchema[propertyName]}
-							errorSchema={errorSchema[propertyName]}
-							idSchema={idSchema[propertyName]}
-							formData={this.state[propertyName]}
-							onChange={this.onPropertyChange(schema.id, propertyName)}
+							name={name}
+							required={this.isRequired(name)}
+							schema={schema.properties[name]}
+							uiSchema={uiSchema[name]}
+							errorSchema={errorSchema[name]}
+							idSchema={idSchema[name]}
+							formData={this.state[name]}
+							onChange={this.onPropertyChange(schema.id, name)}
+							onBlur={onBlur}
 							registry={this.props.registry}
 							disabled={disabled}
 							readonly={readonly}
 						/>
-					))
-				}</fieldset>
+          ))
+      }</fieldset>
 		);
 	}
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	ObjectField.propTypes = {
-		disabled: PropTypes.bool,
+		schema: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object,
 		errorSchema: PropTypes.object,
-		formData: PropTypes.object,
 		idSchema: PropTypes.object,
-		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		formData: PropTypes.object,
+		required: PropTypes.bool,
+		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
@@ -191,9 +192,6 @@ if (process.env.NODE_ENV !== 'production') {
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
 		}),
-		required: PropTypes.bool,
-		schema: PropTypes.object.isRequired,
-		uiSchema: PropTypes.object,
 	};
 }
 

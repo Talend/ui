@@ -21,8 +21,9 @@ $tc-treeview-large-padding: $padding-large !default;
 			outline: none;
 
 			:global(.tc-svg-icon) {
-				height: $tc-treeview-large-padding;
-				width: $tc-treeview-large-padding;
+				display: block;
+				height: $tc-treeview-normal-padding;
+				width: $tc-treeview-normal-padding;
 				stroke: $tc-treeview-main-color;
 				fill: $tc-treeview-main-color;
 				margin-right: 0;
