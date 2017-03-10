@@ -103,6 +103,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   25:3  error  'name' is missing in props validation  react/prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
+  21:2  error  'schema' is missing in props validation         react/prop-types
+  42:1  error  Line 42 exceeds the maximum line length of 100  max-len
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
    30:10  error  Missing trailing comma                        comma-dangle
    72:10  error  Missing trailing comma                        comma-dangle
@@ -119,7 +123,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
    50:18  error  'formData' is missing in props validation  react/prop-types
   228:14  error  'onChange' is missing in props validation  react/prop-types
 
-✖ 105 problems (105 errors, 0 warnings)
+✖ 107 problems (107 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
