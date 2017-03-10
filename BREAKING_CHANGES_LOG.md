@@ -7,6 +7,10 @@ This document aims to ease the WIP migration from a version to another by provid
 * PR: [chore(containers): expose state and actions APIs](https://github.com/Talend/ui/pull/146)
 * Changes: this function doesn't exists anymore. Please use getActionsProps instead.
 
+* Component: TreeView
+* https://github.com/Talend/ui/pull/240
+* removed removeCallback in favor of custom actions
+
 ## v0.61.0
 * Component: List
 * PR: [feat(List): filter dock mode](https://github.com/Talend/ui/pull/74)
