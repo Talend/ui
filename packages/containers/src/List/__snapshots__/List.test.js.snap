@@ -29,15 +29,6 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "state": Object {
-    "displayMode": "table",
-    "filterDocked": true,
-    "limit": 0,
-    "offset": 0,
-    "searchQuery": "",
-    "sortAsc": true,
-    "sortOn": "name",
-  },
 }
 `;
 
@@ -72,23 +63,6 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "state": Object {
-    "displayMode": "table",
-    "filterDocked": true,
-    "limit": 0,
-    "offset": 0,
-    "searchQuery": "",
-    "sortAsc": true,
-    "sortOn": "name",
-    "toolbar": Object {
-      "pagination": Object {
-        "itemsPerPage": 25,
-        "onChange": "pagination:change",
-        "startIndex": 1,
-        "totalResults": 36,
-      },
-    },
-  },
 }
 `;
 
@@ -123,15 +97,6 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "state": Object {
-    "displayMode": "table",
-    "filterDocked": true,
-    "limit": 0,
-    "offset": 0,
-    "searchQuery": "",
-    "sortAsc": true,
-    "sortOn": "name",
-  },
 }
 `;
 

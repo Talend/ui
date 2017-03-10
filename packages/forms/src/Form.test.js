@@ -253,6 +253,7 @@ describe('<Form/>', () => {
 					type: 'object',
 					properties: {
 						name: {
+							required: true,
 							type: 'string',
 							title: 'Name',
 							default: 'John Doe',
