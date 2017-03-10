@@ -10,6 +10,8 @@ const item = {
 		key: 'values',
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
+		onSelectItem: jest.fn(), // provided click callback
+		isSelected: false,
 		actions: [{
 			label: 'Edit',
 			id: 'edit',
@@ -22,12 +24,41 @@ const item = {
 	},
 };
 
+const selectedItem = {
+	values: ['toto'],
+	isSelected: true,
+	itemProps: {
+		key: 'values',
+		onSubmitItem: jest.fn(), // provided click callback
+		onAbortItem: jest.fn(), // provided click callback
+		onSelectItem: jest.fn(), // provided click callback
+		isSelected: true,
+		actions: [],
+	},
+};
+
 describe('Item', () => {
-	it('should display value with two buttons', () => {
+	it('should display value with three buttons', () => {
 		// given
 		const props = {
 			id: '0-item',
 			item,
+		};
+
+		// when
+		const wrapper = renderer.create(
+			<Item {...props} />
+		).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should display a selected item', () => {
+		// given
+		const props = {
+			id: '0-item',
+			item: selectedItem,
 		};
 
 		// when

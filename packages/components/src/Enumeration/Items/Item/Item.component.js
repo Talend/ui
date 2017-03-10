@@ -5,10 +5,12 @@ import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 
-function itemClasses() {
+function itemClasses(isSelected) {
 	return classNames({
 		[theme['tc-enumeration-item']]: true,
+		[theme['selected-item']]: isSelected,
 		'tc-enumeration-item': true,
+		'selected-item': isSelected,
 	});
 }
 
@@ -31,6 +33,7 @@ function Item({ id, item }) {
 	const {
 		key,
 		actions,
+		onSelectItem,
 	} = item.itemProps;
 
 	function getAction(action, index) {
@@ -57,8 +60,13 @@ function Item({ id, item }) {
 	}
 
 	return (
-		<li className={itemClasses()} id={id}>
-			<div className={itemLabelClasses()}>{item[key].join(',')}</div>
+		<li className={itemClasses(item.isSelected)} id={id}>
+			<Action
+				key={item.index}
+				label={item[key].join(',')}
+				onClick={event => onSelectItem(item, event)}
+				className={itemLabelClasses()}
+			/>
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
 			</div>

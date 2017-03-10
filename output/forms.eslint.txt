@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.64.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.65.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -103,28 +103,27 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   25:3  error  'name' is missing in props validation  react/prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
+  21:2  error  'schema' is missing in props validation         react/prop-types
+  42:1  error  Line 42 exceeds the maximum line length of 100  max-len
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
-   30:10  error  Missing trailing comma                                comma-dangle
-   72:10  error  Missing trailing comma                                comma-dangle
-   81:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-   96:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-   97:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   97:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
-  103:53  error  Multiple spaces found before 'target'                 no-multi-spaces
-  114:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  132:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  139:53  error  Multiple spaces found before 'target'                 no-multi-spaces
-  151:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
-  153:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-  153:8   error  Expected indentation of 4 tab characters but found 3  react/jsx-indent-props
-  172:5   error  Value must be omitted for boolean attributes          react/jsx-boolean-value
+   30:10  error  Missing trailing comma                        comma-dangle
+   72:10  error  Missing trailing comma                        comma-dangle
+   81:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+   96:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  103:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  114:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  132:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  139:53  error  Multiple spaces found before 'target'         no-multi-spaces
+  151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-    1:17  error  'PropTypes' is defined but never used      no-unused-vars
-   30:18  error  'formData' is missing in props validation  react/prop-types
-  162:14  error  'onChange' is missing in props validation  react/prop-types
+   50:18  error  'formData' is missing in props validation  react/prop-types
+  228:14  error  'onChange' is missing in props validation  react/prop-types
 
-✖ 110 problems (110 errors, 0 warnings)
+✖ 107 problems (107 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
