@@ -117,13 +117,6 @@ function updateCollectionElement(state, action) {
 		}
 	}
 	return state;
-
-	if (action.operations.update) {
-		return Object.keys(action.operations.update).reduce((s, e) =>
-			s.set(action.id, s.get(action.id).set(e, action.operations.update[e])),
-		state);
-	}
-	return state;
 }
 
 /**
