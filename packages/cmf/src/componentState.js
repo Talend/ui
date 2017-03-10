@@ -2,7 +2,7 @@ import { PropTypes } from 'react';
 import { Map } from 'immutable';
 import { actions } from 'react-cmf';
 
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
 	return {
 		updateState(state) {
 			dispatch(
@@ -14,7 +14,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 			);
 		},
 		initState(initialState) {
-			const state = (DEFAULT_STATE || new Map()).merge(initialState);
+			const state = DEFAULT_STATE.merge(initialState);
 			dispatch(
 				actions.componentsActions.addComponentState(
 					name,
