@@ -8,26 +8,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  7:1  error  'jest' is not defined                                                                      no-undef
-  8:1  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
-  13:28  error  'jest' is not defined  no-undef
-  27:28  error  'jest' is not defined  no-undef
-  28:54  error  'jest' is not defined  no-undef
-  43:28  error  'jest' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
-  2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  7:16  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   11:37  error  A space is required before closing bracket                                                 react/jsx-space-before-closing
-
-/home/travis/build/Talend/ui/packages/containers/src/AppHeaderBar/AppHeaderBar.test.js
-   8:1   error  'jest' is not defined  no-undef
-  31:20  error  'jest' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -43,35 +30,22 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
     2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  125:33  error  'jest' is not defined                                                         no-undef
-  126:25  error  'jest' is not defined                                                         no-undef
-  154:33  error  'jest' is not defined                                                         no-undef
-  155:25  error  'jest' is not defined                                                         no-undef
   181:48  error  Strings must use singlequote                                                  quotes
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   4:18  error  'Map' is defined but never used                                                            no-unused-vars
-   5:21  error  'DEFAULT_STATE' is defined but never used                                                  no-unused-vars
-  31:35  error  There should be no space after '['                                                         array-bracket-spacing
-  31:45  error  There should be no space before ']'                                                        array-bracket-spacing
-  34:17  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/pushNotification.js
   2:1  error  'bson-objectid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   2:8   error  'renderer' is defined but never used                                                       no-unused-vars
-   4:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  43:23  error  'jest' is not defined                                                                      no-undef
-  71:3   error  Expected exception block, space or tab after '//' in comment                               spaced-comment
-  80:20  error  'jest' is not defined                                                                      no-undef
-  81:23  error  'jest' is not defined                                                                      no-undef
+   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   2:8  error  'renderer' is defined but never used                                                       no-unused-vars
+   4:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
+  71:3  error  Expected exception block, space or tab after '//' in comment                               spaced-comment
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   1:8   error  'React' is defined but never used                                                              no-unused-vars
-  6:20  error  'jest' is not defined                                                                          no-undef
   7:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
@@ -79,13 +53,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  6:1  error  'jest' is not defined                                                                      no-undef
-  7:1  error  'jest' is not defined                                                                      no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   10:1  warning  Unexpected console statement  no-console
 
-✖ 45 problems (44 errors, 1 warning)
+✖ 21 problems (20 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
 Errored while running ExecCommand.execute
