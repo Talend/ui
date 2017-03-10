@@ -2,6 +2,7 @@ const NATIVE_PROPS = [
 	'aria-label',
 	'className',
 	'id',
+	'autoFocus',
 ];
 
 function extractComponentProps(Component, props) {
