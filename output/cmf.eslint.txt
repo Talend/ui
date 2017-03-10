@@ -20,9 +20,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
   3:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/cmf/src/componentState.test.js
-  2:26  error  'fromJS' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/cmf/src/reducers/collectionsReducers.js
    71:8  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
    74:8  error  Unnecessary 'else' after 'return'                                             no-else-return
@@ -31,7 +28,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   115:8  error  Unnecessary 'else' after 'return'                                             no-else-return
   115:8  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
-✖ 15 problems (15 errors, 0 warnings)
+✖ 14 problems (14 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
