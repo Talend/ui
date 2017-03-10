@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { store, Provider } from 'react-cmf/lib/mock';
-import { fromJS, Map } from 'immutable';
-import Container, { DEFAULT_STATE } from './Notification.container';
+import { fromJS } from 'immutable';
+import Container from './Notification.container';
 import Connected, {
 	mergeProps,
 } from './Notification.connect';
@@ -28,7 +28,7 @@ describe('Connected Notification', () => {
 	it('mergeProps should merge the props', () => {
 		const message = { message: 'hello world' };
 		const stateProps = {
-			state: fromJS({ notifications: [ message ] }),
+			state: fromJS({ notifications: [message] }),
 		};
 		const dispatchProps = {
 			updateState: jest.fn(),
