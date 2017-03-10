@@ -1,38 +1,34 @@
 // TreeView styles
-$tc-treeview-main-color: $brand-primary !default;
-$tc-treeview-small-padding: $padding-small !default;
-$tc-treeview-normal-padding: $padding-normal !default;
-$tc-treeview-large-padding: $padding-large !default;
 
 .tc-treeview {
 	.tc-treeview-header {
-		color: $tc-treeview-main-color;
+		color: $brand-primary;
 		display: flex;
-		line-height: $tc-treeview-large-padding;
+		line-height: $padding-large;
 		font-weight: bold;
 		text-transform: uppercase;
-		padding: $tc-treeview-large-padding;
+		padding: $padding-large;
 		border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
 
 		:global(.btn-link) {
 			padding: 0;
 			margin-left: auto;
-			height: $tc-treeview-large-padding;
+			height: $padding-large;
 			outline: none;
 
 			:global(.tc-svg-icon) {
 				display: block;
-				height: $tc-treeview-normal-padding;
-				width: $tc-treeview-normal-padding;
-				stroke: $tc-treeview-main-color;
-				fill: $tc-treeview-main-color;
+				height: $svg-md-size;
+				width: $svg-md-size;
+				stroke: $brand-primary;
+				fill: $brand-primary;
 				margin-right: 0;
 			}
 		}
 	}
 
 	.tc-treeview-nav {
-		padding: $tc-treeview-small-padding 0;
+		padding: $padding-small 0;
 		overflow: auto;
 
 		.tc-treeview-ul {
@@ -40,7 +36,7 @@ $tc-treeview-large-padding: $padding-large !default;
 			list-style-type: none;
 
 			.tc-treeview-li {
-				line-height: $tc-treeview-large-padding;
+				line-height: $padding-large;
 			}
 		}
 	}
