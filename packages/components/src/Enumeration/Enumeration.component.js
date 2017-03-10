@@ -66,15 +66,21 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 		}
 	}
 
+	function getItems() {
+		if (items.length > 0) {
+			return (<Items
+				items={items}
+				itemsProp={itemsProp}
+				currentEdit={currentEdit}
+			/>);
+		}
+		return null;
+	}
+
 	return (
 		<div className={enumerationClasses()}>
 			{getHeader()}
-			{items.length > 0 &&
-				<Items
-					items={items}
-					itemsProp={itemsProp}
-					currentEdit={currentEdit}
-				/>}
+			{getItems()}
 		</div>
 	);
 }
