@@ -8,6 +8,7 @@ import invariant from 'invariant';
 
 import { NodeType } from '../../constants/flowdesigner.proptypes';
 import { PositionRecord } from '../../constants/flowdesigner.model';
+import { PORT_SINK, PORT_SOURCE } from '../../constants/flowdesigner.constants';
 
 export const ABSTRACT_NODE_INVARIANT = `<AbstractNode /> should not be used without giving it a children
 ex: <AbstractNode><rect /></AbstractNode>`;

@@ -1,14 +1,14 @@
-jest.mock('d3-selection', () => ({
-	select() {
-		return { data() {}, call() {} };
-	},
-}));
-
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import AbstractNode from './AbstractNode.component';
 import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
+
+jest.mock('d3-selection', () => ({
+	select() {
+		return { data() {}, call() {} };
+	},
+}));
 
 describe('<AbstractNode />', () => {
 	it('renders correctly', () => {

@@ -11,7 +11,7 @@ class NodeType extends React.Component {
 	render() {
 		invariant(
 			false,
-			'<NodeType> elements are for DataFlow configuration only and should not be rendered'
+			'<NodeType> elements are for DataFlow configuration only and should not be rendered',
 		);
 		return null;
 	}

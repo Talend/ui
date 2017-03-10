@@ -1,4 +1,3 @@
-import ReactTestUtils from 'react-addons-test-utils';
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
@@ -40,16 +39,15 @@ describe('Testing <AbstractNode>', () => {
 			<AbstractNode node={node} onClick={onDragStart}>
 				<rect />
 			</AbstractNode>
-			, { attachTo: document.body }
+			, { attachTo: document.body },
 		);
 
-		document.querySelector('g g').addEventListener('click', function() {
-			console.error('SUPER');
+		document.querySelector('g g').addEventListener('click', () => {
 			done();
 		});
 		document.querySelector('g g').dispatchEvent(new window.MouseEvent('click'));
 		expect(onDragStart.mock.calls.length).toBeNull(1);
-		fail()
+		fail();
 	});
 
 	xit('call the injected onDrag action when drag action start', () => {

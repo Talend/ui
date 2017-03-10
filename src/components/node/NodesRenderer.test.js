@@ -23,7 +23,7 @@ describe('<NodesRenderer />', () => {
 			id: { id: 'id', component: MockNode },
 		};
 		const tree = renderer.create(
-			<NodesRenderer nodes={nodes} nodeTypeMap={nodeTypeMap} />
+			<NodesRenderer nodes={nodes} nodeTypeMap={nodeTypeMap} />,
 		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
