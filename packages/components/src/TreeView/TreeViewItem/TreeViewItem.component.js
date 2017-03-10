@@ -36,7 +36,7 @@ function TreeViewItem({
 	itemToggleCallback,
 }) {
 	const {
-		toggled,
+		toggled = false,
 		selected,
 		hidden,
 		name,
@@ -85,7 +85,7 @@ function TreeViewItem({
 				onClick={selectHandler}
 				id={id}
 			>
-				{children &&
+				{!children.length ||
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
 						{getIconAction(toggleIconLabel, 'talend-caret-down', itemToggleCallback, `${id}-toggle`)}
 					</div>
