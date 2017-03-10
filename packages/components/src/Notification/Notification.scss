@@ -10,7 +10,7 @@ $tc-notification-error-bgcolor: #F5E0E0 !default;
 $tc-notification-animation-duration: 0.3s;
 
 $notification-width: 450px;
-$icon-size: 16px;
+$icon-size: $svg-md-size;
 
 .tc-notification-container {
 	position: fixed;
