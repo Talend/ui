@@ -22,65 +22,11 @@ function enumerationClasses() {
 	});
 }
 
-function Enumeration({ displayMode, headerDefault, headerInput,
-	headerSelected, items, itemsProp, onAddChange, onAddKeyDown, currentEdit }) {
-	function getHeader() {
-		switch (displayMode) {
-		case DISPLAY_MODE_ADD: {
-			const propsInput = {
-				headerInput,
-				onAddChange,
-				onAddKeyDown,
-			};
-
-			return <HeaderInput {...propsInput} />;
-		}
-		case DISPLAY_MODE_DEFAULT: {
-			const propsDefault = {
-				headerDefault,
-				onAddChange,
-			};
-
-			return <Header {...propsDefault} />;
-		}
-
-		case DISPLAY_MODE_EDIT: {
-			const propsDefault = {
-				headerDefault,
-				onAddChange,
-			};
-
-			return <Header {...propsDefault} isEdit />;
-		}
-
-		case DISPLAY_MODE_SELECTED: {
-			const propsSelected = {
-				headerSelected,
-				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-			};
-			return <HeaderSelected {...propsSelected} />;
-		}
-
-		default:
-			return null;
-		}
-	}
-
-	function getItems() {
-		if (items.length > 0) {
-			return (<Items
-				items={items}
-				itemsProp={itemsProp}
-				currentEdit={currentEdit}
-			/>);
-		}
-		return null;
-	}
-
+function Enumeration(props) {
 	return (
 		<div className={enumerationClasses()}>
-			{getHeader()}
-			{getItems()}
+			<HeaderEnumeration {...props} />
+			<ItemsEnumeration {...props} />
 		</div>
 	);
 }
@@ -106,6 +52,77 @@ Enumeration.propTypes = {
 	onAddChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 	...ItemEditPropTypes,
+};
+
+function ItemsEnumeration({ items, itemsProp, currentEdit }) {
+	if (items.length > 0) {
+		return (<Items
+			items={items}
+			itemsProp={itemsProp}
+			currentEdit={currentEdit}
+		/>);
+	}
+	return null;
+}
+
+ItemsEnumeration.propTypes = {
+	items: Enumeration.propTypes.items,
+	itemsProp: Enumeration.propTypes.itemsProp,
+	...ItemEditPropTypes,
+};
+
+function HeaderEnumeration(
+	{ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
+) {
+	switch (displayMode) {
+	case DISPLAY_MODE_ADD: {
+		const propsInput = {
+			headerInput,
+			onAddChange,
+			onAddKeyDown,
+		};
+
+		return <HeaderInput {...propsInput} />;
+	}
+	case DISPLAY_MODE_DEFAULT: {
+		const propsDefault = {
+			headerDefault,
+			onAddChange,
+		};
+
+		return <Header {...propsDefault} />;
+	}
+
+	case DISPLAY_MODE_EDIT: {
+		const propsDefault = {
+			headerDefault,
+			onAddChange,
+		};
+
+		return <Header {...propsDefault} isEdit />;
+	}
+
+	case DISPLAY_MODE_SELECTED: {
+		const propsSelected = {
+			headerSelected,
+			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+		};
+		return <HeaderSelected {...propsSelected} />;
+	}
+
+	default:
+		return null;
+	}
+}
+
+HeaderEnumeration.propTypes = {
+	displayMode: Enumeration.propTypes.displayMode,
+	headerInput: Enumeration.propTypes.headerInput,
+	headerDefault: Enumeration.propTypes.headerDefault,
+	headerSelected: Enumeration.propTypes.headerSelected,
+	onAddChange: Enumeration.propTypes.onAddChange,
+	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
+	items: Enumeration.propTypes.items,
 };
 
 export default Enumeration;
