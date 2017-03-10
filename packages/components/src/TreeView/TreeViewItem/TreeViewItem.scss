@@ -5,7 +5,7 @@ $tc-treeview-normal-padding: $padding-normal !default;
 $tc-treeview-large-padding: $padding-large !default;
 $tc-treeview-black: $black !default;
 $tc-treeview-folder-svg-size: 18px !default;
-$tc-treeview-trash-svg-size: 21px !default;
+$tc-treeview-action-icon-size: 18px !default;
 $tc-treeview-depth-max: 10;
 
 .tc-treeview-li {
@@ -13,6 +13,7 @@ $tc-treeview-depth-max: 10;
 	flex-wrap: wrap;
 
 	.tc-treeview-item {
+		height: 40px;
 		cursor: pointer;
 		padding: $tc-treeview-small-padding $tc-treeview-large-padding $tc-treeview-small-padding 0;
 		border: none;
@@ -48,7 +49,7 @@ $tc-treeview-depth-max: 10;
 				fill: rgba($tc-treeview-black, 0.35);
 			}
 
-			.tc-treeview-remove {
+			:global(.btn-link) {
 				display: block;
 			}
 		}
@@ -59,7 +60,7 @@ $tc-treeview-depth-max: 10;
 			position: relative;
 			left: -0.5 * ($tc-treeview-large-padding - $tc-treeview-small-padding);
 
-			&[data-tc-treeview-toggled=false] {
+			&[data-toggled=false] {
 				:global(.tc-svg-icon) {
 					transform: rotate(270deg);
 				}
@@ -84,7 +85,7 @@ $tc-treeview-depth-max: 10;
 			}
 		}
 
-		&[data-tc-treeview-selected=true] {
+		&[data-selected=true] {
 			background-color: rgba($tc-treeview-main-color, 0.12);
 			color: $tc-treeview-main-color;
 
@@ -94,23 +95,25 @@ $tc-treeview-depth-max: 10;
 		}
 
 		@for $i from 0 through $tc-treeview-depth-max {
-			&[data-tc-treeview-depth='#{$i}'] {
+			&[data-depth='#{$i}'] {
 				padding-left: $i * $tc-treeview-normal-padding + $tc-treeview-large-padding;
 			}
 		}
 	}
 
-	.tc-treeview-remove {
+	:global(.tc-treeview-item-ctrl) {
 		margin-left: auto;
-		display: none;
+		display: flex;
+		min-width: 65px;
 
 		:global(.btn-link) {
-			position: relative;
+			margin-left: auto;
+			display: none;
 			outline: none;
 
 			:global(.tc-svg-icon) {
-				width: $tc-treeview-trash-svg-size;
-				height: $tc-treeview-trash-svg-size;
+				width: $tc-treeview-action-icon-size;
+				height: $tc-treeview-action-icon-size;
 				fill: rgba($tc-treeview-black, 0.6);
 				margin: 0;
 
@@ -119,14 +122,20 @@ $tc-treeview-depth-max: 10;
 				}
 			}
 		}
+
+		:global(.tc-badge-solid) {
+			height: 20px;
+			margin: 0 $tc-treeview-large-padding 0 0;
+		}
 	}
+
 
 	.tc-treeview-ul {
 		width: 100%;
 		padding: 0;
 	}
 
-	&[data-tc-treeview-hidden=true] {
+	&[data-hidden=true] {
 		height: 0;
 		display: none;
 	}

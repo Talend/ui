@@ -4,6 +4,7 @@
 
 import api from './api';
 import App from './App';
+import cmfConnect from './cmfConnect';
 import ConnectedDispatcher from './Dispatcher';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
@@ -12,6 +13,7 @@ import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
+import componentState from './componentState';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -31,10 +33,12 @@ export {
 	actions,
 	api,
 	App,
+	cmfConnect,
 	Dispatcher,
 	history,
 	store,
 	reducers,
+	componentState,
 	RegistryProvider,
 	UIRouter,
 	getErrorMiddleware, // (slug) => middleware to post error
