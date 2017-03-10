@@ -29,6 +29,32 @@ function addCollectionElement(state, action) {
 	return state;
 }
 
+function deleteListElements(state, action) {
+	function shouldBeRemoved(element) {
+		return action.operations.delete.indexOf(element.id) >= 0;
+	}
+
+	const collection = state.get(action.id);
+	if (collection.some(shouldBeRemoved)) {
+		return state.set(action.id, collection.filterNot(shouldBeRemoved));
+	}
+	return state;
+}
+
+function deleteMapElements(state, action) {
+	const collection = state.get(action.id);
+
+	if (action.operations.delete.some(id => collection.has(id))) {
+		const changedCollection = action.operations.delete.reduce(
+			(collectionAccu, element) => collectionAccu.delete(element),
+			collection
+		);
+		return state.set(action.id, changedCollection);
+	}
+
+	return state;
+}
+
 /**
  * deleteElementFromCollection
  *
@@ -38,11 +64,36 @@ function addCollectionElement(state, action) {
  */
 function deleteCollectionElement(state, action) {
 	if (action.operations.delete) {
-		return action.operations.delete.reduce((s, e) =>
-			s.set(action.id, s.get(action.id).delete(e)),
-		state);
+		const collection = state.get(action.id);
+		if (Map.isMap(collection)) {
+			return deleteMapElements(state, action);
+		}
+		else if (List.isList(collection)) {
+			return deleteListElements(state, action);
+		}
+		else {
+			throw new Error('CMF collection deletion is only compatible with ImmutableJs List and Map');
+		}
 	}
 	return state;
+}
+
+function updateListElements(state, action) {
+	const updates = action.operations.update;
+
+	const changedCollection = state
+		.get(action.id)
+		.map(element => updates[element.id] || element);
+	return state.set(action.id, changedCollection);
+}
+
+function updateMapElements(state, action) {
+	const updates = action.operations.update;
+	const changedCollection = Object.keys(updates).reduce(
+		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
+		state.get(action.id)
+	);
+	return state.set(action.id, changedCollection);
 }
 
 /**
@@ -53,6 +104,20 @@ function deleteCollectionElement(state, action) {
  * @returns {object} the new state
  */
 function updateCollectionElement(state, action) {
+	if (action.operations.update) {
+		const collection = state.get(action.id);
+		if (Map.isMap(collection)) {
+			return updateMapElements(state, action);
+		}
+		else if (List.isList(collection)) {
+			return updateListElements(state, action);
+		}
+		else {
+			throw new Error('CMF collection update is only compatible with ImmutableJs List and Map');
+		}
+	}
+	return state;
+
 	if (action.operations.update) {
 		return Object.keys(action.operations.update).reduce((s, e) =>
 			s.set(action.id, s.get(action.id).set(e, action.operations.update[e])),
