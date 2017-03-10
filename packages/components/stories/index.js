@@ -22,4 +22,5 @@ import './SidePanel';
 import './Status';
 import './TooltipTrigger';
 import './TreeView';
+import './Toggle';
 import './Typeahead';
