@@ -124,7 +124,7 @@ $item-height: 40px;
 		:global(.tc-badge-solid) {
 			height: $item-height - 2 * $padding-small;
 			margin: 0 $padding-large 0 0;
-			border: 0;
+			border: none;
 		}
 	}
 
