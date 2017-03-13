@@ -62,8 +62,7 @@ form {
 		border-radius: 0;
 		appearance: none;
 		padding-left: 0;
-		padding-right: 0 \9
-	; // remove padding for < ie9 since default arrow can't be removed
+		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
 		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
 		background-size: 13px;
 		background-repeat: no-repeat;
@@ -367,7 +366,7 @@ form {
 			content: '';
 			top: 0 !important;
 			left: 0 !important;
-			transition: all 0.2s ease;
+			transition: background 0.2s ease, transform 0.2s ease;
 			border-radius: 100px;
 			border-color: transparent;
 		}
@@ -378,7 +377,7 @@ form {
 			margin-top: 3px;
 			margin-left: 0;
 			background: tint($dove-gray, 40);
-			border: 0;
+			border: none;
 			transform: rotate(0deg) !important;
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 			box-sizing: content-box;
@@ -394,7 +393,7 @@ form {
 
 		&:checked {
 			+ *:before {
-				background: tint($scooter, 40) ;
+				background: tint($scooter, 40);
 			}
 
 			+ *:after {
