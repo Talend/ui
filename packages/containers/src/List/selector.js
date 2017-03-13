@@ -47,7 +47,7 @@ export function configureGetFilteredItems(configure) {
 	const getCollectionData = state => getCollectionItems(state, localConfig.collectionId);
 
 	const getComponentState = state => state.cmf
-		.components.getIn(['List', localConfig.collectionId || 'default']);
+		.components.getIn(['Container(List)', localConfig.collectionId || 'default']);
 
 	const getFilteredList = createSelector(
 		[getCollectionData, getComponentState],
