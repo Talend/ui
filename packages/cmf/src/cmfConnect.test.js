@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
-import mock from 'react-cmf/lib/mock';
+import React from 'react';
 import { fromJS } from 'immutable';
 import { shallow } from 'enzyme';
+import mock from './mock';
 
 import cmfConnect, {
 	getComponentName,
