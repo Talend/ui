@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'bootstrap-talend-theme'
 
-> bootstrap-talend-theme@0.65.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> bootstrap-talend-theme@0.66.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -16,22 +16,43 @@ src/theme/_forms.scss
    21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  230:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  243:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  256:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  279:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  315:15  error    !important not allowed                                   no-important
-  337:22  error    !important not allowed                                   no-important
-  339:14  error    !important not allowed                                   no-important
-  340:16  error    !important not allowed                                   no-important
-  341:15  error    !important not allowed                                   no-important
-  342:14  error    !important not allowed                                   no-important
-  366:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  170:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  291:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  297:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  368:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  381:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  394:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  417:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  453:15  error    !important not allowed                                   no-important
+  475:22  error    !important not allowed                                   no-important
+  477:14  error    !important not allowed                                   no-important
+  478:16  error    !important not allowed                                   no-important
+  479:15  error    !important not allowed                                   no-important
+  480:14  error    !important not allowed                                   no-important
+  496:25  error    !important not allowed                                   no-important
+  497:30  error    !important not allowed                                   no-important
+  501:17  error    !important not allowed                                   no-important
+  502:16  error    !important not allowed                                   no-important
+  504:19  error    !important not allowed                                   no-important
+  505:37  error    !important not allowed                                   no-important
+  506:28  error    !important not allowed                                   no-important
+  507:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  507:50  error    !important not allowed                                   no-important
+  514:39  error    !important not allowed                                   no-important
+  515:15  error    !important not allowed                                   no-important
+  520:12  error    !important not allowed                                   no-important
+  521:13  error    !important not allowed                                   no-important
+  522:36  error    !important not allowed                                   no-important
+  534:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  540:2   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  542:14  error    Strings must use single quotes                           quotes
+  544:20  error    !important not allowed                                   no-important
+  545:24  error    !important not allowed                                   no-important
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 18 problems (15 errors, 3 warnings)
+✖ 39 problems (31 errors, 8 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
