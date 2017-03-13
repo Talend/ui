@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.65.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.66.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -11,10 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:21  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.test.js
-  1:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  1:18  error  Unable to resolve path to module 'react-cmf/lib/mock'                                           import/no-unresolved
-  4:8   error  'cmfConnect' is defined but never used                                                          no-unused-vars
-  8:2   error  'getDispatchToProps' is defined but never used                                                  no-unused-vars
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
@@ -28,7 +25,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   115:8  error  Unnecessary 'else' after 'return'                                             no-else-return
   115:8  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
-✖ 14 problems (14 errors, 0 warnings)
+✖ 11 problems (11 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute

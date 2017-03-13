@@ -142,7 +142,7 @@ export default function cmfConnect({
 					);
 				}
 				if (!keepComponentState) {
-					this.props.updateState();
+					this.props.deleteState();
 				}
 			}
 
