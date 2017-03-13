@@ -1,13 +1,13 @@
 import { PropTypes } from 'react';
 import Immutable, { Map } from 'immutable';
-import actions from './actions/';
+import actions from '../src/actions/';
 
 import state, {
 	getStateAccessors,
 	getStateProps,
 	initState,
 	statePropTypes,
-} from './componentState';
+} from '../src/componentState';
 
 describe('state', () => {
 	it('should default import have all the things', () => {

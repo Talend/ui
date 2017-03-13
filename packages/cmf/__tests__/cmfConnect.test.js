@@ -1,14 +1,14 @@
 import React from 'react';
 import { fromJS } from 'immutable';
 import { shallow } from 'enzyme';
-import mock from './mock';
+import mock from '../src/mock';
 
 import cmfConnect, {
 	getComponentName,
 	getComponentId,
 	getStateToProps,
 	getDispatchToProps,
-} from './cmfConnect';
+} from '../src/cmfConnect';
 
 describe('cmfConnect.getComponentName', () => {
 	it('should return displayName', () => {
