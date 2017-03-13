@@ -40,7 +40,7 @@ state.cmf.collections = fromJS({
 describe('List Selector tests', () => {
 	it('should not filter the list when there is no search query', () => {
 		state.cmf.components = fromJS({
-			List: {
+			'Container(List)': {
 				default: {
 					displayMode: 'large',
 					searchQuery: '',
@@ -59,7 +59,7 @@ describe('List Selector tests', () => {
 
 	it('should filter the list when filter on visible column', () => {
 		state.cmf.components = fromJS({
-			List: {
+			'Container(List)': {
 				default: {
 					displayMode: 'large',
 					searchQuery: 'value2',
@@ -78,7 +78,7 @@ describe('List Selector tests', () => {
 
 	it('should return no elements when search on non visible column', () => {
 		state.cmf.components = fromJS({
-			List: {
+			'Container(List)': {
 				default: {
 					displayMode: 'large',
 					searchQuery: 'text',
