@@ -31,25 +31,27 @@ const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
 
 const statusPropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
+	className: PropTypes.string,
 	...Status.propTypes,
 };
 
 const actionPropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
+	className: PropTypes.string,
 	...Action.propTypes,
 };
 
 const simplePropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
+	className: PropTypes.string,
 	label: PropTypes.string,
 	bsStyle: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 
-function renderHeaderItem({ displayMode, ...headerItem }, key) {
+function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
-	case TYPE_STATUS:
-	{
+	case TYPE_STATUS: {
 		const { actions, ...restStatus } = headerItem;
 		const adaptActions = actions.map(
 			action => ({
@@ -57,29 +59,36 @@ function renderHeaderItem({ displayMode, ...headerItem }, key) {
 				onClick: getActionHandler(action.onClick, headerItem),
 			})
 		);
-		return (<Status key={key} actions={adaptActions} {...restStatus} />);
+		return (<Status
+			key={key}
+			actions={adaptActions}
+			{...restStatus}
+			className={css[className]}
+		/>);
 	}
-	case TYPE_ACTION:
-	{
+	case TYPE_ACTION: {
 		const { onClick, ...restAction } = headerItem;
 		return (
-			<Action key={key} onClick={getActionHandler(onClick, headerItem)} {...restAction} />);
+			<Action
+				key={key}
+				onClick={getActionHandler(onClick, headerItem)}
+				className={css[className]}
+				{...restAction}
+			/>);
 	}
-	case TYPE_BADGE:
-	{
+	case TYPE_BADGE: {
 		const { label, tooltipPlacement, ...rest } = headerItem;
 		return (
 			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-				<Label {...rest}>{label}</Label>
+				<Label {...rest} className={css[className]}>{label}</Label>
 			</TooltipTrigger>
 		);
 	}
-	default:
-	{
+	default: {
 		const { label, tooltipPlacement } = headerItem;
 		return (
 			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-				<span>{label}</span>
+				<span className={css[className]}>{label}</span>
 			</TooltipTrigger>
 		);
 	}
@@ -96,7 +105,7 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 	])),
 ]);
 
-function renderHeader({ header, caret, onSelect, icon}) {
+function renderHeader({ header, caret, onSelect }) {
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		if (Array.isArray(headerItem)) {
@@ -110,41 +119,19 @@ function renderHeader({ header, caret, onSelect, icon}) {
 		}
 		return (
 			<div key={index}
-				className={css[headerColumnClass]}
+				className={classNames(css[headerItem.className], css[headerColumnClass])}
 				onClick={onSelect && selectPanel(onSelect)}
 			>{renderHeaderItem(headerItem)}</div>
 		);
 	});
 
 	if (caret) {
-		if (icon) {
-			const customIcon = (
-				<div className={css['custom-icons']}>
-					<span>
-						<Icon
-							key={header.length}
-							className={css['custom-caret-open']}
-							name={icon.open}
-						/>
-					</span>
-					<span>
-						<Icon
-							key={header.length}
-							className={css['custom-caret-close']}
-							name={icon.close}
-						/>
-					</span>
-				</div>
-			);
-			headerItems.push(customIcon);
-		} else {
-			const defaultCaret = (<Icon
-				key={header.length}
-				className={css.caret}
-				name={'talend-caret-down'}
-			/>);
-			headerItems.push(defaultCaret);
-		}
+		const defaultCaret = (<Icon
+			key={header.length}
+			className={css.caret}
+			name={'talend-caret-down'}
+		/>);
+		headerItems.push(defaultCaret);
 	}
 	return headerItems;
 }
@@ -162,14 +149,18 @@ function getKeyValueContent(content) {
 function getTextualContent(content) {
 	return (
 		<div className={css['vertical-content']}>
-			<div className={css['content-header']}>
-				{content.details.map((item, index) => {
+			<div className={css['content-upper']}>
+				{content.upper.map((item, index) => {
 					if (typeof item === 'string') {
 						return (<span key={index}>{item}</span>);
 					}
 					const { label, tooltipPlacement } = item;
 					return (
-						<TooltipTrigger key={index} label={label} tooltipPlacement={tooltipPlacement}>
+						<TooltipTrigger
+							key={index}
+							label={label}
+							tooltipPlacement={tooltipPlacement}
+						>
 							<span>{label}</span>
 						</TooltipTrigger>
 					);
@@ -182,14 +173,14 @@ function getTextualContent(content) {
 	);
 }
 
-function CollapsiblePanel({ header, content, onSelect, selected, theme, icon }) {
+function CollapsiblePanel({ header, content, onSelect, selected }) {
 	// case of Normal panel with key value content
 	if (!onSelect) {
 		const hasContent = content && content.length;
 		const headerItems = renderHeader({ header, caret: hasContent });
 		if (hasContent) {
 			return (
-				<Panel className={css[theme]} collapsible header={headerItems}>
+				<Panel className={css['collapsible-panel']} collapsible header={headerItems}>
 					{getKeyValueContent(content)}
 				</Panel>
 			);
@@ -198,10 +189,12 @@ function CollapsiblePanel({ header, content, onSelect, selected, theme, icon }) 
 	}
 
 	// case of Selectable Panel
-	const hasContent = content && content.details && content.details.length;
-	const headerItems = renderHeader({ header, caret: hasContent, onSelect, icon });
+	const hasContent = content && content.upper && content.upper.length;
+	const headerItems = renderHeader({ header, caret: hasContent, onSelect });
 	if (hasContent) {
-		const className = classNames(css[theme], selected && css['selected-panel']);
+		const className = classNames(css['collapsible-panel'],
+			css.selectable,
+			selected && css['selected-panel']);
 		return (
 			<Panel className={className} collapsible header={headerItems}>
 				{getTextualContent(content)}
@@ -216,7 +209,6 @@ function CollapsiblePanel({ header, content, onSelect, selected, theme, icon }) 
 CollapsiblePanel.propTypes = {
 	header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
 	onSelect: PropTypes.func,
-	theme: PropTypes.string,
 	selected: PropTypes.bool,
 	content: PropTypes.oneOf([
 		PropTypes.arrayOf(PropTypes.shape({
@@ -224,14 +216,10 @@ CollapsiblePanel.propTypes = {
 			description: PropTypes.string,
 		})),
 		PropTypes.shape({
-			details: PropTypes.Array,
+			upper: PropTypes.Array,
 			description: PropTypes.string,
 		}),
 	]),
-	icon: PropTypes.shape({
-		open: PropTypes.string,
-		close: PropTypes.string,
-	}),
 };
 
 export default CollapsiblePanel;

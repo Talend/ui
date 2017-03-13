@@ -85,11 +85,17 @@ const propsCollapsibleSelectablePanel = {
 		timeStamp,
 	],
 	content: {
-		details: ['21 steps', {
-			label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
-			bsStyle: 'default',
-			tooltipPlacement: 'top',
-		}],
+		upper: [
+			{
+				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+			}, {
+				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+			},
+		],
 		description: 'Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
 		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
@@ -102,10 +108,6 @@ const propsCollapsibleSelectablePanel = {
 	},
 	theme: 'collapsible-selectable-panel',
 	onSelect: jest.fn(),
-	icon: {
-		open: 'talend-plus-circle',
-		close: 'talend-caret-down',
-	},
 };
 
 const propsSelectablePanelWithoutContent = {
@@ -114,7 +116,6 @@ const propsSelectablePanelWithoutContent = {
 		timeStamp,
 	],
 	content: {},
-	theme: 'collapsible-selectable-panel',
 	onSelect: jest.fn(),
 	selected: true,
 };
@@ -148,7 +149,8 @@ describe('Selectable Collapsible Panel', () => {
 
 	it('should render without content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...propsSelectablePanelWithoutContent} />)
+		const wrapper = renderer.create(
+			<CollapsiblePanel {...propsSelectablePanelWithoutContent} />)
 			.toJSON();
 
 		// then

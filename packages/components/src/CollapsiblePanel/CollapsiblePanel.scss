@@ -78,7 +78,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 	margin-bottom: 0;
 
 	&.selected-panel {
-		border-left: 5px solid #6aa9d1;
+		border-left: 4px solid #6aa9d1;
 	}
 
 	:global(.panel-heading) {
@@ -88,195 +88,101 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 		border-color: transparent;
 		padding: 0;
 
-		> * {
-			padding: 10px 0;
-		}
-
-		:nth-child(2) {
+		.header-title-class {
 			color: $tc-collapsible-selectable-panel-title-color;
+			font-weight: 600;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 70px;
 			white-space: nowrap;
 		}
 
+		.header-tag-class {
+			color: $tc-collapsible-selectable-panel-content-description-color;
+			margin-left: 0;
+			white-space: nowrap;
+		}
+
+		.header-detail-class {
+			color: $tc-collapsible-selectable-panel-title-color;
+			white-space: nowrap;
+			justify-content: flex-end;
+		}
+
 		.group {
-			> * {
-				color: $tc-collapsible-selectable-panel-title-color;
-				margin: 0 $tc-collapsible-panel-padding-smaller;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				width: 70px;
-				white-space: nowrap;
-
-				&:nth-child(1) {
-					font-weight: 600;
-					white-space: nowrap;
-				}
-
-				&:nth-child(2) {
-					color: $tc-collapsible-selectable-panel-content-description-color;
-					white-space: nowrap;
-				}
-			}
+			justify-content: flex-start;
 		}
 
 		> * {
 			@include col-style;
-			margin: 0;
+			margin: auto 5px;
+			padding: 10px 5px;
 		}
 	}
 }
 
-.collapsible-selectable-panel {
+.collapsible-panel {
 	position: relative;
-	border-radius: 0;
-	margin-bottom: 0;
 
-	&.selected-panel {
-		border-left: 5px solid #6aa9d1;
-	}
+	&.selectable {
+		border-radius: 0;
+		margin-bottom: 0;
 
-	.caret {
-		position: absolute;
-		right: 5px;
-		top: 10px;
-		bottom: 0;
-	}
-
-	:global(.panel-heading) {
-		padding: 0;
-		background-color: white;
-		border-color: transparent;
-
-		h4 {
-			line-height: $line-height-base;
+		:global(.panel-heading) {
+			background-color: white;
+			border-color: transparent;
+			padding: 0;
 		}
-	}
 
-	:global(.panel-title) {
-		font-size: 1em;
-		position: relative;
+		:global(.panel-title) {
+			font-size: 1em;
+			position: relative;
 
-		a {
-			@include header-style;
-			text-decoration: none;
-			padding-right: 0;
+			a {
+				> div {
+					margin: 0;
+					padding: 10px 5px;
+				}
 
-			&:hover {
-				color: initial;
+				.group {
+					justify-content: flex-start;
+
+					> * {
+						margin: auto 5px;
+					}
+				}
 			}
+		}
 
-			&[aria-expanded='true'] .caret {
-				transform: rotate(180deg);
-			}
+		&.selected-panel {
+			border-left: 4px solid #6aa9d1;
+		}
 
-			&[aria-expanded='true'] .custom-caret-open {
-				display: none;
-			}
+		:global(.panel-body) {
+			padding: 0 10px 10px 10px;
 
-			&[aria-expanded='true'] .custom-caret-close {
-				display: block;
-				transform: rotate(180deg);
-			}
+			.vertical-content {
+				display: flex;
+				flex-direction: column;
 
-			&[aria-expanded='false'] .custom-caret-close {
-				display: none;
-			}
+				.content-upper {
+					display: flex;
+					justify-content: space-between;
 
-			&[aria-expanded='false'] .custom-caret-open {
-				display: block;
-			}
-
-			> div {
-				margin: 0;
-				padding: 10px 0;
-
-				// ex:03/07/2017
-				&:nth-child(2) {
-					color: $tc-collapsible-selectable-panel-title-color;
 					> span {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						max-width: 150px;
 						white-space: nowrap;
 					}
 				}
 
-				&.custom-icons {
-					flex-basis: auto;
-					padding-right: 10px;
-				}
-			}
-
-			> span {
-				> span {
-					> svg {
-						margin: 0;
-					}
-				}
-			}
-
-			> svg {
-				margin: 0;
-			}
-
-			.group {
-				> * {
-					margin: 0 $tc-collapsible-panel-padding-smaller;
-				}
-
-				// label
-				:nth-child(1) {
-					color: $tc-collapsible-selectable-panel-title-color;
-					font-weight: 600;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					width: 70px;
-					white-space: nowrap;
-				}
-
-				// readonly
-				:nth-child(2) {
+				.content-text {
 					color: $tc-collapsible-selectable-panel-content-description-color;
-					white-space: nowrap;
-				}
-
-				:global(.label) {
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					overflow: hidden;
-					font-size: 1em;
 				}
 			}
 		}
 	}
-
-	:global(.panel-body) {
-		max-height: 50vh;
-		overflow: auto;
-		word-break: break-all;
-		padding: 0 10px 10px 10px;
-
-		.vertical-content {
-			display: flex;
-			flex-direction: column;
-
-			.content-header {
-				display: flex;
-				justify-content: space-between;
-
-				> span {
-					overflow: hidden;
-					text-overflow: ellipsis;
-					max-width: 150px;
-					white-space: nowrap;
-				}
-			}
-
-			.content-text {
-				color: $tc-collapsible-selectable-panel-content-description-color;
-			}
-		}
-	}
-}
-
-.default-collapsible-panel {
-	position: relative;
 
 	.caret {
 		position: absolute;
@@ -298,6 +204,27 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 		a {
 			@include header-style;
 			text-decoration: none;
+
+			.header-title-class {
+				color: $tc-collapsible-selectable-panel-title-color;
+				font-weight: 600;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 70px;
+				white-space: nowrap;
+			}
+
+			.header-tag-class {
+				color: $tc-collapsible-selectable-panel-content-description-color;
+				margin-left: 0;
+				white-space: nowrap;
+			}
+
+			.header-detail-class {
+				color: $tc-collapsible-selectable-panel-title-color;
+				white-space: nowrap;
+				justify-content: flex-end;
+			}
 
 			&:hover {
 				color: initial;

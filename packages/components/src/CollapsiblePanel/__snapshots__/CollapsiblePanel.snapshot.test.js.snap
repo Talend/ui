@@ -22,7 +22,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
         role={undefined}
       >
         <div
-          className={undefined}
+          className=""
           onClick={undefined}
         >
           <div
@@ -83,7 +83,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           </div>
         </div>
         <div
-          className={undefined}
+          className=""
           onClick={undefined}
         >
           <button
@@ -106,11 +106,12 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           </button>
         </div>
         <div
-          className={undefined}
+          className=""
           onClick={undefined}
         >
           <span
             aria-describedby={42}
+            className={undefined}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -126,6 +127,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
         >
           <span
             aria-describedby={42}
+            className={undefined}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -200,7 +202,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
     className="panel-heading"
   >
     <div
-      className={undefined}
+      className=""
       onClick={undefined}
     >
       <div
@@ -261,7 +263,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       </div>
     </div>
     <div
-      className={undefined}
+      className=""
       onClick={undefined}
     >
       <button
@@ -284,11 +286,12 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       </button>
     </div>
     <div
-      className={undefined}
+      className=""
       onClick={undefined}
     >
       <span
         aria-describedby={42}
+        className={undefined}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -304,6 +307,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
     >
       <span
         aria-describedby={42}
+        className={undefined}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -355,6 +359,7 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
         >
           <span
             aria-describedby={42}
+            className={undefined}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -365,6 +370,7 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
           </span>
           <span
             aria-describedby={42}
+            className={undefined}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -375,11 +381,12 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
           </span>
         </div>
         <div
-          className={undefined}
+          className=""
           onClick={[Function]}
         >
           <span
             aria-describedby={42}
+            className={undefined}
             onBlur={[Function]}
             onClick={null}
             onFocus={[Function]}
@@ -389,32 +396,15 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
             03/02/2017 14:44
           </span>
         </div>
-        <div
-          className={undefined}
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
         >
-          <span>
-            <svg
-              aria-hidden="true"
-              className="tc-svg-icon"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-plus-circle"
-              />
-            </svg>
-          </span>
-          <span>
-            <svg
-              aria-hidden="true"
-              className="tc-svg-icon"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-caret-down"
-              />
-            </svg>
-          </span>
-        </div>
+          <use
+            xlinkHref="#talend-caret-down"
+          />
+        </svg>
       </a>
     </h4>
   </div>
@@ -434,8 +424,15 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
         <div
           className={undefined}
         >
-          <span>
-            21 steps
+          <span
+            aria-describedby={42}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Abdelaziz Maalej test 1 test 2 test 1 test 2
           </span>
           <span
             aria-describedby={42}
@@ -473,6 +470,7 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
     >
       <span
         aria-describedby={42}
+        className={undefined}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -483,6 +481,7 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
       </span>
       <span
         aria-describedby={42}
+        className={undefined}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}
@@ -493,11 +492,12 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
       </span>
     </div>
     <div
-      className={undefined}
+      className=""
       onClick={[Function]}
     >
       <span
         aria-describedby={42}
+        className={undefined}
         onBlur={[Function]}
         onClick={null}
         onFocus={[Function]}

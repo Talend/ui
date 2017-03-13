@@ -9,7 +9,6 @@ const icons = {
 	'talend-download': talendIcons['talend-download'],
 	'talend-check': talendIcons['talend-check'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };
 
 const content = [
@@ -80,7 +79,6 @@ const propsPanel = {
 		label3,
 	],
 	content: [],
-	theme: 'default-collapsible-panel',
 };
 
 const propsPanelWithActions = {
@@ -92,7 +90,6 @@ const propsPanelWithActions = {
 		label3,
 	],
 	content,
-	theme: 'default-collapsible-panel',
 };
 
 const propsPanelWithoutActions = {
@@ -104,7 +101,6 @@ const propsPanelWithoutActions = {
 		label3,
 	],
 	content: [],
-	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanel = {
@@ -116,7 +112,6 @@ const propsCollapsiblePanel = {
 		label3,
 	],
 	content,
-	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanelWithHeaderGroups = {
@@ -127,7 +122,6 @@ const propsCollapsiblePanelWithHeaderGroups = {
 		[button, label3],
 	],
 	content,
-	theme: 'default-collapsible-panel',
 };
 
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
@@ -138,23 +132,25 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 		[button, label3],
 	],
 	content,
-	theme: 'default-collapsible-panel',
 };
 
 const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	className: 'header-title-class',
 };
 const readOnlyLabel = {
 	label: '(Read Only)',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	className: 'header-tag-class',
 };
 const timeStamp = {
 	label: '03/02/2017 14:44',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	className: 'header-detail-class',
 };
 
 const propsCollapsibleSelectablePanel = {
@@ -163,32 +159,33 @@ const propsCollapsibleSelectablePanel = {
 		timeStamp,
 	],
 	content: {
-		details: ['21 steps', {
-			label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
-			bsStyle: 'default',
-			tooltipPlacement: 'top',
-		}],
+		upper: [
+			{
+				label: '21 steps',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+			}, {
+				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+			},
+		],
 		description: 'Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
 		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
 		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
-		' adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
+		' adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit. ' +
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
 		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
 		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
 		' adipiscing elit',
 	},
-	theme: 'collapsible-selectable-panel',
 	onSelect: action('onselect'),
 };
 
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
 	selected: true,
-	icon: {
-		open: 'talend-plus-circle',
-		close: 'talend-caret-down', // TO DO replace it with coming minus-circle icon
-	},
 };
 
 const propsSelectedPanelWithoutContent = {
@@ -197,15 +194,22 @@ const propsSelectedPanelWithoutContent = {
 		timeStamp,
 	],
 	content: {},
-	theme: 'collapsible-selectable-panel',
 	onSelect: action('onselect'),
 	selected: true,
+};
+
+const propsCollapsibleSelectablePanelWithoutTag = {
+	...propsSelectedPanelWithoutContent,
+	header: [
+		version1,
+		timeStamp,
+	],
 };
 
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider defaultIcons={icons}/>
 			<p>By default :</p>
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
@@ -230,7 +234,7 @@ storiesOf('CollapsiblePanel', module)
 	))
 	.addWithInfo('Selectable Panel', () => (
 		(<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider defaultIcons={icons}/>
 			<p>Selected Panel With Content:</p>
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
@@ -238,6 +242,10 @@ storiesOf('CollapsiblePanel', module)
 			<p>Selectable Panel With Content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
+			</div>
+			<p>Selected Panel Without readonly tag and without content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
 			</div>
 			<br />
 			<p>Selected Panel Without content:</p>
