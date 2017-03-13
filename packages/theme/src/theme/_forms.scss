@@ -361,34 +361,38 @@ form {
 		}
 
 		+ *:before,
-		+ *:after {
+		+ *:after,
+		&:checked + *:before,
+		&:checked + *:after {
 			position: absolute;
 			content: '';
-			top: 0 !important;
-			left: 0 !important;
+			top: 0;
+			left: 0;
 			transition: background 0.2s ease, transform 0.2s ease;
 			border-radius: 100px;
 			border-color: transparent;
 		}
 
-		+ *:before {
-			width: 35px !important;
-			height: 15px !important;
+		+ *:before,
+		&:checked + *:before {
+			width: 35px;
+			height: 15px;
 			margin-top: 3px;
 			margin-left: 0;
 			background: tint($dove-gray, 40);
 			border: none;
-			transform: rotate(0deg) !important;
+			transform: rotate(0deg);
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 			box-sizing: content-box;
 		}
 
-		+ *:after {
+		+ *:after,
+		&:checked + *:after {
 			width: 20px;
 			height: 20px;
 			background: #F1F1F1;
-			box-shadow: 0 1px 1px 0 $dove-gray !important;
-			z-index: 1 !important;
+			box-shadow: 0 1px 1px 0 $dove-gray;
+			z-index: 1;
 		}
 
 		&:checked {
