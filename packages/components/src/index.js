@@ -8,7 +8,7 @@ import {
 	ButtonToolbar,
 	Carousel,
 	CarouselItem,
-	Checkbox,
+	Checkbox as BootstrapCheckbox,
 	Clearfix,
 	ControlLabel,
 	Col,
@@ -68,6 +68,7 @@ import {
 
 import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
+import Checkbox from './Checkbox';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
 import TalendBadge from './Badge';
@@ -101,6 +102,8 @@ export {
 	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
+	Checkbox,
+	BootstrapCheckbox,
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
@@ -131,7 +134,6 @@ export {
 	ButtonToolbar,
 	Carousel,
 	CarouselItem,
-	Checkbox,
 	Clearfix,
 	ControlLabel,
 	Col,
