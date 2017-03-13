@@ -760,12 +760,22 @@
                       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"><span>Checkbox</span>
+                          <input type="checkbox" checked=""><span>Checkbox</span>
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"><span>Checkbox with label wrapped into <code>span</code></span>
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"> Checkbox
+                          </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" disabled=""> Disabled checkbox
                         </label>
                       </div>
                     </div>
@@ -783,19 +793,25 @@
                       <div class="radio">
                         <label>
                           <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                          <span>Option one is this</span>
+                          <span>Option checked</span>
                         </label>
                       </div>
                       <div class="radio">
                         <label>
                           <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          <span>Option two can be something else</span>
+                          <span>Option with label wrapped into <code>span</code></span>
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Option two can be something else
+                          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                          Option
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4" disabled="">
+                          Disabled option
                         </label>
                       </div>
                     </div>
@@ -805,8 +821,14 @@
                     <div class="col-lg-10">
                       <div class="checkbox">
                         <label>
+                          <input type="checkbox" name="inputSwitch" checked="">
+                          <span>On</span>
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
                           <input type="checkbox" name="inputSwitch">
-                          <span>On / Off</span>
+                          <span>Off</span>
                         </label>
                       </div>
                     </div>
