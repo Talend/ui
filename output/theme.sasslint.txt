@@ -12,47 +12,32 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   20:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  170:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  291:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  297:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  368:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  381:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  394:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  417:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  453:15  error    !important not allowed                                   no-important
-  475:22  error    !important not allowed                                   no-important
-  477:14  error    !important not allowed                                   no-important
-  478:16  error    !important not allowed                                   no-important
-  479:15  error    !important not allowed                                   no-important
-  480:14  error    !important not allowed                                   no-important
-  496:25  error    !important not allowed                                   no-important
-  497:30  error    !important not allowed                                   no-important
-  501:17  error    !important not allowed                                   no-important
-  502:16  error    !important not allowed                                   no-important
-  504:19  error    !important not allowed                                   no-important
-  505:37  error    !important not allowed                                   no-important
-  506:28  error    !important not allowed                                   no-important
-  507:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  507:50  error    !important not allowed                                   no-important
-  514:39  error    !important not allowed                                   no-important
-  515:15  error    !important not allowed                                   no-important
-  520:12  error    !important not allowed                                   no-important
-  521:13  error    !important not allowed                                   no-important
-  522:36  error    !important not allowed                                   no-important
-  534:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  540:2   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  542:14  error    Strings must use single quotes                           quotes
-  544:20  error    !important not allowed                                   no-important
-  545:24  error    !important not allowed                                   no-important
+   20:10  error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+   21:7   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+   59:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+   66:2   warning  Expected indentation of 2 tabs but found 1                           indentation
+   74:6   warning  Vendor prefixes should not be used                                   no-vendor-prefixes
+  243:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+  256:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+  269:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+  292:9   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
+  328:15  error    !important not allowed                                               no-important
+  368:11  error    !important not allowed                                               no-important
+  369:12  error    !important not allowed                                               no-important
+  370:4   error    The keyword `all` should not be used with the property `transition`  no-transition-all
+  376:16  error    !important not allowed                                               no-important
+  377:17  error    !important not allowed                                               no-important
+  381:12  error    A value of `0` is not allowed. `none` must be used                   border-zero
+  382:28  error    !important not allowed                                               no-important
+  383:4   warning  Vendor prefixes should not be used                                   no-vendor-prefixes
+  391:39  error    !important not allowed                                               no-important
+  392:15  error    !important not allowed                                               no-important
+  397:17  error    Trailing semicolons required                                         trailing-semicolon
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 39 problems (31 errors, 8 warnings)
+✖ 24 problems (20 errors, 4 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
