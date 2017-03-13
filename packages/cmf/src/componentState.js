@@ -1,7 +1,8 @@
 import { PropTypes } from 'react';
+import { Map } from 'immutable';
 import { actions } from 'react-cmf';
 
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
 	return {
 		updateState(state) {
 			dispatch(
