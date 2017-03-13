@@ -166,6 +166,69 @@ form {
 		}
 	}
 
+	// Only for Firefox
+	@-moz-document url-prefix() {
+		.radio label {
+			padding: 0;
+			margin: 0;
+		}
+
+		input[type='radio'],
+		.radio input[type='radio'],
+		.radio-inline input[type='radio'] {
+			padding: 0;
+			margin: 0;
+			width: 0;
+			opacity: 0;
+
+			+ * {
+				position: relative;
+				margin-left: -6px;
+				padding-left: 25px;
+			}
+
+			+ *:before,
+			+ *:after {
+				position: absolute;
+				content: '';
+				display: inline-block;
+				top: 0;
+				left: 0;
+				width: 18px;
+				height: 18px;
+				transition: 240ms;
+				border-radius: 50%;
+			}
+
+			+ *:before {
+				transform: scale(0);
+				background-color: $brand-primary;
+			}
+
+			+ *:after {
+				border: 2px solid $gray;
+			}
+
+			&:checked + span:before {
+				transform: scale(0.6);
+				transition: linear;
+			}
+
+			&:disabled:checked + span:before {
+				background-color: $gray-light;
+			}
+
+			&:checked + span:after {
+				border-color: $brand-primary;
+			}
+
+			&:disabled + span:after,
+			&:disabled:checked + span:after {
+				border-color: $gray-light;
+			}
+		}
+	}
+
 	input[type='checkbox'],
 	.checkbox input[type='checkbox'],
 	.checkbox-inline input[type='checkbox'] {
@@ -221,6 +284,81 @@ form {
 		&:disabled:checked:after {
 			background-color: $gray-light;
 			border-color: transparent;
+		}
+	}
+
+	// Only for IE & Edge
+	_:-ms-lang(x),
+	.checkbox input[type='checkbox'] + * {
+		padding-left: 8px;
+	}
+
+	// Only for Firefox
+	@-moz-document url-prefix() {
+		.checkbox label {
+			margin: 0;
+			padding: 0;
+		}
+
+		input[type='checkbox'],
+		.checkbox input[type='checkbox'],
+		.checkbox-inline input[type='checkbox'] {
+			padding: 0;
+			margin: 0;
+			width: 0;
+			opacity: 0;
+
+			+ * {
+				position: relative;
+				margin-left: -4px;
+				padding-left: 25px;
+			}
+
+			&:focus + *:after {
+				border-color: $brand-primary;
+			}
+
+			+ *:after {
+				display: inline-block;
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				width: 18px;
+				height: 18px;
+				border: 2px solid $gray;
+				transition: 240ms;
+				border-radius: 2px;
+			}
+
+			&:checked + *:before {
+				position: absolute;
+				content: '';
+				display: table;
+				top: 1px;
+				left: 6px;
+				width: 6px;
+				height: 12px;
+				border: 2px solid #FFF;
+				border-top-width: 0;
+				border-left-width: 0;
+				transform: rotate(45deg);
+				z-index: 1;
+			}
+
+			&:checked + *:after {
+				background-color: $brand-primary;
+				border-color: $brand-primary;
+			}
+
+			&:disabled + *:after {
+				border-color: $gray-light;
+			}
+
+			&:disabled:checked + *:after {
+				background-color: $gray-light;
+				border-color: transparent;
+			}
 		}
 	}
 
@@ -355,33 +493,60 @@ form {
 			top: 0;
 			left: -25px;
 			transition: background 0.2s ease, transform 0.2s ease;
+			border-radius: 100px !important;
+			border-color: transparent !important;
 		}
 
 		+ *:before {
-			height: 15px;
-			width: 35px;
+			height: 15px !important;
+			width: 35px !important;
 			margin-top: 3px;
-			background: tint($dove-gray, 40);
-			border-radius: 100px;
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			margin-left: 0 !important;
+			background: tint($dove-gray, 40) !important;
+			transform: rotate(0deg) !important;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 		}
 
 		+ *:after {
 			width: 20px;
 			height: 20px;
-			border-radius: 100px;
 			background: #F1F1F1;
-			box-shadow: 0 1px 1px 0 $dove-gray;
+			box-shadow: 0 1px 1px 0 $dove-gray !important;
+			z-index: 1 !important;
 		}
 
 		&:checked {
 			+ *:before {
-				background: tint($scooter, 40);
+				top: 0 !important;
+				left: 0 !important;
+				background: tint($scooter, 40) !important;
 			}
 
 			+ *:after {
 				background: $scooter;
 				transform: translate(16px, 0);
+			}
+		}
+	}
+}
+
+// Only for IE & Edge
+_:-ms-lang(x),
+.switch input[type='checkbox'] + * {
+	padding-left: 15px;
+}
+
+// Only for Firefox
+@-moz-document url-prefix() {
+	.switch {
+		input[type="checkbox"] {
+			+ * {
+				margin-left: 0 !important;
+				padding-left: 45px !important;
+
+				&:before {
+					left: 0;
+				}
 			}
 		}
 	}
