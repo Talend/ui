@@ -12,32 +12,28 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   20:10  error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-   21:7   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-   59:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-   66:2   warning  Expected indentation of 2 tabs but found 1                           indentation
-   74:6   warning  Vendor prefixes should not be used                                   no-vendor-prefixes
-  243:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-  256:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-  269:8   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-  292:9   error    Qualifying elements are not allowed for class selectors              no-qualifying-elements
-  328:15  error    !important not allowed                                               no-important
-  368:11  error    !important not allowed                                               no-important
-  369:12  error    !important not allowed                                               no-important
-  370:4   error    The keyword `all` should not be used with the property `transition`  no-transition-all
-  376:16  error    !important not allowed                                               no-important
-  377:17  error    !important not allowed                                               no-important
-  381:12  error    A value of `0` is not allowed. `none` must be used                   border-zero
-  382:28  error    !important not allowed                                               no-important
-  383:4   warning  Vendor prefixes should not be used                                   no-vendor-prefixes
-  391:39  error    !important not allowed                                               no-important
-  392:15  error    !important not allowed                                               no-important
-  397:17  error    Trailing semicolons required                                         trailing-semicolon
+   20:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  242:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  255:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  268:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  291:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  327:15  error    !important not allowed                                   no-important
+  367:11  error    !important not allowed                                   no-important
+  368:12  error    !important not allowed                                   no-important
+  375:16  error    !important not allowed                                   no-important
+  376:17  error    !important not allowed                                   no-important
+  381:28  error    !important not allowed                                   no-important
+  382:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  390:39  error    !important not allowed                                   no-important
+  391:15  error    !important not allowed                                   no-important
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 24 problems (20 errors, 4 warnings)
+✖ 20 problems (17 errors, 3 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
