@@ -23,6 +23,14 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map())
 				),
 			);
 		},
+		deleteState() {
+			dispatch(
+				actions.componentsActions.removeComponentState(
+					name,
+					id,
+				),
+			);
+		},
 	};
 }
 
