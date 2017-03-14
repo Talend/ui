@@ -10,11 +10,6 @@ $tc-enumeration-header-height: 28px !default;
 	align-items: center;
 	height: $tc-enumeration-header-height;
 
-	span {
-		line-height: 30px;
-		text-align: left;
-	}
-
 	input {
 		box-shadow: none;
 		outline: none;
