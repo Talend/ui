@@ -89,6 +89,7 @@
     "webpack": "^1.14.0"
   },
   "jest": {
+    "collectCoverageFrom" : ["src/**/*.{js,jsx}", "!**/node_modules/**", "!**/__snapshots__/**"],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
