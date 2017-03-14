@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
@@ -204,7 +204,7 @@ class EnumerationWidget extends React.Component {
 		this.setState({
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: result,
-		});
+		}, this.setFormData.bind(this));
 	}
 
 	onAddHandler(event, value) {
@@ -226,6 +226,9 @@ class EnumerationWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(this.state.items);
+		if (this.props.onBlur) {
+			this.props.onBlur(this.props.id, this.state.items);
+		}
 	}
 
 	updateHeaderInputDisabled(value) {
@@ -258,6 +261,15 @@ class EnumerationWidget extends React.Component {
 			</div>
 		);
 	}
+}
+
+if (process.env.NODE_ENV !== 'production') {
+	EnumerationWidget.propTypes = {
+		id: PropTypes.string,
+		formData: PropTypes.array,
+		onChange: PropTypes.func.isRequired,
+		onBlur: PropTypes.func,
+	};
 }
 
 export default EnumerationWidget;

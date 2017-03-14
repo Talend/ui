@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 import {
 	defaultFieldValue,
 	getWidget,
-	optionsList,
 	getUiOptions,
+	optionsList,
 	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
 import CheckboxWidget from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';

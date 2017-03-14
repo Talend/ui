@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.64.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.65.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -16,9 +16,9 @@ src/Drawer/Drawer.scss
   24:14  warning  No unit allowed for values of 0                                           zero-unit
   24:18  warning  No unit allowed for values of 0                                           zero-unit
   24:27  warning  No unit allowed for values of 0                                           zero-unit
-  34:34  warning  Whitespace required before {                                              space-before-brace
-  46:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
-  54:1   warning  Space expected between blocks                                             empty-line-between-blocks
+  36:34  warning  Whitespace required before {                                              space-before-brace
+  48:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
+  56:1   warning  Space expected between blocks                                             empty-line-between-blocks
 
 src/List/Toolbar/Filter/Filter.scss
   14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements

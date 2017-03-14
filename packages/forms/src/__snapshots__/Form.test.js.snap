@@ -26,7 +26,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           disabled={false}
           id="root_name"
           label="Name"
-          onBlur={undefined}
+          onBlur={[Function]}
           onChange={[Function]}
           placeholder=""
           readOnly={false}
@@ -36,7 +36,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
         <label
           className="control-label"
           htmlFor="root_name">
-          Name
+          Name*
         </label>
         <div />
         <div />
@@ -50,7 +50,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           disabled={false}
           id="root_roles"
           multiple={undefined}
-          onBlur={undefined}
+          onBlur={[Function]}
           onChange={[Function]}
           readOnly={false}
           required={false}
