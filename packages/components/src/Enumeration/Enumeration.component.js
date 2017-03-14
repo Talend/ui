@@ -56,7 +56,7 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 		case DISPLAY_MODE_SELECTED: {
 			const propsSelected = {
 				headerSelected,
-				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+				nbItemsSelected: items.filter(item => item.isSelected).length,
 			};
 			return <HeaderSelected {...propsSelected} />;
 		}

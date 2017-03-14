@@ -19,7 +19,7 @@ const props = {
 function TooltipTrigger(props) {
 	const tooltip = (<Tooltip id={uuid.v4()}>{props.label}</Tooltip>);
 	return (
-		<OverlayTrigger placement={props.tooltipPlacement} overlay={tooltip}>
+		<OverlayTrigger placement={props.tooltipPlacement} overlay={tooltip} delay={400} >
 			{props.children}
 		</OverlayTrigger>
 	);

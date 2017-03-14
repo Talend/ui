@@ -103,7 +103,7 @@
       "src",
       "__mocks__"
     ],
-    "testRegex": "&*\\.test\\.js$",
+    "testRegex": "MyButton.snapshot.test.js",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
