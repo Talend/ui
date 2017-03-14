@@ -61,7 +61,7 @@ describe('Toggle', () => {
 		// given
 		const props = {
 			...defaultProps,
-			classes: 'checkbox',
+			className: 'checkbox',
 		};
 
 		// when
