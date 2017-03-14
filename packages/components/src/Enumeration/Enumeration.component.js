@@ -75,43 +75,43 @@ function HeaderEnumeration(
 	{ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
 ) {
 	switch (displayMode) {
-		case DISPLAY_MODE_ADD: {
-			const propsInput = {
-				headerInput,
-				onAddChange,
-				onAddKeyDown,
-			};
+	case DISPLAY_MODE_ADD: {
+		const propsInput = {
+			headerInput,
+			onAddChange,
+			onAddKeyDown,
+		};
 
-			return <HeaderInput {...propsInput} />;
-		}
-		case DISPLAY_MODE_DEFAULT: {
-			const propsDefault = {
-				headerDefault,
-				onAddChange,
-			};
+		return <HeaderInput {...propsInput} />;
+	}
+	case DISPLAY_MODE_DEFAULT: {
+		const propsDefault = {
+			headerDefault,
+			onAddChange,
+		};
 
-			return <Header {...propsDefault} />;
-		}
+		return <Header {...propsDefault} />;
+	}
 
-		case DISPLAY_MODE_EDIT: {
-			const propsDefault = {
-				headerDefault,
-				onAddChange,
-			};
+	case DISPLAY_MODE_EDIT: {
+		const propsDefault = {
+			headerDefault,
+			onAddChange,
+		};
 
-			return <Header {...propsDefault} isEdit />;
-		}
+		return <Header {...propsDefault} isEdit />;
+	}
 
-		case DISPLAY_MODE_SELECTED: {
-			const propsSelected = {
-				headerSelected,
-				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-			};
-			return <HeaderSelected {...propsSelected} />;
-		}
+	case DISPLAY_MODE_SELECTED: {
+		const propsSelected = {
+			headerSelected,
+			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+		};
+		return <HeaderSelected {...propsSelected} />;
+	}
 
-		default:
-			return null;
+	default:
+		return null;
 	}
 }
 

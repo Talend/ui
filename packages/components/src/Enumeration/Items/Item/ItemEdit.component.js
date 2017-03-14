@@ -72,7 +72,7 @@ class ItemEdit extends React.Component {
 				label={action.label}
 				icon={action.icon}
 				disabled={action.disabled}
-				onClick={(event) => this.onActionClick(event, action)}
+				onClick={event => this.onActionClick(event, action)}
 				tooltipPlacement="bottom"
 				hideLabel
 				link
