@@ -193,7 +193,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						cid: DEFAULT_STATE.toJS(),
 					},
 				}),
@@ -215,7 +215,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						default: DEFAULT_STATE.toJS(),
 					},
 				}),
@@ -237,7 +237,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						cid: {
 							...(DEFAULT_STATE.toJS()),
 							toolbar: {
