@@ -21,7 +21,6 @@ const structure = [
 				],
 			},
 		],
-		counter: 913,
 	},
 ];
 
