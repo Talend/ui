@@ -115,6 +115,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 
 		> * {
 			@include col-style;
+			text-decoration: none;
 			margin: auto 5px;
 			padding: 10px 5px;
 		}
@@ -123,6 +124,10 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 
 .collapsible-panel {
 	position: relative;
+
+	&.selected-panel {
+		border-left: 4px solid #6aa9d1;
+	}
 
 	&.selectable {
 		border-radius: 0;
@@ -139,7 +144,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 			position: relative;
 
 			a {
-				> div {
+				> a {
 					margin: 0;
 					padding: 10px 5px;
 				}
@@ -152,10 +157,6 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 					}
 				}
 			}
-		}
-
-		&.selected-panel {
-			border-left: 4px solid #6aa9d1;
 		}
 
 		:global(.panel-body) {
@@ -201,7 +202,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 		font-size: 1em;
 		position: relative;
 
-		a {
+		> a {
 			@include header-style;
 			text-decoration: none;
 
@@ -236,6 +237,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 
 			> * {
 				margin: auto $tc-collapsible-panel-padding-normal;
+				text-decoration: none;
 			}
 
 			.group {

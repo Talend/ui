@@ -78,7 +78,6 @@ const propsPanel = {
 		button,
 		label3,
 	],
-	content: [],
 };
 
 const propsPanelWithActions = {
@@ -100,7 +99,6 @@ const propsPanelWithoutActions = {
 		{},
 		label3,
 	],
-	content: [],
 };
 
 const propsCollapsiblePanel = {
@@ -193,7 +191,6 @@ const propsSelectedPanelWithoutContent = {
 		[version1, readOnlyLabel],
 		timeStamp,
 	],
-	content: {},
 	onSelect: action('onselect'),
 	selected: true,
 };
@@ -230,11 +227,13 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
+			<p>Selected CollapsiblePanel:</p>
+			<CollapsiblePanel {...propsCollapsiblePanel} selected />
 		</div>
 	))
 	.addWithInfo('Selectable Panel', () => (
 		(<div>
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>Selected Panel With Content:</p>
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />

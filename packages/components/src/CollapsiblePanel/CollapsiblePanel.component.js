@@ -23,6 +23,7 @@ function getActionHandler(func, item) {
 function selectPanel(cb) {
 	return function actionHandler(e) {
 		e.stopPropagation();
+		e.preventDefault();
 		cb(e);
 	};
 }
@@ -111,17 +112,21 @@ function renderHeader({ header, caret, onSelect }) {
 		if (Array.isArray(headerItem)) {
 			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<div key={index}
+				<a
+					href
+					key={index}
 					className={classNames(css.group, css[headerColumnClass])}
 					onClick={onSelect && selectPanel(onSelect)}
-				>{elements}</div>
+				>{elements}</a>
 			);
 		}
 		return (
-			<div key={index}
+			<a
+				href
+				key={index}
 				className={classNames(css[headerItem.className], css[headerColumnClass])}
 				onClick={onSelect && selectPanel(onSelect)}
-			>{renderHeaderItem(headerItem)}</div>
+			>{renderHeaderItem(headerItem)}</a>
 		);
 	});
 
@@ -174,35 +179,27 @@ function getTextualContent(content) {
 }
 
 function CollapsiblePanel({ header, content, onSelect, selected }) {
-	// case of Normal panel with key value content
-	if (!onSelect) {
-		const hasContent = content && content.length;
-		const headerItems = renderHeader({ header, caret: hasContent });
-		if (hasContent) {
-			return (
-				<Panel className={css['collapsible-panel']} collapsible header={headerItems}>
-					{getKeyValueContent(content)}
-				</Panel>
-			);
-		}
-		return (<Panel className={`${css['tc-panel']}`} header={headerItems} />);
+	const headerItems = renderHeader({ header, caret: content, onSelect });
+	const className = classNames(css['collapsible-panel'],
+		onSelect && css.selectable,
+		selected && css['selected-panel']);
+	const noContentClassName = classNames(
+		{ [css['tc-selectable-panel']]: onSelect, [css['tc-panel']]: !onSelect },
+		selected && css['selected-panel']
+	);
+	let children = null;
+	if (content) {
+		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
-
-	// case of Selectable Panel
-	const hasContent = content && content.upper && content.upper.length;
-	const headerItems = renderHeader({ header, caret: hasContent, onSelect });
-	if (hasContent) {
-		const className = classNames(css['collapsible-panel'],
-			css.selectable,
-			selected && css['selected-panel']);
-		return (
-			<Panel className={className} collapsible header={headerItems}>
-				{getTextualContent(content)}
-			</Panel>
-		);
-	}
-	const className = classNames(css['tc-selectable-panel'], selected && css['selected-panel']);
-	return (<Panel className={className} header={headerItems} />);
+	return (
+		<Panel
+			className={content ? className : noContentClassName}
+			collapsible={!!content}
+			header={headerItems}
+		>
+			{children}
+		</Panel>
+	);
 }
 
 

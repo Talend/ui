@@ -115,7 +115,6 @@ const propsSelectablePanelWithoutContent = {
 		[version1, readOnlyLabel],
 		timeStamp,
 	],
-	content: {},
 	onSelect: jest.fn(),
 	selected: true,
 };
@@ -130,7 +129,7 @@ describe('CollapsiblePanel', () => {
 	});
 	it('should render CollapsiblePanel without content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...props} content={[]}/>).toJSON();
+		const wrapper = renderer.create(<CollapsiblePanel {...props} content={null} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -150,7 +149,7 @@ describe('Selectable Collapsible Panel', () => {
 	it('should render without content', () => {
 		// when
 		const wrapper = renderer.create(
-			<CollapsiblePanel {...propsSelectablePanelWithoutContent} />)
+			<CollapsiblePanel {...propsSelectablePanelWithoutContent} content={null} />)
 			.toJSON();
 
 		// then

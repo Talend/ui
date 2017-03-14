@@ -21,8 +21,9 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
         onClick={[Function]}
         role={undefined}
       >
-        <div
+        <a
           className=""
+          href={true}
           onClick={undefined}
         >
           <div
@@ -81,9 +82,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
               </div>
             </span>
           </div>
-        </div>
-        <div
+        </a>
+        <a
           className=""
+          href={true}
           onClick={undefined}
         >
           <button
@@ -104,9 +106,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
               title={null}
             />
           </button>
-        </div>
-        <div
+        </a>
+        <a
           className=""
+          href={true}
           onClick={undefined}
         >
           <span
@@ -120,9 +123,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           >
             by Charles
           </span>
-        </div>
-        <div
+        </a>
+        <a
           className=""
+          href={true}
           onClick={undefined}
         >
           <span
@@ -147,7 +151,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel with content 1`] = `
           >
             XML
           </span>
-        </div>
+        </a>
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
@@ -201,8 +205,9 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
   <div
     className="panel-heading"
   >
-    <div
+    <a
       className=""
+      href={true}
       onClick={undefined}
     >
       <div
@@ -261,9 +266,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
           </div>
         </span>
       </div>
-    </div>
-    <div
+    </a>
+    <a
       className=""
+      href={true}
       onClick={undefined}
     >
       <button
@@ -284,9 +290,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
           title={null}
         />
       </button>
-    </div>
-    <div
+    </a>
+    <a
       className=""
+      href={true}
       onClick={undefined}
     >
       <span
@@ -300,9 +307,10 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       >
         by Charles
       </span>
-    </div>
-    <div
+    </a>
+    <a
       className=""
+      href={true}
       onClick={undefined}
     >
       <span
@@ -327,7 +335,7 @@ exports[`CollapsiblePanel should render CollapsiblePanel without content 1`] = `
       >
         XML
       </span>
-    </div>
+    </a>
   </div>
 </div>
 `;
@@ -353,8 +361,9 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
         onClick={[Function]}
         role={undefined}
       >
-        <div
+        <a
           className=""
+          href={true}
           onClick={[Function]}
         >
           <span
@@ -379,9 +388,10 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
           >
             (Read Only)
           </span>
-        </div>
-        <div
+        </a>
+        <a
           className=""
+          href={true}
           onClick={[Function]}
         >
           <span
@@ -395,7 +405,7 @@ exports[`Selectable Collapsible Panel should render with content 1`] = `
           >
             03/02/2017 14:44
           </span>
-        </div>
+        </a>
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
@@ -464,8 +474,9 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
   <div
     className="panel-heading"
   >
-    <div
+    <a
       className=""
+      href={true}
       onClick={[Function]}
     >
       <span
@@ -490,9 +501,10 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
       >
         (Read Only)
       </span>
-    </div>
-    <div
+    </a>
+    <a
       className=""
+      href={true}
       onClick={[Function]}
     >
       <span
@@ -506,7 +518,7 @@ exports[`Selectable Collapsible Panel should render without content 1`] = `
       >
         03/02/2017 14:44
       </span>
-    </div>
+    </a>
   </div>
 </div>
 `;
