@@ -20,6 +20,14 @@ describe('Action', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should render a button with a form property', () => {
+		// when
+		const wrapper = renderer.create(<Action form="myForm" type="submit" {...myAction} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should click on the button trigger the onclick props', () => {
 		// given
 		const wrapper = renderer.create(<Action extra="extra" {...myAction} />).toJSON();
