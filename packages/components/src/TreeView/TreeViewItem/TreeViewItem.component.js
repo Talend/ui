@@ -43,6 +43,7 @@ function TreeViewItem({
 		children = [],
 		actions,
 		icon = 'talend-folder',
+		counter = children.length,
 	} = item;
 	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 
@@ -93,7 +94,7 @@ function TreeViewItem({
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
 				<div className={'tc-treeview-item-ctrl'}>
-					{showCounter && <Badge label={children.length.toString()} />}
+					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
 			</div>
@@ -119,6 +120,7 @@ TreeViewItem.propTypes = {
 			label: PT.string,
 			icon: PT.string,
 		})),
+		counter: PT.number,
 	}).isRequired,
 	itemSelectCallback: PT.func.isRequired,
 	itemToggleCallback: PT.func.isRequired,
