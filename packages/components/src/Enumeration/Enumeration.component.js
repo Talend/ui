@@ -22,10 +22,59 @@ function enumerationClasses() {
 	});
 }
 
-function Enumeration({ displayMode, headerDefault, headerInput,
-	headerSelected, items, itemsProp, onAddChange, onAddKeyDown, currentEdit }) {
-	function getHeader() {
-		switch (displayMode) {
+function Enumeration(props) {
+	return (
+		<div className={enumerationClasses()}>
+			<HeaderEnumeration {...props} />
+			<ItemsEnumeration {...props} />
+		</div>
+	);
+}
+
+Enumeration.propTypes = {
+	displayMode: PropTypes.oneOf(
+		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED, DISPLAY_MODE_EDIT]),
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
+	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	items: PropTypes.arrayOf(PropTypes.shape({
+		values: PropTypes.arrayOf(PropTypes.string),
+	})).isRequired,
+	itemsProp: PropTypes.shape({
+		key: PropTypes.string,
+		onSubmitItem: PropTypes.func,
+		onChangeItem: PropTypes.func,
+		onSelectItem: PropTypes.func,
+		onAbortItem: PropTypes.func,
+		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+	}).isRequired,
+	onAddChange: PropTypes.func.isRequired,
+	onAddKeyDown: PropTypes.func,
+	...ItemEditPropTypes,
+};
+
+function ItemsEnumeration({ items, itemsProp, currentEdit }) {
+	if (items.length > 0) {
+		return (<Items
+			items={items}
+			itemsProp={itemsProp}
+			currentEdit={currentEdit}
+		/>);
+	}
+	return null;
+}
+
+ItemsEnumeration.propTypes = {
+	items: Enumeration.propTypes.items,
+	itemsProp: Enumeration.propTypes.itemsProp,
+	...ItemEditPropTypes,
+};
+
+function HeaderEnumeration(
+	{ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
+) {
+	switch (displayMode) {
 		case DISPLAY_MODE_ADD: {
 			const propsInput = {
 				headerInput,
@@ -56,49 +105,24 @@ function Enumeration({ displayMode, headerDefault, headerInput,
 		case DISPLAY_MODE_SELECTED: {
 			const propsSelected = {
 				headerSelected,
-				nbItemsSelected: items.filter(item => item.isSelected).length,
+				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
 			};
 			return <HeaderSelected {...propsSelected} />;
 		}
 
 		default:
 			return null;
-		}
 	}
-
-	return (
-		<div className={enumerationClasses()}>
-			{getHeader()}
-			<Items
-				items={items}
-				itemsProp={itemsProp}
-				currentEdit={currentEdit}
-			/>
-		</div>
-	);
 }
 
-Enumeration.propTypes = {
-	displayMode: PropTypes.oneOf(
-		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED, DISPLAY_MODE_EDIT]),
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
-	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
-	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
-	items: PropTypes.arrayOf(PropTypes.shape({
-		values: PropTypes.arrayOf(PropTypes.string),
-	})).isRequired,
-	itemsProp: PropTypes.shape({
-		key: PropTypes.string,
-		onSubmitItem: PropTypes.func,
-		onChangeItem: PropTypes.func,
-		onSelectItem: PropTypes.func,
-		onAbortItem: PropTypes.func,
-		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-	}).isRequired,
-	onAddChange: PropTypes.func.isRequired,
-	onAddKeyDown: PropTypes.func,
-	...ItemEditPropTypes,
+HeaderEnumeration.propTypes = {
+	displayMode: Enumeration.propTypes.displayMode,
+	headerInput: Enumeration.propTypes.headerInput,
+	headerDefault: Enumeration.propTypes.headerDefault,
+	headerSelected: Enumeration.propTypes.headerSelected,
+	onAddChange: Enumeration.propTypes.onAddChange,
+	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
+	items: Enumeration.propTypes.items,
 };
 
 export default Enumeration;

@@ -983,3 +983,39 @@ exports[`Enumeration should render with header in selected state with trash icon
   </ul>
 </div>
 `;
+
+exports[`Enumeration should render with header without items 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      Values
+    </span>
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-plus"
+        />
+      </svg>
+    </button>
+  </header>
+</div>
+`;
