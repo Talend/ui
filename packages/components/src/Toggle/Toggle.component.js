@@ -9,7 +9,7 @@ import classNames from 'classnames';
  * @param checked {boolean}: sets the state of the toggle to be On or Off
  * @param disabled {boolean}: enables the read-only no-interaction mode
  * @param label {string}: a status label to be shown near toggle
- * @param classes {array}: classNames or className to be added to root div
+ * @param classes {(string|string[])}: classNames or className to be added to root div
  *
  * Required: [ id, onChange ]
  * Defaults: { checked: false, disabled: false, label: '', classes: ['switch', 'checkbox'] }
@@ -48,7 +48,5 @@ Toggle.propTypes = {
 	disabled: PropTypes.bool,
 	classes: PropTypes.oneOf([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
 };
-
-export const Checkbox = params => (<Toggle classes={'checkbox'} {...params} />);
 
 export default Toggle;
