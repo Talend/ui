@@ -120,8 +120,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-   50:18  error  'formData' is missing in props validation  react/prop-types
-  228:14  error  'onChange' is missing in props validation  react/prop-types
+   49:18  error  'formData' is missing in props validation  react/prop-types
+  227:14  error  'onChange' is missing in props validation  react/prop-types
 
 ✖ 107 problems (107 errors, 0 warnings)
 
