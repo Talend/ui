@@ -103,6 +103,7 @@ export default function cmfConnect({
 		keepComponentState,
 		mapStateToProps,
 		mapDispatchToProps,
+		mergeProps,
 		...rest,
 	}) {
 	return function wrapWithCMF(WrappedComponent) {
@@ -142,7 +143,7 @@ export default function cmfConnect({
 					);
 				}
 				if (!keepComponentState) {
-					this.props.updateState();
+					this.props.deleteState();
 				}
 			}
 
@@ -156,7 +157,6 @@ export default function cmfConnect({
 				);
 			}
 		}
-
 		return connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
@@ -173,7 +173,8 @@ export default function cmfConnect({
 				ownProps,
 				WrappedComponent,
 			}),
-			...rest,
+			mergeProps,
+			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
 	};
 }

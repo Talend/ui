@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'bootstrap-talend-theme'
 
-> bootstrap-talend-theme@0.65.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> bootstrap-talend-theme@0.66.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -16,22 +16,17 @@ src/theme/_forms.scss
    21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  230:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  243:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  256:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  279:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  315:15  error    !important not allowed                                   no-important
-  337:22  error    !important not allowed                                   no-important
-  339:14  error    !important not allowed                                   no-important
-  340:16  error    !important not allowed                                   no-important
-  341:15  error    !important not allowed                                   no-important
-  342:14  error    !important not allowed                                   no-important
-  366:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  242:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  255:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  268:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  291:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  327:15  error    !important not allowed                                   no-important
+  385:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 18 problems (15 errors, 3 warnings)
+✖ 13 problems (10 errors, 3 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
