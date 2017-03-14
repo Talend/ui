@@ -1,12 +1,14 @@
-import mock from 'react-cmf/lib/mock';
+import React from 'react';
 import { fromJS } from 'immutable';
+import { shallow } from 'enzyme';
+import mock from '../src/mock';
 
 import cmfConnect, {
 	getComponentName,
 	getComponentId,
 	getStateToProps,
 	getDispatchToProps,
-} from './cmfConnect';
+} from '../src/cmfConnect';
 
 describe('cmfConnect.getComponentName', () => {
 	it('should return displayName', () => {
@@ -60,5 +62,44 @@ describe('cmfConnect.getStateToProps', () => {
 			WrappedComponent: { displayName: 'TestComponent' },
 		});
 		expect(props.state.get('foo')).toBe('bar');
+	});
+});
+
+describe('cmfConnect.getDispatchToProps', () => {
+	it('should call getStateAccessors', () => {
+		const dispatch = jest.fn();
+		const mapDispatchToProps = jest.fn();
+		const ownProps = {};
+		const props = getDispatchToProps({
+			componentId: 'testId',
+			ownProps,
+			dispatch,
+			mapDispatchToProps,
+			WrappedComponent: { displayName: 'TestComponent' },
+		});
+		expect(props.dispatch).toBe(dispatch);
+		expect(typeof props.dispatchActionCreator).toBe('function');
+		expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
+		expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);
+		const cmfProps = mapDispatchToProps.mock.calls[0][2];
+		expect(props.initState).toBe(cmfProps.initState);
+		expect(props.updateState).toBe(cmfProps.updateState);
+		expect(props.deleteState).toBe(cmfProps.deleteState);
+		expect(props.dispatchActionCreator).toBe(cmfProps.dispatchActionCreator);
+	});
+});
+
+describe('cmfConnect', () => {
+	it('should create a connected component', () => {
+		const TestComponent = jest.fn();
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+		expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		const wrapper = shallow(
+			<CMFConnected />,
+			{ context: mock.context() },
+		);
+		expect(wrapper.props()).toMatchSnapshot();
 	});
 });

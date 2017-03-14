@@ -1,13 +1,13 @@
 import { PropTypes } from 'react';
 import Immutable, { Map } from 'immutable';
-import actions from './actions/';
+import actions from '../src/actions/';
 
 import state, {
 	getStateAccessors,
 	getStateProps,
 	initState,
 	statePropTypes,
-} from './componentState';
+} from '../src/componentState';
 
 describe('state', () => {
 	it('should default import have all the things', () => {
@@ -34,6 +34,7 @@ describe('state', () => {
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 		expect(typeof props.updateState).toBe('function');
 		expect(typeof props.initState).toBe('function');
+		expect(typeof props.deleteState).toBe('function');
 
 		props.initState();
 		let call = dispatch.mock.calls[0][0];
@@ -51,6 +52,11 @@ describe('state', () => {
 		expect(call.componentName).toBe('name');
 		expect(call.key).toBe('id');
 		expect(call.componentState.foo).toBe('baz');
+
+		props.deleteState();
+		call = dispatch.mock.calls[2][0];
+		expect(call.componentName).toBe('name');
+		expect(call.key).toBe('id');
 	});
 
 	it('should getStateProps return state', () => {
