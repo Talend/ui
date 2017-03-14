@@ -77,9 +77,7 @@ exports[`Enumeration should render with header in add state and list in default 
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 0
-        </span>
+        Lorem ipsum dolor sit amet 0
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -145,9 +143,7 @@ exports[`Enumeration should render with header in add state and list in default 
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 1
-        </span>
+        Lorem ipsum dolor sit amet 1
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -213,9 +209,7 @@ exports[`Enumeration should render with header in add state and list in default 
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 2
-        </span>
+        Lorem ipsum dolor sit amet 2
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -381,9 +375,7 @@ exports[`Enumeration should render with header in default state and first item i
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 1
-        </span>
+        Lorem ipsum dolor sit amet 1
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -449,9 +441,7 @@ exports[`Enumeration should render with header in default state and first item i
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 2
-        </span>
+        Lorem ipsum dolor sit amet 2
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -557,9 +547,7 @@ exports[`Enumeration should render with header in default state and list in defa
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 0
-        </span>
+        Lorem ipsum dolor sit amet 0
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -625,9 +613,7 @@ exports[`Enumeration should render with header in default state and list in defa
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 1
-        </span>
+        Lorem ipsum dolor sit amet 1
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -693,9 +679,7 @@ exports[`Enumeration should render with header in default state and list in defa
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 2
-        </span>
+        Lorem ipsum dolor sit amet 2
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -791,9 +775,7 @@ exports[`Enumeration should render with header in selected state with trash icon
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 0
-        </span>
+        Lorem ipsum dolor sit amet 0
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -859,9 +841,7 @@ exports[`Enumeration should render with header in selected state with trash icon
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 1
-        </span>
+        Lorem ipsum dolor sit amet 1
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
@@ -927,9 +907,7 @@ exports[`Enumeration should render with header in selected state with trash icon
         onMouseOver={[Function]}
         type="button"
       >
-        <span>
-          Lorem ipsum dolor sit amet 2
-        </span>
+        Lorem ipsum dolor sit amet 2
       </button>
       <div
         className="undefined tc-enumeration-item-actions"
