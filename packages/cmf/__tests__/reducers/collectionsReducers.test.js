@@ -1,6 +1,6 @@
 import { Map, List, fromJS } from 'immutable';
 
-import collectionsReducers, { defaultState } from '../../src/reducers/collectionsReducers';
+import collectionsReducers, { defaultState, getId } from '../../src/reducers/collectionsReducers';
 
 describe('check collection management reducer', () => {
 	const initialState = defaultState.set('collection1', 'super data');
@@ -175,5 +175,29 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				}))
 			);
 		});
+	});
+});
+
+describe('getId', () => {
+	it('should return mutable element id', () => {
+		// given
+		const element = { id: 'toto' };
+
+		// when
+		const id = getId(element);
+
+		// then
+		expect(id).toBe('toto');
+	});
+
+	it('should return immutable element id', () => {
+		// given
+		const element = fromJS({ id: 'toto' });
+
+		// when
+		const id = getId(element);
+
+		// then
+		expect(id).toBe('toto');
 	});
 });

@@ -9,7 +9,7 @@ export const defaultState = new Map();
 /**
  * Get element id. If it doesn't have "id" property, we consider it as immutable.
  */
-function getId(element) {
+export function getId(element) {
 	const id = element.id;
 	if (id === undefined) {
 		return element.get('id');
