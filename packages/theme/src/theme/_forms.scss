@@ -356,9 +356,10 @@ form {
 	}
 
 	&-control:focus,
+	&-control[value]:not([value='']):focus
 	{
 		+ label {
-			opacity: 1 !important;
+			opacity: 1;
 		}
 	}
 
