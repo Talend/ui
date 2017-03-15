@@ -106,7 +106,6 @@ class DatalistWidget extends React.Component {
 
 		this.inputProps = {
 			required: props.required,
-			onBlur: () => this.onBlur(),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.initSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
