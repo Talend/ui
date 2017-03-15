@@ -134,7 +134,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 114 problems (114 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ToggleWidget.js
+  12:77  error  'checked' is missing in props validation  react/prop-types
+
+✖ 115 problems (115 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
