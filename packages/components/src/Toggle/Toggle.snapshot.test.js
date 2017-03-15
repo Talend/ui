@@ -57,4 +57,17 @@ describe('Toggle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render a Checkbox', () => {
+		// given
+		const props = {
+			...defaultProps,
+			className: 'checkbox',
+		};
+
+		// when
+		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });
