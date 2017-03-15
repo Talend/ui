@@ -128,9 +128,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   132:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   139:53  error  Multiple spaces found before 'target'         no-multi-spaces
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-  172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 112 problems (112 errors, 0 warnings)
+✖ 111 problems (111 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
