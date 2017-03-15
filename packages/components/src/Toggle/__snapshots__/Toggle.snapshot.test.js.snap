@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Toggle should render a Checkbox 1`] = `
+<div
+  className="tc-toggle checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
 exports[`Toggle should render a Toggle 1`] = `
 <div
   className="tc-toggle switch checkbox"
