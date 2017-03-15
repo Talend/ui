@@ -7,6 +7,17 @@ import ACTIONS from '../actions';
 export const defaultState = new Map();
 
 /**
+ * Get element id. If it doesn't have "id" property, we consider it as immutable.
+ */
+export function getId(element) {
+	const id = element.id;
+	if (id === undefined) {
+		return element.get('id');
+	}
+	return id;
+}
+
+/**
  * addElementToCollection
  *
  * @param state current redux state
@@ -31,7 +42,7 @@ function addCollectionElement(state, action) {
 
 function deleteListElements(state, action) {
 	function shouldBeRemoved(element) {
-		return action.operations.delete.indexOf(element.id) >= 0;
+		return action.operations.delete.indexOf(getId(element)) >= 0;
 	}
 
 	const collection = state.get(action.id);
@@ -67,13 +78,10 @@ function deleteCollectionElement(state, action) {
 		const collection = state.get(action.id);
 		if (Map.isMap(collection)) {
 			return deleteMapElements(state, action);
-		}
-		else if (List.isList(collection)) {
+		} else if (List.isList(collection)) {
 			return deleteListElements(state, action);
 		}
-		else {
-			throw new Error('CMF collection deletion is only compatible with ImmutableJs List and Map');
-		}
+		throw new Error('CMF collection deletion is only compatible with ImmutableJs List and Map');
 	}
 	return state;
 }
@@ -83,7 +91,7 @@ function updateListElements(state, action) {
 
 	const changedCollection = state
 		.get(action.id)
-		.map(element => updates[element.id] || element);
+		.map(element => updates[getId(element)] || element);
 	return state.set(action.id, changedCollection);
 }
 
@@ -108,13 +116,10 @@ function updateCollectionElement(state, action) {
 		const collection = state.get(action.id);
 		if (Map.isMap(collection)) {
 			return updateMapElements(state, action);
-		}
-		else if (List.isList(collection)) {
+		} else if (List.isList(collection)) {
 			return updateListElements(state, action);
 		}
-		else {
-			throw new Error('CMF collection update is only compatible with ImmutableJs List and Map');
-		}
+		throw new Error('CMF collection update is only compatible with ImmutableJs List and Map');
 	}
 	return state;
 }
@@ -140,7 +145,7 @@ function mutateCollection(state, action) {
  * @param  {object} action redux action
  * @return {object}        the new state
  */
-export function collectionsReducers(state = defaultState, action) {
+function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
 	case ACTIONS.collectionsActions.COLLECTION_ADD_OR_REPLACE:
 		return state.set(action.collectionId, fromJS(action.data));
