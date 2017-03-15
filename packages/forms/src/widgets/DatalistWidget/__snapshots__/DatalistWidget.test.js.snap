@@ -21,7 +21,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
     id="myWidget"
     inputProps={
       Object {
-        "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
@@ -71,7 +70,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
-          onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -88,7 +86,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -137,7 +134,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
     id="myWidget"
     inputProps={
       Object {
-        "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
@@ -195,7 +191,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
-          onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -212,7 +207,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -438,7 +432,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
     id="myWidget"
     inputProps={
       Object {
-        "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
@@ -494,7 +487,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
-          onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -511,7 +503,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -686,7 +677,6 @@ exports[`DatalistWidget should render input 1`] = `
       autoComplete="off"
       className="form-control"
       id={undefined}
-      onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -705,119 +695,6 @@ exports[`DatalistWidget should render input 1`] = `
     id="react-autowhatever-myWidget"
     style={Object {}} />
 </div>
-`;
-
-exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
-<DatalistWidget
-  id="myWidget"
-  onChange={[Function]}
-  required={true}
-  schema={
-    Object {
-      "enum": Array [
-        "aze",
-        "banane",
-        "bananAze",
-        "   AzErTy   ",
-        "Toto",
-      ],
-    }
-  }>
-  <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
-    getSectionItems={[Function]}
-    id="myWidget"
-    inputProps={
-      Object {
-        "onBlur": [Function],
-        "onChange": [Function],
-        "onFocus": [Function],
-        "onKeyDown": [Function],
-        "required": true,
-        "value": "",
-      }
-    }
-    itemProps={
-      Object {
-        "onMouseDown": [Function],
-        "onMouseEnter": [Function],
-        "onMouseLeave": [Function],
-      }
-    }
-    items={Array []}
-    multiSection={false}
-    renderInputComponent={[Function]}
-    renderItem={[Function]}
-    renderItemData={
-      Object {
-        "value": "",
-      }
-    }
-    renderItemsContainer={[Function]}
-    renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
-    theme={
-      Object {
-        "container": "form-control",
-        "containerOpen": undefined,
-        "highlight": undefined,
-        "input": undefined,
-        "itemFocused": undefined,
-        "itemsContainer": undefined,
-        "itemsList": undefined,
-      }
-    }>
-    <div
-      className="form-control">
-      <div>
-        <FormControl
-          aria-activedescendant={null}
-          aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
-          autoComplete="off"
-          bsClass="form-control"
-          componentClass="input"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          required={true}
-          role="combobox"
-          style={Object {}}
-          type="text"
-          value="">
-          <input
-            aria-activedescendant={null}
-            aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
-            autoComplete="off"
-            className="form-control"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            required={true}
-            role="combobox"
-            style={Object {}}
-            type="text"
-            value="" />
-        </FormControl>
-        <div>
-          <span
-            className="caret" />
-        </div>
-      </div>
-      <div
-        id="react-autowhatever-myWidget"
-        style={Object {}} />
-    </div>
-  </Autowhatever>
-</DatalistWidget>
 `;
 
 exports[`DatalistWidget should set value and reset suggestions on suggestion selection 1`] = `
@@ -843,7 +720,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
     id="myWidget"
     inputProps={
       Object {
-        "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
@@ -893,7 +769,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
-          onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -910,7 +785,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}

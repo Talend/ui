@@ -162,26 +162,4 @@ describe('DatalistWidget', () => {
 		expect(onChange).toBeCalledWith('aze');
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
-
-	it('should reset value on unknown value input blur', () => {
-		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				required={true}
-				schema={schema}
-				onChange={onChange}
-			/>
-		);
-		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'unknown' } });
-
-		// when
-		input.simulate('blur');
-
-		// then
-		expect(onChange).not.toBeCalled();
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
 });
