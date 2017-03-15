@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'bootstrap-talend-theme'
 
-> bootstrap-talend-theme@0.66.1 lint:style /home/travis/build/Talend/ui/packages/theme
+> bootstrap-talend-theme@0.66.2 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -12,12 +12,31 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-  358:1  error  Please check validity of the block starting from line #358  Fatal
+   18:18  warning  No unit allowed for values of 0                          zero-unit
+   23:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   24:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   33:32  warning  Whitespace required before {                             space-before-brace
+   41:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   42:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   79:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   93:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  262:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  275:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  288:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  311:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  337:20  warning  Whitespace required before {                             space-before-brace
+  340:1   warning  Space expected between blocks                            empty-line-between-blocks
+  340:20  warning  Whitespace required before {                             space-before-brace
+  349:3   warning  Expected indentation of 1 tab but found 2                indentation
+  360:2   warning  Opening brace must be on the same line as condition      brace-style
+  367:33  warning  Whitespace required before {                             space-before-brace
+  368:9   warning  Whitespace required before {                             space-before-brace
+  423:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 4 problems (3 errors, 1 warning)
+✖ 23 problems (11 errors, 12 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
