@@ -9,10 +9,10 @@ import classNames from 'classnames';
  * @param checked {boolean}: sets the state of the toggle to be On or Off
  * @param disabled {boolean}: enables the read-only no-interaction mode
  * @param label {string}: a status label to be shown near toggle
- * @param className {(string|string[])}: classNames to be added to root div
+ * @param className {string}: className to be added to root div
  *
  * Required: [ id, onChange ]
- * Defaults: { checked: false, disabled: false, label: '', className: ['switch', 'checkbox'] }
+ * Defaults: { checked: false, disabled: false, label: '', className: 'switch checkbox' }
  *
  * @return XML(JSX) React pure component
  * **/
@@ -37,7 +37,7 @@ Toggle.defaultProps = {
 	disabled: false,
 	checked: false,
 	label: '',
-	className: ['switch', 'checkbox'],
+	className: 'switch checkbox',
 };
 
 Toggle.propTypes = {
@@ -46,7 +46,7 @@ Toggle.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	disabled: PropTypes.bool,
-	className: PropTypes.oneOf([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+	className: PropTypes.string,
 };
 
 export default Toggle;
