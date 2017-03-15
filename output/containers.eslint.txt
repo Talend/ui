@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-containers'
 
-> react-talend-containers@0.66.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> react-talend-containers@0.66.1 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -24,9 +24,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-  7:32  error  Absolute imports should come before relative imports  import/imports-first
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
     2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -55,9 +52,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/state.js
-  10:1  warning  Unexpected console statement  no-console
+  4:1  warning  Unexpected console statement  no-console
 
-✖ 21 problems (20 errors, 1 warning)
+✖ 20 problems (19 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
 Errored while running ExecCommand.execute
