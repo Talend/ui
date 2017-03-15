@@ -1,13 +1,13 @@
 import { PropTypes } from 'react';
 import Immutable, { Map } from 'immutable';
-import { actions } from 'react-cmf';
+import actions from '../src/actions/';
 
 import state, {
 	getStateAccessors,
 	getStateProps,
 	initState,
 	statePropTypes,
-} from './state';
+} from '../src/componentState';
 
 describe('state', () => {
 	it('should default import have all the things', () => {
@@ -17,12 +17,24 @@ describe('state', () => {
 		expect(state.getAccessors).toBe(getStateAccessors);
 	});
 
+	it('should getStateAccessors should support no DEFAULT_STATE', () => {
+		const dispatch = jest.fn();
+		const props = getStateAccessors(dispatch, 'name', 'id');
+		expect(typeof props.updateState).toBe('function');
+		props.updateState();
+		const call = dispatch.mock.calls[0][0];
+		expect(call.type).toBe('REACT_CMF.COMPONENT_MERGE_STATE');
+		expect(call.componentName).toBe('name');
+		expect(call.key).toBe('id');
+		expect(call.componentState).toBe();
+	});
 	it('should getStateAccessors return accessors', () => {
 		const dispatch = jest.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 		expect(typeof props.updateState).toBe('function');
 		expect(typeof props.initState).toBe('function');
+		expect(typeof props.deleteState).toBe('function');
 
 		props.initState();
 		let call = dispatch.mock.calls[0][0];
@@ -33,11 +45,18 @@ describe('state', () => {
 
 		props.updateState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
-		const mergeComp = actions.componentsActions.mergeComponentState('name', 'id', DEFAULT_STATE.set('foo', 'baz'));
+		const mergeComp = actions.componentsActions.mergeComponentState(
+			'name', 'id', DEFAULT_STATE.set('foo', 'baz'),
+		);
 		expect(call.type).toBe(mergeComp.type);
 		expect(call.componentName).toBe('name');
 		expect(call.key).toBe('id');
 		expect(call.componentState.foo).toBe('baz');
+
+		props.deleteState();
+		call = dispatch.mock.calls[2][0];
+		expect(call.componentName).toBe('name');
+		expect(call.key).toBe('id');
 	});
 
 	it('should getStateProps return state', () => {

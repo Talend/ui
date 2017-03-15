@@ -94,7 +94,7 @@ describe('DatalistWidget', () => {
 			<DatalistWidget
 				id="myWidget"
 				required={true}
-			    schema={schema}
+				schema={schema}
 				onChange={jest.fn()}
 			/>
 		);
@@ -150,7 +150,7 @@ describe('DatalistWidget', () => {
 				id="myWidget"
 				required={true}
 				schema={schema}
-			    onChange={onChange}
+				onChange={onChange}
 			/>
 		);
 		wrapper.find('input').at(0).simulate('focus'); // to display suggestions

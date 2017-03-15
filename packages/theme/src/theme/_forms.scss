@@ -99,69 +99,72 @@ form {
 	.checkbox,
 	.checkbox-inline {
 		label {
+			position: relative;
 			padding-left: 25px;
 		}
 
 		input[type='radio'],
 		input[type='checkbox'] {
-			margin-left: -25px;
+			position: absolute;
+			left: 0;
+			margin: 0;
 		}
 	}
 
 	input[type='radio'],
 	.radio input[type='radio'],
 	.radio-inline input[type='radio'] {
-		position: relative;
-		margin-top: 6px;
-		margin-right: 4px;
-		vertical-align: top;
-		border: none;
-		background-color: transparent;
-		appearance: none;
-		cursor: pointer;
 
 		&:focus {
 			outline: none;
 		}
 
 		&:before,
-		&:after {
+		&:after,
+		+ *:before,
+		+ *:after {
 			@include transition(240ms);
+			position: absolute;
+			top: -1px; /* IE 11 */
+			left: -1px; /* IE 11 */
 			content: '';
-			display: block;
 			width: 18px;
 			height: 18px;
 			border-radius: 50%;
 		}
 
-		&:before {
+		&:before,
+		+ *:before {
 			@include scale(0);
-			position: absolute;
-			left: 0;
-			top: -3px;
 			background-color: $brand-primary;
+			z-index: 1;
 		}
 
-		&:after {
-			position: relative;
-			top: -3px;
+		&:after,
+		+ *:after {
 			border: 2px solid $gray;
+			background-color: $white;
 		}
 
-		&:checked:before {
-			@include scale(0.5);
+		&:checked:before,
+		&:checked + *:before {
+			@include scale(0.45);
 		}
 
-		&:disabled:checked:before {
+		&:disabled:checked:before,
+		&:disabled:checked + *:before {
 			background-color: $gray-light;
 		}
 
-		&:checked:after {
+		&:checked:after,
+		&:checked + *:after {
 			border-color: $brand-primary;
 		}
 
 		&:disabled:after,
-		&:disabled:checked:after {
+		&:disabled:checked:after,
+		&:disabled + *:after,
+		&:disabled:checked + *:after {
 			border-color: $gray-light;
 		}
 	}
@@ -169,56 +172,65 @@ form {
 	input[type='checkbox'],
 	.checkbox input[type='checkbox'],
 	.checkbox-inline input[type='checkbox'] {
-		position: relative;
-		border: none;
-		margin-bottom: -4px;
-		appearance: none;
-		cursor: pointer;
+
+		&:before,
+		&:after,
+		+ *:before,
+		+ *:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:after,
+		+ *:after {
+			@include transition(240ms);
+			content: '';
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			border: 2px solid $gray;
+			border-radius: 2px;
+			background-color: $white;
+		}
+
+		&:checked:before,
+		&:checked + *:before {
+			@include rotate(45deg);
+			content: '';
+			top: 2px;
+			left: 6px;
+			display: table;
+			width: 6px;
+			height: 12px;
+			border: 2px solid $white;
+			border-top-width: 0;
+			border-left-width: 0;
+			z-index: 1;
+		}
 
 		&:focus {
 			outline: none;
 		}
 
-		&:focus:after {
+		&:focus:after,
+		&:focus + *:after {
 			border-color: $brand-primary;
 		}
 
-		&:after {
-			@include transition(240ms);
-			content: '';
-			display: block;
-			width: 18px;
-			height: 18px;
-			margin-top: -2px;
-			margin-right: 5px;
-			border: 2px solid $gray;
-			border-radius: 2px;
-		}
-
-		&:checked:before {
-			@include rotate(45deg);
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 6px;
-			display: table;
-			width: 6px;
-			height: 12px;
-			border: 2px solid #FFF;
-			border-top-width: 0;
-			border-left-width: 0;
-		}
-
-		&:checked:after {
+		&:checked:after,
+		&:checked + *:after {
 			background-color: $brand-primary;
 			border-color: $brand-primary;
 		}
 
-		&:disabled:after {
+		&:disabled:after,
+		&:disabled + *:after {
 			border-color: $gray-light;
 		}
 
-		&:disabled:checked:after {
+		&:disabled:checked:after,
+		&:disabled:checked + *:after {
 			background-color: $gray-light;
 			border-color: transparent;
 		}
@@ -333,45 +345,54 @@ form {
 }
 
 .switch {
-	input[type='checkbox'] {
-		position: absolute !important;
+	input[type='checkbox'],
+	.checkbox input[type='checkbox'],
+	&.checkbox input[type='checkbox'] {
+		position: absolute;
 		clip: rect(1px, 1px, 1px, 1px);
-		padding: 0 !important;
-		border: none !important;
-		height: 1px !important;
-		width: 1px !important;
+		padding: 0;
+		border: none;
+		height: 1px;
+		width: 1px;
 		overflow: hidden;
 
 		+ * {
-			position: relative;
-			padding-left: 15px;
+			padding-left: 20px;
 		}
 
 		+ *:before,
-		+ *:after {
-			display: inline-block;
+		+ *:after,
+		&:checked + *:before,
+		&:checked + *:after {
 			position: absolute;
 			content: '';
 			top: 0;
-			left: -25px;
+			left: 0;
 			transition: background 0.2s ease, transform 0.2s ease;
-		}
-
-		+ *:before {
-			height: 15px;
-			width: 35px;
-			margin-top: 3px;
-			background: tint($dove-gray, 40);
 			border-radius: 100px;
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			border-color: transparent;
 		}
 
-		+ *:after {
+		+ *:before,
+		&:checked + *:before {
+			width: 35px;
+			height: 15px;
+			margin-top: 3px;
+			margin-left: 0;
+			background: tint($dove-gray, 40);
+			border: none;
+			transform: rotate(0deg);
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			box-sizing: content-box;
+		}
+
+		+ *:after,
+		&:checked + *:after {
 			width: 20px;
 			height: 20px;
-			border-radius: 100px;
 			background: #F1F1F1;
 			box-shadow: 0 1px 1px 0 $dove-gray;
+			z-index: 1;
 		}
 
 		&:checked {

@@ -4,7 +4,6 @@ import { Map, fromJS } from 'immutable';
 
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
-	mapDispatchToProps,
 	mapStateToProps,
 } from './List.connect';
 
@@ -123,7 +122,7 @@ describe('Container List', () => {
 	});
 
 	it('should ontitle click call action creator', () => {
-		const dispatch = jest.fn();
+		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
 		const context = {
 			registry: {
@@ -131,7 +130,7 @@ describe('Container List', () => {
 			},
 		};
 		const wrapper = shallow(
-			<Container {...settings} items={items} dispatch={dispatch} />
+			<Container {...settings} items={items} dispatchActionCreator={dispatchActionCreator} />
 		, {
 			lifecycleExperimental: true,
 			context,
@@ -142,16 +141,17 @@ describe('Container List', () => {
 		const data = { foo: 'bar' };
 
 		onClick(e, data);
-		const calls = actionCreator.mock.calls;
+		const calls = dispatchActionCreator.mock.calls;
 		expect(calls.length).toBe(1);
-		expect(calls[0][0]).toBe(e);
-		expect(calls[0][1]).toBe(data);
-		expect(calls[0][2].registry).toBe(context.registry);
+		expect(calls[0][0]).toBe('object:open');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
 	});
 
 	it('should call action creator on pagination change', () => {
 		// given
-		const dispatch = jest.fn();
+		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
 		const context = {
 			registry: {
@@ -159,7 +159,11 @@ describe('Container List', () => {
 			},
 		};
 		const wrapper = shallow(
-			<Container {...settings} items={items} dispatch={dispatch} />,
+			<Container
+				{...settings}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
 			{
 				lifecycleExperimental: true,
 				context,
@@ -168,19 +172,19 @@ describe('Container List', () => {
 		const event = {};
 		const data = { foo: 'bar' };
 
-		expect(actionCreator).not.toBeCalled();
+		expect(dispatchActionCreator).not.toBeCalled();
 
 		// when
 		props.toolbar.pagination.onChange(event, data);
 
 		// then
-		expect(actionCreator).toBeCalledWith(event, data, context);
+		expect(dispatchActionCreator).toBeCalledWith("pagination:change", event, data, context);
 	});
 });
 
 describe('Connected List', () => {
 	it('should connect List', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
 
@@ -189,7 +193,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						cid: DEFAULT_STATE.toJS(),
 					},
 				}),
@@ -211,7 +215,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						default: DEFAULT_STATE.toJS(),
 					},
 				}),
@@ -233,7 +237,7 @@ describe('Connected List', () => {
 		const state = {
 			cmf: {
 				components: fromJS({
-					List: {
+					'Container(List)': {
 						cid: {
 							...(DEFAULT_STATE.toJS()),
 							toolbar: {
@@ -262,13 +266,5 @@ describe('Connected List', () => {
 
 		// then
 		expect(props).toMatchSnapshot();
-	});
-
-	it('should map dispatch to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch, {
-			settings: {},
-		});
-		expect(typeof props).toBe('object');
 	});
 });

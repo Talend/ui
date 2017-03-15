@@ -48,6 +48,7 @@ function Items({ items, itemsProp, currentEdit }) {
 			const itemPropDefault = {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
+				onSelectItem: itemsProp.onSelectItem,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -78,6 +79,7 @@ Items.propTypes = {
 		key: PropTypes.string.isRequired,
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
+		onSelectItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,

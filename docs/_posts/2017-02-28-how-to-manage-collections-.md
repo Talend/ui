@@ -8,12 +8,13 @@ order: 1
 
 CMF has a system to manage collections by a combination of middleware, action, reducer.
 
-By using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that stores a collection under unique identifiers. 
+By using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that stores a collection under unique identifiers.
 
 **Pre-requisite**
-You can store anything you want in the collections dictionary, but to use the element operations (mutate collection) : 
-* the collection must be an array
-* each item has an `id` property 
+You can store anything you want in the collections dictionary, but to use the element operations (delete/mutate collection) :
+* the collection must be an array or a map
+* in an array, each item has an `id` property
+* in a map, the key is the id
 
 
 ## Add or replace a collection
@@ -74,7 +75,7 @@ import { actions } from 'react-cmf';
 const mutationAction = actions.collectionsActions.mutateCollection('datastores', {
     add: [{ id: 'new_element_id', ... }, { id: 'next_new_element_id', ... }],
     delete: ['old_element_id'],
-    update: [{ id: 'existing_element_id', ... }]
+    update: { 'existing_element_id': {id: 'existing_element_id', ... }, ... }
 });
 dispatch(mutationAction);
 ```
@@ -84,7 +85,7 @@ removeCollection(collectionId, operations)
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
 | collectionId | string | The collection identifier | true |
-| operations | object | The operations to perform.<br>`add` : function or object : elements to insert<br>`delete` : array : the elements ids to remove<br>`update` : array : the new elements. The element with the same id will be replaced by the new one. | true |
+| operations | object | The operations to perform.<br>`add` : function or object : elements to insert<br>`delete` : array : the elements ids to remove<br>`update` : map : the new elements by id. The elements identified by the ids will be replaced by the new ones. | true |
 
 ## HTTP usage
 
