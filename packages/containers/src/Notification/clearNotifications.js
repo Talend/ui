@@ -1,5 +1,5 @@
 export default function clearNotifications(state) {
-	const path = ['Notification', 'Notification', 'notifications'];
+	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path);
 
 	if (!notifs) {
