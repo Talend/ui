@@ -64,7 +64,7 @@ function Item({ id, item }) {
 		<li className={itemClasses(item.isSelected)} id={id}>
 			<TooltipTrigger
 				label={item[key].join(',')}
-				tooltipPlacement="bottom"
+				tooltipPlacement="top"
 			>
 				<Button
 					key={item.index}
