@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.64.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.66.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 
@@ -15,20 +15,6 @@ Scoping to packages that match 'react-talend-components'
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
-
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-   52:2   error  Expected indentation of 2 tabs but found 1                                           indent
-   63:2   error  Expected indentation of 2 tabs but found 1                                           indent
-   69:2   error  Expected indentation of 2 tabs but found 1                                           indent
-   78:2   error  Expected indentation of 2 tabs but found 1                                           indent
-   99:54  error  A space is required before '}'                                                       object-curly-spacing
-  105:5   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-  105:10  error  Property should be placed on a new line                                              react/jsx-first-prop-new-line
-  112:4   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-  112:9   error  Property should be placed on a new line                                              react/jsx-first-prop-new-line
-
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.snapshot.test.js
-  132:76  error  A space is required before closing bracket  react/jsx-space-before-closing
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
@@ -46,7 +32,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 23 problems (23 errors, 0 warnings)
+✖ 13 problems (13 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute

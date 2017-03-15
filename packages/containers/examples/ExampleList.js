@@ -46,7 +46,7 @@ const props = {
 
 const items = Immutable.fromJS([
 	{
-		id: 1,
+		id: 'id1',
 		label: 'Title with actions',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -56,7 +56,7 @@ const items = Immutable.fromJS([
 		className: 'item-0-class',
 	},
 	{
-		id: 2,
+		id: 'ID2',
 		label: 'Title in input mode',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -66,7 +66,7 @@ const items = Immutable.fromJS([
 		className: 'item-1-class',
 	},
 	{
-		id: 3,
+		id: 'iD3',
 		label: 'Super long title to trigger overflow on tile rendering',
 		created: '2016-09-22',
 		modified: '2016-09-22',

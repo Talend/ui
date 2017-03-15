@@ -1,20 +1,16 @@
 // TreeView styles
-$tc-treeview-main-color: $brand-primary !default;
-$tc-treeview-small-padding: $padding-small !default;
-$tc-treeview-normal-padding: $padding-normal !default;
-$tc-treeview-large-padding: $padding-large !default;
-$tc-treeview-black: $black !default;
-$tc-treeview-folder-svg-size: 18px !default;
-$tc-treeview-trash-svg-size: 21px !default;
-$tc-treeview-depth-max: 10;
+$max-depth: 10;
+$item-height: 40px;
 
 .tc-treeview-li {
 	display: flex;
 	flex-wrap: wrap;
 
 	.tc-treeview-item {
+		height: $item-height;
+		line-height: $item-height - 2 * $padding-small;
 		cursor: pointer;
-		padding: $tc-treeview-small-padding $tc-treeview-large-padding $tc-treeview-small-padding 0;
+		padding: $padding-small $padding-large $padding-small 0;
 		border: none;
 		background: none;
 		outline: none;
@@ -36,30 +32,30 @@ $tc-treeview-depth-max: 10;
 
 		.tc-treeview-folder {
 			:global(.tc-svg-icon) {
-				width: $tc-treeview-folder-svg-size;
-				height: $tc-treeview-folder-svg-size;
+				width: $svg-md-size;
+				height: $item-height - 2 * $padding-small;
 			}
 		}
 
 		&:hover {
-			background: rgba($tc-treeview-black, 0.05);
+			background: rgba($black, 0.05);
 
 			:global(.tc-svg-icon) {
-				fill: rgba($tc-treeview-black, 0.35);
+				fill: rgba($black, 0.35);
 			}
 
-			.tc-treeview-remove {
+			:global(.btn-link) {
 				display: block;
 			}
 		}
 
 		.tc-treeview-toggle {
-			width: $tc-treeview-small-padding;
-			margin-left: -$tc-treeview-small-padding;
+			width: $svg-xs-size;
+			margin-left: -$svg-xs-size;
 			position: relative;
-			left: -0.5 * ($tc-treeview-large-padding - $tc-treeview-small-padding);
+			left: -0.5 * $svg-xs-size;
 
-			&[data-tc-treeview-toggled=false] {
+			&[data-toggled=false] {
 				:global(.tc-svg-icon) {
 					transform: rotate(270deg);
 				}
@@ -70,63 +66,75 @@ $tc-treeview-depth-max: 10;
 				padding-left: 0;
 				outline: none;
 				border: none;
+				top: 0;
+				bottom: 0;
+				position: absolute;
 
 				:global(.tc-svg-icon) {
-					width: $tc-treeview-small-padding;
-					height: $tc-treeview-large-padding;
+					width: $svg-xs-size;
+					height: $svg-xs-size;
 					margin: 0;
-					fill: rgba($tc-treeview-black, 0.6);
+					fill: rgba($black, 0.6);
 
 					&:hover {
-						fill: rgba($tc-treeview-black, 0.7);
+						fill: rgba($black, 0.7);
 					}
 				}
 			}
 		}
 
-		&[data-tc-treeview-selected=true] {
-			background-color: rgba($tc-treeview-main-color, 0.12);
-			color: $tc-treeview-main-color;
+		&[data-selected=true] {
+			background-color: rgba($brand-primary, 0.12);
+			color: $brand-primary;
 
 			:global(.tc-svg-icon) {
-				fill: $tc-treeview-main-color;
+				fill: $brand-primary;
 			}
 		}
 
-		@for $i from 0 through $tc-treeview-depth-max {
-			&[data-tc-treeview-depth='#{$i}'] {
-				padding-left: $i * $tc-treeview-normal-padding + $tc-treeview-large-padding;
+		@for $i from 0 through $max-depth {
+			&[data-depth='#{$i}'] {
+				padding-left: $i * $padding-normal + $padding-large;
 			}
 		}
 	}
 
-	.tc-treeview-remove {
+	:global(.tc-treeview-item-ctrl) {
 		margin-left: auto;
-		display: none;
+		display: flex;
+		min-width: 65px;
 
 		:global(.btn-link) {
-			position: relative;
+			margin-left: auto;
+			display: none;
 			outline: none;
 
 			:global(.tc-svg-icon) {
-				width: $tc-treeview-trash-svg-size;
-				height: $tc-treeview-trash-svg-size;
-				fill: rgba($tc-treeview-black, 0.6);
+				width: $svg-md-size;
+				height: $svg-md-size;
+				fill: rgba($black, 0.6);
 				margin: 0;
 
 				&:hover {
-					fill: rgba($tc-treeview-black, 0.7);
+					fill: rgba($black, 0.7);
 				}
 			}
 		}
+
+		:global(.tc-badge-solid) {
+			height: $item-height - 2 * $padding-small;
+			margin: 0 $padding-large 0 0;
+			border: none;
+		}
 	}
+
 
 	.tc-treeview-ul {
 		width: 100%;
 		padding: 0;
 	}
 
-	&[data-tc-treeview-hidden=true] {
+	&[data-hidden=true] {
 		height: 0;
 		display: none;
 	}
@@ -134,7 +142,7 @@ $tc-treeview-depth-max: 10;
 	:global(.tc-svg-icon) {
 		display: block;
 		position: relative;
-		fill: rgba($tc-treeview-black, 0.25);
-		margin-right: $tc-treeview-small-padding;
+		fill: rgba($black, 0.25);
+		margin-right: $padding-small;
 	}
 }

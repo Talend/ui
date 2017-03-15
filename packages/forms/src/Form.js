@@ -54,7 +54,7 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Button>),
+			</Button>)
 		);
 	}
 	return <Button bsStyle="primary" type="submit">Submit</Button>;

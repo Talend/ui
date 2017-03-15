@@ -1,61 +1,20 @@
-import { PropTypes } from 'react';
-import { actions } from 'react-cmf';
-
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
-	return {
-		updateState(state) {
-			dispatch(
-				actions.componentsActions.mergeComponentState(
-					name,
-					id,
-					state,
-				),
-			);
-		},
-		initState(initialState) {
-			const state = DEFAULT_STATE.merge(initialState);
-			dispatch(
-				actions.componentsActions.addComponentState(
-					name,
-					id,
-					state,
-				),
-			);
-		},
-	};
-}
-
-export function getStateProps(state, name, id) {
-	return {
-		state: state.cmf.components.getIn([name, id]),
-	};
-}
-
-export function initState(props) {
-	if (!props.state && props.initState) {
-		props.initState(props.initialState);
-	}
-}
+import state, {
+	getStateAccessors,
+	getStateProps,
+	initState,
+	stateWillMount,
+	statePropTypes,
+} from 'react-cmf/lib/componentState';
 
 // BBB
-export function stateWillMount(props) {
-	console.log(  // eslint-disable-line no-console
-		`DEPRECATION Warning: you should use initState
-		in componentDidMount instead.
-		https://github.com/facebook/react/issues/7671`);
-	initState(props);
-}
+console.warn('BBB: you should import state from react-cmf');
 
-export const statePropTypes = {
-	state: PropTypes.object,
-	initialState: PropTypes.object,
-	updateState: PropTypes.func,
-	initState: PropTypes.func,
+export {
+	getStateAccessors,
+	getStateProps,
+	initState,
+	stateWillMount,
+	statePropTypes,
 };
 
-export default {
-	propTypes: statePropTypes,
-	init: initState,
-	getProps: getStateProps,
-	getAccessors: getStateAccessors,
-};
+export default state;
