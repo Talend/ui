@@ -25,16 +25,16 @@ describe('Container <%= props.name %>', () => {
 		const wrapper = shallow(
 			<Container />
 		);
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.props()).toMatchSnapshot();
 	});
 });
 
 describe('Connected <%= props.name %>', () => {
 	it('should connect <%= props.name %>', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
-	it('should map state to props', () => {
+	it('should mapStateToProps', () => {
 		const state = {
 			cmf: {
 				components: new Map({
@@ -48,7 +48,7 @@ describe('Connected <%= props.name %>', () => {
 		expect(typeof props).toBe('object');
 	});
 	it('should map state to props', () => {
-		const dispatch = () => {};
+		const dispatch = jest.fn();
 		const props = mapDispatchToProps(dispatch);
 		expect(typeof props).toBe('object');
 	});
