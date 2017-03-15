@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import Toggle from 'react-talend-components/lib/Toggle';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -12,7 +11,6 @@ import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 import Button from 'react-bootstrap/lib/Button';
 
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
-import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
 import Form, { renderActionIcon, renderActions } from './Form';

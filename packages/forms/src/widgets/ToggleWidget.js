@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Toggle from 'react-talend-components/lib/Toggle';
 
@@ -17,5 +17,11 @@ const ToggleWidget = (props) => {
 		</div>
 	);
 };
+
+if (process.env.NODE_ENV !== 'production') {
+	ToggleWidget.propTypes = {
+		checked: PropTypes.bool,
+	};
+}
 
 export default ToggleWidget;
