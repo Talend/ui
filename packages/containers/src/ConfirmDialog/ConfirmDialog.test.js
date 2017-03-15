@@ -4,10 +4,7 @@ import { fromJS, Map } from 'immutable';
 import { store, Provider } from 'react-cmf/lib/mock';
 
 import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
-import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
-} from './ConfirmDialog.connect';
+import Connected from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
@@ -47,26 +44,8 @@ describe('Container ConfirmDialog', () => {
 
 describe('Connected ConfirmDialog', () => {
 	it('should connect ConfirmDialog', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					ConfirmDialog: {
-						ConfirmDialog: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
-		expect(typeof props).toBe('object');
 	});
 });
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 import { ConfirmDialog as Component } from 'react-talend-components';
 import { componentState } from 'react-cmf';
@@ -13,6 +13,9 @@ class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
 	static propTypes = {
 		...componentState.propTypes,
+	};
+	static contextTypes = {
+		store: PropTypes.object,
 	};
 
 	render() {
