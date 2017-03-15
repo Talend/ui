@@ -6,10 +6,6 @@ $tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
 $tc-collapsible-selectable-panel-title-color: #63AEBD !default;
 $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
-html.focus-outline-hidden *:focus {
-	outline: none !important;
-}
-
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
 
@@ -27,7 +23,6 @@ html.focus-outline-hidden *:focus {
 	flex-shrink: 1;
 	flex-grow: 0;
 	flex-basis: 100%;
-	margin: 0 $tc-collapsible-panel-padding-normal;
 	overflow: hidden;
 
 	> :global(.btn) {
@@ -63,66 +58,23 @@ html.focus-outline-hidden *:focus {
 @mixin header-style {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding-right: $tc-collapsible-panel-padding-larger;
 
 	> * {
 		@include col-style;
 	}
 }
 
-.tc-panel {
+.tc-default-no-content-panel {
 	:global(.panel-heading) {
-		@include header-style;
-		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
-	}
-}
+		padding: 0 5px 0 0;
 
-.tc-selectable-panel {
-	border-radius: 0;
-	margin-bottom: 0;
-
-	&.selected-panel {
-		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
-	}
-
-	:global(.panel-heading) {
-		display: flex;
-		justify-content: space-between;
-		background-color: white;
-		border-color: transparent;
-		padding: 0;
-
-		.header-title-class {
-			color: $tc-collapsible-selectable-panel-title-color;
-			font-weight: 600;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			width: 70px;
-			white-space: nowrap;
-		}
-
-		.header-tag-class {
-			color: $tc-collapsible-selectable-panel-content-description-color;
-			margin-left: 0;
-			white-space: nowrap;
-		}
-
-		.header-detail-class {
-			color: $tc-collapsible-selectable-panel-title-color;
-			white-space: nowrap;
-			justify-content: flex-end;
-		}
-
-		.group {
-			justify-content: flex-start;
-		}
-
-		> * {
-			@include col-style;
+		> button {
+			@include header-style;
+			justify-content: space-between;
+			margin: 0;
+			align-items: center;
 			text-decoration: none;
-			margin: auto 5px;
-			padding: 0px 5px;
+			width: 94%;
 		}
 	}
 }
@@ -130,74 +82,9 @@ html.focus-outline-hidden *:focus {
 .collapsible-panel {
 	position: relative;
 
-	&.selected-panel {
-		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
-	}
-
-	&.selectable {
-		border-radius: 0;
-		margin-bottom: 0;
-
-		:global(.panel-heading) {
-			background-color: white;
-			border-color: transparent;
-			padding: 0;
-		}
-
-		:global(.panel-title) {
-			font-size: 1em;
-			position: relative;
-
-			a {
-				> button {
-					margin: 0;
-					padding: 0px 5px;
-				}
-
-				.group {
-					justify-content: flex-start;
-
-					> * {
-						margin: auto 5px;
-					}
-				}
-			}
-		}
-
-		:global(.panel-body) {
-			padding: 0 10px 10px 10px;
-
-			.vertical-content {
-				display: flex;
-				flex-direction: column;
-
-				.content-upper {
-					display: flex;
-					justify-content: space-between;
-
-					> span {
-						overflow: hidden;
-						text-overflow: ellipsis;
-						max-width: 150px;
-						white-space: nowrap;
-					}
-				}
-
-				.content-text {
-					color: $tc-collapsible-selectable-panel-content-description-color;
-				}
-			}
-		}
-	}
-
-	.caret {
-		position: absolute;
-		right: 0;
-		top: 0;
-		bottom: 0;
-	}
-
 	:global(.panel-heading) {
+		padding: 0;
+
 		h4 {
 			line-height: $line-height-base;
 		}
@@ -206,51 +93,48 @@ html.focus-outline-hidden *:focus {
 	:global(.panel-title) {
 		font-size: 1em;
 		position: relative;
+	}
 
-		> a {
+	a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		padding: 0 5px 0 0;
+
+		> button {
 			@include header-style;
-			text-decoration: none;
+			flex-grow: 1;
+			width: 94%;
+		}
 
-			.header-title-class {
-				color: $tc-collapsible-selectable-panel-title-color;
-				font-weight: 600;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				width: 70px;
-				white-space: nowrap;
-			}
+		&:hover {
+			color: initial;
+		}
 
-			.header-tag-class {
-				color: $tc-collapsible-selectable-panel-content-description-color;
-				margin-left: 0;
-				white-space: nowrap;
-			}
+		.caret {
+			flex-shrink: 0;
+			flex-grow: 0;
+		}
 
-			.header-detail-class {
-				color: $tc-collapsible-selectable-panel-title-color;
-				white-space: nowrap;
-				justify-content: flex-end;
-			}
+		&[aria-expanded='true'] .caret {
+			transform: rotate(180deg);
+		}
+	}
 
-			&:hover {
-				color: initial;
-			}
+	&.selected-panel {
+		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
+	}
+}
 
-			&[aria-expanded='true'] .caret {
-				transform: rotate(180deg);
-			}
-
-			> * {
-				margin: auto $tc-collapsible-panel-padding-normal;
+.default-panel {
+	:global(.panel-title) {
+		a {
+			> button {
 				text-decoration: none;
 			}
 
 			.group {
 				justify-content: space-between;
-
-				> * {
-					margin: 0 $tc-collapsible-panel-padding-normal;
-				}
 
 				:global(.label) {
 					white-space: nowrap;
@@ -281,6 +165,91 @@ html.focus-outline-hidden *:focus {
 				flex-basis: 90%;
 				flex-shrink: 0;
 				flex-grow: 1;
+			}
+		}
+	}
+}
+
+.descriptive-panel {
+	border-radius: 0;
+	margin-bottom: 0;
+
+	:global(.panel-heading) {
+		background-color: white;
+		border-color: transparent;
+	}
+
+	:global(.panel-title) {
+		a {
+			> button {
+				margin: 0;
+				padding: 0px 5px;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.group {
+		justify-content: flex-start;
+		display: flex;
+	}
+
+	.title {
+		color: $tc-collapsible-selectable-panel-title-color;
+		font-weight: 600;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 70px;
+		white-space: nowrap;
+	}
+
+	.tag {
+		color: $tc-collapsible-selectable-panel-content-description-color;
+		margin-left: 0;
+		white-space: nowrap;
+	}
+
+	.detail {
+		color: $tc-collapsible-selectable-panel-title-color;
+		white-space: nowrap;
+		justify-content: flex-end;
+	}
+
+	:global(.panel-body) {
+		padding: 0 10px 10px 10px;
+
+		.content {
+			display: flex;
+			flex-direction: column;
+
+			.upper {
+				display: flex;
+				justify-content: space-between;
+
+				> span {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					max-width: 150px;
+					white-space: nowrap;
+				}
+			}
+
+			.content-text {
+				color: $tc-collapsible-selectable-panel-content-description-color;
+			}
+		}
+	}
+
+	&.tc-descriptive-no-content {
+		:global(.panel-heading) {
+			padding: 0 5px 0 0;
+
+			> button {
+				display: flex;
+				text-decoration: none;
+				justify-content: space-between;
+				width: 100%;
+				padding: 0 5px;
 			}
 		}
 	}

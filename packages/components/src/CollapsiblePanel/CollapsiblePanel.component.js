@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import 'focus-outline-manager';
+import uuid from 'uuid';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
@@ -113,25 +113,31 @@ function renderHeader({ header, caret, onSelect }) {
 		if (Array.isArray(headerItem)) {
 			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<Button
-					bsStyle="link"
-					role="link"
+				<div
 					key={index}
 					className={classNames(css.group, css[headerColumnClass])}
-					onClick={onSelect && selectPanel(onSelect)}
-				>{elements}</Button>
+				>{elements}</div>
 			);
 		}
 		return (
-			<Button
-				bsStyle="link"
-				role="link"
+			<div
 				key={index}
 				className={classNames(css[headerItem.className], css[headerColumnClass])}
-				onClick={onSelect && selectPanel(onSelect)}
-			>{renderHeaderItem(headerItem)}</Button>
+			>{renderHeaderItem(headerItem)}</div>
 		);
 	});
+
+	// Panel component needs an array for header props
+	const wrappedHeader = [
+		(<Button
+			bsStyle="link"
+			role="link"
+			key={uuid.v4()}
+			onClick={onSelect && selectPanel(onSelect)}
+		>
+			{headerItems}
+		</Button>),
+	];
 
 	if (caret) {
 		const defaultCaret = (<Icon
@@ -139,9 +145,9 @@ function renderHeader({ header, caret, onSelect }) {
 			className={css.caret}
 			name={'talend-caret-down'}
 		/>);
-		headerItems.push(defaultCaret);
+		wrappedHeader.push(defaultCaret);
 	}
-	return headerItems;
+	return wrappedHeader;
 }
 
 function getKeyValueContent(content) {
@@ -156,8 +162,8 @@ function getKeyValueContent(content) {
 
 function getTextualContent(content) {
 	return (
-		<div className={css['vertical-content']}>
-			<div className={css['content-upper']}>
+		<div className={css.content}>
+			<div className={css.upper}>
 				{content.upper.map((item, index) => {
 					if (typeof item === 'string') {
 						return (<span key={index}>{item}</span>);
@@ -181,22 +187,24 @@ function getTextualContent(content) {
 	);
 }
 
-function CollapsiblePanel({ header, content, onSelect, selected }) {
+function CollapsiblePanel({ header, content, onSelect, selected, theme }) {
 	const headerItems = renderHeader({ header, caret: content, onSelect });
 	const className = classNames(css['collapsible-panel'],
-		onSelect && css.selectable,
-		selected && css['selected-panel']);
-	const noContentClassName = classNames(
-		{ [css['tc-selectable-panel']]: onSelect, [css['tc-panel']]: !onSelect },
-		selected && css['selected-panel']
-	);
+		{
+			[css['default-panel']]: !theme,
+			[css['descriptive-panel']]: theme,
+			[css['tc-default-no-content-panel']]: !content && !theme,
+			[css['tc-descriptive-no-content']]: !content && theme,
+			[css['selected-panel']]: selected,
+		});
+
 	let children = null;
 	if (content) {
 		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
 	return (
 		<Panel
-			className={content ? className : noContentClassName}
+			className={className}
 			collapsible={!!content}
 			header={headerItems}
 		>
@@ -216,10 +224,11 @@ CollapsiblePanel.propTypes = {
 			description: PropTypes.string,
 		})),
 		PropTypes.shape({
-			upper: PropTypes.Array,
+			upper: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
 			description: PropTypes.string,
 		}),
 	]),
+	theme: PropTypes.string,
 };
 
 export default CollapsiblePanel;

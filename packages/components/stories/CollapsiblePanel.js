@@ -136,19 +136,19 @@ const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
-	className: 'header-title-class',
+	className: 'title',
 };
 const readOnlyLabel = {
 	label: '(Read Only)',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
-	className: 'header-tag-class',
+	className: 'tag',
 };
 const timeStamp = {
 	label: '03/02/2017 14:44',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
-	className: 'header-detail-class',
+	className: 'detail',
 };
 
 const propsCollapsibleSelectablePanel = {
@@ -179,11 +179,13 @@ const propsCollapsibleSelectablePanel = {
 		' adipiscing elit',
 	},
 	onSelect: action('onselect'),
+	theme: 'descriptive-panel',
 };
 
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
 	selected: true,
+	theme: 'descriptive-panel',
 };
 
 const propsSelectedPanelWithoutContent = {
@@ -193,6 +195,7 @@ const propsSelectedPanelWithoutContent = {
 	],
 	onSelect: action('onselect'),
 	selected: true,
+	theme: 'descriptive-panel',
 };
 
 const propsCollapsibleSelectablePanelWithoutTag = {
@@ -201,20 +204,23 @@ const propsCollapsibleSelectablePanelWithoutTag = {
 		version1,
 		timeStamp,
 	],
+	theme: 'descriptive-panel',
 };
 
 storiesOf('CollapsiblePanel', module)
-	.addWithInfo('default', () => (
+	.addWithInfo('Key/Value content', () => (
 		<div>
 			<IconsProvider defaultIcons={icons}/>
 			<p>By default :</p>
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
 			</div>
+			<br />
 			<p>No content :</p>
 			<div id="one">
 				<CollapsiblePanel {...propsPanel} />
 			</div>
+			<br />
 			<p>No content - Header with Actions :</p>
 			<div id="two">
 				<CollapsiblePanel {...propsPanelWithActions} />
@@ -223,25 +229,37 @@ storiesOf('CollapsiblePanel', module)
 			<div id="three">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
 			</div>
+			<br />
 			<p>Header with groups :</p>
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
+			<br />
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
-			<p>Selected CollapsiblePanel:</p>
-			<CollapsiblePanel {...propsCollapsiblePanel} selected />
 		</div>
 	))
-	.addWithInfo('Selectable Panel', () => (
+	.addWithInfo('Textual content', () => (
+		(<div>
+			<IconsProvider defaultIcons={icons} />
+			<p>With Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
+			</div>
+			<br />
+			<p>Panel Without readonly tag and without content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
+			</div>
+			<br />
+		</div>)
+	))
+	.addWithInfo('Selected Collapsible', () => (
 		(<div>
 			<IconsProvider defaultIcons={icons} />
 			<p>Selected Panel With Content:</p>
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
 			</div>
-			<p>Selectable Panel With Content:</p>
-			<div id="selectable-panel-with-content2">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
-			</div>
+			<br />
 			<p>Selected Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
@@ -251,5 +269,11 @@ storiesOf('CollapsiblePanel', module)
 			<div id="selected-panel-without-content">
 				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
 			</div>
+			<br />
+			<p>Selected key/Value CollapsiblePanel:</p>
+			<CollapsiblePanel {...propsCollapsiblePanel} selected />
+			<br />
+			<p>Selected key/Value CollapsiblePanel without content:</p>
+			<CollapsiblePanel {...propsPanelWithoutActions} selected />
 		</div>)
 	));
