@@ -43,7 +43,8 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "react-autowhatever": "^7.0.0",
-    "react-debounce-input": "^2.4.2"
+    "react-debounce-input": "^2.4.2",
+    "focus-outline-manager": "^1.0.2"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.2",

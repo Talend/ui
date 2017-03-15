@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { Label, OverlayTrigger, Panel } from 'react-bootstrap';
+import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import 'focus-outline-manager';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
@@ -112,21 +113,23 @@ function renderHeader({ header, caret, onSelect }) {
 		if (Array.isArray(headerItem)) {
 			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<a
-					href
+				<Button
+					bsStyle="link"
+					role="link"
 					key={index}
 					className={classNames(css.group, css[headerColumnClass])}
 					onClick={onSelect && selectPanel(onSelect)}
-				>{elements}</a>
+				>{elements}</Button>
 			);
 		}
 		return (
-			<a
-				href
+			<Button
+				bsStyle="link"
+				role="link"
 				key={index}
 				className={classNames(css[headerItem.className], css[headerColumnClass])}
 				onClick={onSelect && selectPanel(onSelect)}
-			>{renderHeaderItem(headerItem)}</a>
+			>{renderHeaderItem(headerItem)}</Button>
 		);
 	});
 

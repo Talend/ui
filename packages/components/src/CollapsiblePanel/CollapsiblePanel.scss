@@ -2,8 +2,13 @@ $tc-collapsible-panel-padding-smaller: $padding-smaller !default;
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
-$tc-collapsible-selectable-panel-content-description-color: #918f8f !default;
-$tc-collapsible-selectable-panel-title-color: #63aebd !default;
+$tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
+$tc-collapsible-selectable-panel-title-color: #63AEBD !default;
+$tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
+
+html.focus-outline-hidden *:focus {
+	outline: none !important;
+}
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -78,7 +83,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 	margin-bottom: 0;
 
 	&.selected-panel {
-		border-left: 4px solid #6aa9d1;
+		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
 	}
 
 	:global(.panel-heading) {
@@ -117,7 +122,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 			@include col-style;
 			text-decoration: none;
 			margin: auto 5px;
-			padding: 10px 5px;
+			padding: 0px 5px;
 		}
 	}
 }
@@ -126,7 +131,7 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 	position: relative;
 
 	&.selected-panel {
-		border-left: 4px solid #6aa9d1;
+		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
 	}
 
 	&.selectable {
@@ -144,9 +149,9 @@ $tc-collapsible-selectable-panel-title-color: #63aebd !default;
 			position: relative;
 
 			a {
-				> a {
+				> button {
 					margin: 0;
-					padding: 10px 5px;
+					padding: 0px 5px;
 				}
 
 				.group {
