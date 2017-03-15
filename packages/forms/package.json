@@ -79,7 +79,11 @@
     "build-storybook": "build-storybook"
   },
   "jest": {
-    "collectCoverageFrom" : ["src/**/*.{js,jsx}", "!**/node_modules/**", "!**/__snapshots__/**"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
@@ -92,5 +96,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.66.0"
+  "version": "0.66.1"
 }

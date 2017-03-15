@@ -9,6 +9,7 @@ import './Breadcrumbs';
 import './CircularProgress';
 import './CollapsiblePanel';
 import './ConfirmDialog';
+import './Checkbox';
 import './Dialog';
 import './Drawer';
 import './Enumeration';
