@@ -1,17 +1,15 @@
-import { connect } from 'react-redux';
-import { actions } from 'react-cmf';
-import { componentState } from 'react-talend-containers';
+import { cmfConnect } from 'react-cmf';
 
 import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
 
 export function mapStateToProps(state, ownProps, cmfProps) {
-	//cmfProps.state
+	// cmfProps.state
 	const props = {};
 	return props;
 }
 
 export function mapDispatchToProps(dispatch, ownProps, cmfProps) {
-	//cmfProps.updateState, initState, deleteState, dispatch, dispatchActionCreator
+	// cmfProps.updateState, initState, deleteState, dispatch, dispatchActionCreator
 	const props = {};
 	return props;
 }
