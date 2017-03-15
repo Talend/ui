@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import Toggle from 'react-talend-components/lib/Toggle';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -81,7 +82,9 @@ describe('renderActionIcon', () => {
 describe('renderActions', () => {
 	// given
 	it('should render actions', () => {
-		function noop() {}
+		function noop() {
+		}
+
 		const actions = [
 			{
 				type: 'button',
@@ -122,11 +125,11 @@ describe('<Form/>', () => {
 			expect(wrapper.containsMatchingElement(<Input />)).toBeTruthy();
 		});
 
-		it('should the <Checkbox/> component', () => {
-			expect(wrapper.containsMatchingElement(<Checkbox />)).toBeTruthy();
+		it('should the <Toggle/> component', () => {
+			expect(wrapper.containsMatchingElement(<input type="checkbox" />)).toBeTruthy();
 		});
 
-		it('should render the <Select/> component', () => {
+		it('should render the <Select /> component', () => {
 			expect(wrapper.containsMatchingElement(<Select />)).toBeTruthy();
 		});
 
