@@ -7,17 +7,8 @@ $tc-enumeration-header-height: 28px !default;
 .tc-enumeration-header {
 	display: flex;
 	line-height: $tc-enumeration-large-padding;
-	text-transform: uppercase;
 	align-items: center;
 	height: $tc-enumeration-header-height;
-
-	span {
-		font-size: 12px;
-		font-weight: 700;
-		letter-spacing: 0.6px;
-		line-height: 30px;
-		text-align: left;
-	}
 
 	input {
 		box-shadow: none;

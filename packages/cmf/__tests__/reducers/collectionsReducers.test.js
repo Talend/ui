@@ -1,6 +1,6 @@
 import { Map, List, fromJS } from 'immutable';
 
-import collectionsReducers, { defaultState } from '../../src/reducers/collectionsReducers';
+import collectionsReducers, { defaultState, getId } from '../../src/reducers/collectionsReducers';
 
 describe('check collection management reducer', () => {
 	const initialState = defaultState.set('collection1', 'super data');
@@ -34,15 +34,10 @@ describe('check collection management reducer', () => {
 describe('REACT_CMF.COLLECTION_MUTATE', () => {
 	const listInitialState = defaultState.set(
 		'collectionid',
-		// fromJS([{ id: 0, label: 'test data 0' }, { id: 1, label: 'test data 1' }])
 		new List().set(0, { id: 0, label: 'test data 0' }).set(1, { id: 1, label: 'test data 1' })
 	);
 	const mapInitialState = defaultState.set(
 		'collectionid',
-		// fromJS({
-		// 	test0: 'test data 0',
-		// 	test1: 'test data 1',
-		// })
 		new Map().set('test0', 'test data 0').set('test1', 'test data 1')
 	);
 
@@ -169,7 +164,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				id: 'collectionid',
 				operations: {
 					update: {
-						'test0': 'new test data 0',
+						test0: 'new test data 0',
 					},
 				},
 			});
@@ -180,5 +175,29 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				}))
 			);
 		});
+	});
+});
+
+describe('getId', () => {
+	it('should return mutable element id', () => {
+		// given
+		const element = { id: 'toto' };
+
+		// when
+		const id = getId(element);
+
+		// then
+		expect(id).toBe('toto');
+	});
+
+	it('should return immutable element id', () => {
+		// given
+		const element = fromJS({ id: 'toto' });
+
+		// when
+		const id = getId(element);
+
+		// then
+		expect(id).toBe('toto');
 	});
 });
