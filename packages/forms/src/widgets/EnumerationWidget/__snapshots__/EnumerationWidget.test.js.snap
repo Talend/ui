@@ -207,10 +207,11 @@ exports[`EnumerationWidget delete all 1`] = `
                   tooltipPlacement="top">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Add item
@@ -559,10 +560,11 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   tooltipPlacement="bottom">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Validate
@@ -629,10 +631,11 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   tooltipPlacement="bottom">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Abort
@@ -977,10 +980,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   tooltipPlacement="top">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Add item
@@ -1374,10 +1378,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   tooltipPlacement="top">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Add item
@@ -1662,10 +1667,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Validate
@@ -1732,10 +1738,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Abort
@@ -2013,10 +2020,11 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   tooltipPlacement="top">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Add item
@@ -2583,19 +2591,20 @@ exports[`EnumerationWidget should select an item 1`] = `
                   id="0-item">
                   <TooltipTrigger
                     label="titi,tata"
-                    tooltipPlacement="bottom">
+                    tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
-                      delay={400}
+                      delayShow={400}
                       overlay={
                         <Tooltip
                           bsClass="tooltip"
+                          className="undefined tooltip-container"
                           id={42}
                           placement="right">
                           titi,tata
                         </Tooltip>
                       }
-                      placement="bottom"
+                      placement="top"
                       trigger={
                         Array [
                           "hover",
@@ -2647,10 +2656,11 @@ exports[`EnumerationWidget should select an item 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Edit
@@ -2717,10 +2727,11 @@ exports[`EnumerationWidget should select an item 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Delete
@@ -3026,10 +3037,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   tooltipPlacement="bottom">
                   <OverlayTrigger
                     defaultOverlayShown={false}
-                    delay={400}
+                    delayShow={400}
                     overlay={
                       <Tooltip
                         bsClass="tooltip"
+                        className="undefined tooltip-container"
                         id={42}
                         placement="right">
                         Delete items
@@ -3277,19 +3289,20 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   id="0-item">
                   <TooltipTrigger
                     label="titi,tata"
-                    tooltipPlacement="bottom">
+                    tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
-                      delay={400}
+                      delayShow={400}
                       overlay={
                         <Tooltip
                           bsClass="tooltip"
+                          className="undefined tooltip-container"
                           id={42}
                           placement="right">
                           titi,tata
                         </Tooltip>
                       }
-                      placement="bottom"
+                      placement="top"
                       trigger={
                         Array [
                           "hover",
@@ -3341,10 +3354,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Edit
@@ -3444,19 +3458,20 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   id="1-item">
                   <TooltipTrigger
                     label="titi2,tata2"
-                    tooltipPlacement="bottom">
+                    tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
-                      delay={400}
+                      delayShow={400}
                       overlay={
                         <Tooltip
                           bsClass="tooltip"
+                          className="undefined tooltip-container"
                           id={42}
                           placement="right">
                           titi2,tata2
                         </Tooltip>
                       }
-                      placement="bottom"
+                      placement="top"
                       trigger={
                         Array [
                           "hover",
@@ -3508,10 +3523,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
-                          delay={400}
+                          delayShow={400}
                           overlay={
                             <Tooltip
                               bsClass="tooltip"
+                              className="undefined tooltip-container"
                               id={42}
                               placement="right">
                               Edit
