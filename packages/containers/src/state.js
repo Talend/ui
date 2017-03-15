@@ -1,20 +1,18 @@
-import state, {
-	getStateAccessors,
-	getStateProps,
-	initState,
-	stateWillMount,
-	statePropTypes,
-} from 'react-cmf/lib/componentState';
+import { componentState } from 'react-cmf';
 
 // BBB
 console.warn('BBB: you should import state from react-cmf');
 
-export {
-	getStateAccessors,
-	getStateProps,
-	initState,
-	stateWillMount,
-	statePropTypes,
-};
+export default componentState;
 
-export default state;
+export const getStateAccessors = componentState.getAccessors;
+export const getStateProps = componentState.getProps;
+export const initState = componentState.init;
+export const stateWillMount = (props) => {
+	console.log(  // eslint-disable-line no-console
+		`DEPRECATION Warning: you should use initState
+		in componentDidMount instead.
+		https://github.com/facebook/react/issues/7671`);
+	componentState.init(props);
+};
+export const statePropTypes = componentState.propTypes;
