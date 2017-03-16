@@ -72,7 +72,7 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration(
-	{ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
+	{ displayMode, addInputError, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
 ) {
 	switch (displayMode) {
 	case DISPLAY_MODE_ADD: {
@@ -80,6 +80,7 @@ function HeaderEnumeration(
 			headerInput,
 			onAddChange,
 			onAddKeyDown,
+			addInputError
 		};
 
 		return <HeaderInput {...propsInput} />;

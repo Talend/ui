@@ -1,6 +1,11 @@
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 
+$tc-enumeration-item-error-background-color: white !default;
+$tc-enumeration-item-error-color: red !default;
+$tc-enumeration-item-error-top-position: 30px !default;
+$tc-enumeration-item-error-padding: 7px 7px 7px 10px !default;
+
 .tc-enumeration-item {
 	display: flex;
 	font-size: 14px;
@@ -8,6 +13,7 @@ $tc-enumeration-small-padding: $padding-small !default;
 	line-height: 11px;
 	text-align: left;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
+	position: relative;
 
 	:global(.btn-link ~ .btn-link) {
 		margin-left: $tc-enumeration-smaller-padding;
@@ -59,6 +65,16 @@ $tc-enumeration-small-padding: $padding-small !default;
 
 	input {
 		margin: 10px;
+	}
+
+	.tc-enumeration-item-error {
+		position: absolute;
+		top: $tc-enumeration-item-error-top-position;
+		background-color: $tc-enumeration-item-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-item-error-color;
+		padding: $tc-enumeration-item-error-padding;
+		z-index: 1;
 	}
 }
 
