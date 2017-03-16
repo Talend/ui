@@ -1,5 +1,4 @@
 import React from 'react';
-import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 
 import { ObjectViewer as Component } from 'react-talend-components';
@@ -64,7 +63,7 @@ describe('Container ObjectViewer', () => {
 		});
 		expect(updateState.mock.calls.length).toBe(1);
 		expect(updateState.mock.calls[0][0].get('opened').get(0)).toBe(path);
-		//close
+		// close
 		props.onClick(null, {
 			isOpened: true,
 			jsonpath: path,
