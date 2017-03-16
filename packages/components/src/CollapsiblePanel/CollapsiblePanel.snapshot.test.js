@@ -1,12 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { Button } from 'react-bootstrap';
+import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
 jest.mock('react-dom');
 
 const props = {
-
 	header: [
 		{
 			displayMode: 'status',
@@ -79,7 +80,7 @@ const timeStamp = {
 	tooltipPlacement: 'top',
 };
 
-const propsCollapsibleSelectablePanel = {
+const propsDescriptivePanel = {
 	header: [
 		[version1, readOnlyLabel],
 		timeStamp,
@@ -106,11 +107,11 @@ const propsCollapsibleSelectablePanel = {
 		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
 		' adipiscing elit',
 	},
-	theme: 'collapsible-selectable-panel',
+	theme: 'descriptive-panel',
 	onSelect: jest.fn(),
 };
 
-const propsSelectablePanelWithoutContent = {
+const propsDescriptivePanelWithoutContent = {
 	header: [
 		[version1, readOnlyLabel],
 		timeStamp,
@@ -120,39 +121,49 @@ const propsSelectablePanelWithoutContent = {
 };
 
 describe('CollapsiblePanel', () => {
-	it('should render CollapsiblePanel with content', () => {
+	it('should render with key/value content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render CollapsiblePanel without content', () => {
+	it('should render without key/value content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...props} content={null} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-});
 
-describe('Selectable Collapsible Panel', () => {
-	it('should render with content', () => {
+	it('should render with textual content', () => {
 		// when
-		const wrapper = renderer.create(<CollapsiblePanel {...propsCollapsibleSelectablePanel} />)
+		const wrapper = renderer.create(<CollapsiblePanel {...propsDescriptivePanel} />)
 			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render without content', () => {
+	it('should render without textual content', () => {
 		// when
 		const wrapper = renderer.create(
-			<CollapsiblePanel {...propsSelectablePanelWithoutContent} content={null} />)
+			<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)
 			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should trigger onSelect callback on header click', () => {
+		// given
+		const panelInstance = (<CollapsiblePanel {...propsDescriptivePanel} />);
+
+		// when
+		const wrapper = mount(panelInstance);
+		wrapper.find(Button).simulate('click');
+
+		// then
+		expect(propsDescriptivePanel.onSelect).toBeCalled();
 	});
 });

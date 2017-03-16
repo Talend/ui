@@ -183,7 +183,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		a {
 			> button {
 				margin: 0;
-				padding: 0px 5px;
+				padding: 0 5px;
 				text-decoration: none;
 			}
 		}
@@ -234,7 +234,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 				}
 			}
 
-			.content-text {
+			.content-description {
 				color: $tc-collapsible-selectable-panel-content-description-color;
 			}
 		}

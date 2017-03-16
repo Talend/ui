@@ -180,7 +180,7 @@ function getTextualContent(content) {
 					);
 				})}
 			</div>
-			<div className={css['content-text']}>
+			<div className={css['content-description']}>
 				{content.description}
 			</div>
 		</div>
