@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
 import { store, Provider } from 'react-cmf/lib/mock';
 
-import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
+import Container from './ConfirmDialog.container';
 import Connected from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
