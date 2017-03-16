@@ -1,7 +1,11 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'talend-log'
 
+<<<<<<< HEAD
 > talend-log@0.66.1 lint:es /home/travis/build/Talend/ui/packages/logging
+=======
+> talend-log@0.66.2 lint:es /home/travis/build/Talend/ui/packages/logging
+>>>>>>> master
 > eslint --config .eslintrc --ext .js src
 
 
