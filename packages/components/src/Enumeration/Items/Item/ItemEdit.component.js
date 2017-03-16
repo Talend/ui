@@ -7,10 +7,11 @@ import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 
-function itemClasses() {
+function itemClasses(error) {
 	return classNames({
 		[theme['tc-enumeration-item']]: true,
 		'tc-enumeration-item': true,
+		'has-error': error ? true : false,
 	});
 }
 
@@ -129,7 +130,7 @@ class ItemEdit extends React.Component {
 		);
 
 		return (
-			<li className={itemClasses()} id={this.props.id}>
+			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
 				<input
 					className={itemLabelClasses()}
 					ref={(input) => { this.itemInput = input; }}
