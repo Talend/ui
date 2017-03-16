@@ -346,28 +346,19 @@ form {
 
 	&-control:focus,
 	&-control[placeholder]:not([placeholder='']),
-		&-control:not(:empty),
-	input[type='date'],
-	input[type='datetime-local'] {
-		+ label {
-			top: 0;
-			font-size: $font-size-small;
-		}
-	}
-
-	&-control:focus,
-	&-control[value]:not([value='']):focus
-	{
-		+ label {
-			opacity: 1;
-		}
-	}
-
+	&-control:not(:empty),
 	&-control:disabled,
-	&-control[value]:not([value='']){
-		+ label{
+	&-control[value]:not([value='']),
+	input[type='date'],
+	input[type='datetime-local']{
+		+ label {
 			top: 0;
 			font-size: $font-size-small;
+		}
+	}
+
+	&-control:disabled{
+		+ label{
 			opacity: 0.4;
 		}
 	}
