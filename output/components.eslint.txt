@@ -1,7 +1,11 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
+<<<<<<< HEAD
 > react-talend-components@0.66.1 lint:es /home/travis/build/Talend/ui/packages/components
+=======
+> react-talend-components@0.66.2 lint:es /home/travis/build/Talend/ui/packages/components
+>>>>>>> master
 > eslint --config .eslintrc src
 
 
