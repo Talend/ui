@@ -38,7 +38,13 @@ describe('Header', () => {
 	it('should render header in selected state without trash icon in case of single selection)', () => {
 		// given
 		const props = {
-			headerSelected: [],
+			headerSelected: [{
+				disabled: false,
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: jest.fn(), // provided click callback
+			}],
 			nbItemsSelected: 1,
 		};
 
