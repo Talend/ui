@@ -8,21 +8,16 @@ import Connected from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-const initialState = new Map({
-	size: 'small',
-	header: 'DO SOMETHING',
-	show: true,
-	children: 'Confirm this !',
-});
-
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Container initialState={initialState} />
-			</Provider>,
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const state = new Map({
+			size: 'small',
+			header: 'DO SOMETHING',
+			show: true,
+			children: 'Confirm this !',
+		});
+		const instance = new Container({ state });
+		expect(instance.render()).toBe(null);
 	});
 	it('should render', () => {
 		const state = new Map({
@@ -32,11 +27,12 @@ describe('Container ConfirmDialog', () => {
 			children: 'Confirm this !',
 			validateAction: 'menu:demo',
 			cancelAction: 'menu:demo',
+			model: { foo: 'bar' },
 		});
 		const wrapper = renderer.create(
 			<Provider>
-				<Container state={state} />
-			</Provider>,
+				<Container state={state} />,
+			</Provider>
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
