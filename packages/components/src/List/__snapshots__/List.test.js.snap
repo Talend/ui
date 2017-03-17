@@ -72,9 +72,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -96,9 +93,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -133,9 +127,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -157,9 +148,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -194,9 +182,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -218,9 +203,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -768,9 +750,6 @@ exports[`List should render 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -792,9 +771,6 @@ exports[`List should render 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -829,9 +805,6 @@ exports[`List should render 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -853,9 +826,6 @@ exports[`List should render 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -890,9 +860,6 @@ exports[`List should render 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -914,9 +881,6 @@ exports[`List should render 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -1477,9 +1441,6 @@ exports[`List should render id if provided 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1501,9 +1462,6 @@ exports[`List should render id if provided 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -1538,9 +1496,6 @@ exports[`List should render id if provided 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1562,9 +1517,6 @@ exports[`List should render id if provided 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -1599,9 +1551,6 @@ exports[`List should render id if provided 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1623,9 +1572,6 @@ exports[`List should render id if provided 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
