@@ -6,10 +6,6 @@ import { fromJS, Map } from 'immutable';
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
 
-const header = {
-	app: 'Test App Name',
-};
-
 const sidepanel = {
 	actionIds: ['menu:demo', 'menu:article'],
 };
@@ -86,7 +82,7 @@ describe('Component HomeListView', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider state={reduxState}>
-				<Component header={header} sidepanel={sidepanel} list={listProps}>
+				<Component header={(<div className="header" />)} sidepanel={sidepanel} list={listProps}>
 					<h1>Hello children</h1>
 				</Component>
 			</Provider>
