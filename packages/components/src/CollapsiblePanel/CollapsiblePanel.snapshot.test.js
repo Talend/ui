@@ -1,7 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Button } from 'react-bootstrap';
-import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
@@ -153,17 +151,5 @@ describe('CollapsiblePanel', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should trigger onSelect callback on header click', () => {
-		// given
-		const panelInstance = (<CollapsiblePanel {...propsDescriptivePanel} />);
-
-		// when
-		const wrapper = mount(panelInstance);
-		wrapper.find(Button).simulate('click');
-
-		// then
-		expect(propsDescriptivePanel.onSelect).toBeCalled();
 	});
 });
