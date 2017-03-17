@@ -121,25 +121,28 @@ export default function cmfConnect({
 			};
 			static WrappedComponent = WrappedComponent;
 
+			constructor(props, context) {
+				super(props, context);
+				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
+			}
+
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.didMountActionCreator) {
-					this.props.dispatchActionCreator(
+					this.dispatchActionCreator(
 						this.props.didMountActionCreator,
 						null,
 						this.props,
-						this.context,
 					);
 				}
 			}
 
 			componentWillUnmount() {
 				if (this.props.willUnmountActionCreator) {
-					this.props.dispatchActionCreator(
+					this.dispatchActionCreator(
 						this.props.willUnmountActionCreator,
 						null,
 						this.props,
-						this.context
 					);
 				}
 				if (!keepComponentState) {
@@ -147,9 +150,15 @@ export default function cmfConnect({
 				}
 			}
 
+			dispatchActionCreator(actionCreatorId, event, data, context) {
+				const myContext = context || this.context;
+				this.props.dispatchActionCreator(actionCreatorId, event, data, myContext);
+			}
+
 			render() {
 				const props = Object.assign({
 					state: defaultState,
+					dispatchActionCreator: this.dispatchActionCreator,
 				}, this.props);
 				return createElement(
 					WrappedComponent,
@@ -157,7 +166,7 @@ export default function cmfConnect({
 				);
 			}
 		}
-		return connect(
+		const Connected = connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
 				ownProps,
@@ -176,5 +185,7 @@ export default function cmfConnect({
 			mergeProps,
 			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
+		Connected.CMFContainer = CMFContainer;
+		return Connected;
 	};
 }
