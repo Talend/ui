@@ -2589,56 +2589,70 @@ exports[`EnumerationWidget should select an item 1`] = `
                 <li
                   className="undefined tc-enumeration-item selected-item"
                   id="0-item">
-                  <TooltipTrigger
+                  <Action
+                    bsStyle="default"
+                    className="undefined tc-enumeration-item-label"
+                    disabled={false}
+                    inProgress={false}
                     label="titi,tata"
+                    onClick={[Function]}
+                    tooltip={true}
                     tooltipPlacement="top">
-                    <OverlayTrigger
-                      defaultOverlayShown={false}
-                      delayShow={400}
-                      overlay={
-                        <Tooltip
-                          bsClass="tooltip"
-                          className="undefined tooltip-container"
-                          id={42}
-                          placement="right">
-                          titi,tata
-                        </Tooltip>
-                      }
-                      placement="top"
-                      trigger={
-                        Array [
-                          "hover",
-                          "focus",
-                        ]
-                      }>
-                      <Button
-                        active={false}
-                        aria-describedby={42}
-                        block={false}
-                        bsClass="btn"
-                        bsStyle="default"
-                        className="undefined tc-enumeration-item-label"
-                        disabled={false}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onMouseOut={[Function]}
-                        onMouseOver={[Function]}>
-                        <button
+                    <TooltipTrigger
+                      label="titi,tata"
+                      tooltipPlacement="top">
+                      <OverlayTrigger
+                        defaultOverlayShown={false}
+                        delayShow={400}
+                        overlay={
+                          <Tooltip
+                            bsClass="tooltip"
+                            className="undefined tooltip-container"
+                            id={42}
+                            placement="right">
+                            titi,tata
+                          </Tooltip>
+                        }
+                        placement="top"
+                        trigger={
+                          Array [
+                            "hover",
+                            "focus",
+                          ]
+                        }>
+                        <Button
+                          active={false}
                           aria-describedby={42}
-                          className="undefined tc-enumeration-item-label btn btn-default"
+                          block={false}
+                          bsClass="btn"
+                          bsStyle="default"
+                          className="undefined tc-enumeration-item-label"
                           disabled={false}
                           onBlur={[Function]}
                           onClick={[Function]}
                           onFocus={[Function]}
                           onMouseOut={[Function]}
                           onMouseOver={[Function]}
-                          type="button">
-                          titi,tata
-                        </button>
-                      </Button>
-                    </OverlayTrigger>
-                  </TooltipTrigger>
+                          role={null}>
+                          <button
+                            aria-describedby={42}
+                            className="undefined tc-enumeration-item-label btn btn-default"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseOut={[Function]}
+                            onMouseOver={[Function]}
+                            role={null}
+                            type="button">
+                            <span>
+                              titi,tata
+                            </span>
+                          </button>
+                        </Button>
+                      </OverlayTrigger>
+                    </TooltipTrigger>
+                  </Action>
                   <div
                     className="undefined tc-enumeration-item-actions">
                     <Action
@@ -3287,56 +3301,70 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 <li
                   className="undefined tc-enumeration-item selected-item"
                   id="0-item">
-                  <TooltipTrigger
+                  <Action
+                    bsStyle="default"
+                    className="undefined tc-enumeration-item-label"
+                    disabled={false}
+                    inProgress={false}
                     label="titi,tata"
+                    onClick={[Function]}
+                    tooltip={true}
                     tooltipPlacement="top">
-                    <OverlayTrigger
-                      defaultOverlayShown={false}
-                      delayShow={400}
-                      overlay={
-                        <Tooltip
-                          bsClass="tooltip"
-                          className="undefined tooltip-container"
-                          id={42}
-                          placement="right">
-                          titi,tata
-                        </Tooltip>
-                      }
-                      placement="top"
-                      trigger={
-                        Array [
-                          "hover",
-                          "focus",
-                        ]
-                      }>
-                      <Button
-                        active={false}
-                        aria-describedby={42}
-                        block={false}
-                        bsClass="btn"
-                        bsStyle="default"
-                        className="undefined tc-enumeration-item-label"
-                        disabled={false}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onMouseOut={[Function]}
-                        onMouseOver={[Function]}>
-                        <button
+                    <TooltipTrigger
+                      label="titi,tata"
+                      tooltipPlacement="top">
+                      <OverlayTrigger
+                        defaultOverlayShown={false}
+                        delayShow={400}
+                        overlay={
+                          <Tooltip
+                            bsClass="tooltip"
+                            className="undefined tooltip-container"
+                            id={42}
+                            placement="right">
+                            titi,tata
+                          </Tooltip>
+                        }
+                        placement="top"
+                        trigger={
+                          Array [
+                            "hover",
+                            "focus",
+                          ]
+                        }>
+                        <Button
+                          active={false}
                           aria-describedby={42}
-                          className="undefined tc-enumeration-item-label btn btn-default"
+                          block={false}
+                          bsClass="btn"
+                          bsStyle="default"
+                          className="undefined tc-enumeration-item-label"
                           disabled={false}
                           onBlur={[Function]}
                           onClick={[Function]}
                           onFocus={[Function]}
                           onMouseOut={[Function]}
                           onMouseOver={[Function]}
-                          type="button">
-                          titi,tata
-                        </button>
-                      </Button>
-                    </OverlayTrigger>
-                  </TooltipTrigger>
+                          role={null}>
+                          <button
+                            aria-describedby={42}
+                            className="undefined tc-enumeration-item-label btn btn-default"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseOut={[Function]}
+                            onMouseOver={[Function]}
+                            role={null}
+                            type="button">
+                            <span>
+                              titi,tata
+                            </span>
+                          </button>
+                        </Button>
+                      </OverlayTrigger>
+                    </TooltipTrigger>
+                  </Action>
                   <div
                     className="undefined tc-enumeration-item-actions">
                     <Action
@@ -3456,56 +3484,70 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 <li
                   className="undefined tc-enumeration-item selected-item"
                   id="1-item">
-                  <TooltipTrigger
+                  <Action
+                    bsStyle="default"
+                    className="undefined tc-enumeration-item-label"
+                    disabled={false}
+                    inProgress={false}
                     label="titi2,tata2"
+                    onClick={[Function]}
+                    tooltip={true}
                     tooltipPlacement="top">
-                    <OverlayTrigger
-                      defaultOverlayShown={false}
-                      delayShow={400}
-                      overlay={
-                        <Tooltip
-                          bsClass="tooltip"
-                          className="undefined tooltip-container"
-                          id={42}
-                          placement="right">
-                          titi2,tata2
-                        </Tooltip>
-                      }
-                      placement="top"
-                      trigger={
-                        Array [
-                          "hover",
-                          "focus",
-                        ]
-                      }>
-                      <Button
-                        active={false}
-                        aria-describedby={42}
-                        block={false}
-                        bsClass="btn"
-                        bsStyle="default"
-                        className="undefined tc-enumeration-item-label"
-                        disabled={false}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onMouseOut={[Function]}
-                        onMouseOver={[Function]}>
-                        <button
+                    <TooltipTrigger
+                      label="titi2,tata2"
+                      tooltipPlacement="top">
+                      <OverlayTrigger
+                        defaultOverlayShown={false}
+                        delayShow={400}
+                        overlay={
+                          <Tooltip
+                            bsClass="tooltip"
+                            className="undefined tooltip-container"
+                            id={42}
+                            placement="right">
+                            titi2,tata2
+                          </Tooltip>
+                        }
+                        placement="top"
+                        trigger={
+                          Array [
+                            "hover",
+                            "focus",
+                          ]
+                        }>
+                        <Button
+                          active={false}
                           aria-describedby={42}
-                          className="undefined tc-enumeration-item-label btn btn-default"
+                          block={false}
+                          bsClass="btn"
+                          bsStyle="default"
+                          className="undefined tc-enumeration-item-label"
                           disabled={false}
                           onBlur={[Function]}
                           onClick={[Function]}
                           onFocus={[Function]}
                           onMouseOut={[Function]}
                           onMouseOver={[Function]}
-                          type="button">
-                          titi2,tata2
-                        </button>
-                      </Button>
-                    </OverlayTrigger>
-                  </TooltipTrigger>
+                          role={null}>
+                          <button
+                            aria-describedby={42}
+                            className="undefined tc-enumeration-item-label btn btn-default"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseOut={[Function]}
+                            onMouseOver={[Function]}
+                            role={null}
+                            type="button">
+                            <span>
+                              titi2,tata2
+                            </span>
+                          </button>
+                        </Button>
+                      </OverlayTrigger>
+                    </TooltipTrigger>
+                  </Action>
                   <div
                     className="undefined tc-enumeration-item-actions">
                     <Action
