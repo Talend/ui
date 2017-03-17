@@ -90,7 +90,7 @@ form {
 		font-size: $font-size-base;
 		line-height: 1.5;
 
-		&::-ms-expand {
+		&::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 
@@ -412,7 +412,7 @@ form {
 			background: tint($dove-gray, 40);
 			border: none;
 			transform: rotate(0deg);
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0); // sass-lint:disable-line no-vendor-prefixes
 			box-sizing: content-box;
 		}
 
