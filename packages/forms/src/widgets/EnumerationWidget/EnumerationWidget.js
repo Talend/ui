@@ -124,7 +124,7 @@ class EnumerationWidget extends React.Component {
 	onChangeItem(event, value) {
 		// if the value exist add an error
 		const valueExist = this.valueAlreadyExist(value.value);
-		let items = [...this.state.items];
+		const items = [...this.state.items];
 		items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
 		this.setState({
 			items,
@@ -249,11 +249,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	valueAlreadyExist(value) {
-		const valueExist =
-		this.state.items.find(item => {
-			return item.values[0] === value
-		});
-		return valueExist ? true : false;
+		return this.state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {

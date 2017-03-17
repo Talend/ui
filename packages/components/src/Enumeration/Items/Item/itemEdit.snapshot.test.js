@@ -85,7 +85,7 @@ describe('Item', () => {
 
 	it('should display input value with error', () => {
 		// given
-		const errorItem = {...item};
+		const errorItem = { ...item };
 		errorItem.error = 'an error occured';
 		const props = {
 			id: '0-item',

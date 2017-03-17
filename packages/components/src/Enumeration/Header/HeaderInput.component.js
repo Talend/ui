@@ -10,7 +10,7 @@ function headerClasses(addInputError) {
 	return classNames({
 		[theme['tc-enumeration-header']]: true,
 		'tc-enumeration-header': true,
-		'has-error': addInputError ? true : false,
+		'has-error': !!addInputError,
 	});
 }
 

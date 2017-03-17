@@ -11,7 +11,7 @@ function itemClasses(error) {
 	return classNames({
 		[theme['tc-enumeration-item']]: true,
 		'tc-enumeration-item': true,
-		'has-error': error ? true : false,
+		'has-error': !!error,
 	});
 }
 
@@ -142,7 +142,10 @@ class ItemEdit extends React.Component {
 				<div className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
-				{ this.props.item.error ? <div className={itemErrorClasses()}>{this.props.item.error}</div> : null}
+				{
+					this.props.item.error ?
+						<div className={itemErrorClasses()}>{this.props.item.error}</div> : null
+				}
 			</li>
 		);
 	}
