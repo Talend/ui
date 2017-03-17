@@ -151,8 +151,8 @@ export default function cmfConnect({
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
-				const myContext = context || this.context;
-				this.props.dispatchActionCreator(actionCreatorId, event, data, myContext);
+				const extendedContext = Object.assign({}, this.context, context);
+				this.props.dispatchActionCreator(actionCreatorId, event, data, extended);
 			}
 
 			render() {
