@@ -6,7 +6,7 @@ $tc-enumeration-header-height: 28px !default;
 
 $tc-enumeration-header-error-background-color: white !default;
 $tc-enumeration-header-error-color: red !default;
-$tc-enumeration-header-error-top-position: 28px !default;
+$tc-enumeration-header-error-top-position: $tc-enumeration-header-height;
 $tc-enumeration-header-error-padding: 2px !default;
 
 .tc-enumeration-header {
