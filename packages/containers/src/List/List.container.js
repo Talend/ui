@@ -48,7 +48,7 @@ class List extends React.Component {
 			sort: PropTypes.object,
 			filter: PropTypes.object,
 			pagination: PropTypes.shape({
-				onChange: PropTypes.func,
+				onChange: PropTypes.string,
 			}),
 		}),
 		displayMode: PropTypes.string,
