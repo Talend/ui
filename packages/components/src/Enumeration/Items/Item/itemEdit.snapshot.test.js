@@ -53,7 +53,7 @@ describe('Item', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should display input value with two buttons. The vamidate button is disabled', () => {
+	it('should display input value with two buttons. The validate button is disabled', () => {
 		// given
 		const props = {
 			id: '0-item',
@@ -61,6 +61,38 @@ describe('Item', () => {
 			currentEdit: {
 				validate: {
 					disabled: true,
+				},
+			},
+		};
+
+		function createNodeMock(element) {
+			if (element.type === 'input') {
+				return {};
+			}
+			return null;
+		}
+		const rendererOptions = { createNodeMock };
+
+		// when
+		const wrapper = renderer.create(
+			<ItemEdit {...props} />,
+			rendererOptions
+		).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should display input value with error', () => {
+		// given
+		const errorItem = {...item};
+		errorItem.error = 'an error occured';
+		const props = {
+			id: '0-item',
+			item: errorItem,
+			currentEdit: {
+				validate: {
+					disabled: false,
 				},
 			},
 		};

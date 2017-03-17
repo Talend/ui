@@ -67,7 +67,7 @@ function HeaderInput({ headerInput, addInputError, onAddChange, onAddKeyDown }) 
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ addInputError ? <div className={headerErrorClasses()}>{addInputError}</div> : ''}
+			{ addInputError ? <div className={headerErrorClasses()}>{addInputError}</div> : null}
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);

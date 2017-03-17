@@ -3,8 +3,9 @@ $tc-enumeration-small-padding: $padding-small !default;
 
 $tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
-$tc-enumeration-item-error-top-position: 30px !default;
-$tc-enumeration-item-error-padding: 7px 7px 7px 10px !default;
+$tc-item-padding-top-bottom: 7px !default;
+$tc-enumeration-input-margin: 10px;
+$tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-input-margin $tc-item-padding-top-bottom $tc-enumeration-input-margin;
 
 .tc-enumeration-item {
 	display: flex;
@@ -64,12 +65,12 @@ $tc-enumeration-item-error-padding: 7px 7px 7px 10px !default;
 	}
 
 	input {
-		margin: 10px;
+		margin: $tc-enumeration-input-margin;
 	}
 
 	.tc-enumeration-item-error {
 		position: absolute;
-		top: $tc-enumeration-item-error-top-position;
+		top: calc(100% - #{$tc-enumeration-input-margin});
 		background-color: $tc-enumeration-item-error-background-color;
 		width: 100%;
 		color: $tc-enumeration-item-error-color;
