@@ -1192,6 +1192,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
         Array [
           Object {
             "displayMode": "DISPLAY_MODE_EDIT",
+            "error": "",
             "isSelected": false,
             "values": Array [
               "titi",
@@ -1294,6 +1295,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
+                "error": "",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -1487,6 +1489,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
+                "error": "",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -1549,6 +1552,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Array [
                 Object {
                   "displayMode": "DISPLAY_MODE_EDIT",
+                  "error": "",
                   "isSelected": false,
                   "values": Array [
                     "titi",
@@ -1611,6 +1615,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 item={
                   Object {
                     "displayMode": "DISPLAY_MODE_EDIT",
+                    "error": "",
                     "index": 0,
                     "isSelected": false,
                     "itemProps": Object {

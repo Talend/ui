@@ -270,7 +270,7 @@ class EnumerationWidget extends React.Component {
 		this.setState(() => ({
 			currentEdit: {
 				validate: {
-					disabled: value.value === '' || valueExist,
+					disabled: value.value === '' || valueExist !== undefined,
 				},
 			},
 		}));

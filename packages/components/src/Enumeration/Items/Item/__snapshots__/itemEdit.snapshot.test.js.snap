@@ -8,7 +8,6 @@ exports[`Item should display input value with error 1`] = `
   <input
     autoFocus={true}
     className="undefined tc-enumeration-item-label"
-    onBlur={[Function]}
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
