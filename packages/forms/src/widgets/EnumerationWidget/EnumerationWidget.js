@@ -261,7 +261,7 @@ class EnumerationWidget extends React.Component {
 
 			return {
 				headerInput: [validateAction, abortAction],
-				addInputError: valueExist ? DUPLICATION_ERROR : '',
+				headerError: valueExist ? DUPLICATION_ERROR : '',
 			};
 		});
 	}

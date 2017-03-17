@@ -32,7 +32,7 @@ function Enumeration(props) {
 }
 
 Enumeration.propTypes = {
-	addInputError: PropTypes.string,
+	headerError: PropTypes.string,
 	displayMode: PropTypes.oneOf(
 		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED, DISPLAY_MODE_EDIT]),
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
@@ -74,7 +74,7 @@ ItemsEnumeration.propTypes = {
 
 function HeaderEnumeration(
 	{
-		displayMode, addInputError, onAddChange, onAddKeyDown,
+		displayMode, headerError, onAddChange, onAddKeyDown,
 		headerInput, headerDefault, headerSelected, items,
 	}
 ) {
@@ -84,7 +84,7 @@ function HeaderEnumeration(
 			headerInput,
 			onAddChange,
 			onAddKeyDown,
-			addInputError,
+			headerError,
 		};
 
 		return <HeaderInput {...propsInput} />;
@@ -121,7 +121,7 @@ function HeaderEnumeration(
 }
 
 HeaderEnumeration.propTypes = {
-	addInputError: Enumeration.propTypes.addInputError,
+	headerError: Enumeration.propTypes.headerError,
 	displayMode: Enumeration.propTypes.displayMode,
 	headerInput: Enumeration.propTypes.headerInput,
 	headerDefault: Enumeration.propTypes.headerDefault,

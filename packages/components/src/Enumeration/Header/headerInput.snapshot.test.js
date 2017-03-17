@@ -43,7 +43,7 @@ describe('Header', () => {
 	it('should render header input with error', () => {
 		// given
 		const props = {
-			addInputError: 'duplicate value',
+			headerError: 'duplicate value',
 			headerInput: [{
 				disabled: false,
 				label: 'Validate',

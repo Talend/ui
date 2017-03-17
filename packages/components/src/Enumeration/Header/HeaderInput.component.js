@@ -6,11 +6,11 @@ import theme from './Header.scss';
 
 let inputRef;
 
-function headerClasses(addInputError) {
+function headerClasses(headerError) {
 	return classNames({
 		[theme['tc-enumeration-header']]: true,
 		'tc-enumeration-header': true,
-		'has-error': !!addInputError,
+		'has-error': !!headerError,
 	});
 }
 
@@ -44,7 +44,7 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, addInputError, onAddChange, onAddKeyDown }) {
+function HeaderInput({ headerInput, headerError, onAddChange, onAddKeyDown }) {
 	function onAddChangeHandler(event) {
 		onAddChange(event, {
 			value: event.target.value,
@@ -58,7 +58,7 @@ function HeaderInput({ headerInput, addInputError, onAddChange, onAddKeyDown }) 
 	}
 
 	return (
-		<header className={headerClasses(addInputError)}>
+		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
 				placeholder="New entry"
@@ -67,7 +67,7 @@ function HeaderInput({ headerInput, addInputError, onAddChange, onAddKeyDown }) 
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ addInputError && <div className={headerErrorClasses()}>{addInputError}</div> }
+			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);
@@ -75,7 +75,7 @@ function HeaderInput({ headerInput, addInputError, onAddChange, onAddKeyDown }) 
 
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	addInputError: PropTypes.string,
+	headerError: PropTypes.string,
 	onAddChange: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
 };
