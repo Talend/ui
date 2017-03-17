@@ -143,8 +143,8 @@ class ItemEdit extends React.Component {
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
 				{
-					this.props.item.error ?
-						<div className={itemErrorClasses()}>{this.props.item.error}</div> : null
+					this.props.item.error &&
+					<div className={itemErrorClasses()}>{this.props.item.error}</div>
 				}
 			</li>
 		);
