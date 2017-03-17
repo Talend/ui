@@ -92,7 +92,7 @@ class EnumerationWidget extends React.Component {
 			displayMode: 'DISPLAY_MODE_EDIT',
 		});
 
-		this.updateItemValidateDisabled(item);
+		this.updateItemValidateDisabled(item.values[0]);
 	}
 
 	onDeleteItem(event, value) {
