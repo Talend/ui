@@ -22,7 +22,6 @@ class EnumerationWidget extends React.Component {
 
 		this.state = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
-
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',

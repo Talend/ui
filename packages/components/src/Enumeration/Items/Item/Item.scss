@@ -40,6 +40,7 @@ $tc-enumeration-small-padding: $padding-small !default;
 	}
 
 	.tc-enumeration-item-actions {
+		display: flex;
 		flex-grow: 0;
 		margin: auto $tc-enumeration-smaller-padding;
 	}
@@ -52,6 +53,8 @@ $tc-enumeration-small-padding: $padding-small !default;
 		text-transform: none;
 		letter-spacing: 0;
 		font-size: 14px;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	input {
