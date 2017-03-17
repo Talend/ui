@@ -1,7 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Button } from 'react-bootstrap';
-import TooltipTrigger from '../../../TooltipTrigger';
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
@@ -62,16 +60,13 @@ function Item({ id, item }) {
 
 	return (
 		<li className={itemClasses(item.isSelected)} id={id}>
-			<TooltipTrigger
+			<Action
+				key={item.index}
 				label={item[key].join(',')}
-				tooltipPlacement="top"
-			>
-				<Button
-					key={item.index}
-					onClick={event => onSelectItem(item, event)}
-					className={itemLabelClasses()}
-				>{item[key].join(',')}</Button>
-			</TooltipTrigger>
+				onClick={event => onSelectItem(item, event)}
+				className={itemLabelClasses()}
+				tooltip
+			/>
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
 			</div>

@@ -55,9 +55,12 @@ exports[`Items should display one item in edit mode and the other in default 1`]
       onFocus={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
+      role={null}
       type="button"
     >
-      Lorem ipsum dolor sit amet 1
+      <span>
+        Lorem ipsum dolor sit amet 1
+      </span>
     </button>
     <div
       className="undefined tc-enumeration-item-actions"
@@ -121,9 +124,12 @@ exports[`Items should display one item in edit mode and the other in default 1`]
       onFocus={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
+      role={null}
       type="button"
     >
-      Lorem ipsum dolor sit amet 2
+      <span>
+        Lorem ipsum dolor sit amet 2
+      </span>
     </button>
     <div
       className="undefined tc-enumeration-item-actions"

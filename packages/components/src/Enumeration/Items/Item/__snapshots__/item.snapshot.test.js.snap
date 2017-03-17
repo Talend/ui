@@ -14,9 +14,12 @@ exports[`Item should display a selected item 1`] = `
     onFocus={[Function]}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
+    role={null}
     type="button"
   >
-    toto
+    <span>
+      toto
+    </span>
   </button>
   <div
     className="undefined tc-enumeration-item-actions"
@@ -38,9 +41,12 @@ exports[`Item should display value with three buttons 1`] = `
     onFocus={[Function]}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
+    role={null}
     type="button"
   >
-    toto
+    <span>
+      toto
+    </span>
   </button>
   <div
     className="undefined tc-enumeration-item-actions"
