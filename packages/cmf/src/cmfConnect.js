@@ -88,7 +88,7 @@ export function getDispatchToProps({
  * - props.initState (call it un didMount)
  * - props.getCollection
  * - dispatch(action)
- * - dispatchActionCreator(id, event, data, context)
+ * - dispatchActionCreator(id, event, data, [context])
  *
  * support for the following props
  * - initialState (called by props.initState)
