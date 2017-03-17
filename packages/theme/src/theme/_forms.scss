@@ -15,7 +15,7 @@ form {
 	label {
 		font-weight: normal;
 		font-size: 1.2rem;
-		margin-bottom: 0px;
+		margin-bottom: 0;
 	}
 
 	div:not(.has-success):not(.has-warning):not(.has-error) {
@@ -30,7 +30,7 @@ form {
 		[type=password].form-control,
 		[type=email].form-control,
 		[type=tel].form-control,
-		[contenteditable].form-control{
+		[contenteditable].form-control {
 			&:focus + label {
 				color: $brand-primary;
 			}
@@ -334,10 +334,11 @@ form {
 			pointer-events: none;
 		}
 
-		&.input-sm + label{
+		&.input-sm + label {
 			font-size: $font-size-small;
 		}
-		&.input-lg + label{
+
+		&.input-lg + label {
 			top: 2.6rem;
 			font-size: $font-size-large;
 		}
@@ -350,15 +351,15 @@ form {
 	&-control:disabled,
 	&-control[value]:not([value='']),
 	input[type='date'],
-	input[type='datetime-local']{
+	input[type='datetime-local'] {
 		+ label {
 			top: 0;
 			font-size: $font-size-small;
 		}
 	}
 
-	&-control:disabled{
-		+ label{
+	&-control:disabled {
+		+ label {
 			opacity: 0.4;
 		}
 	}
