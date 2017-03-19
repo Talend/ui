@@ -24,7 +24,6 @@ function getActionHandler(func, item) {
 function selectPanel(cb) {
 	return function actionHandler(e) {
 		e.stopPropagation();
-		e.preventDefault();
 		cb(e);
 	};
 }
@@ -65,7 +64,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			key={key}
 			actions={adaptActions}
 			{...restStatus}
-			className={css[className]}
+			className={className}
 		/>);
 	}
 	case TYPE_ACTION: {
@@ -74,7 +73,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			<Action
 				key={key}
 				onClick={getActionHandler(onClick, headerItem)}
-				className={css[className]}
+				className={className}
 				{...restAction}
 			/>);
 	}
@@ -131,7 +130,6 @@ function renderHeader({ header, caret, onSelect }) {
 	const wrappedHeader = [
 		(<Button
 			bsStyle="link"
-			role="link"
 			key={uuid.v4()}
 			onClick={onSelect && selectPanel(onSelect)}
 		>

@@ -4,8 +4,6 @@ import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
-jest.mock('react-dom');
-
 const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
 	bsStyle: 'default',
@@ -39,15 +37,15 @@ const propsDescriptivePanel = {
 				tooltipPlacement: 'top',
 			},
 		],
-		description: 'Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
-		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
-		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
-		' adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
-		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
-		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
-		' adipiscing elit',
+		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elit`,
 	},
 	theme: 'descriptive-panel',
 	onSelect: jest.fn(),

@@ -95,15 +95,15 @@ const propsDescriptivePanel = {
 				tooltipPlacement: 'top',
 			},
 		],
-		description: 'Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
-		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
-		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
-		' adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. ' +
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,' +
-		' consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ' +
-		'ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur' +
-		' adipiscing elit',
+		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elit`,
 	},
 	theme: 'descriptive-panel',
 	onSelect: jest.fn(),
