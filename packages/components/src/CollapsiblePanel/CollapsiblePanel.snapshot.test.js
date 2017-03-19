@@ -59,6 +59,8 @@ const props = {
 			description: 'Description3',
 		},
 	],
+	onSelect: jest.fn(),
+	onToggle: jest.fn(),
 };
 
 
@@ -107,6 +109,7 @@ const propsDescriptivePanel = {
 	},
 	theme: 'descriptive-panel',
 	onSelect: jest.fn(),
+	onToggle: jest.fn(),
 };
 
 const propsDescriptivePanelWithoutContent = {
@@ -115,18 +118,28 @@ const propsDescriptivePanelWithoutContent = {
 		timeStamp,
 	],
 	onSelect: jest.fn(),
+	onToggle: jest.fn(),
 	selected: true,
 };
 
 describe('CollapsiblePanel', () => {
-	it('should render with key/value content', () => {
+	it('should render default with key/value content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render without key/value content', () => {
+
+	it('should render default with expanded key/value content', () => {
+		// when
+		const wrapper = renderer.create(<CollapsiblePanel {...props} expanded />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render default without content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...props} content={null} />).toJSON();
 
@@ -134,7 +147,7 @@ describe('CollapsiblePanel', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with textual content', () => {
+	it('should render themed with textual content', () => {
 		// when
 		const wrapper = renderer.create(<CollapsiblePanel {...propsDescriptivePanel} />)
 			.toJSON();
@@ -143,7 +156,7 @@ describe('CollapsiblePanel', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render without textual content', () => {
+	it('should render themed without textual content', () => {
 		// when
 		const wrapper = renderer.create(
 			<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)

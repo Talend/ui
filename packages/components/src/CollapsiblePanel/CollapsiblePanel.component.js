@@ -99,7 +99,7 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 	])),
 ]);
 
-function renderHeader(header, caret, onSelect, onToggle, expanded) {
+function renderHeader(header, content, onSelect, onToggle) {
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		if (Array.isArray(headerItem)) {
@@ -123,26 +123,33 @@ function renderHeader(header, caret, onSelect, onToggle, expanded) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={css['left-btn']}
 				bsStyle="link"
 				key={uuid.v4()}
 				onClick={onSelect}
 			>
-				{headerItems}
+				<div className={classNames(css['panel-title'], 'panel-title')}>
+					{headerItems}
+				</div>
 			</Button>
 		) : (
-			<div
-				className={classNames(css['panel-title'], 'panel-title')}
+			<Button
+				className={css['left-btn']}
+				bsStyle="link"
+				key={uuid.v4()}
+				onClick={content && onToggle}
 			>
-				{headerItems}
-			</div>
+				<div className={classNames(css['panel-title'], 'panel-title')}>
+					{headerItems}
+				</div>
+			</Button>
 		),
 	];
 
-	if (caret) {
+	if (content) {
 		const defaultCaret = (
 			<Button
-				className={classNames(css.toggle)}
+				className={css.toggle}
 				bsStyle="link"
 				key={uuid.v4()}
 				onClick={onToggle}
@@ -195,16 +202,16 @@ function getTextualContent(content) {
 	);
 }
 
-function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expanded }) {
-	const headerItems = renderHeader(header, content, onSelect, onToggle, expanded);
+function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expanded, theme }) {
+	const headerItems = renderHeader(header, content, onSelect, onToggle);
 	const className = classNames(
 		'panel panel-default',
-		css['tc-collapsible-panel'], 'tc-collapsible-panel',
+		css['tc-collapsible-panel'],
 		{
-			[css['open']]: expanded,
-			[css['selected']]: selected,
-			['open']: expanded,
-			['selected']: selected,
+			[css['default-panel']]: !theme,
+			[css['descriptive-panel']]: theme,
+			[css.selected]: selected,
+			[css.open]: expanded,
 		});
 
 	let children = null;
@@ -218,7 +225,7 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 			</div>
 			<Panel
 				collapsible={!!content}
-			    expanded={expanded}
+				expanded={expanded}
 			>
 				{children}
 			</Panel>

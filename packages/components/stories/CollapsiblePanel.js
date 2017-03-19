@@ -225,12 +225,10 @@ storiesOf('CollapsiblePanel', module)
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
 			</div>
-			<br />
 			<p>No content :</p>
 			<div id="one">
 				<CollapsiblePanel {...propsPanel} />
 			</div>
-			<br />
 			<p>No content - Header with Actions :</p>
 			<div id="two">
 				<CollapsiblePanel {...propsPanelWithActions} />
@@ -239,10 +237,8 @@ storiesOf('CollapsiblePanel', module)
 			<div id="three">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
 			</div>
-			<br />
 			<p>Header with groups :</p>
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
-			<br />
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
 		</div>
@@ -254,13 +250,14 @@ storiesOf('CollapsiblePanel', module)
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
 			</div>
-			<br />
+			<p>Opened with Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
+			</div>
 			<p>Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content2">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag}
-				                  selected={false}/>
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
 			</div>
-			<br />
 		</div>
 	))
 	.addWithInfo('Selected Collapsible', () => (
@@ -270,20 +267,16 @@ storiesOf('CollapsiblePanel', module)
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
 			</div>
-			<br />
 			<p>Selected Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
 			</div>
-			<br />
 			<p>Selected Panel Without content:</p>
 			<div id="selected-panel-without-content">
 				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
 			</div>
-			<br />
 			<p>Selected key/Value CollapsiblePanel:</p>
 			<CollapsiblePanel {...propsCollapsiblePanel} selected/>
-			<br />
 			<p>Selected key/Value CollapsiblePanel without content:</p>
 			<CollapsiblePanel {...propsPanelWithoutActions} selected/>
 		</div>

@@ -76,24 +76,30 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 	.panel-heading {
 		display: flex;
+		justify-content: space-between;
+		padding: 0;
+
+		> button {
+			padding: 0;
+
+			&.left-btn {
+				text-decoration: none;
+				width: 100%;
+				padding: 0 5px;
+			}
+		}
 
 		.panel-title {
-			flex-grow: 1;
-			flex-basis: 100%;
-			display: flex;
+			width: 100%;
 			align-items: center;
-			padding: 0;
 			font-size: 1.4rem;
-
-			> * {
-				@include col-style;
-			}
+			justify-content: space-between;
+			@include col-style;
 
 			+ .toggle {
 				flex-shrink: 0;
 				flex-grow: 0;
 				flex-basis: 25px;
-				padding: 0;
 				color: $black;
 			}
 		}
@@ -101,22 +107,15 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 }
 
 .default-panel {
-	:global(.panel-title) {
-		button {
-			text-decoration: none;
-		}
+	.group {
+		justify-content: space-between;
+	}
 
-		.group {
-			display: flex;
-			justify-content: space-between;
-
-			:global(.label) {
-				white-space: nowrap;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				font-size: 1em;
-			}
-		}
+	:global(.label) {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 1em;
 	}
 
 	:global(.panel-body) {
@@ -138,6 +137,68 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 				flex-basis: 90%;
 				flex-shrink: 0;
 				flex-grow: 1;
+			}
+		}
+	}
+}
+
+.descriptive-panel {
+	border-radius: 0;
+	margin-bottom: 0;
+
+	:global(.panel-heading) {
+		background-color: white;
+		border-color: transparent;
+	}
+
+	.group {
+		justify-content: flex-start;
+		display: flex;
+	}
+
+	.title {
+		color: $tc-collapsible-selectable-panel-title-color;
+		font-weight: 600;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 70px;
+		white-space: nowrap;
+	}
+
+	.tag {
+		color: $tc-collapsible-selectable-panel-content-description-color;
+		margin-left: 0;
+		white-space: nowrap;
+	}
+
+	.detail {
+		color: $tc-collapsible-selectable-panel-title-color;
+		white-space: nowrap;
+		justify-content: flex-end;
+	}
+
+	:global(.panel-body) {
+		padding: 10px;
+		padding-top: 0;
+
+		.content {
+			display: flex;
+			flex-direction: column;
+
+			.upper {
+				display: flex;
+				justify-content: space-between;
+
+				> span {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					max-width: 150px;
+					white-space: nowrap;
+				}
+			}
+
+			.content-description {
+				color: $tc-collapsible-selectable-panel-content-description-color;
 			}
 		}
 	}
