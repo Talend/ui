@@ -45,47 +45,51 @@ const simplePropTypes = {
 
 function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
-	case TYPE_STATUS: {
-		const { actions, ...restStatus } = headerItem;
-		const adaptActions = actions.map(
-			action => ({
-				...action,
-				onClick: getActionHandler(action.onClick, headerItem),
-			})
-		);
-		return (<Status
-			key={key}
-			actions={adaptActions}
-			{...restStatus}
-			className={css[className]}
-		/>);
-	}
-	case TYPE_ACTION: {
-		const { onClick, ...restAction } = headerItem;
-		return (
-			<Action
+	case TYPE_STATUS:
+		{
+			const { actions, ...restStatus } = headerItem;
+			const adaptActions = actions.map(
+				action => ({
+					...action,
+					onClick: getActionHandler(action.onClick, headerItem),
+				})
+			);
+			return (<Status
 				key={key}
-				onClick={getActionHandler(onClick, headerItem)}
+				actions={adaptActions}
+				{...restStatus}
 				className={css[className]}
-				{...restAction}
 			/>);
-	}
-	case TYPE_BADGE: {
-		const { label, tooltipPlacement, ...rest } = headerItem;
-		return (
-			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-				<Label {...rest} className={css[className]}>{label}</Label>
-			</TooltipTrigger>
-		);
-	}
-	default: {
-		const { label, tooltipPlacement } = headerItem;
-		return (
-			<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-				<span className={css[className]}>{label}</span>
-			</TooltipTrigger>
-		);
-	}
+		}
+	case TYPE_ACTION:
+		{
+			const { onClick, ...restAction } = headerItem;
+			return (
+				<Action
+					key={key}
+					onClick={getActionHandler(onClick, headerItem)}
+					className={css[className]}
+					{...restAction}
+				/>);
+		}
+	case TYPE_BADGE:
+		{
+			const { label, tooltipPlacement, ...rest } = headerItem;
+			return (
+				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+					<Label {...rest} className={css[className]}>{label}</Label>
+				</TooltipTrigger>
+			);
+		}
+	default:
+		{
+			const { label, tooltipPlacement } = headerItem;
+			return (
+				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+					<span className={css[className]}>{label}</span>
+				</TooltipTrigger>
+			);
+		}
 	}
 }
 renderHeaderItem.propTypes = PropTypes.oneOfType([
@@ -239,6 +243,7 @@ CollapsiblePanel.propTypes = {
 	onToggle: PropTypes.func,
 	expanded: PropTypes.bool,
 	selected: PropTypes.bool,
+	theme: PropTypes.string,
 	content: PropTypes.oneOf([
 		PropTypes.arrayOf(PropTypes.shape({
 			label: PropTypes.string,

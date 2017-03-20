@@ -58,7 +58,7 @@ $tc-collapsible-title-width: 70px !default;
 // due to react-bootstrap
 :global(.panel .panel) {
 	margin: 0;
-	border: 0;
+	border: none;
 }
 
 .tc-collapsible-panel {
@@ -91,11 +91,11 @@ $tc-collapsible-title-width: 70px !default;
 		}
 
 		.panel-title {
+			@include col-style;
 			width: 100%;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
-			@include col-style;
 
 			+ .toggle {
 				flex-shrink: 0;
