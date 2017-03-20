@@ -131,7 +131,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  293:3  warning  Unexpected console statement  no-console
+  287:3  warning  Unexpected console statement  no-console
 
 ✖ 113 problems (112 errors, 1 warning)
 
