@@ -87,10 +87,9 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		console.log(wrapper.debug());
-		wrapper.find('.toggle').at(0).simulate('click');
+		wrapper.find(Button).at(1).simulate('click');
 
 		// then
-		expect(propsDescriptivePanel.onToggle).toBeCalled();
+		expect(propsPanelWithActions.onToggle).toBeCalled();
 	});
 });

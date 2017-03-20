@@ -141,6 +141,22 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         </div>
       </div>
     </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
+    </button>
   </div>
   <div
     className="panel panel-default"
@@ -156,10 +172,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       <div
         className="panel-body"
       >
-        <div
+        <dl
           className={undefined}
         >
-          <div
+          <dd
             className={undefined}
           >
             <span
@@ -167,13 +183,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             >
               Content
             </span>
-          </div>
-          <div
+          </dd>
+          <dt
             className={undefined}
           >
             Description3
-          </div>
-        </div>
+          </dt>
+        </dl>
       </div>
     </div>
   </div>
@@ -321,6 +337,22 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         </div>
       </div>
     </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
+    </button>
   </div>
   <div
     className="panel panel-default"
@@ -336,10 +368,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       <div
         className="panel-body"
       >
-        <div
+        <dl
           className={undefined}
         >
-          <div
+          <dd
             className={undefined}
           >
             <span
@@ -347,13 +379,13 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             >
               Content
             </span>
-          </div>
-          <div
+          </dd>
+          <dt
             className={undefined}
           >
             Description3
-          </div>
-        </div>
+          </dt>
+        </dl>
       </div>
     </div>
   </div>
@@ -567,6 +599,22 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           </span>
         </div>
       </div>
+    </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
     </button>
   </div>
   <div

@@ -125,7 +125,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 			<Button
 				className={css['left-btn']}
 				bsStyle="link"
-				key={uuid.v4()}
+				key={1}
 				onClick={onSelect}
 			>
 				<div className={classNames(css['panel-title'], 'panel-title')}>
@@ -136,7 +136,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 			<Button
 				className={css['left-btn']}
 				bsStyle="link"
-				key={uuid.v4()}
+				key={2}
 				onClick={content && onToggle}
 			>
 				<div className={classNames(css['panel-title'], 'panel-title')}>
@@ -168,10 +168,10 @@ function renderHeader(header, content, onSelect, onToggle) {
 function getKeyValueContent(content) {
 	return (content.map(
 		(item, index) => (
-			<div key={index} className={css.content}>
-				<div className={css.label}><Label>{item.label}</Label></div>
-				<div className={css.description}>{item.description}</div>
-			</div>)
+			<dl key={index} className={css.content}>
+				<dd className={css.label}><Label>{item.label}</Label></dd>
+				<dt className={css.description}>{item.description}</dt>
+			</dl>)
 	));
 }
 
