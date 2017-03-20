@@ -12,6 +12,7 @@ import theme from './Enumeration.scss';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
+const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
 
@@ -37,6 +38,7 @@ Enumeration.propTypes = {
 		DISPLAY_MODE_ADD,
 		DISPLAY_MODE_SELECTED,
 		DISPLAY_MODE_EDIT,
+		DISPLAY_MODE_SEARCH,
 	]),
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
@@ -75,17 +77,10 @@ ItemsEnumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function HeaderEnumeration({
-	displayMode,
-	onAddChange,
-	onAddKeyDown,
-	headerInput,
-	headerDefault,
-	headerSelected,
-	items,
-}) {
+function HeaderEnumeration({ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }) {
 	switch (displayMode) {
-	case DISPLAY_MODE_ADD: {
+	case DISPLAY_MODE_SEARCH:
+	case DISPLAY_MODE_ADD : {
 		const propsInput = {
 			headerInput,
 			onAddChange,

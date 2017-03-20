@@ -3,6 +3,12 @@ import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
 
+const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
+const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
+const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
@@ -43,7 +49,7 @@ class EnumerationWidget extends React.Component {
 		}];
 
 		this.state = {
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 
 			headerDefault: [{
 				label: 'Add item',
@@ -64,7 +70,7 @@ class EnumerationWidget extends React.Component {
 				onClick: this.onDeleteItems.bind(this),
 			}],
 			headerInput: this.addInputs,
-			items: (props.formData || []).map((item) => ({
+			items: (props.formData || []).map(item => ({
 				values: item.values,
 			})),
 			itemsProp: {
@@ -97,13 +103,13 @@ class EnumerationWidget extends React.Component {
 	onEnterEditModeItem(event, value) {
 		let items = [...this.state.items];
 		const item = items[value.index];
-		item.displayMode = 'DISPLAY_MODE_EDIT';
+		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
-		items = items.map((currentItem) => ({ ...currentItem, isSelected: false }));
+		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 
 		this.setState({
 			items,
-			displayMode: 'DISPLAY_MODE_EDIT',
+			displayMode: DISPLAY_MODE_EDIT,
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
@@ -112,13 +118,13 @@ class EnumerationWidget extends React.Component {
 	onSearchEditModeItem(event, value) {
 		let items = [...this.state.items];
 		const item = items[value.index];
-		item.displayMode = 'DISPLAY_MODE_EDIT';
+		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
-		items = items.map((currentItem) => ({ ...currentItem, isSelected: false }));
+		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 
 		this.setState({
 			items,
-			displayMode: 'DISPLAY_MODE_EDIT',
+			displayMode: DISPLAY_MODE_EDIT,
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
@@ -128,20 +134,20 @@ class EnumerationWidget extends React.Component {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
-		const countnbItems = items.filter((item) => item.isSelected).length;
+		const countnbItems = items.filter(item => item.isSelected).length;
 
 		this.setState({
 			items,
-			displayMode: countnbItems > 0 ? 'DISPLAY_MODE_SELECTED' : 'DISPLAY_MODE_DEFAULT',
+			displayMode: countnbItems > 0 ? DISPLAY_MODE_SELECTED : DISPLAY_MODE_DEFAULT,
 		}, this.setFormData.bind(this));
 	}
 
 	// edit mode
 	onAbortItem(event, value) {
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		this.setState({
 			items,
 		});
@@ -156,7 +162,7 @@ class EnumerationWidget extends React.Component {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 
 		// if the value is empty, no value update is done
 		if (value.value) {
@@ -164,17 +170,19 @@ class EnumerationWidget extends React.Component {
 		}
 		this.setState({
 			items,
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 		}, this.setFormData.bind(this));
 	}
 
 	onAddChange(event, value) {
-		this.updateHeaderInputDisabled(value.value);
+		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+			this.updateHeaderInputDisabled(value.value);
+		}
 	}
 
 	onAbortHandler() {
 		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 		});
 		this.updateHeaderInputDisabled('');
 	}
@@ -194,16 +202,16 @@ class EnumerationWidget extends React.Component {
 		} else if (event.shiftKey) {
 			result = manageShiftKey(item.index, this.state.items);
 		} else {
-			result = [...this.state.items].map((currentItem) => ({ ...currentItem, isSelected: false }));
+			result = [...this.state.items].map(currentItem => ({ ...currentItem, isSelected: false }));
 			result[item.index].isSelected = true;
 		}
-		const countItems = result.filter((currentItem) => currentItem.isSelected).length;
+		const countItems = result.filter(currentItem => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
 		if (countItems === 0) {
 			this.setState({
 				items: result,
-				displayMode: 'DISPLAY_MODE_DEFAULT',
+				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 		} else {
 			this.setState({
@@ -219,7 +227,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItems() {
 		const result = deleteSelectedItems([...this.state.items]);
 		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 			items: result,
 		}, this.setFormData.bind(this));
 	}
@@ -227,12 +235,12 @@ class EnumerationWidget extends React.Component {
 	onAddHandler(event, value) {
 		if (!value.value) {
 			this.setState({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
+				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 			return;
 		}
 		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 			items: this.state.items.concat([{
 				values: [value.value],
 			}]),
@@ -251,18 +259,19 @@ class EnumerationWidget extends React.Component {
 	changeDisplayToAddMode() {
 		this.setState({
 			headerInput: this.addInputs,
-			displayMode: 'DISPLAY_MODE_ADD',
+			displayMode: DISPLAY_MODE_ADD,
 		});
 	}
 
 	changeDisplayToSearchMode() {
 		this.setState({
 			headerInput: this.searchInputs,
-			displayMode: 'DISPLAY_MODE_ADD',
+			displayMode: DISPLAY_MODE_SEARCH,
 		});
 	}
 
 	updateHeaderInputDisabled(value) {
+		console.log(this);
 		this.setState((prevState) => {
 			const [validateAction, abortAction] = prevState.headerInput;
 			validateAction.disabled = value === '';
@@ -284,7 +293,6 @@ class EnumerationWidget extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.headerInput);
 		return (
 			<div>
 				<Enumeration
