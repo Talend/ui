@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-import { componentState } from 'react-talend-containers';
+import { componentState } from 'react-cmf';
 
 import Component from './<%= props.name %>.component';
 

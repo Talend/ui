@@ -7,10 +7,18 @@ import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 
-function itemClasses() {
+function itemClasses(error) {
 	return classNames({
 		[theme['tc-enumeration-item']]: true,
 		'tc-enumeration-item': true,
+		'has-error': !!error,
+	});
+}
+
+function itemErrorClasses() {
+	return classNames({
+		[theme['tc-enumeration-item-error']]: true,
+		'tc-enumeration-item-error': true,
 	});
 }
 
@@ -35,6 +43,7 @@ class ItemEdit extends React.Component {
 		this.submit = this.submit.bind(this);
 		this.itemChange = this.itemChange.bind(this);
 		this.cancel = this.cancel.bind(this);
+		this.onActionClick = this.onActionClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -54,25 +63,24 @@ class ItemEdit extends React.Component {
 		}
 	}
 
-	getAction(action, index) {
+	onActionClick(event, action) {
 		const indexItem = this.props.item.index;
-
-		function onClick(event) {
-			if (action.onClick) {
-				action.onClick(event, {
-					value: event.target.value,
-					index: indexItem,
-				});
-			}
+		if (action.onClick) {
+			action.onClick(event, {
+				value: this.itemInput.value,
+				index: indexItem,
+			});
 		}
+	}
 
+	getAction(action, index) {
 		return (
 			<Action
 				key={index}
 				label={action.label}
 				icon={action.icon}
 				disabled={action.disabled}
-				onClick={onClick}
+				onClick={event => this.onActionClick(event, action)}
 				tooltipPlacement="bottom"
 				hideLabel
 				link
@@ -122,19 +130,22 @@ class ItemEdit extends React.Component {
 		);
 
 		return (
-			<li className={itemClasses()} id={this.props.id}>
+			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
 				<input
 					className={itemLabelClasses()}
 					ref={(input) => { this.itemInput = input; }}
 					type="text"
 					onKeyDown={this.onKeyDown}
-					onBlur={this.submit}
 					onChange={this.itemChange}
 					autoFocus
 				/>
 				<div className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
+				{
+					this.props.item.error &&
+					<div className={itemErrorClasses()}>{this.props.item.error}</div>
+				}
 			</li>
 		);
 	}

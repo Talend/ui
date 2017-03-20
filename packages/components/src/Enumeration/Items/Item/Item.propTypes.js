@@ -5,6 +5,7 @@ export default {
 	id: PropTypes.string,
 	item: PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
+		error: PropTypes.string,
 		itemsProp: PropTypes.shape({
 			key: PropTypes.string,
 			onSubmitItem: PropTypes.func,
