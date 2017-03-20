@@ -1,0 +1,98 @@
+$tc-list-title-actions-color: $brand-primary-dark !default;
+$tc-list-title-color: $brand-primary !default;
+$tc-list-title-hover-bg: $concrete !default;
+$tc-list-title-hover-color: $black !default;
+$tc-list-title-icon-size: $svg-lg-size !default;
+
+.tc-list-title {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	.icon {
+		flex-shrink: 0;
+		height: $tc-list-title-icon-size;
+		width: $tc-list-title-icon-size;
+		vertical-align: middle;
+
+		+ input {
+			margin-left: $padding-normal;
+			width: auto;
+		}
+	}
+
+	.main-button {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		color: $tc-list-title-color;
+		font-size: inherit;
+		letter-spacing: inherit;
+		font-weight: 600;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:hover,
+		&:focus {
+			color: $tc-list-title-hover-color;
+			text-decoration: none;
+		}
+	}
+
+	:global(.tc-actions) {
+		flex-shrink: 0;
+		flex-grow: 0;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 1;
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: linear-gradient(to right, transparent, $tc-list-title-hover-bg $padding-large);
+
+		:global(.btn-link) {
+			color: $tc-list-title-actions-color;
+		}
+	}
+}
+
+// manage actions display on row hover
+
+:global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
+	opacity: 1;
+	padding-left: $padding-large;
+	transition: opacity 0.15s ease-in;
+	visibility: visible;
+}
+
+// START : hack to allow actions dropdown to display
+
+:global(.ReactVirtualized__Grid__innerScrollContainer):hover,
+:global(.ReactVirtualized__Table__row):hover,
+:global(.tc-list-title-cell),
+:global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
+	overflow: visible !important;
+}
+:global(.ReactVirtualized__Table__row):hover {
+	/* avoid scrolling over x axis */
+	width: auto !important;
+	right: 0 !important;
+	padding: 0 !important;
+}
+
+:global(.tc-list-title-cell) {
+	display: flex;
+	min-width: 0;
+
+	> *:first-child {
+		min-width: 0;
+		flex: 1;
+	}
+}
+
+// END : hack to allow actions dropdown to display

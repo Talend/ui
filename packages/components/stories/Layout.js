@@ -2,14 +2,17 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer, VirtualizedList } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-folder': talendIcons['talend-folder'],
+	'talend-pencil': talendIcons['talend-pencil'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-trash': talendIcons['talend-trash'],
 };
 
 const actions = [
@@ -60,14 +63,47 @@ const dockedSidePanel = (<SidePanel
 const header = (<AppHeaderBar app="Example App Name" />);
 const footer = 'Footer content';
 
+const collectionActions = [
+	{
+		label: 'edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+	},
+	{
+		label: 'delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+	},
+	{
+		displayMode: 'dropdown',
+		label: 'related items',
+		icon: 'talend-folder',
+		items: [
+			{
+				label: 'document 1',
+				onClick: action('document 1 click'),
+			},
+			{
+				label: 'document 2',
+				onClick: action('document 2 click'),
+			},
+		],
+		pullRight: true,
+	},
+];
 const listItem = {
 	id: 1,
-	name: 'Title',
+	name: 'Title with icon and actions',
 	created: '2016-09-22',
 	modified: '2016-09-22',
+	description: 'Simple row with icon and actions',
 	author: 'Jean-Pierre DUPONT',
+	icon: 'talend-file-xls-o',
 	display: 'text',
+	className: 'item-0-class',
+	actions: collectionActions,
 };
+const collection = [...new Array(61)].map(() => listItem);
 const listProps = {
 	id: 'talend-list',
 	displayMode: 'table',
@@ -79,7 +115,7 @@ const listProps = {
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
 		],
-		items: [...new Array(61)].map(() => listItem),
+		items: collection,
 		titleProps: {
 			key: 'name',
 			iconKey: 'icon',
@@ -204,6 +240,72 @@ storiesOf('Layout', module)
 		>
 			<List {...listProps} displayMode={'tile'} />
 			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with Virtualized List', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<IconsProvider defaultIcons={icons} />
+			<VirtualizedList
+				collection={collection}
+				sort={action('sort')}
+				sortBy={'name'}
+				sortDirection={'ASC'}
+			>
+				<VirtualizedList.Field
+					label="Id"
+					dataKey="id"
+					width={50}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Field
+					label="Name"
+					dataKey="name"
+					width={400}
+					flexShrink={0}
+					flexGrow={0}
+					columnData={{
+						id: 'my-list-item',
+						onClick: action('click'),
+						iconKey: 'icon',
+						actionsKey: 'actions',
+					}}
+					{...VirtualizedList.Cell.TitleRenderer}
+				/>
+				<VirtualizedList.Field
+					label="Description (non sortable)"
+					dataKey="description"
+					width={120}
+					flexShrink={0}
+					flexGrow={1}
+					disableSort
+				/>
+				<VirtualizedList.Field
+					label="Author"
+					dataKey="author"
+					width={90}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Field
+					label="Created"
+					dataKey="created"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Field
+					label="Modified"
+					dataKey="modified"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+			</VirtualizedList>
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => (
