@@ -1,15 +1,9 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.66.1 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.66.2 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
-
-src/CollapsiblePanel/CollapsiblePanel.scss
-    5:61  warning  Hex notation should all be upper case  hex-notation
-    6:47  warning  Hex notation should all be upper case  hex-notation
-   81:26  warning  Hex notation should all be upper case  hex-notation
-  129:26  warning  Hex notation should all be upper case  hex-notation
 
 src/Drawer/Drawer.scss
   10:3   warning  Mixed tabs and spaces                                                     indentation
@@ -43,7 +37,7 @@ src/WithDrawer/withDrawer.scss
   15:5  warning  Mixed tabs and spaces           indentation
   16:1  warning  Files must end with a new line  final-newline
 
-✖ 30 problems (4 errors, 26 warnings)
+✖ 26 problems (4 errors, 22 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
