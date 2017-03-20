@@ -32,8 +32,12 @@ function Enumeration(props) {
 }
 
 Enumeration.propTypes = {
-	displayMode: PropTypes.oneOf(
-		[DISPLAY_MODE_DEFAULT, DISPLAY_MODE_ADD, DISPLAY_MODE_SELECTED, DISPLAY_MODE_EDIT]),
+	displayMode: PropTypes.oneOf([
+		DISPLAY_MODE_DEFAULT,
+		DISPLAY_MODE_ADD,
+		DISPLAY_MODE_SELECTED,
+		DISPLAY_MODE_EDIT,
+	]),
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
@@ -71,9 +75,15 @@ ItemsEnumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function HeaderEnumeration(
-	{ displayMode, onAddChange, onAddKeyDown, headerInput, headerDefault, headerSelected, items }
-) {
+function HeaderEnumeration({
+	displayMode,
+	onAddChange,
+	onAddKeyDown,
+	headerInput,
+	headerDefault,
+	headerSelected,
+	items,
+}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_ADD: {
 		const propsInput = {

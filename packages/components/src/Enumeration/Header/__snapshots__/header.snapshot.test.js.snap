@@ -5,29 +5,35 @@ exports[`Header should render header input with one button 1`] = `
   className="undefined tc-enumeration-header"
 >
   <span>
-    Values
+    <b>
+      Values
+    </b>
   </span>
-  <button
-    aria-describedby={42}
-    className="btn btn-link"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
+  <div
+    className="actions"
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      title={null}
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
     >
-      <use
-        xlinkHref="#talend-plus"
-      />
-    </svg>
-  </button>
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-plus"
+        />
+      </svg>
+    </button>
+  </div>
 </header>
 `;

@@ -3,33 +3,40 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import { Enumeration, IconsProvider } from '../src/index';
 
+const addItemAction = {
+	label: 'Add item',
+	icon: 'talend-plus',
+	id: 'add',
+	onClick: action('header.onAdd'),
+};
+
+const deleteItemAction = {
+	label: 'Delete items',
+	icon: 'talend-trash',
+	id: 'del',
+	onClick: action('headerSelected.deleteAll'),
+};
+
+const validateAction = {
+	disabled: false,
+	label: 'Validate',
+	icon: 'talend-check',
+	id: 'validate',
+	onClick: action('headerInput.onValidate'),
+};
+
+const abortAction = {
+	label: 'Abort',
+	icon: 'talend-cross',
+	id: 'abort',
+	onClick: action('headerInput.onAbort'),
+};
+
 const props = {
 	displayMode: 'DISPLAY_MODE_DEFAULT',
-
-	headerDefault: [{
-		label: 'Add item',
-		icon: 'talend-plus',
-		id: 'add',
-		onClick: action('header.onAdd'),
-	}],
-	headerSelected: [{
-		label: 'Delete items',
-		icon: 'talend-trash',
-		id: 'del',
-		onClick: action('headerSelected.deleteAll'),
-	}],
-	headerInput: [{
-		disabled: false,
-		label: 'Validate',
-		icon: 'talend-check',
-		id: 'validate',
-		onClick: action('headerInput.onValidate'),
-	}, {
-		label: 'Abort',
-		icon: 'talend-cross',
-		id: 'abort',
-		onClick: action('headerInput.onAbort'),
-	}],
+	headerDefault: [addItemAction],
+	headerSelected: [deleteItemAction],
+	headerInput: [validateAction, abortAction],
 	items: Array(50).fill('').map((item, index) => ({
 		values: [`Lorem ipsum dolor sit amet ${index}`],
 	})),
@@ -38,7 +45,7 @@ const props = {
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
-		onSelectItem:  action('itemEdit.onSelect'),
+		onSelectItem: action('itemEdit.onSelect'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -82,23 +89,27 @@ const editItemProps = {
 	},
 };
 const selectedValuesProps = {
-    ...props,
-    displayMode: 'DISPLAY_MODE_SELECTED',
+	...props,
+	displayMode: 'DISPLAY_MODE_SELECTED',
+};
+const searchProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_SEARCH',
 };
 
 // custom edit props
 editItemProps.items = Array(50).fill('').map((item, index) => ({
-    values: [`Lorem ipsum dolor sit amet ${index}`],
+	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
 editItemProps.items[0] = {
-    values: ['Lorem ipsum dolor sit amet 0'],
-    displayMode: 'DISPLAY_MODE_EDIT',
+	values: ['Lorem ipsum dolor sit amet 0'],
+	displayMode: 'DISPLAY_MODE_EDIT',
 };
 
 // custom selected props
 selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
-    values: [`Lorem ipsum dolor sit amet ${index}`],
-    isSelected: index%2===0,
+	values: [`Lorem ipsum dolor sit amet ${index}`],
+	isSelected: index % 2 === 0,
 }));
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (

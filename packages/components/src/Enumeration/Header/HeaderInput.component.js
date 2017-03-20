@@ -54,7 +54,9 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
 			<input
 				type="text"
 				placeholder="New entry"
-				ref={(input) => { inputRef = input; }}
+				ref={(input) => {
+					inputRef = input;
+				}}
 				onChange={onAddChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
