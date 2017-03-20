@@ -21,13 +21,6 @@ function getActionHandler(func, item) {
 	};
 }
 
-function selectPanel(cb) {
-	return function actionHandler(e) {
-		e.stopPropagation();
-		cb(e);
-	};
-}
-
 const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
 
 const statusPropTypes = {
@@ -64,7 +57,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			key={key}
 			actions={adaptActions}
 			{...restStatus}
-			className={className}
+			className={css[className]}
 		/>);
 	}
 	case TYPE_ACTION: {
@@ -73,7 +66,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			<Action
 				key={key}
 				onClick={getActionHandler(onClick, headerItem)}
-				className={className}
+				className={css[className]}
 				{...restAction}
 			/>);
 	}
@@ -106,7 +99,7 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 	])),
 ]);
 
-function renderHeader({ header, caret, onSelect }) {
+function renderHeader(header, content, onSelect, onToggle) {
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		if (Array.isArray(headerItem)) {
@@ -128,21 +121,45 @@ function renderHeader({ header, caret, onSelect }) {
 
 	// Panel component needs an array for header props
 	const wrappedHeader = [
-		(<Button
-			bsStyle="link"
-			key={uuid.v4()}
-			onClick={onSelect && selectPanel(onSelect)}
-		>
-			{headerItems}
-		</Button>),
+		onSelect ? (
+			<Button
+				className={css['left-btn']}
+				bsStyle="link"
+				key={1}
+				onClick={onSelect}
+			>
+				<div className={classNames(css['panel-title'], 'panel-title')}>
+					{headerItems}
+				</div>
+			</Button>
+		) : (
+			<Button
+				className={css['left-btn']}
+				bsStyle="link"
+				key={2}
+				onClick={content && onToggle}
+			>
+				<div className={classNames(css['panel-title'], 'panel-title')}>
+					{headerItems}
+				</div>
+			</Button>
+		),
 	];
 
-	if (caret) {
-		const defaultCaret = (<Icon
-			key={header.length}
-			className={css.caret}
-			name={'talend-caret-down'}
-		/>);
+	if (content) {
+		const defaultCaret = (
+			<Button
+				className={css.toggle}
+				bsStyle="link"
+				key={uuid.v4()}
+				onClick={onToggle}
+			>
+				<Icon
+					key={header.length}
+					name="talend-caret-down"
+				/>
+			</Button>
+		);
 		wrappedHeader.push(defaultCaret);
 	}
 	return wrappedHeader;
@@ -151,10 +168,10 @@ function renderHeader({ header, caret, onSelect }) {
 function getKeyValueContent(content) {
 	return (content.map(
 		(item, index) => (
-			<div key={index} className={css.content}>
-				<div className={css.label}><Label>{item.label}</Label></div>
-				<div className={css.description}>{item.description}</div>
-			</div>)
+			<dl key={index} className={css.content}>
+				<dd className={css.label}><Label>{item.label}</Label></dd>
+				<dt className={css.description}>{item.description}</dt>
+			</dl>)
 	));
 }
 
@@ -185,15 +202,16 @@ function getTextualContent(content) {
 	);
 }
 
-function CollapsiblePanel({ header, content, onSelect, selected, theme }) {
-	const headerItems = renderHeader({ header, caret: content, onSelect });
-	const className = classNames(css['collapsible-panel'],
+function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expanded, theme }) {
+	const headerItems = renderHeader(header, content, onSelect, onToggle);
+	const className = classNames(
+		'panel panel-default',
+		css['tc-collapsible-panel'],
 		{
 			[css['default-panel']]: !theme,
 			[css['descriptive-panel']]: theme,
-			[css['tc-default-no-content-panel']]: !content && !theme,
-			[css['tc-descriptive-no-content']]: !content && theme,
-			[css['selected-panel']]: selected,
+			[css.selected]: selected,
+			[css.open]: expanded,
 		});
 
 	let children = null;
@@ -201,20 +219,25 @@ function CollapsiblePanel({ header, content, onSelect, selected, theme }) {
 		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
 	return (
-		<Panel
-			className={className}
-			collapsible={!!content}
-			header={headerItems}
-		>
-			{children}
-		</Panel>
+		<div className={className}>
+			<div className={classNames(css['panel-heading'], 'panel-heading')}>
+				{headerItems}
+			</div>
+			<Panel
+				collapsible={!!content}
+				expanded={expanded}
+			>
+				{children}
+			</Panel>
+		</div>
 	);
 }
-
 
 CollapsiblePanel.propTypes = {
 	header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
 	onSelect: PropTypes.func,
+	onToggle: PropTypes.func,
+	expanded: PropTypes.bool,
 	selected: PropTypes.bool,
 	content: PropTypes.oneOf([
 		PropTypes.arrayOf(PropTypes.shape({
@@ -226,7 +249,6 @@ CollapsiblePanel.propTypes = {
 			description: PropTypes.string,
 		}),
 	]),
-	theme: PropTypes.string,
 };
 
 export default CollapsiblePanel;

@@ -51,6 +51,23 @@ const propsDescriptivePanel = {
 	onSelect: jest.fn(),
 };
 
+const propsPanelWithActions = {
+	header: [
+		{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' },
+	],
+	content: [
+		{
+			label: 'Content1',
+			description: 'Description1',
+		},
+		{
+			label: 'Content2',
+			description: 'Description2',
+		},
+	],
+	onToggle: jest.fn(),
+};
+
 describe('CollapsiblePanel', () => {
 	it('should trigger onSelect callback on header click', () => {
 		// given
@@ -62,5 +79,17 @@ describe('CollapsiblePanel', () => {
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
+	});
+
+	it('should trigger onToggle callback on header click', () => {
+		// given
+		const panelInstance = (<CollapsiblePanel {...propsPanelWithActions} />);
+
+		// when
+		const wrapper = mount(panelInstance);
+		wrapper.find(Button).at(1).simulate('click');
+
+		// then
+		expect(propsPanelWithActions.onToggle).toBeCalled();
 	});
 });

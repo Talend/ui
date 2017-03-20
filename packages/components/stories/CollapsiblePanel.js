@@ -89,6 +89,7 @@ const propsPanelWithActions = {
 		label3,
 	],
 	content,
+	onToggle: action('onToggle'),
 };
 
 const propsPanelWithoutActions = {
@@ -110,6 +111,7 @@ const propsCollapsiblePanel = {
 		label3,
 	],
 	content,
+	onToggle: action('onToggle'),
 };
 
 const propsCollapsiblePanelWithHeaderGroups = {
@@ -120,6 +122,8 @@ const propsCollapsiblePanelWithHeaderGroups = {
 		[button, label3],
 	],
 	content,
+	onToggle: action('onToggle'),
+	expanded: true,
 };
 
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
@@ -130,6 +134,8 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 		[button, label3],
 	],
 	content,
+	onToggle: action('onToggle'),
+	expanded: true,
 };
 
 const version1 = {
@@ -179,11 +185,13 @@ const propsCollapsibleSelectablePanel = {
 		 adipiscing elit`,
 	},
 	onSelect: action('onselect'),
+	onToggle: action('onToggle'),
 	theme: 'descriptive-panel',
 };
 
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
+	expanded: true,
 	selected: true,
 	theme: 'descriptive-panel',
 };
@@ -194,6 +202,8 @@ const propsSelectedPanelWithoutContent = {
 		timeStamp,
 	],
 	onSelect: action('onselect'),
+	onToggle: action('onToggle'),
+	expanded: true,
 	selected: true,
 	theme: 'descriptive-panel',
 };
@@ -209,18 +219,16 @@ const propsCollapsibleSelectablePanelWithoutTag = {
 
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('Key/Value content', () => (
-		<div>
+		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons}/>
 			<p>By default :</p>
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
 			</div>
-			<br />
 			<p>No content :</p>
 			<div id="one">
 				<CollapsiblePanel {...propsPanel} />
 			</div>
-			<br />
 			<p>No content - Header with Actions :</p>
 			<div id="two">
 				<CollapsiblePanel {...propsPanelWithActions} />
@@ -229,51 +237,47 @@ storiesOf('CollapsiblePanel', module)
 			<div id="three">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
 			</div>
-			<br />
 			<p>Header with groups :</p>
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
-			<br />
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
 		</div>
 	))
 	.addWithInfo('Textual content', () => (
-		(<div>
-			<IconsProvider defaultIcons={icons} />
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
 			<p>With Content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
 			</div>
-			<br />
+			<p>Opened with Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
+			</div>
 			<p>Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
 			</div>
-			<br />
-		</div>)
+		</div>
 	))
 	.addWithInfo('Selected Collapsible', () => (
-		(<div>
-			<IconsProvider defaultIcons={icons} />
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
 			<p>Selected Panel With Content:</p>
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
 			</div>
-			<br />
 			<p>Selected Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content2">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
 			</div>
-			<br />
 			<p>Selected Panel Without content:</p>
 			<div id="selected-panel-without-content">
 				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
 			</div>
-			<br />
 			<p>Selected key/Value CollapsiblePanel:</p>
-			<CollapsiblePanel {...propsCollapsiblePanel} selected />
-			<br />
+			<CollapsiblePanel {...propsCollapsiblePanel} selected/>
 			<p>Selected key/Value CollapsiblePanel without content:</p>
-			<CollapsiblePanel {...propsPanelWithoutActions} selected />
-		</div>)
+			<CollapsiblePanel {...propsPanelWithoutActions} selected/>
+		</div>
 	));

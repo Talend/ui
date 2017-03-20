@@ -5,6 +5,7 @@ $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
 $tc-collapsible-selectable-panel-title-color: #63AEBD !default;
 $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
+$tc-collapsible-title-width: 70px !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -14,7 +15,6 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		font-size: 1em;
 	}
 }
 
@@ -55,95 +55,67 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	}
 }
 
-@mixin header-style {
-	display: flex;
-	align-items: center;
-
-	> * {
-		@include col-style;
-	}
+// due to react-bootstrap
+:global(.panel .panel) {
+	margin: 0;
+	border: 0;
 }
 
-.tc-default-no-content-panel {
-	:global(.panel-heading) {
-		padding: 0 5px 0 0;
-
-		> button {
-			@include header-style;
-			justify-content: space-between;
-			margin: 0;
-			align-items: center;
-			text-decoration: none;
-			width: 94%;
-		}
-	}
-}
-
-.collapsible-panel {
+.tc-collapsible-panel {
 	position: relative;
 
-	:global(.panel-heading) {
-		padding: 0;
-
-		h4 {
-			line-height: $line-height-base;
-		}
+	&.selected {
+		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
 	}
 
-	:global(.panel-title) {
-		font-size: 1em;
-		position: relative;
-	}
-
-	a {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-		padding: 0 5px 0 0;
-
-		> button {
-			@include header-style;
-			flex-grow: 1;
-			width: 94%;
-		}
-
-		&:hover {
-			color: initial;
-		}
-
-		.caret {
-			flex-shrink: 0;
-			flex-grow: 0;
-		}
-
-		&[aria-expanded='true'] .caret {
+	&.open {
+		.toggle svg {
 			transform: rotate(180deg);
 		}
 	}
 
-	&.selected-panel {
-		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
+	.panel-heading {
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+
+		> button {
+			padding: 0;
+			letter-spacing: 0;
+
+			&.left-btn {
+				text-decoration: none;
+				width: 100%;
+				padding: 0 5px;
+			}
+		}
+
+		.panel-title {
+			width: 100%;
+			align-items: center;
+			font-size: 1.4rem;
+			justify-content: space-between;
+			@include col-style;
+
+			+ .toggle {
+				flex-shrink: 0;
+				flex-grow: 0;
+				flex-basis: 25px;
+				color: $black;
+			}
+		}
 	}
 }
 
 .default-panel {
-	:global(.panel-title) {
-		a {
-			> button {
-				text-decoration: none;
-			}
+	.group {
+		justify-content: space-between;
+	}
 
-			.group {
-				justify-content: space-between;
-
-				:global(.label) {
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					overflow: hidden;
-					font-size: 1em;
-				}
-			}
-		}
+	:global(.label) {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	:global(.panel-body) {
@@ -165,6 +137,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 				flex-basis: 90%;
 				flex-shrink: 0;
 				flex-grow: 1;
+				font-weight: normal;
 			}
 		}
 	}
@@ -179,16 +152,6 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		border-color: transparent;
 	}
 
-	:global(.panel-title) {
-		a {
-			> button {
-				margin: 0;
-				padding: 0 5px;
-				text-decoration: none;
-			}
-		}
-	}
-
 	.group {
 		justify-content: flex-start;
 		display: flex;
@@ -199,7 +162,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		font-weight: 600;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		width: 70px;
+		width: $tc-collapsible-title-width;
 		white-space: nowrap;
 	}
 
@@ -216,7 +179,8 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	}
 
 	:global(.panel-body) {
-		padding: 0 10px 10px 10px;
+		padding: 10px;
+		padding-top: 0;
 
 		.content {
 			display: flex;
@@ -236,20 +200,6 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 			.content-description {
 				color: $tc-collapsible-selectable-panel-content-description-color;
-			}
-		}
-	}
-
-	&.tc-descriptive-no-content {
-		:global(.panel-heading) {
-			padding: 0 5px 0 0;
-
-			> button {
-				display: flex;
-				text-decoration: none;
-				justify-content: space-between;
-				width: 100%;
-				padding: 0 5px;
 			}
 		}
 	}

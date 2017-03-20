@@ -1,479 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollapsiblePanel should render with key/value content 1`] = `
+exports[`CollapsiblePanel should render default with expanded key/value content 1`] = `
 <div
-  className="panel panel-default"
-  id={null}
->
-  <div
-    className="panel-heading"
-  >
-    <h4
-      className="panel-title"
-      role="presentation"
-    >
-      <a
-        aria-controls={undefined}
-        aria-expanded={false}
-        aria-selected={false}
-        className="collapsed"
-        href={undefined}
-        onClick={[Function]}
-        role={undefined}
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={undefined}
-          role="link"
-          type="button"
-        >
-          <div
-            className=""
-          >
-            <div
-              className="tc-status text-info undefined"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-check"
-                title={null}
-              />
-              <span
-                className="tc-status-label"
-              >
-                 
-                inProgress
-                 
-              </span>
-              <span
-                className={undefined}
-              >
-                <div
-                  className="tc-actions btn-group"
-                >
-                  <button
-                    className="btn btn-default"
-                    disabled={false}
-                    onClick={[Function]}
-                    role={null}
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="fa fa-cancel"
-                      title={null}
-                    />
-                    <span>
-                      cancel
-                    </span>
-                  </button>
-                  <button
-                    className="btn btn-default"
-                    disabled={false}
-                    onClick={[Function]}
-                    role={null}
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="fa fa-delete"
-                      title={null}
-                    />
-                    <span>
-                      delete
-                    </span>
-                  </button>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            className=""
-          >
-            <button
-              aria-describedby={42}
-              className="btn btn-link"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-              role="link"
-              type="button"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-edit"
-                title={null}
-              />
-            </button>
-          </div>
-          <div
-            className=""
-          >
-            <span
-              aria-describedby={42}
-              className={undefined}
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              by Charles
-            </span>
-          </div>
-          <div
-            className=""
-          >
-            <span
-              aria-describedby={42}
-              className={undefined}
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              on TDP
-            </span>
-            <span
-              aria-describedby={42}
-              className="label label-default"
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              XML
-            </span>
-          </div>
-        </button>
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-caret-down"
-          />
-        </svg>
-      </a>
-    </h4>
-  </div>
-  <div
-    aria-expanded={null}
-    aria-hidden={true}
-    className="panel-collapse collapse"
-    id={undefined}
-    role={undefined}
-  >
-    <div
-      className="panel-body"
-    >
-      <div
-        className={undefined}
-      >
-        <div
-          className={undefined}
-        >
-          <span
-            className="label label-default"
-          >
-            Content
-          </span>
-        </div>
-        <div
-          className={undefined}
-        >
-          Description3
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`CollapsiblePanel should render with textual content 1`] = `
-<div
-  className="panel panel-default"
-  id={null}
->
-  <div
-    className="panel-heading"
-  >
-    <h4
-      className="panel-title"
-      role="presentation"
-    >
-      <a
-        aria-controls={undefined}
-        aria-expanded={false}
-        aria-selected={false}
-        className="collapsed"
-        href={undefined}
-        onClick={[Function]}
-        role={undefined}
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          role="link"
-          type="button"
-        >
-          <div
-            className=""
-          >
-            <span
-              aria-describedby={42}
-              className={undefined}
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
-            </span>
-            <span
-              aria-describedby={42}
-              className={undefined}
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              (Read Only)
-            </span>
-          </div>
-          <div
-            className=""
-          >
-            <span
-              aria-describedby={42}
-              className={undefined}
-              onBlur={[Function]}
-              onClick={null}
-              onFocus={[Function]}
-              onMouseOut={[Function]}
-              onMouseOver={[Function]}
-            >
-              03/02/2017 14:44
-            </span>
-          </div>
-        </button>
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-caret-down"
-          />
-        </svg>
-      </a>
-    </h4>
-  </div>
-  <div
-    aria-expanded={null}
-    aria-hidden={true}
-    className="panel-collapse collapse"
-    id={undefined}
-    role={undefined}
-  >
-    <div
-      className="panel-body"
-    >
-      <div
-        className={undefined}
-      >
-        <div
-          className={undefined}
-        >
-          <span
-            aria-describedby={42}
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Abdelaziz Maalej test 1 test 2 test 1 test 2
-          </span>
-          <span
-            aria-describedby={42}
-            onBlur={[Function]}
-            onClick={null}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Abdelaziz Maalej test 1 test 2 test 1 test 2
-          </span>
-        </div>
-        <div
-          className={undefined}
-        >
-          Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur adipiscing elit
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`CollapsiblePanel should render without key/value content 1`] = `
-<div
-  className="panel panel-default"
-  id={undefined}
->
-  <div
-    className="panel-heading"
-  >
-    <button
-      className="btn btn-link"
-      disabled={false}
-      onClick={undefined}
-      role="link"
-      type="button"
-    >
-      <div
-        className=""
-      >
-        <div
-          className="tc-status text-info undefined"
-        >
-          <i
-            aria-hidden="true"
-            className="fa fa-check"
-            title={null}
-          />
-          <span
-            className="tc-status-label"
-          >
-             
-            inProgress
-             
-          </span>
-          <span
-            className={undefined}
-          >
-            <div
-              className="tc-actions btn-group"
-            >
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
-          </span>
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button"
-        >
-          <i
-            aria-hidden="true"
-            className="fa fa-edit"
-            title={null}
-          />
-        </button>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          by Charles
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          on TDP
-        </span>
-        <span
-          aria-describedby={42}
-          className="label label-default"
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          XML
-        </span>
-      </div>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`CollapsiblePanel should render without textual content 1`] = `
-<div
-  className="undefined panel panel-default"
-  id={undefined}
+  className="panel panel-default undefined"
 >
   <div
     className="panel-heading"
@@ -482,51 +11,736 @@ exports[`CollapsiblePanel should render without textual content 1`] = `
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
-      role="link"
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+        <div
+          className=""
         >
-          Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
-        </span>
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+          <div
+            className="tc-status text-info undefined"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
+            >
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
+              >
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
         >
-          (Read Only)
-        </span>
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
       </div>
-      <div
-        className=""
+    </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
       >
-        <span
-          aria-describedby={42}
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="panel panel-default"
+    id={null}
+  >
+    <div
+      aria-expanded={null}
+      aria-hidden={false}
+      className="panel-collapse collapse in"
+      id={undefined}
+      role={undefined}
+    >
+      <div
+        className="panel-body"
+      >
+        <dl
           className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
         >
-          03/02/2017 14:44
-        </span>
+          <dd
+            className={undefined}
+          >
+            <span
+              className="label label-default"
+            >
+              Content
+            </span>
+          </dd>
+          <dt
+            className={undefined}
+          >
+            Description3
+          </dt>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CollapsiblePanel should render default with key/value content 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="panel-title"
+      >
+        <div
+          className=""
+        >
+          <div
+            className="tc-status text-info undefined"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
+            >
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
+              >
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="panel panel-default"
+    id={null}
+  >
+    <div
+      aria-expanded={null}
+      aria-hidden={true}
+      className="panel-collapse collapse"
+      id={undefined}
+      role={undefined}
+    >
+      <div
+        className="panel-body"
+      >
+        <dl
+          className={undefined}
+        >
+          <dd
+            className={undefined}
+          >
+            <span
+              className="label label-default"
+            >
+              Content
+            </span>
+          </dd>
+          <dt
+            className={undefined}
+          >
+            Description3
+          </dt>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CollapsiblePanel should render default without content 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="panel-title"
+      >
+        <div
+          className=""
+        >
+          <div
+            className="tc-status text-info undefined"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
+            >
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
+              >
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
       </div>
     </button>
   </div>
+  <div
+    className="panel panel-default"
+    id={undefined}
+  />
+</div>
+`;
+
+exports[`CollapsiblePanel should render themed with textual content 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="panel-title"
+      >
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
+          </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            (Read Only)
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            03/02/2017 14:44
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-caret-down"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="panel panel-default"
+    id={null}
+  >
+    <div
+      aria-expanded={null}
+      aria-hidden={true}
+      className="panel-collapse collapse"
+      id={undefined}
+      role={undefined}
+    >
+      <div
+        className="panel-body"
+      >
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <span
+              aria-describedby={42}
+              onBlur={[Function]}
+              onClick={null}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+            >
+              by Abdelaziz Maalej test 1 test 2 test 1 test 2
+            </span>
+            <span
+              aria-describedby={42}
+              onBlur={[Function]}
+              onClick={null}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+            >
+              by Abdelaziz Maalej test 1 test 2 test 1 test 2
+            </span>
+          </div>
+          <div
+            className={undefined}
+          >
+            Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+            		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+            		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+            		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+            		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+            		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+            		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+            		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+            		 adipiscing elit
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CollapsiblePanel should render themed without textual content 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="panel-title"
+      >
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
+          </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            (Read Only)
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            03/02/2017 14:44
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    className="panel panel-default"
+    id={undefined}
+  />
 </div>
 `;
