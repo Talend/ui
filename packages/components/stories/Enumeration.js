@@ -105,7 +105,7 @@ const headerErrorProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_ADD',
 };
-headerErrorProps.addInputError = 'an error occured';
+headerErrorProps.headerError = 'an error occured';
 
 const editItemPropsWithError = {
 	...props,
