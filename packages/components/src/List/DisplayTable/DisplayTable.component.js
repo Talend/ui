@@ -24,7 +24,7 @@ function cellContent(isTitle, item, column, titleProps, id) {
 		/>);
 	}
 	return (
-		<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
+		<TooltipTrigger label={`${item[column.key]}`} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
 				{item[column.key]}
 			</span>
