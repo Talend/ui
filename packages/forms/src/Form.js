@@ -121,7 +121,7 @@ class Form extends React.Component {
 
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
-			handleEnumerationAction: this.props.handleEnumerationAction,
+			handleAction: this.props.handleAction,
 		};
 
 		return (
@@ -172,7 +172,7 @@ Form.propTypes = {
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
-	handleEnumerationAction: PropTypes.func,
+	handleAction: PropTypes.func,
 };
 
 Form.defaultProps = {

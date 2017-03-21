@@ -194,7 +194,7 @@ class EnumerationWidget extends React.Component {
 			this.updateHeaderInputDisabled(value.value);
 		}
 		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
-			this.props.registry.formContext.handleEnumerationAction(
+			this.props.registry.formContext.handleAction(
 				this.props.id, SEARCH_ACTION, value.value
 			);
 		}
