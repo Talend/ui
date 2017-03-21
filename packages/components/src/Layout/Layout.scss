@@ -6,7 +6,6 @@
 /// Layout height of the header
 /// @type Number (Unit)
 $tc-layout-header-height: $navbar-height;
-$tc-layout-footer-height: 2 * $padding-small + $font-size-small;
 
 body {
 	margin: 0;
@@ -31,5 +30,6 @@ body {
 }
 
 .footer {
-	flex: 0 0 $tc-layout-footer-height;
+	flex-shrink: 0;
+	flex-grow: 0;
 }

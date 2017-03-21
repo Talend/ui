@@ -59,9 +59,9 @@ function Layout({ header, footer, mode, drawers, children, ...rest }) {
 					{children}
 				</Component>
 			) : null}
-			{footer && <div className={footerCSS}>
+			{footer && <footer role="contentinfo" className={footerCSS}>
 				{footer}
-			</div>}
+			</footer>}
 		</div>
 	);
 }
