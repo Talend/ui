@@ -2,7 +2,7 @@
 
 exports[`Toggle should render a Checkbox 1`] = `
 <div
-  className="tc-toggle checkbox"
+  className="checkbox tc-toggle checkbox"
 >
   <label
     htmlFor="id"
@@ -23,7 +23,7 @@ exports[`Toggle should render a Checkbox 1`] = `
 
 exports[`Toggle should render a Toggle 1`] = `
 <div
-  className="tc-toggle switch checkbox"
+  className="checkbox tc-toggle switch checkbox"
 >
   <label
     htmlFor="id"
@@ -44,7 +44,7 @@ exports[`Toggle should render a Toggle 1`] = `
 
 exports[`Toggle should render a Toggle with label 1`] = `
 <div
-  className="tc-toggle switch checkbox"
+  className="checkbox tc-toggle switch checkbox"
 >
   <label
     htmlFor="id"
@@ -65,7 +65,7 @@ exports[`Toggle should render a Toggle with label 1`] = `
 
 exports[`Toggle should render a checked Toggle 1`] = `
 <div
-  className="tc-toggle switch checkbox"
+  className="checkbox tc-toggle switch checkbox"
 >
   <label
     htmlFor="id"
@@ -86,7 +86,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
 
 exports[`Toggle should render a disabled Toggle 1`] = `
 <div
-  className="tc-toggle switch checkbox"
+  className="checkbox tc-toggle switch checkbox"
 >
   <label
     htmlFor="id"
