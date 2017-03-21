@@ -67,9 +67,14 @@ exports[`Enumeration should render with header in add state and list in default 
       id="0-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -131,9 +136,14 @@ exports[`Enumeration should render with header in add state and list in default 
       id="1-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -195,9 +205,14 @@ exports[`Enumeration should render with header in add state and list in default 
       id="2-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -307,7 +322,6 @@ exports[`Enumeration should render with header in default state and first item i
       <input
         autoFocus={true}
         className="undefined tc-enumeration-item-label"
-        onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
         type="text"
@@ -366,9 +380,14 @@ exports[`Enumeration should render with header in default state and first item i
       id="1-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -430,9 +449,14 @@ exports[`Enumeration should render with header in default state and first item i
       id="2-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -540,9 +564,14 @@ exports[`Enumeration should render with header in default state and list in defa
       id="0-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -604,9 +633,14 @@ exports[`Enumeration should render with header in default state and list in defa
       id="1-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -668,9 +702,14 @@ exports[`Enumeration should render with header in default state and list in defa
       id="2-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -764,9 +803,14 @@ exports[`Enumeration should render with header in selected state with trash icon
       id="0-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -828,9 +872,14 @@ exports[`Enumeration should render with header in selected state with trash icon
       id="1-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -892,9 +941,14 @@ exports[`Enumeration should render with header in selected state with trash icon
       id="2-item"
     >
       <button
+        aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >

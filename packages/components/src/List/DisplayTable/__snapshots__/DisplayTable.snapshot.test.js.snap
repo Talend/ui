@@ -108,9 +108,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -239,9 +236,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   </button>
                 </div>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -263,9 +257,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -287,9 +278,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -311,9 +299,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -340,9 +325,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -369,13 +351,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -395,9 +370,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   onMouseOver={[Function]}
                 />
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -419,9 +391,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -443,9 +412,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -467,9 +433,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -496,9 +459,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -525,13 +485,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -551,9 +504,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   onMouseOver={[Function]}
                 />
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -575,9 +525,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -599,9 +546,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -623,9 +567,6 @@ exports[`DisplayTable should render column actions 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -731,9 +672,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -825,9 +763,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -849,9 +784,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -873,9 +805,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -902,9 +831,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -931,13 +857,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -959,9 +878,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -983,9 +899,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1007,9 +920,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -1036,9 +946,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1065,13 +972,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -1093,9 +993,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1117,9 +1014,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1141,9 +1035,6 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -1249,9 +1140,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1343,9 +1231,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1367,9 +1252,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1391,9 +1273,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -1420,9 +1299,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1449,13 +1325,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -1477,9 +1346,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1501,9 +1367,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1525,9 +1388,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -1554,9 +1414,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1583,13 +1440,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -1611,9 +1461,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1635,9 +1482,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1659,9 +1503,6 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -1830,9 +1671,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1961,9 +1799,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   </button>
                 </div>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -1985,9 +1820,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2009,9 +1841,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2033,9 +1862,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -2062,9 +1888,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2091,13 +1914,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -2117,9 +1933,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onMouseOver={[Function]}
                 />
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2141,9 +1954,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2165,9 +1975,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2189,9 +1996,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -2218,9 +2022,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2247,13 +2048,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -2273,9 +2067,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onMouseOver={[Function]}
                 />
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2297,9 +2088,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2321,9 +2109,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2345,9 +2130,6 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -2453,9 +2235,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2547,9 +2326,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2571,9 +2347,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2595,9 +2368,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -2624,9 +2394,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2653,13 +2420,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -2681,9 +2441,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2705,9 +2462,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2729,9 +2483,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -2758,9 +2509,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2787,13 +2535,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -2815,9 +2556,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2839,9 +2577,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -2863,9 +2598,6 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3049,9 +2781,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Hello world
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3073,9 +2802,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3097,9 +2823,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3121,9 +2844,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3163,13 +2883,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   </button>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -3191,9 +2904,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Foo
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3215,9 +2925,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3239,9 +2946,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3263,9 +2967,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3300,13 +3001,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   </button>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -3328,9 +3022,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Bar
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3352,9 +3043,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3376,9 +3064,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3400,9 +3085,6 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3508,9 +3190,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3602,9 +3281,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3626,9 +3302,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3650,9 +3323,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3679,9 +3349,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3708,13 +3375,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -3736,9 +3396,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3760,9 +3417,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3784,9 +3438,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -3813,9 +3464,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3842,13 +3490,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -3870,9 +3511,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3894,9 +3532,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -3918,9 +3553,6 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -4026,9 +3658,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   1
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4120,9 +3749,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4144,9 +3770,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4168,9 +3791,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -4197,9 +3817,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4226,13 +3843,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -4254,9 +3864,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4278,9 +3885,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4302,9 +3906,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>
@@ -4331,9 +3932,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4360,13 +3958,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   </span>
                 </div>
               </div>
-              <div
-                className="actions"
-              >
-                <div
-                  className="tc-actions btn-group"
-                />
-              </div>
             </div>
           </td>
           <td>
@@ -4388,9 +3979,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   Jean-Pierre DUPONT
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4412,9 +4000,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
           <td>
@@ -4436,9 +4021,6 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   2016-09-22
                 </span>
               </div>
-              <div
-                className="actions"
-              />
             </div>
           </td>
         </tr>

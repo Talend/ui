@@ -4,6 +4,12 @@ import {
 	Tooltip,
 } from 'react-bootstrap';
 import uuid from 'uuid';
+import classNames from 'classnames';
+import theme from './TooltipTrigger.scss';
+
+function getTooltipClass() {
+	return classNames({ [theme['tooltip-container']]: true, 'tooltip-container': true });
+}
 
 /**
  * @param {object} props react props
@@ -17,9 +23,13 @@ const props = {
 </TooltipTrigger>
  */
 function TooltipTrigger(props) {
-	const tooltip = (<Tooltip id={uuid.v4()}>{props.label}</Tooltip>);
+	const tooltip = (<Tooltip className={getTooltipClass()} id={uuid.v4()}>{props.label}</Tooltip>);
 	return (
-		<OverlayTrigger placement={props.tooltipPlacement} overlay={tooltip}>
+		<OverlayTrigger
+			placement={props.tooltipPlacement}
+			overlay={tooltip}
+			delayShow={400}
+		>
 			{props.children}
 		</OverlayTrigger>
 	);

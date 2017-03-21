@@ -6,11 +6,16 @@ $tc-enumeration-header-height: 28px !default;
 $tc-enumeration-svg-color: #666 !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
+$tc-enumeration-header-error-background-color: white !default;
+$tc-enumeration-header-error-color: red !default;
+$tc-enumeration-header-error-padding: 2px !default;
+
 .tc-enumeration-header {
 	display: flex;
 	line-height: $tc-enumeration-large-padding;
 	align-items: center;
 	height: $tc-enumeration-header-height;
+	position: relative;
 
 	:global(.actions) {
 		margin-left: auto;
@@ -38,5 +43,15 @@ $tc-enumeration-font-size: 1.4rem !default;
 			margin-right: 0;
 			vertical-align: text-top;
 		}
+	}
+
+	.tc-enumeration-header-error {
+		position: absolute;
+		top: 100%;
+		background-color: $tc-enumeration-header-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-header-error-color;
+		padding: $tc-enumeration-header-error-padding;
+		z-index: 1;
 	}
 }

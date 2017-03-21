@@ -8,6 +8,7 @@ const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+const DUPLICATION_ERROR = 'This term is already in the list';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -50,7 +51,6 @@ class EnumerationWidget extends React.Component {
 
 		this.state = {
 			displayMode: DISPLAY_MODE_DEFAULT,
-
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -104,6 +104,8 @@ class EnumerationWidget extends React.Component {
 		let items = [...this.state.items];
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
+		// resetting errors
+		items[value.index].error = '';
 		// reset selection
 		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 
@@ -148,6 +150,8 @@ class EnumerationWidget extends React.Component {
 	onAbortItem(event, value) {
 		const items = [...this.state.items];
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+		// resetting error as it was not saved
+		items[value.index].error = '';
 		this.setState({
 			items,
 		});
@@ -155,7 +159,14 @@ class EnumerationWidget extends React.Component {
 
 	// edit mode
 	onChangeItem(event, value) {
-		this.updateItemValidateDisabled(value);
+		// if the value exist add an error
+		const valueExist = this.valueAlreadyExist(value.value);
+		const items = [...this.state.items];
+		items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
+		this.setState({
+			items,
+		});
+		this.updateItemValidateDisabled(value, valueExist);
 	}
 
 	onSubmitItem(event, value) {
@@ -163,10 +174,13 @@ class EnumerationWidget extends React.Component {
 		event.stopPropagation();
 		const items = [...this.state.items];
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-
+		const valueExist = this.valueAlreadyExist(value.value);
 		// if the value is empty, no value update is done
-		if (value.value) {
+		if (value.value && !valueExist) {
 			items[value.index].values[0] = value.value;
+		}
+		if (valueExist) {
+			items[value.index].error = DUPLICATION_ERROR;
 		}
 		this.setState({
 			items,
@@ -239,14 +253,16 @@ class EnumerationWidget extends React.Component {
 			});
 			return;
 		}
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
-			items: this.state.items.concat([{
-				values: [value.value],
-			}]),
-		}, this.setFormData.bind(this));
-
-		this.updateHeaderInputDisabled('');
+    
+		if (!this.valueAlreadyExist(value.value)) {
+			this.setState({
+				displayMode: 'DISPLAY_MODE_DEFAULT',
+				items: this.state.items.concat([{
+					values: [value.value],
+				}]),
+			}, this.setFormData.bind(this));
+			this.updateHeaderInputDisabled('');
+		}
 	}
 
 	setFormData() {
@@ -268,25 +284,31 @@ class EnumerationWidget extends React.Component {
 			headerInput: this.searchInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
+
+	valueAlreadyExist(value) {
+		return this.state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {
 		console.log(this);
 		this.setState((prevState) => {
+			// checking if the value already exist
+			const valueExist = this.valueAlreadyExist(value);
 			const [validateAction, abortAction] = prevState.headerInput;
-			validateAction.disabled = value === '';
+			validateAction.disabled = value === '' || valueExist;
 
 			return {
 				headerInput: [validateAction, abortAction],
+				headerError: valueExist ? DUPLICATION_ERROR : '',
 			};
 		});
 	}
 
-	updateItemValidateDisabled(value) {
+	updateItemValidateDisabled(value, valueExist) {
 		this.setState(() => ({
 			currentEdit: {
 				validate: {
-					disabled: value.value === '',
+					disabled: value.value === '' || valueExist !== undefined,
 				},
 			},
 		}));
