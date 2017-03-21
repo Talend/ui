@@ -14,6 +14,27 @@ form {
 
 	label {
 		font-weight: normal;
+		font-size: 1.2rem;
+		margin-bottom: 0;
+	}
+
+	div:not(.has-success):not(.has-warning):not(.has-error) {
+		textarea,
+		textarea.form-control,
+		input.form-control,
+		input[type=text],
+		input[type=password],
+		input[type=email],
+		input[type=number],
+		[type=text].form-control,
+		[type=password].form-control,
+		[type=email].form-control,
+		[type=tel].form-control,
+		[contenteditable].form-control {
+			&:focus + label {
+				color: $brand-primary;
+			}
+		}
 	}
 
 	textarea,
@@ -32,7 +53,7 @@ form {
 		padding: 0;
 		border: none;
 		border-radius: 0;
-		font-size: 16px;
+		font-size: $font-size-base;
 
 		&:focus {
 			@include box-shadow(inset 0 -2px 0 $brand-primary);
@@ -40,8 +61,7 @@ form {
 
 		&[disabled],
 		&[readonly] {
-			@include box-shadow(none);
-			border-bottom: 1px dotted $alto;
+			background-color: transparent;
 		}
 
 		&.input {
@@ -67,10 +87,10 @@ form {
 		background-size: 13px;
 		background-repeat: no-repeat;
 		background-position: right center;
-		font-size: 16px;
+		font-size: $font-size-base;
 		line-height: 1.5;
 
-		&::-ms-expand {
+		&::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 
@@ -307,30 +327,40 @@ form {
 	&-control {
 		+ label {
 			position: absolute;
-			top: 1.5rem;
+			top: 2.2rem;
 			left: 0;
-			font-size: 1.5rem;
+			font-size: $font-size-base;
 			transition: opacity 0.1s linear, font-size 0.1s linear, top 0.1s linear;
 			pointer-events: none;
 		}
+
+		&.input-sm + label {
+			font-size: $font-size-small;
+		}
+
+		&.input-lg + label {
+			top: 2.6rem;
+			font-size: $font-size-large;
+		}
+
 	}
 
 	&-control:focus,
+	&-control[placeholder]:not([placeholder='']),
+	&-control:not(:empty),
 	&-control:disabled,
 	&-control[value]:not([value='']),
-	&-control:not(:empty),
 	input[type='date'],
 	input[type='datetime-local'] {
 		+ label {
 			top: 0;
-			font-size: 1.125rem;
-			opacity: 1 !important;
+			font-size: $font-size-small;
 		}
 	}
 
-	&-control[placeholder]:not([placeholder='']) {
+	&-control:disabled {
 		+ label {
-			opacity: 0;
+			opacity: 0.4;
 		}
 	}
 }
@@ -382,7 +412,7 @@ form {
 			background: tint($dove-gray, 40);
 			border: none;
 			transform: rotate(0deg);
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0); // sass-lint:disable-line no-vendor-prefixes
 			box-sizing: content-box;
 		}
 

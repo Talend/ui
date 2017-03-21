@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 import { ConfirmDialog as Component } from 'react-talend-components';
+import { componentState } from 'react-cmf';
 
 import { getActionsProps } from '../actionAPI';
-import { statePropTypes, initState } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	show: false,
@@ -12,17 +12,13 @@ export const DEFAULT_STATE = new Map({
 class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
 	static propTypes = {
-		...statePropTypes,
+		...componentState.propTypes,
 	};
-
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
+		router: PropTypes.object,
 	};
-
-	componentDidMount() {
-		initState(this.props);
-	}
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();

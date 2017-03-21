@@ -1,10 +1,8 @@
 import get from 'lodash/get';
 import React, { PropTypes } from 'react';
 import { SidePanel as Component } from 'react-talend-components';
-import { api } from 'react-cmf';
+import { api, componentState } from 'react-cmf';
 import { Map } from 'immutable';
-
-import { statePropTypes } from '../state';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -38,12 +36,22 @@ class SidePanel extends React.Component {
 				PropTypes.object,
 			]),
 		),
-		...statePropTypes,
+		...componentState.propTypes,
 	};
 	static contextTypes = {
 		store: React.PropTypes.object,
 		router: React.PropTypes.object,
 	};
+
+	constructor(props, context) {
+		super(props, context);
+		this.onToggleDock = this.onToggleDock.bind(this);
+	}
+
+	onToggleDock() {
+		const state = this.props.state || DEFAULT_STATE;
+		this.props.updateState({ docked: !state.get('docked') });
+	}
 
 	render() {
 		const { actionIds = [], state = DEFAULT_STATE, ...rest } = this.props;
@@ -51,9 +59,7 @@ class SidePanel extends React.Component {
 		const props = Object.assign({
 			actions,
 			docked: state.get('docked'),
-			onToggleDock: () => {
-				this.props.updateState({ docked: !state.get('docked') });
-			},
+			onToggleDock: this.onToggleDock,
 		});
 
 		return (<Component {...rest} {...props} />);

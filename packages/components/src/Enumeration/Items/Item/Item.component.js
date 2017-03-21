@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
@@ -66,6 +65,7 @@ function Item({ id, item }) {
 				label={item[key].join(',')}
 				onClick={event => onSelectItem(item, event)}
 				className={itemLabelClasses()}
+				tooltip
 			/>
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}

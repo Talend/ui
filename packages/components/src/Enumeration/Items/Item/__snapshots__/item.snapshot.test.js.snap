@@ -6,9 +6,14 @@ exports[`Item should display a selected item 1`] = `
   id="0-item"
 >
   <button
+    aria-describedby={42}
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
     role={null}
     type="button"
   >
@@ -28,9 +33,14 @@ exports[`Item should display value with three buttons 1`] = `
   id="0-item"
 >
   <button
+    aria-describedby={42}
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
     role={null}
     type="button"
   >
