@@ -121,6 +121,7 @@ class Form extends React.Component {
 
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
+			handleEnumerationAction: this.props.handleEnumerationAction,
 		};
 
 		return (
@@ -135,7 +136,9 @@ class Form extends React.Component {
 				widgets={customWidgets}
 				onChange={undefined}
 				onSubmit={this.handleSchemaSubmit}
-				ref={(c) => { this.form = c; }}
+				ref={(c) => {
+					this.form = c;
+				}}
 			>
 				<div className={this.props.buttonBlockClass}>
 					{renderActions(this.props.actions, this.handleActionClick)}
@@ -169,6 +172,7 @@ Form.propTypes = {
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
+	handleEnumerationAction: PropTypes.func,
 };
 
 Form.defaultProps = {

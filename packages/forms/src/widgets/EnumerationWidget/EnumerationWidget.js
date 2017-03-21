@@ -10,10 +10,11 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
 const DUPLICATION_ERROR = 'This term is already in the list';
 
+const SEARCH_ACTION = 'SEARCH_ACTION';
+
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.addInputs = [{
 			disabled: true,
 			label: 'Validate',
@@ -138,11 +139,11 @@ class EnumerationWidget extends React.Component {
 		const items = [...this.state.items];
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
-		const countnbItems = items.filter(item => item.isSelected).length;
+		const countItems = items.filter(item => item.isSelected).length;
 
 		this.setState({
 			items,
-			displayMode: countnbItems > 0 ? DISPLAY_MODE_SELECTED : DISPLAY_MODE_DEFAULT,
+			displayMode: countItems > 0 ? DISPLAY_MODE_SELECTED : DISPLAY_MODE_DEFAULT,
 		}, this.setFormData.bind(this));
 	}
 
@@ -191,6 +192,11 @@ class EnumerationWidget extends React.Component {
 	onAddChange(event, value) {
 		if (this.state.displayMode === DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled(value.value);
+		}
+		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
+			this.props.registry.formContext.handleEnumerationAction(
+				this.props.id, SEARCH_ACTION, value.value
+			);
 		}
 	}
 
@@ -253,7 +259,7 @@ class EnumerationWidget extends React.Component {
 			});
 			return;
 		}
-    
+
 		if (!this.valueAlreadyExist(value.value)) {
 			this.setState({
 				displayMode: 'DISPLAY_MODE_DEFAULT',
@@ -284,13 +290,13 @@ class EnumerationWidget extends React.Component {
 			headerInput: this.searchInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
+	}
 
 	valueAlreadyExist(value) {
 		return this.state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {
-		console.log(this);
 		this.setState((prevState) => {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value);
@@ -328,7 +334,8 @@ class EnumerationWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationWidget.propTypes = {
 		id: PropTypes.string,
-		formData: PropTypes.array,
+		registry: PropTypes.object, // eslint-disable-line
+		formData: PropTypes.array, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 	};

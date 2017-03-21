@@ -37,7 +37,7 @@ function HeaderSelected({ headerSelected, nbItemsSelected }) {
 
 	return (
 		<header className={headerClasses()}>
-			<span><b>{txtHeader}</b></span>
+			<span>{txtHeader}</span>
 			{nbItemsSelected > 0 && headerSelected.map((action, index) => getAction(action, index))}
 		</header>
 	);

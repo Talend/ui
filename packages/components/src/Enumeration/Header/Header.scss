@@ -17,6 +17,10 @@ $tc-enumeration-header-error-padding: 2px !default;
 	height: $tc-enumeration-header-height;
 	position: relative;
 
+	> span {
+		font-weight: 700;
+	}
+
 	:global(.actions) {
 		margin-left: auto;
 	}

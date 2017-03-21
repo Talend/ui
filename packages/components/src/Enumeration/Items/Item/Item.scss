@@ -16,10 +16,6 @@ $tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
 
-	:global(.btn-link ~ .btn-link) {
-		margin-left: $tc-enumeration-smaller-padding;
-	}
-
 	:global(.btn-link) {
 		padding: 0;
 		height: $tc-enumeration-small-padding;
