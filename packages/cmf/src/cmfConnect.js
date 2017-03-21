@@ -142,7 +142,9 @@ export default function cmfConnect({
 						this.context
 					);
 				}
-				if (!keepComponentState) {
+				// if the props.keepComponentState is present we have to stick to it
+				if (this.props.keepComponentState === false ||
+					this.props.keepComponentState === undefined && !keepComponentState) {
 					this.props.deleteState();
 				}
 			}
