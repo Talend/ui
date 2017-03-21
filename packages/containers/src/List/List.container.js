@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
+import { componentState } from 'react-cmf';
 
 import { getActionsProps } from '../actionAPI';
-import { componentState } from 'react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
@@ -48,7 +48,7 @@ class List extends React.Component {
 			sort: PropTypes.object,
 			filter: PropTypes.object,
 			pagination: PropTypes.shape({
-				onChange: PropTypes.func,
+				onChange: PropTypes.string,
 			}),
 		}),
 		displayMode: PropTypes.string,

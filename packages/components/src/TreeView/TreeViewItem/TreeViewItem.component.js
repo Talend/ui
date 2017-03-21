@@ -1,4 +1,4 @@
-import React, { PropTypes as PT } from 'react';
+import React, { PropTypes } from 'react';
 
 import { Action, Icon, Badge } from '../../';
 
@@ -43,6 +43,7 @@ function TreeViewItem({
 		children = [],
 		actions,
 		icon = 'talend-folder',
+		counter = children.length,
 	} = item;
 	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 
@@ -93,7 +94,7 @@ function TreeViewItem({
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
 				<div className={'tc-treeview-item-ctrl'}>
-					{showCounter && <Badge label={children.length.toString()} />}
+					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
 			</div>
@@ -107,23 +108,24 @@ function TreeViewItem({
 }
 
 TreeViewItem.propTypes = {
-	id: PT.string,
-	item: PT.shape({
-		name: PT.string.isRequired,
-		toggled: PT.bool,
-		selected: PT.bool,
-		children: PT.arrayOf(PT.object),
-		icon: PT.string,
-		actions: PT.arrayOf(PT.shape({
-			action: PT.func,
-			label: PT.string,
-			icon: PT.string,
+	id: PropTypes.string,
+	item: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		toggled: PropTypes.bool,
+		selected: PropTypes.bool,
+		children: PropTypes.arrayOf(PropTypes.object),
+		icon: PropTypes.string,
+		actions: PropTypes.arrayOf(PropTypes.shape({
+			action: PropTypes.func,
+			label: PropTypes.string,
+			icon: PropTypes.string,
 		})),
+		counter: PropTypes.number,
 	}).isRequired,
-	itemSelectCallback: PT.func.isRequired,
-	itemToggleCallback: PT.func.isRequired,
-	showCounter: PT.bool,
-	depth: PT.number,
+	itemSelectCallback: PropTypes.func.isRequired,
+	itemToggleCallback: PropTypes.func.isRequired,
+	showCounter: PropTypes.bool,
+	depth: PropTypes.number,
 };
 
 export default TreeViewItem;
