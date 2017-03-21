@@ -100,6 +100,32 @@ selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
     values: [`Lorem ipsum dolor sit amet ${index}`],
     isSelected: index%2===0,
 }));
+
+const headerErrorProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_ADD',
+};
+headerErrorProps.headerError = 'an error occured';
+
+const editItemPropsWithError = {
+	...props,
+	displayMode: 'DISPLAY_MODE_DEFAULT',
+	currentEdit: {
+		validate: {
+			disabled: false,
+		},
+	},
+};
+// custom edit props
+editItemPropsWithError.items = Array(50).fill('').map((item, index) => ({
+	values: [`Lorem ipsum dolor sit amet ${index}`],
+}));
+editItemPropsWithError.items[0] = {
+	values: ['Lorem ipsum dolor sit amet 0'],
+	displayMode: 'DISPLAY_MODE_EDIT',
+	error: 'an error occured',
+};
+
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -134,6 +160,24 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...selectedValuesProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with header error', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...headerErrorProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with item in error', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...editItemPropsWithError}
 			/>
 		</div>
 	));
