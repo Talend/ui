@@ -48,9 +48,7 @@ class EnumerationWidget extends React.Component {
 				id: 'abort',
 				onClick: this.onAbortHandler.bind(this),
 			}],
-			items: (props.formData || []).map((item) => ({
-				values: item.values,
-			})),
+			items: props.formData,
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: this.onSubmitItem.bind(this),
