@@ -230,12 +230,13 @@ exports[`Layout should render layout with footer component 1`] = `
       />
     </div>
   </div>
-  <div
+  <footer
     className="tc-layout-footer"
+    role="contentinfo"
   >
     <h3>
       Footer
     </h3>
-  </div>
+  </footer>
 </div>
 `;
