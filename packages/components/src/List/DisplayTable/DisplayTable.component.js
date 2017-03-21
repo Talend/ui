@@ -147,10 +147,9 @@ function columnHeader(index, column, sort) {
 			link: true,
 			onClick: onChange,
 		};
-
-		header = <Action {...actionProps} />;
+		header = (<Action {...actionProps} />);
 	} else {
-		header = <span className={theme.header}>{column.label}</span>;
+		header = (<span className={theme.header}>{column.label}</span>);
 	}
 
 	return (
