@@ -122,6 +122,7 @@ class EnumerationWidget extends React.Component {
 		items[value.index].error = '';
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 		});
 	}
 
