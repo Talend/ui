@@ -20,8 +20,7 @@ describe('Icon', () => {
 	});
 
 	it('should fails if no id found', () => {
-		const render = () => renderer.create(<Icon />);
-		expect(render).toThrowError(Error, 'Invariant Violation: no id provided');
+		expect(Icon).toThrowError(Error, 'Invariant Violation: no id provided');
 	});
 
 	it('should render with provided className', () => {

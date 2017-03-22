@@ -3,6 +3,7 @@ import {
 	SplitButton,
 	MenuItem,
 } from 'react-bootstrap';
+import uuid from 'uuid';
 import Icon from '../../Icon';
 
 /**
@@ -52,6 +53,7 @@ function ActionSplitDropdown(props) {
 		<SplitButton
 			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
+			id={uuid.v4()}
 			{...rest}
 		>
 			{

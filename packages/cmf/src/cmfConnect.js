@@ -95,6 +95,7 @@ export function getDispatchToProps({
  * - didMountActionCreator (id or array of id)
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
+ * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -142,7 +143,9 @@ export default function cmfConnect({
 						this.context
 					);
 				}
-				if (!keepComponentState) {
+				// if the props.keepComponentState is present we have to stick to it
+				if (this.props.keepComponentState === false ||
+					(this.props.keepComponentState === undefined && !keepComponentState)) {
 					this.props.deleteState();
 				}
 			}

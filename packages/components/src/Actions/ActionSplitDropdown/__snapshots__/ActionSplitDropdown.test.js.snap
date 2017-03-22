@@ -34,7 +34,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
     }
     className="dropdown-toggle btn btn-default"
     disabled={false}
-    id={undefined}
+    id={42}
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
@@ -46,7 +46,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
     />
   </button>
   <ul
-    aria-labelledby={undefined}
+    aria-labelledby={42}
     className="dropdown-menu"
     role="menu"
   >
@@ -103,7 +103,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
     }
     className="dropdown-toggle btn btn-default"
     disabled={false}
-    id={undefined}
+    id={42}
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
@@ -115,7 +115,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
     />
   </button>
   <ul
-    aria-labelledby={undefined}
+    aria-labelledby={42}
     className="dropdown-menu"
     role="menu"
   >
@@ -183,7 +183,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
     }
     className="dropdown-toggle btn btn-default"
     disabled={false}
-    id={undefined}
+    id={42}
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
@@ -195,7 +195,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
     />
   </button>
   <ul
-    aria-labelledby={undefined}
+    aria-labelledby={42}
     className="dropdown-menu"
     role="menu"
   >
