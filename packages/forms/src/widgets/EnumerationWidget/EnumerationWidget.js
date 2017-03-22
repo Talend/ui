@@ -48,6 +48,7 @@ class EnumerationWidget extends React.Component {
 				id: 'abort',
 				onClick: this.onAbortHandler.bind(this),
 			}],
+			// do not change mock values : deep copy
 			items: (props.formData || []).map((item) => ({
 				values: item.values,
 			})),
