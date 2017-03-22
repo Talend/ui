@@ -12,7 +12,7 @@ const TITLE_MODE_INPUT = 'input';
 const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
-function renderButton({ id, value, className, item, onClick }) {
+export function RenderButton({ id, value, className, item, onClick }) {
 	function click(event) {
 		event.stopPropagation();
 		onClick(event, item);
@@ -25,7 +25,7 @@ function renderButton({ id, value, className, item, onClick }) {
 	);
 }
 
-renderButton.propTypes = {
+RenderButton.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
 	className: PropTypes.string,
@@ -43,7 +43,7 @@ renderText.propTypes = {
 	className: PropTypes.string,
 };
 
-class TitleInput extends React.Component {
+export class TitleInput extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onKeyUp = this.onKeyUp.bind(this);
@@ -134,7 +134,13 @@ function ItemTitle({ id, className, item, titleProps }) {
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (onClick) {
-			titleElement = renderButton({ id, value, className, item, onClick });
+			titleElement = (<RenderButton
+				id={id}
+				value={value}
+				className={className}
+				item={item}
+				onClick={onClick}
+			/>);
 		} else {
 			titleElement = renderText({ id, value, className });
 		}

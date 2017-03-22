@@ -2708,15 +2708,10 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     title={null}
                   />
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
                     id={undefined}
-                    onBlur={[Function]}
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseOut={[Function]}
-                    onMouseOver={[Function]}
                     role="link"
                     type="button"
                   >
@@ -2875,15 +2870,10 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     title={null}
                   />
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
                     id={undefined}
-                    onBlur={[Function]}
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseOut={[Function]}
-                    onMouseOver={[Function]}
                     role="link"
                     type="button"
                   >
@@ -2993,15 +2983,10 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   className={undefined}
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
                     id={undefined}
-                    onBlur={[Function]}
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseOut={[Function]}
-                    onMouseOver={[Function]}
                     role="link"
                     type="button"
                   >
