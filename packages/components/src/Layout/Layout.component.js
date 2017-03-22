@@ -25,7 +25,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, mode, drawers, children, ...rest }) {
+function Layout({ header, footer, mode, drawers, children, ...rest }) {
 	const appCSS = classnames(
 		'tc-layout',
 		theme.layout,
@@ -33,6 +33,10 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 	const headerCSS = classnames(
 		'tc-layout-header',
 		theme.header,
+	);
+	const footerCSS = classnames(
+		'tc-layout-footer',
+		theme.footer,
 	);
 	let Component;
 	switch (mode) {
@@ -55,12 +59,16 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 					{children}
 				</Component>
 			) : null}
+			{footer && <footer role="contentinfo" className={footerCSS}>
+				{footer}
+			</footer>}
 		</div>
 	);
 }
 
 Layout.propTypes = {
 	header: PropTypes.element,
+	footer: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,
