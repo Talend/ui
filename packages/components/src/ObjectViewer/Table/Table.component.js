@@ -78,9 +78,9 @@ function Table({ flat, data, ...props }) {
 }
 
 Table.propTypes = {
-	flat: PropTypes.boolean,
-	data: PropTypes.oneOf([
-		PropTypes.boolean,
+	flat: PropTypes.bool,
+	data: PropTypes.oneOfType([
+		PropTypes.bool,
 		PropTypes.number,
 		PropTypes.string,
 		PropTypes.object,
