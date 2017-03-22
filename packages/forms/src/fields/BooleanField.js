@@ -7,7 +7,7 @@ import {
 	optionsList,
 	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
-import CheckboxWidget from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
+import Toggle from 'react-talend-components/lib/Toggle';
 
 
 function buildOptions(schema) {
@@ -36,8 +36,8 @@ function BooleanField(props) {
 	const { widgets, formContext } = registry;
 	const widget = uiSchema['ui:widget'];
 	const uiOptions = getUiOptions(uiSchema);
-	const onChangeHandler = (value) => {
-		onChange(value, uiOptions);
+	const onChangeHandler = () => {
+		onChange(!formData, uiOptions);
 	};
 	const commonProps = {
 		schema,
@@ -45,6 +45,7 @@ function BooleanField(props) {
 		onChange: onChangeHandler,
 		label: (title === undefined) ? name : title,
 		value: defaultFieldValue(formData, schema),
+		checked: defaultFieldValue(formData, schema),
 		required,
 		disabled,
 		readonly,
@@ -55,7 +56,7 @@ function BooleanField(props) {
 		const Widget = getWidget(schema, widget, widgets);
 		return <Widget options={buildOptions(schema)} {... commonProps} />;
 	}
-	return <CheckboxWidget {...commonProps} />;
+	return <Toggle options={buildOptions(schema)} {...commonProps} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
