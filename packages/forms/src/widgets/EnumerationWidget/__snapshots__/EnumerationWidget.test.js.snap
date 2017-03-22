@@ -2390,6 +2390,77 @@ exports[`EnumerationWidget should select an item 1`] = `
               <span>
                 1 selected value
               </span>
+              <Action
+                bsStyle="default"
+                disabled={false}
+                hideLabel={true}
+                icon="talend-trash"
+                inProgress={false}
+                label="Delete items"
+                link={true}
+                onClick={[Function]}
+                tooltipPlacement="bottom">
+                <TooltipTrigger
+                  label="Delete items"
+                  tooltipPlacement="bottom">
+                  <OverlayTrigger
+                    defaultOverlayShown={false}
+                    delayShow={400}
+                    overlay={
+                      <Tooltip
+                        bsClass="tooltip"
+                        className="undefined tooltip-container"
+                        id={42}
+                        placement="right">
+                        Delete items
+                      </Tooltip>
+                    }
+                    placement="bottom"
+                    trigger={
+                      Array [
+                        "hover",
+                        "focus",
+                      ]
+                    }>
+                    <Button
+                      active={false}
+                      aria-describedby={42}
+                      block={false}
+                      bsClass="btn"
+                      bsStyle="link"
+                      disabled={false}
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
+                      role="link">
+                      <button
+                        aria-describedby={42}
+                        className="btn btn-link"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseOut={[Function]}
+                        onMouseOver={[Function]}
+                        role="link"
+                        type="button">
+                        <Icon
+                          name="talend-trash">
+                          <svg
+                            aria-hidden="true"
+                            className="tc-svg-icon"
+                            title={null}>
+                            <use
+                              xlinkHref="#talend-trash" />
+                          </svg>
+                        </Icon>
+                      </button>
+                    </Button>
+                  </OverlayTrigger>
+                </TooltipTrigger>
+              </Action>
             </header>
           </HeaderSelected>
         </HeaderEnumeration>
