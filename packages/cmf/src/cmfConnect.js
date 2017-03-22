@@ -95,6 +95,7 @@ export function getDispatchToProps({
  * - didMountActionCreator (id or array of id)
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
+ * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -103,6 +104,7 @@ export default function cmfConnect({
 		keepComponentState,
 		mapStateToProps,
 		mapDispatchToProps,
+		mergeProps,
 		...rest,
 	}) {
 	return function wrapWithCMF(WrappedComponent) {
@@ -141,8 +143,10 @@ export default function cmfConnect({
 						this.context
 					);
 				}
-				if (!keepComponentState) {
-					this.props.updateState();
+				// if the props.keepComponentState is present we have to stick to it
+				if (this.props.keepComponentState === false ||
+					(this.props.keepComponentState === undefined && !keepComponentState)) {
+					this.props.deleteState();
 				}
 			}
 
@@ -156,7 +160,6 @@ export default function cmfConnect({
 				);
 			}
 		}
-
 		return connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
@@ -173,7 +176,8 @@ export default function cmfConnect({
 				ownProps,
 				WrappedComponent,
 			}),
-			...rest,
+			mergeProps,
+			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
 	};
 }

@@ -15,10 +15,14 @@ const myAction = {
 };
 
 storiesOf('Action', module)
+	.addDecorator(story => (
+		<div className="col-lg-offset-2 col-lg-8">
+			<IconsProvider defaultIcons={icons} />
+			{story()}
+		</div>
+	))
 	.addWithInfo('default', () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
-
 			<p>By default :</p>
 			<Action id="default" {...myAction} />
 			<p>With hideLabel option</p>
@@ -52,4 +56,12 @@ storiesOf('Action', module)
 				iconTransform={'rotate-180'}
 			/>
 		</div>
-	));
+	))
+	.addWithPropsCombinations('combinations', Action, {
+		label: ['Click me'],
+		icon: ['talend-dataprep'],
+		onClick: [action('You clicked me')],
+		hideLabel: [false, true],
+		inProgress: [true, false],
+		disabled: [false, true],
+	});

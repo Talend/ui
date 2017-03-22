@@ -1,29 +1,22 @@
-import { connect } from 'react-redux';
-import { actions } from 'react-cmf';
-import { componentState } from 'react-talend-containers';
+import { cmfConnect } from 'react-cmf';
 
 import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
 
-export function getContainerInfo(ownProps) {
-	return {
-		name: '<%= props.name %>',
-		id: '<%= props.name %>',  // you may change this using ownProps
-	};
-}
-
-export function mapDispatchToProps(dispatch, ownProps) {
-	const info = getContainerInfo(ownProps);
-	const props = componentState.getAccessors(dispatch, info.name, info.id, DEFAULT_STATE);
-	props.dispatch = dispatch;
+export function mapStateToProps(state, ownProps, cmfProps) {
+	// cmfProps.state
+	const props = {};
 	return props;
 }
 
-export function mapStateToProps(state, ownProps) {
-	const info = getContainerInfo(ownProps);
-	return componentState.getProps(state, info.name, info.id);
+export function mapDispatchToProps(dispatch, ownProps, cmfProps) {
+	// cmfProps.updateState, initState, deleteState, dispatch, dispatchActionCreator
+	const props = {};
+	return props;
 }
 
-export default connect(
+export default cmfConnect({
+	componentId: '<%= props.name %>',  // can be a function
+	defaultState: DEFAULT_STATE,
 	mapStateToProps,
 	mapDispatchToProps,
-)(Container);
+})(Container);

@@ -1,7 +1,8 @@
 import { PropTypes } from 'react';
+import { Map } from 'immutable';
 import { actions } from 'react-cmf';
 
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
 	return {
 		updateState(state) {
 			dispatch(
@@ -22,6 +23,14 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				),
 			);
 		},
+		deleteState() {
+			dispatch(
+				actions.componentsActions.removeComponentState(
+					name,
+					id,
+				),
+			);
+		},
 	};
 }
 
@@ -35,15 +44,6 @@ export function initState(props) {
 	if (!props.state && props.initState) {
 		props.initState(props.initialState);
 	}
-}
-
-// BBB
-export function stateWillMount(props) {
-	console.log(  // eslint-disable-line no-console
-		`DEPRECATION Warning: you should use initState
-		in componentDidMount instead.
-		https://github.com/facebook/react/issues/7671`);
-	initState(props);
 }
 
 export const statePropTypes = {

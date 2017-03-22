@@ -6,7 +6,7 @@
  */
 import { combineReducers } from 'redux';
 
-import { collectionsReducers } from './collectionsReducers';
+import collectionsReducers from './collectionsReducers';
 import { componentsReducers } from './componentsReducers';
 import { settingsReducers } from './settingsReducers';
 

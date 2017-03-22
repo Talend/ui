@@ -80,7 +80,7 @@ $tc-list-table-header-height: 36px !default;
 
 				.cell + .actions {
 					opacity: 1;
-					margin-left: $padding-large;
+					padding-left: $padding-large;
 					visibility: visible;
 				}
 			}
@@ -88,6 +88,7 @@ $tc-list-table-header-height: 36px !default;
 
 		.tc-list-display-table-td {
 			display: flex;
+			position: relative;
 
 			.cell {
 				flex-shrink: 1;

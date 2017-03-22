@@ -22,6 +22,10 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
 	};
+	if (ownProps.list) {
+		config.columns = ownProps.list.columns;
+	}
+
 	props.items = getItems(state, config);
 	const cmfState = get(cmfProps, 'state');
 	if (cmfState && cmfState.has('toolbar')) {
@@ -30,6 +34,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 			configureGetPagination(state, config)
 		);
 	}
+
 	return props;
 }
 

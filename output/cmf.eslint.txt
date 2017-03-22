@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.65.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.66.2 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -10,22 +10,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
   3:21  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.test.js
-  1:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  1:18  error  Unable to resolve path to module 'react-cmf/lib/mock'                                           import/no-unresolved
-  4:8   error  'cmfConnect' is defined but never used                                                          no-unused-vars
-  8:2   error  'getDispatchToProps' is defined but never used                                                  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  2:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  2:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
+  3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
+  3:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/cmf/src/state.test.js
-   3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-   3:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
-  36:1   error  Line 36 exceeds the maximum line length of 100                                                  max-len
-
-✖ 11 problems (11 errors, 0 warnings)
+✖ 4 problems (4 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
