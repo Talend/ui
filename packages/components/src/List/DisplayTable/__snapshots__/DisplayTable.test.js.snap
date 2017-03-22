@@ -14,14 +14,17 @@ exports[`CellContent should render 1`] = `
 `;
 
 exports[`CellContent should render array 1`] = `
-<TooltipTrigger
-  label=""
-  tooltipPlacement="top"
->
-  <span
-    className="item-text"
-  />
-</TooltipTrigger>
+<Actions
+  actions={
+    Array [
+      Object {
+        "label": "action",
+      },
+    ]
+  }
+  hideLabel={true}
+  link={true}
+/>
 `;
 
 exports[`CellContent should render title 1`] = `

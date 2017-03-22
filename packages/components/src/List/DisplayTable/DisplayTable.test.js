@@ -125,7 +125,7 @@ describe('CellContent', () => {
 	it('should render array', () => {
 		const wrapper = shallow(<CellContent
 			column={{ key: 'test' }}
-			item={[{ label: 'action' }]}
+			item={{ test: [{ label: 'action' }] }}
 		/>);
 		expect(wrapper.node).toMatchSnapshot();
 	});
