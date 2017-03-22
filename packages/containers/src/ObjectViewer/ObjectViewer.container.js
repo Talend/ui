@@ -3,7 +3,7 @@ import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
 import { ObjectViewer as Component } from 'react-talend-components';
-import { statePropTypes, stateWillMount } from '../state';
+import { componentState } from 'react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	edited: new List(),  // Array of JSONPath
@@ -47,17 +47,13 @@ class ObjectViewer extends React.Component {
 		data: get(Component, 'propTypes.data', PropTypes.any),
 		displayMode: get(Component, 'propTypes.displayMode', PropTypes.func),
 		onSubmit: get(Component, 'propTypes.onSubmit', PropTypes.func),
-		...statePropTypes,
+		...componentState.propTypes,
 	};
 
 	constructor(props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
-	}
-
-	componentWillMount() {
-		stateWillMount(this.props);
 	}
 
 	onClick(event, data) {

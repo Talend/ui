@@ -37,14 +37,19 @@ function RowRenderer(props) {
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
 	const checkboxColumn = onToggle && isSelected ?
 		(<td>
-			<input
-				id={id && `${id}-check`}
-				type="checkbox"
-				onChange={(e) => {
-					onToggle(e, item);
-				}}
-				checked={isSelected(item)}
-			/>
+			<div className="checkbox">
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={(e) => {
+							onToggle(e, item);
+						}}
+						checked={isSelected(item)}
+					/>
+					<span><span className="sr-only">Select {item.name}</span></span>
+				</label>
+			</div>
 		</td>) :
 		null;
 	const classes = classnames(
@@ -63,13 +68,6 @@ function RowRenderer(props) {
 				const displayActions =
 					isTitle &&
 					(!displayModeKey || !item[displayModeKey] || item[displayModeKey] === 'text');
-				const actions = displayActions ?
-					(<Actions
-						actions={item.actions || []}
-						hideLabel
-						link
-					/>) :
-					null;
 
 				return (
 					<td key={index}>
@@ -80,7 +78,19 @@ function RowRenderer(props) {
 							)}
 						>
 							<div className={classnames('cell', theme.cell)}>{cell}</div>
-							<div className={classnames('actions', theme.actions)}>{actions}</div>
+							{
+								displayActions &&
+								item.actions &&
+								(
+									<div className={classnames('actions', theme.actions)}>
+										<Actions
+											actions={item.actions}
+											hideLabel
+											link
+										/>
+									</div>
+								)
+							}
 						</div>
 					</td>
 				);

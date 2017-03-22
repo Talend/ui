@@ -4,11 +4,16 @@ $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-large-padding: $padding-large !default;
 $tc-enumeration-header-height: 28px !default;
 
+$tc-enumeration-header-error-background-color: white !default;
+$tc-enumeration-header-error-color: red !default;
+$tc-enumeration-header-error-padding: 2px !default;
+
 .tc-enumeration-header {
 	display: flex;
 	line-height: $tc-enumeration-large-padding;
 	align-items: center;
 	height: $tc-enumeration-header-height;
+	position: relative;
 
 	input {
 		box-shadow: none;
@@ -37,5 +42,15 @@ $tc-enumeration-header-height: 28px !default;
 			margin-right: 0;
 			vertical-align: top;
 		}
+	}
+
+	.tc-enumeration-header-error {
+		position: absolute;
+		top: 100%;
+		background-color: $tc-enumeration-header-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-header-error-color;
+		padding: $tc-enumeration-header-error-padding;
+		z-index: 1;
 	}
 }

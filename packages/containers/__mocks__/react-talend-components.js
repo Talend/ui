@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const mock = {
 	AppHeaderBar: props => (<div className="tc-appheaderbar" {...props} />),
@@ -20,6 +20,8 @@ const mock = {
 	List: props => (<div className="tc-list" {...props} />),
 };
 
-mock.Layout.propTypes = {};
+mock.Layout.propTypes = {
+	header: PropTypes.element,
+};
 
 module.exports = mock;

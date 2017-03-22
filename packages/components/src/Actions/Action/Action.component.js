@@ -80,6 +80,7 @@ function Action(props) {
 		model,
 		onClick,
 		tooltipPlacement,
+		tooltip,
 		...rest
 	} = props;
 
@@ -104,7 +105,7 @@ function Action(props) {
 		</Button>
 	);
 
-	if (hideLabel) {
+	if (hideLabel || tooltip) {
 		return <TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>{btn}</TooltipTrigger>;
 	}
 	return btn;
@@ -122,6 +123,7 @@ Action.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltip: PropTypes.bool,
 };
 
 Action.defaultProps = {
