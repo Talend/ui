@@ -47,14 +47,19 @@ export function RowRenderer(props) {
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
 	const checkboxColumn = onToggle && isSelected ? (
 		<td>
-			<input
-				id={id && `${id}-check`}
-				type="checkbox"
-				onChange={(e) => {
-					onToggle(e, item);
-				}}
-				checked={isSelected(item)}
-			/>
+			<div className="checkbox">
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={(e) => {
+							onToggle(e, item);
+						}}
+						checked={isSelected(item)}
+					/>
+					<span><span className="sr-only">Select {item.name}</span></span>
+				</label>
+			</div>
 		</td>
 	) : null;
 	const classes = classnames(
