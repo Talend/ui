@@ -1,18 +1,18 @@
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
+$tc-enumeration-item-height: 3.3rem !default;
 
 $tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
-$tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-input-margin $tc-item-padding-top-bottom $tc-enumeration-input-margin;
+$tc-enumeration-item-error-padding: 0 $padding-normal;
 
 .tc-enumeration-item {
 	display: flex;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 11px;
 	text-align: left;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
@@ -66,13 +66,21 @@ $tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-
 		overflow: hidden;
 	}
 
+	button span {
+		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
+		vertical-align: top;
+	}
+
 	input {
-		margin: $tc-enumeration-input-margin;
+		padding: 0;
+		margin: 0 $padding-normal;
+		line-height: $tc-enumeration-item-height;
 	}
 
 	.tc-enumeration-item-error {
+		font-size: 12px;
 		position: absolute;
-		top: calc(100% - #{$tc-enumeration-input-margin});
+		top: calc(100% - #{$padding-small});
 		background-color: $tc-enumeration-item-error-background-color;
 		width: 100%;
 		color: $tc-enumeration-item-error-color;

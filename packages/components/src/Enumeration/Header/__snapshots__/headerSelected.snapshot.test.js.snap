@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render header in selected state without trash icon in case of single selection) 1`] = `
-<header
-  className="undefined tc-enumeration-header"
->
-  <span>
-    1 selected value
-  </span>
-</header>
-`;
-
 exports[`Header should render header with trash icon in case of multiple selection 1`] = `
 <header
   className="undefined tc-enumeration-header"

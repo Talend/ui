@@ -14,11 +14,11 @@ const RIGHT = 'right';
 
 function getIcon({ icon, iconTransform, inProgress }) {
 	if (inProgress) {
-		return (<CircularProgress size="small" />);
+		return (<CircularProgress size="small" key="icon" />);
 	}
 
 	if (icon) {
-		return (<Icon name={icon} transform={iconTransform} />);
+		return (<Icon name={icon} transform={iconTransform} key="icon" />);
 	}
 
 	return null;
@@ -33,7 +33,7 @@ function getLabel({ hideLabel, label }) {
 	if (hideLabel) {
 		return null;
 	}
-	return (<span>{label}</span>);
+	return (<span key="label">{label}</span>);
 }
 
 getLabel.propTypes = {

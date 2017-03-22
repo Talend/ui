@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Button } from 'react-bootstrap';
 
 import ItemTitle from './ItemTitle.component';
@@ -15,6 +15,98 @@ const item = {
 };
 
 describe('ItemTitle', () => {
+	it('should render text title', () => {
+		// given
+		const props = {
+			id: 'title',
+			className: 'my-title',
+			item,
+			titleProps: {
+				key: 'name',
+				displayModeKey: undefined, // no display mode in item
+				onClick: undefined, // no click callback
+			},
+		};
+
+		// when
+		const wrapper = shallow(<ItemTitle {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render button title', () => {
+		// given
+		const props = {
+			id: 'title',
+			className: 'my-title',
+			item,
+			titleProps: {
+				key: 'name',
+				displayModeKey: undefined, // no display mode in item
+				onClick: jest.fn(), // provided click callback
+			},
+		};
+
+		// when
+		const wrapper = shallow(<ItemTitle {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render input title', () => {
+		// given
+		const props = {
+			id: 'title',
+			className: 'my-title',
+			item,
+			titleProps: {
+				key: 'name',
+				displayModeKey: 'displayMode', // item.displayMode is the provided display mode
+			},
+		};
+
+		// when
+		const wrapper = shallow(<ItemTitle {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render icon', () => {
+		// given
+		const props = {
+			className: 'my-title',
+			item,
+			titleProps: {
+				key: 'name',
+				iconKey: 'icon', // item.icon is the icon name
+			},
+		};
+
+		// when
+		const wrapper = shallow(<ItemTitle {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render text with undefined', () => {
+		const props = {
+			id: 'title',
+			className: 'my-title',
+			item: {},
+			titleProps: {
+				key: 'name',
+				displayModeKey: undefined, // no display mode in item
+				onClick: undefined, // no click callback
+			},
+		};
+		const wrapper = shallow(<ItemTitle {...props} />);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
 	it('should trigger callback on button title click', () => {
 		// given
 		const props = {

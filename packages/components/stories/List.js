@@ -290,6 +290,11 @@ function getPropsFor(displayMode) {
 }
 
 storiesOf('List', module)
+	.addDecorator((story) => (
+		<form>
+			{story()}
+		</form>
+	))
 	.add('Table (default)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
