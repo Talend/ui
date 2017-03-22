@@ -15,12 +15,22 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should be in search mode', () => {
+		// given
+		const wrapper = mount(<EnumerationWidget />);
+
+		// when
+		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 
 	it('should be in edit mode', () => {
 		// given
