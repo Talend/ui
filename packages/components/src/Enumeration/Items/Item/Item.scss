@@ -1,6 +1,6 @@
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
-$tc-enumeration-item-height: 3.2rem !default;
+$tc-enumeration-item-height: 3.3rem !default;
 
 $tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
@@ -62,7 +62,13 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 		overflow: hidden;
 	}
 
+	button span {
+		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
+		vertical-align: top;
+	}
+
 	input {
+		padding: 0;
 		margin: 0 $padding-normal;
 		line-height: $tc-enumeration-item-height;
 	}
