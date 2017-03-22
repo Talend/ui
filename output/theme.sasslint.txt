@@ -12,21 +12,20 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   20:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  242:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  255:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  268:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  291:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  327:15  error    !important not allowed                                   no-important
-  385:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   23:11  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   24:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   41:10  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   42:7   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   79:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  262:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  275:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  288:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  311:9   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 13 problems (10 errors, 3 warnings)
+✖ 12 problems (11 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
