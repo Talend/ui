@@ -95,6 +95,7 @@ export function getDispatchToProps({
  * - didMountActionCreator (id or array of id)
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
+ * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
