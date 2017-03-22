@@ -100,6 +100,10 @@ class EnumerationWidget extends React.Component {
 		};
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({ ...this.state, items: nextProps.formData });
+	}
+
 	// default mode
 	onEnterEditModeItem(event, value) {
 		let items = [...this.state.items];
@@ -155,6 +159,7 @@ class EnumerationWidget extends React.Component {
 		items[value.index].error = '';
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 		});
 	}
 

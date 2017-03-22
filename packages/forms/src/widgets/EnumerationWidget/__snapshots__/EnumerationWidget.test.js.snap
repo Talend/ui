@@ -3,14 +3,12 @@ exports[`EnumerationWidget delete all 1`] = `
   formData={
     Array [
       Object {
-        "name": "toto",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
-        "name": "toto2",
         "values": Array [
           "titi2",
           "tata2",
@@ -1397,7 +1395,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
   formData={
     Array [
       Object {
-        "name": "toto",
         "values": Array [
           "titi",
           "tata",
@@ -2185,8 +2182,19 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
 </EnumerationWidget>
 `;
 
-exports[`EnumerationWidget should be in search mode 1`] = `
-<EnumerationWidget>
+exports[`EnumerationWidget should delete an item 1`] = `
+<EnumerationWidget
+  formData={
+    Array [
+      Object {
+        "values": Array [
+          "titi",
+          "tata",
+        ],
+      },
+    ]
+  }
+  onChange={[Function]}>
   <div>
     <Enumeration
       displayMode="DISPLAY_MODE_SEARCH"
@@ -3012,7 +3020,6 @@ exports[`EnumerationWidget should select an item 1`] = `
   formData={
     Array [
       Object {
-        "name": "toto",
         "values": Array [
           "titi",
           "tata",
@@ -3752,14 +3759,12 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
   formData={
     Array [
       Object {
-        "name": "toto",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
-        "name": "toto2",
         "values": Array [
           "titi2",
           "tata2",
