@@ -28,7 +28,7 @@ function itemDefaultActionsClasses() {
 	});
 }
 
-function Item({ id, item }) {
+function Item({ id, item, searchCriteria }) {
 	const {
 		key,
 		actions,
@@ -58,15 +58,66 @@ function Item({ id, item }) {
 		);
 	}
 
+	function allIndexOf(str, toSearch) {
+		const indices = [];
+		for (let pos = str.indexOf(toSearch); pos !== -1; pos = str.indexOf(toSearch, pos + 1)) {
+			indices.push(pos);
+		}
+		return indices;
+	}
+
+	function removeDuplicates(indexes, search) {
+		const array = [];
+
+		indexes.forEach((matchingIndex) => {
+			if (array.length === 0) {
+				array.push(matchingIndex);
+			} else if (matchingIndex >= array[array.length - 1] + search.length) {
+				array.push(matchingIndex);
+			}
+		});
+
+		return array;
+	}
+
+	function getSearchedLabel(label) {
+		let indexes = allIndexOf(label.toLowerCase(), searchCriteria.toLowerCase());
+		indexes = removeDuplicates(indexes, searchCriteria);
+		return (<span>
+			{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
+			{indexes.map((matchIndex, index, matchIndexes) =>
+				(
+					<span key={index}>
+						<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
+						{index === matchIndex.length + 1 ? null :
+							label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
+						}
+					</span>
+				))
+			}
+		</span>);
+	}
+
+	let actionLabel = (<Action
+		key={item.index}
+		label={item[key].join(',')}
+		onClick={event => onSelectItem(item, event)}
+		className={itemLabelClasses()}
+		tooltip
+	/>);
+	if (searchCriteria) {
+		actionLabel = (
+			<button
+				className={itemLabelClasses()}
+				disabled="disabled">
+				{getSearchedLabel(item[key].join(','))}
+			</button>
+		);
+	}
+
 	return (
 		<li className={itemClasses(item.isSelected)} id={id}>
-			<Action
-				key={item.index}
-				label={item[key].join(',')}
-				onClick={event => onSelectItem(item, event)}
-				className={itemLabelClasses()}
-				tooltip
-			/>
+			{actionLabel}
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
 			</div>

@@ -5,6 +5,7 @@ $tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
+$tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-input-margin $tc-item-padding-top-bottom $tc-enumeration-input-margin;
 
 .tc-enumeration-item {
@@ -16,14 +17,19 @@ $tc-enumeration-item-error-padding: $tc-item-padding-top-bottom $tc-enumeration-
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
 
+	:global(button:disabled) {
+		height: 34px;
+		padding: 0 15px;
+	}
+
 	:global(.btn-link) {
 		padding: 0;
-		height: $tc-enumeration-small-padding;
+		height: $tc-enumeration-item-font-size;
 		outline: none;
 
 		:global(.tc-svg-icon) {
-			height: $tc-enumeration-small-padding;
-			width: $tc-enumeration-small-padding;
+			height: $tc-enumeration-item-font-size;
+			width: $tc-enumeration-item-font-size;
 			stroke: currentColor;
 			fill: currentColor;
 			margin-right: 0;
