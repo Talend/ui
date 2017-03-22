@@ -48,6 +48,7 @@ class EnumerationWidget extends React.Component {
 				id: 'abort',
 				onClick: this.onAbortHandler.bind(this),
 			}],
+			// do not change mock values : deep copy
 			items: (props.formData || []).map((item) => ({
 				values: item.values,
 			})),
@@ -75,6 +76,10 @@ class EnumerationWidget extends React.Component {
 			onAddChange: this.onAddChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ ...this.state, items: nextProps.formData });
 	}
 
 	// default mode
@@ -117,6 +122,7 @@ class EnumerationWidget extends React.Component {
 		items[value.index].error = '';
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 		});
 	}
 
