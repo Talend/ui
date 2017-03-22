@@ -107,8 +107,8 @@ exports[`EnumerationWidget delete all 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -200,8 +200,8 @@ exports[`EnumerationWidget delete all 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -220,7 +220,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 },
               ]
             }
-            onAddChange={[Function]}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -465,8 +465,8 @@ exports[`EnumerationWidget delete all 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]} />
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -565,8 +565,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -658,8 +658,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <HeaderInput
             headerInput={
               Array [
@@ -680,8 +680,9 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 },
               ]
             }
-            onAddChange={[Function]}
-            onAddKeyDown={[Function]}>
+            inputPlaceholder="New entry"
+            onAddKeyDown={[Function]}
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <input
@@ -924,8 +925,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]} />
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -1024,8 +1025,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1117,8 +1118,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -1137,7 +1138,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 },
               ]
             }
-            onAddChange={[Function]}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1382,8 +1383,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]} />
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -1412,7 +1413,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           },
         }
       }
-      displayMode="DISPLAY_MODE_EDIT"
+      displayMode="DISPLAY_MODE_DEFAULT"
       headerDefault={
         Array [
           Object {
@@ -1512,8 +1513,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1524,7 +1525,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               },
             }
           }
-          displayMode="DISPLAY_MODE_EDIT"
+          displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
             Array [
               Object {
@@ -1624,8 +1625,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -1644,12 +1645,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 },
               ]
             }
-            isEdit={true}
-            onAddChange={[Function]}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
-                Edit a value
+                Values
               </span>
               <div
                 className="actions">
@@ -1809,7 +1809,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               },
             }
           }
-          displayMode="DISPLAY_MODE_EDIT"
+          displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
             Array [
               Object {
@@ -1909,8 +1909,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Items
             currentEdit={
               Object {
@@ -2182,19 +2182,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
 </EnumerationWidget>
 `;
 
-exports[`EnumerationWidget should delete an item 1`] = `
-<EnumerationWidget
-  formData={
-    Array [
-      Object {
-        "values": Array [
-          "titi",
-          "tata",
-        ],
-      },
-    ]
-  }
-  onChange={[Function]}>
+exports[`EnumerationWidget should be in search mode 1`] = `
+<EnumerationWidget>
   <div>
     <Enumeration
       displayMode="DISPLAY_MODE_SEARCH"
@@ -2276,8 +2265,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2360,8 +2349,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <HeaderInput
             headerInput={
               Array [
@@ -2373,15 +2362,16 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 },
               ]
             }
-            onAddChange={[Function]}
-            onAddKeyDown={[Function]}>
+            inputPlaceholder="Search"
+            onAddKeyDown={[Function]}
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <input
                 autoFocus={true}
                 onChange={[Function]}
                 onKeyDown={[Function]}
-                placeholder="New entry"
+                placeholder="Search"
                 type="text" />
               <Action
                 bsStyle="default"
@@ -2537,8 +2527,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]} />
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -2550,7 +2540,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
   formData={
     Array [
       Object {
-        "name": "toto",
         "values": Array [
           "titi",
           "tata",
@@ -2649,8 +2638,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2742,8 +2731,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -2762,7 +2751,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 },
               ]
             }
-            onAddChange={[Function]}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -3007,8 +2996,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]} />
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -3128,8 +3117,8 @@ exports[`EnumerationWidget should select an item 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3231,8 +3220,8 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -3423,8 +3412,8 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Items
             items={
               Array [
@@ -3880,8 +3869,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           "onSubmitItem": [Function],
         }
       }
-      onAddChange={[Function]}
-      onAddKeyDown={[Function]}>
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3990,8 +3979,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -4189,8 +4178,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onSubmitItem": [Function],
             }
           }
-          onAddChange={[Function]}
-          onAddKeyDown={[Function]}>
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}>
           <Items
             items={
               Array [
