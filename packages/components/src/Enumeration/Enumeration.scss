@@ -16,6 +16,7 @@ $tc-enumeration-font-size: 1.4rem !default;
 	:global(.btn.btn-link) {
 		padding: 0 $padding-smaller;
 		color: transparent;
+
 		svg {
 			fill: $tc-enumeration-svg-color;
 			height: $tc-enumeration-font-size;
