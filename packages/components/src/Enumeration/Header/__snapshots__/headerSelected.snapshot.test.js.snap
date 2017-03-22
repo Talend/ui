@@ -4,9 +4,9 @@ exports[`Header should render header in selected state without trash icon in cas
 <header
   className="undefined tc-enumeration-header"
 >
-  <b>
+  <span>
     1 selected value
-  </b>
+  </span>
 </header>
 `;
 
@@ -14,9 +14,9 @@ exports[`Header should render header with trash icon in case of multiple selecti
 <header
   className="undefined tc-enumeration-header"
 >
-  <b>
+  <span>
     2 selected values
-  </b>
+  </span>
   <button
     aria-describedby={42}
     className="btn btn-link"

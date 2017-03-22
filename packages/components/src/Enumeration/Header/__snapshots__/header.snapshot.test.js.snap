@@ -4,9 +4,9 @@ exports[`Header should render header input with one button 1`] = `
 <header
   className="undefined tc-enumeration-header"
 >
-  <b>
+  <span>
     Values
-  </b>
+  </span>
   <div
     className="actions"
   >

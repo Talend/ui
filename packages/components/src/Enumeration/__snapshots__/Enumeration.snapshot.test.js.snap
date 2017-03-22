@@ -280,9 +280,9 @@ exports[`Enumeration should render with header in default state and first item i
   <header
     className="undefined tc-enumeration-header"
   >
-    <b>
+    <span>
       Values
-    </b>
+    </span>
     <div
       className="actions"
     >
@@ -522,9 +522,9 @@ exports[`Enumeration should render with header in default state and list in defa
   <header
     className="undefined tc-enumeration-header"
   >
-    <b>
+    <span>
       Values
-    </b>
+    </span>
     <div
       className="actions"
     >
@@ -773,9 +773,9 @@ exports[`Enumeration should render with header in selected state with trash icon
   <header
     className="undefined tc-enumeration-header"
   >
-    <b>
+    <span>
       2 selected values
-    </b>
+    </span>
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -1010,9 +1010,9 @@ exports[`Enumeration should render with header without items 1`] = `
   <header
     className="undefined tc-enumeration-header"
   >
-    <b>
+    <span>
       Values
-    </b>
+    </span>
     <div
       className="actions"
     >
