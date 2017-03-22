@@ -146,7 +146,12 @@ function ItemTitle({ id, className, item, titleProps }) {
 	return (
 		<div className={theme['item-title']}>
 			{icon}
-			<TooltipTrigger label={`${value}`} tooltipPlacement="top">{titleElement}</TooltipTrigger>
+			<TooltipTrigger
+				label={value && value.toString()}
+				tooltipPlacement="top"
+			>
+				{titleElement}
+			</TooltipTrigger>
 		</div>
 	);
 }

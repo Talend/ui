@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
-
 import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
 
-function cellContent(isTitle, item, column, titleProps, id) {
+export function CellContent({ isTitle, item, column, titleProps, id }) {
 	if (isTitle) {
 		return (<ItemTitle
 			id={id && `${id}-title`}
@@ -23,20 +23,30 @@ function cellContent(isTitle, item, column, titleProps, id) {
 			hideLabel
 		/>);
 	}
+	const str = item[column.key] ? item[column.key].toString() : '';
 	return (
-		<TooltipTrigger label={`${item[column.key]}`} tooltipPlacement="top">
+		<TooltipTrigger label={str} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
-				{item[column.key]}
+				{str}
 			</span>
 		</TooltipTrigger>
 	);
 }
+CellContent.propTypes = {
+	isTitle: PropTypes.bool,
+	item: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	column: PropTypes.shape({
+		key: PropTypes.string,
+	}).isRequired,
+	titleProps: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	id: PropTypes.string,
+};
 
-function RowRenderer(props) {
+export function RowRenderer(props) {
 	const { id, item, itemProps, titleProps } = props;
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
-	const checkboxColumn = onToggle && isSelected ?
-		(<td>
+	const checkboxColumn = onToggle && isSelected ? (
+		<td>
 			<input
 				id={id && `${id}-check`}
 				type="checkbox"
@@ -45,8 +55,8 @@ function RowRenderer(props) {
 				}}
 				checked={isSelected(item)}
 			/>
-		</td>) :
-		null;
+		</td>
+	) : null;
 	const classes = classnames(
 		classNameKey && item[classNameKey],
 		isSelected && isSelected(item) && (selectedClass || 'active'),
@@ -56,7 +66,13 @@ function RowRenderer(props) {
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				const isTitle = column.key === titleProps.key;
-				const cell = cellContent(isTitle, item, column, titleProps, id);
+				const cell = (<CellContent
+					isTitle={isTitle}
+					item={item}
+					column={column}
+					titleProps={titleProps}
+					id={id}
+				/>);
 
 				// actions are only on title and on 'text' display mode
 				const { displayModeKey } = titleProps;
@@ -100,7 +116,7 @@ RowRenderer.propTypes = {
 		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
-	titleProps: ItemTitle.propTypes.titleProps,
+	titleProps: ItemTitle.propTypes.titleProps.isRequired,
 };
 
 function getCaretIcon(isCurrentSortField) {
@@ -125,7 +141,7 @@ function getNextDirection(isCurrentSortField, currentSort) {
 	return false;
 }
 
-function columnHeader(index, column, sort) {
+export function ColumnHeader({ index, column, sort }) {
 	let header;
 
 	if (sort) {
@@ -159,8 +175,20 @@ function columnHeader(index, column, sort) {
 		</th>
 	);
 }
+ColumnHeader.propTypes = {
+	index: PropTypes.number,
+	column: PropTypes.shape({
+		key: PropTypes.string,
+		label: PropTypes.string,
+	}).isRequired,
+	sort: PropTypes.shape({
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+		onChange: PropTypes.func,
+	}),
+};
 
-function ListHeaders(props) {
+export function ListHeaders(props) {
 	const {
 		columns,
 		isSelected,
@@ -170,7 +198,11 @@ function ListHeaders(props) {
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => columnHeader(index, column, sort))}
+			{columns.map((column, index) => (<ColumnHeader
+				index={index}
+				column={column}
+				sort={sort}
+			/>))}
 		</tr>
 	);
 }
@@ -178,7 +210,7 @@ function ListHeaders(props) {
 ListHeaders.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string }),
-	),
+	).isRequired,
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 	sort: PropTypes.shape({
