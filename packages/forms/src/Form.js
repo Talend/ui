@@ -9,7 +9,7 @@ import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
 import ArrayField from './fields/ArrayField';
 import FieldTemplate from './templates/FieldTemplate';
-import SwitchWidget from './widgets/SwitchWidget';
+import ToggleWidget from './widgets/ToggleWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
@@ -22,7 +22,7 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 const TRIGGER_AFTER = 'after';
 
 const customWidgets = {
-	toggle: SwitchWidget,
+	toggle: ToggleWidget,
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
