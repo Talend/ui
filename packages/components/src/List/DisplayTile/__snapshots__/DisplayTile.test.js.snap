@@ -483,15 +483,10 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             title={null}
           />
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
@@ -564,15 +559,10 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             title={null}
           />
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
@@ -640,15 +630,10 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           className={undefined}
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
