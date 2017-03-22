@@ -28,3 +28,8 @@ body {
 .header {
 	flex: 0 0 $tc-layout-header-height;
 }
+
+.footer {
+	flex-shrink: 0;
+	flex-grow: 0;
+}
