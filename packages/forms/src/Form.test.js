@@ -11,7 +11,6 @@ import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 import Button from 'react-bootstrap/lib/Button';
 
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
-import Checkbox from 'react-jsonschema-form/lib/components/widgets/CheckboxWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
 import Form, { renderActionIcon, renderActions } from './Form';
@@ -81,7 +80,9 @@ describe('renderActionIcon', () => {
 describe('renderActions', () => {
 	// given
 	it('should render actions', () => {
-		function noop() {}
+		function noop() {
+		}
+
 		const actions = [
 			{
 				type: 'button',
@@ -122,11 +123,11 @@ describe('<Form/>', () => {
 			expect(wrapper.containsMatchingElement(<Input />)).toBeTruthy();
 		});
 
-		it('should the <Checkbox/> component', () => {
-			expect(wrapper.containsMatchingElement(<Checkbox />)).toBeTruthy();
+		it('should the <Toggle/> component', () => {
+			expect(wrapper.containsMatchingElement(<input type="checkbox" />)).toBeTruthy();
 		});
 
-		it('should render the <Select/> component', () => {
+		it('should render the <Select /> component', () => {
 			expect(wrapper.containsMatchingElement(<Select />)).toBeTruthy();
 		});
 
