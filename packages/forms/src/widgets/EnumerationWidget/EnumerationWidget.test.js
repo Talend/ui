@@ -28,7 +28,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -46,7 +46,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -65,7 +65,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -84,8 +84,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
-					{ name: 'toto2', values: ['titi2', 'tata2'] },
+					{ values: ['titi', 'tata'] },
+					{ values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);
@@ -104,8 +104,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
-					{ name: 'toto2', values: ['titi2', 'tata2'] },
+					{ values: ['titi', 'tata'] },
+					{ values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);
