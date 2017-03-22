@@ -172,23 +172,25 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       <div
         className="panel-body"
       >
-        <dl
-          className={undefined}
-        >
-          <dd
+        <dl>
+          <div
             className={undefined}
           >
-            <span
-              className="label label-default"
+            <dt
+              className={undefined}
             >
-              Content
-            </span>
-          </dd>
-          <dt
-            className={undefined}
-          >
-            Description3
-          </dt>
+              <span
+                className="label label-default"
+              >
+                Content
+              </span>
+            </dt>
+            <dd
+              className={undefined}
+            >
+              Description3
+            </dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -368,23 +370,25 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       <div
         className="panel-body"
       >
-        <dl
-          className={undefined}
-        >
-          <dd
+        <dl>
+          <div
             className={undefined}
           >
-            <span
-              className="label label-default"
+            <dt
+              className={undefined}
             >
-              Content
-            </span>
-          </dd>
-          <dt
-            className={undefined}
-          >
-            Description3
-          </dt>
+              <span
+                className="label label-default"
+              >
+                Content
+              </span>
+            </dt>
+            <dd
+              className={undefined}
+            >
+              Description3
+            </dd>
+          </div>
         </dl>
       </div>
     </div>

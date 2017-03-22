@@ -70,6 +70,7 @@ $tc-collapsible-title-width: 70px !default;
 
 	&.open {
 		.toggle svg {
+			transform-origin: center;
 			transform: rotate(180deg);
 		}
 	}
@@ -79,11 +80,11 @@ $tc-collapsible-title-width: 70px !default;
 		justify-content: space-between;
 		padding: 0;
 
-		> button {
+		> * {
 			padding: 0;
 			letter-spacing: 0;
 
-			&.left-btn {
+			&.left-side {
 				text-decoration: none;
 				width: 100%;
 				padding: 0 5px;
@@ -96,13 +97,7 @@ $tc-collapsible-title-width: 70px !default;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
-
-			+ .toggle {
-				flex-shrink: 0;
-				flex-grow: 0;
-				flex-basis: 25px;
-				color: $black;
-			}
+			height: 30px;
 		}
 	}
 }

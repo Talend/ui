@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import uuid from 'uuid';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
@@ -127,7 +126,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={css['left-btn']}
+				className={css['left-side']}
 				bsStyle="link"
 				key={1}
 				onClick={onSelect}
@@ -137,16 +136,15 @@ function renderHeader(header, content, onSelect, onToggle) {
 				</div>
 			</Button>
 		) : (
-			<Button
-				className={css['left-btn']}
+			<div
+				className={css['left-side']}
 				bsStyle="link"
-				key={2}
-				onClick={content && onToggle}
+				key={1}
 			>
 				<div className={classNames(css['panel-title'], 'panel-title')}>
 					{headerItems}
 				</div>
-			</Button>
+			</div>
 		),
 	];
 
@@ -155,7 +153,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 			<Button
 				className={css.toggle}
 				bsStyle="link"
-				key={uuid.v4()}
+				key={2}
 				onClick={onToggle}
 			>
 				<Icon
@@ -170,13 +168,19 @@ function renderHeader(header, content, onSelect, onToggle) {
 }
 
 function getKeyValueContent(content) {
-	return (content.map(
-		(item, index) => (
-			<dl key={index} className={css.content}>
-				<dd className={css.label}><Label>{item.label}</Label></dd>
-				<dt className={css.description}>{item.description}</dt>
-			</dl>)
-	));
+	return (<dl>
+		{content.map(
+			(item, index) => (
+				<div key={index} className={css.content}>
+					<dt className={css.label}>
+						<Label>{item.label}</Label>
+					</dt>
+					<dd className={css.description}>
+						{item.description}
+					</dd>
+				</div>)
+		)}
+	</dl>);
 }
 
 function getTextualContent(content) {
@@ -206,6 +210,22 @@ function getTextualContent(content) {
 	);
 }
 
+/**
+ * Show collapsible panels
+ * @example
+ *
+ * @param header required, an array gathering the header elements except the caret
+ * @param onSelect optional, on header click callback function
+ * @param onToggle optional, on caret click callback function
+ * @param expanded optional, defines if the panel should be expanded or not
+ * @param selected optional, defines if the panel is selected or not
+ * @param theme optional, defines the theme of the collapsible, there is a default theme
+ * @param content optional, defines the content of the panel's body:
+ * if content is an array a key value content list is rendered otherwise it is a textual content
+ *
+ * @example
+ * <CollapsiblePanel {...props} />
+ */
 function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expanded, theme }) {
 	const headerItems = renderHeader(header, content, onSelect, onToggle);
 	const className = classNames(

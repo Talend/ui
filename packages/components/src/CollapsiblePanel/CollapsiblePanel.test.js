@@ -87,7 +87,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper.find(Button).at(1).simulate('click');
+		wrapper.find(Button).at(0).simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
