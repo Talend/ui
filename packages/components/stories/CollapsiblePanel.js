@@ -163,7 +163,7 @@ const propsCollapsibleSelectablePanel = {
 		timeStamp,
 	],
 	content: {
-		upper: [
+		title: [
 			{
 				label: '21 steps',
 				bsStyle: 'default',

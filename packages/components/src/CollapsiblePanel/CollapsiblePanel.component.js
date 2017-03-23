@@ -126,24 +126,19 @@ function renderHeader(header, content, onSelect, onToggle) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={css['left-side']}
+				className={classNames(css['panel-title'], 'panel-title')}
 				bsStyle="link"
 				key={1}
 				onClick={onSelect}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>
-					{headerItems}
-				</div>
+				{headerItems}
 			</Button>
 		) : (
 			<div
-				className={css['left-side']}
-				bsStyle="link"
+				className={classNames(css['panel-title'], 'panel-title')}
 				key={1}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>
-					{headerItems}
-				</div>
+				{headerItems}
 			</div>
 		),
 	];
@@ -186,11 +181,8 @@ function getKeyValueContent(content) {
 function getTextualContent(content) {
 	return (
 		<div className={css.content}>
-			<div className={css.upper}>
-				{content.upper.map((item, index) => {
-					if (typeof item === 'string') {
-						return (<span key={index}>{item}</span>);
-					}
+			<div className={css.title}>
+				{content.title.map((item, index) => {
 					const { label, tooltipPlacement } = item;
 					return (
 						<TooltipTrigger
@@ -203,7 +195,7 @@ function getTextualContent(content) {
 					);
 				})}
 			</div>
-			<div className={css['content-description']}>
+			<div className={classNames(css['content-description'], 'content-description')}>
 				{content.description}
 			</div>
 		</div>
@@ -233,7 +225,7 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 		css['tc-collapsible-panel'],
 		{
 			[css['default-panel']]: !theme,
-			[css['descriptive-panel']]: theme,
+			[css['descriptive-panel']]: !!theme,
 			[css.selected]: selected,
 			[css.open]: expanded,
 		});
@@ -270,7 +262,7 @@ CollapsiblePanel.propTypes = {
 			description: PropTypes.string,
 		})),
 		PropTypes.shape({
-			upper: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
+			title: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
 			description: PropTypes.string,
 		}),
 	]),

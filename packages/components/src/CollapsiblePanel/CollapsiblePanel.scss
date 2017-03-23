@@ -5,7 +5,6 @@ $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
 $tc-collapsible-selectable-panel-title-color: #63AEBD !default;
 $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
-$tc-collapsible-title-width: 70px !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -69,9 +68,11 @@ $tc-collapsible-title-width: 70px !default;
 	}
 
 	&.open {
-		.toggle svg {
+		svg {
 			transform-origin: center;
-			transform: rotate(180deg);
+			&.toggle {
+				transform: rotate(180deg);
+			}
 		}
 	}
 
@@ -83,21 +84,17 @@ $tc-collapsible-title-width: 70px !default;
 		> * {
 			padding: 0;
 			letter-spacing: 0;
-
-			&.left-side {
-				text-decoration: none;
-				width: 100%;
-				padding: 0 5px;
-			}
 		}
 
 		.panel-title {
 			@include col-style;
 			width: 100%;
+			text-decoration: none;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
-			height: 30px;
+			min-height: 30px;
+			padding: 0 5px;
 		}
 	}
 }
@@ -157,7 +154,6 @@ $tc-collapsible-title-width: 70px !default;
 		font-weight: 600;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		width: $tc-collapsible-title-width;
 		white-space: nowrap;
 	}
 
@@ -181,7 +177,7 @@ $tc-collapsible-title-width: 70px !default;
 			display: flex;
 			flex-direction: column;
 
-			.upper {
+			.title {
 				display: flex;
 				justify-content: space-between;
 

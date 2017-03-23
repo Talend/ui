@@ -86,7 +86,7 @@ const propsDescriptivePanel = {
 		timeStamp,
 	],
 	content: {
-		upper: [
+		title: [
 			{
 				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
 				bsStyle: 'default',
