@@ -121,6 +121,7 @@ class Form extends React.Component {
 
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
+			handleAction: this.props.handleAction,
 		};
 
 		return (
@@ -171,6 +172,7 @@ Form.propTypes = {
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
+	handleAction: PropTypes.func,
 };
 
 Form.defaultProps = {

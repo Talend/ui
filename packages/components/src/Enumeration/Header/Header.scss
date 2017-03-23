@@ -3,6 +3,8 @@ $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-large-padding: $padding-large !default;
 $tc-enumeration-header-height: 28px !default;
+$tc-enumeration-svg-color: #666 !default;
+$tc-enumeration-font-size: 1.4rem !default;
 
 $tc-enumeration-header-error-background-color: white !default;
 $tc-enumeration-header-error-color: red !default;
@@ -15,6 +17,14 @@ $tc-enumeration-header-error-padding: 2px !default;
 	height: $tc-enumeration-header-height;
 	position: relative;
 
+	> span {
+		font-weight: 700;
+	}
+
+	:global(.actions) {
+		margin-left: auto;
+	}
+
 	input {
 		box-shadow: none;
 		outline: none;
@@ -24,23 +34,18 @@ $tc-enumeration-header-error-padding: 2px !default;
 		background-color: transparent;
 	}
 
-	:global(.btn-link ~ .btn-link) {
-		// this abort margin-left: auto; set in the selector .btn-link. We want to target only the first element
-		margin-left: $tc-enumeration-smaller-padding;
-	}
-
 	:global(.btn-link) {
 		margin-left: auto;
-		margin-right: $tc-enumeration-smaller-padding;
-		padding: 0;
-		height: $tc-enumeration-small-padding;
+		padding: 0 $tc-enumeration-smaller-padding;
+		height: 30px;
 		outline: none;
 
 		:global(.tc-svg-icon) {
-			height: $tc-enumeration-small-padding;
-			width: $tc-enumeration-small-padding;
+			fill: $tc-enumeration-svg-color;
+			height: $tc-enumeration-font-size;
+			width: $tc-enumeration-font-size;
 			margin-right: 0;
-			vertical-align: top;
+			vertical-align: text-top;
 		}
 	}
 
