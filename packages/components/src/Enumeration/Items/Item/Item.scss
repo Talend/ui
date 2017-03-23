@@ -14,6 +14,7 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 	display: flex;
 	font-size: 14px;
 	font-weight: 400;
+	height: $tc-enumeration-item-height;
 	text-align: left;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
