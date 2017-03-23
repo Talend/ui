@@ -58,6 +58,11 @@ function Item({ id, item, searchCriteria }) {
 		);
 	}
 
+	/**
+	 * This function allow to return all the indexof string of a given string
+	 * @param str string to search in
+	 * @param toSearch value to search
+	 */
 	function allIndexOf(str, toSearch) {
 		const indices = [];
 		for (let pos = str.indexOf(toSearch); pos !== -1; pos = str.indexOf(toSearch, pos + 1)) {
@@ -66,6 +71,13 @@ function Item({ id, item, searchCriteria }) {
 		return indices;
 	}
 
+	/**
+	 * This function allow to remove 'duplicates' indexes ( when same character is typed for example
+	 * : label : "aaaaa" for searched string "aa")
+	 *
+	 * @param indexes list of indexes
+	 * @param search searchCriteria
+	 */
 	function removeDuplicates(indexes, search) {
 		const array = [];
 
@@ -80,15 +92,22 @@ function Item({ id, item, searchCriteria }) {
 		return array;
 	}
 
+	/**
+	 * This function allow to get component rendering based on searchCriteria
+	 * @param label the current label to parse & to render
+	 */
 	function getSearchedLabel(label) {
 		let indexes = allIndexOf(label.toLowerCase(), searchCriteria.toLowerCase());
 		indexes = removeDuplicates(indexes, searchCriteria);
 		return (<span>
+			{/* Set the label to go on the first index if the index is not 0 */}
 			{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
 			{indexes.map((matchIndex, index, matchIndexes) =>
 				(
 					<span key={index}>
+						{/* get the string from label with indexes ( to keep words case ) */}
 						<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
+						{/* get the string before next index if there is */}
 						{index === matchIndex.length + 1 ? null :
 							label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
 						}

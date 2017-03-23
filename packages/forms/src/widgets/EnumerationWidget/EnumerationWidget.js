@@ -220,7 +220,6 @@ class EnumerationWidget extends React.Component {
 	onAbortHandler() {
 		this.setState({
 			displayMode: DISPLAY_MODE_DEFAULT,
-			searchedItems: null,
 			searchCriteria: null,
 		});
 		this.updateHeaderInputDisabled('');
