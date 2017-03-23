@@ -106,7 +106,7 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = this.getItemsInDefaultMode();
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// resetting errors
@@ -129,7 +129,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSearchEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = this.getItemsInDefaultMode();
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
@@ -146,7 +146,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const items = [...this.state.items];
+		const items = this.getItemsInDefaultMode();
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
 		const countItems = items.filter(item => item.isSelected).length;
@@ -241,26 +241,26 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let result = [];
+		let itemsSelected = this.getItemsInDefaultMode();
 		if (event.ctrlKey || event.metaKey) {
-			result = manageCtrlKey(item.index, this.state.items);
+			itemsSelected = manageCtrlKey(item.index, this.state.items);
 		} else if (event.shiftKey) {
-			result = manageShiftKey(item.index, this.state.items);
+			itemsSelected = manageShiftKey(item.index, this.state.items);
 		} else {
-			result = [...this.state.items].map(currentItem => ({ ...currentItem, isSelected: false }));
-			result[item.index].isSelected = true;
+			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+			itemsSelected[item.index].isSelected = true;
 		}
-		const countItems = result.filter(currentItem => currentItem.isSelected).length;
+		const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
 		if (countItems === 0) {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 		} else {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: 'DISPLAY_MODE_SELECTED',
 				itemsProp: {
 					...this.state.itemsProp, actionsDefault: this.defaultActions,
@@ -303,6 +303,11 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
+	getItemsInDefaultMode() {
+		return [...this.state.items].map((currentItem) =>
+			({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
+	}
+
 	callActionHandler(actionName, value) {
 		if (this.props.registry.formContext.handleAction !== undefined) {
 			this.props.registry.formContext.handleAction(
@@ -331,14 +336,18 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
+		const items = this.getItemsInDefaultMode();
 		this.setState({
+			items,
 			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_ADD,
 		});
 	}
 
 	changeDisplayToSearchMode() {
+		const items = this.getItemsInDefaultMode();
 		this.setState({
+			items,
 			headerInput: this.searchInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
