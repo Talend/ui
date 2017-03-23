@@ -83,9 +83,9 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-	                           displayMode, headerError, onInputChange, onAddKeyDown,
-	                           headerInput, headerDefault, headerSelected, items,
-                           }) {
+	displayMode, headerError, onInputChange, onAddKeyDown,
+	headerInput, headerDefault, headerSelected, items,
+}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
 		const propsInput = {

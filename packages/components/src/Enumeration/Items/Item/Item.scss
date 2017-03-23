@@ -1,3 +1,4 @@
+$tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-item-height: 3.3rem !default;
@@ -18,8 +19,8 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 	position: relative;
 
 	:global(button:disabled) {
-		height: 34px;
-		padding: 0 15px;
+		height: $tc-enumeration-item-height;
+		padding: 0 $tc-enumeration-normal-padding;
 	}
 
 	:global(.btn-link) {

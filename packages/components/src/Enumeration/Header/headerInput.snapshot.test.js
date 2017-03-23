@@ -8,6 +8,7 @@ describe('Header', () => {
 	it('should render header input with two buttons', () => {
 		// given
 		const props = {
+			inputPlaceholder: 'New entry',
 			headerInput: [{
 				disabled: false,
 				label: 'Validate',
@@ -28,6 +29,7 @@ describe('Header', () => {
 			}
 			return null;
 		}
+
 		const rendererOptions = { createNodeMock };
 
 		// when
@@ -43,6 +45,7 @@ describe('Header', () => {
 	it('should render header input with error', () => {
 		// given
 		const props = {
+			inputPlaceholder: 'New entry',
 			headerError: 'duplicate value',
 			headerInput: [{
 				disabled: false,
@@ -64,6 +67,7 @@ describe('Header', () => {
 			}
 			return null;
 		}
+
 		const rendererOptions = { createNodeMock };
 
 		// when

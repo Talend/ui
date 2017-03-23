@@ -77,7 +77,7 @@ const props = {
 
 const addProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_ADD'
+	displayMode: 'DISPLAY_MODE_ADD',
 };
 const editItemProps = {
 	...props,
@@ -95,6 +95,7 @@ const selectedValuesProps = {
 const searchProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_SEARCH',
+	searchCriteria: 'lorem',
 };
 
 // custom edit props
@@ -162,6 +163,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemProps}
+			/>
+		</div>
+	))
+	.addWithInfo('search mode', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...searchProps}
 			/>
 		</div>
 	))
