@@ -1,6 +1,6 @@
 export function showConfirmDialog(state, action) {
 	// adding conf and showing modal
-	const path = ['ConfirmDialog', 'ConfirmDialog'];
+	const path = ['CMFContainer(ConfirmDialog)', 'ConfirmDialog'];
 	const newState = { ...state };
 	newState.cmf.components = state.cmf.components.setIn(
 		path,
@@ -11,7 +11,7 @@ export function showConfirmDialog(state, action) {
 
 export function hideConfirmDialog(state) {
 	// hiding the modal
-	const path = ['ConfirmDialog', 'ConfirmDialog', 'show'];
+	const path = ['CMFContainer(ConfirmDialog)', 'ConfirmDialog', 'show'];
 	const newState = { ...state };
 	newState.cmf.components = state.cmf.components.setIn(path, false);
 	return newState;
