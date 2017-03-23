@@ -31,10 +31,10 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault }) {
+function Header({ headerDefault, isEdit }) {
 	return (
 		<header className={headerClasses()}>
-			<span>Values</span>
+			{isEdit ? (<span>Edit a value</span>) : (<span>Values</span>)}
 			{headerDefault.map((action, index) => getAction(action, index))}
 		</header>
 	);
@@ -42,6 +42,7 @@ function Header({ headerDefault }) {
 
 Header.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	isEdit: PropTypes.bool,
 };
 
 export default Header;

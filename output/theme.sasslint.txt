@@ -1,36 +1,32 @@
-Lerna v2.0.0-beta.32
+Lerna v2.0.0-beta.36
 Scoping to packages that match 'bootstrap-talend-theme'
-yarn run v0.17.10
-$ sass-lint -q -v 
+
+> bootstrap-talend-theme@0.66.2 lint:style /home/travis/build/Talend/ui/packages/theme
+> sass-lint -q -v
+
 
 src/theme/_buttons.scss
-  28:12  error  Include leading zeros on numbers  leading-zero
+  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   20:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   21:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   59:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   73:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  230:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  243:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  256:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  279:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  315:15  error    !important not allowed                                   no-important
-  337:22  error    !important not allowed                                   no-important
-  339:3   error    Duplicate properties are not allowed within a block      no-duplicate-properties
-  340:14  error    !important not allowed                                   no-important
-  341:16  error    !important not allowed                                   no-important
-  342:15  error    !important not allowed                                   no-important
-  343:14  error    !important not allowed                                   no-important
-  367:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   23:11  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   24:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   41:10  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   42:7   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   79:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  262:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  275:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  288:8   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  311:9   error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
-✖ 18 problems (16 errors, 2 warnings)
+src/theme/_tooltip.scss
+  2:3  warning  Mixed tabs and spaces  indentation
 
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-Errored while running command 'yarn' with arguments 'run lint:style' in 'bootstrap-talend-theme'
+✖ 12 problems (11 errors, 1 warning)
+
+Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
-Command failed: yarn run lint:style
-Waiting for 1 child process to exit. CTRL-C to exit immediately.
+Command exited with status 1: npm run lint:style

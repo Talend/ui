@@ -4,22 +4,18 @@ $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-large-padding: $padding-large !default;
 $tc-enumeration-header-height: 28px !default;
 
+$tc-enumeration-header-error-background-color: white !default;
+$tc-enumeration-header-error-color: red !default;
+$tc-enumeration-header-error-padding: 2px !default;
+
 .tc-enumeration-header {
 	display: flex;
 	line-height: $tc-enumeration-large-padding;
-	text-transform: uppercase;
 	align-items: center;
 	height: $tc-enumeration-header-height;
+	position: relative;
 
-	span{
-		font-size: 12px;
-		font-weight: 700;
-		letter-spacing: 0.6px;
-		line-height: 30px;
-		text-align: left;
-	}
-
-	input{
+	input {
 		box-shadow: none;
 		outline: none;
 		border: none;
@@ -32,6 +28,7 @@ $tc-enumeration-header-height: 28px !default;
 		// this abort margin-left: auto; set in the selector .btn-link. We want to target only the first element
 		margin-left: $tc-enumeration-smaller-padding;
 	}
+
 	:global(.btn-link) {
 		margin-left: auto;
 		margin-right: $tc-enumeration-smaller-padding;
@@ -45,5 +42,15 @@ $tc-enumeration-header-height: 28px !default;
 			margin-right: 0;
 			vertical-align: top;
 		}
+	}
+
+	.tc-enumeration-header-error {
+		position: absolute;
+		top: 100%;
+		background-color: $tc-enumeration-header-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-header-error-color;
+		padding: $tc-enumeration-header-error-padding;
+		z-index: 1;
 	}
 }

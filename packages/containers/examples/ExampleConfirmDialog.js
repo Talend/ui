@@ -1,8 +1,7 @@
 import React from 'react';
-import { action as stAction } from '@kadira/storybook';
 
 import { IconsProvider } from 'react-talend-components';
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 import { ConfirmDialog } from '../src';
 
 const initialState = new Map({

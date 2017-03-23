@@ -8,7 +8,7 @@ import {
 	ButtonToolbar,
 	Carousel,
 	CarouselItem,
-	Checkbox,
+	Checkbox as BootstrapCheckbox,
 	Clearfix,
 	ControlLabel,
 	Col,
@@ -77,6 +77,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
+import Enumeration from './Enumeration';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -86,10 +87,10 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 import WithDrawer from './WithDrawer';
-import Enumeration from './Enumeration';
 
 export {
 	Action,
@@ -100,6 +101,7 @@ export {
 	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
+	Checkbox,
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
@@ -116,6 +118,7 @@ export {
 	Progress,
 	SidePanel,
 	Status,
+	Toggle,
 	TooltipTrigger,
 	Typeahead,
 	WithDrawer,
@@ -129,7 +132,7 @@ export {
 	ButtonToolbar,
 	Carousel,
 	CarouselItem,
-	Checkbox,
+	BootstrapCheckbox,
 	Clearfix,
 	ControlLabel,
 	Col,

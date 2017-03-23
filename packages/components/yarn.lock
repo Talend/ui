@@ -1239,9 +1239,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.63.1:
-  version "0.63.1"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.63.1.tgz#cf481d1fef4c905881475a6f2f485682da49830f"
+bootstrap-talend-theme@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.65.0.tgz#57f87d6d7a4ebf048664f06230efb32a9c62b0d8"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -5557,7 +5557,7 @@ sass-graph@^2.1.1:
     lodash "^4.0.0"
     yargs "^4.7.1"
 
-sass-lint@^1.9.1:
+sass-lint@^1.10.2:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/sass-lint/-/sass-lint-1.10.2.tgz#825bd6b0da79ddd36a42ffae5b6d44ac4922502b"
   dependencies:
@@ -5961,9 +5961,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.63.1:
-  version "0.63.1"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.63.1.tgz#66d3fb85ddbf6b8ebf470c32172cf88865985c8d"
+talend-icons@^0.65.0:
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.65.0.tgz#a0e5a454011428d8288e679804790d89a2fb5825"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

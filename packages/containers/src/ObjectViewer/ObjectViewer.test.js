@@ -1,14 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 
 import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
-import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
-} from './ObjectViewer.connect';
+import Connected from './ObjectViewer.connect';
 
 const data = [
 	{
@@ -68,7 +63,7 @@ describe('Container ObjectViewer', () => {
 		});
 		expect(updateState.mock.calls.length).toBe(1);
 		expect(updateState.mock.calls[0][0].get('opened').get(0)).toBe(path);
-		//close
+		// close
 		props.onClick(null, {
 			isOpened: true,
 			jsonpath: path,
@@ -113,26 +108,8 @@ describe('Container ObjectViewer', () => {
 
 describe('Connected ObjectViewer', () => {
 	it('should connect ObjectViewer', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					ObjectViewer: {
-						ObjectViewer: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state, {});
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch, {});
-		expect(typeof props).toBe('object');
 	});
 });
 

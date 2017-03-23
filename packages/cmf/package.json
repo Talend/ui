@@ -66,6 +66,11 @@
     "rimraf": "^2.5.4"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
@@ -87,5 +92,8 @@
     "redux-batched-actions": "0",
     "redux-thunk": "2"
   },
-  "version": "0.64.0"
+  "version": "0.66.3",
+  "dependencies": {
+    "hoist-non-react-statics": "^1.2.0"
+  }
 }

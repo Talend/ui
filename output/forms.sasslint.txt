@@ -1,9 +1,6 @@
-Lerna v2.0.0-beta.32
+Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
-yarn run v0.17.10
-$ sass-lint -v -q 
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-Errored while running command 'yarn' with arguments 'run lint:style' in 'react-talend-forms'
-Errored while running ExecCommand.execute
-Command failed: yarn run lint:style
-Waiting for 1 child process to exit. CTRL-C to exit immediately.
+
+> react-talend-forms@0.66.2 lint:style /home/travis/build/Talend/ui/packages/forms
+> sass-lint -v -q
+

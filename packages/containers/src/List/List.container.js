@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
-import { api } from 'react-cmf';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
+import { componentState } from 'react-cmf';
 
-import { statePropTypes, stateWillMount } from '../state';
 import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
@@ -48,9 +47,13 @@ class List extends React.Component {
 		toolbar: PropTypes.shape({
 			sort: PropTypes.object,
 			filter: PropTypes.object,
+			pagination: PropTypes.shape({
+				onChange: PropTypes.string,
+			}),
 		}),
+		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		...statePropTypes,
+		...componentState.propTypes,
 	};
 
 	static contextTypes = {
@@ -65,10 +68,6 @@ class List extends React.Component {
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
-	}
-
-	componentWillMount() {
-		stateWillMount(this.props);
 	}
 
 	onSelectSortBy(event, payload) {
@@ -108,12 +107,7 @@ class List extends React.Component {
 
 		if (props.list.titleProps) {
 			props.list.titleProps.onClick = (event, data) => {
-				this.props.dispatch(
-					api.action.getActionCreatorFunction(
-						this.context,
-						this.props.actions.title,
-					)(event, data, this.context),
-				);
+				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
 			};
 		}
 
@@ -169,12 +163,7 @@ class List extends React.Component {
 				props.toolbar.pagination = {
 					...pagination,
 					onChange: (event, data) => {
-						this.props.dispatch(
-							api.action.getActionCreatorFunction(
-								this.context,
-								pagination.onChange,
-							)(event, data, this.context),
-						);
+						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
 					},
 				};
 			}

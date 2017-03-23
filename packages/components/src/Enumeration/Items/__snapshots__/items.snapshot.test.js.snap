@@ -11,7 +11,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     <input
       autoFocus={true}
       className="undefined tc-enumeration-item-label"
-      onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
       type="text"
@@ -44,14 +43,25 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     </div>
   </li>
   <li
-    className="undefined tc-enumeration-item"
+    className="tc-enumeration-item"
     id="1-item"
   >
-    <div
-      className="undefined tc-enumeration-item-label"
+    <button
+      aria-describedby={42}
+      className="undefined tc-enumeration-item-label btn btn-default"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role={null}
+      type="button"
     >
-      Lorem ipsum dolor sit amet 1
-    </div>
+      <span>
+        Lorem ipsum dolor sit amet 1
+      </span>
+    </button>
     <div
       className="undefined tc-enumeration-item-actions"
     >
@@ -102,14 +112,25 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     </div>
   </li>
   <li
-    className="undefined tc-enumeration-item"
+    className="tc-enumeration-item"
     id="2-item"
   >
-    <div
-      className="undefined tc-enumeration-item-label"
+    <button
+      aria-describedby={42}
+      className="undefined tc-enumeration-item-label btn btn-default"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role={null}
+      type="button"
     >
-      Lorem ipsum dolor sit amet 2
-    </div>
+      <span>
+        Lorem ipsum dolor sit amet 2
+      </span>
+    </button>
     <div
       className="undefined tc-enumeration-item-actions"
     >

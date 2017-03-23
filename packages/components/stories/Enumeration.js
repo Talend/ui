@@ -12,6 +12,12 @@ const props = {
 		id: 'add',
 		onClick: action('header.onAdd'),
 	}],
+	headerSelected: [{
+		label: 'Delete items',
+		icon: 'talend-trash',
+		id: 'del',
+		onClick: action('headerSelected.deleteAll'),
+	}],
 	headerInput: [{
 		disabled: false,
 		label: 'Validate',
@@ -32,6 +38,7 @@ const props = {
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
+		onSelectItem:  action('itemEdit.onSelect'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -61,7 +68,10 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
-const addProps = { ...props, displayMode: 'DISPLAY_MODE_ADD' };
+const addProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_ADD'
+};
 const editItemProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
@@ -71,15 +81,50 @@ const editItemProps = {
 		},
 	},
 };
-editItemProps.items = Array(50).fill('').map((item, index) => ({
-	values: [`Lorem ipsum dolor sit amet ${index}`],
-}));
-
-editItemProps.items[0] = {
-	values: ['Lorem ipsum dolor sit amet 0'],
-	displayMode: 'DISPLAY_MODE_EDIT',
+const selectedValuesProps = {
+    ...props,
+    displayMode: 'DISPLAY_MODE_SELECTED',
 };
 
+// custom edit props
+editItemProps.items = Array(50).fill('').map((item, index) => ({
+    values: [`Lorem ipsum dolor sit amet ${index}`],
+}));
+editItemProps.items[0] = {
+    values: ['Lorem ipsum dolor sit amet 0'],
+    displayMode: 'DISPLAY_MODE_EDIT',
+};
+
+// custom selected props
+selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
+    values: [`Lorem ipsum dolor sit amet ${index}`],
+    isSelected: index%2===0,
+}));
+
+const headerErrorProps = {
+	...props,
+	displayMode: 'DISPLAY_MODE_ADD',
+};
+headerErrorProps.headerError = 'an error occured';
+
+const editItemPropsWithError = {
+	...props,
+	displayMode: 'DISPLAY_MODE_DEFAULT',
+	currentEdit: {
+		validate: {
+			disabled: false,
+		},
+	},
+};
+// custom edit props
+editItemPropsWithError.items = Array(50).fill('').map((item, index) => ({
+	values: [`Lorem ipsum dolor sit amet ${index}`],
+}));
+editItemPropsWithError.items[0] = {
+	values: ['Lorem ipsum dolor sit amet 0'],
+	displayMode: 'DISPLAY_MODE_EDIT',
+	error: 'an error occured',
+};
 
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
@@ -106,6 +151,33 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemProps}
+			/>
+		</div>
+	))
+	.addWithInfo('selected values', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...selectedValuesProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with header error', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...headerErrorProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with item in error', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...editItemPropsWithError}
 			/>
 		</div>
 	));
