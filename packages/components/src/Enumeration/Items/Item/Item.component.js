@@ -84,27 +84,29 @@ function Item({ id, item, searchCriteria }) {
 		</span>);
 	}
 
-	let actionLabel = (<Action
-		key={item.index}
-		label={item[key].join(',')}
-		onClick={event => onSelectItem(item, event)}
-		className={itemLabelClasses()}
-		tooltip
-	/>);
-	if (searchCriteria) {
-		actionLabel = (
-			<button
-				className={itemLabelClasses()}
-				disabled="disabled"
-			>
-				{getSearchedLabel(item[key].join(','))}
-			</button>
-		);
+	function getActionLabel() {
+		if (searchCriteria) {
+			return (
+				<button
+					className={itemLabelClasses()}
+					disabled="disabled"
+				>
+					{getSearchedLabel(item[key].join(','))}
+				</button>
+			);
+		}
+		return (<Action
+			key={item.index}
+			label={item[key].join(',')}
+			onClick={event => onSelectItem(item, event)}
+			className={itemLabelClasses()}
+			tooltip
+		/>);
 	}
 
 	return (
 		<li className={itemClasses(item.isSelected)} id={id}>
-			{actionLabel}
+			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
 			</div>
