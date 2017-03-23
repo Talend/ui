@@ -131,7 +131,9 @@ function renderHeader(header, content, onSelect, onToggle) {
 				key={1}
 				onClick={onSelect}
 			>
-				{headerItems}
+				<div className={classNames(css['panel-title'], 'panel-title')}>
+					{headerItems}
+				</div>
 			</Button>
 		) : (
 			<div
@@ -225,7 +227,7 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 		css['tc-collapsible-panel'],
 		{
 			[css['default-panel']]: !theme,
-			[css['descriptive-panel']]: !!theme,
+			[css[theme]]: !!theme,
 			[css.selected]: selected,
 			[css.open]: expanded,
 		});

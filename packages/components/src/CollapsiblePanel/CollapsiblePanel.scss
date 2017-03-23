@@ -68,10 +68,10 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	}
 
 	&.open {
-		svg {
-			transform-origin: center;
-			&.toggle {
-				transform: rotate(180deg);
+		.toggle {
+			transform: rotate(180deg);
+			svg {
+				transform-origin: center;
 			}
 		}
 	}
@@ -84,6 +84,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		> * {
 			padding: 0;
 			letter-spacing: 0;
+			text-decoration: none;
 		}
 
 		.panel-title {
