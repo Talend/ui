@@ -67,13 +67,13 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
 	}
 
-	&.open {
-		.toggle {
-			transform: rotate(180deg);
+	svg {
+		transform-origin: center;
+	}
 
-			svg {
-				transform-origin: center;
-			}
+	&.open {
+		.toggle svg {
+			transform: rotate(180deg);
 		}
 	}
 
@@ -90,7 +90,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 		.panel-title {
 			@include col-style;
-			width: 100%;
+			flex-basis: 100%;
 			text-decoration: none;
 			align-items: center;
 			font-size: 1.4rem;
