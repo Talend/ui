@@ -18,12 +18,6 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 }
 
 @mixin col-style {
-	display: flex;
-	flex-shrink: 1;
-	flex-grow: 0;
-	flex-basis: 100%;
-	overflow: hidden;
-
 	> :global(.btn) {
 		line-height: 1em;
 		color: $tc-collapsible-panel-btn-color;
@@ -89,14 +83,19 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		}
 
 		.panel-title {
-			@include col-style;
+			display: flex;
 			flex-basis: 100%;
+			overflow: hidden;
 			text-decoration: none;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
 			min-height: 30px;
 			padding: 0 5px;
+
+			> * {
+				@include col-style;
+			}
 		}
 	}
 }
@@ -104,6 +103,12 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 .default-panel {
 	.group {
 		justify-content: space-between;
+	}
+
+	.panel-heading {
+		.panel-title {
+			flex-basis: calc(100% - 24px);
+		}
 	}
 
 	:global(.label) {
