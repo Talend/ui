@@ -44,7 +44,7 @@ class EnumerationWidget extends React.Component {
 			id: 'edit',
 			onClick: this.onEnterEditModeItem.bind(this),
 		}, {
-			label: 'Delete',
+			label: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItem.bind(this),

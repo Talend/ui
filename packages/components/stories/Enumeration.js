@@ -11,7 +11,7 @@ const addItemAction = {
 };
 
 const deleteItemAction = {
-	label: 'Delete items',
+	label: 'Remove selected values',
 	icon: 'talend-trash',
 	id: 'del',
 	onClick: action('headerSelected.deleteAll'),
