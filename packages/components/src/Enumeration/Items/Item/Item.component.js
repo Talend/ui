@@ -109,7 +109,8 @@ function Item({ id, item, searchCriteria }) {
 		actionLabel = (
 			<button
 				className={itemLabelClasses()}
-				disabled="disabled">
+				disabled="disabled"
+			>
 				{getSearchedLabel(item[key].join(','))}
 			</button>
 		);
