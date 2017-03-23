@@ -22,12 +22,11 @@ src/theme/_forms.scss
   288:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   311:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   447:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  447:16  warning  Whitespace required before {                             space-before-brace
 
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-✖ 14 problems (11 errors, 3 warnings)
+✖ 13 problems (11 errors, 2 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
