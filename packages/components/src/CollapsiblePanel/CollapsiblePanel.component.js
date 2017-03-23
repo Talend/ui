@@ -183,16 +183,16 @@ function getKeyValueContent(content) {
 function getTextualContent(content) {
 	return (
 		<div className={css.content}>
-			<div className={css.title}>
-				{content.title.map((item, index) => {
-					const { label, tooltipPlacement } = item;
+			<div className={css.head}>
+				{content.head.map((item, index) => {
+					const { label, tooltipPlacement, className } = item;
 					return (
 						<TooltipTrigger
 							key={index}
 							label={label}
 							tooltipPlacement={tooltipPlacement}
 						>
-							<span>{label}</span>
+							<span className={className}>{label}</span>
 						</TooltipTrigger>
 					);
 				})}
@@ -264,7 +264,7 @@ CollapsiblePanel.propTypes = {
 			description: PropTypes.string,
 		})),
 		PropTypes.shape({
-			title: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
+			head: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
 			description: PropTypes.string,
 		}),
 	]),

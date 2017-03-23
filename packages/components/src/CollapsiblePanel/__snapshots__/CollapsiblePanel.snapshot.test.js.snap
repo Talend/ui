@@ -14,127 +14,131 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
         <div
-          className="tc-status text-info undefined"
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-check"
-            title={null}
-          />
-          <span
-            className="tc-status-label"
+          <div
+            className="tc-status text-info undefined"
           >
-             
-            inProgress
-             
-          </span>
-          <span
-            className={undefined}
-          >
-            <div
-              className="tc-actions btn-group"
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
             >
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
           </span>
         </div>
-      </div>
-      <div
-        className=""
-      >
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button"
+        <div
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-edit"
-            title={null}
-          />
-        </button>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          by Charles
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          on TDP
-        </span>
-        <span
-          aria-describedby={42}
-          className="label label-default"
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          XML
-        </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
       </div>
     </button>
     <button
@@ -208,127 +212,131 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
         <div
-          className="tc-status text-info undefined"
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-check"
-            title={null}
-          />
-          <span
-            className="tc-status-label"
+          <div
+            className="tc-status text-info undefined"
           >
-             
-            inProgress
-             
-          </span>
-          <span
-            className={undefined}
-          >
-            <div
-              className="tc-actions btn-group"
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
             >
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
           </span>
         </div>
-      </div>
-      <div
-        className=""
-      >
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button"
+        <div
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-edit"
-            title={null}
-          />
-        </button>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          by Charles
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          on TDP
-        </span>
-        <span
-          aria-describedby={42}
-          className="label label-default"
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          XML
-        </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
       </div>
     </button>
     <button
@@ -402,127 +410,131 @@ exports[`CollapsiblePanel should render default without content 1`] = `
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
         <div
-          className="tc-status text-info undefined"
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-check"
-            title={null}
-          />
-          <span
-            className="tc-status-label"
+          <div
+            className="tc-status text-info undefined"
           >
-             
-            inProgress
-             
-          </span>
-          <span
-            className={undefined}
-          >
-            <div
-              className="tc-actions btn-group"
+            <i
+              aria-hidden="true"
+              className="fa fa-check"
+              title={null}
+            />
+            <span
+              className="tc-status-label"
             >
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
+               
+              inProgress
+               
+            </span>
+            <span
+              className={undefined}
+            >
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <button
+            aria-describedby={42}
+            className="btn btn-link"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="link"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-edit"
+              title={null}
+            />
+          </button>
+        </div>
+        <div
+          className=""
+        >
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Charles
           </span>
         </div>
-      </div>
-      <div
-        className=""
-      >
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button"
+        <div
+          className=""
         >
-          <i
-            aria-hidden="true"
-            className="fa fa-edit"
-            title={null}
-          />
-        </button>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          by Charles
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          on TDP
-        </span>
-        <span
-          aria-describedby={42}
-          className="label label-default"
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          XML
-        </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            on TDP
+          </span>
+          <span
+            aria-describedby={42}
+            className="label label-default"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            XML
+          </span>
+        </div>
       </div>
     </button>
   </div>
@@ -547,45 +559,49 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+        <div
+          className=""
         >
-          Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
-        </span>
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            Version 1 Version 1
+          </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            (Read Only)
+          </span>
+        </div>
+        <div
+          className=""
         >
-          (Read Only)
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          03/02/2017 14:44
-        </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            03/02/2017 14:44:55
+          </span>
+        </div>
       </div>
     </button>
     <button
@@ -627,16 +643,18 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           >
             <span
               aria-describedby={42}
+              className={undefined}
               onBlur={[Function]}
               onClick={null}
               onFocus={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
-              by Abdelaziz Maalej test 1 test 2 test 1 test 2
+              21 step
             </span>
             <span
               aria-describedby={42}
+              className="text-right"
               onBlur={[Function]}
               onClick={null}
               onFocus={[Function]}
@@ -680,45 +698,49 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
       type="button"
     >
       <div
-        className=""
+        className="panel-title"
       >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+        <div
+          className=""
         >
-          Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182
-        </span>
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            Version 1 Version 1
+          </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            (Read Only)
+          </span>
+        </div>
+        <div
+          className=""
         >
-          (Read Only)
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <span
-          aria-describedby={42}
-          className={undefined}
-          onBlur={[Function]}
-          onClick={null}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-        >
-          03/02/2017 14:44
-        </span>
+          <span
+            aria-describedby={42}
+            className={undefined}
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            03/02/2017 14:44:55
+          </span>
+        </div>
       </div>
     </button>
   </div>

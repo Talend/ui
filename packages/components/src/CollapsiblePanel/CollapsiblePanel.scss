@@ -70,6 +70,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	&.open {
 		.toggle {
 			transform: rotate(180deg);
+
 			svg {
 				transform-origin: center;
 			}
@@ -151,8 +152,9 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	}
 
 	.title {
+		text-transform: lowercase;
 		color: $tc-collapsible-selectable-panel-title-color;
-		font-weight: 600;
+		font-weight: bold;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -162,6 +164,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		color: $tc-collapsible-selectable-panel-content-description-color;
 		margin-left: 0;
 		white-space: nowrap;
+		font-size: 12px;
 	}
 
 	.detail {
@@ -178,19 +181,19 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 			display: flex;
 			flex-direction: column;
 
-			.title {
+			.head {
 				display: flex;
 				justify-content: space-between;
 
 				> span {
 					overflow: hidden;
 					text-overflow: ellipsis;
-					max-width: 150px;
 					white-space: nowrap;
 				}
 			}
 
 			.content-description {
+				padding-top: 5px;
 				color: $tc-collapsible-selectable-panel-content-description-color;
 			}
 		}

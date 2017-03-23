@@ -65,7 +65,7 @@ const props = {
 
 
 const version1 = {
-	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
+	label: 'Version 1 Version 1',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 };
@@ -75,7 +75,7 @@ const readOnlyLabel = {
 	tooltipPlacement: 'top',
 };
 const timeStamp = {
-	label: '03/02/2017 14:44',
+	label: '03/02/2017 14:44:55',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 };
@@ -86,15 +86,16 @@ const propsDescriptivePanel = {
 		timeStamp,
 	],
 	content: {
-		title: [
+		head: [
 			{
-				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				label: '21 step',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
 			}, {
 				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
+				className: 'text-right',
 			},
 		],
 		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.

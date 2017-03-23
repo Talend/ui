@@ -139,7 +139,7 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 };
 
 const version1 = {
-	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
+	label: 'Version 1 Version 1 Version 1 Version 1',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	className: 'title',
@@ -151,7 +151,7 @@ const readOnlyLabel = {
 	className: 'tag',
 };
 const timeStamp = {
-	label: '03/02/2017 14:44',
+	label: '05/02/2017 14:44:55',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	className: 'detail',
@@ -163,15 +163,16 @@ const propsCollapsibleSelectablePanel = {
 		timeStamp,
 	],
 	content: {
-		title: [
+		head: [
 			{
 				label: '21 steps',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
 			}, {
-				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				label: 'by Henry-Mayeul de Benque',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
+				className: 'text-right',
 			},
 		],
 		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.

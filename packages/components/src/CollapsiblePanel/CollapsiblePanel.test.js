@@ -15,7 +15,7 @@ const readOnlyLabel = {
 	tooltipPlacement: 'top',
 };
 const timeStamp = {
-	label: '03/02/2017 14:44',
+	label: '03/02/2017 14:44:55',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 };
@@ -26,9 +26,9 @@ const propsDescriptivePanel = {
 		timeStamp,
 	],
 	content: {
-		title: [
+		head: [
 			{
-				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+				label: '21 step',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
 			}, {
