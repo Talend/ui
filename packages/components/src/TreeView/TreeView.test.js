@@ -27,13 +27,13 @@ const defaultProps = {
 		],
 		toggled: true,
 		counter: 101,
+		showCounter: true,
 	}],
 	headerText: 'some elements',
 	addAction: () => null,
 	addActionLabel: 'add element',
 	itemSelectCallback: () => null,
 	itemToggleCallback: () => null,
-	showCounter: true,
 };
 
 describe('TreeView', () => {
