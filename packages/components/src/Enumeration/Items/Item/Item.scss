@@ -49,6 +49,7 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 		box-shadow: none;
 		text-align: left;
 
+		// In order to show ellipsis, need to override <span> to be inline
 		span {
 			display: inline;
 		}
