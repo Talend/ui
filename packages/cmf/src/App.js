@@ -4,7 +4,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import history from './history';
+import { createHashHistory } from 'history';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 
@@ -14,11 +14,11 @@ import UIRouter from './UIRouter';
  * @return {object} ReactElement
  */
 export default function App(props) {
-	const hist = props.history || history.get(props.store);
+	const history = props.history || createHashHistory();
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children || <UIRouter history={hist} />}
+				{props.children || <UIRouter history={history} />}
 			</RegistryProvider>
 		</Provider>
 	);

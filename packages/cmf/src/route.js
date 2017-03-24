@@ -143,60 +143,10 @@ export function connectView(context, component, view) {
 	)(component);
 }
 
-/**
- * internal. Is here to replace all 'component' from an object by their
- * value in the registry
- * @param  {object} context
- * @param  {object} item
- */
-function loadComponents(context, item) {
-	/* eslint no-param-reassign: ["error", { "props": false }] */
-	if (item.component) {
-		item.component = getComponentFromRegistry(context, item.component);
-		if (item.view) {
-			item.component = connectView(context, item.component, item.view);
-		}
-	}
-	if (item.components) {
-		// TODO: iterate over all keys to call loadComponents
-	}
-	if (item.getComponent) {
-		item.getComponent = getFunction(item.getComponent);
-	}
-	if (item.getComponents) {
-		item.getComponents = getFunction(item.getComponents);
-	}
-	if (item.onEnter) {
-		item.onEnter = getFunction(item.onEnter);
-	}
-	if (item.onLeave) {
-		item.onEnter = getFunction(item.onEnter);
-	}
-	if (item.childRoutes) {
-		item.childRoutes.forEach((route) => loadComponents(context, route));
-	}
-	if (item.indexRoute) {
-		loadComponents(context, item.indexRoute);
-	}
-}
-
-/**
- * get the react router configuration 'routes' from our settings
- * @param  {object} context
- * @param  {object} settings
- * @return {object} react router config
- */
-function getRoutesFromSettings(context, settings) {
-	const copy = Object.assign({}, settings);
-	loadComponents(context, copy);
-	return copy;
-}
-
 export default {
-	loadComponents,
-	getRoutesFromSettings,
 	getComponentFromRegistry,
 	registerComponent,
 	registerFunction,
 	getFunction,
+	connectView,
 };

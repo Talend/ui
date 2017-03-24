@@ -1,37 +1,126 @@
 /**
  * @module react-cmf/lib/UIRouter
  */
-import React from 'react';
-import { Router as BaseRouter } from 'react-router';
+import React, { PropTypes } from 'react';
+import { Router, Route } from 'react-router';
 import { connect } from 'react-redux';
-
+import { createHashHistory } from 'history';
 import api from './api';
+
+function CMFRoute(props, context) {
+	let Component = api.route.getComponentFromRegistry(context, props.component);
+	if (props.view) {
+		Component = api.route.connectView(context, Component, props.view);
+	}
+	let children = null;
+	if (props.childRoutes) {
+		children = props.childRoutes.map((route, index) => (
+			<CMFRoute key={index} {...route} />
+		));
+	}
+	if (props.path === '/') {
+		let IndexComponent = api.route.getComponentFromRegistry(context, props.indexRoute);
+		if (props.indexRoute.view) {
+			IndexComponent = api.route.connectView(context, IndexComponent, props.indexRoute.view);
+		}
+		return (
+			<Component>
+				<Route match="/" component={IndexComponent} />
+				{children}
+			</Component>
+		);
+	}
+	// Warning: You should not use <Route component> and <Route children>
+	// in the same route; <Route children> will be ignored
+	function SubComponent(subprops) {
+		return (
+			<Component {...subprops}>
+				{children}
+			</Component>
+		);
+	}
+	return (
+		<Route
+			match={props.path}
+			component={SubComponent}
+		/>
+	);
+}
+
+CMFRoute.propTypes = {
+	path: PropTypes.string,
+	component: PropTypes.string,
+	view: PropTypes.string,
+	childRoutes: PropTypes.arrayOf(PropTypes.object),  // recursive
+	indexRoute: PropTypes.shape({
+		component: PropTypes.string,
+		view: PropTypes.string,
+	}),
+};
+CMFRoute.contextTypes = {
+	registry: PropTypes.object,
+	router: PropTypes.object,
+};
+CMFRoute.displayName = 'CMFRoute';
 
 /**
  * pure arrow function that render the router component.
  * You should never need to use this, it's an internal component
+ * @example
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": {
+      "component": "Redirect",
+      "view": "redirectToStream"
+    },
+    "childRoutes": [
+      {
+        "path": "home",
+        "component": "HomeListView",
+        "view": "homepage"
+        "childRoutes": [
+          {
+            "path": "sub",
+            "component": "SubHome"
+            "view": "subhome"
+          }
+        ]
+      }
+    ]
+  }
  * @param  {object} props   The waited props (history and routes)
  * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
-const UIRouter = (props, context) => {
-	const routes = api.route.getRoutesFromSettings(context, props.routes);
+function CMFRouter(props) {
+	//const routes = api.route.getRoutesFromSettings(context, props.routes);
+	const routes = props.routes;
+	const history = props.history || createHashHistory();
 	if (routes.path === '/' && !!routes.component) {
-		return (<BaseRouter routes={routes} history={props.history} />);
+		return (
+			<Router history={history}>
+				<CMFRoute
+					match="/"
+					component={routes.component}
+					view={routes.view}
+					indexRoute={routes.indexRoute}
+					childRoutes={routes.childRoutes}
+				/>
+			</Router>
+		);
 	}
 	return (
 		<div className="is-loading">loading</div>
 	);
-};
+}
+CMFRouter.displayName = 'CMFRouter';
 
-UIRouter.propTypes = {
+CMFRouter.propTypes = {
 	history: React.PropTypes.object,
 	routes: React.PropTypes.object,
-};
-UIRouter.contextTypes = {
-	registry: React.PropTypes.object,
 };
 const mapStateToProps = (state) => ({ routes: state.cmf.settings.routes });
 export default connect(
 	mapStateToProps
-)(UIRouter);
+)(CMFRouter);

@@ -38,6 +38,10 @@ const deps = [
 		dest: 'containers/node_modules/react-cmf/lib',
 	},
 	{
+		src: 'cmf/lib',
+		dest: '../examples/cmf-app/node_modules/react-cmf/lib',
+	},
+	{
 		src: 'theme/src',
 		dest: 'components/node_modules/bootstrap-talend-theme/src',
 	},
