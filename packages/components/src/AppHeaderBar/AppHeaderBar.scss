@@ -1,5 +1,71 @@
+$header-height: 48px;
+
 .tc-app-header-bar {
+	:global(.navbar-brand) {
+		height: initial;
+		padding: 0;
+
+		&:before {
+			background: none;
+			margin: 0;
+			width: 0;
+		}
+	}
+
+	:global(.tc-header-bar-logo) {
+		line-height: $svg-lg-size;
+		padding: 12px $padding-normal;
+
+		:global(.tc-svg-icon) {
+			height: $svg-lg-size;
+			margin: 0;
+			vertical-align: top;
+			width: $svg-lg-size;
+		}
+
+		&:global(.full) {
+			:global(.tc-svg-icon) {
+				width: $navbar-brand-logo-width;
+			}
+		}
+	}
+
+	:global(.tc-header-bar-brand):global(.btn):global(.btn-link) {
+		font-size: $font-size-base;
+		text-transform: uppercase;
+	}
+
+	:global(.navbar-form) {
+		padding: 0;
+	}
+
+	:global(.btn):global(.btn-link) {
+		color: $white;
+		font-size: $font-size-small;
+		line-height: inherit;
+		min-height: $header-height;
+		text-transform: none;
+		
+		&:hover {
+			background-color: shade($brand-primary, 30);
+		}
+	}
+
+	:global(.navbar-collapse) {
+		color: $white;
+	}
+
+	a {
+		min-height: $header-height;
+	}
+
 	:global(.btn):global(.navbar-brand):hover {
 		background-color: transparent;
+	}
+
+	:global(.navbar-form) {
+		:global(.form-control) {
+			min-height: $header-height;
+		}
 	}
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 
-import { AppHeaderBar } from '../src';
+import { AppHeaderBar, IconsProvider } from '../src';
 
 const typeaheadItems = [
 	{
 		title: 'category 1',
 		icon: {
-			name: 'fa fa-filter',
+			name: 'talend-filter',
 			title: 'icon',
 		},
 		suggestions: [
@@ -24,7 +25,7 @@ const typeaheadItems = [
 	{
 		title: 'category 2',
 		icon: {
-			name: 'fa fa-asterisk',
+			name: 'talend-star',
 			title: 'icon',
 		},
 		suggestions: [
@@ -37,7 +38,7 @@ const typeaheadItems = [
 	{
 		title: 'category 3',
 		icon: {
-			name: 'fa fa-asterisk',
+			name: 'talend-share-alt',
 			title: 'icon',
 		},
 		suggestions: [
@@ -54,89 +55,47 @@ const typeaheadItems = [
 				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
 		],
-	}];
-
-const inputForm = {
-	forms: [{
-		form: {
-			pullRight: true,
-			onSubmit: action('onSubmit'),
-			role: 'search',
-		},
-		formgroups: [
-			{
-				formgroup: {
-					controlId: 'globalSearch',
-					pullRight: true,
-				},
-				formcontrol: {
-					type: 'text',
-					placeholder: 'search anything',
-					onChange: action('onChange in search'),
-				},
-			},
-		],
-		button: {
-			onClick: action('onClick form'),
-			bsStyle: 'link',
-		},
-		buttonLabel: 'submit',
-	}],
-};
+	},
+];
 
 const props = {
-	app: 'Example App Name',
-	brandLink: {
-		onClick: action('brandonClick'),
+	brand: {
+		name: 'Example App Name',
+		onClick: action('onApplicationNameClick'),
 	},
-	content: [
-		{
-			navs: [
-				{
-					navItems: [
-						{
-							type: 'navItem',
-							item: {
-								icon: 'fa fa-bars',
-								name: 'hello',
-								onClick: action('onClick bars'),
-							},
-						},
-					],
-				},
-				{
-					nav: { pullRight: true },
-					navItems: [
-						{
-							type: 'navItem',
-							item: {
-								icon: 'fa fa-heart',
-								name: 'world',
-								onClick: action('onClick heart'),
-							},
-						},
-						{
-							type: 'dropdown',
-							item: {
-								dropdown: {
-									id: 'myDropdown',
-									title: 'user 1',
-									onSelect: action('dropdown onSelect'),
-								},
-								items: [
-									{
-										icon: 'fa fa-fw fa-cog',
-										name: 'settings',
-										onClick: action('onClick settings'),
-									},
-								],
-							},
-						},
-					],
-				},
-			],
+	logo: {
+		onClick: action('onLogoClick'),
+	},
+	search: {
+		icon: {
+			name: 'talend-search',
+			title: 'icon',
+			bsStyle: 'link',
 		},
-	],
+		onToggle: action('onSearchClick'),
+	},
+	help: {
+		onClick: action('onHelpClick'),
+	},
+	user: {
+		items: [
+			{
+				icon: 'talend-cog',
+				label: 'Settings',
+				onClick: action('onSettingsClick'),
+			},
+		],
+		name: 'User NAME',
+	},
+	products: {
+		items: [
+			{
+				icon: 'talend-logo-square',
+				label: 'Portal',
+				onClick: action('onPortalClick'),
+			},
+		],
+	},
 };
 
 const decoratedStories = storiesOf('AppHeaderBar', module)
@@ -144,96 +103,85 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
+			<IconsProvider />
 		</div>
 	));
 
 decoratedStories
 	.addWithInfo('default', () => {
-		if (props.content[1]) {
-			delete props.content[1];
-		}
-		return <AppHeaderBar {...props} />;
+		const headerProps = Immutable.fromJS(props).toJS();
+		return <AppHeaderBar {...headerProps} />;
 	})
-	.addWithInfo('without brand link', () => {
-		delete props.brandLink;
-		if (props.content[1]) {
-			delete props.content[1];
-		}
-		return <AppHeaderBar {...props} />;
+	.addWithInfo('with full logo', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.logo.isFull = true;
+		return <AppHeaderBar {...headerProps} />;
 	})
-	.addWithInfo('with simple form', () => {
-		props.content[1] = inputForm;
-		return <AppHeaderBar {...props} />;
-	})
-	.addWithInfo('with search button', () => {
-		props.content[1] = {
-			search: {
-				icon: {
-					name: 'fa fa-search',
-					title: 'icon',
-					bsStyle: 'link',
+	.addWithInfo('with environment dropdown', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.env = {
+			items: [
+				{
+					label: 'Runtime Environment',
+					onClick: action('onEnvClick'),
 				},
-				onToggle: action('icon clicked'),
-			},
+			],
+			label: 'Default',
 		};
-		return <AppHeaderBar {...props} />;
+		return <AppHeaderBar {...headerProps} />;
 	})
 	.addWithInfo('with search input', () => {
-		props.content[1] = {
-			search: {
-				icon: {
-					name: 'fa fa-search',
-				},
-				placeholder: 'Search...',
-				onBlur: action('onBlur'),
-				onChange: action('onChange'),
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.search = {
+			icon: {
+				name: 'talend-search',
 			},
+			placeholder: 'Search...',
+			onBlur: action('onSearchBlur'),
+			onChange: action('onSearchChange'),
 		};
-		return <AppHeaderBar {...props} />;
+		return <AppHeaderBar {...headerProps} />;
 	})
 	.addWithInfo('while searching', () => {
-		props.content[1] = {
-			search: {
-				icon: {
-					name: 'fa fa-search',
-				},
-				position: 'right',
-				value: 'le',
-				searching: true,
-				onBlur: action('onBlur'),
-				onChange: action('onChange'),
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.search = {
+			icon: {
+				name: 'talend-search',
 			},
+			position: 'right',
+			value: 'le',
+			searching: true,
+			onBlur: action('onSearchBlur'),
+			onChange: action('onSearchChange'),
 		};
-		return <AppHeaderBar {...props} />;
+		return <AppHeaderBar {...headerProps} />;
 	})
 	.addWithInfo('with search results', () => {
-		props.content[1] = {
-			search: {
-				icon: {
-					name: 'fa fa-search',
-				},
-				position: 'right',
-				value: 'le',
-				items: typeaheadItems,
-				onBlur: action('onBlur'),
-				onChange: action('onChange'),
-				onSelect: action('onSelect'),
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.search = {
+			icon: {
+				name: 'talend-search',
 			},
+			position: 'right',
+			value: 'le',
+			items: typeaheadItems,
+			onBlur: action('onSearchBlur'),
+			onChange: action('onSearchChange'),
+			onSelect: action('onSearchResultSelect'),
 		};
-		return <AppHeaderBar {...props} />;
+		return <AppHeaderBar {...headerProps} />;
 	})
 	.addWithInfo('with no search result', () => {
-		props.content[1] = {
-			search: {
-				icon: {
-					name: 'fa fa-search',
-				},
-				position: 'right',
-				value: 'le',
-				items: [],
-				onBlur: action('onBlur'),
-				onChange: action('onChange'),
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.search = {
+			icon: {
+				name: 'talend-search',
 			},
+			position: 'right',
+			value: 'le',
+			items: [],
+			onBlur: action('onSearchBlur'),
+			onChange: action('onSearchChange'),
 		};
-		return <AppHeaderBar {...props} />;
+		return <AppHeaderBar {...headerProps} />;
 	});

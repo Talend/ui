@@ -1,215 +1,168 @@
 import React from 'react';
 import {
-	Button,
-	FormGroup,
-	FormControl,
-	MenuItem,
 	Navbar,
 	Nav,
-	NavDropdown,
-	NavItem,
 } from 'react-bootstrap';
+import classNames from 'classnames';
 
-import Icon from '../Icon';
+import Action from '../Actions/Action';
+import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './AppHeaderBar.scss';
 
-const NAV_ITEM = 'navItem';
-const DROPDOWN = 'dropdown';
-
-export function renderNavItem(props, index) {
-	const { icon, ...rest } = props;
+function renderLogo({ isFull, onClick }) {
+	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
+	const className = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
-		<NavItem key={index} {...rest}>
-			<Icon name={icon} />
-		</NavItem>
+		<Action
+			bsStyle="link"
+			className={className}
+			hideLabel
+			label="Go to Portal"
+			icon={icon}
+			onClick={onClick}
+		/>
 	);
 }
 
-renderNavItem.propTypes = {
-	icon: React.PropTypes.string,
-	...NavItem.propTypes,
+renderLogo.propTypes = {
+	isFull: React.PropTypes.bool,
+	onClick: React.PropTypes.func.isRequired,
 };
 
-export function renderDropdownItem(props, index) {
-	const { icon, name, ...rest } = props;
+function renderBrand({ name, onClick }) {
 	return (
-		<MenuItem key={index} {...rest}>
-			<Icon name={icon} />
-			{name}
-		</MenuItem>
+		<Action
+			bsStyle="link"
+			className="tc-header-bar-brand"
+			label={name}
+			onClick={onClick}
+		/>
 	);
 }
 
-renderDropdownItem.propTypes = {
-	icon: React.PropTypes.string,
-	name: React.PropTypes.string,
-	onClick: React.PropTypes.func,
+renderBrand.propTypes = {
+	name: React.PropTypes.string.isRequired,
+	onClick: React.PropTypes.func.isRequired,
 };
 
-export function renderDropdown(props, index) {
-	let dropdownProps = props.dropdown;
-	if (dropdownProps.onSelect) {
-		dropdownProps = {
-			...props.dropdown,
-			onSelect: (eventKey, event) => dropdownProps.onSelect(event, eventKey),
-		};
-	}
+function renderEnvironment({ items, label }) {
 	return (
-		<NavDropdown {...dropdownProps} key={index}>
-			{props.items.map(renderDropdownItem)}
-		</NavDropdown>
+		<ActionDropdown
+			bsStyle="link"
+			items={items}
+			label={label}
+			icon="talend-burger"
+		/>
 	);
 }
-renderDropdown.propTypes = {
-	dropdown: React.PropTypes.shape(NavDropdown.propTypes),
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderDropdownItem.propTypes),
-	),
+
+renderEnvironment.propTypes = {
+	items: ActionDropdown.propTypes.items,
+	label: ActionDropdown.propTypes.label,
 };
 
-export function renderNav(props) {
+function renderSearch(search) {
+	return <Typeahead {...search} />;
+}
+
+renderSearch.propTypes = Typeahead.propTypes;
+
+function renderHelp({ onClick }) {
 	return (
-		<Nav {...props.nav}>
-			{props.navItems.map((itemDef, index) => {
-				const { type, item } = itemDef;
-				switch (type) {
-				case NAV_ITEM:
-					return renderNavItem(item, index);
-				case DROPDOWN:
-					return renderDropdown(item, index);
-				default:
-					return null;
-				}
-			})}
-		</Nav>
+		<Action
+			bsStyle="link"
+			icon="talend-question-circle"
+			label="Help"
+			onClick={onClick}
+		/>
 	);
 }
-renderNav.propTypes = {
-	nav: React.PropTypes.shape(Nav.propTypes),
-	navItems: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			type: React.PropTypes.oneOf([NAV_ITEM, DROPDOWN]),
-			item: React.PropTypes.oneOfType([
-				React.PropTypes.shape(renderNavItem.propTypes),
-				React.PropTypes.shape(renderDropdown.propTypes),
-			]),
-		}),
-	),
+
+renderHelp.propTypes = {
+	onClick: React.PropTypes.func.isRequired,
 };
 
-export function renderFormGroup(props, index) {
+function renderUser({ items, name }) {
 	return (
-		<FormGroup key={index} {...props.formgroup}>
-			<FormControl {...props.formcontrol} />
-		</FormGroup>
+		<ActionDropdown
+			bsStyle="link"
+			icon="talend-user-circle"
+			items={items}
+			label={name}
+			noCaret
+		/>
 	);
 }
-renderFormGroup.propTypes = {
-	formgroup: React.PropTypes.shape(FormGroup.propTypes),
-	formcontrol: React.PropTypes.shape(FormControl.propTypes),
+
+renderUser.propTypes = {
+	items: ActionDropdown.propTypes.items,
+	name: ActionDropdown.propTypes.label,
 };
 
-export function renderForm(props, index) {
+function renderProducts({ items }) {
 	return (
-		<Navbar.Form {...props.form} key={index}>
-			{props.formgroups ? props.formgroups.map(renderFormGroup) : null}
-			<Button {...props.button}>
-				{props.icon ? (<Icon name={props.icon} />) : null}
-				{props.buttonLabel}
-			</Button>
-		</Navbar.Form>
+		<ActionDropdown
+			bsStyle="link"
+			icon="talend-launcher"
+			items={items}
+			label="Apps"
+			noCaret
+		/>
 	);
 }
-renderForm.propTypes = {
-	form: React.PropTypes.shape(Navbar.Form.propTypes),
-	formgroups: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderFormGroup.propTypes),
-	),
-	button: React.PropTypes.shape(Button.propTypes),
-	buttonLabel: React.PropTypes.string,
-};
 
-export function renderTypeahead(search, index) {
-	return (
-		<Navbar.Form pullRight role="search" key={index}>
-			<Typeahead {...search} />
-		</Navbar.Form>
-	);
-}
-renderTypeahead.propTypes = React.PropTypes.shape(Typeahead.propTypes);
-
-export function renderContent(props, index) {
-	if (props.navs) {
-		return props.navs.map(renderNav);
-	}
-	if (props.forms) {
-		return props.forms.map(renderForm);
-	}
-	if (props.search) {
-		return renderTypeahead(props.search, index);
-	}
-	return null;
-}
-renderContent.propTypes = {
-	navs: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderNav.propTypes),
-	),
-	forms: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderForm.propTypes),
-	),
-	search: React.PropTypes.shape(Typeahead.propTypes),
+renderProducts.propTypes = {
+	items: ActionDropdown.propTypes.items,
 };
 
 /**
  * The top bar is the place where the user finds useful information and tools
  * to describe the application
- * the logo, the name of the application, an optionnal global search,
+ * the logo, the name of the application, an optional global search,
  * few icons for feedback & onboarding and a menu to access logout
  * and profile information.
  * @param {object} props   react props
  */
 function AppHeaderBar(props) {
-	let brandLink;
-	if (props.brandLink) {
-		brandLink = (
-			<Button
-				bsStyle="link"
-				role="link"
-				{...props.brandLink}
-			>
-				{props.app}
-			</Button>
-		);
-	} else {
-		brandLink = (
-			<span>{props.app}</span>
-		);
-	}
 	return (
 		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
 			<Navbar.Header>
 				<Navbar.Brand>
-					{brandLink}
+					{renderLogo(props.logo)}
+					{!props.logo.isFull && '|'}
+					{renderBrand(props.brand)}
+					{props.env && '|'}
 				</Navbar.Brand>
 				<Navbar.Toggle />
 			</Navbar.Header>
 			<Navbar.Collapse>
-				{props.content && props.content.map(renderContent)}
+				<Nav>
+					{props.env && renderEnvironment(props.env)}
+				</Nav>
+				<Nav pullRight>
+					|
+					{renderHelp(props.help)}
+					{renderUser(props.user)}
+					|
+					{renderProducts(props.products)}
+				</Nav>
+				<Navbar.Form pullRight role="search">
+					{renderSearch(props.search)}
+				</Navbar.Form>
 			</Navbar.Collapse>
 		</Navbar>
 	);
 }
 
 AppHeaderBar.propTypes = {
-	app: React.PropTypes.string.isRequired,
-	brandLink: React.PropTypes.shape({
-		onClick: React.PropTypes.func,
-		className: React.PropTypes.string,
-	}),
-	content: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderContent.propTypes),
-	),
+	brand: React.PropTypes.shape(renderBrand.propTypes).isRequired,
+	logo: React.PropTypes.shape(renderLogo.propTypes).isRequired,
+	env: React.PropTypes.shape(renderEnvironment.propTypes),
+	search: React.PropTypes.shape(renderSearch.propTypes).isRequired,
+	help: React.PropTypes.shape(renderHelp.propTypes).isRequired,
+	user: React.PropTypes.shape(renderUser.propTypes).isRequired,
+	products: React.PropTypes.shape(renderProducts.propTypes).isRequired,
 };
 
 export default AppHeaderBar;
