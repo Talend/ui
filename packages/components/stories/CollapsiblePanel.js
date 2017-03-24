@@ -237,7 +237,7 @@ const propsCollapsibleSelectablePanelWithoutTag = {
 storiesOf('CollapsiblePanel', module)
 	.addWithInfo('Key/Value content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>By default :</p>
 			<div id="default">
 				<CollapsiblePanel {...propsCollapsiblePanel} />
