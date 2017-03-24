@@ -316,7 +316,9 @@ class EnumerationWidget extends React.Component {
 	}
 
 	callActionHandler(actionName, value) {
-		if (this.props.registry.formContext.handleAction !== undefined) {
+		if (this.props.registry &&
+			this.props.registry.formContext &&
+			this.props.registry.formContext.handleAction !== undefined) {
 			this.props.registry.formContext.handleAction(
 				this.props.id, actionName, value
 			);
