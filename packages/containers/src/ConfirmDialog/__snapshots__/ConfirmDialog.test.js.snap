@@ -1,8 +1,3 @@
-exports[`Container ConfirmDialog should not render 1`] = `
-<div
-  className="mock-provider" />
-`;
-
 exports[`Container ConfirmDialog should render 1`] = `
 <div
   className="mock-provider">
@@ -11,7 +6,9 @@ exports[`Container ConfirmDialog should render 1`] = `
       Object {
         "icon": "fa-bars",
         "id": "menu",
-        "model": undefined,
+        "model": Object {
+          "foo": "bar",
+        },
         "name": "Menu",
         "onClick": [Function],
         "payload": Object {
@@ -21,13 +18,20 @@ exports[`Container ConfirmDialog should render 1`] = `
     }
     className="tc-confirm-dialog"
     header="DO SOMETHING"
+    model={
+      Object {
+        "foo": "bar",
+      }
+    }
     show={true}
     size="small"
     validateAction={
       Object {
         "icon": "fa-bars",
         "id": "menu",
-        "model": undefined,
+        "model": Object {
+          "foo": "bar",
+        },
         "name": "Menu",
         "onClick": [Function],
         "payload": Object {
@@ -37,5 +41,6 @@ exports[`Container ConfirmDialog should render 1`] = `
     }>
     Confirm this !
   </div>
+  ,
 </div>
 `;

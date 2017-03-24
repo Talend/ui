@@ -1,26 +1,37 @@
+$tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
+$tc-enumeration-item-height: 3.3rem !default;
+
+$tc-enumeration-item-error-background-color: white !default;
+$tc-enumeration-item-error-color: red !default;
+$tc-item-padding-top-bottom: 7px !default;
+$tc-enumeration-input-margin: 10px;
+$tc-enumeration-item-font-size: 14px;
+$tc-enumeration-item-error-padding: 0 $padding-normal;
 
 .tc-enumeration-item {
 	display: flex;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 11px;
+	height: $tc-enumeration-item-height;
 	text-align: left;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
+	position: relative;
 
-	:global(.btn-link ~ .btn-link) {
-		margin-left: $tc-enumeration-smaller-padding;
+	:global(button:disabled) {
+		height: $tc-enumeration-item-height;
+		padding: 0 $tc-enumeration-normal-padding;
 	}
 
 	:global(.btn-link) {
 		padding: 0;
-		height: $tc-enumeration-small-padding;
+		height: $tc-enumeration-item-font-size;
 		outline: none;
 
 		:global(.tc-svg-icon) {
-			height: $tc-enumeration-small-padding;
-			width: $tc-enumeration-small-padding;
+			height: $tc-enumeration-item-font-size;
+			width: $tc-enumeration-item-font-size;
 			stroke: currentColor;
 			fill: currentColor;
 			margin-right: 0;
@@ -40,6 +51,7 @@ $tc-enumeration-small-padding: $padding-small !default;
 	}
 
 	.tc-enumeration-item-actions {
+		display: flex;
 		flex-grow: 0;
 		margin: auto $tc-enumeration-smaller-padding;
 	}
@@ -52,10 +64,30 @@ $tc-enumeration-small-padding: $padding-small !default;
 		text-transform: none;
 		letter-spacing: 0;
 		font-size: 14px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	button span {
+		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
+		vertical-align: top;
 	}
 
 	input {
-		margin: 10px;
+		padding: 0;
+		margin: 0 $padding-normal;
+		line-height: $tc-enumeration-item-height;
+	}
+
+	.tc-enumeration-item-error {
+		font-size: 12px;
+		position: absolute;
+		top: calc(100% - #{$padding-small});
+		background-color: $tc-enumeration-item-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-item-error-color;
+		padding: $tc-enumeration-item-error-padding;
+		z-index: 1;
 	}
 }
 

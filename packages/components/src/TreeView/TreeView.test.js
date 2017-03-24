@@ -26,6 +26,7 @@ const defaultProps = {
 			{ name: 'aunt', toggled: false, children: [{ name: 'cousin' }] },
 		],
 		toggled: true,
+		counter: 101,
 	}],
 	headerText: 'some elements',
 	addAction: () => null,

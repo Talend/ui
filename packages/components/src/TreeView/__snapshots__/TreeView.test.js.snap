@@ -104,7 +104,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               <span
                 className="tc-badge-label"
               >
-                2
+                101
               </span>
             </div>
             <button

@@ -3,9 +3,39 @@ import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
 
+const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
+const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
+const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+const DUPLICATION_ERROR = 'This term is already in the list';
+
+const SEARCH_ACTION = 'SEARCH_ACTION';
+
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
+		this.addInputs = [{
+			disabled: true,
+			label: 'Validate',
+			icon: 'talend-check',
+			id: 'validate',
+			key: 'validate',
+			onClick: this.onAddHandler.bind(this),
+		}, {
+			label: 'Abort',
+			icon: 'talend-cross',
+			id: 'abort',
+			key: 'abort',
+			onClick: this.onAbortHandler.bind(this),
+		}];
+
+		this.searchInputs = [{
+			label: 'Abort',
+			icon: 'talend-cross',
+			id: 'abort',
+			onClick: this.onAbortHandler.bind(this),
+		}];
 
 		this.defaultActions = [{
 			disabled: false,
@@ -21,13 +51,18 @@ class EnumerationWidget extends React.Component {
 		}];
 
 		this.state = {
-			displayMode: 'DISPLAY_MODE_DEFAULT',
-
+			displayMode: DISPLAY_MODE_DEFAULT,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
 				id: 'add',
-				onClick: this.onChangeDisplay.bind(this),
+				onClick: this.changeDisplayToAddMode.bind(this),
+			}, {
+				disabled: false,
+				label: 'Search',
+				icon: 'talend-search',
+				id: 'search',
+				onClick: this.changeDisplayToSearchMode.bind(this),
 			}],
 			headerSelected: [{
 				label: 'Delete items',
@@ -35,19 +70,8 @@ class EnumerationWidget extends React.Component {
 				id: 'delete',
 				onClick: this.onDeleteItems.bind(this),
 			}],
-			headerInput: [{
-				disabled: true,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: this.onAddHandler.bind(this),
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: this.onAbortHandler.bind(this),
-			}],
-			items: (props.formData || []).map((item) => ({
+			headerInput: this.addInputs,
+			items: (props.formData || []).map(item => ({
 				values: item.values,
 			})),
 			itemsProp: {
@@ -71,22 +95,49 @@ class EnumerationWidget extends React.Component {
 					onClick: this.onAbortItem.bind(this),
 				}],
 			},
-			onAddChange: this.onAddChange.bind(this),
+			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ ...this.state, items: nextProps.formData });
 	}
 
 	// default mode
 	onEnterEditModeItem(event, value) {
 		let items = [...this.state.items];
 		const item = items[value.index];
-		item.displayMode = 'DISPLAY_MODE_EDIT';
+		item.displayMode = DISPLAY_MODE_EDIT;
+		// resetting errors
+		items[value.index].error = '';
 		// reset selection
-		items = items.map((currentItem) => ({ ...currentItem, isSelected: false }));
+		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
+
+		// exit from selected mode to not display 0 values selected
+		let displayMode = this.state.displayMode;
+		if (displayMode === DISPLAY_MODE_SELECTED) {
+			displayMode = DISPLAY_MODE_DEFAULT;
+		}
 
 		this.setState({
 			items,
-			displayMode: 'DISPLAY_MODE_EDIT',
+			displayMode,
+		});
+
+		this.updateItemValidateDisabled(item.values[0]);
+	}
+
+	onSearchEditModeItem(event, value) {
+		let items = [...this.state.items];
+		const item = items[value.index];
+		item.displayMode = DISPLAY_MODE_EDIT;
+		// reset selection
+		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
+
+		this.setState({
+			items,
+			displayMode: DISPLAY_MODE_EDIT,
 		});
 
 		this.updateItemValidateDisabled(item.values[0]);
@@ -96,59 +147,80 @@ class EnumerationWidget extends React.Component {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
-		const countnbItems = items.filter((item) => item.isSelected).length;
+		const countItems = items.filter(item => item.isSelected).length;
+
+		let displayMode = this.state.displayMode;
+		if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
+			displayMode = DISPLAY_MODE_DEFAULT;
+		}
 
 		this.setState({
 			items,
-			displayMode: countnbItems > 0 ? 'DISPLAY_MODE_SELECTED' : 'DISPLAY_MODE_DEFAULT',
+			displayMode,
 		}, this.setFormData.bind(this));
 	}
 
 	// edit mode
 	onAbortItem(event, value) {
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+		// resetting error as it was not saved
+		items[value.index].error = '';
 		this.setState({
 			items,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
 		});
 	}
 
 	// edit mode
 	onChangeItem(event, value) {
-		this.updateItemValidateDisabled(value);
+		// if the value exist add an error
+		const valueExist = this.valueAlreadyExist(value.value);
+		const items = [...this.state.items];
+		items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
+		this.setState({
+			items,
+		});
+		this.updateItemValidateDisabled(value, valueExist);
 	}
 
 	onSubmitItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
 		const items = [...this.state.items];
-		items[value.index].displayMode = 'DISPLAY_MODE_DEFAULT';
-
+		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+		const valueExist = this.valueAlreadyExist(value.value);
 		// if the value is empty, no value update is done
-		if (value.value) {
+		if (value.value && !valueExist) {
 			items[value.index].values[0] = value.value;
+		}
+		if (valueExist) {
+			items[value.index].error = DUPLICATION_ERROR;
 		}
 		this.setState({
 			items,
-			displayMode: 'DISPLAY_MODE_DEFAULT',
 		}, this.setFormData.bind(this));
 	}
 
-	onChangeDisplay() {
-		this.setState({
-			displayMode: 'DISPLAY_MODE_ADD',
-		});
-	}
-
-	onAddChange(event, value) {
-		this.updateHeaderInputDisabled(value.value);
+	onInputChange(event, value) {
+		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+			this.updateHeaderInputDisabled(value.value);
+		}
+		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
+			if (!this.callActionHandler(SEARCH_ACTION, value.value)) {
+				this.setState({
+					searchCriteria: value.value,
+				});
+			}
+		}
 	}
 
 	onAbortHandler() {
 		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
+			searchCriteria: null,
 		});
 		this.updateHeaderInputDisabled('');
 	}
@@ -157,7 +229,14 @@ class EnumerationWidget extends React.Component {
 		if (event.keyCode === keycode('enter')) {
 			event.stopPropagation();
 			event.preventDefault();
-			this.onAddHandler(event, value);
+			if (this.state.displayMode === DISPLAY_MODE_ADD) {
+				this.onAddHandler(event, value);
+			}
+		}
+		if (event.keyCode === keycode('escape')) {
+			event.stopPropagation();
+			event.preventDefault();
+			this.onAbortHandler();
 		}
 	}
 
@@ -168,32 +247,23 @@ class EnumerationWidget extends React.Component {
 		} else if (event.shiftKey) {
 			result = manageShiftKey(item.index, this.state.items);
 		} else {
-			result = [...this.state.items].map((currentItem) => ({ ...currentItem, isSelected: false }));
+			result = [...this.state.items].map(currentItem => ({ ...currentItem, isSelected: false }));
 			result[item.index].isSelected = true;
 		}
-		const countItems = result.filter((currentItem) => currentItem.isSelected).length;
+		const countItems = result.filter(currentItem => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
 		if (countItems === 0) {
 			this.setState({
 				items: result,
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-			});
-		} else if (countItems > 1) {
-			// remove delete action when multiselection
-			const newActions = this.state.itemsProp.actionsDefault
-				.filter((action) => action.id !== 'delete');
-			const itemsProp = { ...this.state.itemsProp, actionsDefault: newActions };
-			this.setState({
-				items: result,
-				displayMode: 'DISPLAY_MODE_SELECTED',
-				itemsProp,
+				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 		} else {
 			this.setState({
 				items: result,
 				displayMode: 'DISPLAY_MODE_SELECTED',
-				itemsProp: { ...this.state.itemsProp, actionsDefault: this.defaultActions,
+				itemsProp: {
+					...this.state.itemsProp, actionsDefault: this.defaultActions,
 				},
 			});
 		}
@@ -202,7 +272,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItems() {
 		const result = deleteSelectedItems([...this.state.items]);
 		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
+			displayMode: DISPLAY_MODE_DEFAULT,
 			items: result,
 		}, this.setFormData.bind(this));
 	}
@@ -210,18 +280,20 @@ class EnumerationWidget extends React.Component {
 	onAddHandler(event, value) {
 		if (!value.value) {
 			this.setState({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
+				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 			return;
 		}
-		this.setState({
-			displayMode: 'DISPLAY_MODE_DEFAULT',
-			items: this.state.items.concat([{
-				values: [value.value],
-			}]),
-		}, this.setFormData.bind(this));
 
-		this.updateHeaderInputDisabled('');
+		if (!this.valueAlreadyExist(value.value)) {
+			this.setState({
+				displayMode: 'DISPLAY_MODE_DEFAULT',
+				items: this.state.items.concat([{
+					values: [value.value],
+				}]),
+			}, this.setFormData.bind(this));
+			this.updateHeaderInputDisabled('');
+		}
 	}
 
 	setFormData() {
@@ -231,32 +303,82 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
+	callActionHandler(actionName, value) {
+		if (this.props.registry.formContext.handleAction !== undefined) {
+			this.props.registry.formContext.handleAction(
+				this.props.id, actionName, value
+			);
+			return true;
+		}
+		return false;
+	}
+
+	searchItems(searchCriteria) {
+		if (!searchCriteria) {
+			return this.state.items;
+		}
+		const searchedItems = [];
+		this.state.items.forEach((item) => {
+			if (item.values &&
+				item.values[0] &&
+				item.values[0].toLowerCase().includes(searchCriteria.toLowerCase())
+			) {
+				searchedItems.push(item);
+			}
+		});
+
+		return searchedItems;
+	}
+
+	changeDisplayToAddMode() {
+		this.setState({
+			headerInput: this.addInputs,
+			displayMode: DISPLAY_MODE_ADD,
+		});
+	}
+
+	changeDisplayToSearchMode() {
+		this.setState({
+			headerInput: this.searchInputs,
+			displayMode: DISPLAY_MODE_SEARCH,
+		});
+	}
+
+	valueAlreadyExist(value) {
+		return this.state.items.find(item => item.values[0] === value);
+	}
+
 	updateHeaderInputDisabled(value) {
 		this.setState((prevState) => {
+			// checking if the value already exist
+			const valueExist = this.valueAlreadyExist(value);
 			const [validateAction, abortAction] = prevState.headerInput;
-			validateAction.disabled = value === '';
+			validateAction.disabled = value === '' || valueExist;
 
 			return {
 				headerInput: [validateAction, abortAction],
+				headerError: valueExist ? DUPLICATION_ERROR : '',
 			};
 		});
 	}
 
-	updateItemValidateDisabled(value) {
+	updateItemValidateDisabled(value, valueExist) {
 		this.setState(() => ({
 			currentEdit: {
 				validate: {
-					disabled: value.value === '',
+					disabled: value.value === '' || valueExist !== undefined,
 				},
 			},
 		}));
 	}
 
 	render() {
+		const items = this.searchItems(this.state.searchCriteria);
+		const stateToShow = { ...this.state, items };
 		return (
 			<div>
 				<Enumeration
-					{...this.state}
+					{...stateToShow}
 				/>
 			</div>
 		);
@@ -266,7 +388,8 @@ class EnumerationWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationWidget.propTypes = {
 		id: PropTypes.string,
-		formData: PropTypes.array,
+		registry: PropTypes.object, // eslint-disable-line
+		formData: PropTypes.array, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 	};

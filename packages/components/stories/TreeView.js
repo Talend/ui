@@ -34,8 +34,9 @@ const structureWithActions = [
 			label: 'remove element',
 		}],
 		children: [{ name: 'raichu' }],
+		counter: 0,
 	},
-	{ name: 'pikachu', toggled: true },
+	{ name: 'pikachu', toggled: true, counter: 911 },
 ];
 
 const defaultProps = {
