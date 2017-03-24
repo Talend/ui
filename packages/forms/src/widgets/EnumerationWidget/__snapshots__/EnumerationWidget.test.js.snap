@@ -61,7 +61,7 @@ exports[`EnumerationWidget delete all 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -154,7 +154,7 @@ exports[`EnumerationWidget delete all 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -419,7 +419,7 @@ exports[`EnumerationWidget delete all 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -519,7 +519,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -612,7 +612,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -879,7 +879,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -979,7 +979,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -1072,7 +1072,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -1337,7 +1337,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -1455,7 +1455,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -1567,7 +1567,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -1851,7 +1851,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -2219,7 +2219,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -2303,7 +2303,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -2481,7 +2481,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -2592,7 +2592,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -2685,7 +2685,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -2950,7 +2950,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3061,7 +3061,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -3164,7 +3164,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3228,7 +3228,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete items",
+                  "label": "Remove selected values",
                   "onClick": [Function],
                 },
               ]
@@ -3245,12 +3245,12 @@ exports[`EnumerationWidget should select an item 1`] = `
                 hideLabel={true}
                 icon="talend-trash"
                 inProgress={false}
-                label="Delete items"
+                label="Remove selected values"
                 link={true}
                 onClick={[Function]}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
-                  label="Delete items"
+                  label="Remove selected values"
                   tooltipPlacement="bottom">
                   <OverlayTrigger
                     defaultOverlayShown={false}
@@ -3261,7 +3261,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                         className="undefined tooltip-container"
                         id={42}
                         placement="right">
-                        Delete items
+                        Remove selected values
                       </Tooltip>
                     }
                     placement="bottom"
@@ -3356,7 +3356,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3806,7 +3806,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -3916,7 +3916,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3987,7 +3987,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete items",
+                  "label": "Remove selected values",
                   "onClick": [Function],
                 },
               ]
@@ -4004,12 +4004,12 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 hideLabel={true}
                 icon="talend-trash"
                 inProgress={false}
-                label="Delete items"
+                label="Remove selected values"
                 link={true}
                 onClick={[Function]}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
-                  label="Delete items"
+                  label="Remove selected values"
                   tooltipPlacement="bottom">
                   <OverlayTrigger
                     defaultOverlayShown={false}
@@ -4020,7 +4020,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         className="undefined tooltip-container"
                         id={42}
                         placement="right">
-                        Delete items
+                        Remove selected values
                       </Tooltip>
                     }
                     placement="bottom"
@@ -4115,7 +4115,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]

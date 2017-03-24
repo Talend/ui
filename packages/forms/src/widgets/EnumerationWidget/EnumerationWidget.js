@@ -65,7 +65,7 @@ class EnumerationWidget extends React.Component {
 				onClick: this.changeDisplayToSearchMode.bind(this),
 			}],
 			headerSelected: [{
-				label: 'Delete items',
+				label: 'Remove selected values',
 				icon: 'talend-trash',
 				id: 'delete',
 				onClick: this.onDeleteItems.bind(this),
