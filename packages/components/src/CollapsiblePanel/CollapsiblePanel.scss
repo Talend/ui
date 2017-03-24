@@ -105,13 +105,9 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 }
 
 .default-panel {
-	.group {
-		justify-content: space-between;
-	}
-
 	.panel-heading {
 		.panel-title {
-			flex-basis: calc(100% - 24px);
+			flex-basis: calc(100% - 35px);
 		}
 	}
 
@@ -119,6 +115,11 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+
+	.group {
+		justify-content: space-between;
+		padding-right: 15px;
 	}
 
 	:global(.panel-body) {
