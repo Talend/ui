@@ -1,12 +1,12 @@
 /**
  * @module react-cmf/lib/store
  */
-import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import thunk from 'redux-thunk';
 import invariant from 'invariant';
+import { createHashHistory } from 'history';
 
 import cmfReducers from './reducers';
 import httpMiddleware from './middlewares/http';
@@ -15,6 +15,7 @@ import cmfMiddleware from './middlewares/cmf';
 const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, httpMiddleware, cmfMiddleware];
+const hashHistory = createHashHistory();
 
 if (window) {
 	if (window.devToolsExtension) {
@@ -79,8 +80,8 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
-	if (!reducerObject.routing) {
-		reducerObject.routing = routerReducer;
+	if (!reducerObject.router) {
+		reducerObject.router = routerReducer;
 	}
 	return enableBatching(
 		preApplyReducer(

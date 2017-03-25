@@ -75,7 +75,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "4.4.5",
     "react-router": "^4.0.0",
-    "react-router-redux": "4.0.5",
+    "react-router-redux": "alpha",
     "react-talend-components": "^0.61.2",
     "react-talend-containers": "^0.61.2",
     "react-talend-forms": "^0.61.2",

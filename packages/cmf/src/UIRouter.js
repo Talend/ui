@@ -3,6 +3,7 @@
  */
 import React, { PropTypes } from 'react';
 import { Router, Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
 import api from './api';
@@ -12,12 +13,6 @@ function CMFRoute(props, context) {
 	if (props.view) {
 		Component = api.route.connectView(context, Component, props.view);
 	}
-	let children = null;
-	if (props.childRoutes) {
-		children = props.childRoutes.map((route, index) => (
-			<CMFRoute key={index} {...route} />
-		));
-	}
 	if (props.path === '/') {
 		let IndexComponent = api.route.getComponentFromRegistry(context, props.indexRoute);
 		if (props.indexRoute.view) {
@@ -25,8 +20,10 @@ function CMFRoute(props, context) {
 		}
 		return (
 			<Component>
-				<Route match="/" component={IndexComponent} />
-				{children}
+				<Route exact path="/" component={IndexComponent} />
+				{props.childRoutes ? props.childRoutes.map((route, index) => (
+					<CMFRoute key={index} {...route} />
+				)) : null}
 			</Component>
 		);
 	}
@@ -35,13 +32,16 @@ function CMFRoute(props, context) {
 	function SubComponent(subprops) {
 		return (
 			<Component {...subprops}>
-				{children}
+				{props.childRoutes ? props.childRoutes.map((route, index) => (
+					<CMFRoute key={index} {...route} />
+				)) : null}
 			</Component>
 		);
 	}
 	return (
 		<Route
-			match={props.path}
+			path={props.path}
+			exact
 			component={SubComponent}
 		/>
 	);
@@ -94,12 +94,11 @@ CMFRoute.displayName = 'CMFRoute';
  * @return {object} ReactElement
  */
 function CMFRouter(props) {
-	//const routes = api.route.getRoutesFromSettings(context, props.routes);
 	const routes = props.routes;
-	const history = props.history || createHashHistory();
+	const history = props.history; // || createHashHistory();
 	if (routes.path === '/' && !!routes.component) {
 		return (
-			<Router history={history}>
+			<ConnectedRouter history={history}>
 				<CMFRoute
 					match="/"
 					component={routes.component}
@@ -107,7 +106,7 @@ function CMFRouter(props) {
 					indexRoute={routes.indexRoute}
 					childRoutes={routes.childRoutes}
 				/>
-			</Router>
+			</ConnectedRouter>
 		);
 	}
 	return (

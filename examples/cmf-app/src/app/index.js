@@ -7,8 +7,6 @@ import 'bootstrap-talend-theme/src/theme/theme.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { App, store as cmfstore, actions } from 'react-cmf';
-import { browserHistory } from 'react-router';
-import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 
 import configure from './configure';
 import appReducer from './reducers';
@@ -19,11 +17,6 @@ import appReducer from './reducers';
  * - Register action creators in CMF actions dictionary
  */
 configure.initialize();
-
-/**
- * Register react-router-redux router reducer (see https://github.com/reactjs/react-router-redux)
- */
-//cmfstore.setRouterMiddleware(routerMiddleware(browserHistory));
 
 /**
  * Register your app reducers
