@@ -57,7 +57,6 @@ const label2 = {
 	tooltipPlacement: 'top',
 };
 
-
 const label3 = {
 	displayMode: 'badge',
 	label: 'XML',
@@ -79,7 +78,6 @@ const propsPanel = {
 		button,
 		label3,
 	],
-	content: [],
 };
 
 const propsPanelWithActions = {
@@ -91,6 +89,7 @@ const propsPanelWithActions = {
 		label3,
 	],
 	content,
+	onToggle: action('onToggle'),
 };
 
 const propsPanelWithoutActions = {
@@ -101,7 +100,6 @@ const propsPanelWithoutActions = {
 		{},
 		label3,
 	],
-	content: [],
 };
 
 const propsCollapsiblePanel = {
@@ -113,6 +111,7 @@ const propsCollapsiblePanel = {
 		label3,
 	],
 	content,
+	onToggle: action('onToggle'),
 };
 
 const propsCollapsiblePanelWithHeaderGroups = {
@@ -123,6 +122,8 @@ const propsCollapsiblePanelWithHeaderGroups = {
 		[button, label3],
 	],
 	content,
+	onToggle: action('onToggle'),
+	expanded: true,
 };
 
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
@@ -133,11 +134,109 @@ const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 		[button, label3],
 	],
 	content,
+	onToggle: action('onToggle'),
+	expanded: true,
+};
+
+const version1 = {
+	label: 'Version 1 Version 1 Version 1 Version 1',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+	className: 'title',
+};
+const readOnlyLabel = {
+	label: '(Read Only)',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+	className: 'tag',
+};
+const timeStamp = {
+	label: '05/02/2017 14:44:55',
+	bsStyle: 'default',
+	tooltipPlacement: 'top',
+	className: 'detail',
+};
+
+const propsCollapsibleSelectablePanel = {
+	header: [
+		[version1, readOnlyLabel],
+		timeStamp,
+	],
+	content: {
+		head: [
+			{
+				label: '21 steps',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+			}, {
+				label: 'by Henry-Mayeul de Benque',
+				bsStyle: 'default',
+				tooltipPlacement: 'top',
+				className: 'text-right',
+			},
+		],
+		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elit`,
+	},
+	onSelect: action('onselect'),
+	onToggle: action('onToggle'),
+	theme: 'descriptive-panel',
+};
+
+const propsCollapsibleSelectedPanel = {
+	...propsCollapsibleSelectablePanel,
+	expanded: true,
+	selected: true,
+	theme: 'descriptive-panel',
+};
+
+const propsSelectedPanelWithoutContent = {
+	header: [
+		[version1, readOnlyLabel],
+		timeStamp,
+	],
+	onSelect: action('onselect'),
+	onToggle: action('onToggle'),
+	expanded: true,
+	selected: true,
+	theme: 'descriptive-panel',
+};
+
+const propsCollapsibleSelectablePanelWithoutTag = {
+	...propsSelectedPanelWithoutContent,
+	header: [
+		version1,
+		timeStamp,
+	],
+	theme: 'descriptive-panel',
 };
 
 storiesOf('CollapsiblePanel', module)
-	.addWithInfo('default', () => (
-		<div>
+	.addWithInfo('Key/Value content', () => (
+		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>By default :</p>
 			<div id="default">
@@ -159,5 +258,43 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
 			<p>Header with fixed circularProgress :</p>
 			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
+		</div>
+	))
+	.addWithInfo('Textual content', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
+			<p>With Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
+			</div>
+			<p>Opened with Content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
+			</div>
+			<p>Panel Without readonly tag and without content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
+			</div>
+		</div>
+	))
+	.addWithInfo('Selected Collapsible', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
+			<p>Selected Panel With Content:</p>
+			<div id="selectable-panel-with-content1">
+				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
+			</div>
+			<p>Selected Panel Without readonly tag and without content:</p>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
+			</div>
+			<p>Selected Panel Without content:</p>
+			<div id="selected-panel-without-content">
+				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
+			</div>
+			<p>Selected key/Value CollapsiblePanel:</p>
+			<CollapsiblePanel {...propsCollapsiblePanel} selected/>
+			<p>Selected key/Value CollapsiblePanel without content:</p>
+			<CollapsiblePanel {...propsPanelWithoutActions} selected/>
 		</div>
 	));

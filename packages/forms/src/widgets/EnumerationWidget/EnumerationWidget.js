@@ -48,7 +48,7 @@ class EnumerationWidget extends React.Component {
 			id: 'edit',
 			onClick: this.onEnterEditModeItem.bind(this),
 		}, {
-			label: 'Delete',
+			label: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItem.bind(this),
@@ -69,7 +69,7 @@ class EnumerationWidget extends React.Component {
 				onClick: this.changeDisplayToSearchMode.bind(this),
 			}],
 			headerSelected: [{
-				label: 'Delete items',
+				label: 'Remove selected values',
 				icon: 'talend-trash',
 				id: 'delete',
 				onClick: this.onDeleteItems.bind(this),
