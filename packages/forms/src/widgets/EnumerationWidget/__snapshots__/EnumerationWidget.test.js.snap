@@ -222,7 +222,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1146,7 +1146,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1612,11 +1612,12 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={true}>
             <header
               className="undefined tc-enumeration-header">
               <span>
                 Values
+                *
               </span>
               <div
                 className="actions">
@@ -2122,7 +2123,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -3234,7 +3235,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -3731,7 +3732,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
