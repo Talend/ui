@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -106,7 +106,7 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		let items = this.getItemsInDefaultMode();
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// resetting errors
@@ -129,7 +129,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSearchEditModeItem(event, value) {
-		let items = this.getItemsInDefaultMode();
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
@@ -146,7 +146,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const items = this.getItemsInDefaultMode();
+		const items = resetItems([...this.state.items]);
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
 		const countItems = items.filter(item => item.isSelected).length;
@@ -241,7 +241,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let itemsSelected = this.getItemsInDefaultMode();
+		let itemsSelected = resetItems([...this.state.items]);
 		if (event.ctrlKey || event.metaKey) {
 			itemsSelected = manageCtrlKey(item.index, this.state.items);
 		} else if (event.shiftKey) {
@@ -303,11 +303,6 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	getItemsInDefaultMode() {
-		return [...this.state.items].map((currentItem) =>
-			({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
-	}
-
 	callActionHandler(actionName, value) {
 		if (this.props.registry.formContext.handleAction !== undefined) {
 			this.props.registry.formContext.handleAction(
@@ -336,7 +331,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
-		const items = this.getItemsInDefaultMode();
+		const items = resetItems([...this.state.items]);
 		this.setState({
 			items,
 			headerInput: this.addInputs,
@@ -345,7 +340,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToSearchMode() {
-		const items = this.getItemsInDefaultMode();
+		const items = resetItems([...this.state.items]);
 		this.setState({
 			items,
 			headerInput: this.searchInputs,
