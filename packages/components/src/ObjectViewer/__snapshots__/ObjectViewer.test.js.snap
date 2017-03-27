@@ -950,6 +950,30 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -975,30 +999,6 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -2293,6 +2293,30 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -2318,30 +2342,6 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -3704,6 +3704,30 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -3729,30 +3753,6 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -5328,6 +5328,30 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -5353,30 +5377,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -6687,6 +6687,30 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -6712,30 +6736,6 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -8269,6 +8269,30 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -8294,30 +8318,6 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -9686,6 +9686,30 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -9711,30 +9735,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -11312,6 +11312,30 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                             }
                           }
                         >
+                          talend-DBInput
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
                           talend-activemq
                         </span>
                         : 
@@ -11337,30 +11361,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           }
                         >
                           talend-activity
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
-                          talend-aggregate
                         </span>
                         : 
                         <span>
