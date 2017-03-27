@@ -16,6 +16,7 @@ import Icon from '../../Icon';
 	icon: 'fa fa-file-excel-o',
 	items: [
 		{
+			icon: 'talend-icon',
 			label: 'document 1',
 			onClick: action('document 1 click'),
 		},
@@ -62,6 +63,7 @@ function ActionDropdown(props) {
 				items.length ?
 					items.map((item, index) => (
 						<MenuItem {...item} key={index}>
+							{item.icon && (<Icon name={item.icon} />)}
 							{item.label}
 						</MenuItem>
 					)) : (<MenuItem disabled>No options</MenuItem>)
@@ -85,6 +87,7 @@ ActionDropdown.propTypes = {
 	hideLabel: PropTypes.bool,
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
+		icon: PropTypes.string,
 		label: PropTypes.string,
 		...MenuItem.propTypes,
 	})).isRequired,

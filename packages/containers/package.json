@@ -44,7 +44,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.66.4",
+    "bootstrap-talend-theme": "^0.67.0",
     "bson-objectid": "^1.1.5",
     "classnames": "2",
     "codacy-coverage": "^2.0.0",
@@ -67,7 +67,7 @@
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-bootstrap": "^0.30.7",
-    "react-cmf": "^0.66.4",
+    "react-cmf": "^0.67.0",
     "react-dom": "^15.4.2",
     "react-i18next": "^1.8.0",
     "react-redux": "^4.4.6",
@@ -75,7 +75,7 @@
     "react-router-redux": "^4.0.7",
     "react-storybook-cmf": "^0.1.3",
     "react-stub-context": "^0.7.0",
-    "react-talend-components": "^0.66.4",
+    "react-talend-components": "^0.67.0",
     "react-test-renderer": "^15.4.2",
     "redux": "3",
     "redux-batched-actions": "^0.1.5",
@@ -84,7 +84,7 @@
     "rimraf": "^2.5.4",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
-    "talend-icons": "^0.66.4",
+    "talend-icons": "^0.67.0",
     "uuid": "^3.0.1",
     "webpack": "^1.14.0"
   },
@@ -108,11 +108,11 @@
     "lodash": "4.17.2",
     "react": "^15.4.2",
     "react-bootstrap": "0",
-    "react-cmf": "^0.66.4",
+    "react-cmf": "^0.67.0",
     "react-redux": "^4.4.6",
-    "react-talend-components": "^0.66.4",
+    "react-talend-components": "^0.67.0",
     "reselect": "^2.5.4"
   },
   "dependencies": {},
-  "version": "0.66.4"
+  "version": "0.67.0"
 }

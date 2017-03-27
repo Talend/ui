@@ -11,7 +11,7 @@ const addItemAction = {
 };
 
 const deleteItemAction = {
-	label: 'Delete items',
+	label: 'Remove selected values',
 	icon: 'talend-trash',
 	id: 'del',
 	onClick: action('headerSelected.deleteAll'),
@@ -53,7 +53,7 @@ const props = {
 			id: 'edit',
 			onClick: action('item.onEnterEditMode'),
 		}, {
-			label: 'Delete',
+			label: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: action('item.onDelete'),

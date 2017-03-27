@@ -16,7 +16,6 @@ import theme from './TreeView.scss';
  * @param addActionLabel optional, specifies tooltip label for 'add' button
  * @param itemSelectCallback required, tree item click event callback function
  * @param itemToggleCallback required, tree item expand/collapse event callback function
- * @param showCounter optional, flags that counter badge should be displayed
  *
  * const defaultProps = {
  * 	structure: [{
@@ -52,7 +51,6 @@ const TreeView = ({
 	addActionLabel,
 	itemSelectCallback,
 	itemToggleCallback,
-	showCounter,
 }) => (
 	<div className={theme['tc-treeview']}>
 		<header className={theme['tc-treeview-header']}>
@@ -75,7 +73,6 @@ const TreeView = ({
 					item={item}
 					itemSelectCallback={itemSelectCallback}
 					itemToggleCallback={itemToggleCallback}
-					showCounter={showCounter}
 					key={i}
 				/>)}
 			</ul>
@@ -91,7 +88,6 @@ TreeView.propTypes = {
 	addActionLabel: PropTypes.string,
 	itemSelectCallback: PropTypes.func.isRequired,
 	itemToggleCallback: PropTypes.func.isRequired,
-	showCounter: PropTypes.bool,
 };
 
 TreeView.defaultProps = {
