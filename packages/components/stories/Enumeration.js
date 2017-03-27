@@ -53,7 +53,7 @@ const props = {
 			id: 'edit',
 			onClick: action('item.onEnterEditMode'),
 		}, {
-			label: 'Delete',
+			label: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: action('item.onDelete'),
