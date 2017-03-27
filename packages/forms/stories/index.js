@@ -73,6 +73,14 @@ decoratedStories.add('Multiple actions', () => {
 			style: 'primary',
 			type: 'submit',
 			label: 'VALIDATE',
+			onClick: action('VALIDATE'),
+		},
+		{
+			style: 'primary',
+			type: 'submit',
+			label: 'SUBMIT',
+			disabled: true,
+			onClick: action('SUBMIT'),
 		},
 	];
 	const schema = {
