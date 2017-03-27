@@ -222,7 +222,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 },
               ]
             }
-            required={false}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1146,7 +1146,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 },
               ]
             }
-            required={false}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1612,12 +1612,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 },
               ]
             }
-            required={true}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
                 Values
-                *
               </span>
               <div
                 className="actions">
@@ -2123,7 +2122,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 },
               ]
             }
-            required={false}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -3235,7 +3234,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 },
               ]
             }
-            required={false}>
+            onInputChange={[Function]}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -3553,7 +3552,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -3581,7 +3580,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Object {
               "icon": "talend-trash",
               "id": "delete",
-              "label": "Delete",
+              "label": "Remove value",
               "onClick": [Function],
             },
           ],
@@ -3609,7 +3608,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3655,7 +3655,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3683,7 +3683,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete",
+                  "label": "Remove value",
                   "onClick": [Function],
                 },
               ],
@@ -3711,7 +3711,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Header
             headerDefault={
               Array [
@@ -3929,7 +3930,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -3957,7 +3958,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete",
+                  "label": "Remove value",
                   "onClick": [Function],
                 },
               ],
@@ -3985,7 +3986,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Items
             items={
               Array [
@@ -4010,7 +4012,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   Object {
                     "icon": "talend-trash",
                     "id": "delete",
-                    "label": "Delete",
+                    "label": "Remove value",
                     "onClick": [Function],
                   },
                 ],
@@ -4056,7 +4058,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         Object {
                           "icon": "talend-trash",
                           "id": "delete",
-                          "label": "Delete",
+                          "label": "Remove value",
                           "onClick": [Function],
                         },
                       ],
@@ -4082,7 +4084,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       Object {
                         "icon": "talend-trash",
                         "id": "delete",
-                        "label": "Delete",
+                        "label": "Remove value",
                         "onClick": [Function],
                       },
                     ],
@@ -4236,12 +4238,12 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       hideLabel={true}
                       icon="talend-trash"
                       inProgress={false}
-                      label="Delete"
+                      label="Remove value"
                       link={true}
                       onClick={[Function]}
                       tooltipPlacement="bottom">
                       <TooltipTrigger
-                        label="Delete"
+                        label="Remove value"
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
@@ -4252,7 +4254,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               className="undefined tooltip-container"
                               id={42}
                               placement="right">
-                              Delete
+                              Remove value
                             </Tooltip>
                           }
                           placement="bottom"
