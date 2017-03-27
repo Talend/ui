@@ -139,4 +139,31 @@ describe('EnumerationWidget', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
+
+	it('should delete an item with callHandler', () => {
+		const registry = {
+			formContext: {
+				handleAction: jest.fn(),
+			},
+		};
+
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				onChange={jest.fn()}
+				registry={registry}
+				formData={[
+					{ values: ['titi', 'tata'] },
+				]}
+			/>
+		);
+
+		// when
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
+			.simulate('click');
+
+		// then
+		expect(registry.formContext.handleAction).toBeCalledWith(undefined, 'ENUMERATION_REMOVE_ACTION', 0);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });
