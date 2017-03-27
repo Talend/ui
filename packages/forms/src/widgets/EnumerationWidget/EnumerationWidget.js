@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -106,7 +106,7 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// resetting errors
@@ -129,7 +129,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSearchEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
@@ -146,7 +146,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const items = [...this.state.items];
+		const items = resetItems([...this.state.items]);
 		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 		items.splice(value.index, 1);
 		const countItems = items.filter(item => item.isSelected).length;
@@ -241,26 +241,26 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let result = [];
+		let itemsSelected = resetItems([...this.state.items]);
 		if (event.ctrlKey || event.metaKey) {
-			result = manageCtrlKey(item.index, this.state.items);
+			itemsSelected = manageCtrlKey(item.index, this.state.items);
 		} else if (event.shiftKey) {
-			result = manageShiftKey(item.index, this.state.items);
+			itemsSelected = manageShiftKey(item.index, this.state.items);
 		} else {
-			result = [...this.state.items].map(currentItem => ({ ...currentItem, isSelected: false }));
-			result[item.index].isSelected = true;
+			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+			itemsSelected[item.index].isSelected = true;
 		}
-		const countItems = result.filter(currentItem => currentItem.isSelected).length;
+		const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
 		if (countItems === 0) {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 		} else {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: 'DISPLAY_MODE_SELECTED',
 				itemsProp: {
 					...this.state.itemsProp, actionsDefault: this.defaultActions,
@@ -331,14 +331,18 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
+		const items = resetItems([...this.state.items]);
 		this.setState({
+			items,
 			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_ADD,
 		});
 	}
 
 	changeDisplayToSearchMode() {
+		const items = resetItems([...this.state.items]);
 		this.setState({
+			items,
 			headerInput: this.searchInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
