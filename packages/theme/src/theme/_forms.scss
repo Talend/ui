@@ -443,3 +443,7 @@ form {
 		line-height: $font-size-base * $line-height-base;
 	}
 }
+
+input::-ms-clear {
+	display: none;
+}

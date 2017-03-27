@@ -15,12 +15,22 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should be in search mode', () => {
+		// given
+		const wrapper = mount(<EnumerationWidget />);
+
+		// when
+		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 
 	it('should be in edit mode', () => {
 		// given
@@ -28,7 +38,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -46,7 +56,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -65,7 +75,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
+					{ values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -84,8 +94,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
-					{ name: 'toto2', values: ['titi2', 'tata2'] },
+					{ values: ['titi', 'tata'] },
+					{ values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);
@@ -104,8 +114,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ name: 'toto', values: ['titi', 'tata'] },
-					{ name: 'toto2', values: ['titi2', 'tata2'] },
+					{ values: ['titi', 'tata'] },
+					{ values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);

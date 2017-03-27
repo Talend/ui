@@ -19,7 +19,6 @@ function getActionHandler(func, item) {
  * @param id, for qa purposes
  * @param item required, item to display
  * 		  item.actions optional, array with actions' to be displayed meta-info
- * @param showCounter optional, flags that counter badge should be shown
  * @param itemSelectCallback required, callback function to trigger once item was clicked
  * @param itemToggleCallback required, callback function to trigger once item was clicked
  * @param depth optional, depth of an item in a tree
@@ -30,7 +29,6 @@ function getActionHandler(func, item) {
 function TreeViewItem({
 	id,
 	item,
-	showCounter,
 	depth = 0,
 	itemSelectCallback,
 	itemToggleCallback,
@@ -41,6 +39,7 @@ function TreeViewItem({
 		hidden,
 		name,
 		children = [],
+		showCounter,
 		actions,
 		icon = 'talend-folder',
 		counter = children.length,
@@ -121,10 +120,10 @@ TreeViewItem.propTypes = {
 			icon: PropTypes.string,
 		})),
 		counter: PropTypes.number,
+		showCounter: PropTypes.bool,
 	}).isRequired,
 	itemSelectCallback: PropTypes.func.isRequired,
 	itemToggleCallback: PropTypes.func.isRequired,
-	showCounter: PropTypes.bool,
 	depth: PropTypes.number,
 };
 

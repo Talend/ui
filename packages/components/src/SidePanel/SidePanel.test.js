@@ -6,11 +6,12 @@ import SidePanel from './SidePanel.component';
 describe('SidePanel', () => {
 	it('should trigger toggleDock callback on toggle click', () => {
 		// given
+		const onClick = jest.fn();
 		const onToggleDock = jest.fn();
 		const actions = [
-			{ label: 'Preparations', icon: 'fa fa-asterisk' },
-			{ label: 'Datasets', icon: 'fa fa-file-excel-o' },
-			{ label: 'Favorites', icon: 'fa fa-star' },
+			{ label: 'Preparations', icon: 'fa fa-asterisk', onClick },
+			{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick },
+			{ label: 'Favorites', icon: 'fa fa-star', onClick },
 		];
 		const docked = false;
 
@@ -47,6 +48,7 @@ describe('SidePanel', () => {
 			<SidePanel
 				actions={actions}
 				docked={docked}
+				onToggleDock={jest.fn()}
 				toggleIcon={'fa fa-arrow-left'}
 			/>
 		);
