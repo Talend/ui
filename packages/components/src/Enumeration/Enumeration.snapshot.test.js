@@ -4,10 +4,10 @@ import renderer from 'react-test-renderer';
 import Enumeration from './Enumeration.component';
 
 describe('Enumeration', () => {
-	it('should render with header in default state and list in default state', () => {
+	it('should render with header in default state, list in default state and required component', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
-
+			required: true,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',

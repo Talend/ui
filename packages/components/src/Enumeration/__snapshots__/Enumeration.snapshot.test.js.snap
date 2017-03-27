@@ -515,7 +515,7 @@ exports[`Enumeration should render with header in default state and first item i
 </div>
 `;
 
-exports[`Enumeration should render with header in default state and list in default state 1`] = `
+exports[`Enumeration should render with header in default state, list in default state and required component 1`] = `
 <div
   className="undefined tc-enumeration"
 >
@@ -524,6 +524,7 @@ exports[`Enumeration should render with header in default state and list in defa
   >
     <span>
       Values
+      *
     </span>
     <div
       className="actions"

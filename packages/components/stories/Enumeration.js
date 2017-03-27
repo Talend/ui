@@ -33,6 +33,7 @@ const abortAction = {
 };
 
 const props = {
+	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
 	headerDefault: [addItemAction],
 	headerSelected: [deleteItemAction],

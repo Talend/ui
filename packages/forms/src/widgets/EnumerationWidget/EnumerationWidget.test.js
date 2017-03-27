@@ -10,6 +10,17 @@ describe('EnumerationWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should be in default mode', () => {
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				schema={{
+					required: true,
+				}}
+			/>);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	it('should be in add mode', () => {
 		// given
 		const wrapper = mount(<EnumerationWidget />);
@@ -129,4 +140,3 @@ describe('EnumerationWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });
-

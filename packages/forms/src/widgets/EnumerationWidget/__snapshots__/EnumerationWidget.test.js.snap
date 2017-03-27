@@ -108,7 +108,8 @@ exports[`EnumerationWidget delete all 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -201,7 +202,8 @@ exports[`EnumerationWidget delete all 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Header
             headerDefault={
               Array [
@@ -220,7 +222,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -466,7 +468,8 @@ exports[`EnumerationWidget delete all 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]} />
+          onInputChange={[Function]}
+          required={false} />
       </div>
     </Enumeration>
   </div>
@@ -566,7 +569,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -659,7 +663,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <HeaderInput
             headerInput={
               Array [
@@ -926,7 +931,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]} />
+          onInputChange={[Function]}
+          required={false} />
       </div>
     </Enumeration>
   </div>
@@ -1026,7 +1032,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1119,7 +1126,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Header
             headerDefault={
               Array [
@@ -1138,7 +1146,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1384,7 +1392,475 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]} />
+          onInputChange={[Function]}
+          required={false} />
+      </div>
+    </Enumeration>
+  </div>
+</EnumerationWidget>
+`;
+
+exports[`EnumerationWidget should be in default mode 2`] = `
+<EnumerationWidget
+  schema={
+    Object {
+      "required": true,
+    }
+  }>
+  <div>
+    <Enumeration
+      displayMode="DISPLAY_MODE_DEFAULT"
+      headerDefault={
+        Array [
+          Object {
+            "icon": "talend-plus",
+            "id": "add",
+            "label": "Add item",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": false,
+            "icon": "talend-search",
+            "id": "search",
+            "label": "Search",
+            "onClick": [Function],
+          },
+        ]
+      }
+      headerInput={
+        Array [
+          Object {
+            "disabled": true,
+            "icon": "talend-check",
+            "id": "validate",
+            "key": "validate",
+            "label": "Validate",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-cross",
+            "id": "abort",
+            "key": "abort",
+            "label": "Abort",
+            "onClick": [Function],
+          },
+        ]
+      }
+      headerSelected={
+        Array [
+          Object {
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "Remove selected values",
+            "onClick": [Function],
+          },
+        ]
+      }
+      items={Array []}
+      itemsProp={
+        Object {
+          "actionsDefault": Array [
+            Object {
+              "disabled": false,
+              "icon": "talend-pencil",
+              "id": "edit",
+              "label": "Edit",
+              "onClick": [Function],
+            },
+            Object {
+              "icon": "talend-trash",
+              "id": "delete",
+              "label": "Remove value",
+              "onClick": [Function],
+            },
+          ],
+          "actionsEdit": Array [
+            Object {
+              "disabled": true,
+              "icon": "talend-check",
+              "id": "validate",
+              "label": "Validate",
+              "onClick": [Function],
+            },
+            Object {
+              "disabled": false,
+              "icon": "talend-cross",
+              "id": "abort",
+              "label": "Abort",
+              "onClick": [Function],
+            },
+          ],
+          "key": "values",
+          "onAbortItem": [Function],
+          "onChangeItem": [Function],
+          "onSelectItem": [Function],
+          "onSubmitItem": [Function],
+        }
+      }
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}
+      required={true}>
+      <div
+        className="undefined tc-enumeration">
+        <HeaderEnumeration
+          displayMode="DISPLAY_MODE_DEFAULT"
+          headerDefault={
+            Array [
+              Object {
+                "icon": "talend-plus",
+                "id": "add",
+                "label": "Add item",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": false,
+                "icon": "talend-search",
+                "id": "search",
+                "label": "Search",
+                "onClick": [Function],
+              },
+            ]
+          }
+          headerInput={
+            Array [
+              Object {
+                "disabled": true,
+                "icon": "talend-check",
+                "id": "validate",
+                "key": "validate",
+                "label": "Validate",
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-cross",
+                "id": "abort",
+                "key": "abort",
+                "label": "Abort",
+                "onClick": [Function],
+              },
+            ]
+          }
+          headerSelected={
+            Array [
+              Object {
+                "icon": "talend-trash",
+                "id": "delete",
+                "label": "Remove selected values",
+                "onClick": [Function],
+              },
+            ]
+          }
+          items={Array []}
+          itemsProp={
+            Object {
+              "actionsDefault": Array [
+                Object {
+                  "disabled": false,
+                  "icon": "talend-pencil",
+                  "id": "edit",
+                  "label": "Edit",
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-trash",
+                  "id": "delete",
+                  "label": "Remove value",
+                  "onClick": [Function],
+                },
+              ],
+              "actionsEdit": Array [
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check",
+                  "id": "validate",
+                  "label": "Validate",
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": false,
+                  "icon": "talend-cross",
+                  "id": "abort",
+                  "label": "Abort",
+                  "onClick": [Function],
+                },
+              ],
+              "key": "values",
+              "onAbortItem": [Function],
+              "onChangeItem": [Function],
+              "onSelectItem": [Function],
+              "onSubmitItem": [Function],
+            }
+          }
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}
+          required={true}>
+          <Header
+            headerDefault={
+              Array [
+                Object {
+                  "icon": "talend-plus",
+                  "id": "add",
+                  "label": "Add item",
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": false,
+                  "icon": "talend-search",
+                  "id": "search",
+                  "label": "Search",
+                  "onClick": [Function],
+                },
+              ]
+            }
+            required={true}>
+            <header
+              className="undefined tc-enumeration-header">
+              <span>
+                Values
+                *
+              </span>
+              <div
+                className="actions">
+                <Action
+                  bsStyle="default"
+                  btooltipPlacement="bottom"
+                  disabled={false}
+                  hideLabel={true}
+                  icon="talend-plus"
+                  inProgress={false}
+                  label="Add item"
+                  link={true}
+                  onClick={[Function]}
+                  tooltipPlacement="top">
+                  <TooltipTrigger
+                    label="Add item"
+                    tooltipPlacement="top">
+                    <OverlayTrigger
+                      defaultOverlayShown={false}
+                      delayShow={400}
+                      overlay={
+                        <Tooltip
+                          bsClass="tooltip"
+                          className="undefined tooltip-container"
+                          id={42}
+                          placement="right">
+                          Add item
+                        </Tooltip>
+                      }
+                      placement="top"
+                      trigger={
+                        Array [
+                          "hover",
+                          "focus",
+                        ]
+                      }>
+                      <Button
+                        active={false}
+                        aria-describedby={42}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseOut={[Function]}
+                        onMouseOver={[Function]}
+                        role="link">
+                        <button
+                          aria-describedby={42}
+                          className="btn btn-link"
+                          disabled={false}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseOver={[Function]}
+                          role="link"
+                          type="button">
+                          <Icon
+                            name="talend-plus">
+                            <svg
+                              aria-hidden="true"
+                              className="tc-svg-icon"
+                              title={null}>
+                              <use
+                                xlinkHref="#talend-plus" />
+                            </svg>
+                          </Icon>
+                        </button>
+                      </Button>
+                    </OverlayTrigger>
+                  </TooltipTrigger>
+                </Action>
+                <Action
+                  bsStyle="default"
+                  btooltipPlacement="bottom"
+                  disabled={false}
+                  hideLabel={true}
+                  icon="talend-search"
+                  inProgress={false}
+                  label="Search"
+                  link={true}
+                  onClick={[Function]}
+                  tooltipPlacement="top">
+                  <TooltipTrigger
+                    label="Search"
+                    tooltipPlacement="top">
+                    <OverlayTrigger
+                      defaultOverlayShown={false}
+                      delayShow={400}
+                      overlay={
+                        <Tooltip
+                          bsClass="tooltip"
+                          className="undefined tooltip-container"
+                          id={42}
+                          placement="right">
+                          Search
+                        </Tooltip>
+                      }
+                      placement="top"
+                      trigger={
+                        Array [
+                          "hover",
+                          "focus",
+                        ]
+                      }>
+                      <Button
+                        active={false}
+                        aria-describedby={42}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseOut={[Function]}
+                        onMouseOver={[Function]}
+                        role="link">
+                        <button
+                          aria-describedby={42}
+                          className="btn btn-link"
+                          disabled={false}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseOver={[Function]}
+                          role="link"
+                          type="button">
+                          <Icon
+                            name="talend-search">
+                            <svg
+                              aria-hidden="true"
+                              className="tc-svg-icon"
+                              title={null}>
+                              <use
+                                xlinkHref="#talend-search" />
+                            </svg>
+                          </Icon>
+                        </button>
+                      </Button>
+                    </OverlayTrigger>
+                  </TooltipTrigger>
+                </Action>
+              </div>
+            </header>
+          </Header>
+        </HeaderEnumeration>
+        <ItemsEnumeration
+          displayMode="DISPLAY_MODE_DEFAULT"
+          headerDefault={
+            Array [
+              Object {
+                "icon": "talend-plus",
+                "id": "add",
+                "label": "Add item",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": false,
+                "icon": "talend-search",
+                "id": "search",
+                "label": "Search",
+                "onClick": [Function],
+              },
+            ]
+          }
+          headerInput={
+            Array [
+              Object {
+                "disabled": true,
+                "icon": "talend-check",
+                "id": "validate",
+                "key": "validate",
+                "label": "Validate",
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-cross",
+                "id": "abort",
+                "key": "abort",
+                "label": "Abort",
+                "onClick": [Function],
+              },
+            ]
+          }
+          headerSelected={
+            Array [
+              Object {
+                "icon": "talend-trash",
+                "id": "delete",
+                "label": "Remove selected values",
+                "onClick": [Function],
+              },
+            ]
+          }
+          items={Array []}
+          itemsProp={
+            Object {
+              "actionsDefault": Array [
+                Object {
+                  "disabled": false,
+                  "icon": "talend-pencil",
+                  "id": "edit",
+                  "label": "Edit",
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-trash",
+                  "id": "delete",
+                  "label": "Remove value",
+                  "onClick": [Function],
+                },
+              ],
+              "actionsEdit": Array [
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check",
+                  "id": "validate",
+                  "label": "Validate",
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": false,
+                  "icon": "talend-cross",
+                  "id": "abort",
+                  "label": "Abort",
+                  "onClick": [Function],
+                },
+              ],
+              "key": "values",
+              "onAbortItem": [Function],
+              "onChangeItem": [Function],
+              "onSelectItem": [Function],
+              "onSubmitItem": [Function],
+            }
+          }
+          onAddKeyDown={[Function]}
+          onInputChange={[Function]}
+          required={true} />
       </div>
     </Enumeration>
   </div>
@@ -1514,7 +1990,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1626,7 +2103,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Header
             headerDefault={
               Array [
@@ -1645,7 +2123,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -1910,7 +2388,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Items
             currentEdit={
               Object {
@@ -2266,7 +2745,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2350,7 +2830,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <HeaderInput
             headerInput={
               Array [
@@ -2528,7 +3009,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]} />
+          onInputChange={[Function]}
+          required={false} />
       </div>
     </Enumeration>
   </div>
@@ -2639,7 +3121,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2732,7 +3215,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Header
             headerDefault={
               Array [
@@ -2751,7 +3235,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 },
               ]
             }
-            onInputChange={[Function]}>
+            required={false}>
             <header
               className="undefined tc-enumeration-header">
               <span>
@@ -2997,7 +3481,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]} />
+          onInputChange={[Function]}
+          required={false} />
       </div>
     </Enumeration>
   </div>
@@ -3119,7 +3604,8 @@ exports[`EnumerationWidget should select an item 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3223,7 +3709,8 @@ exports[`EnumerationWidget should select an item 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -3416,7 +3903,8 @@ exports[`EnumerationWidget should select an item 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Items
             items={
               Array [
@@ -3877,7 +4365,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
         }
       }
       onAddKeyDown={[Function]}
-      onInputChange={[Function]}>
+      onInputChange={[Function]}
+      required={false}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3989,7 +4478,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -4190,7 +4680,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             }
           }
           onAddKeyDown={[Function]}
-          onInputChange={[Function]}>
+          onInputChange={[Function]}
+          required={false}>
           <Items
             items={
               Array [

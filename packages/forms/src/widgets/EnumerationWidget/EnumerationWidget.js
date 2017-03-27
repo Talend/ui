@@ -52,6 +52,7 @@ class EnumerationWidget extends React.Component {
 
 		this.state = {
 			displayMode: DISPLAY_MODE_DEFAULT,
+			required: (props.schema && props.schema.required) || false,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -396,6 +397,7 @@ if (process.env.NODE_ENV !== 'production') {
 		formData: PropTypes.array, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
+		schema: PropTypes.object,
 	};
 }
 
