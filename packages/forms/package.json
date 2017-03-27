@@ -23,7 +23,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.13.20",
+    "bootstrap-talend-theme": "^0.67.0",
     "chokidar": "^1.6.1",
     "cpx": "^1.5.0",
     "enzyme": "^2.4.1",
@@ -45,12 +45,12 @@
     "react-addons-test-utils": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.50.0",
+    "react-talend-components": "^0.67.0",
     "react-test-renderer": "15.4.0",
     "rimraf": "^2.5.4",
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
-    "talend-icons": "^0.13.1",
+    "talend-icons": "^0.67.0",
     "uuid": "^2.0.3",
     "webpack": "^1.13.1"
   },
@@ -64,7 +64,7 @@
     "react": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
-    "react-talend-components": "^0.61.3"
+    "react-talend-components": "^0.67.0"
   },
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
@@ -96,5 +96,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.66.4"
+  "version": "0.67.0"
 }

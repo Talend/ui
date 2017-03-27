@@ -7,6 +7,7 @@ jest.mock('react-dom');
 
 const items = [
 	{
+		icon: 'talend-icon',
 		label: 'document 1',
 		onClick: jest.fn(),
 	},
