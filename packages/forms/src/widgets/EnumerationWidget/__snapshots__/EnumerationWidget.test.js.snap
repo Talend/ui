@@ -1451,7 +1451,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           Object {
             "icon": "talend-trash",
             "id": "delete",
-            "label": "Delete items",
+            "label": "Remove selected values",
             "onClick": [Function],
           },
         ]
@@ -1470,7 +1470,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             Object {
               "icon": "talend-trash",
               "id": "delete",
-              "label": "Delete",
+              "label": "Remove value",
               "onClick": [Function],
             },
           ],
@@ -1545,7 +1545,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -1564,7 +1564,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete",
+                  "label": "Remove value",
                   "onClick": [Function],
                 },
               ],
@@ -1812,7 +1812,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               Object {
                 "icon": "talend-trash",
                 "id": "delete",
-                "label": "Delete items",
+                "label": "Remove selected values",
                 "onClick": [Function],
               },
             ]
@@ -1831,7 +1831,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 Object {
                   "icon": "talend-trash",
                   "id": "delete",
-                  "label": "Delete",
+                  "label": "Remove value",
                   "onClick": [Function],
                 },
               ],
