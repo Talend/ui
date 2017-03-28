@@ -41,6 +41,9 @@ Based on a `component / action creator` registry and a `settings` format, you co
 * Bootstrap your app with the provided `<App />` component
 * CMF instantiates the right component on a requested route, injecting the props
 
+[CMF action sequence diagram]({{ site.url }}/assets/CMF-action-diagram.png)
+
+
 ## Extra features
 CMF comes with handy features
 * Error redux `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-error-logging.md %}).
