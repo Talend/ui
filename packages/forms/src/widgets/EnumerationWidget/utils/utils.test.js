@@ -1,4 +1,4 @@
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils.js';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils.js';
 
 describe('Enumeration', () => {
 	describe('Ctrl key', () => {
@@ -125,6 +125,26 @@ describe('Enumeration', () => {
 
 			// when
 			const result = deleteSelectedItems(items);
+
+			// then
+			expect(result).toEqual(expectedItems);
+		});
+	});
+
+	describe('manage items reset ', () => {
+		it('should reset items', () => {
+			// given
+			const items = [
+				{ displayMode: 'DISPLAY_MODE_EDIT' },
+				{ displayMode: '' },
+			];
+			const expectedItems = [
+				{ displayMode: 'DISPLAY_MODE_DEFAULT' },
+				{ displayMode: 'DISPLAY_MODE_DEFAULT' },
+			];
+
+			// when
+			const result = resetItems(items);
 
 			// then
 			expect(result).toEqual(expectedItems);

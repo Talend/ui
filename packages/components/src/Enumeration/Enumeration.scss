@@ -6,7 +6,6 @@ $tc-enumeration-font-size: 1.4rem !default;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	height: $tc-enumeration-height;
 
 	:global(input[type=text]) {
 		font-size: $tc-enumeration-font-size;
