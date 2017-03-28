@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.66.4 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.67.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -114,6 +114,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
+  11:8  error  'Action' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   21:2  error  'schema' is missing in props validation         react/prop-types
   42:1  error  Line 42 exceeds the maximum line length of 100  max-len
@@ -130,7 +133,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 112 problems (112 errors, 0 warnings)
+✖ 113 problems (113 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
