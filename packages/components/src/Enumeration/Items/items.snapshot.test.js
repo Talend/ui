@@ -1,5 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',  () => (props) =>
+	{
+		return (<div id="autoSizer">{props.children({height: 30, width: 30})}</div>);
+	}
+);
 
 import Items from './Items.component';
 
@@ -20,6 +25,9 @@ describe('Items', () => {
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
 				onSelectItem: jest.fn(),
+				getItemHeight: () => {
+					return 42;
+				},
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',

@@ -81,6 +81,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
+				getItemHeight: this.getItemHeight.bind(this),
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -107,6 +108,10 @@ class EnumerationWidget extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
+	}
+
+	getItemHeight(isInEdit) {
+		return isInEdit ? 33 : 33;
 	}
 
 	// default mode

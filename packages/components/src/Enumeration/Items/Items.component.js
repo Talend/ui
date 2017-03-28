@@ -6,6 +6,13 @@ import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
 import ItemEditPropTypes from './Item/ItemEdit.propTypes';
 import theme from './Items.scss';
+import { AutoSizer, List } from 'react-virtualized';
+
+function listClasses() {
+	return classNames({
+		[theme['tc-list-items']]: true,
+	});
+}
 
 function itemsClasses() {
 	return classNames({
@@ -14,9 +21,36 @@ function itemsClasses() {
 	});
 }
 
+function itemContainer() {
+	return classNames({
+		[theme['tc-item-container']]: true,
+		'tc-item-container': true,
+	});
+}
+
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 function Items({ items, itemsProp, currentEdit, searchCriteria }) {
+
+	function getRowHeight({ index }) {
+		const isEditMode = items[index].displayMode === DISPLAY_MODE_EDIT;
+		return itemsProp.getItemHeight(isEditMode);
+	}
+	function rowRenderer ({
+		key,         // Unique key within array of rows
+			index,       // Index of row within collection
+			isScrolling, // The List is currently being scrolled
+			isVisible,   // This row is visible within the List (eg it is not an overscanned row)
+		style        // Style object to be applied to row (to position it)
+	}) {
+		return (
+			<div className={itemContainer()} key={key} style={style}>
+				{getItem(items[index], index)}
+			</div>
+		)
+	}
+
+
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -67,7 +101,18 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 
 	return (
 		<ul className={itemsClasses()}>
-			{ items.map((item, index) => getItem(item, index)) }
+			<AutoSizer>
+				{({ height, width }) => (
+					<List
+						className={listClasses()}
+						rowRenderer={rowRenderer}
+						width={width}
+						height={height}
+						rowCount={items.length}
+						rowHeight={getRowHeight}
+					/>
+				)}
+			</AutoSizer>
 		</ul>
 	);
 }
@@ -79,6 +124,10 @@ Items.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
+		getItemHeight: React.PropTypes.oneOfType([
+			React.PropTypes.func,
+			React.PropTypes.number,
+		]),
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
