@@ -8,7 +8,7 @@ import renderer from 'react-test-renderer';
 // eslint-disable-next-line no-unused-vars
 import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 
-import Action from 'react-talend-components';
+import { Action } from 'react-talend-components';
 
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
@@ -109,7 +109,7 @@ describe('renderActions', () => {
 		const wrapper = shallow(<div>{renderActions(actions, noop)}</div>);
 
 		// then
-		expect(wrapper.find('Action')).toHaveLength(3);
+		expect(wrapper.find(Action)).toHaveLength(3);
 	});
 });
 
