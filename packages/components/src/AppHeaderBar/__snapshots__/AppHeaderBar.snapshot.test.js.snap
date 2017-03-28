@@ -27,6 +27,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -49,6 +50,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -95,6 +97,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -116,13 +119,11 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -144,7 +145,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -181,13 +182,11 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -209,7 +208,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -457,6 +456,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -528,6 +550,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -683,6 +728,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-search
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onToggle
                             </span>
                             : 
@@ -738,6 +806,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -786,6 +877,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -948,6 +1062,29 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -3061,6 +3198,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -3083,6 +3221,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -3129,6 +3268,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -3150,13 +3290,11 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -3178,7 +3316,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -3215,13 +3353,11 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -3243,7 +3379,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -3548,6 +3684,29 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -3619,6 +3778,29 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -3807,6 +3989,29 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -3855,6 +4060,29 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -4017,6 +4245,29 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -6130,6 +6381,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -6152,6 +6404,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -6195,13 +6448,11 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-environment"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -6227,7 +6478,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                   />
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-environment"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -6258,6 +6509,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -6279,13 +6531,11 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -6307,7 +6557,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -6344,13 +6594,11 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -6372,7 +6620,7 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -6620,6 +6868,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -6691,6 +6962,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -6846,6 +7140,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-search
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onToggle
                             </span>
                             : 
@@ -6901,6 +7218,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -6949,6 +7289,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -7118,6 +7481,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               items
                             </span>
                             : 
@@ -7250,6 +7636,29 @@ exports[`Storyshots AppHeaderBar with environment dropdown 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-environment
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -9363,6 +9772,7 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo full btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -9384,6 +9794,7 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -9430,6 +9841,7 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -9451,13 +9863,11 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -9479,7 +9889,7 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -9516,13 +9926,11 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -9544,7 +9952,7 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -9792,6 +10200,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -9863,6 +10294,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -10042,6 +10496,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-search
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onToggle
                             </span>
                             : 
@@ -10097,6 +10574,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -10145,6 +10645,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -10307,6 +10830,29 @@ exports[`Storyshots AppHeaderBar with full logo 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -12420,6 +12966,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -12442,6 +12989,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -12488,6 +13036,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -12509,13 +13058,11 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -12537,7 +13084,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -12574,13 +13121,11 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -12602,7 +13147,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -12888,6 +13433,29 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -12959,6 +13527,29 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -13147,6 +13738,29 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -13195,6 +13809,29 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -13357,6 +13994,29 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -15470,6 +16130,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -15492,6 +16153,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -15538,6 +16200,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -15559,13 +16222,11 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -15587,7 +16248,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -15624,13 +16285,11 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -15652,7 +16311,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -15931,6 +16590,29 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -16002,6 +16684,29 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -16191,6 +16896,29 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -16239,6 +16967,29 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -16401,6 +17152,29 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -18514,6 +19288,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                 aria-describedby={42}
                 className="tc-header-bar-logo btn btn-link"
                 disabled={false}
+                id="header-logo"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -18536,6 +19311,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               <button
                 className="tc-header-bar-brand btn btn-link"
                 disabled={false}
+                id="header-brand"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -18582,6 +19358,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id="header-help"
                 onClick={[Function]}
                 role={null}
                 type="button"
@@ -18603,13 +19380,11 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-user"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -18631,7 +19406,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-user"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -18668,13 +19443,11 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                 className="dropdown btn-group btn-group-link"
               >
                 <button
-                  activeHref={undefined}
-                  activeKey={undefined}
                   aria-expanded={false}
                   aria-haspopup={true}
                   className="dropdown-toggle btn btn-link"
                   disabled={false}
-                  id={undefined}
+                  id="header-products"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -18696,7 +19469,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                   </span>
                 </button>
                 <ul
-                  aria-labelledby={undefined}
+                  aria-labelledby="header-products"
                   className="dropdown-menu"
                   role="menu"
                 >
@@ -19295,6 +20068,29 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-brand
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               name
                             </span>
                             : 
@@ -19366,6 +20162,29 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-logo
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -19554,6 +20373,29 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                 }
                               }
                             >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-help
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
                               onClick
                             </span>
                             : 
@@ -19602,6 +20444,29 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-user
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {
@@ -19764,6 +20629,29 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                             }
                           >
                             {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              id
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              header-products
+                              "
+                            </span>
+                            , 
                             <span
                               style={
                                 Object {

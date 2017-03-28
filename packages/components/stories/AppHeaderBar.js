@@ -60,10 +60,12 @@ const typeaheadItems = [
 
 const props = {
 	brand: {
+		id: 'header-brand',
 		name: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
 	logo: {
+		id: 'header-logo',
 		onClick: action('onLogoClick'),
 	},
 	search: {
@@ -72,12 +74,15 @@ const props = {
 			title: 'icon',
 			bsStyle: 'link',
 		},
+		id: 'header-search',
 		onToggle: action('onSearchClick'),
 	},
 	help: {
+		id: 'header-help',
 		onClick: action('onHelpClick'),
 	},
 	user: {
+		id: 'header-user',
 		items: [
 			{
 				icon: 'talend-cog',
@@ -88,6 +93,7 @@ const props = {
 		name: 'User NAME',
 	},
 	products: {
+		id: 'header-products',
 		items: [
 			{
 				icon: 'talend-logo-square',
@@ -120,6 +126,7 @@ decoratedStories
 	.addWithInfo('with environment dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.env = {
+			id: 'header-environment',
 			items: [
 				{
 					label: 'Runtime Environment',

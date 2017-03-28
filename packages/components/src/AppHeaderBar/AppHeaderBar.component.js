@@ -10,7 +10,7 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './AppHeaderBar.scss';
 
-function renderLogo({ isFull, onClick }) {
+function Logo({ id, isFull, onClick }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const className = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
@@ -18,6 +18,7 @@ function renderLogo({ isFull, onClick }) {
 			bsStyle="link"
 			className={className}
 			hideLabel
+			id={id}
 			label="Go to Portal"
 			icon={icon}
 			onClick={onClick}
@@ -25,31 +26,35 @@ function renderLogo({ isFull, onClick }) {
 	);
 }
 
-renderLogo.propTypes = {
+Logo.propTypes = {
+	id: React.PropTypes.string,
 	isFull: React.PropTypes.bool,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderBrand({ name, onClick }) {
+function Brand({ id, name, onClick }) {
 	return (
 		<Action
 			bsStyle="link"
 			className="tc-header-bar-brand"
+			id={id}
 			label={name}
 			onClick={onClick}
 		/>
 	);
 }
 
-renderBrand.propTypes = {
+Brand.propTypes = {
+	id: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderEnvironment({ items, label }) {
+function Environment({ id, items, label }) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
+			id={id}
 			items={items}
 			label={label}
 			icon="talend-burger"
@@ -57,37 +62,41 @@ function renderEnvironment({ items, label }) {
 	);
 }
 
-renderEnvironment.propTypes = {
+Environment.propTypes = {
+	id: React.PropTypes.string.isRequired,
 	items: ActionDropdown.propTypes.items,
 	label: ActionDropdown.propTypes.label,
 };
 
-function renderSearch(search) {
-	return <Typeahead {...search} />;
+function Search(props) {
+	return <Typeahead {...props} />;
 }
 
-renderSearch.propTypes = Typeahead.propTypes;
+Search.propTypes = Typeahead.propTypes;
 
-function renderHelp({ onClick }) {
+function Help({ id, onClick }) {
 	return (
 		<Action
 			bsStyle="link"
 			icon="talend-question-circle"
+			id={id}
 			label="Help"
 			onClick={onClick}
 		/>
 	);
 }
 
-renderHelp.propTypes = {
+Help.propTypes = {
+	id: React.PropTypes.string,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderUser({ items, name }) {
+function User({ id, items, name }) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
 			icon="talend-user-circle"
+			id={id}
 			items={items}
 			label={name}
 			noCaret
@@ -95,16 +104,18 @@ function renderUser({ items, name }) {
 	);
 }
 
-renderUser.propTypes = {
+User.propTypes = {
+	id: React.PropTypes.string.isRequired,
 	items: ActionDropdown.propTypes.items,
 	name: ActionDropdown.propTypes.label,
 };
 
-function renderProducts({ items }) {
+function Products({ id, items }) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
 			icon="talend-launcher"
+			id={id}
 			items={items}
 			label="Apps"
 			noCaret
@@ -112,7 +123,8 @@ function renderProducts({ items }) {
 	);
 }
 
-renderProducts.propTypes = {
+Products.propTypes = {
+	id: React.PropTypes.string.isRequired,
 	items: ActionDropdown.propTypes.items,
 };
 
@@ -129,26 +141,26 @@ function AppHeaderBar(props) {
 		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
 			<Navbar.Header>
 				<Navbar.Brand>
-					{renderLogo(props.logo)}
+					<Logo {...props.logo} />
 					{!props.logo.isFull && '|'}
-					{renderBrand(props.brand)}
+					<Brand {...props.brand} />
 					{props.env && '|'}
 				</Navbar.Brand>
 				<Navbar.Toggle />
 			</Navbar.Header>
 			<Navbar.Collapse>
 				<Nav>
-					{props.env && renderEnvironment(props.env)}
+					{props.env && (<Environment {...props.env} />)}
 				</Nav>
 				<Nav pullRight>
 					|
-					{renderHelp(props.help)}
-					{renderUser(props.user)}
+					<Help {...props.help} />
+					<User {...props.user} />
 					|
-					{renderProducts(props.products)}
+					<Products {...props.products} />
 				</Nav>
 				<Navbar.Form pullRight role="search">
-					{renderSearch(props.search)}
+					<Search {...props.search} />
 				</Navbar.Form>
 			</Navbar.Collapse>
 		</Navbar>
@@ -156,13 +168,13 @@ function AppHeaderBar(props) {
 }
 
 AppHeaderBar.propTypes = {
-	brand: React.PropTypes.shape(renderBrand.propTypes).isRequired,
-	logo: React.PropTypes.shape(renderLogo.propTypes).isRequired,
-	env: React.PropTypes.shape(renderEnvironment.propTypes),
-	search: React.PropTypes.shape(renderSearch.propTypes).isRequired,
-	help: React.PropTypes.shape(renderHelp.propTypes).isRequired,
-	user: React.PropTypes.shape(renderUser.propTypes).isRequired,
-	products: React.PropTypes.shape(renderProducts.propTypes).isRequired,
+	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
+	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
+	env: React.PropTypes.shape(Environment.propTypes),
+	search: React.PropTypes.shape(Search.propTypes).isRequired,
+	help: React.PropTypes.shape(Help.propTypes).isRequired,
+	user: React.PropTypes.shape(User.propTypes).isRequired,
+	products: React.PropTypes.shape(Products.propTypes).isRequired,
 };
 
 export default AppHeaderBar;

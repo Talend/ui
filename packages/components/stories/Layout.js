@@ -50,10 +50,12 @@ const dockedSidePanel = (<SidePanel
 />);
 const headerProps = {
 	brand: {
+		id: 'header-brand',
 		name: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
 	logo: {
+		id: 'header-logo',
 		onClick: action('onLogoClick'),
 	},
 	search: {
@@ -62,12 +64,15 @@ const headerProps = {
 			title: 'icon',
 			bsStyle: 'link',
 		},
+		id: 'header-search',
 		onToggle: action('onSearchClick'),
 	},
 	help: {
+		id: 'header-help',
 		onClick: action('onHelpClick'),
 	},
 	user: {
+		id: 'header-user',
 		items: [
 			{
 				icon: 'talend-cog',
@@ -78,6 +83,7 @@ const headerProps = {
 		name: 'User NAME',
 	},
 	products: {
+		id: 'header-products',
 		items: [
 			{
 				icon: 'talend-logo-square',
