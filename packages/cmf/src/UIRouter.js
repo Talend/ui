@@ -2,7 +2,7 @@
  * @module react-cmf/lib/UIRouter
  */
 import React, { PropTypes } from 'react';
-import { Router, Route } from 'react-router';
+import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
@@ -95,7 +95,7 @@ CMFRoute.displayName = 'CMFRoute';
  */
 function CMFRouter(props) {
 	const routes = props.routes;
-	const history = props.history; // || createHashHistory();
+	const history = props.history || createHashHistory();
 	if (routes.path === '/' && !!routes.component) {
 		return (
 			<ConnectedRouter history={history}>
