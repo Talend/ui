@@ -126,6 +126,7 @@ decoratedStories
 	.addWithInfo('with environment dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.env = {
+			id: 'header-environment',
 			items: [
 				{
 					label: 'Runtime Environment',

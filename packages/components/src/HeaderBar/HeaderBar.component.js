@@ -6,7 +6,7 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 
-function renderLogo({ id, isFull, onClick }) {
+function Logo({ id, isFull, onClick }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const className = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
@@ -23,13 +23,13 @@ function renderLogo({ id, isFull, onClick }) {
 	);
 }
 
-renderLogo.propTypes = {
+Logo.propTypes = {
 	id: React.PropTypes.string,
 	isFull: React.PropTypes.bool,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderBrand({ id, name, onClick }) {
+function Brand({ id, name, onClick }) {
 	return (
 		<Action
 			bsStyle="link"
@@ -42,38 +42,38 @@ function renderBrand({ id, name, onClick }) {
 	);
 }
 
-renderBrand.propTypes = {
+Brand.propTypes = {
 	id: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderEnvironment({ id, items, label }) {
+function Environment(props) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
 			icon="talend-burger"
-			id={id}
-			items={items}
-			label={label}
+			id={props.id}
+			items={props.items}
+			label={props.label}
 			tooltipPlacement="bottom"
 		/>
 	);
 }
 
-renderEnvironment.propTypes = {
+Environment.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
 	label: ActionDropdown.propTypes.label,
 };
 
-function renderSearch(search) {
-	return <Typeahead {...search} />;
+function Search(props) {
+	return <Typeahead {...props} />;
 }
 
-renderSearch.propTypes = Typeahead.propTypes;
+Search.propTypes = Typeahead.propTypes;
 
-function renderHelp({ id, onClick }) {
+function Help({ id, onClick }) {
 	return (
 		<Action
 			bsStyle="link"
@@ -86,12 +86,12 @@ function renderHelp({ id, onClick }) {
 	);
 }
 
-renderHelp.propTypes = {
+Help.propTypes = {
 	id: React.PropTypes.string,
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function renderUser({ id, items, name }) {
+function User({ id, items, name }) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
@@ -105,13 +105,13 @@ function renderUser({ id, items, name }) {
 	);
 }
 
-renderUser.propTypes = {
+User.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
 	name: ActionDropdown.propTypes.label,
 };
 
-function renderProducts({ id, items }) {
+function Products({ id, items }) {
 	return (
 		<ActionDropdown
 			bsStyle="link"
@@ -125,7 +125,7 @@ function renderProducts({ id, items }) {
 	);
 }
 
-renderProducts.propTypes = {
+Products.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
 };
@@ -134,32 +134,32 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames([`tc-header-bar, ${theme['tc-header-bar']}`])} >
 			<div className="tc-header-bar-actions">
-				{renderLogo(props.logo)}
+				<Logo {...props.logo} />
 				{!props.logo.isFull && '|'}
-				{renderBrand(props.brand)}
+				<Brand {...props.brand} />
 				{props.env && '|'}
-				{props.env && renderEnvironment(props.env)}
+				{props.env && (<Environment {...props.env} />)}
 			</div>
 			<div className="tc-header-bar-actions right">
-				{renderSearch(props.search)}
+				{props.search && (<Search {...props.search} />)}
 				|
-				{renderHelp(props.help)}
-				{renderUser(props.user)}
+				<Help {...props.help} />
+				<User {...props.user} />
 				|
-				{renderProducts(props.products)}
+				<Products {...props.products} />
 			</div>
 		</nav>
 	);
 }
 
 HeaderBar.propTypes = {
-	brand: React.PropTypes.shape(renderBrand.propTypes).isRequired,
-	logo: React.PropTypes.shape(renderLogo.propTypes).isRequired,
-	env: React.PropTypes.shape(renderEnvironment.propTypes),
-	search: React.PropTypes.shape(renderSearch.propTypes).isRequired,
-	help: React.PropTypes.shape(renderHelp.propTypes).isRequired,
-	user: React.PropTypes.shape(renderUser.propTypes).isRequired,
-	products: React.PropTypes.shape(renderProducts.propTypes).isRequired,
+	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
+	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
+	env: React.PropTypes.shape(Environment.propTypes),
+	search: React.PropTypes.shape(Search.propTypes),
+	help: React.PropTypes.shape(Help.propTypes).isRequired,
+	user: React.PropTypes.shape(User.propTypes).isRequired,
+	products: React.PropTypes.shape(Products.propTypes).isRequired,
 };
 
 export default HeaderBar;
