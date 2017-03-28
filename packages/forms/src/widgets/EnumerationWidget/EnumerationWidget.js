@@ -254,9 +254,9 @@ class EnumerationWidget extends React.Component {
 	onSelectItem(item, event) {
 		let itemsSelected = resetItems([...this.state.items]);
 		if (event.ctrlKey || event.metaKey) {
-			itemsSelected = manageCtrlKey(item.index, this.state.items);
+			itemsSelected = manageCtrlKey(item.index, itemsSelected);
 		} else if (event.shiftKey) {
-			itemsSelected = manageShiftKey(item.index, this.state.items);
+			itemsSelected = manageShiftKey(item.index, itemsSelected);
 		} else {
 			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
 			itemsSelected[item.index].isSelected = true;
