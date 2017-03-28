@@ -54,3 +54,12 @@ export function manageShiftKey(indexSelected, items) {
 export function deleteSelectedItems(items) {
 	return items.filter((item) => !item.isSelected);
 }
+
+/**
+ * Need to reset items in their default mode to prevent multiple edition
+ * @param items
+ */
+export function resetItems(items) {
+	return items.map((currentItem) =>
+	({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
+}
