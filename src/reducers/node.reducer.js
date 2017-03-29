@@ -1,8 +1,12 @@
+/* @flow */
+
 import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import { removePort } from '../actions/port.actions';
 import portReducer from './port.reducer';
 import { outPort, inPort } from '../selectors/portSelectors';
+
+import type { FlowState, FlowAction } from '../flow-typed';
 
 import {
 	FLOWDESIGNER_NODE_ADD,
@@ -21,7 +25,7 @@ import {
 } from '../constants/flowdesigner.model';
 
 const defaultState = new Map();
-const nodeReducer = (state = defaultState, action) => {
+const nodeReducer = (state: FlowState = defaultState, action: FlowAction): FlowState => {
 	switch (action.type) {
 	case FLOWDESIGNER_NODE_ADD:
 		if (state.getIn(['nodes', action.nodeId])) {
@@ -37,6 +41,7 @@ const nodeReducer = (state = defaultState, action) => {
 				.set('position', new PositionRecord(action.graphicalAttributes.position))
 				.set('properties', fromJS(action.graphicalAttributes.properties) || new Map()),
 		}))
+		.setIn(['nodesPositions', action.nodeId], new PositionRecord(action.graphicalAttributes.position))
 		.setIn(['out', action.nodeId], new Map())
 		.setIn(['in', action.nodeId], new Map())
 		.setIn(['childrens', action.nodeId], new Map())
@@ -48,16 +53,27 @@ const nodeReducer = (state = defaultState, action) => {
 		return state.setIn(
 				['nodes', action.nodeId, 'graphicalAttributes', 'position'],
 				new PositionRecord(action.nodePosition),
-			);
-	case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
-		return state.update('nodes', nodes => nodes.map((node) => {
-			if (action.nodesId.find(id => id === node.id)) {
+			)
+			.setIn(['nodesPositions', action.nodeId], new PositionRecord(action.nodePosition));
+	case FLOWDESIGNER_NODE_APPLY_MOVEMENT: {
+		const localAction = action;
+		return state.update('nodes', nodes => nodes.map((node, nodeId) => {
+			if (localAction.nodesId.find(id => id === nodeId)) {
 				return node
-					.setIn(['graphicalAttributes', 'position', 'x'], node.getPosition().x + action.movement.x)
-					.setIn(['graphicalAttributes', 'position', 'y'], node.getPosition().y + action.movement.y);
+					.setIn(['graphicalAttributes', 'position', 'x'], node.getPosition().x + localAction.movement.x)
+					.setIn(['graphicalAttributes', 'position', 'y'], node.getPosition().y + localAction.movement.y);
 			}
 			return node;
+		}))
+		.update('nodePositions', nodesPositions => nodesPositions.map((nodePosition, nodeId) => {
+			if (localAction.nodesId.find(id => id === nodeId)) {
+				return nodePosition
+					.set('x', nodePosition.x + localAction.movement.x)
+					.set('y', nodePosition.y + localAction.movement.y);
+			}
+			return nodePosition;
 		}));
+	}
 	case FLOWDESIGNER_NODE_SET_SIZE:
 		if (!state.getIn(['nodes', action.nodeId])) {
 			invariant(false, `Can't set size on node ${action.nodeId} since it doesn't exist`);
