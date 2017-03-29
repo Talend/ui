@@ -14,15 +14,17 @@ function Logo({ id, isFull, onClick }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const className = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
-		<Action
-			bsStyle="link"
-			className={className}
-			hideLabel
-			id={id}
-			label="Go to Portal"
-			icon={icon}
-			onClick={onClick}
-		/>
+		<Nav className={!isFull && 'separated'}>
+			<Action
+				bsStyle="link"
+				className={className}
+				hideLabel
+				id={id}
+				label="Go to Portal"
+				icon={icon}
+				onClick={onClick}
+			/>
+		</Nav>
 	);
 }
 
@@ -32,33 +34,38 @@ Logo.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function Brand({ id, name, onClick }) {
+function Brand({ id, isSeparated, name, onClick }) {
 	return (
-		<Action
-			bsStyle="link"
-			className="tc-header-bar-brand"
-			id={id}
-			label={name}
-			onClick={onClick}
-		/>
+		<Nav className={isSeparated && 'separated'}>
+			<Action
+				bsStyle="link"
+				className="tc-header-bar-brand"
+				id={id}
+				label={name}
+				onClick={onClick}
+			/>
+		</Nav>
 	);
 }
 
 Brand.propTypes = {
 	id: React.PropTypes.string,
+	isSeparated: React.PropTypes.bool,
 	name: React.PropTypes.string.isRequired,
 	onClick: React.PropTypes.func.isRequired,
 };
 
 function Environment({ id, items, label }) {
 	return (
-		<ActionDropdown
-			bsStyle="link"
-			id={id}
-			items={items}
-			label={label}
-			icon="talend-burger"
-		/>
+		<Nav>
+			<ActionDropdown
+				bsStyle="link"
+				id={id}
+				items={items}
+				label={label}
+				icon="talend-burger"
+			/>
+		</Nav>
 	);
 }
 
@@ -69,7 +76,11 @@ Environment.propTypes = {
 };
 
 function Search(props) {
-	return <Typeahead {...props} />;
+	return (
+		<Navbar.Form pullRight role="search" className="separated">
+			<Typeahead {...props} />
+		</Navbar.Form>
+	);
 }
 
 Search.propTypes = Typeahead.propTypes;
@@ -112,14 +123,16 @@ User.propTypes = {
 
 function Products({ id, items }) {
 	return (
-		<ActionDropdown
-			bsStyle="link"
-			icon="talend-launcher"
-			id={id}
-			items={items}
-			label="Apps"
-			noCaret
-		/>
+		<Nav pullRight>
+			<ActionDropdown
+				bsStyle="link"
+				icon="talend-launcher"
+				id={id}
+				items={items}
+				label="Apps"
+				noCaret
+			/>
+		</Nav>
 	);
 }
 
@@ -139,29 +152,16 @@ Products.propTypes = {
 function AppHeaderBar(props) {
 	return (
 		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
-			<Navbar.Header>
-				<Navbar.Brand>
-					<Logo {...props.logo} />
-					{!props.logo.isFull && '|'}
-					<Brand {...props.brand} />
-					{props.env && '|'}
-				</Navbar.Brand>
-				<Navbar.Toggle />
-			</Navbar.Header>
 			<Navbar.Collapse>
-				<Nav>
-					{props.env && (<Environment {...props.env} />)}
-				</Nav>
-				<Nav pullRight>
-					|
+				<Logo {...props.logo} />
+				<Brand {...props.brand} isSeparated={!!props.env} />
+				{props.env && (<Environment {...props.env} />)}
+				<Products {...props.products} />
+				<Nav pullRight className="separated">
 					<Help {...props.help} />
 					<User {...props.user} />
-					|
-					<Products {...props.products} />
 				</Nav>
-				<Navbar.Form pullRight role="search">
-					<Search {...props.search} />
-				</Navbar.Form>
+				<Search {...props.search} />
 			</Navbar.Collapse>
 		</Navbar>
 	);

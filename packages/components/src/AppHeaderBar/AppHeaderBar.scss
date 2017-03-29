@@ -1,6 +1,19 @@
 $header-height: 48px;
 
 .tc-app-header-bar {
+	:global(.container-fluid) {
+		padding: 0;
+	}
+
+	:global(.navbar-right) {
+		margin: 0;
+	}
+
+	:global(.navbar-form) {
+		align-items: center;
+		display: flex;
+	}
+
 	:global(.navbar-brand) {
 		height: initial;
 		padding: 0;
@@ -10,6 +23,11 @@ $header-height: 48px;
 			margin: 0;
 			width: 0;
 		}
+	}
+
+	:global(.separated):after {
+		content: '|';
+		display: inline;
 	}
 
 	:global(.tc-header-bar-logo) {
