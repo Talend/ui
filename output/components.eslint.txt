@@ -16,51 +16,6 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.snapshot.test.js
-    2:1   error  Expected empty line after import statement not followed by another import      import/newline-after-import
-    4:2   error  Unexpected block statement surrounding arrow body                              arrow-body-style
-    4:2   error  Opening curly brace does not appear on the same line as controlling statement  brace-style
-    5:3   error  Expected indentation of 1 tab but found 2                                      indent
-    5:38  error  'children' is missing in props validation                                      react/prop-types
-    5:47  error  A space is required after '{'                                                  object-curly-spacing
-    5:69  error  A space is required before '}'                                                 object-curly-spacing
-    6:2   error  Expected indentation of 0 tabs but found 1                                     indent
-    8:1   error  Import in body of module; reorder to top                                       import/imports-first
-   46:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-  112:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-  179:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-  253:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-  323:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-  412:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
-   9:33  error  Absolute imports should come before relative imports  import/imports-first
-  33:67  error  Block must not be padded by blank lines               padded-blocks
-  39:22  error  Unexpected space before function parentheses          space-before-function-paren
-  40:3   error  'key' is missing in props validation                  react/prop-types
-  41:4   error  'index' is missing in props validation                react/prop-types
-  42:4   error  'isScrolling' is missing in props validation          react/prop-types
-  42:4   error  'isScrolling' is defined but never used               no-unused-vars
-  43:4   error  'isVisible' is defined but never used                 no-unused-vars
-  43:4   error  'isVisible' is missing in props validation            react/prop-types
-  44:3   error  'style' is missing in props validation                react/prop-types
-  44:8   error  Missing trailing comma                                comma-dangle
-  48:6   error  'getItem' was used before it was defined              no-use-before-define
-  50:4   error  Missing semicolon                                     semi
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/items.snapshot.test.js
-   2:1   error  Expected empty line after import statement not followed by another import      import/newline-after-import
-   3:89  error  Multiple spaces found before '('                                               no-multi-spaces
-   4:2   error  Unexpected block statement surrounding arrow body                              arrow-body-style
-   4:2   error  Opening curly brace does not appear on the same line as controlling statement  brace-style
-   5:3   error  Expected indentation of 1 tab but found 2                                      indent
-   5:38  error  'children' is missing in props validation                                      react/prop-types
-   5:47  error  A space is required after '{'                                                  object-curly-spacing
-   5:69  error  A space is required before '}'                                                 object-curly-spacing
-   6:2   error  Expected indentation of 0 tabs but found 1                                     indent
-   9:1   error  Import in body of module; reorder to top                                       import/imports-first
-  28:26  error  Unexpected block statement surrounding arrow body                              arrow-body-style
-
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -77,7 +32,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 52 problems (52 errors, 0 warnings)
+✖ 13 problems (13 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
