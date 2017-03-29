@@ -13,7 +13,6 @@ import './Checkbox';
 import './Dialog';
 import './Drawer';
 import './Enumeration';
-import './HeaderBar';
 import './Icon';
 import './Layout';
 import './List';
