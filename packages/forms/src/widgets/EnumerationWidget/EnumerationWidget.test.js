@@ -3,10 +3,10 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import EnumerationWidget from './EnumerationWidget';
 
-jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',  () => (props) =>
-	{
-		return (<div id="autoSizer">{props.children({height: 30, width: 30})}</div>);
-	}
+jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
+	/* eslint-disable */
+	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div>
+	/* eslint-enable */
 );
 
 describe('EnumerationWidget', () => {

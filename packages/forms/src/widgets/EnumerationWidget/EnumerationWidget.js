@@ -110,10 +110,6 @@ class EnumerationWidget extends React.Component {
 		this.setState({ ...this.state, items: nextProps.formData });
 	}
 
-	getItemHeight(isInEdit) {
-		return isInEdit ? 33 : 33;
-	}
-
 	// default mode
 	onEnterEditModeItem(event, value) {
 		let items = resetItems([...this.state.items]);
@@ -312,6 +308,10 @@ class EnumerationWidget extends React.Component {
 				this.updateHeaderInputDisabled('');
 			}
 		}
+	}
+
+	getItemHeight(isInEdit) {
+		return isInEdit ? 33 : 33;
 	}
 
 	setFormData() {
