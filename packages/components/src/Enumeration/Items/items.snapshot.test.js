@@ -1,12 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',  () => (props) =>
-	{
-		return (<div id="autoSizer">{props.children({height: 30, width: 30})}</div>);
-	}
-);
-
 import Items from './Items.component';
+
+jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
+	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div> // eslint-disable-line react/prop-types
+);
 
 describe('Items', () => {
 	it('should display one item in edit mode and the other in default', () => {
@@ -25,9 +23,7 @@ describe('Items', () => {
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
 				onSelectItem: jest.fn(),
-				getItemHeight: () => {
-					return 42;
-				},
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
