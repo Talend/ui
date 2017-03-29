@@ -47,7 +47,7 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return isInEdit ? 33 : 33; },
+		getItemHeight: (isInEdit) => { return 33; },
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -101,7 +101,7 @@ const searchProps = {
 };
 
 // custom edit props
-editItemProps.items = Array(10000).fill('').map((item, index) => ({
+editItemProps.items = Array(100000).fill('').map((item, index) => ({
 	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
 editItemProps.items[0] = {
