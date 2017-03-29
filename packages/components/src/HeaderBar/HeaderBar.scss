@@ -26,7 +26,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			&:global(.separated):after {
 				content: '|';
 			}
-			
+
 			&:global(.flex) {
 				display: flex;
 				align-items: center;

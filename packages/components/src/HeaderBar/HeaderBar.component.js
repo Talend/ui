@@ -168,6 +168,14 @@ function HeaderBar(props) {
 	);
 }
 
+HeaderBar.Logo = Logo;
+HeaderBar.Brand = Brand;
+HeaderBar.Environment = Environment;
+HeaderBar.Search = Search;
+HeaderBar.Help = Help;
+HeaderBar.User = User;
+HeaderBar.Products = Products;
+
 HeaderBar.propTypes = {
 	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
 	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
