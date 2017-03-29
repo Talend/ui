@@ -1,8 +1,23 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
+import talendIcons from 'talend-icons/dist/react';
 
 import { AppHeaderBar, IconsProvider } from '../src';
+
+const icons = {
+	'talend-burger': talendIcons['talend-burger'],
+	'talend-cog': talendIcons['talend-cog'],
+	'talend-filter': talendIcons['talend-filter'],
+	'talend-launcher': talendIcons['talend-launcher'],
+	'talend-logo': talendIcons['talend-logo'],
+	'talend-logo-square': talendIcons['talend-logo-square'],
+	'talend-question-circle': talendIcons['talend-question-circle'],
+	'talend-search': talendIcons['talend-search'],
+	'talend-share-alt': talendIcons['talend-share-alt'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-user-circle': talendIcons['talend-user-circle'],
+};
 
 const typeaheadItems = [
 	{
@@ -109,7 +124,7 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 		</div>
 	));
 

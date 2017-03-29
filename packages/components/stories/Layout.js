@@ -6,10 +6,16 @@ import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '..
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
+	'talend-cog': talendIcons['talend-cog'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-folder': talendIcons['talend-folder'],
+	'talend-logo-square': talendIcons['talend-logo-square'],
+	'talend-launcher': talendIcons['talend-launcher'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
+	'talend-question-circle': talendIcons['talend-question-circle'],
+	'talend-search': talendIcons['talend-search'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-user-circle': talendIcons['talend-user-circle'],
 };
 
 const actions = [
@@ -57,7 +63,52 @@ const dockedSidePanel = (<SidePanel
 	onToggleDock={action('Toggle dock clicked')}
 	docked
 />);
-const header = (<AppHeaderBar app="Example App Name" />);
+const headerProps = {
+	brand: {
+		id: 'header-brand',
+		name: 'Example App Name',
+		onClick: action('onApplicationNameClick'),
+	},
+	logo: {
+		id: 'header-logo',
+		onClick: action('onLogoClick'),
+	},
+	search: {
+		icon: {
+			name: 'talend-search',
+			title: 'icon',
+			bsStyle: 'link',
+		},
+		id: 'header-search',
+		onToggle: action('onSearchClick'),
+	},
+	help: {
+		id: 'header-help',
+		onClick: action('onHelpClick'),
+	},
+	user: {
+		id: 'header-user',
+		items: [
+			{
+				icon: 'talend-cog',
+				label: 'Settings',
+				onClick: action('onSettingsClick'),
+			},
+		],
+		name: 'User NAME',
+	},
+	products: {
+		id: 'header-products',
+		items: [
+			{
+				icon: 'talend-logo-square',
+				label: 'Portal',
+				onClick: action('onPortalClick'),
+			},
+		],
+	},
+};
+const header = <AppHeaderBar {...headerProps} />;
 const footer = 'Footer content';
 
 const listItem = {
