@@ -167,6 +167,14 @@ function AppHeaderBar(props) {
 	);
 }
 
+AppHeaderBar.Logo = Logo;
+AppHeaderBar.Brand = Brand;
+AppHeaderBar.Environment = Environment;
+AppHeaderBar.Search = Search;
+AppHeaderBar.Help = Help;
+AppHeaderBar.User = User;
+AppHeaderBar.Products = Products;
+
 AppHeaderBar.propTypes = {
 	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
 	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
