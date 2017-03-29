@@ -8,18 +8,21 @@ import theme from './HeaderBar.scss';
 
 function Logo({ id, isFull, onClick }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
-	const className = classNames(['tc-header-bar-logo', isFull && 'full']);
+	const itemClassName = classNames(['tc-header-bar-action', !isFull && 'separated']);
+	const actionClassName = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
-		<Action
-			bsStyle="link"
-			className={className}
-			hideLabel
-			id={id}
-			label="Go to Portal"
-			icon={icon}
-			onClick={onClick}
-			tooltipPlacement="bottom"
-		/>
+		<li className={itemClassName}>
+			<Action
+				bsStyle="link"
+				className={actionClassName}
+				hideLabel
+				id={id}
+				label="Go to Portal"
+				icon={icon}
+				onClick={onClick}
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
@@ -29,35 +32,41 @@ Logo.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function Brand({ id, name, onClick }) {
+function Brand({ id, isSeparated, name, onClick }) {
+	const className = classNames(['tc-header-bar-action', isSeparated && 'separated']);
 	return (
-		<Action
-			bsStyle="link"
-			className="tc-header-bar-brand"
-			id={id}
-			label={name}
-			onClick={onClick}
-			tooltipPlacement="bottom"
-		/>
+		<li className={className}>
+			<Action
+				bsStyle="link"
+				className="tc-header-bar-brand"
+				id={id}
+				label={name}
+				onClick={onClick}
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
 Brand.propTypes = {
 	id: React.PropTypes.string,
+	isSeparated: React.PropTypes.bool,
 	name: React.PropTypes.string.isRequired,
 	onClick: React.PropTypes.func.isRequired,
 };
 
 function Environment(props) {
 	return (
-		<ActionDropdown
-			bsStyle="link"
-			icon="talend-burger"
-			id={props.id}
-			items={props.items}
-			label={props.label}
-			tooltipPlacement="bottom"
-		/>
+		<li className="tc-header-bar-action">
+			<ActionDropdown
+				bsStyle="link"
+				icon="talend-burger"
+				id={props.id}
+				items={props.items}
+				label={props.label}
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
@@ -68,21 +77,27 @@ Environment.propTypes = {
 };
 
 function Search(props) {
-	return <Typeahead {...props} />;
+	return (
+		<li className="tc-header-bar-action separated flex">
+			<Typeahead {...props} />
+		</li>
+	);
 }
 
 Search.propTypes = Typeahead.propTypes;
 
 function Help({ id, onClick }) {
 	return (
-		<Action
-			bsStyle="link"
-			icon="talend-question-circle"
-			id={id}
-			label="Help"
-			onClick={onClick}
-			tooltipPlacement="bottom"
-		/>
+		<li className="tc-header-bar-action">
+			<Action
+				bsStyle="link"
+				icon="talend-question-circle"
+				id={id}
+				label="Help"
+				onClick={onClick}
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
@@ -93,15 +108,17 @@ Help.propTypes = {
 
 function User({ id, items, name }) {
 	return (
-		<ActionDropdown
-			bsStyle="link"
-			icon="talend-user-circle"
-			id={id}
-			items={items}
-			label={name}
-			noCaret
-			tooltipPlacement="bottom"
-		/>
+		<li className="tc-header-bar-action separated">
+			<ActionDropdown
+				bsStyle="link"
+				icon="talend-user-circle"
+				id={id}
+				items={items}
+				label={name}
+				noCaret
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
@@ -113,15 +130,18 @@ User.propTypes = {
 
 function Products({ id, items }) {
 	return (
-		<ActionDropdown
-			bsStyle="link"
-			id={id}
-			icon="talend-launcher"
-			items={items}
-			label="Apps"
-			noCaret
-			tooltipPlacement="bottom"
-		/>
+		<li className="tc-header-bar-action">
+			<ActionDropdown
+				bsStyle="link"
+				id={id}
+				icon="talend-launcher"
+				items={items}
+				label="Apps"
+				noCaret
+				pullRight
+				tooltipPlacement="bottom"
+			/>
+		</li>
 	);
 }
 
@@ -133,21 +153,17 @@ Products.propTypes = {
 function HeaderBar(props) {
 	return (
 		<nav className={classNames([`tc-header-bar, ${theme['tc-header-bar']}`])} >
-			<div className="tc-header-bar-actions">
+			<ul className="tc-header-bar-actions">
 				<Logo {...props.logo} />
-				{!props.logo.isFull && '|'}
-				<Brand {...props.brand} />
-				{props.env && '|'}
+				<Brand {...props.brand} isSeparated={!!props.env} />
 				{props.env && (<Environment {...props.env} />)}
-			</div>
-			<div className="tc-header-bar-actions right">
+			</ul>
+			<ul className="tc-header-bar-actions right">
 				{props.search && (<Search {...props.search} />)}
-				|
 				<Help {...props.help} />
 				<User {...props.user} />
-				|
 				<Products {...props.products} />
-			</div>
+			</ul>
 		</nav>
 	);
 }

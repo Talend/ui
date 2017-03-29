@@ -12,8 +12,28 @@ $background-color-on-hover: shade($brand-primary, 30);
 	:global(.tc-header-bar-actions) {
 		align-items: center;
 		display: flex;
+		padding: 0;
+		margin: 0;
 
-		:global(.tc-header-bar-logo) {
+		&:global(.right) {
+			margin-left: auto;
+		}
+
+		:global(.tc-header-bar-action) {
+			height: 100%;
+			list-style: none;
+
+			&:global(.separated):after {
+				content: '|';
+			}
+			
+			&:global(.flex) {
+				display: flex;
+				align-items: center;
+		}
+		}
+
+		:global(.tc-header-bar-logo):global(.btn):global(.btn-link) {
 			line-height: $svg-lg-size;
 			padding: 12px $padding-normal;
 
@@ -31,10 +51,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 		:global(.tc-header-bar-brand):global(.btn):global(.btn-link) {
 			font-size: $font-size-base;
 			text-transform: uppercase;
-		}
-
-		&:global(.right) {
-			margin-left: auto;
 		}
 	}
 
@@ -57,11 +73,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 			border-top-color: $white;
 			border-right-color: $white;
 			box-shadow: 1px -1px 0 $white;
-		}
-
-		:global(.dropdown-menu):last-child {
-			left: inherit;
-			right: 0;
 		}
 
 		&:global(.open) {
