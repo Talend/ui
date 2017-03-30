@@ -1,7 +1,11 @@
 .columns {
-  display: flex;
+	display: flex;
 
- fieldset {
-	 margin-right: auto;
+	.column {
+		flex: 1;
+
+		fieldset {
+			margin-right: auto;
+		}
 	}
 }
