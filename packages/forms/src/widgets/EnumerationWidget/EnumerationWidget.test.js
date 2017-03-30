@@ -163,7 +163,31 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(registry.formContext.handleAction).toBeCalledWith(undefined, 'ENUMERATION_REMOVE_ACTION', 0);
+		expect(registry.formContext.handleAction)
+			.toBeCalledWith(undefined, 'ENUMERATION_REMOVE_ACTION', 0);
 		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should deselect edit mode when select other element', () => {
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				onChange={jest.fn()}
+				formData={[
+					{ values: ['titi', 'tata'] },
+					{ values: ['toto', 'tutu'] },
+				]}
+			/>);
+
+		// edit item
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
+			.simulate('click');
+
+		// when select another item
+		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
+
+		// should reset all items to default mode
+		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
+		expect(wrapper.find('.tc-enumeration-item .btn-default').length).toBe(2);
 	});
 });
