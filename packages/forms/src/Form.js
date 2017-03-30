@@ -30,10 +30,6 @@ const customWidgets = {
 	enumeration: EnumerationWidget,
 };
 
-const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist', 'enumeration'],
-};
-
 export function renderActionIcon(icon) {
 	if (icon) {
 		return <i className={icon} />;
@@ -105,11 +101,6 @@ class Form extends React.Component {
 			throw Error('You must provide data with valid JSON Schema');
 		}
 
-		const uiSchema = {
-			...(this.props.data && this.props.data.uiSchema),
-			...customUiSchema,
-		};
-
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
@@ -128,7 +119,7 @@ class Form extends React.Component {
 			<RJSForm
 				{...this.props}
 				schema={schema}
-				uiSchema={uiSchema}
+				uiSchema={this.props.data && this.props.data.uiSchema}
 				formData={formData}
 				formContext={customFormContext}
 				fields={customFields}
