@@ -159,6 +159,12 @@ describe('ColumnHeader', () => {
 		/>);
 		expect(wrapper.node).toMatchSnapshot();
 	});
+	it('should render an invisible screen reader compatible column header', () => {
+		const wrapper = shallow(<ColumnHeader
+			column={{ key: 'test', label: 'Test', hideHeader: true }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
 	it('should render with sort', () => {
 		const wrapper = shallow(<ColumnHeader
 			column={{ key: 'test', label: 'Test' }}

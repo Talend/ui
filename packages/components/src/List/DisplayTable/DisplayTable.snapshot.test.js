@@ -70,6 +70,17 @@ const sort = {
 	onChange: jest.fn(),
 };
 
+
+function insertActionsColumn(column) {
+	// Insert actions columns between 'author' and 'created'
+	columns.splice(2, 0, column);
+	items[0].columnActions = columnActions;
+	return {
+		items,
+		columns,
+	};
+}
+
 describe('DisplayTable', () => {
 	it('should render with default title property (name)', () => {
 		// given
@@ -169,12 +180,18 @@ describe('DisplayTable', () => {
 
 	it('should render column actions', () => {
 		// given
-		columns.splice(2, 0, { key: 'columnActions', label: '' });
-		items[0].columnActions = columnActions;
-		const props = {
-			items,
-			columns,
-		};
+		const props = insertActionsColumn({ key: 'columnActions', label: '' });
+
+		// when
+		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render screen reader compatible column actions with invisible header', () => {
+		// given
+		const props = insertActionsColumn({ key: 'columnActions', label: 'Actions', hideHeader: true });
 
 		// when
 		const wrapper = renderer.create(<DisplayTable {...props} />).toJSON();
