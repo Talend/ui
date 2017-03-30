@@ -168,7 +168,7 @@ describe('EnumerationWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should deselect edit mode when select other element', () => {
+	it('should deselect edit mode when select other item', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
