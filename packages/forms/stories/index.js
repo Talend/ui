@@ -68,6 +68,14 @@ decoratedStories.add('Multiple actions', () => {
 			type: 'button',
 			label: 'Other Button',
 			onClick: action('OTHER'),
+			tooltip: true,
+		},
+		{
+			style: 'primary',
+			type: 'submit',
+			label: 'VALIDATE',
+			inProgress: true,
+			onClick: action('INPROGRESS'),
 		},
 		{
 			style: 'primary',

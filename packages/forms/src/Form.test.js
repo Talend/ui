@@ -110,6 +110,13 @@ describe('renderActions', () => {
 
 		// then
 		expect(wrapper.find(Action)).toHaveLength(3);
+		expect(wrapper.find(Action).first().props().disabled).toBeFalsy();
+		expect(wrapper.find(Action).last().props().disabled).toBeTruthy();
+	});
+
+	it('should render a single submit button', () => {
+		const wrapper = shallow(<div>{renderActions()}</div>);
+		expect(wrapper.find(Action).first().props().label).toEqual('Submit');
 	});
 });
 
