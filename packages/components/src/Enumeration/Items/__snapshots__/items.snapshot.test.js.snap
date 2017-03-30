@@ -3,6 +3,7 @@
 exports[`Items should display one item in edit mode and the other in default 1`] = `
 <ul
   className="undefined tc-enumeration-items"
+  onScroll={[Function]}
 >
   <li
     className="undefined tc-enumeration-item"

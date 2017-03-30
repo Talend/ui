@@ -75,6 +75,10 @@ class Form extends React.Component {
 		}
 	}
 
+	onLoadData() {
+		this.props.onLoadData();
+	}
+
 	/**
 	 * Handle changes only if modified field has "ui:trigger" option
 	 * @param changes New formData
@@ -136,6 +140,7 @@ class Form extends React.Component {
 				widgets={customWidgets}
 				onChange={undefined}
 				onSubmit={this.handleSchemaSubmit}
+				onLoadData={this.onLoadData}
 				ref={(c) => {
 					this.form = c;
 				}}
@@ -170,6 +175,7 @@ Form.propTypes = {
 	data: DataPropTypes.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func,
+	onLoadData: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
 	handleAction: PropTypes.func,

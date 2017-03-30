@@ -14,7 +14,7 @@ const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
-
+const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -85,6 +85,7 @@ class EnumerationWidget extends React.Component {
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
 				onSelectItem: this.onSelectItem.bind(this),
+				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: [{
 					disabled: true,
@@ -307,6 +308,11 @@ class EnumerationWidget extends React.Component {
 				this.updateHeaderInputDisabled('');
 			}
 		}
+	}
+
+	// lazy loading
+	onLoadData() {
+		this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION);
 	}
 
 	setFormData() {

@@ -65,8 +65,14 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 		}
 	}
 
+	function onScroll(event){
+			if (event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+			itemsProp.onLoadData();
+		}
+	}
+
 	return (
-		<ul className={itemsClasses()}>
+		<ul className={itemsClasses()} onScroll={onScroll} >
 			{ items.map((item, index) => getItem(item, index)) }
 		</ul>
 	);

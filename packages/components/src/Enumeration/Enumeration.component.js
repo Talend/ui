@@ -55,6 +55,7 @@ Enumeration.propTypes = {
 		onChangeItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
+		onLoadData: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
