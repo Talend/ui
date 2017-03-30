@@ -103,6 +103,32 @@ describe('renderActions', () => {
 		expect(wrapper.find(Button)).toHaveLength(2);
 	});
 
+	it('should render some action disabled if they are set this way', () => {
+		function noop() {
+		}
+
+		const actions = [
+			{
+				type: 'button',
+				style: 'link',
+				label: 'CANCEL',
+				disabled: true,
+			},
+			{
+				type: 'submit',
+				style: 'primary',
+				label: 'VALIDATE',
+			},
+		];
+
+		// when
+		const wrapper = shallow(<div>{renderActions(actions, noop)}</div>);
+
+		// then
+		expect(wrapper.find(Button).first().props().disabled).toBeTruthy();
+		expect(wrapper.find(Button).last().props().disabled).toBeFalsy();
+	});
+
 	it('should render a single submit button', () => {
 		const wrapper = shallow(renderActions());
 		expect(wrapper.containsMatchingElement(<button type="submit">Submit</button>)).toBeTruthy();

@@ -52,6 +52,42 @@ Here is the archetype of the data property required to render the form:
 }
 ```
 
+### Actions
+The form accept an array of action so you can generate custom buttons.
+```javascript
+import Form from 'react-talend-forms';
+
+class MyForm extends React.Component {
+
+	onSubmit(formData) {
+		console.log(formData);
+	}
+
+	onCancel() {
+		console.log('Cancelled');
+	}
+
+	render() {
+		const actions = [
+			{ style: 'link', onClick: this.onCancel, type: 'button', label: 'CANCEL' },
+			{ style: 'primary', type: 'submit', label: 'VALIDATE', disabled: true },
+		];
+		return (
+			<Form data={this.props.data} actions={actions} onSubmit={this.onSubmit} />
+		);
+	}
+}
+```
+
+those actions can have the following shape :
+| property              | type                | default | doc |
+| ----------------------|:-------------------:|:-------:|:---:|
+| style                 | string              |         | 
+| type                  | 'button'\|'submit ' |         | button is usefull for action not trigering form submission |
+| label                 | string              |         | 
+| disabled              | boolean             | false   | disable the action button |
+| onClick               | function            |         | execute the call back with `formData`, `formId`, `propertyName`, `propertyValue` as parameter
+
 
 ### Handlers
 
