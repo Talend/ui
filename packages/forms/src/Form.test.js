@@ -255,6 +255,8 @@ describe('<Form/>', () => {
 
 			reset.simulate('click');
 			expect(onClickReset.mock.calls.length).toEqual(1);
+			expect(onClickReset.mock.calls[0][0]).toBeTruthy();
+			expect(onClickReset.mock.calls[0][1]).toMatchSnapshot();
 		});
 
 		it('should render form with custom css', () => {
