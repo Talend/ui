@@ -2,8 +2,12 @@ import React, { PropTypes } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Action from './Action';
 import ActionDropdown from './ActionDropdown';
+import ActionSplitDropdown from './ActionSplitDropdown';
+
 
 const TYPE_DROPDOWN = 'dropdown';
+const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
+
 
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
@@ -13,6 +17,17 @@ function getButtonGroupProps(props) {
 		}
 	});
 	return buttonGroupProps;
+}
+
+function getActionType(displayMode) {
+	switch (displayMode) {
+	case TYPE_DROPDOWN:
+		return ActionDropdown;
+	case TYPE_SPLIT_DROPDOWN:
+		return ActionSplitDropdown;
+	default:
+		return Action;
+	}
 }
 
 /**
@@ -43,38 +58,46 @@ const actions: [
 				onClick: action('document 2 click'),
 			},
 		],
-	}
+	},
+	{
+		id: 'split-dropdown-id',
+		displayMode: 'splitDropdown',
+		label: 'add file',
+		onClick: action('onClick'),
+		items: [
+			{
+				label: 'file 1',
+				onClick: action('file 1 click'),
+			},
+			{
+				label: 'file 2',
+				onClick: action('file 2 click'),
+			},
+		],
+	},
  ];
 <Actions actions={actions} tooltipPlacement="right" hideLabel link />
  */
 function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);
+	const globalParams = {
+		hideLabel: props.hideLabel,
+		link: props.link,
+		tooltipPlacement: props.tooltipPlacement,
+	};
+
 	return (
 		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
-				switch (displayMode) {
-				case TYPE_DROPDOWN:
-					return (
-						<ActionDropdown
-							hideLabel={props.hideLabel}
-							key={index}
-							link={props.link}
-							tooltipPlacement={props.tooltipPlacement}
-							{...rest}
-						/>
-					);
-				default:
-					return (
-						<Action
-							hideLabel={props.hideLabel}
-							key={index}
-							link={props.link}
-							tooltipPlacement={props.tooltipPlacement}
-							{...rest}
-						/>
-					);
-				}
+				const ActionType = getActionType(displayMode);
+				const params = {
+					key: index,
+					...globalParams,
+					...rest,
+				};
+
+				return <ActionType {...params} />;
 			})}
 		</ButtonGroup>
 	);
@@ -85,8 +108,12 @@ Actions.propTypes = {
 		PropTypes.oneOfType([
 			PropTypes.shape(Action.propTypes),
 			PropTypes.shape({
-				displayMode: PropTypes.oneOf([TYPE_DROPDOWN]),
+				displayMode: TYPE_DROPDOWN,
 				...ActionDropdown.propTypes,
+			}),
+			PropTypes.shape({
+				displayMode: TYPE_SPLIT_DROPDOWN,
+				...ActionSplitDropdown.propTypes,
 			}),
 		]),
 	),
