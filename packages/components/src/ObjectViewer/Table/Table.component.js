@@ -5,18 +5,32 @@ import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
 import theme from './Table.scss';
 
-function getKeys(data, isFlat) {
+export function getKeys(data, isFlat) {
 	if (isFlat) {
 		return Object.keys(toFlat(data));
 	}
 	return Object.keys(data);
 }
 
-function getAbsolutePath(index, key, flat) {
+export function getAbsolutePath(index, key, flat) {
 	if (flat) {
 		return `$[${index}]${key.replace('$', '')}`;
 	}
 	return `$[${index}]['${key}']`;
+}
+
+export function getHeaders(keys, isFlat) {
+	if (isFlat) {
+		// $['id'][0]['foo'] -> id[0].foo
+		return keys.map(str => str
+			.replace('$[\'', '')
+			.replace('\'][\'', '.')
+			.replace('][\'', '].')
+			.replace('\'][', '[')
+			.replace('\']', '')
+		);
+	}
+	return keys;
 }
 
 function Table({ flat, data, ...props }) {
@@ -24,6 +38,7 @@ function Table({ flat, data, ...props }) {
 		return null;
 	}
 	const keys = getKeys(data[0], flat);
+	const headers = getHeaders(keys, flat);
 	const tableClassName = classNames(
 		theme.table,
 		'tc-object-viewer',
@@ -34,7 +49,7 @@ function Table({ flat, data, ...props }) {
 		<table className={tableClassName}>
 			<thead>
 				<tr>
-					{keys.map((key, index) => (<td key={index}>{key}</td>))}
+					{headers.map((key, index) => (<td key={index}>{key}</td>))}
 				</tr>
 			</thead>
 			<tbody>
@@ -63,9 +78,9 @@ function Table({ flat, data, ...props }) {
 }
 
 Table.propTypes = {
-	flat: PropTypes.boolean,
-	data: PropTypes.oneOf([
-		PropTypes.boolean,
+	flat: PropTypes.bool,
+	data: PropTypes.oneOfType([
+		PropTypes.bool,
 		PropTypes.number,
 		PropTypes.string,
 		PropTypes.object,

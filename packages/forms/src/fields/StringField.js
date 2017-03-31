@@ -8,7 +8,6 @@ import {
 	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
 
-
 function StringField(props) {
 	const {
 		schema,
@@ -22,6 +21,7 @@ function StringField(props) {
 		autofocus,
 		registry,
 		onChange,
+		onBlur,
 	} = props;
 	const { title, format } = schema;
 	const { widgets, formContext } = registry;
@@ -42,6 +42,7 @@ function StringField(props) {
 			label={title === undefined ? name : title}
 			value={defaultFieldValue(formData, schema)}
 			onChange={onChangeHandler}
+			onBlur={onBlur}
 			required={required}
 			disabled={disabled}
 			readonly={readonly}
@@ -55,28 +56,29 @@ function StringField(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	StringField.propTypes = {
-		autofocus: PropTypes.bool,
-		disabled: PropTypes.bool,
+		schema: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object.isRequired,
+		idSchema: PropTypes.object,
+		onChange: PropTypes.func.isRequired,
+		onBlur: PropTypes.func.isRequired,
 		formData: PropTypes.oneOfType([
 			React.PropTypes.string,
 			React.PropTypes.number,
 		]),
-		idSchema: PropTypes.object,
-		name: PropTypes.string,
-		onChange: PropTypes.func.isRequired,
-		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
-			definitions: PropTypes.object.isRequired,
-			fields: PropTypes.objectOf(PropTypes.func).isRequired,
-			formContext: PropTypes.object.isRequired,
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
 				PropTypes.func,
-				PropTypes.object,
+				PropTypes.object
 			])).isRequired,
+			fields: PropTypes.objectOf(PropTypes.func).isRequired,
+			definitions: PropTypes.object.isRequired,
+			formContext: PropTypes.object.isRequired,
 		}),
+		formContext: PropTypes.object.isRequired,
 		required: PropTypes.bool,
-		schema: PropTypes.object.isRequired,
-		uiSchema: PropTypes.object.isRequired,
+		disabled: PropTypes.bool,
+		readonly: PropTypes.bool,
+		autofocus: PropTypes.bool,
 	};
 }
 

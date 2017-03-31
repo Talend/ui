@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ItemTitle should render button title 1`] = `
 <div
-  className="tc-list-item-title">
+  className="tc-list-item-title"
+>
   <button
     className="btn btn-link"
     disabled={false}
@@ -8,7 +11,8 @@ exports[`ItemTitle should render button title 1`] = `
     onClick={[Function]}
     role="link"
     title="Hello world"
-    type="button">
+    type="button"
+  >
     Hello world
   </button>
 </div>
@@ -16,7 +20,8 @@ exports[`ItemTitle should render button title 1`] = `
 
 exports[`ItemTitle should render input title 1`] = `
 <div
-  className="tc-list-item-title">
+  className="tc-list-item-title"
+>
   <input
     autoFocus={true}
     className="tc-list-item-title-input"
@@ -25,16 +30,19 @@ exports[`ItemTitle should render input title 1`] = `
     onChange={[Function]}
     onKeyUp={[Function]}
     type="text"
-    value="Hello world" />
+    value="Hello world"
+  />
 </div>
 `;
 
 exports[`ItemTitle should render text title 1`] = `
 <div
-  className="tc-list-item-title">
+  className="tc-list-item-title"
+>
   <div
     className="tc-list-item-title-text"
-    id="title">
+    id="title"
+  >
     Hello world
   </div>
 </div>

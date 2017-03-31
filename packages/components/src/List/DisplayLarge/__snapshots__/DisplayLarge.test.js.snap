@@ -1,13 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`DisplayLarge shoudl render selected list element with custom selectedClass if set 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default something"
-    id="large-list-0">
+    id="large-list-0"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -16,12 +22,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Hello world
         </span>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -32,11 +40,13 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -48,34 +58,43 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={1}
+          >
             1
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -83,21 +102,27 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -106,11 +131,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
   </div>
   <div
     className="panel panel-default something"
-    id="large-list-1">
+    id="large-list-1"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -119,33 +147,42 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Foo
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -153,21 +190,27 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -176,11 +219,14 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
   </div>
   <div
     className="panel panel-default something"
-    id="large-list-2">
+    id="large-list-2"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -189,33 +235,42 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Bar
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -223,21 +278,27 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -249,14 +310,18 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
 
 exports[`DisplayLarge shoudl render selected list element with defaut 'active' class 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default active"
-    id="large-list-0">
+    id="large-list-0"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -265,12 +330,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Hello world
         </span>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -281,11 +348,13 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -297,34 +366,43 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={1}
+          >
             1
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -332,21 +410,27 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -355,11 +439,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
   </div>
   <div
     className="panel panel-default active"
-    id="large-list-1">
+    id="large-list-1"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -368,33 +455,42 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Foo
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -402,21 +498,27 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -425,11 +527,14 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
   </div>
   <div
     className="panel panel-default active"
-    id="large-list-2">
+    id="large-list-2"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -438,33 +543,42 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Bar
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -472,21 +586,27 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -498,14 +618,18 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
 
 exports[`DisplayLarge should render with default title property (name) 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -514,12 +638,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Hello world
         </span>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -530,11 +656,13 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -546,34 +674,43 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={1}
+          >
             1
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -581,21 +718,27 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -604,11 +747,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -617,33 +763,42 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Foo
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -651,21 +806,27 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -674,11 +835,14 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -687,33 +851,42 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Bar
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -721,21 +894,27 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -747,35 +926,37 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
 
 exports[`DisplayLarge should render with defined title property 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o tc-list-icon"
-          title={null} />
+          title={null}
+        />
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           1
         </button>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -786,11 +967,13 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -802,34 +985,43 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Name
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Hello world"
+          >
             Hello world
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -837,21 +1029,27 @@ exports[`DisplayLarge should render with defined title property 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -860,53 +1058,61 @@ exports[`DisplayLarge should render with defined title property 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-pdf-o tc-list-icon"
-          title={null} />
+          title={null}
+        />
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           2
         </button>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Name
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Foo"
+          >
             Foo
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -914,21 +1120,27 @@ exports[`DisplayLarge should render with defined title property 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -937,49 +1149,56 @@ exports[`DisplayLarge should render with defined title property 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}>
+    id={undefined}
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
           id={undefined}
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           2
         </button>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Name
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Bar"
+          >
             Bar
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -987,21 +1206,27 @@ exports[`DisplayLarge should render with defined title property 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1013,14 +1238,18 @@ exports[`DisplayLarge should render with defined title property 1`] = `
 
 exports[`DisplayLarge should render with id if provided 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default"
-    id="large-list-0">
+    id="large-list-0"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1029,12 +1258,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Hello world
         </span>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -1045,11 +1276,13 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -1061,34 +1294,43 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={1}
+          >
             1
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1096,21 +1338,27 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1119,11 +1367,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id="large-list-1">
+    id="large-list-1"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1132,33 +1383,42 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Foo
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1166,21 +1426,27 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1189,11 +1455,14 @@ exports[`DisplayLarge should render with id if provided 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id="large-list-2">
+    id="large-list-2"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1202,33 +1471,42 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Bar
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1236,21 +1514,27 @@ exports[`DisplayLarge should render with id if provided 1`] = `
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1262,14 +1546,18 @@ exports[`DisplayLarge should render with id if provided 1`] = `
 
 exports[`DisplayLarge should render with item custom className if provided 1`] = `
 <div
-  className="tc-list-display">
+  className="tc-list-display"
+>
   <div
     className="panel panel-default item-0-class"
-    id="large-list-0">
+    id="large-list-0"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1278,12 +1566,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Hello world
         </span>
       </div>
       <div
-        className="tc-actions btn-group">
+        className="tc-actions btn-group"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -1294,11 +1584,13 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-edit"
-            title={null} />
+            title={null}
+          />
         </button>
         <button
           aria-describedby={42}
@@ -1310,34 +1602,43 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
-            title={null} />
+            title={null}
+          />
         </button>
       </div>
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={1}
+          >
             1
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1345,21 +1646,27 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1368,11 +1675,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
   </div>
   <div
     className="panel panel-default item-1-class"
-    id="large-list-1">
+    id="large-list-1"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1381,33 +1691,42 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Foo
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1415,21 +1734,27 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
@@ -1438,11 +1763,14 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
   </div>
   <div
     className="panel panel-default"
-    id="large-list-2">
+    id="large-list-2"
+  >
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <div
-        className={undefined}>
+        className={undefined}
+      >
         <span
           aria-describedby={42}
           className={undefined}
@@ -1451,33 +1779,42 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           onClick={null}
           onFocus={[Function]}
           onMouseOut={[Function]}
-          onMouseOver={[Function]}>
+          onMouseOver={[Function]}
+        >
           Bar
         </span>
       </div>
       <div
-        className="tc-actions btn-group" />
+        className="tc-actions btn-group"
+      />
     </div>
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Id
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title={2}
+          >
             2
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Author
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="Jean-Pierre DUPONT"
+          >
             Jean-Pierre DUPONT
           </span>
         </li>
@@ -1485,21 +1822,27 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
       <ul>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Created
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>
         <li>
           <span
-            className={undefined}>
+            className={undefined}
+          >
             Modified
           </span>
           <span
-            className={undefined}>
+            className={undefined}
+            title="2016-09-22"
+          >
             2016-09-22
           </span>
         </li>

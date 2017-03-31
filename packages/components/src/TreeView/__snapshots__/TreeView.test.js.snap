@@ -1,8 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
-  className="tc-treeview">
+  className={undefined}
+>
   <header
-    className="tc-treeview-header">
+    className={undefined}
+  >
     <span>
       some elements
     </span>
@@ -10,322 +14,313 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
+      id="id-add"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-plus" />
+          xlinkHref="#talend-plus"
+        />
       </svg>
     </button>
   </header>
   <nav
-    className="tc-treeview-nav">
+    className={undefined}
+  >
     <ul
-      className="tc-treeview-ul">
+      className={undefined}
+    >
       <li
-        className="tc-treeview-li"
-        data-tc-treeview-hidden={undefined}>
+        className={undefined}
+        data-hidden={undefined}
+      >
         <div
-          className="tc-treeview-item"
-          data-tc-treeview-depth={0}
-          data-tc-treeview-selected={undefined}
-          onClick={[Function]}>
+          className={undefined}
+          data-depth={0}
+          data-selected={undefined}
+          id="id-0"
+          onClick={[Function]}
+        >
           <div
-            className="tc-treeview-toggle"
-            data-tc-treeview-toggled={true}>
+            className={undefined}
+            data-toggled={true}
+          >
             <button
               aria-describedby={42}
               className="btn btn-link"
               disabled={false}
+              id="id-0-toggle"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
-              type="button">
+              type="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-caret-down" />
+                  xlinkHref="#talend-caret-down"
+                />
               </svg>
             </button>
           </div>
           <span
-            className="tc-treeview-folder">
+            className={undefined}
+          >
             <svg
               aria-hidden="true"
               className="tc-svg-icon"
-              title={null}>
+              title={null}
+            >
               <use
-                xlinkHref="#talend-folder" />
+                xlinkHref="#talend-folder"
+              />
             </svg>
           </span>
           <span>
             grandpa
           </span>
           <div
-            className="tc-treeview-remove">
+            className="tc-treeview-item-ctrl"
+          >
+            <div
+              className="tc-badge tc-badge-solid"
+            >
+              <span
+                className="tc-badge-label"
+              >
+                101
+              </span>
+            </div>
             <button
               aria-describedby={42}
               className="btn btn-link"
               disabled={false}
+              id="id-0-talend-trash"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
-              type="button">
+              type="button"
+            >
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
-                title={null}>
+                title={null}
+              >
                 <use
-                  xlinkHref="#talend-trash" />
+                  xlinkHref="#talend-trash"
+                />
               </svg>
             </button>
           </div>
         </div>
         <ul
-          className="tc-treeview-ul">
+          className={undefined}
+        >
           <li
-            className="tc-treeview-li"
-            data-tc-treeview-hidden={undefined}>
+            className={undefined}
+            data-hidden={undefined}
+          >
             <div
-              className="tc-treeview-item"
-              data-tc-treeview-depth={1}
-              data-tc-treeview-selected={undefined}
-              onClick={[Function]}>
+              className={undefined}
+              data-depth={1}
+              data-selected={undefined}
+              id="id-0-0"
+              onClick={[Function]}
+            >
               <div
-                className="tc-treeview-toggle"
-                data-tc-treeview-toggled={true}>
+                className={undefined}
+                data-toggled={true}
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
+                  id="id-0-0-toggle"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-caret-down" />
+                      xlinkHref="#talend-caret-down"
+                    />
                   </svg>
                 </button>
               </div>
               <span
-                className="tc-treeview-folder">
+                className={undefined}
+              >
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
-                  title={null}>
+                  title={null}
+                >
                   <use
-                    xlinkHref="#talend-folder" />
+                    xlinkHref="#talend-folder"
+                  />
                 </svg>
               </span>
               <span>
                 mami
               </span>
               <div
-                className="tc-treeview-remove">
-                <button
-                  aria-describedby={42}
-                  className="btn btn-link"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                  role="link"
-                  type="button">
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    title={null}>
-                    <use
-                      xlinkHref="#talend-trash" />
-                  </svg>
-                </button>
-              </div>
+                className="tc-treeview-item-ctrl"
+              />
             </div>
             <ul
-              className="tc-treeview-ul">
+              className={undefined}
+            >
               <li
-                className="tc-treeview-li"
-                data-tc-treeview-hidden={undefined}>
+                className={undefined}
+                data-hidden={undefined}
+              >
                 <div
-                  className="tc-treeview-item"
-                  data-tc-treeview-depth={2}
-                  data-tc-treeview-selected={true}
-                  onClick={[Function]}>
+                  className={undefined}
+                  data-depth={2}
+                  data-selected={true}
+                  id="id-0-0-0"
+                  onClick={[Function]}
+                >
                   <span
-                    className="tc-treeview-folder">
+                    className={undefined}
+                  >
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}>
+                      title={null}
+                    >
                       <use
-                        xlinkHref="#talend-folder" />
+                        xlinkHref="#talend-folder"
+                      />
                     </svg>
                   </span>
                   <span>
                     me
                   </span>
                   <div
-                    className="tc-treeview-remove">
-                    <button
-                      aria-describedby={42}
-                      className="btn btn-link"
-                      disabled={false}
-                      onBlur={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseOut={[Function]}
-                      onMouseOver={[Function]}
-                      role="link"
-                      type="button">
-                      <svg
-                        aria-hidden="true"
-                        className="tc-svg-icon"
-                        title={null}>
-                        <use
-                          xlinkHref="#talend-trash" />
-                      </svg>
-                    </button>
-                  </div>
+                    className="tc-treeview-item-ctrl"
+                  />
                 </div>
               </li>
               <li
-                className="tc-treeview-li"
-                data-tc-treeview-hidden={undefined}>
+                className={undefined}
+                data-hidden={undefined}
+              >
                 <div
-                  className="tc-treeview-item"
-                  data-tc-treeview-depth={2}
-                  data-tc-treeview-selected={undefined}
-                  onClick={[Function]}>
+                  className={undefined}
+                  data-depth={2}
+                  data-selected={undefined}
+                  id="id-0-0-1"
+                  onClick={[Function]}
+                >
                   <span
-                    className="tc-treeview-folder">
+                    className={undefined}
+                  >
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
-                      title={null}>
+                      title={null}
+                    >
                       <use
-                        xlinkHref="#talend-folder" />
+                        xlinkHref="#talend-folder"
+                      />
                     </svg>
                   </span>
                   <span>
                     bro
                   </span>
                   <div
-                    className="tc-treeview-remove">
-                    <button
-                      aria-describedby={42}
-                      className="btn btn-link"
-                      disabled={false}
-                      onBlur={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseOut={[Function]}
-                      onMouseOver={[Function]}
-                      role="link"
-                      type="button">
-                      <svg
-                        aria-hidden="true"
-                        className="tc-svg-icon"
-                        title={null}>
-                        <use
-                          xlinkHref="#talend-trash" />
-                      </svg>
-                    </button>
-                  </div>
+                    className="tc-treeview-item-ctrl"
+                  />
                 </div>
               </li>
             </ul>
           </li>
           <li
-            className="tc-treeview-li"
-            data-tc-treeview-hidden={undefined}>
+            className={undefined}
+            data-hidden={undefined}
+          >
             <div
-              className="tc-treeview-item"
-              data-tc-treeview-depth={1}
-              data-tc-treeview-selected={undefined}
-              onClick={[Function]}>
+              className={undefined}
+              data-depth={1}
+              data-selected={undefined}
+              id="id-0-1"
+              onClick={[Function]}
+            >
               <div
-                className="tc-treeview-toggle"
-                data-tc-treeview-toggled={false}>
+                className={undefined}
+                data-toggled={false}
+              >
                 <button
                   aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
+                  id="id-0-1-toggle"
                   onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
-                  type="button">
+                  type="button"
+                >
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
-                    title={null}>
+                    title={null}
+                  >
                     <use
-                      xlinkHref="#talend-caret-down" />
+                      xlinkHref="#talend-caret-down"
+                    />
                   </svg>
                 </button>
               </div>
               <span
-                className="tc-treeview-folder">
+                className={undefined}
+              >
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
-                  title={null}>
+                  title={null}
+                >
                   <use
-                    xlinkHref="#talend-folder" />
+                    xlinkHref="#talend-folder"
+                  />
                 </svg>
               </span>
               <span>
                 aunt
               </span>
               <div
-                className="tc-treeview-remove">
-                <button
-                  aria-describedby={42}
-                  className="btn btn-link"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseOut={[Function]}
-                  onMouseOver={[Function]}
-                  role="link"
-                  type="button">
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    title={null}>
-                    <use
-                      xlinkHref="#talend-trash" />
-                  </svg>
-                </button>
-              </div>
+                className="tc-treeview-item-ctrl"
+              />
             </div>
           </li>
         </ul>

@@ -14,7 +14,7 @@ function HomeListView({ sidepanel, list, header, children }) {
 			mode="TwoColumns"
 			header={(<AppHeaderBar {...header} />)}
 			one={(<SidePanel {...sidepanel} />)}
-			drawers={[children]}
+			drawers={children}
 		>
 			<List {...list} />
 		</Layout>

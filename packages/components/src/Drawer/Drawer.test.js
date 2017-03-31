@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-import Drawer from './Drawer.component';
+import Drawer, { cancelActionComponent } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
@@ -28,10 +29,25 @@ describe('Drawer', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render stacked', () => {
+		const wrapper = renderer.create(
+			<Drawer stacked>
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should not render if no children', () => {
 		const wrapper = renderer.create(
 			<Drawer />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render cancelActionComponent', () => {
+		const wrapper = shallow(cancelActionComponent({}));
+		expect(wrapper.find('<button />')).toBeTruthy();
+	});
+	it('should not render cancelActionComponent', () => {
+		expect(cancelActionComponent()).toBe(null);
 	});
 });

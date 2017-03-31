@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
+import WithDrawer from '../../WithDrawer';
 import theme from './TwoColumns.scss';
 
 /**
@@ -8,7 +9,7 @@ import theme from './TwoColumns.scss';
  * @example
 <TwoColumns name="Hello world"></TwoColumns>
  */
-function TwoColumns({ one, children, ...props }) {
+function TwoColumns({ one, drawers, children, ...props }) {
 	const containerCSS = classnames(
 		'tc-layout-two-columns',
 		theme.container,
@@ -25,14 +26,21 @@ function TwoColumns({ one, children, ...props }) {
 	return (
 		<div className={containerCSS} {...props}>
 			<div className={sidemenuCSS}>{one}</div>
-			<div className={mainCSS}>{children}</div>
+			<div className={mainCSS}>
+				<WithDrawer drawers={drawers}>
+					<div style={{ overflow: 'auto', height: '100%', display: 'flex', flexDirection: 'column' }}>
+						{children}
+					</div>
+				</WithDrawer>
+			</div>
 		</div>
 	);
 }
 
 TwoColumns.propTypes = {
 	one: React.PropTypes.element,
-	children: React.PropTypes.element,
+	children: React.PropTypes.node,
+	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
 };
 
 export default TwoColumns;

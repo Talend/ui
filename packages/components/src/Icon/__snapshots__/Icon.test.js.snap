@@ -1,24 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Icon should render fontawesome 1`] = `
 <i
   aria-hidden="true"
   className="fa fa-bars"
-  title={null} />
+  title={null}
+/>
 `;
 
 exports[`Icon should render from custom font 1`] = `
 <i
   aria-hidden="true"
   className="icon-test"
-  title={null} />
+  title={null}
+/>
 `;
 
 exports[`Icon should render from svg 1`] = `
 <svg
   aria-hidden="true"
   className="tc-svg-icon"
-  title={null}>
+  title={null}
+>
   <use
-    xlinkHref="#svg-dd" />
+    xlinkHref="#svg-dd"
+  />
 </svg>
 `;
 
@@ -26,8 +32,10 @@ exports[`Icon should render with provided className 1`] = `
 <svg
   aria-hidden="true"
   className="tc-svg-icon custom-class"
-  title={null}>
+  title={null}
+>
   <use
-    xlinkHref="#svg-dd" />
+    xlinkHref="#svg-dd"
+  />
 </svg>
 `;

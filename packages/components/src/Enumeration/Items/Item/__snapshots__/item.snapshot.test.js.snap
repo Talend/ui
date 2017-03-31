@@ -1,13 +1,56 @@
-exports[`Item should display value with two buttons 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should display a selected item 1`] = `
 <li
-  className="undefined tc-enumeration-item"
-  id="0-item">
+  className="undefined tc-enumeration-item selected-item"
+  id="0-item"
+>
+  <button
+    aria-describedby={42}
+    className="undefined tc-enumeration-item-label btn btn-default"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role={null}
+    type="button"
+  >
+    <span>
+      toto
+    </span>
+  </button>
   <div
-    className="undefined tc-enumeration-item-label">
-    toto
-  </div>
+    className="undefined tc-enumeration-item-actions"
+  />
+</li>
+`;
+
+exports[`Item should display value with three buttons 1`] = `
+<li
+  className="tc-enumeration-item"
+  id="0-item"
+>
+  <button
+    aria-describedby={42}
+    className="undefined tc-enumeration-item-label btn btn-default"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role={null}
+    type="button"
+  >
+    <span>
+      toto
+    </span>
+  </button>
   <div
-    className="undefined tc-enumeration-item-actions">
+    className="undefined tc-enumeration-item-actions"
+  >
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -18,7 +61,8 @@ exports[`Item should display value with two buttons 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button" />
+      type="button"
+    />
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -29,7 +73,8 @@ exports[`Item should display value with two buttons 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button" />
+      type="button"
+    />
   </div>
 </li>
 `;

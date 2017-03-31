@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -31,58 +31,19 @@ const actions = [
 ];
 
 const drawers = [
-	(<div style={{ width: 500 }}>
-		<h1>Hello drawers</h1>
-		<p>You should not being able to read this because I'm first</p>
-	</div>),
-	(<div style={{ width: 400 }}>
-		<h1>Hello drawers</h1>
+	(<Drawer stacked title="Hello drawers">
+		<p>You should not being able to read this because I&apos;m first</p>
+	</Drawer>),
+	(<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
-	</div>),
+	</Drawer>),
 ];
 
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
 		<ul>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
+			{[...new Array(38)].map(() => <li>one</li>)}
 		</ul>
 	</div>
 );
@@ -91,9 +52,13 @@ const sidePanel = (<SidePanel
 	onToggleDock={action('Toggle dock clicked')}
 	docked={false}
 />);
-const header = {
-	app: 'Example App Name',
-};
+const dockedSidePanel = (<SidePanel
+	actions={actions}
+	onToggleDock={action('Toggle dock clicked')}
+	docked
+/>);
+const header = (<AppHeaderBar app="Example App Name" />);
+const footer = 'Footer content';
 
 const listItem = {
 	id: 1,
@@ -114,69 +79,7 @@ const listProps = {
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
 		],
-		items: [
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-		],
+		items: [...new Array(61)].map(() => listItem),
 		titleProps: {
 			key: 'name',
 			iconKey: 'icon',
@@ -273,75 +176,46 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('TwoColumns with big Table list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Large list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'large'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns with big Tile list', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				<List {...listProps} displayMode={'tile'} />
-				<IconsProvider defaultIcons={icons}/>
-			</Layout>
-		);
-	})
-	.addWithInfo('TwoColumns docked', () => {
-		const dockedSidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-		/>);
-
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={dockedSidePanel}
-			>
-				{content}
-				<IconsProvider defaultIcons={icons} />
-			</Layout>
-		);
-	})
+	.addWithInfo('TwoColumns with big Table list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with big Large list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} displayMode={'large'} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with big Tile list', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			<List {...listProps} displayMode={'tile'} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns docked', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={dockedSidePanel}
+		>
+			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
 	.addWithInfo('TwoColumns with drawers', () => (
 		<Layout
 			header={header}
@@ -350,6 +224,16 @@ storiesOf('Layout', module)
 			drawers={drawers}
 		>
 			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('OneColumn with footer', () => (
+		<Layout
+			header={header}
+			mode="OneColumn"
+			footer={footer}
+		>
+			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	));

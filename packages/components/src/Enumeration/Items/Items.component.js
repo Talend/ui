@@ -16,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp, currentEdit }) {
+function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -48,6 +48,7 @@ function Items({ items, itemsProp, currentEdit }) {
 			const itemPropDefault = {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
+				onSelectItem: itemsProp.onSelectItem,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -57,6 +58,7 @@ function Items({ items, itemsProp, currentEdit }) {
 					id={`${index}-item`}
 					item={itemWithIndex}
 					itemProps={itemPropDefault}
+					searchCriteria={searchCriteria}
 				/>
 			);
 		}
@@ -74,10 +76,12 @@ Items.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),
+	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
+		onSelectItem: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,

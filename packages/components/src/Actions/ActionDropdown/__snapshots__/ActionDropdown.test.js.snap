@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ActionDropdown should render "no option" item when items array is empty 1`] = `
 <div
-  className="dropdown btn-group btn-group-default">
+  className="dropdown btn-group btn-group-default"
+>
   <button
     aria-expanded={false}
     aria-haspopup={true}
@@ -10,7 +13,8 @@ exports[`ActionDropdown should render "no option" item when items array is empty
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
-    type="button">
+    type="button"
+  >
     <span>
       <span>
         related items
@@ -18,22 +22,26 @@ exports[`ActionDropdown should render "no option" item when items array is empty
     </span>
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
   <ul
     aria-labelledby="dropdown-id"
     className="dropdown-menu"
-    role="menu">
+    role="menu"
+  >
     <li
       className="disabled"
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
         No options
       </a>
     </li>
@@ -43,7 +51,8 @@ exports[`ActionDropdown should render "no option" item when items array is empty
 
 exports[`ActionDropdown should render a button with "link" theme 1`] = `
 <div
-  className="dropdown btn-group btn-group-link">
+  className="dropdown btn-group btn-group-link"
+>
   <button
     aria-expanded={false}
     aria-haspopup={true}
@@ -53,7 +62,8 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
-    type="button">
+    type="button"
+  >
     <span>
       <span>
         related items
@@ -61,37 +71,53 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     </span>
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
   <ul
     aria-labelledby="dropdown-id"
     className="dropdown-menu"
-    role="menu">
+    role="menu"
+  >
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
         label="document 2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
         document 2
       </a>
     </li>
@@ -101,7 +127,8 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
 
 exports[`ActionDropdown should render a button with icon 1`] = `
 <div
-  className="dropdown btn-group btn-group-default">
+  className="dropdown btn-group btn-group-default"
+>
   <button
     aria-describedby={42}
     aria-expanded={false}
@@ -116,46 +143,64 @@ exports[`ActionDropdown should render a button with icon 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="button"
-    type="button">
+    type="button"
+  >
     <span>
       <i
         aria-hidden="true"
         className="fa fa-file-excel-o"
-        title={null} />
+        title={null}
+      />
     </span>
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
   <ul
     aria-labelledby="dropdown-id"
     className="dropdown-menu"
-    role="menu">
+    role="menu"
+  >
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
         label="document 2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
         document 2
       </a>
     </li>
@@ -165,7 +210,8 @@ exports[`ActionDropdown should render a button with icon 1`] = `
 
 exports[`ActionDropdown should render a button with icon and label 1`] = `
 <div
-  className="dropdown btn-group btn-group-default">
+  className="dropdown btn-group btn-group-default"
+>
   <button
     aria-expanded={false}
     aria-haspopup={true}
@@ -175,49 +221,67 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
-    type="button">
+    type="button"
+  >
     <span>
       <i
         aria-hidden="true"
         className="fa fa-file-excel-o"
-        title={null} />
+        title={null}
+      />
       <span>
         related items
       </span>
     </span>
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
   <ul
     aria-labelledby="dropdown-id"
     className="dropdown-menu"
-    role="menu">
+    role="menu"
+  >
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
         label="document 2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
         document 2
       </a>
     </li>
@@ -227,7 +291,8 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
 
 exports[`ActionDropdown should render a button with label 1`] = `
 <div
-  className="dropdown btn-group btn-group-default">
+  className="dropdown btn-group btn-group-default"
+>
   <button
     aria-expanded={false}
     aria-haspopup={true}
@@ -237,7 +302,8 @@ exports[`ActionDropdown should render a button with label 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
-    type="button">
+    type="button"
+  >
     <span>
       <span>
         related items
@@ -245,37 +311,53 @@ exports[`ActionDropdown should render a button with label 1`] = `
     </span>
      
     <span
-      className="caret" />
+      className="caret"
+    />
   </button>
   <ul
     aria-labelledby="dropdown-id"
     className="dropdown-menu"
-    role="menu">
+    role="menu"
+  >
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
     <li
       className=""
       role="presentation"
-      style={undefined}>
+      style={undefined}
+    >
       <a
         href="#"
         label="document 2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
-        tabIndex="-1">
+        tabIndex="-1"
+      >
         document 2
       </a>
     </li>

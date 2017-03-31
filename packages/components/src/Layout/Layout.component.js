@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-
-import AppHeaderBar from '../AppHeaderBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
-import Drawer from '../Drawer';
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -28,7 +25,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, mode, drawers, children, ...rest }) {
+function Layout({ header, footer, mode, drawers, children, ...rest }) {
 	const appCSS = classnames(
 		'tc-layout',
 		theme.layout,
@@ -36,6 +33,10 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 	const headerCSS = classnames(
 		'tc-layout-header',
 		theme.header,
+	);
+	const footerCSS = classnames(
+		'tc-layout-footer',
+		theme.footer,
 	);
 	let Component;
 	switch (mode) {
@@ -51,26 +52,23 @@ function Layout({ header, mode, drawers, children, ...rest }) {
 	return (
 		<div className={appCSS}>
 			<div className={headerCSS}>
-				<AppHeaderBar {...header} />
+				{header}
 			</div>
 			{Component ? (
-				<Component {...rest}>
+				<Component drawers={drawers} {...rest}>
 					{children}
 				</Component>
 			) : null}
-			<Drawer.Animation>
-				{drawers && drawers.map((drawer, key) => (
-					<Drawer key={key} className={theme.drawer}>
-						{drawer}
-					</Drawer>
-				))}
-			</Drawer.Animation>
+			{footer && <footer role="contentinfo" className={footerCSS}>
+				{footer}
+			</footer>}
 		</div>
 	);
 }
 
 Layout.propTypes = {
-	header: PropTypes.shape(AppHeaderBar.propTypes),
+	header: PropTypes.element,
+	footer: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,

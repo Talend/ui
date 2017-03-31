@@ -4,16 +4,98 @@ $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #FFF !default;
 $tc-drawer-transition-duration: 0.23s !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
+$tc-action-bar-background-color: lighten($alto, 5%) !default;
 
-.drawer {
+@function set-text-color($color) {
+  @if (lightness($color) > 60) {
+    @return #000000; // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}
+
+.tc-drawer {
 	background-color: $tc-drawer-bgcolor;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	transform: translateX(0%);
 	right: 0;
 	bottom: 0;
-	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+	width: 50vw;
+	// should always stay lower than dialog z-index wich is set to 1040
+	z-index: 100;
+}
 
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	.tc-drawer {
+		width: 40vw;
+	}
+}
+
+@media (min-width: $screen-lg-min){
+	.tc-drawer {
+		width: 30vw;
+	}
+}
+
+.tc-drawer-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.drawerStacked {
+	left: 15px;
+	width: initial;
+}
+
+.tc-drawer-header {
+	padding: $padding-normal;
+	background-color: $brand-primary-lighter;
+	h1 {
+		font-size: $font-size-large;
+		margin: 0;
+		color: white;
+	}
+}
+
+.tc-drawer-header-with-tabs {
+	padding: 0;
+	background-color: $gray-lighter;
+}
+
+.tc-drawer-close-action {
+	top: $padding-normal / 2;
+	right: 0;
+	position: absolute;
+	color: white;
+}
+
+.tc-drawer-content {
+	padding: $padding-large $padding-normal;
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.tc-drawer-footer {
+	padding: $padding-small;
+	background: $tc-action-bar-background-color;
+
+	.navbar-left,
+	.navbar-right {
+		> * {
+			margin: $padding-small $padding-larger $padding-small 0;
+		}
+
+		> :last-child {
+			margin-right: 0;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+	}
 }
 
 // This animation is made global so you can use it in your own project

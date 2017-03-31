@@ -18,7 +18,6 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 		display = data.toString();
 		inputType = 'checkbox';
 	} else if (type === 'string') {
-		display = `"${data}"`;
 		inputType = 'text';
 	}
 	if (edit) {
@@ -110,7 +109,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	}
 	const info = getDataInfo(data);
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
-	const isEdited = edited.indexOf(jsonpath) !== -1 && props.onChange;
+	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1 || props.onClick === noop;
 
 	if (isNativeType) {

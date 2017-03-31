@@ -80,6 +80,7 @@ $tc-list-table-header-height: 36px !default;
 
 				.cell + .actions {
 					opacity: 1;
+					padding-left: $padding-large;
 					visibility: visible;
 				}
 			}
@@ -87,6 +88,7 @@ $tc-list-table-header-height: 36px !default;
 
 		.tc-list-display-table-td {
 			display: flex;
+			position: relative;
 
 			.cell {
 				flex-shrink: 1;
@@ -104,7 +106,6 @@ $tc-list-table-header-height: 36px !default;
 					position: absolute;
 					right: 0;
 					background: linear-gradient(to right, transparent, $tc-list-table-hover-bg $padding-large);
-					padding-left: $padding-large;
 				}
 			}
 		}

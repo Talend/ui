@@ -25,4 +25,12 @@
 		margin-top: $navbar-form-margin;
 		margin-bottom: $navbar-form-margin;
 	}
+
+	&-nav {
+		> li > a {
+			display: flex;
+			align-items: center;
+			height: $navbar-height;			
+		}
+	}
 }

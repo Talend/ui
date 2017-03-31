@@ -67,17 +67,20 @@ function Item({ id, columns, actions, item, itemProps }) {
 	}
 
 	function getCheckbox() {
-		const className = classNames('tc-list-item-checkbox', isSelected(item) && 'checked');
+		const className = classNames('checkbox tc-list-item-checkbox', isSelected(item) && 'checked');
 		const style = { top: `${top}px` };
 		increaseTopIndent();
 		return (
 			<div className={className} style={style}>
-				<input
-					id={id && `${id}-check`}
-					type="checkbox"
-					onChange={onItemSelect}
-					checked={isSelected(item)}
-				/>
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={onItemSelect}
+						checked={isSelected(item)}
+					/>
+					<span><span className="sr-only">Select {item.name}</span></span>
+				</label>
 			</div>
 		);
 	}

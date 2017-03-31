@@ -31,17 +31,20 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault }) {
+function Header({ headerDefault, required }) {
 	return (
 		<header className={headerClasses()}>
-			<span>Values</span>
-			{headerDefault.map((action, index) => getAction(action, index))}
+			<span>Values{required && '*'}</span>
+			<div className="actions">
+				{headerDefault.map(getAction)}
+			</div>
 		</header>
 	);
 }
 
 Header.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	required: PropTypes.bool,
 };
 
 export default Header;

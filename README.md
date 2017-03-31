@@ -17,13 +17,14 @@ front-end stack.
 
 ## The stack
 
-- [react-cmf](https://github.com/Talend/ui/tree/master/cmf)
-- [react-talend-containers](https://github.com/Talend/ui/tree/master/containers)
-- [react-talend-components](https://github.com/Talend/ui/tree/master/components)
-- [react-talend-forms](https://github.com/Talend/ui/tree/master/forms)
-- [generator-talend](https://github.com/Talend/ui/tree/master/generator)
-- [talend-icons](https://github.com/Talend/ui/tree/master/icons)
-- [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/theme)
+- [react-cmf](https://github.com/Talend/ui/tree/master/packages/cmf)
+- [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers)
+- [react-talend-components](https://github.com/Talend/ui/tree/master/packages/components)
+- [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)
+- [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
+- [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
+- [talend-log](https://github.com/Talend/ui/tree/master/packages/logging)
+- [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
 
 ## Tools (dev environment)
 

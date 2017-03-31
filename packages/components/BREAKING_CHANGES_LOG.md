@@ -1,5 +1,13 @@
 # Breaking changes log
 
+## NEXT VERSION
+* Component: Layout
+* PR: [fix(Containers): header instanciation via HomeListView](https://github.com/Talend/ui/pull/155)
+* Changes : 
+| Props | Old Props | New props |
+|---|---|---|
+| header | AppHeaderBar props | Element that will be rendered on header place |
+
 ## v0.46.1
 * Component: List
 * PR: [fix(List): revert list breaks](https://github.com/Talend/react-talend-components/pull/225)

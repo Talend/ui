@@ -1,14 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Enumeration should render with header in add state and list in default state 1`] = `
 <div
-  className="undefined tc-enumeration">
+  className="undefined tc-enumeration"
+>
   <header
-    className="undefined tc-enumeration-header">
+    className="undefined tc-enumeration-header"
+  >
     <input
       autoFocus={true}
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="New entry"
-      type="text" />
+      type="text"
+    />
     <button
       aria-describedby={42}
       className="btn btn-link"
@@ -19,13 +24,16 @@ exports[`Enumeration should render with header in add state and list in default 
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-check" />
+          xlinkHref="#talend-check"
+        />
       </svg>
     </button>
     <button
@@ -38,27 +46,45 @@ exports[`Enumeration should render with header in add state and list in default 
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
+      type="button"
+    >
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
-        title={null}>
+        title={null}
+      >
         <use
-          xlinkHref="#talend-cross" />
+          xlinkHref="#talend-cross"
+        />
       </svg>
     </button>
   </header>
   <ul
-    className="undefined tc-enumeration-items">
+    className="undefined tc-enumeration-items"
+  >
     <li
-      className="undefined tc-enumeration-item"
-      id="0-item">
+      className="tc-enumeration-item"
+      id="0-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 0
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -69,13 +95,16 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -88,26 +117,43 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
-      id="1-item">
+      className="tc-enumeration-item"
+      id="1-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 1
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -118,13 +164,16 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -137,26 +186,43 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
-      id="2-item">
+      className="tc-enumeration-item"
+      id="2-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 2
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -167,13 +233,16 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -186,13 +255,16 @@ exports[`Enumeration should render with header in add state and list in default 
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
@@ -203,46 +275,58 @@ exports[`Enumeration should render with header in add state and list in default 
 
 exports[`Enumeration should render with header in default state and first item in edit mode, validate button disabled is disabled 1`] = `
 <div
-  className="undefined tc-enumeration">
+  className="undefined tc-enumeration"
+>
   <header
-    className="undefined tc-enumeration-header">
+    className="undefined tc-enumeration-header"
+  >
     <span>
       Values
     </span>
-    <button
-      aria-describedby={42}
-      className="btn btn-link"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOut={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button">
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}>
-        <use
-          xlinkHref="#talend-plus" />
-      </svg>
-    </button>
+    <div
+      className="actions"
+    >
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-plus"
+          />
+        </svg>
+      </button>
+    </div>
   </header>
   <ul
-    className="undefined tc-enumeration-items">
+    className="undefined tc-enumeration-items"
+  >
     <li
       className="undefined tc-enumeration-item"
-      id="0-item">
+      id="0-item"
+    >
       <input
         autoFocus={true}
         className="undefined tc-enumeration-item-label"
-        onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
-        type="text" />
+        type="text"
+      />
       <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -253,13 +337,16 @@ exports[`Enumeration should render with header in default state and first item i
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-check" />
+              xlinkHref="#talend-check"
+            />
           </svg>
         </button>
         <button
@@ -272,75 +359,43 @@ exports[`Enumeration should render with header in default state and first item i
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-cross" />
-          </svg>
-        </button>
-      </div>
-    </li>
-    <li
-      className="undefined tc-enumeration-item"
-      id="1-item">
-      <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 1
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-pencil" />
-          </svg>
-        </button>
-        <button
-          aria-describedby={42}
-          className="btn btn-link"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          role="link"
-          type="button">
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            title={null}>
-            <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-cross"
+            />
           </svg>
         </button>
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
-      id="2-item">
+      className="tc-enumeration-item"
+      id="1-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 2
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -351,13 +406,16 @@ exports[`Enumeration should render with header in default state and first item i
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -370,13 +428,85 @@ exports[`Enumeration should render with header in default state and first item i
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+    <li
+      className="tc-enumeration-item"
+      id="2-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
@@ -385,13 +515,531 @@ exports[`Enumeration should render with header in default state and first item i
 </div>
 `;
 
-exports[`Enumeration should render with header in default state and list in default state 1`] = `
+exports[`Enumeration should render with header in default state, list in default state and required component 1`] = `
 <div
-  className="undefined tc-enumeration">
+  className="undefined tc-enumeration"
+>
   <header
-    className="undefined tc-enumeration-header">
+    className="undefined tc-enumeration-header"
+  >
     <span>
       Values
+      *
+    </span>
+    <div
+      className="actions"
+    >
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-plus"
+          />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <ul
+    className="undefined tc-enumeration-items"
+  >
+    <li
+      className="tc-enumeration-item"
+      id="0-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+    <li
+      className="tc-enumeration-item"
+      id="1-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+    <li
+      className="tc-enumeration-item"
+      id="2-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Enumeration should render with header in search state and list in default state 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search"
+      type="text"
+    />
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-check"
+        />
+      </svg>
+    </button>
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-cross"
+        />
+      </svg>
+    </button>
+  </header>
+  <ul
+    className="undefined tc-enumeration-items"
+  >
+    <li
+      className="tc-enumeration-item"
+      id="0-item"
+    >
+      <button
+        className="undefined tc-enumeration-item-label"
+        disabled="disabled"
+      >
+        <span>
+          <span>
+            <strong>
+              Lorem
+            </strong>
+             ipsum dolor sit amet 0
+          </span>
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+    <li
+      className="tc-enumeration-item"
+      id="1-item"
+    >
+      <button
+        className="undefined tc-enumeration-item-label"
+        disabled="disabled"
+      >
+        <span>
+          <span>
+            <strong>
+              Lorem
+            </strong>
+             ipsum dolor sit amet 1
+          </span>
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+    <li
+      className="tc-enumeration-item"
+      id="2-item"
+    >
+      <button
+        className="undefined tc-enumeration-item-label"
+        disabled="disabled"
+      >
+        <span>
+          <span>
+            <strong>
+              Lorem
+            </strong>
+             ipsum dolor sit amet 2
+          </span>
+        </span>
+      </button>
+      <div
+        className="undefined tc-enumeration-item-actions"
+      >
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-pencil"
+            />
+          </svg>
+        </button>
+        <button
+          aria-describedby={42}
+          className="btn btn-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          role="link"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-trash"
+            />
+          </svg>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Enumeration should render with header in selected state with trash icon, and two items in selected mode 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      2 selected values
     </span>
     <button
       aria-describedby={42}
@@ -403,27 +1051,35 @@ exports[`Enumeration should render with header in default state and list in defa
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
-      type="button">
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}>
-        <use
-          xlinkHref="#talend-plus" />
-      </svg>
-    </button>
+      type="button"
+    />
   </header>
   <ul
-    className="undefined tc-enumeration-items">
+    className="undefined tc-enumeration-items"
+  >
     <li
-      className="undefined tc-enumeration-item"
-      id="0-item">
+      className="undefined tc-enumeration-item selected-item"
+      id="0-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 0
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -434,13 +1090,16 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -453,26 +1112,43 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
-      id="1-item">
+      className="undefined tc-enumeration-item selected-item"
+      id="1-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 1
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -483,13 +1159,16 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -502,26 +1181,43 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
     </li>
     <li
-      className="undefined tc-enumeration-item"
-      id="2-item">
+      className="tc-enumeration-item"
+      id="2-item"
+    >
+      <button
+        aria-describedby={42}
+        className="undefined tc-enumeration-item-label btn btn-default"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
       <div
-        className="undefined tc-enumeration-item-label">
-        Lorem ipsum dolor sit amet 2
-      </div>
-      <div
-        className="undefined tc-enumeration-item-actions">
+        className="undefined tc-enumeration-item-actions"
+      >
         <button
           aria-describedby={42}
           className="btn btn-link"
@@ -532,13 +1228,16 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-pencil" />
+              xlinkHref="#talend-pencil"
+            />
           </svg>
         </button>
         <button
@@ -551,17 +1250,60 @@ exports[`Enumeration should render with header in default state and list in defa
           onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
-          type="button">
+          type="button"
+        >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
-            title={null}>
+            title={null}
+          >
             <use
-              xlinkHref="#talend-trash" />
+              xlinkHref="#talend-trash"
+            />
           </svg>
         </button>
       </div>
     </li>
   </ul>
+</div>
+`;
+
+exports[`Enumeration should render with header without items 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      Values
+    </span>
+    <div
+      className="actions"
+    >
+      <button
+        aria-describedby={42}
+        className="btn btn-link"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-plus"
+          />
+        </svg>
+      </button>
+    </div>
+  </header>
 </div>
 `;

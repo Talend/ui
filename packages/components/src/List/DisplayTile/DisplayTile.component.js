@@ -35,12 +35,17 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 	}
 
 	const checkbox = onToggle && isSelected ?
-		(<input
-			id={id && `${id}-check`}
-			type="checkbox"
-			onChange={(e) => { onToggle(e, item); }}
-			checked={isSelected(item)}
-		/>) :
+		(<div className="checkbox">
+			<label htmlFor={id && `${id}-check`}>
+				<input
+					id={id && `${id}-check`}
+					type="checkbox"
+					onChange={e => onToggle(e, item)}
+					checked={isSelected(item)}
+				/>
+				<span><span className="sr-only">Select {item.name}</span></span>
+			</label>
+		</div>) :
 		null;
 
 	const titleClasses = classNames(

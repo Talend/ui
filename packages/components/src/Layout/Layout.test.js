@@ -5,7 +5,8 @@ import Layout from './Layout.component';
 
 jest.mock('react-dom');
 
-const header = { app: 'My app' };
+const header = (<h1>Header</h1>);
+const footer = (<h3>Footer</h3>);
 const one = (<h1>Column one</h1>);
 const two = (<h1>Column two</h1>);
 const drawers = [
@@ -44,6 +45,16 @@ describe('Layout', () => {
 		const wrapper = renderer.create(
 			<Layout mode="TwoColumns" one={one} header={header} drawers={drawers}>
 				{two}
+			</Layout>
+		).toJSON();
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render layout with footer component', () => {
+		const wrapper = renderer.create(
+			<Layout mode="OneColumn" header={header} footer={footer}>
+				{one}
 			</Layout>
 		).toJSON();
 
