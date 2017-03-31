@@ -47,9 +47,9 @@ export function renderActions(actions, handleActionClick) {
 			<Action
 				key={index}
 				bsStyle={action.style}
-				onClick={handleActionClick(action.onClick)}
 				label={action.title}
 				{...action}
+				onClick={handleActionClick(action.onClick)}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
@@ -98,7 +98,7 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return event => onClick(event, this.form.state);
+			return (event, data) => onClick(event, { ...data, ...this.form.state });
 		}
 		return null;
 	}
