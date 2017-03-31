@@ -1,11 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render header input with one button 1`] = `
+exports[`Header should render header with one button 1`] = `
 <header
   className="undefined tc-enumeration-header"
 >
   <span>
     Values
+  </span>
+  <div
+    className="actions"
+  >
+    <button
+      aria-describedby={42}
+      className="btn btn-link"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-plus"
+        />
+      </svg>
+    </button>
+  </div>
+</header>
+`;
+
+exports[`Header should render header with one button and indicate the component is required 1`] = `
+<header
+  className="undefined tc-enumeration-header"
+>
+  <span>
+    Values
+    *
   </span>
   <div
     className="actions"

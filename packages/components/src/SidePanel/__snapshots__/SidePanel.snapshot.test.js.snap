@@ -1018,30 +1018,6 @@ exports[`Storyshots SidePanel default 1`] = `
                             }
                           }
                         >
-                          talend-DBInput
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
                           talend-activemq
                         </span>
                         : 
@@ -1067,6 +1043,30 @@ exports[`Storyshots SidePanel default 1`] = `
                           }
                         >
                           talend-activity
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
+                          talend-aggregate
                         </span>
                         : 
                         <span>
@@ -2219,30 +2219,6 @@ exports[`Storyshots SidePanel docked 1`] = `
                             }
                           }
                         >
-                          talend-DBInput
-                        </span>
-                        : 
-                        <span>
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            &lt;svg /&gt;
-                          </span>
-                          }
-                        </span>
-                        , 
-                        <span
-                          style={
-                            Object {
-                              "color": "#666",
-                            }
-                          }
-                        >
                           talend-activemq
                         </span>
                         : 
@@ -2268,6 +2244,30 @@ exports[`Storyshots SidePanel docked 1`] = `
                           }
                         >
                           talend-activity
+                        </span>
+                        : 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            &lt;svg /&gt;
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }
+                        >
+                          talend-aggregate
                         </span>
                         : 
                         <span>

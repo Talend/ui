@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
-import { manageCtrlKey, manageShiftKey, deleteSelectedItems } from './utils/utils';
+import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -10,7 +10,11 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
 const DUPLICATION_ERROR = 'This term is already in the list';
 
-const SEARCH_ACTION = 'SEARCH_ACTION';
+const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
+const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
+const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
+const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
+
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -52,6 +56,7 @@ class EnumerationWidget extends React.Component {
 
 		this.state = {
 			displayMode: DISPLAY_MODE_DEFAULT,
+			required: (props.schema && props.schema.required) || false,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -106,7 +111,7 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// resetting errors
@@ -129,7 +134,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSearchEditModeItem(event, value) {
-		let items = [...this.state.items];
+		let items = resetItems([...this.state.items]);
 		const item = items[value.index];
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
@@ -146,20 +151,22 @@ class EnumerationWidget extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const items = [...this.state.items];
-		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-		items.splice(value.index, 1);
-		const countItems = items.filter(item => item.isSelected).length;
 
-		let displayMode = this.state.displayMode;
-		if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
-			displayMode = DISPLAY_MODE_DEFAULT;
+		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, value.index)) {
+			const items = resetItems([...this.state.items]);
+			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			items.splice(value.index, 1);
+			const countItems = items.filter(item => item.isSelected).length;
+
+			let displayMode = this.state.displayMode;
+			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
+				displayMode = DISPLAY_MODE_DEFAULT;
+			}
+			this.setState({
+				items,
+				displayMode,
+			}, this.setFormData.bind(this));
 		}
-
-		this.setState({
-			items,
-			displayMode,
-		}, this.setFormData.bind(this));
 	}
 
 	// edit mode
@@ -189,19 +196,21 @@ class EnumerationWidget extends React.Component {
 	onSubmitItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const items = [...this.state.items];
-		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-		const valueExist = this.valueAlreadyExist(value.value);
-		// if the value is empty, no value update is done
-		if (value.value && !valueExist) {
-			items[value.index].values[0] = value.value;
+		if (!this.callActionHandler(ENUMERATION_RENAME_ACTION, value.value)) {
+			const items = [...this.state.items];
+			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			const valueExist = this.valueAlreadyExist(value.value);
+			// if the value is empty, no value update is done
+			if (value.value && !valueExist) {
+				items[value.index].values[0] = value.value;
+			}
+			if (valueExist) {
+				items[value.index].error = DUPLICATION_ERROR;
+			}
+			this.setState({
+				items,
+			}, this.setFormData.bind(this));
 		}
-		if (valueExist) {
-			items[value.index].error = DUPLICATION_ERROR;
-		}
-		this.setState({
-			items,
-		}, this.setFormData.bind(this));
 	}
 
 	onInputChange(event, value) {
@@ -209,7 +218,7 @@ class EnumerationWidget extends React.Component {
 			this.updateHeaderInputDisabled(value.value);
 		}
 		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
-			if (!this.callActionHandler(SEARCH_ACTION, value.value)) {
+			if (!this.callActionHandler(ENUMERATION_SEARCH_ACTION, value.value)) {
 				this.setState({
 					searchCriteria: value.value,
 				});
@@ -218,11 +227,13 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onAbortHandler() {
+		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+			this.updateHeaderInputDisabled('');
+		}
 		this.setState({
 			displayMode: DISPLAY_MODE_DEFAULT,
 			searchCriteria: null,
 		});
-		this.updateHeaderInputDisabled('');
 	}
 
 	onAddKeyDown(event, value) {
@@ -241,26 +252,26 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let result = [];
+		let itemsSelected = resetItems([...this.state.items]);
 		if (event.ctrlKey || event.metaKey) {
-			result = manageCtrlKey(item.index, this.state.items);
+			itemsSelected = manageCtrlKey(item.index, itemsSelected);
 		} else if (event.shiftKey) {
-			result = manageShiftKey(item.index, this.state.items);
+			itemsSelected = manageShiftKey(item.index, itemsSelected);
 		} else {
-			result = [...this.state.items].map(currentItem => ({ ...currentItem, isSelected: false }));
-			result[item.index].isSelected = true;
+			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+			itemsSelected[item.index].isSelected = true;
 		}
-		const countItems = result.filter(currentItem => currentItem.isSelected).length;
+		const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
 		// if unselect all, return to default mode
 		if (countItems === 0) {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: DISPLAY_MODE_DEFAULT,
 			});
 		} else {
 			this.setState({
-				items: result,
+				items: itemsSelected,
 				displayMode: 'DISPLAY_MODE_SELECTED',
 				itemsProp: {
 					...this.state.itemsProp, actionsDefault: this.defaultActions,
@@ -285,14 +296,16 @@ class EnumerationWidget extends React.Component {
 			return;
 		}
 
-		if (!this.valueAlreadyExist(value.value)) {
-			this.setState({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-				items: this.state.items.concat([{
-					values: [value.value],
-				}]),
-			}, this.setFormData.bind(this));
-			this.updateHeaderInputDisabled('');
+		if (!this.callActionHandler(ENUMERATION_ADD_ACTION, value.value)) {
+			if (!this.valueAlreadyExist(value.value)) {
+				this.setState({
+					displayMode: 'DISPLAY_MODE_DEFAULT',
+					items: this.state.items.concat([{
+						values: [value.value],
+					}]),
+				}, this.setFormData.bind(this));
+				this.updateHeaderInputDisabled('');
+			}
 		}
 	}
 
@@ -304,7 +317,9 @@ class EnumerationWidget extends React.Component {
 	}
 
 	callActionHandler(actionName, value) {
-		if (this.props.registry.formContext.handleAction !== undefined) {
+		if (this.props.registry &&
+			this.props.registry.formContext &&
+			this.props.registry.formContext.handleAction !== undefined) {
 			this.props.registry.formContext.handleAction(
 				this.props.id, actionName, value
 			);
@@ -331,14 +346,18 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
+		const items = resetItems([...this.state.items]);
 		this.setState({
+			items,
 			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_ADD,
 		});
 	}
 
 	changeDisplayToSearchMode() {
+		const items = resetItems([...this.state.items]);
 		this.setState({
+			items,
 			headerInput: this.searchInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
@@ -392,6 +411,7 @@ if (process.env.NODE_ENV !== 'production') {
 		formData: PropTypes.array, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
+		schema: PropTypes.object,
 	};
 }
 
