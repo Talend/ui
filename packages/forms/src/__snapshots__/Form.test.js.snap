@@ -85,22 +85,97 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     className="buttons">
     <button
       className="btn btn-primary"
-      disabled={false}
-      name={undefined}
+      disabled={true}
       onClick={[Function]}
-      title={undefined}
+      role={null}
       type="submit">
-      Submit
+      <span>
+        Submit
+      </span>
     </button>
     <button
       className="btn btn-link"
       disabled={false}
-      name={undefined}
       onClick={[Function]}
-      title={undefined}
+      role={null}
       type="reset">
-      Reset
+      <span>
+        Reset
+      </span>
     </button>
   </div>
 </form>
+`;
+
+exports[`<Form/> actions should render pass-in form actions 1`] = `
+Object {
+  "action": Object {
+    "children": Array [
+      null,
+      "Reset",
+    ],
+    "label": "Reset",
+    "style": "link",
+    "type": "reset",
+  },
+  "edit": false,
+  "errorSchema": Object {},
+  "errors": Array [],
+  "formData": Object {
+    "admin": true,
+    "name": "John Doe",
+    "roles": undefined,
+  },
+  "idSchema": Object {
+    "$id": "root",
+    "admin": Object {
+      "$id": "root_admin",
+    },
+    "name": Object {
+      "$id": "root_name",
+    },
+    "roles": Object {
+      "$id": "root_roles",
+    },
+  },
+  "model": undefined,
+  "schema": Object {
+    "properties": Object {
+      "admin": Object {
+        "default": true,
+        "title": "Admin",
+        "type": "boolean",
+      },
+      "name": Object {
+        "default": "John Doe",
+        "title": "Name",
+        "type": "string",
+      },
+      "roles": Object {
+        "enum": Array [
+          "dev",
+          "pm",
+        ],
+        "enumName": Array [
+          "Developer",
+          "Project Manager",
+        ],
+        "type": "string",
+      },
+    },
+    "title": "TestForm",
+    "type": "object",
+  },
+  "status": "initial",
+  "uiSchema": Object {
+    "ui:widget": Array [
+      "toggle",
+      "tabs",
+      "keyValue",
+      "multiSelectTag",
+      "datalist",
+      "enumeration",
+    ],
+  },
+}
 `;

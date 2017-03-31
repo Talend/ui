@@ -29,6 +29,14 @@ describe('Drawer', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render stacked', () => {
+		const wrapper = renderer.create(
+			<Drawer stacked>
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should not render if no children', () => {
 		const wrapper = renderer.create(
 			<Drawer />
