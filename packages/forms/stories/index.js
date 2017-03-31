@@ -70,6 +70,12 @@ decoratedStories.add('Multiple actions', () => {
 			onClick: action('OTHER'),
 		},
 		{
+			disabled: true,
+			name: 'disabled',
+			type: 'button',
+			label: 'disabled Button',
+		},
+		{
 			style: 'primary',
 			type: 'submit',
 			label: 'VALIDATE',

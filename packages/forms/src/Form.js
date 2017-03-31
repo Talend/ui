@@ -50,6 +50,7 @@ export function renderActions(actions, handleActionClick) {
 				type={action.type}
 				onClick={handleActionClick(action.onClick)}
 				title={action.title}
+				disabled={action.disabled}
 				name={action.name}
 			>
 				{renderActionIcon(action.icon)}
