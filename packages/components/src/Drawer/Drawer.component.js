@@ -30,6 +30,7 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 		'tc-drawer',
 		{
 			[theme.drawerStacked]: stacked,
+			stacked,
 		});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
