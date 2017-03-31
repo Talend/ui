@@ -160,6 +160,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	&.selected {
 		.title {
 			color: $tc-collapsible-selectable-panel-title-color;
+			margin-left: -5px;
 		}
 	}
 
