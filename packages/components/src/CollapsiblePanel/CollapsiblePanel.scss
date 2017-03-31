@@ -160,7 +160,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	&.selected {
 		.title {
 			color: $tc-collapsible-selectable-panel-title-color;
-			margin-left: -5px;
+			margin-left: -4px;
 		}
 	}
 
@@ -183,7 +183,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 	.tag {
 		color: $tc-collapsible-selectable-panel-content-description-color;
-		margin-left: 1px;
+		margin-left: 2px;
 		white-space: nowrap;
 		font-size: 12px;
 	}

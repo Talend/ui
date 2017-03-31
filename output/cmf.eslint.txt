@@ -6,15 +6,11 @@ Scoping to packages that match 'react-cmf'
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  3:21  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
   3:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
 
-✖ 4 problems (4 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
