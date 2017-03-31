@@ -48,8 +48,7 @@ export function renderActions(actions, handleActionClick) {
 				key={index}
 				bsStyle={action.style}
 				label={action.title}
-				{...action}
-				onClick={handleActionClick(action.onClick)}
+				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
