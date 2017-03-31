@@ -240,3 +240,39 @@ exports[`Layout should render layout with footer component 1`] = `
   </footer>
 </div>
 `;
+
+exports[`Layout should render layout without header 1`] = `
+<div
+  className="tc-layout"
+>
+  <div
+    className="tc-layout-one-column"
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className="react-addons-css-transition-group"
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
+        transitionName="tc-drawer"
+      />
+    </div>
+  </div>
+</div>
+`;
