@@ -8,7 +8,7 @@ import renderer from 'react-test-renderer';
 // eslint-disable-next-line no-unused-vars
 import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 
-import Button from 'react-bootstrap/lib/Button';
+import { Action } from 'react-talend-components';
 
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
@@ -88,11 +88,20 @@ describe('renderActions', () => {
 				type: 'button',
 				style: 'link',
 				label: 'CANCEL',
+				onClick: () => {},
+			},
+			{
+				type: 'button',
+				style: 'primary',
+				label: 'VALIDATE',
+				onClick: () => {},
 			},
 			{
 				type: 'submit',
 				style: 'primary',
-				label: 'VALIDATE',
+				label: 'SUBMIT',
+				disabled: true,
+				onClick: () => {},
 			},
 		];
 
@@ -100,12 +109,14 @@ describe('renderActions', () => {
 		const wrapper = shallow(<div>{renderActions(actions, noop)}</div>);
 
 		// then
-		expect(wrapper.find(Button)).toHaveLength(2);
+		expect(wrapper.find(Action)).toHaveLength(3);
+		expect(wrapper.find(Action).first().props().disabled).toBeFalsy();
+		expect(wrapper.find(Action).last().props().disabled).toBeTruthy();
 	});
 
 	it('should render a single submit button', () => {
-		const wrapper = shallow(renderActions());
-		expect(wrapper.containsMatchingElement(<button type="submit">Submit</button>)).toBeTruthy();
+		const wrapper = shallow(<div>{renderActions()}</div>);
+		expect(wrapper.find(Action).first().props().label).toEqual('Submit');
 	});
 });
 
@@ -274,6 +285,7 @@ describe('<Form/>', () => {
 					type: 'submit',
 					onClick: onSubmit,
 					label: 'Submit',
+					disabled: true,
 				},
 				{
 					style: 'link',
