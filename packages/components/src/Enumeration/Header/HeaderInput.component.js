@@ -44,9 +44,9 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onAddChange, onAddKeyDown }) {
-	function onAddChangeHandler(event) {
-		onAddChange(event, {
+function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+	function onInputChangeHandler(event) {
+		onInputChange(event, {
 			value: event.target.value,
 		});
 	}
@@ -61,9 +61,11 @@ function HeaderInput({ headerInput, headerError, onAddChange, onAddKeyDown }) {
 		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
-				placeholder="New entry"
-				ref={(input) => { inputRef = input; }}
-				onChange={onAddChangeHandler}
+				placeholder={inputPlaceholder}
+				ref={(input) => {
+					inputRef = input;
+				}}
+				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
@@ -76,7 +78,8 @@ function HeaderInput({ headerInput, headerError, onAddChange, onAddKeyDown }) {
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	headerError: PropTypes.string,
-	onAddChange: PropTypes.func,
+	onInputChange: PropTypes.func,
+	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
 };
 

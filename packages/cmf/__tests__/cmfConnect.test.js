@@ -1,6 +1,6 @@
 import React from 'react';
-import { fromJS } from 'immutable';
-import { shallow } from 'enzyme';
+import { fromJS, Map } from 'immutable';
+import { shallow, mount } from 'enzyme';
 import mock from '../src/mock';
 
 import cmfConnect, {
@@ -101,5 +101,232 @@ describe('cmfConnect', () => {
 			{ context: mock.context() },
 		);
 		expect(wrapper.props()).toMatchSnapshot();
+	});
+
+	it('should support no context in dispatchActionCreator', () => {
+		const TestComponent = jest.fn();
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		const props = {
+			dispatchActionCreator: jest.fn(),
+		};
+		const context = mock.context();
+		const instance = new CMFConnected.CMFContainer(props, context);
+		const event = {};
+		const data = {};
+		instance.dispatchActionCreator('myactionCreator', event, data);
+		expect(props.dispatchActionCreator).toHaveBeenCalled();
+		const call = props.dispatchActionCreator.mock.calls[0];
+		expect(call[0]).toBe('myactionCreator');
+		expect(call[1]).toBe(event);
+		expect(call[2]).toBe(data);
+		expect(call[3].registry).toBe(instance.context.registry);
+		expect(call[3].store).toBe(instance.context.store);
+	});
+	it('should componentDidMount initState and dispatchActionCreator', () => {
+		const TestComponent = jest.fn();
+		TestComponent.displayName = 'TestComponent';
+		const STATE = new Map();
+		const CMFConnected = cmfConnect({})(TestComponent);
+		const props = {
+			didMountActionCreator: 'hello',
+			dispatchActionCreator: jest.fn(),
+			initState: jest.fn(),
+			initialState: STATE,
+			foo: 'bar',
+		};
+		const context = mock.context();
+		const instance = new CMFConnected.CMFContainer(props, context);
+		instance.componentDidMount();
+		expect(props.dispatchActionCreator).toHaveBeenCalled();
+		const call = props.dispatchActionCreator.mock.calls[0];
+		expect(call[0]).toBe('hello');
+		expect(call[1]).toBe(null);
+		expect(call[2]).toBe(props);
+		expect(call[3].registry).toBe(instance.context.registry);
+		expect(call[3].store).toBe(instance.context.store);
+
+		expect(props.initState).toHaveBeenCalled();
+		expect(props.initState.mock.calls[0][0]).toBe(props.initialState);
+	});
+	it('should componentWillUnMount dispatchActionCreator', () => {
+		const TestComponent = jest.fn();
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		const props = {
+			willUnmountActionCreator: 'bye',
+			dispatchActionCreator: jest.fn(),
+			deleteState: jest.fn(),
+			foo: 'bar',
+		};
+		const context = mock.context();
+		const instance = new CMFConnected.CMFContainer(props, context);
+		instance.componentWillUnmount();
+		expect(props.dispatchActionCreator).toHaveBeenCalled();
+		const call = props.dispatchActionCreator.mock.calls[0];
+		expect(call[0]).toBe('bye');
+		expect(call[1]).toBe(null);
+		expect(call[2]).toBe(props);
+		expect(call[3].registry).toBe(instance.context.registry);
+		expect(call[3].store).toBe(instance.context.store);
+
+		expect(props.deleteState).toHaveBeenCalled();
+		expect(props.deleteState.mock.calls[0][0]).toBe();
+	});
+
+	it('should remove the component state when unmount', () => {
+		// given
+		const TestComponent = () => {
+			return <div></div>;
+		};
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+		expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+		const firstCall = {
+			componentName: "TestComponent",
+			initialComponentState: new Map(),
+			key: "default",
+			type: "REACT_CMF.COMPONENT_ADD_STATE"
+		};
+
+		const secondCall = {
+			componentName: "TestComponent",
+			key: "default",
+			type: "REACT_CMF.COMPONENT_REMOVE_STATE"
+		};
+
+		const wrapper = mount(
+			<CMFConnected />,
+			{
+				context,
+				childContextTypes: {
+					registry: React.PropTypes.object,
+				},
+			},
+		);
+
+		// when
+		wrapper.unmount();
+
+		// then
+		expect(context.store.dispatch.mock.calls[0][0]).toEqual(firstCall);
+		expect(context.store.dispatch.mock.calls[1][0]).toEqual(secondCall);
+	});
+
+	it('should not remove the component state when unmount and cmfConnect keepComponentState is true', () => {
+		// given
+		const TestComponent = () => {
+			return <div></div>;
+		};
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({ keepComponentState: true })(TestComponent);
+		expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+		expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+		const firstCall = {
+			componentName: "TestComponent",
+			initialComponentState: new Map(),
+			key: "default",
+			type: "REACT_CMF.COMPONENT_ADD_STATE"
+		};
+
+		const wrapper = mount(
+			<CMFConnected />,
+			{
+				context,
+				childContextTypes: {
+					registry: React.PropTypes.object,
+				},
+			},
+		);
+
+		// when
+		wrapper.unmount();
+
+		// then
+		expect(context.store.dispatch.mock.calls.length).toBe(1);
+		expect(context.store.dispatch.mock.calls[0][0]).toEqual(firstCall);
+	});
+
+	it('should not remove the component state when unmount and props keepComponentState is true', () => {
+		// given
+		const TestComponent = () => {
+			return <div></div>;
+		};
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+		expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+		const firstCall = {
+			componentName: "TestComponent",
+			initialComponentState: new Map(),
+			key: "default",
+			type: "REACT_CMF.COMPONENT_ADD_STATE"
+		};
+
+		const wrapper = mount(
+			<CMFConnected keepComponentState={true} />,
+			{
+				context,
+				childContextTypes: {
+					registry: React.PropTypes.object,
+				},
+			},
+		);
+
+		// when
+		wrapper.unmount();
+
+		// then
+		expect(context.store.dispatch.mock.calls.length).toBe(1);
+		expect(context.store.dispatch.mock.calls[0][0]).toEqual(firstCall);
+	});
+
+	it('should remove the component state when unmount and props keepComponentState is false', () => {
+		// given
+		const TestComponent = () => {
+			return <div></div>;
+		};
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+		expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+		const firstCall = {
+			componentName: "TestComponent",
+			initialComponentState: new Map(),
+			key: "default",
+			type: "REACT_CMF.COMPONENT_ADD_STATE"
+		};
+
+		const secondCall = {
+			componentName: "TestComponent",
+			key: "default",
+			type: "REACT_CMF.COMPONENT_REMOVE_STATE"
+		};
+
+		const wrapper = mount(
+			<CMFConnected keepComponentState={false} />,
+			{
+				context,
+				childContextTypes: {
+					registry: React.PropTypes.object,
+				},
+			},
+		);
+
+		// when
+		wrapper.unmount();
+
+		// then
+		expect(context.store.dispatch.mock.calls[0][0]).toEqual(firstCall);
+		expect(context.store.dispatch.mock.calls[1][0]).toEqual(secondCall);
 	});
 });
