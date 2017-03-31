@@ -4,10 +4,10 @@ import renderer from 'react-test-renderer';
 import Enumeration from './Enumeration.component';
 
 describe('Enumeration', () => {
-	it('should render with header in default state and list in default state', () => {
+	it('should render with header in default state, list in default state and required component', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
-
+			required: true,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -71,6 +71,7 @@ describe('Enumeration', () => {
 	it('should render with header without items', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
+			inputPlaceholder: 'New entry',
 
 			headerDefault: [{
 				label: 'Add item',
@@ -133,6 +134,7 @@ describe('Enumeration', () => {
 	it('should render with header in add state and list in default state', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_ADD',
+			inputPlaceholder: 'New entry',
 
 			headerDefault: [{
 				label: 'Add item',
@@ -147,6 +149,77 @@ describe('Enumeration', () => {
 				id: 'validate',
 				onClick: jest.fn(), // no click callback
 			}, {
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: jest.fn(), // no click callback
+			}],
+			headerSelected: [{
+				label: 'Selected value',
+				id: 'select',
+				onClick: jest.fn(), // no click callback
+			}],
+			items: Array(3).fill('').map((item, index) => ({
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				actionsDefault: [{
+					disabled: false,
+					label: 'Edit',
+					icon: 'talend-pencil',
+					id: 'edit',
+					onClick: jest.fn(), // no click callback
+				}, {
+					label: 'Delete',
+					icon: 'talend-trash',
+					id: 'delete',
+					onClick: jest.fn(), // no click callback
+				}],
+				actionsEdit: [{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // no click callback
+				}],
+			},
+			onAddChange: jest.fn(), // no click callback
+			onAddKeyDown: jest.fn(), // no click callback
+		};
+		const wrapper = renderer.create(
+			<Enumeration {...props} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with header in search state and list in default state', () => {
+		const props = {
+			displayMode: 'DISPLAY_MODE_SEARCH',
+			searchCriteria: 'lorem',
+			inputPlaceholder: 'search',
+
+			headerDefault: [{
+				label: 'Add item',
+				icon: 'talend-plus',
+				id: 'add',
+				onClick: jest.fn(), // no click callback
+			}],
+			headerInput: [{
+				disabled: false,
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: jest.fn(), // no click callback
+			}, {
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: jest.fn(), // no click callback
+			}],
+			searchInput: [{
 				label: 'Abort',
 				icon: 'talend-cross',
 				id: 'abort',
@@ -268,6 +341,7 @@ describe('Enumeration', () => {
 			}
 			return null;
 		}
+
 		const rendererOptions = { createNodeMock };
 
 		// when
@@ -348,6 +422,7 @@ describe('Enumeration', () => {
 			}
 			return null;
 		}
+
 		const rendererOptions = { createNodeMock };
 
 		// when

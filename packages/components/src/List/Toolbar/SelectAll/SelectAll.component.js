@@ -8,15 +8,17 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 	const checkboxId = id && `${id}-check-all`;
 	return (
 		<form className="navbar-form navbar-left">
-			<div className={classNames('navbar-text', theme['tc-list-toolbar-select-all'])}>
-				<input
-					id={checkboxId}
-					type="checkbox"
-					onChange={(event) => { onToggleAll(event, items); }}
-					checked={isAllSelected()}
-					disabled={!items.length}
-				/>
-				<label className="tc-list-toolbar-select-all" htmlFor={checkboxId}>Select All</label>
+			<div className={classNames('checkbox-inline navbar-text', theme['tc-list-toolbar-select-all'])}>
+				<label className="tc-list-toolbar-select-all" htmlFor={checkboxId}>
+					<input
+						id={checkboxId}
+						type="checkbox"
+						onChange={(event) => { onToggleAll(event, items); }}
+						checked={isAllSelected()}
+						disabled={!items.length}
+					/>
+					<span>Select All</span>
+				</label>
 			</div>
 		</form>
 	);

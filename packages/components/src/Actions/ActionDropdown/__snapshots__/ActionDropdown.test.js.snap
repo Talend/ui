@@ -86,12 +86,22 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
         tabIndex="-1"
       >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
@@ -159,12 +169,22 @@ exports[`ActionDropdown should render a button with icon 1`] = `
     >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
         tabIndex="-1"
       >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
@@ -230,12 +250,22 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
     >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
         tabIndex="-1"
       >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>
@@ -296,12 +326,22 @@ exports[`ActionDropdown should render a button with label 1`] = `
     >
       <a
         href="#"
+        icon="talend-icon"
         label="document 1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="menuitem"
         tabIndex="-1"
       >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
         document 1
       </a>
     </li>

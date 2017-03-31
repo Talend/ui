@@ -1,7 +1,7 @@
 import React, { PropTypes, createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import { api } from 'react-cmf';
 import { connect } from 'react-redux';
+import api from './api';
 
 import {
 	statePropTypes,
@@ -95,6 +95,7 @@ export function getDispatchToProps({
  * - didMountActionCreator (id or array of id)
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
+ * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -145,14 +146,16 @@ export default function cmfConnect({
 						this.props,
 					);
 				}
-				if (!keepComponentState) {
+				// if the props.keepComponentState is present we have to stick to it
+				if (this.props.keepComponentState === false ||
+					(this.props.keepComponentState === undefined && !keepComponentState)) {
 					this.props.deleteState();
 				}
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
 				const extendedContext = Object.assign({}, this.context, context);
-				this.props.dispatchActionCreator(actionCreatorId, event, data, extended);
+				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
 			render() {
