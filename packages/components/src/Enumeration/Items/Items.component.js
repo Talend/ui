@@ -16,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp, currentEdit, searchCriteria, hideTooltips }) {
+function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -41,7 +41,6 @@ function Items({ items, itemsProp, currentEdit, searchCriteria, hideTooltips }) 
 						id={`${index}-item`}
 						item={itemWithIndex}
 						currentEdit={currentEdit}
-						hideTooltips={hideTooltips}
 					/>
 				);
 			}
@@ -78,7 +77,6 @@ Items.propTypes = {
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),
 	searchCriteria: PropTypes.string,
-	hideTooltips: PropTypes.bool,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
 		onSubmitItem: PropTypes.func,

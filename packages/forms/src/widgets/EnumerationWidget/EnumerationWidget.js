@@ -20,6 +20,7 @@ class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		console.log(props);
+		this.allowDuplicate = !!props.schema.allowDuplicates;
 		this.addInputs = [{
 			disabled: true,
 			label: 'Validate',
@@ -379,7 +380,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	valueAlreadyExist(value) {
-		return this.state.items.find(item => item.values[0] === value);
+		return !this.allowDuplicate && this.state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {
