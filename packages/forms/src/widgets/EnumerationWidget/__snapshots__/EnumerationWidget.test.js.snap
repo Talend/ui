@@ -103,6 +103,7 @@ exports[`EnumerationWidget delete all 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -197,6 +198,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -463,6 +465,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -564,6 +567,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -658,6 +662,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -926,6 +931,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1027,6 +1033,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -1121,6 +1128,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1387,6 +1395,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1493,6 +1502,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -1587,6 +1597,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1854,6 +1865,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1985,6 +1997,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -2098,6 +2111,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -2383,6 +2397,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -2447,12 +2462,14 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <ItemEdit
                 currentEdit={
                   Object {
@@ -2740,6 +2757,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -2825,6 +2843,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3004,6 +3023,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3116,6 +3136,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -3210,6 +3231,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3476,6 +3498,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3604,6 +3627,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -3707,6 +3731,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3982,6 +4007,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4036,12 +4062,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Item
                 id="0-item"
                 item={
@@ -4426,6 +4454,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -4531,6 +4560,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4725,6 +4755,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4781,12 +4812,14 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Item
                 id="0-item"
                 item={
@@ -5187,6 +5220,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -5300,6 +5334,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -5502,6 +5537,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -5566,12 +5602,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Item
                 id="0-item"
                 item={
