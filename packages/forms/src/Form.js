@@ -99,7 +99,7 @@ class Form extends React.Component {
 		if (onClick) {
 			return (event, data) => onClick(event, { ...data, ...this.form.state });
 		}
-		return null;
+		return () => {};
 	}
 
 	render() {
