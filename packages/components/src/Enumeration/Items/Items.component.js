@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action/Action.component';
@@ -16,7 +16,7 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({items, itemsProp, currentEdit, searchCriteria}) {
+function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 	function getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
@@ -25,43 +25,43 @@ function Items({items, itemsProp, currentEdit, searchCriteria}) {
 		};
 
 		switch (item.displayMode) {
-			case DISPLAY_MODE_EDIT: {
-				const itemPropsEdit = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsEdit,
-					onSubmitItem: itemsProp.onSubmitItem,
-					onAbortItem: itemsProp.onAbortItem,
-					onChangeItem: itemsProp.onChangeItem,
-				};
-				itemWithIndex.itemProps = itemPropsEdit;
+		case DISPLAY_MODE_EDIT: {
+			const itemPropsEdit = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsEdit,
+				onSubmitItem: itemsProp.onSubmitItem,
+				onAbortItem: itemsProp.onAbortItem,
+				onChangeItem: itemsProp.onChangeItem,
+			};
+			itemWithIndex.itemProps = itemPropsEdit;
 
-				return (
-					<ItemEdit
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						currentEdit={currentEdit}
-					/>
-				);
-			}
-			default: {
-				const itemPropDefault = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsDefault,
-					onSelectItem: itemsProp.onSelectItem,
-				};
-				itemWithIndex.itemProps = itemPropDefault;
+			return (
+				<ItemEdit
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					currentEdit={currentEdit}
+				/>
+			);
+		}
+		default: {
+			const itemPropDefault = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsDefault,
+				onSelectItem: itemsProp.onSelectItem,
+			};
+			itemWithIndex.itemProps = itemPropDefault;
 
-				return (
-					<Item
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						itemProps={itemPropDefault}
-						searchCriteria={searchCriteria}
-					/>
-				);
-			}
+			return (
+				<Item
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					itemProps={itemPropDefault}
+					searchCriteria={searchCriteria}
+				/>
+			);
+		}
 		}
 	}
 
