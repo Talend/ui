@@ -52,14 +52,14 @@ class ItemEdit extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-		case keycode('escape'):
-			this.cancel(event);
-			break;
-		case keycode('enter'):
-			this.submit(event);
-			break;
-		default:
-			break;
+			case keycode('escape'):
+				this.cancel(event);
+				break;
+			case keycode('enter'):
+				this.submit(event);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -133,7 +133,9 @@ class ItemEdit extends React.Component {
 			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
 				<input
 					className={itemLabelClasses()}
-					ref={(input) => { this.itemInput = input; }}
+					ref={(input) => {
+						this.itemInput = input;
+					}}
 					type="text"
 					onKeyDown={this.onKeyDown}
 					onChange={this.itemChange}
@@ -143,7 +145,7 @@ class ItemEdit extends React.Component {
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
 				{
-					this.props.item.error &&
+					this.props.item.error && this.props.hideTooltips !== true &&
 					<div className={itemErrorClasses()}>{this.props.item.error}</div>
 				}
 			</li>

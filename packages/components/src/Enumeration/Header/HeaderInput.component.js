@@ -44,7 +44,7 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown, hideTooltips }) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -69,7 +69,8 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
+			{ headerError && hideTooltips !== true &&
+			<div className={headerErrorClasses()}>{headerError}</div> }
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);
@@ -81,6 +82,7 @@ HeaderInput.propTypes = {
 	onInputChange: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
+	hideTooltips: PropTypes.bool,
 };
 
 export default HeaderInput;

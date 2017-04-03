@@ -19,6 +19,7 @@ const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
+		console.log(props);
 		this.addInputs = [{
 			disabled: true,
 			label: 'Validate',
@@ -55,8 +56,9 @@ class EnumerationWidget extends React.Component {
 		}];
 
 		this.state = {
-			displayMode: DISPLAY_MODE_DEFAULT,
+			displayMode: props.schema.displayMode || DISPLAY_MODE_DEFAULT,
 			required: (props.schema && props.schema.required) || false,
+			hideTooltips: true,
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -106,6 +108,7 @@ class EnumerationWidget extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		// console.log(nextProps);
 		this.setState({ ...this.state, items: nextProps.formData });
 	}
 
@@ -151,8 +154,7 @@ class EnumerationWidget extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-
-		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, value.index)) {
+		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, [this.state.items[value.index].id])) {
 			const items = resetItems([...this.state.items]);
 			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 			items.splice(value.index, 1);
@@ -196,7 +198,12 @@ class EnumerationWidget extends React.Component {
 	onSubmitItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		if (!this.callActionHandler(ENUMERATION_RENAME_ACTION, value.value)) {
+		if (!this.callActionHandler(
+				ENUMERATION_RENAME_ACTION, {
+					index: value.index,
+					value: value.value,
+					oldValue: this.state.items[value.index].values[0],
+				})) {
 			const items = [...this.state.items];
 			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 			const valueExist = this.valueAlreadyExist(value.value);
@@ -281,11 +288,19 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onDeleteItems() {
-		const result = deleteSelectedItems([...this.state.items]);
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
-			items: result,
-		}, this.setFormData.bind(this));
+		const itemsToDelete = [];
+		this.state.items.forEach((item) => {
+			if (item.isSelected) {
+				itemsToDelete.push(item.id);
+			}
+		});
+		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, itemsToDelete)) {
+			const result = deleteSelectedItems([...this.state.items]);
+			this.setState({
+				displayMode: DISPLAY_MODE_DEFAULT,
+				items: result,
+			}, this.setFormData.bind(this));
+		}
 	}
 
 	onAddHandler(event, value) {
@@ -409,9 +424,9 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
+		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
-		schema: PropTypes.object,
 	};
 }
 

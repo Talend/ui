@@ -61,16 +61,18 @@ Enumeration.propTypes = {
 	onInputChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
+	allowDuplicates: PropTypes.bool,
 	...ItemEditPropTypes,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
+function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit, allowDuplicates }) {
 	if (items.length > 0) {
 		return (<Items
 			items={items}
 			itemsProp={itemsProp}
 			currentEdit={currentEdit}
 			searchCriteria={searchCriteria}
+			allowDuplicates={allowDuplicates}
 		/>);
 	}
 	return null;
@@ -80,53 +82,56 @@ ItemsEnumeration.propTypes = {
 	items: Enumeration.propTypes.items,
 	itemsProp: Enumeration.propTypes.itemsProp,
 	searchCriteria: Enumeration.propTypes.searchCriteria,
+	allowDuplicates: Enumeration.propTypes.allowDuplicates,
 	...ItemEditPropTypes,
 };
 
 function HeaderEnumeration({
-	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, items, required,
-}) {
+	                           displayMode, headerError, onInputChange, onAddKeyDown,
+	                           headerInput, headerDefault, headerSelected, items, required, allowDuplicates,
+                           }) {
 	switch (displayMode) {
-	case DISPLAY_MODE_SEARCH: {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'Search',
-		};
-		return <HeaderInput {...propsInput} />;
-	}
-	case DISPLAY_MODE_ADD : {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'New entry',
-		};
-		return <HeaderInput {...propsInput} />;
-	}
-	case DISPLAY_MODE_DEFAULT: {
-		const propsDefault = {
-			headerDefault,
-			required,
-		};
+		case DISPLAY_MODE_SEARCH: {
+			const propsInput = {
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				headerError,
+				inputPlaceholder: 'Search',
+			};
+			return <HeaderInput {...propsInput} />;
+		}
+		case DISPLAY_MODE_ADD : {
+			const propsInput =
+				{
+					headerInput,
+					onInputChange,
+					onAddKeyDown,
+					headerError,
+					hideTooltips,
+					inputPlaceholder: 'New entry',
+				};
+			return <HeaderInput {...propsInput} />;
+		}
+		case DISPLAY_MODE_DEFAULT: {
+			const propsDefault = {
+				headerDefault,
+				required,
+			};
 
-		return <Header {...propsDefault} />;
-	}
+			return <Header {...propsDefault} />;
+		}
 
-	case DISPLAY_MODE_SELECTED: {
-		const propsSelected = {
-			headerSelected,
-			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-		};
-		return <HeaderSelected {...propsSelected} />;
-	}
+		case DISPLAY_MODE_SELECTED: {
+			const propsSelected = {
+				headerSelected,
+				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+			};
+			return <HeaderSelected {...propsSelected} />;
+		}
 
-	default:
-		return null;
+		default:
+			return null;
 	}
 }
 
@@ -140,6 +145,7 @@ HeaderEnumeration.propTypes = {
 	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
 	items: Enumeration.propTypes.items,
 	required: Enumeration.propTypes.required,
+	hideTooltips: Enumeration.propTypes.hideTooltips,
 };
 
 export default Enumeration;
