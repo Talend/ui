@@ -15,6 +15,7 @@ const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
+const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -231,10 +232,13 @@ class EnumerationWidget extends React.Component {
 		if (this.state.displayMode === DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
-			searchCriteria: null,
-		});
+
+		if (this.callActionHandler(ENUMERATION_RESET_LIST)) {
+			this.setState({
+				displayMode: DISPLAY_MODE_DEFAULT,
+				searchCriteria: null,
+			});
+		}
 	}
 
 	onAddKeyDown(event, value) {
