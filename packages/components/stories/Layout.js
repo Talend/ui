@@ -236,4 +236,12 @@ storiesOf('Layout', module)
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
+	))
+	.addWithInfo('OneColumn without header', () => (
+		<Layout
+			mode="OneColumn"
+		>
+			<h1>Hello world</h1>
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
 	));

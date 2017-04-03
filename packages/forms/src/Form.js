@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
-import Button from 'react-bootstrap/lib/Button';
+import { Action } from 'react-talend-components';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
@@ -40,20 +40,23 @@ export function renderActionIcon(icon) {
 export function renderActions(actions, handleActionClick) {
 	if (actions) {
 		return actions.map((action, index) => (
-			<Button
+			<Action
 				key={index}
 				bsStyle={action.style}
-				type={action.type}
-				onClick={handleActionClick(action.onClick)}
-				title={action.title}
-				name={action.name}
+				label={action.title}
+				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Button>)
+			</Action>)
 		);
 	}
-	return <Button bsStyle="primary" type="submit">Submit</Button>;
+	return (<Action
+		bsStyle="primary"
+		onClick={() => {}}
+		type="submit"
+		label="Submit"
+	/>);
 }
 
 class Form extends React.Component {
@@ -90,9 +93,9 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return event => onClick(event, this.form.state);
+			return (event, data) => onClick(event, { ...data, ...this.form.state });
 		}
-		return null;
+		return () => {};
 	}
 
 	render() {
