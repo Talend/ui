@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.68.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.69.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -130,16 +130,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  156:7  error  Expected indentation of 3 tabs but found 6 spaces  indent
-  157:7  error  Expected indentation of 3 tabs but found 6 spaces  indent
-  158:7  error  Expected indentation of 3 tabs but found 6 spaces  indent
-  159:7  error  Expected indentation of 3 tabs but found 6 spaces  indent
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
-  166:1  error  Line 166 exceeds the maximum line length of 100  max-len
-
-✖ 117 problems (117 errors, 0 warnings)
+✖ 112 problems (112 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

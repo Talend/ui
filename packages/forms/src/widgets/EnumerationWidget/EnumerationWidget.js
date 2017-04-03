@@ -155,10 +155,10 @@ class EnumerationWidget extends React.Component {
 		event.stopPropagation();
 
 		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, value.index)) {
-      const items = resetItems([...this.state.items]);
-      items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-      items.splice(value.index, 1);
-      const countItems = items.filter(item => item.isSelected).length;
+			const items = resetItems([...this.state.items]);
+			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			items.splice(value.index, 1);
+			const countItems = items.filter(item => item.isSelected).length;
 
 			let displayMode = this.state.displayMode;
 			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {

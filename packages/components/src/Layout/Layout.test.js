@@ -60,4 +60,14 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render layout without header', () => {
+		const wrapper = renderer.create(
+			<Layout mode="OneColumn">
+				{one}
+			</Layout>
+		).toJSON();
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });

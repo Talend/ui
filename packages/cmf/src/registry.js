@@ -48,6 +48,12 @@ function addToRegistry(id, item) {
 			'Please check your CMF configuration, you might not want that.'
 		);
 	}
+	if (item === undefined) {
+		throw new Error(
+			`CMF: you can't register undefined in '${id}'.
+			You may have an import error in your configuration`
+		);
+	}
 	registry[id] = item;
 }
 
