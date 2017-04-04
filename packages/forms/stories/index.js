@@ -30,9 +30,9 @@ const decoratedStories = storiesOf('Form', module)
 const capitalizeFirstLetter =
 	string => string.charAt(0).toUpperCase() + string.slice(1);
 
-const sampleFilenames = require.context('./json', true, /.json$/);
+const sampleFilenames = require.context('./json', true, /.(js|json)$/);
 
-const sampleFilenameRegex = /^.\/(.*).json$/;
+const sampleFilenameRegex = /^.\/(.*).js/;
 
 sampleFilenames
 	.keys()
@@ -109,6 +109,54 @@ decoratedStories.add('Multiple actions', () => {
 			data={schema}
 			onSubmit={action('SUBMIT')}
 			actions={actions}
+		/>
+	);
+});
+
+const UnknownWidget = (props) => {
+	const { value } = props;
+
+	return (
+		<div className="well well-sm">
+			Selected value is {value}
+		</div>
+	);
+};
+
+UnknownWidget.propTypes = {
+	value: React.PropTypes.string,
+};
+
+decoratedStories.add('Custom widget', () => {
+	const widgets = {
+		unknown: UnknownWidget,
+	};
+	const schema = {
+		jsonSchema: {
+			title: 'Unknown widget',
+			type: 'object',
+			properties: {
+				list: {
+					type: 'string',
+					enum: ['one', 'two', 'three'],
+					enumNames: ['One', 'Two', 'Three'],
+				},
+			},
+		},
+		properties: {
+			list: 'two',
+		},
+		uiSchema: {
+			list: {
+				'ui:widget': 'unknown',
+			},
+		}
+	};
+	return (
+		<Form
+			data={schema}
+			widgets={widgets}
+			onSubmit={action('SUBMIT')}
 		/>
 	);
 });
