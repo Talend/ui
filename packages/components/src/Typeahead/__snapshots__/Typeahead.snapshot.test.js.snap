@@ -496,6 +496,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   aria-describedby={42}
   className="btn btn-link"
   disabled={false}
+  name="Toggle search bar"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

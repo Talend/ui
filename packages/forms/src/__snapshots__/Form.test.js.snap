@@ -86,6 +86,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     <button
       className="btn btn-primary"
       disabled={true}
+      name="Submit"
       onClick={[Function]}
       role={null}
       type="submit">
@@ -96,6 +97,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
+      name="Reset"
       onClick={[Function]}
       role={null}
       type="reset">

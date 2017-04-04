@@ -14,6 +14,7 @@ exports[`Header should render header with one button 1`] = `
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
+      name="Add item"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -51,6 +52,7 @@ exports[`Header should render header with one button and indicate the component 
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
+      name="Add item"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

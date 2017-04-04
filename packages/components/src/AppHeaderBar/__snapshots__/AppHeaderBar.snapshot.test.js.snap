@@ -4115,6 +4115,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                 aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
+                name="icon"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}

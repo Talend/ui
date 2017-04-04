@@ -20,6 +20,7 @@ exports[`Notification should render 1`] = `
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
+        name=""
         onClick={[Function]}
         role={null}
         type="button"
@@ -44,6 +45,7 @@ exports[`Notification should render 1`] = `
         <button
           className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
           disabled={false}
+          name="Haha"
           onClick={[Function]}
           role={null}
           type="button"
@@ -76,6 +78,7 @@ exports[`Notification should render 1`] = `
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
+        name=""
         onClick={[Function]}
         role={null}
         type="button"
@@ -106,6 +109,7 @@ exports[`Notification should render 1`] = `
           <button
             className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
             disabled={false}
+            name="undo"
             onClick={[Function]}
             role={null}
             type="button"
@@ -136,6 +140,7 @@ exports[`Notification should render 1`] = `
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
+        name=""
         onClick={[Function]}
         role={null}
         type="button"
@@ -179,6 +184,7 @@ exports[`Notification should render 1`] = `
       <button
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
+        name=""
         onClick={[Function]}
         role={null}
         type="button"

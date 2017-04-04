@@ -14,6 +14,7 @@ exports[`ActionBar should render a btn-group 1`] = `
         aria-describedby={42}
         className="btn btn-default"
         disabled={false}
+        name="hidden mean tooltips"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -36,6 +37,7 @@ exports[`ActionBar should render a btn-group 1`] = `
         aria-describedby={42}
         className="btn btn-default"
         disabled={false}
+        name="you are a super star"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -69,6 +71,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
     <button
       className="btn btn-primary"
       disabled={false}
+      name="Primary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -85,6 +88,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -197,6 +201,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
     <button
       className="btn btn-primary"
       disabled={false}
+      name="Primary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -213,6 +218,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -325,6 +331,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
     <button
       className="btn btn-primary"
       disabled={false}
+      name="Primary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -345,6 +352,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -463,6 +471,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -479,6 +488,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -597,6 +607,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -613,6 +624,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -731,6 +743,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
@@ -751,6 +764,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
     <button
       className="btn btn-default"
       disabled={false}
+      name="Secondary"
       onClick={[Function]}
       role={null}
       type="button"
