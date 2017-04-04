@@ -8,8 +8,8 @@
 		li {
 			display: flex;
 			align-items: center;
-		}
 
+			}
 		.btn {
 			&-default,
 			&-primary,
@@ -19,6 +19,13 @@
 			&-danger {
 				min-height: inherit;
 				height: auto;
+				margin: 0 $padding-normal;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $btn-active-hover-focus;
 			}
 		}
 	}
