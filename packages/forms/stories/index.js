@@ -117,8 +117,13 @@ const UnknownWidget = (props) => {
 	const { value } = props;
 
 	return (
-		<div className="well well-sm">
-			Selected value is {value}
+		<div className="panel panel-info">
+			<div className="panel-heading">
+				<h3 className="panel-title">Custom widget</h3>
+			</div>
+			<div className="panel-body">
+				Form was instantiated with a custom widget to display its selected value <code>{value}</code>.
+			</div>
 		</div>
 	);
 };
