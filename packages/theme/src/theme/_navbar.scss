@@ -8,8 +8,8 @@
 		li {
 			display: flex;
 			align-items: center;
+		}
 
-			}
 		.btn {
 			&-default,
 			&-primary,
@@ -17,6 +17,7 @@
 			&-info,
 			&-warning,
 			&-danger {
+				margin: 0 $padding-normal;				
 				min-height: inherit;
 				height: auto;
 			}
