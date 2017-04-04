@@ -29,10 +29,7 @@ src/theme/_navbar.scss
 src/theme/_tooltip.scss
   2:3  warning  Mixed tabs and spaces  indentation
 
-src/theme/_variables.scss
-  158:34  warning  Hex notation should all be upper case  hex-notation
-
-✖ 15 problems (11 errors, 4 warnings)
+✖ 14 problems (11 errors, 3 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
