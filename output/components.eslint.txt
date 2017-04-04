@@ -8,6 +8,9 @@ Scoping to packages that match 'react-talend-components'
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
   22:4  error  Expected space(s) after "switch"  keyword-spacing
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
+  123:4  error  Missing semicolon  semi
+
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
   7:27  error  'name' is missing in props validation  react/prop-types
 
@@ -37,7 +40,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 16 problems (16 errors, 0 warnings)
+✖ 17 problems (17 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
