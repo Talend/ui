@@ -4,7 +4,52 @@ import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar } from '../src/index';
 
-const header = <AppHeaderBar app="Example App Name" />;
+const headerProps = {
+	brand: {
+		id: 'header-brand',
+		name: 'Example App Name',
+		onClick: action('onApplicationNameClick'),
+	},
+	logo: {
+		id: 'header-logo',
+		onClick: action('onLogoClick'),
+	},
+	search: {
+		icon: {
+			name: 'talend-search',
+			title: 'icon',
+			bsStyle: 'link',
+		},
+		id: 'header-search',
+		onToggle: action('onSearchClick'),
+	},
+	help: {
+		id: 'header-help',
+		onClick: action('onHelpClick'),
+	},
+	user: {
+		id: 'header-user',
+		items: [
+			{
+				icon: 'talend-cog',
+				label: 'Settings',
+				onClick: action('onSettingsClick'),
+			},
+		],
+		name: 'User NAME',
+	},
+	products: {
+		id: 'header-products',
+		items: [
+			{
+				icon: 'talend-logo-square',
+				label: 'Portal',
+				onClick: action('onPortalClick'),
+			},
+		],
+	},
+};
+const header = <AppHeaderBar {...headerProps} />;
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],

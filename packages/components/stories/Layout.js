@@ -1,16 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import talendIcons from 'talend-icons/dist/react';
 
 import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-star': talendIcons['talend-star'],
-};
 
 const actions = [
 	{
@@ -57,7 +48,52 @@ const dockedSidePanel = (<SidePanel
 	onToggleDock={action('Toggle dock clicked')}
 	docked
 />);
-const header = (<AppHeaderBar app="Example App Name" />);
+const headerProps = {
+	brand: {
+		id: 'header-brand',
+		name: 'Example App Name',
+		onClick: action('onApplicationNameClick'),
+	},
+	logo: {
+		id: 'header-logo',
+		onClick: action('onLogoClick'),
+	},
+	search: {
+		icon: {
+			name: 'talend-search',
+			title: 'icon',
+			bsStyle: 'link',
+		},
+		id: 'header-search',
+		onToggle: action('onSearchClick'),
+	},
+	help: {
+		id: 'header-help',
+		onClick: action('onHelpClick'),
+	},
+	user: {
+		id: 'header-user',
+		items: [
+			{
+				icon: 'talend-cog',
+				label: 'Settings',
+				onClick: action('onSettingsClick'),
+			},
+		],
+		name: 'User NAME',
+	},
+	products: {
+		id: 'header-products',
+		items: [
+			{
+				icon: 'talend-logo-square',
+				label: 'Portal',
+				onClick: action('onPortalClick'),
+			},
+		],
+	},
+};
+const header = (<AppHeaderBar {...headerProps} />);
 const footer = 'Footer content';
 
 const listItem = {
@@ -144,7 +180,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with scroll', () => (
@@ -153,7 +189,7 @@ storiesOf('Layout', module)
 			mode="OneColumn"
 		>
 			{content}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
@@ -163,7 +199,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with scroll', () => (
@@ -173,7 +209,7 @@ storiesOf('Layout', module)
 			one={sidePanel}
 		>
 			{content}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Table list', () => (
@@ -183,7 +219,7 @@ storiesOf('Layout', module)
 			one={dockedSidePanel}
 		>
 			<List {...listProps} />
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Large list', () => (
@@ -193,7 +229,7 @@ storiesOf('Layout', module)
 			one={dockedSidePanel}
 		>
 			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Tile list', () => (
@@ -203,7 +239,7 @@ storiesOf('Layout', module)
 			one={dockedSidePanel}
 		>
 			<List {...listProps} displayMode={'tile'} />
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => (
@@ -213,7 +249,7 @@ storiesOf('Layout', module)
 			one={dockedSidePanel}
 		>
 			{content}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with drawers', () => (
@@ -224,7 +260,7 @@ storiesOf('Layout', module)
 			drawers={drawers}
 		>
 			{content}
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with footer', () => (
@@ -234,7 +270,7 @@ storiesOf('Layout', module)
 			footer={footer}
 		>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</Layout>
 	))
 	.addWithInfo('OneColumn without header', () => (
