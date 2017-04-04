@@ -38,6 +38,7 @@ function getAction(action, index) {
 			onClick={onClick}
 			disabled={action.disabled}
 			tooltipPlacement="bottom"
+			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>

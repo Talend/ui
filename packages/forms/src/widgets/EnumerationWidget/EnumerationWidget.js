@@ -40,7 +40,15 @@ class EnumerationWidget extends React.Component {
 			label: 'Abort',
 			icon: 'talend-cross',
 			id: 'abort',
+			inProgress: true,
 			onClick: this.onAbortHandler.bind(this),
+		}];
+
+		this.searchStates = [{
+			label: 'Loading',
+			icon: 'talend-cross',
+			inProgress: true,
+			id: 'loading',
 		}];
 
 		this.defaultActions = [{
@@ -109,8 +117,13 @@ class EnumerationWidget extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		// console.log(nextProps);
-		this.setState({ ...this.state, items: nextProps.formData });
+		console.log(nextProps);
+		this.setState(
+			{
+				...this.state,
+				items: nextProps.formData,
+				displayMode: nextProps.displayMode || this.state.displayMode,
+			});
 	}
 
 	// default mode
@@ -322,6 +335,10 @@ class EnumerationWidget extends React.Component {
 				}, this.setFormData.bind(this));
 				this.updateHeaderInputDisabled('');
 			}
+		} else {
+			this.setState({
+				headerInput: this.searchInputs,
+			});
 		}
 	}
 

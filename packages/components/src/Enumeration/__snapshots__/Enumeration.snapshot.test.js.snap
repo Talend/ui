@@ -17,7 +17,7 @@ exports[`Enumeration should render with header in add state and list in default 
     <button
       aria-describedby={42}
       className="btn btn-link"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -27,19 +27,28 @@ exports[`Enumeration should render with header in add state and list in default 
       type="button"
     >
       <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}
+        className=""
+        viewBox="0 0 50 50"
       >
-        <use
-          xlinkHref="#talend-check"
+        <circle
+          className={undefined}
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          style={
+            Object {
+              "strokeDasharray": 12.566370614359172,
+              "strokeDashoffset": 0,
+            }
+          }
         />
       </svg>
     </button>
     <button
       aria-describedby={42}
       className="btn btn-link"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -49,12 +58,21 @@ exports[`Enumeration should render with header in add state and list in default 
       type="button"
     >
       <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}
+        className=""
+        viewBox="0 0 50 50"
       >
-        <use
-          xlinkHref="#talend-cross"
+        <circle
+          className={undefined}
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          style={
+            Object {
+              "strokeDasharray": 12.566370614359172,
+              "strokeDashoffset": 0,
+            }
+          }
         />
       </svg>
     </button>
@@ -784,7 +802,7 @@ exports[`Enumeration should render with header in search state and list in defau
     <button
       aria-describedby={42}
       className="btn btn-link"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -794,19 +812,28 @@ exports[`Enumeration should render with header in search state and list in defau
       type="button"
     >
       <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}
+        className=""
+        viewBox="0 0 50 50"
       >
-        <use
-          xlinkHref="#talend-check"
+        <circle
+          className={undefined}
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          style={
+            Object {
+              "strokeDasharray": 12.566370614359172,
+              "strokeDashoffset": 0,
+            }
+          }
         />
       </svg>
     </button>
     <button
       aria-describedby={42}
       className="btn btn-link"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -816,12 +843,21 @@ exports[`Enumeration should render with header in search state and list in defau
       type="button"
     >
       <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}
+        className=""
+        viewBox="0 0 50 50"
       >
-        <use
-          xlinkHref="#talend-cross"
+        <circle
+          className={undefined}
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          style={
+            Object {
+              "strokeDasharray": 12.566370614359172,
+              "strokeDashoffset": 0,
+            }
+          }
         />
       </svg>
     </button>
