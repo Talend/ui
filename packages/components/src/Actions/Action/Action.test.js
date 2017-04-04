@@ -99,22 +99,11 @@ describe('Action', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render action with html property name equal to label if not specified', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
 	it('should render action with html property name = props.name if set', () => {
 		// when
 		const wrapper = renderer.create(
 			<Action
-				name="custom name"
+				name="custom_name"
 				{...myAction}
 			/>).toJSON();
 

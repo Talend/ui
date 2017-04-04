@@ -11,7 +11,6 @@ exports[`Header should render header with trash icon in case of multiple selecti
     aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    name="Validate"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

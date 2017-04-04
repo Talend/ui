@@ -21,7 +21,6 @@ exports[`Status should render a label 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="cancel"
         onClick={[Function]}
         role={null}
         type="button"
@@ -38,7 +37,6 @@ exports[`Status should render a label 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="delete"
         onClick={[Function]}
         role={null}
         type="button"
@@ -82,7 +80,6 @@ exports[`Status should render a label with Icon 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="cancel"
         onClick={[Function]}
         role={null}
         type="button"
@@ -99,7 +96,6 @@ exports[`Status should render a label with Icon 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="delete"
         onClick={[Function]}
         role={null}
         type="button"
@@ -182,7 +178,6 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="cancel"
         onClick={[Function]}
         role={null}
         type="button"
@@ -199,7 +194,6 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="delete"
         onClick={[Function]}
         role={null}
         type="button"
@@ -256,7 +250,6 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="cancel"
         onClick={[Function]}
         role={null}
         type="button"
@@ -273,7 +266,6 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       <button
         className="btn btn-sm btn-default"
         disabled={false}
-        name="delete"
         onClick={[Function]}
         role={null}
         type="button"

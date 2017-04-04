@@ -4,7 +4,6 @@ exports[`Action should apply transformation on icon 1`] = `
 <button
   className="btn btn-default"
   disabled={false}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"
@@ -28,7 +27,6 @@ exports[`Action should display a Progress indicator if set 1`] = `
 <button
   className="navbar-btn btn btn-default"
   disabled={true}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"
@@ -61,7 +59,6 @@ exports[`Action should display a disabled Icon 1`] = `
 <button
   className="navbar-btn btn btn-default"
   disabled={true}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"
@@ -85,7 +82,6 @@ exports[`Action should pass all props to the Button 1`] = `
 <button
   className="navbar-btn btn btn-default"
   disabled={false}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"
@@ -109,7 +105,6 @@ exports[`Action should render a button 1`] = `
 <button
   className="btn btn-default"
   disabled={false}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"
@@ -133,31 +128,7 @@ exports[`Action should render action with html property name = props.name if set
 <button
   className="btn btn-default"
   disabled={false}
-  name="custom name"
-  onClick={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
-`;
-
-exports[`Action should render action with html property name equal to label if not specified 1`] = `
-<button
-  className="btn btn-default"
-  disabled={false}
-  name="Click me"
+  name="custom_name"
   onClick={[Function]}
   role={null}
   type="button"
@@ -181,7 +152,6 @@ exports[`Action should reverse icon/label 1`] = `
 <button
   className="btn btn-default"
   disabled={false}
-  name="Click me"
   onClick={[Function]}
   role={null}
   type="button"

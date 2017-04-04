@@ -43,7 +43,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="cancel"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -60,7 +59,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="delete"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -85,7 +83,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            name="edit"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -244,7 +241,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="cancel"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -261,7 +257,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="delete"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -286,7 +281,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            name="edit"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -445,7 +439,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="cancel"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -462,7 +455,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 <button
                   className="btn btn-default"
                   disabled={false}
-                  name="delete"
                   onClick={[Function]}
                   role={null}
                   type="button"
@@ -487,7 +479,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            name="edit"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}

@@ -99,7 +99,6 @@ function Action(props) {
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
-			name={props.name || props.label}
 			{...buttonProps}
 		>
 			{buttonContent}

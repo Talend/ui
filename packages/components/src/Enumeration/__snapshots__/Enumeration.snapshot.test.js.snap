@@ -18,7 +18,6 @@ exports[`Enumeration should render with header in add state and list in default 
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      name="Validate"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -41,7 +40,6 @@ exports[`Enumeration should render with header in add state and list in default 
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      name="Abort"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -72,7 +70,6 @@ exports[`Enumeration should render with header in add state and list in default 
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 0"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -92,7 +89,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -115,7 +111,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -144,7 +139,6 @@ exports[`Enumeration should render with header in add state and list in default 
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 1"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -164,7 +158,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -187,7 +180,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -216,7 +208,6 @@ exports[`Enumeration should render with header in add state and list in default 
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 2"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -236,7 +227,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -259,7 +249,6 @@ exports[`Enumeration should render with header in add state and list in default 
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -301,7 +290,6 @@ exports[`Enumeration should render with header in default state and first item i
         aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        name="Add item"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -343,7 +331,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={true}
-          name="Validate"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -366,7 +353,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Cancel"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -395,7 +381,6 @@ exports[`Enumeration should render with header in default state and first item i
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 1"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -415,7 +400,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -438,7 +422,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -467,7 +450,6 @@ exports[`Enumeration should render with header in default state and first item i
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 2"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -487,7 +469,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -510,7 +491,6 @@ exports[`Enumeration should render with header in default state and first item i
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -553,7 +533,6 @@ exports[`Enumeration should render with header in default state, list in default
         aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        name="Add item"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -585,7 +564,6 @@ exports[`Enumeration should render with header in default state, list in default
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 0"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -605,7 +583,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -628,7 +605,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -657,7 +633,6 @@ exports[`Enumeration should render with header in default state, list in default
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 1"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -677,7 +652,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -700,7 +674,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -729,7 +702,6 @@ exports[`Enumeration should render with header in default state, list in default
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 2"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -749,7 +721,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -772,7 +743,6 @@ exports[`Enumeration should render with header in default state, list in default
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -815,7 +785,6 @@ exports[`Enumeration should render with header in search state and list in defau
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      name="Validate"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -838,7 +807,6 @@ exports[`Enumeration should render with header in search state and list in defau
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      name="Abort"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -885,7 +853,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -908,7 +875,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -953,7 +919,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -976,7 +941,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1021,7 +985,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1044,7 +1007,6 @@ exports[`Enumeration should render with header in search state and list in defau
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1083,7 +1045,6 @@ exports[`Enumeration should render with header in selected state with trash icon
       aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      name="Selected value"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -1104,7 +1065,6 @@ exports[`Enumeration should render with header in selected state with trash icon
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 0"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1124,7 +1084,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1147,7 +1106,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1176,7 +1134,6 @@ exports[`Enumeration should render with header in selected state with trash icon
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 1"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1196,7 +1153,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1219,7 +1175,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1248,7 +1203,6 @@ exports[`Enumeration should render with header in selected state with trash icon
         aria-describedby={42}
         className="undefined tc-enumeration-item-label btn btn-default"
         disabled={false}
-        name="Lorem ipsum dolor sit amet 2"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1268,7 +1222,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Edit"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1291,7 +1244,6 @@ exports[`Enumeration should render with header in selected state with trash icon
           aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          name="Delete"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1333,7 +1285,6 @@ exports[`Enumeration should render with header without items 1`] = `
         aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        name="Add item"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
