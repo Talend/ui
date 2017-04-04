@@ -167,15 +167,6 @@ Object {
     "type": "object",
   },
   "status": "initial",
-  "uiSchema": Object {
-    "ui:widget": Array [
-      "toggle",
-      "tabs",
-      "keyValue",
-      "multiSelectTag",
-      "datalist",
-      "enumeration",
-    ],
-  },
+  "uiSchema": Object {},
 }
 `;
