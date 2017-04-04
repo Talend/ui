@@ -2,37 +2,48 @@ import React, { Component, PropTypes } from 'react';
 
 import {
   getWidget,
-  getDefaultFormState,
-  getUiOptions,
-  isMultiSelect,
-  isFilesArray,
-  isFixedItems,
-  allowAdditionalItems,
-  optionsList,
-  retrieveSchema,
-  toIdSchema,
-  shouldRender,
-  getDefaultRegistry,
-  setState,
+	getDefaultFormState,
+	getUiOptions,
+	isMultiSelect,
+	isFilesArray,
+	isFixedItems,
+	allowAdditionalItems,
+	optionsList,
+	retrieveSchema,
+	toIdSchema,
+	shouldRender,
+	getDefaultRegistry,
+	setState,
 } from 'react-jsonschema-form/lib/utils';
 
 function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
 	if (!title) {
-    // See #312: Ensure compatibility with old versions of React.
+		// See #312: Ensure compatibility with old versions of React.
 		return <div />;
 	}
 	const id = `${idSchema.$id}__title`;
 	return <TitleField id={id} title={title} required={required} />;
 }
+ArrayFieldTitle.propTypes = {
+	TitleField: PropTypes.element,
+	idSchema: PropTypes.shape({$id: PropTypes.string}),
+	title: PropTypes.string,
+	required: PropTypes.bool,
+};
 
 function ArrayFieldDescription({ DescriptionField, idSchema, description }) {
 	if (!description) {
-    // See #312: Ensure compatibility with old versions of React.
+		// See #312: Ensure compatibility with old versions of React.
 		return <div />;
 	}
 	const id = `${idSchema.$id}__description`;
 	return <DescriptionField id={id} description={description} />;
 }
+ArrayFieldDescription.propTypes = {
+	DescriptionField: PropTypes.element,
+	idSchema: PropTypes.shape({$id: PropTypes.string}),
+	description: PropTypes.string,
+};
 
 function IconBtn(props) {
 	const { type = 'default', icon, className, ...otherProps } = props;
@@ -42,6 +53,11 @@ function IconBtn(props) {
 		</button>
 	);
 }
+IconBtn.propTypes = {
+	type: PropTypes.string,
+	className: PropTypes.string,
+	icon: PropTypes.string,
+};
 
 // Used in the two templates
 function DefaultArrayItem(props) {
@@ -65,7 +81,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveUp}
 								onClick={props.onReorderClick(props.index, props.index - 1)}
 							/>
-            : null}
+						: null}
 
 						{props.hasMoveUp || props.hasMoveDown ?
 							<IconBtn
@@ -75,7 +91,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
-            : null}
+						: null}
 
 						{props.hasRemove ?
 							<IconBtn
@@ -85,10 +101,10 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly}
 								onClick={props.onDropIndexClick(props.index)}
 							/>
-            : null}
+						: null}
 					</div>
 				</div>
-      : null}
+			: null}
 
 		</div>
 	);
@@ -110,7 +126,7 @@ function DefaultFixedArrayFieldTemplate(props) {
 				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.schema.description}
 				</div>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
@@ -146,7 +162,7 @@ function DefaultNormalArrayFieldTemplate(props) {
 					idSchema={props.idSchema}
 					description={props.schema.description}
 				/>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
@@ -279,20 +295,20 @@ class ArrayField extends Component {
 
 	renderNormalArray() {
 		const {
-      schema,
-      uiSchema,
-      errorSchema,
-      idSchema,
-      name,
-      required,
-      disabled,
-      readonly,
-      autofocus,
-      registry,
-      onBlur,
+			schema,
+			uiSchema,
+			errorSchema,
+			idSchema,
+			name,
+			required,
+			disabled,
+			readonly,
+			autofocus,
+			registry,
+			onBlur,
 			onChange,
 			formData,
-    } = this.props;
+		} = this.props;
 		const title = (schema.title === undefined) ? name : schema.title;
 		const { items = [] } = this.state;
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
@@ -352,7 +368,7 @@ class ArrayField extends Component {
 			TitleField,
 		};
 
-    // Check if a custom render function was passed in
+		// Check if a custom render function was passed in
 		const renderFunction = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
 		return renderFunction(arrayProps);
 	}
@@ -407,36 +423,36 @@ class ArrayField extends Component {
 
 	renderFixedArray() {
 		const {
-      schema,
-      uiSchema,
-      errorSchema,
-      idSchema,
-      name,
-      required,
-      disabled,
-      readonly,
-      autofocus,
-      registry,
-      onBlur,
-    } = this.props;
+			schema,
+			uiSchema,
+			errorSchema,
+			idSchema,
+			name,
+			required,
+			disabled,
+			readonly,
+			autofocus,
+			registry,
+			onBlur,
+		} = this.props;
 		const title = schema.title || name;
 		let { items } = this.state;
 		const { ArrayFieldTemplate, definitions, fields } = registry;
 		const { TitleField } = fields;
 		const itemSchemas = schema.items.map(item =>
-      retrieveSchema(item, definitions));
+			retrieveSchema(item, definitions));
 		const additionalSchema = allowAdditionalItems(schema) ?
-      retrieveSchema(schema.additionalItems, definitions) : null;
+			retrieveSchema(schema.additionalItems, definitions) : null;
 		const { addable = true } = getUiOptions(uiSchema);
 		const canAdd = addable && additionalSchema;
 
 		if (!items || items.length < itemSchemas.length) {
-      // to make sure at least all fixed items are generated
+			// to make sure at least all fixed items are generated
 			items = items || [];
 			items = items.concat(new Array(itemSchemas.length - items.length));
 		}
 
-    // These are the props passed into the render function
+		// These are the props passed into the render function
 		const arrayProps = {
 			canAdd,
 			className: 'field field-array field-array-fixed-items',
@@ -445,13 +461,13 @@ class ArrayField extends Component {
 			items: items.map((item, index) => {
 				const additional = index >= itemSchemas.length;
 				const itemSchema = additional ?
-          additionalSchema : itemSchemas[index];
+					additionalSchema : itemSchemas[index];
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
 				const itemIdSchema = toIdSchema(itemSchema, itemIdPrefix, definitions);
 				const itemUiSchema = additional ?
-          uiSchema.additionalItems || {} :
-          Array.isArray(uiSchema.items) ?
-            uiSchema.items[index] : uiSchema.items || {};
+					uiSchema.additionalItems || {} :
+					Array.isArray(uiSchema.items) ?
+						uiSchema.items[index] : uiSchema.items || {};
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 
 				return this.renderArrayFieldItem({
@@ -476,24 +492,24 @@ class ArrayField extends Component {
 			TitleField,
 		};
 
-    // Check if a custom template template was passed in
+		// Check if a custom template template was passed in
 		const renderFunction = ArrayFieldTemplate || DefaultFixedArrayFieldTemplate;
 		return renderFunction(arrayProps);
 	}
 
 	renderArrayFieldItem({
-    index,
-    canRemove = true,
-    canMoveUp = true,
-    canMoveDown = true,
-    itemSchema,
-    itemData,
-    itemUiSchema,
-    itemIdSchema,
-    itemErrorSchema,
-    autofocus,
-    onBlur,
-  }) {
+		index,
+		canRemove = true,
+		canMoveUp = true,
+		canMoveDown = true,
+		itemSchema,
+		itemData,
+		itemUiSchema,
+		itemIdSchema,
+		itemErrorSchema,
+		autofocus,
+		onBlur,
+	}) {
 		const { SchemaField } = this.props.registry.fields;
 		const { disabled, readonly, uiSchema } = this.props;
 		const { orderable, removable } = {
@@ -524,7 +540,7 @@ class ArrayField extends Component {
 					readonly={this.props.readonly}
 					autofocus={autofocus}
 				/>
-      ),
+			),
 			className: 'array-item',
 			disabled,
 			hasToolbar: has.toolbar,
