@@ -109,5 +109,5 @@ describe('Action', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
-	})
+	});
 });
