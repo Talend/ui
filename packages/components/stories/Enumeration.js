@@ -32,6 +32,8 @@ const abortAction = {
 	onClick: action('headerInput.onAbort'),
 };
 
+const ITEM_DEFAULT_HEIGHT = 33;
+
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
@@ -47,7 +49,7 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return 33; },
+		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
