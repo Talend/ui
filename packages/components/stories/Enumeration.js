@@ -47,6 +47,7 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
+		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
