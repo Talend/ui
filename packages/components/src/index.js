@@ -70,6 +70,7 @@ import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions'
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
+import HeaderBar from './HeaderBar';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -99,6 +100,7 @@ export {
 	ActionSplitDropdown,
 	Actions,
 	AppHeaderBar,
+	HeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
