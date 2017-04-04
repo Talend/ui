@@ -5,7 +5,7 @@
 
 /// Side panel toggle button color
 /// @type Color
-$tc-side-panel-toggle-color: #DDD !default;
+$tc-side-panel-toggle-color: tint($brand-primary, 75);
 
 .tc-side-panel {
 	overflow-x: hidden;
@@ -15,6 +15,7 @@ $tc-side-panel-toggle-color: #DDD !default;
 	:global(.btn) svg:global(.tc-svg-icon) {
 		width: 1.4em;
 		height: 1.4em;
+		margin: 0;
 	}
 
 	.action-list {
@@ -83,20 +84,22 @@ $tc-side-panel-toggle-color: #DDD !default;
 			width: 20px;
 			padding: 12px 0;
 			outline: none;
+			vertical-align: baseline;
 
 			:global(.tc-svg-icon) {
 				fill: $tc-side-panel-toggle-color;
-				width: $svg-sm-size;
-				height: $svg-sm-size;
+				width: $svg-md-size;
+				height: $svg-md-size;
 				transition: 0.2s transform ease-out;
 			}
 		}
 
 		&:before {
-			content: '';
+			color: $tc-side-panel-toggle-color;
+			content: '|';
+			font-weight: bold;
 			height: 0.9em;
 			margin: 12px 0 0 20px;
-			border-left: 2px solid $tc-side-panel-toggle-color;
 		}
 
 		&:hover {

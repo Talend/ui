@@ -153,10 +153,10 @@ class EnumerationWidget extends React.Component {
 		event.stopPropagation();
 
 		if (!this.callActionHandler(ENUMERATION_REMOVE_ACTION, value.index)) {
-      const items = resetItems([...this.state.items]);
-      items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-      items.splice(value.index, 1);
-      const countItems = items.filter(item => item.isSelected).length;
+			const items = resetItems([...this.state.items]);
+			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			items.splice(value.index, 1);
+			const countItems = items.filter(item => item.isSelected).length;
 
 			let displayMode = this.state.displayMode;
 			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
@@ -254,9 +254,9 @@ class EnumerationWidget extends React.Component {
 	onSelectItem(item, event) {
 		let itemsSelected = resetItems([...this.state.items]);
 		if (event.ctrlKey || event.metaKey) {
-			itemsSelected = manageCtrlKey(item.index, this.state.items);
+			itemsSelected = manageCtrlKey(item.index, itemsSelected);
 		} else if (event.shiftKey) {
-			itemsSelected = manageShiftKey(item.index, this.state.items);
+			itemsSelected = manageShiftKey(item.index, itemsSelected);
 		} else {
 			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
 			itemsSelected[item.index].isSelected = true;

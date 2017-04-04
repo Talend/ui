@@ -1,4 +1,4 @@
-$tc-status-icon-size: 20px !default;
+$tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 
 .tc-status {
@@ -8,7 +8,7 @@ $tc-status-action-min-size: 23px !default;
 	min-height: $tc-status-action-min-size;
 
 	> svg {
-		width: $tc-status-icon-size + $padding-small;
+		width: $tc-status-icon-size;
 		height: $tc-status-icon-size;
 	}
 
