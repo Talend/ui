@@ -2,7 +2,7 @@
 .navbar {
 	border: none;
 
-	&-nav {
+	.navbar-nav {
 		display: flex;
 
 		li {
@@ -19,7 +19,6 @@
 			&-danger {
 				min-height: inherit;
 				height: auto;
-				margin: 0 $padding-normal;
 			}
 		}
 	}
