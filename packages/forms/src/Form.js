@@ -106,7 +106,7 @@ class Form extends React.Component {
 
 		const widgets = {
 			...customWidgets,
-			...(this.props && this.props.widgets),
+			...this.props.widgets || {},
 		};
 
 		const formData = this.props.data && this.props.data.properties;
@@ -172,6 +172,7 @@ Form.propTypes = {
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
 	handleAction: PropTypes.func,
+	widgets: PropTypes.object,
 };
 
 Form.defaultProps = {
