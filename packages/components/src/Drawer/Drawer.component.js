@@ -9,10 +9,10 @@ import theme from './Drawer.scss';
 function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
-			transitionName="tc-drawer"
-			transitionAppearTimeout={230}
-			transitionEnterTimeout={230}
-			transitionLeaveTimeout={230}
+			transitionName="tc-with-drawer-wrapper"
+			transitionAppearTimeout={400}
+			transitionEnterTimeout={400}
+			transitionLeaveTimeout={400}
 		>
 			{children}
 		</ReactCSSTransitionGroup>

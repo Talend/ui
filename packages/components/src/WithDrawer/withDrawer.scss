@@ -1,6 +1,6 @@
 .tc-with-drawer {
     height: 100%;
-    position: relative;
+    position: initial;
     overflow: hidden;
 }
 
@@ -11,6 +11,6 @@
     right: 0;
 }
 
-.tc-with-drawer-wrapper {
+:global(.tc-with-drawer-wrapper) {
     height: 100%;
 }
