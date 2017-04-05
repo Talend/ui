@@ -22,9 +22,9 @@ const actionsShape = {
 
 function getActionsToRender({ selected, actions, multiSelectActions }) {
 	if (selected > 0) {
-		return multiSelectActions;
+		return multiSelectActions || {};
 	}
-	return actions;
+	return actions || {};
 }
 
 function SwitchActions({ actions, left, right, selected }) {
@@ -36,7 +36,7 @@ function SwitchActions({ actions, left, right, selected }) {
 	}
 	return (
 		<div className={wrapperClassNamed}>
-			{ selected > 0 && !left ? (
+			{ selected > 0 && !right ? (
 				<Count selected={selected} />
 			) : null }
 			{ actions.map((action, index) => {
@@ -70,6 +70,9 @@ SwitchActions.defaultProps = {
 };
 
 function Count({ selected }) {
+	if (!selected) {
+		return null;
+	}
 	return (
 		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
 			{selected} selected
@@ -84,7 +87,7 @@ function ActionBar(props) {
 	const { left, right } = getActionsToRender(props);
 	return (
 		<nav className={classNames(css['tc-actionbar-container'], 'tc-actionbar-container', 'nav')}>
-			{ left && (
+			{ (left || !!props.selected) && (
 				<SwitchActions key={0} actions={left} selected={props.selected} left />
 			)}
 			{props.children}
