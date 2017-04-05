@@ -104,6 +104,11 @@ class Form extends React.Component {
 			throw Error('You must provide data with valid JSON Schema');
 		}
 
+		const widgets = {
+			...customWidgets,
+			...(this.props && this.props.widgets),
+		};
+
 		const formData = this.props.data && this.props.data.properties;
 
 		const customFields = {
@@ -127,7 +132,7 @@ class Form extends React.Component {
 				formContext={customFormContext}
 				fields={customFields}
 				FieldTemplate={FieldTemplate}
-				widgets={customWidgets}
+				widgets={widgets}
 				onChange={undefined}
 				onSubmit={this.handleSchemaSubmit}
 				ref={(c) => {
