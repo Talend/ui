@@ -106,7 +106,7 @@ class Form extends React.Component {
 
 		const widgets = {
 			...customWidgets,
-			...this.props.widgets || {},
+			...this.props.widgets,
 		};
 
 		const formData = this.props.data && this.props.data.properties;
