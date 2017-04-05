@@ -6,6 +6,7 @@
     "properties": {
       "documents": {
         "type": "array",
+        "required": true,
         "items": {
           "type": "object",
           "properties": {

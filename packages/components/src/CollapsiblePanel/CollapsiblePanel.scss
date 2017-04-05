@@ -1,30 +1,26 @@
+$tc-collapsible-panel-padding-smaller: $padding-smaller !default;
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
+$tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
+$tc-collapsible-selectable-panel-title-color: #63AEBD !default;
+$tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
-
-	:global(.label),
-	span {
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		font-size: 1em;
-	}
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 @mixin col-style {
-	display: flex;
-	flex-shrink: 1;
-	flex-grow: 0;
-	flex-basis: 100%;
-	margin: 0 $tc-collapsible-panel-padding-normal;
-	overflow: hidden;
-
 	> :global(.btn) {
 		line-height: 1em;
 		color: $tc-collapsible-panel-btn-color;
+	}
+
+	&.col-4 {
+		@include type-col(25%);
 	}
 
 	&.col-5 {
@@ -32,94 +28,99 @@ $tc-collapsible-panel-btn-color: #555964;
 	}
 
 	&.col-6 {
-		@include type-col(calc(100%/6));
+		@include type-col(calc(100% / 6));
 	}
 
 	&.col-7 {
-		@include type-col(calc(100%/7));
+		@include type-col(calc(100% / 7));
 	}
 
 	&.col-8 {
-		@include type-col(calc(100%/8));
+		@include type-col(calc(100% / 8));
 	}
 
 	&.col-9 {
-		@include type-col(calc(100%/9));
+		@include type-col(calc(100% / 9));
 	}
 
 	&.col-10 {
 		@include type-col(calc(10%));
 	}
 }
-@mixin header-style {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding-right: $tc-collapsible-panel-padding-larger;
 
-	> * {
-		@include col-style;
+// due to react-bootstrap
+:global(.panel .panel) {
+	margin: 0;
+	border: none;
+}
+
+.tc-collapsible-panel {
+	position: relative;
+
+	&.selected {
+		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
+		padding-left: 1px;
+	}
+
+	svg {
+		transform-origin: center;
+	}
+
+	&.open {
+		.toggle svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	.group {
+		display: flex;
+	}
+
+	.panel-heading {
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+
+		> * {
+			padding: 0;
+			letter-spacing: 0;
+			text-decoration: none;
+		}
+
+		.panel-title {
+			display: flex;
+			flex-basis: 100%;
+			overflow: hidden;
+			text-decoration: none;
+			align-items: center;
+			font-size: 1.4rem;
+			justify-content: space-between;
+			min-height: 30px;
+			padding-left: 5px;
+
+			> * {
+				@include col-style;
+			}
+		}
 	}
 }
 
-.group {
-	justify-content: space-between;
-
-	> * {
-		margin: 0 $tc-collapsible-panel-padding-normal;
+.default-panel {
+	.panel-heading {
+		.panel-title {
+			flex-basis: calc(100% - 35px);
+		}
 	}
 
 	:global(.label) {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		font-size: 1em;
-	}
-}
-
-.tc-panel {
-	:global(.panel-heading) {
-		@include header-style;
-		padding-right: $tc-collapsible-panel-padding-larger + $tc-collapsible-panel-padding-normal;
-	}
-}
-
-.tc-collapsible-panel {
-	position: relative;
-
-	.caret {
-		position: absolute;
-		right: 0;
-		top: 0;
-		bottom: 0;
 	}
 
-	:global(.panel-heading) {
-		h4 {
-			line-height: $line-height-base;
-		}
-	}
-
-	:global(.panel-title) {
-		font-size: 1em;
-		position: relative;
-
-		a {
-			@include header-style;
-			text-decoration: none;
-
-			&:hover {
-				color: initial;
-			}
-
-			&[aria-expanded='true'] .caret {
-				transform: rotate(180deg);
-			}
-
-			> * {
-				margin: auto $tc-collapsible-panel-padding-normal;
-			}
-		}
+	.group {
+		justify-content: space-between;
+		padding-right: 15px;
 	}
 
 	:global(.panel-body) {
@@ -141,6 +142,81 @@ $tc-collapsible-panel-btn-color: #555964;
 				flex-basis: 90%;
 				flex-shrink: 0;
 				flex-grow: 1;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+.descriptive-panel {
+	border-radius: 0;
+	margin-bottom: 0;
+	box-shadow: none;
+	border: none;
+	padding-left: 5px;
+
+	:global(.panel) {
+		box-shadow: none;
+	}
+
+	&.selected {
+		.title {
+			color: $tc-collapsible-selectable-panel-title-color;
+		}
+	}
+
+	:global(.panel-heading) {
+		background-color: white;
+		border-color: transparent;
+	}
+
+	.group {
+		justify-content: flex-start;
+	}
+
+	.title {
+		text-transform: none;
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.tag {
+		color: $tc-collapsible-selectable-panel-content-description-color;
+		margin-left: 2px;
+		white-space: nowrap;
+		font-size: 12px;
+	}
+
+	.detail {
+		color: $tc-collapsible-selectable-panel-title-color;
+		white-space: nowrap;
+		justify-content: flex-end;
+	}
+
+	:global(.panel-body) {
+		padding: 10px;
+		padding-top: 0;
+
+		.content {
+			display: flex;
+			flex-direction: column;
+
+			.head {
+				display: flex;
+				justify-content: space-between;
+
+				> span {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			.content-description {
+				padding-top: 5px;
+				color: $tc-collapsible-selectable-panel-content-description-color;
 			}
 		}
 	}

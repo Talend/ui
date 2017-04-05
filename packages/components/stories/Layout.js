@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer, WithDrawer } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -32,7 +32,7 @@ const actions = [
 
 const drawers = [
 	(<Drawer stacked title="Hello drawers">
-		<p>You should not being able to read this because I'm first</p>
+		<p>You should not being able to read this because I&apos;m first</p>
 	</Drawer>),
 	(<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
@@ -43,44 +43,7 @@ const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
 		<ul>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
-			<li>one</li>
+			{[...new Array(38)].map(() => <li>one</li>)}
 		</ul>
 	</div>
 );
@@ -95,6 +58,7 @@ const dockedSidePanel = (<SidePanel
 	docked
 />);
 const header = (<AppHeaderBar app="Example App Name" />);
+const footer = 'Footer content';
 
 const listItem = {
 	id: 1,
@@ -115,69 +79,7 @@ const listProps = {
 			{ key: 'created', label: 'Created' },
 			{ key: 'modified', label: 'Modified' },
 		],
-		items: [
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-			listItem,
-		],
+		items: [...new Array(61)].map(() => listItem),
 		titleProps: {
 			key: 'name',
 			iconKey: 'icon',
@@ -322,6 +224,24 @@ storiesOf('Layout', module)
 			drawers={drawers}
 		>
 			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('OneColumn with footer', () => (
+		<Layout
+			header={header}
+			mode="OneColumn"
+			footer={footer}
+		>
+			<h1>Hello world</h1>
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('OneColumn without header', () => (
+		<Layout
+			mode="OneColumn"
+		>
+			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	));

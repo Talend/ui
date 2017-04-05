@@ -14,11 +14,11 @@ const RIGHT = 'right';
 
 function getIcon({ icon, iconTransform, inProgress }) {
 	if (inProgress) {
-		return (<CircularProgress size="small" />);
+		return (<CircularProgress size="small" key="icon" />);
 	}
 
 	if (icon) {
-		return (<Icon name={icon} transform={iconTransform} />);
+		return (<Icon name={icon} transform={iconTransform} key="icon" />);
 	}
 
 	return null;
@@ -33,7 +33,7 @@ function getLabel({ hideLabel, label }) {
 	if (hideLabel) {
 		return null;
 	}
-	return (<span>{label}</span>);
+	return (<span key="label">{label}</span>);
 }
 
 getLabel.propTypes = {
@@ -80,6 +80,7 @@ function Action(props) {
 		model,
 		onClick,
 		tooltipPlacement,
+		tooltip,
 		...rest
 	} = props;
 
@@ -104,7 +105,7 @@ function Action(props) {
 		</Button>
 	);
 
-	if (hideLabel) {
+	if (hideLabel || tooltip) {
 		return <TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>{btn}</TooltipTrigger>;
 	}
 	return btn;
@@ -120,8 +121,10 @@ Action.propTypes = {
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	name: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltip: PropTypes.bool,
 };
 
 Action.defaultProps = {

@@ -16,6 +16,7 @@ import Icon from '../../Icon';
 	icon: 'fa fa-file-excel-o',
 	items: [
 		{
+			icon: 'talend-icon',
 			label: 'document 1',
 			onClick: action('document 1 click'),
 		},
@@ -27,6 +28,7 @@ import Icon from '../../Icon';
 	tooltipPlacement: 'right',
 	hideLabel: true,
 	link: true,
+	onSelect: action('item selected'),
 };
  <ActionDropdown {...props} />
  */
@@ -38,6 +40,7 @@ function ActionDropdown(props) {
 		items,
 		label,
 		link,
+		onSelect,
 		tooltipPlacement,
 		...rest
 	} = props;
@@ -48,20 +51,26 @@ function ActionDropdown(props) {
 			{hideLabel ? null : <span>{label}</span>}
 		</span>
 	);
-
 	const style = link ? 'link' : bsStyle;
+	function onItemSelect(object, event) {
+		if (onSelect) {
+			onSelect(event, object);
+		}
+	}
 
 	const dropdown = (
 		<DropdownButton
 			title={title}
 			bsStyle={style}
 			role="button"
+			onSelect={onItemSelect}
 			{...rest}
 		>
 			{
 				items.length ?
 					items.map((item, index) => (
-						<MenuItem {...item} key={index}>
+						<MenuItem {...item} key={index} eventKey={item}>
+							{item.icon && (<Icon name={item.icon} />)}
 							{item.label}
 						</MenuItem>
 					)) : (<MenuItem disabled>No options</MenuItem>)
@@ -85,11 +94,13 @@ ActionDropdown.propTypes = {
 	hideLabel: PropTypes.bool,
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
+		icon: PropTypes.string,
 		label: PropTypes.string,
 		...MenuItem.propTypes,
 	})).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
+	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 

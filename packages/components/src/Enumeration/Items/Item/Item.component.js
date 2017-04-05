@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
+import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
@@ -29,7 +29,7 @@ function itemDefaultActionsClasses() {
 	});
 }
 
-function Item({ id, item }) {
+function Item({ id, item, searchCriteria }) {
 	const {
 		key,
 		actions,
@@ -59,14 +59,54 @@ function Item({ id, item }) {
 		);
 	}
 
+	/**
+	 * This function allow to get component rendering based on searchCriteria
+	 * @param label the current label to parse & to render
+	 */
+	function getSearchedLabel(label) {
+		let indexes = allIndexOf(label.toLowerCase(), searchCriteria.toLowerCase());
+		indexes = removeDuplicates(indexes, searchCriteria);
+		return (<span>
+			{/* Set the label to go on the first index if the index is not 0 */}
+			{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
+			{indexes.map((matchIndex, index, matchIndexes) =>
+				(
+					<span key={index}>
+						{/* get the string from label with indexes ( to keep words case ) */}
+						<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
+						{/* get the string before next index if there is */}
+						{index === matchIndex.length + 1 ? null :
+							label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
+						}
+					</span>
+				))
+			}
+		</span>);
+	}
+
+	function getActionLabel() {
+		if (searchCriteria) {
+			return (
+				<button
+					className={itemLabelClasses()}
+					disabled="disabled"
+				>
+					{getSearchedLabel(item[key].join(','))}
+				</button>
+			);
+		}
+		return (<Action
+			key={item.index}
+			label={item[key].join(',')}
+			onClick={event => onSelectItem(item, event)}
+			className={itemLabelClasses()}
+			tooltip
+		/>);
+	}
+
 	return (
 		<li className={itemClasses(item.isSelected)} id={id}>
-			<Action
-				key={item.index}
-				label={item[key].join(',')}
-				onClick={event => onSelectItem(item, event)}
-				className={itemLabelClasses()}
-			/>
+			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()}>
 				{actions.map((action, index) => getAction(action, index))}
 			</div>

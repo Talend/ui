@@ -18,7 +18,7 @@ import classNames from 'classnames';
  * **/
 function Toggle({ id, onChange, label, checked, disabled, className }) {
 	return (
-		<div className={classNames('tc-toggle', className)}>
+		<div className={classNames('checkbox tc-toggle', className)}>
 			<label htmlFor={id}>
 				<input
 					type="checkbox"

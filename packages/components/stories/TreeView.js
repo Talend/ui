@@ -27,16 +27,17 @@ const structure = [
 const structureWithActions = [
 	{
 		name: 'hitmonlee',
-		toggled: false,
+		toggled: true,
 		actions: [{
 			action: action('itemRemoveCallback'),
 			icon: 'talend-trash',
 			label: 'remove element',
 		}],
-		children: [{ name: 'raichu' }],
-		counter: 0,
+		children: [{ name: 'raichu', showCounter: true, counter: 111 }],
+		counter: -1,
+		showCounter: true,
 	},
-	{ name: 'pikachu', toggled: true, counter: 911 },
+	{ name: 'pikachu', toggled: true, counter: 911, showCounter: true },
 ];
 
 const defaultProps = {
@@ -118,11 +119,6 @@ cornerCaseLongName.structure = [{
 	toggled: true,
 }];
 
-const withCounter = {
-	...withRemoval,
-	showCounter: true,
-};
-
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 storiesOf('TreeView', module)
@@ -168,7 +164,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with remove action', () => (
+	.addWithInfo('with remove action and counter', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -207,20 +203,6 @@ storiesOf('TreeView', module)
 			<div style={style}>
 				<IconsProvider />
 				<TreeView {...cornerCaseLongName} />
-			</div>
-		</div>
-	))
-	.addWithInfo('with counter', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
-			<h3>Default property-set with showCounter: true </h3>
-			<div style={style}>
-				<IconsProvider />
-				<TreeView {...withCounter} />
 			</div>
 		</div>
 	));

@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
-import Button from 'react-bootstrap/lib/Button';
+import { Action } from 'react-talend-components';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
 import ArrayField from './fields/ArrayField';
 import FieldTemplate from './templates/FieldTemplate';
-import SwitchWidget from './widgets/SwitchWidget';
+import ToggleWidget from './widgets/ToggleWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
@@ -22,16 +22,12 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 const TRIGGER_AFTER = 'after';
 
 const customWidgets = {
-	toggle: SwitchWidget,
+	toggle: ToggleWidget,
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
-};
-
-const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist', 'enumeration'],
 };
 
 export function renderActionIcon(icon) {
@@ -44,20 +40,23 @@ export function renderActionIcon(icon) {
 export function renderActions(actions, handleActionClick) {
 	if (actions) {
 		return actions.map((action, index) => (
-			<Button
+			<Action
 				key={index}
 				bsStyle={action.style}
-				type={action.type}
-				onClick={handleActionClick(action.onClick)}
-				title={action.title}
-				name={action.name}
+				label={action.title}
+				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Button>)
+			</Action>)
 		);
 	}
-	return <Button bsStyle="primary" type="submit">Submit</Button>;
+	return (<Action
+		bsStyle="primary"
+		onClick={() => {}}
+		type="submit"
+		label="Submit"
+	/>);
 }
 
 class Form extends React.Component {
@@ -94,9 +93,9 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return event => onClick(event, this.form.state);
+			return (event, data) => onClick(event, { ...data, ...this.form.state });
 		}
-		return null;
+		return () => {};
 	}
 
 	render() {
@@ -104,11 +103,6 @@ class Form extends React.Component {
 		if (!schema) {
 			throw Error('You must provide data with valid JSON Schema');
 		}
-
-		const uiSchema = {
-			...(this.props.data && this.props.data.uiSchema),
-			...customUiSchema,
-		};
 
 		const formData = this.props.data && this.props.data.properties;
 
@@ -121,13 +115,14 @@ class Form extends React.Component {
 
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
+			handleAction: this.props.handleAction,
 		};
 
 		return (
 			<RJSForm
 				{...this.props}
 				schema={schema}
-				uiSchema={uiSchema}
+				uiSchema={this.props.data && this.props.data.uiSchema}
 				formData={formData}
 				formContext={customFormContext}
 				fields={customFields}
@@ -135,7 +130,9 @@ class Form extends React.Component {
 				widgets={customWidgets}
 				onChange={undefined}
 				onSubmit={this.handleSchemaSubmit}
-				ref={(c) => { this.form = c; }}
+				ref={(c) => {
+					this.form = c;
+				}}
 			>
 				<div className={this.props.buttonBlockClass}>
 					{renderActions(this.props.actions, this.handleActionClick)}
@@ -169,6 +166,7 @@ Form.propTypes = {
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
+	handleAction: PropTypes.func,
 };
 
 Form.defaultProps = {

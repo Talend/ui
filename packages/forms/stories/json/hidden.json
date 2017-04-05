@@ -3,6 +3,12 @@
     "title": "hidden",
     "type": "object",
     "properties": {
+      "talendArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "talendTab": {
         "type": "object",
         "properties": {
@@ -46,6 +52,9 @@
   },
   "uiSchema": {
     "talendTab": {
+      "ui:widget": "hidden"
+    },
+    "talendArray": {
       "ui:widget": "hidden"
     }
   },
