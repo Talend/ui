@@ -18,7 +18,7 @@ Based on a `component / action creator` registry and a `settings` format, you co
 * which props to pass to this component to load
 * which action is dispatched
 
-## The core concepts 
+## The core concepts
 * [Store]({{ site.baseurl }}{% link _posts/2017-02-28-core-store.md %}) : CMF is coupled to `redux` to manage your app state with internal CMF state
 * [Registry]({{ site.baseurl }}{% link _posts/2017-02-28-core-registry.md %}) : CMF has a registry where you can set `components` and `action creators`
 * [Settings]({{ site.baseurl }}{% link _posts/2017-02-28-core-settings.md %}) : this is used to configure your app content, customising the `routes` (url, components), `views` and static `actions`.
@@ -35,12 +35,18 @@ Based on a `component / action creator` registry and a `settings` format, you co
 * Settings > actions contains either static actions definition or can refer to registered `action creators` names.
 
 *Bootstrap and runtime*
+
+[CMF Bootstrap sequence diagram]({{ site.url }}/assets/CMF-bootstrap-diagram.png)
+
 * Bootstrap your app with the provided `<App />` component
 * CMF instantiates the right component on a requested route, injecting the props
+
+[CMF action sequence diagram]({{ site.url }}/assets/CMF-action-diagram.png)
+
 
 ## Extra features
 CMF comes with handy features
 * Error redux `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-error-logging.md %}).
 * HTTP operations `actions` and redux `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-http.md %}).
 * CMF internal `middleware` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-cmf.md %}).
-* Actions utility to get and configure easily the `action creators` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}). 
+* Actions utility to get and configure easily the `action creators` [Doc]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}).
