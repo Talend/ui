@@ -2,6 +2,28 @@
 .navbar {
 	border: none;
 
+	.navbar-nav {
+		display: flex;
+
+		li {
+			display: flex;
+			align-items: center;
+		}
+
+		.btn {
+			&-default,
+			&-primary,
+			&-success,
+			&-info,
+			&-warning,
+			&-danger {
+				margin: 0 $padding-smaller;				
+				min-height: inherit;
+				height: auto;
+			}
+		}
+	}
+
 	&-default,
 	&-inverse {
 		.navbar-brand {
@@ -30,7 +52,7 @@
 		> li > a {
 			display: flex;
 			align-items: center;
-			height: $navbar-height;			
+			height: $navbar-height;
 		}
 	}
 }

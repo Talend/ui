@@ -68,6 +68,7 @@ Each action accept the following properties :
 | label                 | string                  | yes      | -
 | link                  | bool                    | no       | -
 | model                 | object                  | no       | -
+| name                  | string                  | no       | - | render a name button html property
 | onClick               | func                    | yes      | - | execute the callback with `formData`, `formId`, `propertyName`, `propertyValue` as parameters
 | tooltip               | bool                    | no       | -
 | tooltipPlacement      | other                   | no       | "top"
