@@ -16,8 +16,16 @@ function itemsClasses() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-function Items({ items, itemsProp, currentEdit, searchCriteria }) {
-	function getItem(item, index) {
+class Items extends React.Component {
+
+	constructor() {
+		super();
+		this.lazyLoadingTimer = null;
+		this.getItem = this.getItem.bind(this);
+		this.scrollEnumeration = this.scrollEnumeration.bind(this);
+	}
+
+	getItem(item, index) {
 		// affecting index to the item
 		const itemWithIndex = {
 			...item,
@@ -27,11 +35,11 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 		switch (item.displayMode) {
 		case DISPLAY_MODE_EDIT: {
 			const itemPropsEdit = {
-				key: itemsProp.key,
-				actions: itemsProp.actionsEdit,
-				onSubmitItem: itemsProp.onSubmitItem,
-				onAbortItem: itemsProp.onAbortItem,
-				onChangeItem: itemsProp.onChangeItem,
+				key: this.props.itemsProp.key,
+				actions: this.props.itemsProp.actionsEdit,
+				onSubmitItem: this.props.itemsProp.onSubmitItem,
+				onAbortItem: this.props.itemsProp.onAbortItem,
+				onChangeItem: this.props.itemsProp.onChangeItem,
 			};
 			itemWithIndex.itemProps = itemPropsEdit;
 
@@ -40,15 +48,15 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 					key={`${index}-item`}
 					id={`${index}-item`}
 					item={itemWithIndex}
-					currentEdit={currentEdit}
+					currentEdit={this.props.currentEdit}
 				/>
 			);
 		}
 		default: {
 			const itemPropDefault = {
-				key: itemsProp.key,
-				actions: itemsProp.actionsDefault,
-				onSelectItem: itemsProp.onSelectItem,
+				key: this.props.itemsProp.key,
+				actions: this.props.itemsProp.actionsDefault,
+				onSelectItem: this.props.itemsProp.onSelectItem,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -58,24 +66,34 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 					id={`${index}-item`}
 					item={itemWithIndex}
 					itemProps={itemPropDefault}
-					searchCriteria={searchCriteria}
+					searchCriteria={this.props.searchCriteria}
 				/>
 			);
 		}
 		}
 	}
 
-	function onScroll(event) {
-		if (event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
-			itemsProp.onLoadData();
+	scrollEnumeration(event) {
+		// needed because of React's event pooling
+		event.persist();
+		if (this.lazyLoadingTimer !== null) {
+			clearTimeout(this.lazyLoadingTimer);
 		}
+
+		this.lazyLoadingTimer = setTimeout(() => {
+			if (event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+				this.props.itemsProp.onLoadData();
+			}
+		}, 500);
 	}
 
-	return (
-		<ul className={itemsClasses()} onScroll={onScroll}>
-			{ items.map((item, index) => getItem(item, index)) }
-		</ul>
-	);
+	render() {
+		return (<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
+			{ this.props.items.map(
+				(item, index) => this.getItem(item, index)) }
+		</ul>);
+	}
+
 }
 
 Items.propTypes = {
