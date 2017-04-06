@@ -265,7 +265,6 @@ exports[`EnumerationWidget delete all 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -277,7 +276,6 @@ exports[`EnumerationWidget delete all 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -337,7 +335,6 @@ exports[`EnumerationWidget delete all 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -349,7 +346,6 @@ exports[`EnumerationWidget delete all 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -730,7 +726,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -742,7 +737,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={true}
                         onBlur={[Function]}
@@ -801,7 +795,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -813,7 +806,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -1189,7 +1181,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1201,7 +1192,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1261,7 +1251,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1273,7 +1262,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1656,7 +1644,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1668,7 +1655,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1728,7 +1714,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1740,7 +1725,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -2166,7 +2150,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -2178,7 +2161,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -2238,7 +2220,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -2250,7 +2231,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -2541,7 +2521,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -2553,7 +2532,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -2612,7 +2590,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -2624,7 +2601,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -2688,6 +2664,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           Object {
             "icon": "talend-cross",
             "id": "abort",
+            "key": "abort",
             "label": "Abort",
             "onClick": [Function],
           },
@@ -2773,6 +2750,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-cross",
                 "id": "abort",
+                "key": "abort",
                 "label": "Abort",
                 "onClick": [Function],
               },
@@ -2838,6 +2816,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 Object {
                   "icon": "talend-cross",
                   "id": "abort",
+                  "key": "abort",
                   "label": "Abort",
                   "onClick": [Function],
                 },
@@ -2888,7 +2867,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -2900,7 +2878,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -2952,6 +2929,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-cross",
                 "id": "abort",
+                "key": "abort",
                 "label": "Abort",
                 "onClick": [Function],
               },
@@ -3278,7 +3256,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3290,7 +3267,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3350,7 +3326,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3362,7 +3337,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3572,17 +3546,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": false,
-              "icon": "talend-pencil",
-              "id": "edit",
-              "label": "Edit",
-              "onClick": [Function],
-            },
-            Object {
-              "icon": "talend-trash",
-              "id": "delete",
-              "label": "Remove value",
-              "onClick": [Function],
+              "icon": "talend-cross",
+              "id": "loading",
+              "inProgress": true,
+              "label": "Loading",
             },
           ],
           "actionsEdit": Array [
@@ -3675,17 +3642,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
-                  "icon": "talend-pencil",
-                  "id": "edit",
-                  "label": "Edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "id": "delete",
-                  "label": "Remove value",
-                  "onClick": [Function],
+                  "icon": "talend-cross",
+                  "id": "loading",
+                  "inProgress": true,
+                  "label": "Loading",
                 },
               ],
               "actionsEdit": Array [
@@ -3775,7 +3735,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3787,7 +3746,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3847,7 +3805,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3859,7 +3816,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3950,17 +3906,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
-                  "icon": "talend-pencil",
-                  "id": "edit",
-                  "label": "Edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "id": "delete",
-                  "label": "Remove value",
-                  "onClick": [Function],
+                  "icon": "talend-cross",
+                  "id": "loading",
+                  "inProgress": true,
+                  "label": "Loading",
                 },
               ],
               "actionsEdit": Array [
@@ -4004,17 +3953,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               Object {
                 "actionsDefault": Array [
                   Object {
-                    "disabled": false,
-                    "icon": "talend-pencil",
-                    "id": "edit",
-                    "label": "Edit",
-                    "onClick": [Function],
-                  },
-                  Object {
-                    "icon": "talend-trash",
-                    "id": "delete",
-                    "label": "Remove value",
-                    "onClick": [Function],
+                    "icon": "talend-cross",
+                    "id": "loading",
+                    "inProgress": true,
+                    "label": "Loading",
                   },
                 ],
                 "actionsEdit": Array [
@@ -4050,17 +3992,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     "itemProps": Object {
                       "actions": Array [
                         Object {
-                          "disabled": false,
-                          "icon": "talend-pencil",
-                          "id": "edit",
-                          "label": "Edit",
-                          "onClick": [Function],
-                        },
-                        Object {
-                          "icon": "talend-trash",
-                          "id": "delete",
-                          "label": "Remove value",
-                          "onClick": [Function],
+                          "icon": "talend-cross",
+                          "id": "loading",
+                          "inProgress": true,
+                          "label": "Loading",
                         },
                       ],
                       "key": "values",
@@ -4076,17 +4011,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   Object {
                     "actions": Array [
                       Object {
-                        "disabled": false,
-                        "icon": "talend-pencil",
-                        "id": "edit",
-                        "label": "Edit",
-                        "onClick": [Function],
-                      },
-                      Object {
-                        "icon": "talend-trash",
-                        "id": "delete",
-                        "label": "Remove value",
-                        "onClick": [Function],
+                        "icon": "talend-cross",
+                        "id": "loading",
+                        "inProgress": true,
+                        "label": "Loading",
                       },
                     ],
                     "key": "values",
@@ -4129,7 +4057,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         }>
                         <Button
                           active={false}
-                          aria-describedby={42}
                           block={false}
                           bsClass="btn"
                           bsStyle="default"
@@ -4142,7 +4069,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           onMouseOver={[Function]}
                           role={null}>
                           <button
-                            aria-describedby={42}
                             className="undefined tc-enumeration-item-label btn btn-default"
                             disabled={false}
                             onBlur={[Function]}
@@ -4166,14 +4092,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       bsStyle="default"
                       disabled={false}
                       hideLabel={true}
-                      icon="talend-pencil"
+                      icon="talend-cross"
                       inProgress={false}
-                      label="Edit"
+                      label="Loading"
                       link={true}
                       onClick={[Function]}
                       tooltipPlacement="bottom">
                       <TooltipTrigger
-                        label="Edit"
+                        label="Loading"
                         tooltipPlacement="bottom">
                         <OverlayTrigger
                           defaultOverlayShown={false}
@@ -4184,7 +4110,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               className="undefined tooltip-container"
                               id={42}
                               placement="right">
-                              Edit
+                              Loading
                             </Tooltip>
                           }
                           placement="bottom"
@@ -4196,7 +4122,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -4208,7 +4133,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -4219,84 +4143,13 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               role="link"
                               type="button">
                               <Icon
-                                name="talend-pencil">
+                                name="talend-cross">
                                 <svg
                                   aria-hidden="true"
                                   className="tc-svg-icon"
                                   title={null}>
                                   <use
-                                    xlinkHref="#talend-pencil" />
-                                </svg>
-                              </Icon>
-                            </button>
-                          </Button>
-                        </OverlayTrigger>
-                      </TooltipTrigger>
-                    </Action>
-                    <Action
-                      bsStyle="default"
-                      disabled={false}
-                      hideLabel={true}
-                      icon="talend-trash"
-                      inProgress={false}
-                      label="Remove value"
-                      link={true}
-                      onClick={[Function]}
-                      tooltipPlacement="bottom">
-                      <TooltipTrigger
-                        label="Remove value"
-                        tooltipPlacement="bottom">
-                        <OverlayTrigger
-                          defaultOverlayShown={false}
-                          delayShow={400}
-                          overlay={
-                            <Tooltip
-                              bsClass="tooltip"
-                              className="undefined tooltip-container"
-                              id={42}
-                              placement="right">
-                              Remove value
-                            </Tooltip>
-                          }
-                          placement="bottom"
-                          trigger={
-                            Array [
-                              "hover",
-                              "focus",
-                            ]
-                          }>
-                          <Button
-                            active={false}
-                            aria-describedby={42}
-                            block={false}
-                            bsClass="btn"
-                            bsStyle="link"
-                            disabled={false}
-                            onBlur={[Function]}
-                            onClick={[Function]}
-                            onFocus={[Function]}
-                            onMouseOut={[Function]}
-                            onMouseOver={[Function]}
-                            role="link">
-                            <button
-                              aria-describedby={42}
-                              className="btn btn-link"
-                              disabled={false}
-                              onBlur={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onMouseOut={[Function]}
-                              onMouseOver={[Function]}
-                              role="link"
-                              type="button">
-                              <Icon
-                                name="talend-trash">
-                                <svg
-                                  aria-hidden="true"
-                                  className="tc-svg-icon"
-                                  title={null}>
-                                  <use
-                                    xlinkHref="#talend-trash" />
+                                    xlinkHref="#talend-cross" />
                                 </svg>
                               </Icon>
                             </button>
@@ -4589,7 +4442,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -4601,7 +4453,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -4876,7 +4727,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                         }>
                         <Button
                           active={false}
-                          aria-describedby={42}
                           block={false}
                           bsClass="btn"
                           bsStyle="default"
@@ -4889,7 +4739,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                           onMouseOver={[Function]}
                           role={null}>
                           <button
-                            aria-describedby={42}
                             className="undefined tc-enumeration-item-label btn btn-default"
                             disabled={false}
                             onBlur={[Function]}
@@ -4943,7 +4792,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -4955,7 +4803,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -5014,7 +4861,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -5026,7 +4872,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -5358,7 +5203,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -5370,7 +5214,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -5661,7 +5504,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         }>
                         <Button
                           active={false}
-                          aria-describedby={42}
                           block={false}
                           bsClass="btn"
                           bsStyle="default"
@@ -5674,7 +5516,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           onMouseOver={[Function]}
                           role={null}>
                           <button
-                            aria-describedby={42}
                             className="undefined tc-enumeration-item-label btn btn-default"
                             disabled={false}
                             onBlur={[Function]}
@@ -5728,7 +5569,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -5740,7 +5580,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -5799,7 +5638,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -5811,7 +5649,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -5928,7 +5765,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         }>
                         <Button
                           active={false}
-                          aria-describedby={42}
                           block={false}
                           bsClass="btn"
                           bsStyle="default"
@@ -5941,7 +5777,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           onMouseOver={[Function]}
                           role={null}>
                           <button
-                            aria-describedby={42}
                             className="undefined tc-enumeration-item-label btn btn-default"
                             disabled={false}
                             onBlur={[Function]}
@@ -5995,7 +5830,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -6007,7 +5841,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}
@@ -6066,7 +5899,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           }>
                           <Button
                             active={false}
-                            aria-describedby={42}
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
@@ -6078,7 +5910,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             onMouseOver={[Function]}
                             role="link">
                             <button
-                              aria-describedby={42}
                               className="btn btn-link"
                               disabled={false}
                               onBlur={[Function]}

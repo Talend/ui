@@ -82,6 +82,7 @@ class ItemEdit extends React.Component {
 				disabled={action.disabled}
 				onClick={event => this.onActionClick(event, action)}
 				tooltipPlacement="bottom"
+				inProgress={action.inProgress}
 				hideLabel
 				link
 			/>
