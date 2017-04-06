@@ -19,7 +19,7 @@ exports[`Header should render header input with error 1`] = `
   <button
     aria-describedby={42}
     className="btn btn-link"
-    disabled={true}
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -29,28 +29,19 @@ exports[`Header should render header input with error 1`] = `
     type="button"
   >
     <svg
-      className=""
-      viewBox="0 0 50 50"
+      aria-hidden="true"
+      className="tc-svg-icon"
+      title={null}
     >
-      <circle
-        className={undefined}
-        cx={25}
-        cy={25}
-        fill="none"
-        r={20}
-        style={
-          Object {
-            "strokeDasharray": 12.566370614359172,
-            "strokeDashoffset": 0,
-          }
-        }
+      <use
+        xlinkHref="#talend-check"
       />
     </svg>
   </button>
   <button
     aria-describedby={42}
     className="btn btn-link"
-    disabled={true}
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -60,21 +51,12 @@ exports[`Header should render header input with error 1`] = `
     type="button"
   >
     <svg
-      className=""
-      viewBox="0 0 50 50"
+      aria-hidden="true"
+      className="tc-svg-icon"
+      title={null}
     >
-      <circle
-        className={undefined}
-        cx={25}
-        cy={25}
-        fill="none"
-        r={20}
-        style={
-          Object {
-            "strokeDasharray": 12.566370614359172,
-            "strokeDashoffset": 0,
-          }
-        }
+      <use
+        xlinkHref="#talend-cross"
       />
     </svg>
   </button>
@@ -95,7 +77,7 @@ exports[`Header should render header input with two buttons 1`] = `
   <button
     aria-describedby={42}
     className="btn btn-link"
-    disabled={true}
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -105,28 +87,19 @@ exports[`Header should render header input with two buttons 1`] = `
     type="button"
   >
     <svg
-      className=""
-      viewBox="0 0 50 50"
+      aria-hidden="true"
+      className="tc-svg-icon"
+      title={null}
     >
-      <circle
-        className={undefined}
-        cx={25}
-        cy={25}
-        fill="none"
-        r={20}
-        style={
-          Object {
-            "strokeDasharray": 12.566370614359172,
-            "strokeDashoffset": 0,
-          }
-        }
+      <use
+        xlinkHref="#talend-check"
       />
     </svg>
   </button>
   <button
     aria-describedby={42}
     className="btn btn-link"
-    disabled={true}
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -136,21 +109,12 @@ exports[`Header should render header input with two buttons 1`] = `
     type="button"
   >
     <svg
-      className=""
-      viewBox="0 0 50 50"
+      aria-hidden="true"
+      className="tc-svg-icon"
+      title={null}
     >
-      <circle
-        className={undefined}
-        cx={25}
-        cy={25}
-        fill="none"
-        r={20}
-        style={
-          Object {
-            "strokeDasharray": 12.566370614359172,
-            "strokeDashoffset": 0,
-          }
-        }
+      <use
+        xlinkHref="#talend-cross"
       />
     </svg>
   </button>
