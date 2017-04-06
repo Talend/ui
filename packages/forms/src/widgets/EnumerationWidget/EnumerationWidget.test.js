@@ -170,8 +170,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(registry.formContext.handleAction)
-			.toBeCalledWith(undefined, 'ENUMERATION_REMOVE_ACTION', 0);
+		expect(registry.formContext.handleAction).toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
