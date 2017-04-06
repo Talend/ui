@@ -14,7 +14,7 @@ const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
-
+const ITEMS_DEFAULT_HEIGHT = 33;
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -112,6 +112,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
+				getItemHeight: this.getItemHeight.bind(this),
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -388,6 +389,10 @@ class EnumerationWidget extends React.Component {
 			);
 			this.updateHeaderInputDisabled('');
 		}
+	}
+
+	getItemHeight(/* isInEdit */) {
+		return ITEMS_DEFAULT_HEIGHT;
 	}
 
 	setFormData() {
