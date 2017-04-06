@@ -4093,7 +4093,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       disabled={false}
                       hideLabel={true}
                       icon="talend-cross"
-                      inProgress={false}
+                      inProgress={true}
                       label="Loading"
                       link={true}
                       onClick={[Function]}
@@ -4125,7 +4125,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             block={false}
                             bsClass="btn"
                             bsStyle="link"
-                            disabled={false}
+                            disabled={true}
                             onBlur={[Function]}
                             onClick={[Function]}
                             onFocus={[Function]}
@@ -4134,7 +4134,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             role="link">
                             <button
                               className="btn btn-link"
-                              disabled={false}
+                              disabled={true}
                               onBlur={[Function]}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -4142,16 +4142,24 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               onMouseOver={[Function]}
                               role="link"
                               type="button">
-                              <Icon
-                                name="talend-cross">
+                              <CircularProgress
+                                size="small">
                                 <svg
-                                  aria-hidden="true"
-                                  className="tc-svg-icon"
-                                  title={null}>
-                                  <use
-                                    xlinkHref="#talend-cross" />
+                                  className=""
+                                  viewBox="0 0 50 50">
+                                  <circle
+                                    cx={25}
+                                    cy={25}
+                                    fill="none"
+                                    r={20}
+                                    style={
+                                      Object {
+                                        "strokeDasharray": 12.566370614359172,
+                                        "strokeDashoffset": 0,
+                                      }
+                                    } />
                                 </svg>
-                              </Icon>
+                              </CircularProgress>
                             </button>
                           </Button>
                         </OverlayTrigger>
