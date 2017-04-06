@@ -121,6 +121,7 @@ Action.propTypes = {
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	name: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,

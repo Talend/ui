@@ -25,6 +25,7 @@ function getAction(action, index) {
 			icon={action.icon}
 			onClick={onClick}
 			btooltipPlacement="bottom"
+			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>

@@ -121,7 +121,7 @@ RowRenderer.propTypes = {
 		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
-	titleProps: ItemTitle.propTypes.titleProps.isRequired,
+	titleProps: PropTypes.shape(ItemTitle.propTypes.titleProps).isRequired,
 };
 
 function getCaretIcon(isCurrentSortField) {
@@ -207,6 +207,7 @@ export function ListHeaders(props) {
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
 			{columns.map((column, index) => (<ColumnHeader
+				key={index}
 				index={index}
 				column={column}
 				sort={sort}
