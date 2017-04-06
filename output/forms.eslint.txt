@@ -130,13 +130,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  517:3  error  Expected indentation of 3 tabs but found 2  indent
-  521:3  error  Expected indentation of 3 tabs but found 2  indent
-  522:3  error  Expected indentation of 3 tabs but found 2  indent
-  523:2  error  Expected indentation of 2 tabs but found 1  indent
-
-✖ 116 problems (116 errors, 0 warnings)
+✖ 112 problems (112 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

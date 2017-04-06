@@ -16,31 +16,6 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
-   87:2  error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
-   88:2  error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
-   89:2  error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
-   91:3  error  Expected indentation of 1 tab but found 2   indent
-  101:3  error  Expected indentation of 1 tab but found 2   indent
-  112:3  error  Expected indentation of 1 tab but found 2   indent
-  121:3  error  Expected indentation of 1 tab but found 2   indent
-  129:3  error  Expected indentation of 1 tab but found 2   indent
-  130:4  error  Expected indentation of 2 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
-  55:4  error  Expected indentation of 2 tabs but found 3  indent
-  56:5  error  Expected indentation of 3 tabs but found 4  indent
-  57:5  error  Expected indentation of 3 tabs but found 4  indent
-  58:4  error  Expected indentation of 2 tabs but found 3  indent
-  59:5  error  Expected indentation of 3 tabs but found 4  indent
-  60:5  error  Expected indentation of 3 tabs but found 4  indent
-  61:4  error  Expected indentation of 2 tabs but found 3  indent
-  62:5  error  Expected indentation of 3 tabs but found 4  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
-  28:4  error  Expected indentation of 2 tabs but found 3  indent
-  47:4  error  Expected indentation of 2 tabs but found 3  indent
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -62,7 +37,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 16 problems (16 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
