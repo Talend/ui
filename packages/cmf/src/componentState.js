@@ -1,10 +1,20 @@
 import { PropTypes } from 'react';
 import { Map } from 'immutable';
-import { actions } from 'react-cmf';
+import actions from './actions';
 
 export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
 	return {
 		updateState(state) {
+			console.warn('DEPRECATION WARNING: please use props.setState');
+			dispatch(
+				actions.componentsActions.mergeComponentState(
+					name,
+					id,
+					state,
+				),
+			);
+		},
+		setState(state) {
 			dispatch(
 				actions.componentsActions.mergeComponentState(
 					name,
@@ -49,7 +59,7 @@ export function initState(props) {
 export const statePropTypes = {
 	state: PropTypes.object,
 	initialState: PropTypes.object,
-	updateState: PropTypes.func,
+	setState: PropTypes.func,
 	initState: PropTypes.func,
 };
 

@@ -5,6 +5,7 @@ Object {
   "dispatchActionCreator": [Function],
   "getCollection": [Function],
   "initState": [Function],
+  "setState": [Function],
   "state": undefined,
   "updateState": [Function],
 }

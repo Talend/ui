@@ -71,26 +71,26 @@ class List extends React.Component {
 	}
 
 	onSelectSortBy(event, payload) {
-		this.props.updateState({
+		this.props.setState({
 			sortOn: payload.field,
 			sortAsc: !payload.isDescending,
 		});
 	}
 
 	onFilter(event, payload) {
-		this.props.updateState({ searchQuery: payload });
+		this.props.setState({ searchQuery: payload });
 	}
 
 	onToggle() {
 		// clearing filter when toggle
-		this.props.updateState({
+		this.props.setState({
 			filterDocked: !this.props.state.get('filterDocked'),
 			searchQuery: '',
 		});
 	}
 
 	onSelectDisplayMode(event, payload) {
-		this.props.updateState({ displayMode: payload });
+		this.props.setState({ displayMode: payload });
 	}
 
 	render() {
