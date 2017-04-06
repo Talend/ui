@@ -1,0 +1,26 @@
+// https://www.websequencediagrams.com/
+title CMF Bootstrap Sequence
+
+Browser -> Server: GET index.html
+Server -> Browser: Send index.html
+note left of Browser: parse index.html
+Server -> Browser: GET app.js
+note left of Browser:
+  parse app.js
+  initialize state managment
+  initialize configuration
+end note
+Browser -> Server: GET settings.json
+note left of Browser
+  render CFM.App component
+  it will be loading screen
+end note
+Server -> Browser: Send settings.json
+note left of Browser
+  parse settings.json
+  write them into the state
+  state update trigger a re-render
+  CMFRouter evaluate settings
+  CMFRouter get component to render into the registry (IOC)
+end note
+

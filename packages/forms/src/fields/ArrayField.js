@@ -302,6 +302,9 @@ class ArrayField extends Component {
 
 		// widget
 		if (typeof widget === 'string') {
+			if (widget === 'hidden') {
+				return null;
+			}
 			const Widget = getWidget(schema, widget, widgets);
 			const onChangeHandler = (value) => {
 				onChange(value, options);
