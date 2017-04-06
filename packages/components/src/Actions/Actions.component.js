@@ -19,7 +19,7 @@ function getButtonGroupProps(props) {
 	return buttonGroupProps;
 }
 
-function getActionType(displayMode) {
+function getActionComponent(displayMode) {
 	switch (displayMode) {
 	case TYPE_DROPDOWN:
 		return ActionDropdown;
@@ -80,24 +80,21 @@ const actions: [
  */
 function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);
-	const globalParams = {
-		hideLabel: props.hideLabel,
-		link: props.link,
-		tooltipPlacement: props.tooltipPlacement,
-	};
 
 	return (
 		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
-				const ActionType = getActionType(displayMode);
+				const ActionComponent = getActionComponent(displayMode);
 				const params = {
 					key: index,
-					...globalParams,
+					hideLabel: props.hideLabel,
+					link: props.link,
+					tooltipPlacement: props.tooltipPlacement,
 					...rest,
 				};
 
-				return <ActionType {...params} />;
+				return <ActionComponent {...params} />;
 			})}
 		</ButtonGroup>
 	);
@@ -108,12 +105,7 @@ Actions.propTypes = {
 		PropTypes.oneOfType([
 			PropTypes.shape(Action.propTypes),
 			PropTypes.shape({
-				displayMode: TYPE_DROPDOWN,
-				...ActionDropdown.propTypes,
-			}),
-			PropTypes.shape({
-				displayMode: TYPE_SPLIT_DROPDOWN,
-				...ActionSplitDropdown.propTypes,
+				displayMode: PropTypes.oneOf([TYPE_DROPDOWN, TYPE_SPLIT_DROPDOWN]),
 			}),
 		]),
 	),
