@@ -25,43 +25,43 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 		};
 
 		switch (item.displayMode) {
-			case DISPLAY_MODE_EDIT: {
-				const itemPropsEdit = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsEdit,
-					onSubmitItem: itemsProp.onSubmitItem,
-					onAbortItem: itemsProp.onAbortItem,
-					onChangeItem: itemsProp.onChangeItem,
-				};
-				itemWithIndex.itemProps = itemPropsEdit;
+		case DISPLAY_MODE_EDIT: {
+			const itemPropsEdit = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsEdit,
+				onSubmitItem: itemsProp.onSubmitItem,
+				onAbortItem: itemsProp.onAbortItem,
+				onChangeItem: itemsProp.onChangeItem,
+			};
+			itemWithIndex.itemProps = itemPropsEdit;
 
-				return (
-					<ItemEdit
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						currentEdit={currentEdit}
-					/>
-				);
-			}
-			default: {
-				const itemPropDefault = {
-					key: itemsProp.key,
-					actions: itemsProp.actionsDefault,
-					onSelectItem: itemsProp.onSelectItem,
-				};
-				itemWithIndex.itemProps = itemPropDefault;
+			return (
+				<ItemEdit
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					currentEdit={currentEdit}
+				/>
+			);
+		}
+		default: {
+			const itemPropDefault = {
+				key: itemsProp.key,
+				actions: itemsProp.actionsDefault,
+				onSelectItem: itemsProp.onSelectItem,
+			};
+			itemWithIndex.itemProps = itemPropDefault;
 
-				return (
-					<Item
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						itemProps={itemPropDefault}
-						searchCriteria={searchCriteria}
-					/>
-				);
-			}
+			return (
+				<Item
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					itemProps={itemPropDefault}
+					searchCriteria={searchCriteria}
+				/>
+			);
+		}
 		}
 	}
 

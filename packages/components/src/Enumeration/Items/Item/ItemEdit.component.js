@@ -52,14 +52,14 @@ class ItemEdit extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-			case keycode('escape'):
-				this.cancel(event);
-				break;
-			case keycode('enter'):
-				this.submit(event);
-				break;
-			default:
-				break;
+		case keycode('escape'):
+			this.cancel(event);
+			break;
+		case keycode('enter'):
+			this.submit(event);
+			break;
+		default:
+			break;
 		}
 	}
 

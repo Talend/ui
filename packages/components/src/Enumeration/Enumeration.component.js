@@ -84,50 +84,50 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-														 displayMode, headerError, onInputChange, onAddKeyDown,
-														 headerInput, headerDefault, headerSelected, items, required,
-													 }) {
+	displayMode, headerError, onInputChange, onAddKeyDown,
+	headerInput, headerDefault, headerSelected, items, required,
+}) {
 	switch (displayMode) {
-		case DISPLAY_MODE_SEARCH: {
-			const propsInput = {
+	case DISPLAY_MODE_SEARCH: {
+		const propsInput = {
+			headerInput,
+			onInputChange,
+			onAddKeyDown,
+			headerError,
+			inputPlaceholder: 'Search',
+		};
+		return <HeaderInput {...propsInput} />;
+	}
+	case DISPLAY_MODE_ADD : {
+		const propsInput =
+			{
 				headerInput,
 				onInputChange,
 				onAddKeyDown,
 				headerError,
-				inputPlaceholder: 'Search',
+				inputPlaceholder: 'New entry',
 			};
-			return <HeaderInput {...propsInput} />;
-		}
-		case DISPLAY_MODE_ADD : {
-			const propsInput =
-				{
-					headerInput,
-					onInputChange,
-					onAddKeyDown,
-					headerError,
-					inputPlaceholder: 'New entry',
-				};
-			return <HeaderInput {...propsInput} />;
-		}
-		case DISPLAY_MODE_DEFAULT: {
-			const propsDefault = {
-				headerDefault,
-				required,
-			};
+		return <HeaderInput {...propsInput} />;
+	}
+	case DISPLAY_MODE_DEFAULT: {
+		const propsDefault = {
+			headerDefault,
+			required,
+		};
 
-			return <Header {...propsDefault} />;
-		}
+		return <Header {...propsDefault} />;
+	}
 
-		case DISPLAY_MODE_SELECTED: {
-			const propsSelected = {
-				headerSelected,
-				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-			};
-			return <HeaderSelected {...propsSelected} />;
-		}
+	case DISPLAY_MODE_SELECTED: {
+		const propsSelected = {
+			headerSelected,
+			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+		};
+		return <HeaderSelected {...propsSelected} />;
+	}
 
-		default:
-			return null;
+	default:
+		return null;
 	}
 }
 
