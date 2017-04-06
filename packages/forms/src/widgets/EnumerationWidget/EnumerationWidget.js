@@ -505,15 +505,8 @@ class EnumerationWidget extends React.Component {
 	}
 }
 
-if (process
-
-		.env
-		.NODE_ENV
-	!==
-	'production'
-) {
-	EnumerationWidget
-		.propTypes = {
+if (process.env.NODE_ENV !== 'production') {
+	EnumerationWidget.propTypes = {
 		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
