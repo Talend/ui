@@ -38,6 +38,7 @@ function getAction(action, index) {
 			onClick={onClick}
 			disabled={action.disabled}
 			tooltipPlacement="bottom"
+			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>
@@ -69,7 +70,8 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
+			{ headerError &&
+			<div className={headerErrorClasses()}>{headerError}</div> }
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);

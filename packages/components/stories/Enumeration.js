@@ -10,6 +10,13 @@ const addItemAction = {
 	onClick: action('header.onAdd'),
 };
 
+const loadingAction = {
+	label: 'loading',
+	icon: 'talend-cross',
+	inProgress: true,
+	id: 'loading',
+};
+
 const deleteItemAction = {
 	label: 'Remove selected values',
 	icon: 'talend-trash',
@@ -35,7 +42,7 @@ const abortAction = {
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
-	headerDefault: [addItemAction],
+	headerDefault: [addItemAction, loadingAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
 	items: Array(50).fill('').map((item, index) => ({
