@@ -51,6 +51,10 @@ Enumeration.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
+		getItemHeight: React.PropTypes.oneOfType([
+			React.PropTypes.func,
+			React.PropTypes.number,
+		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
@@ -99,13 +103,14 @@ function HeaderEnumeration({
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_ADD : {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'New entry',
-		};
+		const propsInput =
+			{
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				headerError,
+				inputPlaceholder: 'New entry',
+			};
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_DEFAULT: {

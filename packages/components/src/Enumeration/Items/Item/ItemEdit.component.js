@@ -82,6 +82,7 @@ class ItemEdit extends React.Component {
 				disabled={action.disabled}
 				onClick={event => this.onActionClick(event, action)}
 				tooltipPlacement="bottom"
+				inProgress={action.inProgress}
 				hideLabel
 				link
 			/>
@@ -133,7 +134,9 @@ class ItemEdit extends React.Component {
 			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
 				<input
 					className={itemLabelClasses()}
-					ref={(input) => { this.itemInput = input; }}
+					ref={(input) => {
+						this.itemInput = input;
+					}}
 					type="text"
 					onKeyDown={this.onKeyDown}
 					onChange={this.itemChange}
