@@ -109,8 +109,14 @@ Count.propTypes = {
 
 function ActionBar(props) {
 	const { left, right } = getActionsToRender(props);
+	const cssClass = classNames(
+		css['tc-actionbar-container'],
+		'tc-actionbar-container',
+		'nav',
+		props.className,
+	);
 	return (
-		<nav className={classNames(css['tc-actionbar-container'], 'tc-actionbar-container', 'nav')}>
+		<nav className={cssClass}>
 			{ (left || !!props.selected) && (
 				<SwitchActions key={0} actions={left} selected={props.selected} left />
 			)}
@@ -125,6 +131,7 @@ function ActionBar(props) {
 ActionBar.propTypes = {
 	selected: PropTypes.number,
 	children: PropTypes.node,
+	className: PropTypes.string,
 };
 
 ActionBar.DISPLAY_MODES = DISPLAY_MODES;
