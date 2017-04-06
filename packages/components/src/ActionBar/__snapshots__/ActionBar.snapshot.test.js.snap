@@ -318,16 +318,18 @@ exports[`ActionBar.Count should render if selected 1`] = `
 `;
 
 exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
-<div
-  className="navbar-right"
+<Content
+  left={undefined}
+  right={true}
 >
   
-</div>
+</Content>
 `;
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
-<div
-  className="navbar-left"
+<Content
+  left={true}
+  right={undefined}
 >
   <Action
     bsStyle="default"
@@ -336,12 +338,13 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
     label="action"
     tooltipPlacement="top"
   />
-</div>
+</Content>
 `;
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left with selected 1`] = `
-<div
-  className="navbar-left"
+<Content
+  left={true}
+  right={undefined}
 >
   <Count
     selected={3}
@@ -353,12 +356,13 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
     label="action"
     tooltipPlacement="top"
   />
-</div>
+</Content>
 `;
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
-<div
-  className="navbar-right"
+<Content
+  left={undefined}
+  right={true}
 >
   <Action
     bsStyle="default"
@@ -367,5 +371,5 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = 
     label="action"
     tooltipPlacement="top"
   />
-</div>
+</Content>
 `;

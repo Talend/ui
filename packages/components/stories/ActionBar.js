@@ -2,7 +2,7 @@ import React from 'react';
 import talendIcons from 'talend-icons/dist/react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { ActionBar, IconsProvider } from '../src/index';
+import { Action, Icon, ActionBar, IconsProvider } from '../src/index';
 
 const primary = {
 	label: 'Primary',
@@ -199,6 +199,37 @@ storiesOf('ActionBar', module)
 				<ActionBar
 					actions={btnGroupActions}
 				/>
+			</div>
+		</nav>
+	))
+	.addWithInfo('custom', () => (
+		<nav>
+			<IconsProvider defaultIcons={icons} />
+			<div id="default">
+				<ActionBar>
+					<ActionBar.Content tag="a" left href="#/foo/bar">
+						Hello anchor
+					</ActionBar.Content>
+					<ActionBar.Content tag="button" className="btn btn-default" left>
+						Hello button
+					</ActionBar.Content>
+					<ActionBar.Content left>
+						<Action
+							label="hello Action"
+							icon="talend-trash"
+							onClick={action('onClick')}
+						/>
+					</ActionBar.Content>
+					<ActionBar.Content tag="p" right>
+						Hello paragraph
+					</ActionBar.Content>
+					<ActionBar.Content tag="form" role="search" right>
+						<div className="form-group">
+							<input type="text" className="form-control" placeholder="Search" />
+						</div>
+						<button type="submit" className="btn btn-default">Submit</button>
+					</ActionBar.Content>
+				</ActionBar>
 			</div>
 		</nav>
 	));

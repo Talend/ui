@@ -27,15 +27,39 @@ function getActionsToRender({ selected, actions, multiSelectActions }) {
 	return actions || {};
 }
 
+function getContentClassName({ tag, className, left, right }) {
+	return classNames(
+		className,
+		{
+			[`${css['navbar-left']}`]: left,
+			[`${css['navbar-right']}`]: right,
+			'navbar-left': left,
+			'navbar-right': right,
+			'navbar-text': tag === 'p',
+			'navbar-btn': tag === 'button',
+			'navbar-form': tag === 'form',
+			'navbar-link': tag === 'a',
+		},
+	);
+}
+
+function Content({ tag = 'div', left, right, className, children, ...rest }) {
+	const props = Object.assign({
+		className: getContentClassName({ tag, left, right, className }),
+	}, rest);
+	return React.createElement(tag, props, children);
+}
+Content.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
+};
+
 function SwitchActions({ actions, left, right, selected }) {
-	let wrapperClassNamed = null;
-	if (left) {
-		wrapperClassNamed = classNames(css['navbar-left'], 'navbar-left');
-	} else if (right) {
-		wrapperClassNamed = classNames(css['navbar-right'], 'navbar-right');
-	}
 	return (
-		<div className={wrapperClassNamed}>
+		<Content left={left} right={right}>
 			{ selected > 0 && !right ? (
 				<Count selected={selected} />
 			) : null }
@@ -56,7 +80,7 @@ function SwitchActions({ actions, left, right, selected }) {
 					);
 				}
 			}) }
-		</div>
+		</Content>
 	);
 }
 SwitchActions.propTypes = {
@@ -107,5 +131,6 @@ ActionBar.DISPLAY_MODES = DISPLAY_MODES;
 ActionBar.Count = Count;
 ActionBar.SwitchActions = SwitchActions;
 ActionBar.getActionsToRender = getActionsToRender;
-
+ActionBar.Content = Content;
+ActionBar.getContentClassName = getContentClassName;
 export default ActionBar;
