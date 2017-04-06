@@ -99,13 +99,14 @@ function HeaderEnumeration({
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_ADD : {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'New entry',
-		};
+		const propsInput =
+			{
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				headerError,
+				inputPlaceholder: 'New entry',
+			};
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_DEFAULT: {
