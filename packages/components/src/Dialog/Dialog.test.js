@@ -71,6 +71,22 @@ const largeProps = {
 		onClick: jest.fn(),
 	},
 };
+
+const headerPropsNullDialogProps = {
+	header: 'Hello world',
+	bsDialogProps: null,
+	show: true,
+};
+const headerPropsUndefinedDialogProps = {
+	header: 'Hello world',
+	bsDialogProps: undefined,
+	show: true,
+};
+const headerNoDialogPropsProps = {
+	header: 'Hello world',
+	show: true,
+};
+
 const children = (<div>BODY</div>);
 
 describe('Dialog', () => {
@@ -103,5 +119,25 @@ describe('Dialog', () => {
 			<Dialog {...largeProps}>{children}</Dialog>
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render dialog without bsDialogProps', () => {
+		const customProps = { ...headerProps, undefined };
+		expect(customProps.header).toEqual('Hello world');
+		expect(customProps.show).toEqual(true);
+
+		const wrapperNullDialogProps = renderer.create(
+			<Dialog {...headerPropsNullDialogProps}>{children}</Dialog>
+		).toJSON();
+		expect(wrapperNullDialogProps).toMatchSnapshot();
+
+		const wrapperUndefinedDialogProps = renderer.create(
+			<Dialog {...headerPropsUndefinedDialogProps}>{children}</Dialog>
+		).toJSON();
+		expect(wrapperUndefinedDialogProps).toMatchSnapshot();
+
+		const wrapperNoDialogPropsProps = renderer.create(
+			<Dialog {...headerNoDialogPropsProps}>{children}</Dialog>
+		).toJSON();
+		expect(wrapperNoDialogPropsProps).toMatchSnapshot();
 	});
 });
