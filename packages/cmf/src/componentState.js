@@ -3,17 +3,7 @@ import { Map } from 'immutable';
 import actions from './actions';
 
 export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
-	return {
-		updateState(state) {
-			console.warn('DEPRECATION WARNING: please use props.setState');
-			dispatch(
-				actions.componentsActions.mergeComponentState(
-					name,
-					id,
-					state,
-				),
-			);
-		},
+	const accessors = {
 		setState(state) {
 			dispatch(
 				actions.componentsActions.mergeComponentState(
@@ -42,6 +32,11 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map())
 			);
 		},
 	};
+	accessors.updateState = function updateState(state) {
+		console.warn('DEPRECATION WARNING: please use props.setState');
+		accessors.setState(state);
+	};
+	return accessors;
 }
 
 export function getStateProps(state, name, id) {
