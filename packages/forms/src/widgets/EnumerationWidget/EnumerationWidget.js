@@ -14,6 +14,7 @@ const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
+const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 
 class EnumerationWidget extends React.Component {
@@ -213,6 +214,7 @@ class EnumerationWidget extends React.Component {
 
 	onSubmitItem(event, value) {
 		// dont want to fire select item on icon click
+		event.preventDefault();
 		event.stopPropagation();
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
@@ -261,6 +263,7 @@ class EnumerationWidget extends React.Component {
 						this.onSearchHandler.bind(this)
 					)) {
 					this.setState({
+						loadingSearchCriteria: value.value,
 						headerInput: this.loadingInputsActions,
 					});
 				} else {
@@ -275,6 +278,8 @@ class EnumerationWidget extends React.Component {
 	onSearchHandler() {
 		this.setState({
 			headerInput: this.searchInputsActions,
+			searchCriteria: this.state.loadingSearchCriteria,
+			loadingSearchCriteria: '',
 		});
 	}
 
@@ -282,7 +287,22 @@ class EnumerationWidget extends React.Component {
 		if (this.state.displayMode === DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
+		if (this.callActionHandler(
+				ENUMERATION_RESET_LIST,
+				null,
+				this.onConnectedAbortHandler.bind(this))
+		) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+			});
+		}
 		this.setState({ displayMode: DISPLAY_MODE_DEFAULT, searchCriteria: null });
+	}
+
+	onConnectedAbortHandler() {
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+		});
 	}
 
 	onAddKeyDown(event, value) {

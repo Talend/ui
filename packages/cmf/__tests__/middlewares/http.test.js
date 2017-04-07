@@ -70,7 +70,7 @@ describe('CMF http middleware', () => {
 		expect(action.type).toBe(HTTP_RESPONSE);
 		expect(action.data).toBe(response);
 	});
-	it('should mergeOptions create action', () => {
+	it('should mergeOptions create action with default headers/credentials', () => {
 		const action = {
 			type: HTTP_METHODS.POST,
 			extra: 'hello world',
@@ -81,7 +81,26 @@ describe('CMF http middleware', () => {
 		expect(options.method).toBe('POST');
 		expect(options.extra).toBe('hello world');
 		expect(options.body).toBe('{"label":"new label"}');
+		expect(options.headers).toEqual(DEFAULT_HTTP_HEADERS);
+		expect(options.credentials).toBe('same-origin');
 	});
+
+	it('should mergeOptions create action with the specify credential', () => {
+		const action = {
+			type: HTTP_METHODS.POST,
+			extra: 'hello world',
+			body: { label: 'new label' },
+			credentials: 'omit',
+		};
+		const options = mergeOptions(action);
+		expect(options.type).toBe(undefined);
+		expect(options.method).toBe('POST');
+		expect(options.extra).toBe('hello world');
+		expect(options.body).toBe('{"label":"new label"}');
+		expect(options.headers).toEqual(DEFAULT_HTTP_HEADERS);
+		expect(options.credentials).toBe('omit');
+	});
+
 	it('should onResponse create action', () => {
 		const response = { msg: 'you have a response' };
 		const action = {
