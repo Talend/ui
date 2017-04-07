@@ -10,7 +10,7 @@ import Action from '../Actions/Action';
  */
 function Dialog(props) {
 	return (
-		<Modal bsSize={props.size} show={props.show}>
+		<Modal bsSize={props.size} show={props.show} onHide={props.onHide}>
 			{props.header && (
 				<Modal.Header closeButton>
 					<Modal.Title>{props.header}</Modal.Title>
@@ -34,6 +34,7 @@ Dialog.propTypes = {
 	children: PropTypes.element,
 	show: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
+	onHide: PropTypes.func,
 };
 
 export default Dialog;

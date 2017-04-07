@@ -45,6 +45,7 @@ const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
+	onHide: jest.fn(),
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),
@@ -54,6 +55,7 @@ const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
+	onHide: jest.fn(),
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),

@@ -22,6 +22,7 @@ const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
+	onHide: action('onHide'),
 	action: {
 		label: 'OK',
 		onClick: action('ok'),
@@ -31,6 +32,7 @@ const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
+	onHide: action('onHide'),
 	action: {
 		label: 'OK',
 		onClick: action('ok'),
