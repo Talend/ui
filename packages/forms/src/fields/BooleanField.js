@@ -31,6 +31,7 @@ function BooleanField(props) {
 		disabled,
 		readonly,
 		onChange,
+		onBlur,
 	} = props;
 	const { title } = schema;
 	const { widgets, formContext } = registry;
@@ -39,10 +40,16 @@ function BooleanField(props) {
 	const onChangeHandler = () => {
 		onChange(!formData, uiOptions);
 	};
+	const onBlurHandler = () => {
+		if (onBlur) {
+			onBlur(idSchema && idSchema.$id, formData);
+		}
+	};
 	const commonProps = {
 		schema,
 		id: idSchema && idSchema.$id,
 		onChange: onChangeHandler,
+		onBlur: onBlurHandler,
 		label: (title === undefined) ? name : title,
 		value: defaultFieldValue(formData, schema),
 		checked: defaultFieldValue(formData, schema),
@@ -65,6 +72,7 @@ if (process.env.NODE_ENV !== 'production') {
 		uiSchema: PropTypes.object,
 		idSchema: PropTypes.object,
 		onChange: PropTypes.func.isRequired,
+		onBlur: PropTypes.func,
 		formData: PropTypes.bool,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,

@@ -7,7 +7,7 @@ jest.mock('react-dom');
 
 const defaultProps = {
 	id: 'id',
-	onChange: () => {},
+	onChange: jest.fn(),
 };
 
 describe('Toggle', () => {
