@@ -149,7 +149,9 @@ function getNextDirection(isCurrentSortField, currentSort) {
 export function ColumnHeader({ index, column, sort }) {
 	let header;
 
-	if (sort) {
+	if (column.hideHeader) {
+		header = (<span className="sr-only">{column.label}</span>);
+	} else	if (sort) {
 		const isCurrentSortField = sort.field === column.key;
 		const onChange = event => sort.onChange(
 			event,
@@ -176,7 +178,7 @@ export function ColumnHeader({ index, column, sort }) {
 	return (
 		<th key={index}>
 			{header}
-			<div aria-hidden="true">{column.label}</div>
+			{ !column.hideHeader && (<div aria-hidden="true">{column.label}</div>)}
 		</th>
 	);
 }
@@ -185,6 +187,7 @@ ColumnHeader.propTypes = {
 	column: PropTypes.shape({
 		key: PropTypes.string,
 		label: PropTypes.string,
+		hideHeader: PropTypes.bool,
 	}).isRequired,
 	sort: PropTypes.shape({
 		field: PropTypes.string,
