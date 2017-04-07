@@ -1,4 +1,5 @@
 $tc-action-bar-background-color: lighten($alto, 5%) !default;
+$tc-action-bar-maring: $padding-small $padding-larger $padding-small 0 !default;
 
 .tc-actionbar-container {
 	padding: 0 $padding-small;
@@ -6,8 +7,9 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
 	.navbar-left,
 	.navbar-right {
-		> * {
-			margin: $padding-small $padding-larger $padding-small 0;
+		> button,
+		> :global(.tc-actions) {
+			margin: $tc-action-bar-maring;
 		}
 
 		> :last-child {
@@ -17,5 +19,25 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
 	.navbar-right {
 		margin-right: 0;
+	}
+
+	:global(.navbar-form),
+	:global(.navbar-btn) {
+		margin: $tc-action-bar-maring;
+	}
+
+	:global(.navbar-text),
+	:global(.navbar-link) {
+		margin: $padding-normal $padding-larger $padding-small 0;
+	}
+
+	:global(.navbar-form) {
+		:global(.form-group) {
+			padding-top: inherit;
+		}
+
+		button {
+			margin: 0;
+		}
 	}
 }

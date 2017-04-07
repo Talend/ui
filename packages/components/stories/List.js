@@ -414,7 +414,13 @@ storiesOf('List', module)
 	})
 	.add('Table with column actions', () => {
 		const columnActionsProps = Immutable.fromJS(props).toJS();
-		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
+		const actionsColumn = {
+			key: 'columnActions',
+			label: 'Actions',	// label should be set for screen readers
+			hideHeader: true,	// header will created with a sr-only class, so it will be hidden
+		};
+
+		columnActionsProps.list.columns.splice(2, 0, actionsColumn);
 		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
 			columnActions: [
 				{
