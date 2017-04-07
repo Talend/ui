@@ -8,69 +8,6 @@ const DISPLAY_MODES = {
 	BTN_GROUP: 'btnGroup',
 };
 
-function ActionBar({ selected, actions, multiSelectActions }) {
-	function getActionsToRender() {
-		if (selected > 0) {
-			return multiSelectActions;
-		}
-		return actions;
-	}
-
-	function renderActions(actionsToRender) {
-		return actionsToRender.map((action, index) => {
-			const { displayMode, ...rest } = action;
-			switch(displayMode) {
-			case DISPLAY_MODES.SPLIT_DROPDOWN:
-				return (
-					<ActionSplitDropdown key={index} {...rest} />
-				);
-			case DISPLAY_MODES.BTN_GROUP:
-				return (
-					<Actions key={index} {...rest} />
-				);
-			default:
-				return (
-					<Action key={index} {...rest} />
-				);
-			}
-		});
-	}
-
-	function renderSelectedCount() {
-		return (<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
-			{selected} selected
-		</span>);
-	}
-
-	function renderActionBar() {
-		const { left, right } = getActionsToRender();
-		const actionBar = [];
-		if (left) {
-			actionBar.push(
-				<div key={0} className={classNames(css['navbar-left'], 'navbar-left')}>
-					{ selected > 0 ? renderSelectedCount() : null}
-					{ renderActions(left) }
-				</div>,
-			);
-		}
-		if (right) {
-			actionBar.push(
-				<div key={1} className={classNames(css['navbar-right'], 'navbar-right')}>
-					{ selected > 0 && !left ? renderSelectedCount() : null}
-					{ renderActions(right) }
-				</div>,
-			);
-		}
-		return actionBar;
-	}
-
-	return (
-		<nav className={classNames(css['tc-actionbar-container'], 'tc-actionbar-container', 'nav')}>
-			{ renderActionBar() }
-		</nav>
-	);
-}
-
 const actionsShape = {
 	left: PropTypes.arrayOf(PropTypes.oneOfType([
 		PropTypes.shape(Action.propTypes),
@@ -80,18 +17,127 @@ const actionsShape = {
 		PropTypes.shape(Action.propTypes),
 		PropTypes.shape(ActionSplitDropdown.propTypes),
 	])),
+	children: PropTypes.node,
 };
 
-ActionBar.propTypes = {
-	selected: PropTypes.number,
+function getActionsToRender({ selected, actions, multiSelectActions }) {
+	if (selected > 0) {
+		return multiSelectActions || {};
+	}
+	return actions || {};
+}
+
+function getContentClassName({ tag, className, left, right }) {
+	return classNames(
+		className,
+		{
+			[`${css['navbar-left']}`]: left,
+			[`${css['navbar-right']}`]: right,
+			'navbar-left': left,
+			'navbar-right': right,
+			'navbar-text': tag === 'p',
+			'navbar-btn': tag === 'button',
+			'navbar-form': tag === 'form',
+			'navbar-link': tag === 'a',
+		},
+	);
+}
+
+function Content({ tag = 'div', left, right, className, children, ...rest }) {
+	const props = Object.assign({
+		className: getContentClassName({ tag, left, right, className }),
+	}, rest);
+	return React.createElement(tag, props, children);
+}
+Content.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
+};
+
+function SwitchActions({ actions, left, right, selected }) {
+	return (
+		<Content left={left} right={right}>
+			{ selected > 0 && !right ? (
+				<Count selected={selected} />
+			) : null }
+			{ actions.map((action, index) => {
+				const { displayMode, ...rest } = action;
+				switch (displayMode) {
+				case DISPLAY_MODES.SPLIT_DROPDOWN:
+					return (
+						<ActionSplitDropdown key={index} {...rest} />
+					);
+				case DISPLAY_MODES.BTN_GROUP:
+					return (
+						<Actions key={index} {...rest} />
+					);
+				default:
+					return (
+						<Action key={index} {...rest} />
+					);
+				}
+			}) }
+		</Content>
+	);
+}
+SwitchActions.propTypes = {
 	actions: PropTypes.shape(actionsShape).isRequired,
-	multiSelectActions: PropTypes.shape(actionsShape),
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	selected: PropTypes.number,
 };
-
-ActionBar.defaultProps = {
+SwitchActions.defaultProps = {
 	actions: [],
 };
 
-ActionBar.DISPLAY_MODES = DISPLAY_MODES;
+function Count({ selected }) {
+	if (!selected) {
+		return null;
+	}
+	return (
+		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
+			{selected} selected
+		</span>
+	);
+}
+Count.propTypes = {
+	selected: PropTypes.number,
+};
 
+function ActionBar(props) {
+	const { left, right } = getActionsToRender(props);
+	const cssClass = classNames(
+		css['tc-actionbar-container'],
+		'tc-actionbar-container',
+		'nav',
+		props.className,
+	);
+	return (
+		<nav className={cssClass}>
+			{ (left || !!props.selected) && (
+				<SwitchActions key={0} actions={left} selected={props.selected} left />
+			)}
+			{props.children}
+			{ right && (
+				<SwitchActions key={1} actions={right} selected={props.selected} right />
+			)}
+		</nav>
+	);
+}
+
+ActionBar.propTypes = {
+	selected: PropTypes.number,
+	children: PropTypes.node,
+	className: PropTypes.string,
+};
+
+ActionBar.DISPLAY_MODES = DISPLAY_MODES;
+ActionBar.Count = Count;
+ActionBar.SwitchActions = SwitchActions;
+ActionBar.getActionsToRender = getActionsToRender;
+ActionBar.Content = Content;
+ActionBar.getContentClassName = getContentClassName;
 export default ActionBar;

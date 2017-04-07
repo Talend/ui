@@ -69,6 +69,16 @@ exports[`ColumnHeader should render 1`] = `
 </th>
 `;
 
+exports[`ColumnHeader should render an invisible screen reader compatible column header 1`] = `
+<th>
+  <span
+    className="sr-only"
+  >
+    Test
+  </span>
+</th>
+`;
+
 exports[`ColumnHeader should render with sort 1`] = `
 <th>
   <Action
