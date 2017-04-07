@@ -38,6 +38,21 @@ const largeProps = {
 		onClick: action('ok'),
 	},
 };
+const bsProps = {
+	header: 'OnHide + no backdrop + esc',
+	bsDialogProps: {
+		show: true,
+		size: 'small',
+		onHide: action('onHide'),
+		dialogClassName: 'customDialogClassName',
+		keyboard: true,
+		backdrop: false,
+	},
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
 
 const children = (<div>BODY content. You can put what ever you want here</div>);
 
@@ -72,4 +87,11 @@ storiesOf('Dialog', module)
 			<h1>Dialog</h1>
 			<Dialog {...largeProps}>{children}</Dialog>
 		</div>
+	))
+	.addWithInfo('passing bootstrap modal options', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...bsProps}>{children}</Dialog>
+		</div>
 	));
+

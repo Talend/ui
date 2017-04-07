@@ -4,7 +4,6 @@ exports[`Dialog should render 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  onHide={undefined}
   show={true}
 >
   <div
@@ -21,7 +20,6 @@ exports[`Dialog should render action 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  onHide={undefined}
   show={true}
 >
   <div
@@ -63,7 +61,6 @@ exports[`Dialog should render header 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  onHide={undefined}
   show={true}
 >
   <div
@@ -88,8 +85,11 @@ exports[`Dialog should render header 1`] = `
 
 exports[`Dialog should render large 1`] = `
 <div
+  backdrop={false}
   bsSize="large"
   className="Modal"
+  dialogClassName="customDialogClassName"
+  keyboard={true}
   onHide={[Function]}
   show={true}
 >
@@ -130,8 +130,11 @@ exports[`Dialog should render large 1`] = `
 
 exports[`Dialog should render small 1`] = `
 <div
+  backdrop={false}
   bsSize="small"
   className="Modal"
+  dialogClassName="customDialogClassName"
+  keyboard={true}
   onHide={[Function]}
   show={true}
 >
