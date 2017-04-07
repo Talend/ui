@@ -8,7 +8,9 @@ $tc-enumeration-height: 40vh !default;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
 	height: $tc-enumeration-height;
 
-	li:first-child:hover {
-		box-shadow: inset 0 21px 3px -20px $shadow;
+	.tc-item-container:first-child {
+		li:hover {
+			box-shadow: inset 0 21px 3px -20px $shadow;
+		}
 	}
 }
