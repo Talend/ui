@@ -8,9 +8,9 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
 @function set-text-color($color) {
   @if (lightness($color) > 60) {
-    @return #000000; // Lighter backgorund, return dark color
+	@return #000000; // Lighter backgorund, return dark color
   } @else {
-    @return #ffffff; // Darker background, return light color
+	@return #ffffff; // Darker background, return light color
   }
 }
 
@@ -19,8 +19,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top: 0;
-	transform: translate3d(0%);
-	transition: all .4s ease;
 	right: 0;
 	bottom: 0;
 	width: 50vw;
@@ -50,12 +48,12 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	width: 100%;
 }
 
-:global(.tc-with-drawer-wrapper) + :global(.tc-with-drawer-wrapper)  > .drawerStacked {
-    width: 98%;
+:global(.tc-with-drawer-wrapper) > .drawerStacked + :global(.tc-with-drawer-wrapper) > .drawerStacked {
+	width: 98%;
 }
 
-:global(.tc-with-drawer-wrapper) +:global(.tc-with-drawer-wrapper) + :global(.tc-with-drawer-wrapper)  > .drawerStacked {
-    width: 96%;
+:global(.tc-with-drawer-wrapper) > .drawerStacked + :global(.tc-with-drawer-wrapper) > .drawerStacked + :global(.tc-with-drawer-wrapper)  > .drawerStacked {
+	width: 96%;
 }
 
 .tc-drawer-header {
@@ -106,22 +104,33 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	}
 }
 
-// This animation is made global so you can use it in your own project
+// :global(.tc-with-drawer-wrapper) > .tc-drawer {
+// 	transform: translateX(0%);
+// }
 
-:global(.tc-drawer-enter) > .tc-drawer,
-:global(.tc-drawer-appear) > .tc-drawer {
-	transform: translate3d(100%);
+:global(.tc-with-drawer-wrapper-enter) > .tc-drawer {
+	transform: translateX(100%);
 }
 
-:global(.tc-drawer-enter):global(.tc-drawer-enter-active) > .tc-drawer,
-:global(.tc-drawer-appear):global(.tc-drawer-appear-active) > .tc-drawer {
-		transform: translate3d(0%);
-	}
-
-:global(.tc-drawer-leave) {
+:global(.tc-with-drawer-wrapper-enter.tc-with-drawer-wrapper-enter-active) > .tc-drawer {
+	transition: transform 400ms ease-in;
 	transform: translateX(0%);
+}
 
-	&:global(.tc-drawer-leave-active) {
-		transform: translateX(100%);
-	}
+:global(.tc-with-drawer-wrapper-appear) > .tc-drawer {
+	transform: translateX(100%);
+}
+
+:global(.tc-with-drawer-wrapper-appear.tc-with-drawer-wrapper-appear-active) > .tc-drawer {
+	transition: transform 400ms ease-in;
+	transform: translateX(0%);
+}
+
+:global(.tc-with-drawer-wrapper-leave) > .tc-drawer {
+	transform: translateX(0%);
+}
+
+:global(.tc-with-drawer-wrapper-leave.tc-with-drawer-wrapper-leave-active) > .tc-drawer {
+	transition: transform 400ms ease-in;
+	transform: translateX(100%);
 }

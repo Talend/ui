@@ -10,6 +10,7 @@ function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
 			transitionName="tc-with-drawer-wrapper"
+			transitionAppear
 			transitionAppearTimeout={400}
 			transitionEnterTimeout={400}
 			transitionLeaveTimeout={400}
