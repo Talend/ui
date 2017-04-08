@@ -84,7 +84,7 @@ export function getDispatchToProps({
 /**
  * this function wrap your component to inject the following:
  * - props.state
- * - props.updateState
+ * - props.setState
  * - props.initState (call it un didMount)
  * - props.getCollection
  * - dispatch(action)

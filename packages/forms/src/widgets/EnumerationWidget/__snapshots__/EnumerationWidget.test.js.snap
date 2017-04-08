@@ -100,6 +100,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -195,6 +196,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -267,7 +269,6 @@ exports[`EnumerationWidget delete all 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -279,7 +280,6 @@ exports[`EnumerationWidget delete all 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -339,7 +339,6 @@ exports[`EnumerationWidget delete all 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -351,7 +350,6 @@ exports[`EnumerationWidget delete all 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -462,6 +460,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -564,6 +563,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -659,6 +659,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -735,7 +736,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -747,7 +747,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={true}
                         onBlur={[Function]}
@@ -806,7 +805,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -818,7 +816,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -928,6 +925,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -1030,6 +1028,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -1125,6 +1124,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -1197,7 +1197,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1209,7 +1208,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1269,7 +1267,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1281,7 +1278,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1392,6 +1388,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -1499,6 +1496,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -1594,6 +1592,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -1667,7 +1666,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1679,7 +1677,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1739,7 +1736,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -1751,7 +1747,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -1862,6 +1857,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -1994,6 +1990,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -2108,6 +2105,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -2180,7 +2178,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -2192,7 +2189,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -2252,7 +2248,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -2264,7 +2259,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -2394,6 +2388,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -2459,6 +2454,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     "onClick": [Function],
                   },
                 ],
+                "getItemHeight": [Function],
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
@@ -2669,6 +2665,303 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   </div>
                 </li>
               </ItemEdit>
+              className="undefined tc-enumeration-items">
+              <Component>
+                <div
+                  id="autoSizer">
+                  <List
+                    className="undefined"
+                    estimatedRowSize={30}
+                    height={30}
+                    noRowsRenderer={[Function]}
+                    onRowsRendered={[Function]}
+                    onScroll={[Function]}
+                    overscanIndicesGetter={[Function]}
+                    overscanRowCount={10}
+                    rowCount={1}
+                    rowHeight={[Function]}
+                    rowRenderer={[Function]}
+                    scrollToAlignment="auto"
+                    scrollToIndex={-1}
+                    style={Object {}}
+                    width={30}>
+                    <Grid
+                      aria-label="grid"
+                      autoContainerWidth={true}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__List undefined"
+                      columnCount={1}
+                      columnWidth={30}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      height={30}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="grid"
+                      rowCount={1}
+                      rowHeight={[Function]}
+                      rowRenderer={[Function]}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollingResetTimeInterval={150}
+                      style={Object {}}
+                      tabIndex={0}
+                      width={30}>
+                      <div
+                        aria-label="grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+                        onScroll={[Function]}
+                        role="grid"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 30,
+                            "overflowX": "hidden",
+                            "overflowY": "auto",
+                            "position": "relative",
+                            "width": 30,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}>
+                        <div
+                          className="ReactVirtualized__Grid__innerScrollContainer"
+                          style={
+                            Object {
+                              "height": 33,
+                              "maxHeight": 33,
+                              "maxWidth": 30,
+                              "overflow": "hidden",
+                              "pointerEvents": "",
+                              "position": "relative",
+                              "width": "auto",
+                            }
+                          }>
+                          <div
+                            className="undefined tc-item-container"
+                            style={
+                              Object {
+                                "height": 33,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                                "width": "100%",
+                              }
+                            }>
+                            <ItemEdit
+                              currentEdit={
+                                Object {
+                                  "validate": Object {
+                                    "disabled": false,
+                                  },
+                                }
+                              }
+                              id="0-item"
+                              item={
+                                Object {
+                                  "displayMode": "DISPLAY_MODE_EDIT",
+                                  "error": "",
+                                  "index": 0,
+                                  "isSelected": false,
+                                  "itemProps": Object {
+                                    "actions": Array [
+                                      Object {
+                                        "disabled": true,
+                                        "icon": "talend-check",
+                                        "id": "validate",
+                                        "label": "Validate",
+                                        "onClick": [Function],
+                                      },
+                                      Object {
+                                        "disabled": false,
+                                        "icon": "talend-cross",
+                                        "id": "abort",
+                                        "label": "Abort",
+                                        "onClick": [Function],
+                                      },
+                                    ],
+                                    "key": "values",
+                                    "onAbortItem": [Function],
+                                    "onChangeItem": [Function],
+                                    "onSubmitItem": [Function],
+                                  },
+                                  "values": Array [
+                                    "titi",
+                                    "tata",
+                                  ],
+                                }
+                              }>
+                              <li
+                                className="undefined tc-enumeration-item"
+                                id="0-item">
+                                <input
+                                  autoFocus={true}
+                                  className="undefined tc-enumeration-item-label"
+                                  onChange={[Function]}
+                                  onKeyDown={[Function]}
+                                  type="text" />
+                                <div
+                                  className="undefined tc-enumeration-item-actions">
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-check"
+                                    inProgress={false}
+                                    label="Validate"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Validate"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Validate
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-check">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-check" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-cross"
+                                    inProgress={false}
+                                    label="Abort"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Abort"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Abort
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-cross">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-cross" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                </div>
+                              </li>
+                            </ItemEdit>
+                          </div>
+                        </div>
+                      </div>
+                    </Grid>
+                  </List>
+                </div>
+              </Component>
             </ul>
           </Items>
         </ItemsEnumeration>
@@ -2705,6 +2998,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           Object {
             "icon": "talend-cross",
             "id": "abort",
+            "key": "abort",
             "label": "Abort",
             "onClick": [Function],
           },
@@ -2754,6 +3048,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -2791,6 +3086,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-cross",
                 "id": "abort",
+                "key": "abort",
                 "label": "Abort",
                 "onClick": [Function],
               },
@@ -2840,6 +3136,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -2857,6 +3154,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 Object {
                   "icon": "talend-cross",
                   "id": "abort",
+                  "key": "abort",
                   "label": "Abort",
                   "onClick": [Function],
                 },
@@ -2907,7 +3205,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -2919,7 +3216,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -2971,6 +3267,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               Object {
                 "icon": "talend-cross",
                 "id": "abort",
+                "key": "abort",
                 "label": "Abort",
                 "onClick": [Function],
               },
@@ -3020,6 +3317,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -3133,6 +3431,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -3228,6 +3527,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -3300,7 +3600,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3312,7 +3611,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3372,7 +3670,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3384,7 +3681,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3495,6 +3791,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -3595,17 +3892,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": false,
-              "icon": "talend-pencil",
-              "id": "edit",
-              "label": "Edit",
-              "onClick": [Function],
-            },
-            Object {
-              "icon": "talend-trash",
-              "id": "delete",
-              "label": "Remove value",
-              "onClick": [Function],
+              "icon": "talend-cross",
+              "id": "loading",
+              "inProgress": true,
+              "label": "Loading",
             },
           ],
           "actionsEdit": Array [
@@ -3624,6 +3914,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -3699,17 +3990,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
-                  "icon": "talend-pencil",
-                  "id": "edit",
-                  "label": "Edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "id": "delete",
-                  "label": "Remove value",
-                  "onClick": [Function],
+                  "icon": "talend-cross",
+                  "id": "loading",
+                  "inProgress": true,
+                  "label": "Loading",
                 },
               ],
               "actionsEdit": Array [
@@ -3728,6 +4012,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -3800,7 +4085,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3812,7 +4096,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3872,7 +4155,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       }>
                       <Button
                         active={false}
-                        aria-describedby={42}
                         block={false}
                         bsClass="btn"
                         bsStyle="link"
@@ -3884,7 +4166,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         onMouseOver={[Function]}
                         role="link">
                         <button
-                          aria-describedby={42}
                           className="btn btn-link"
                           disabled={false}
                           onBlur={[Function]}
@@ -3975,17 +4256,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
-                  "icon": "talend-pencil",
-                  "id": "edit",
-                  "label": "Edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "id": "delete",
-                  "label": "Remove value",
-                  "onClick": [Function],
+                  "icon": "talend-cross",
+                  "id": "loading",
+                  "inProgress": true,
+                  "label": "Loading",
                 },
               ],
               "actionsEdit": Array [
@@ -4004,6 +4278,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -4030,17 +4305,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               Object {
                 "actionsDefault": Array [
                   Object {
-                    "disabled": false,
-                    "icon": "talend-pencil",
-                    "id": "edit",
-                    "label": "Edit",
-                    "onClick": [Function],
-                  },
-                  Object {
-                    "icon": "talend-trash",
-                    "id": "delete",
-                    "label": "Remove value",
-                    "onClick": [Function],
+                    "icon": "talend-cross",
+                    "id": "loading",
+                    "inProgress": true,
+                    "label": "Loading",
                   },
                 ],
                 "actionsEdit": Array [
@@ -4059,6 +4327,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     "onClick": [Function],
                   },
                 ],
+                "getItemHeight": [Function],
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
@@ -4068,6 +4337,292 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               }
             }>
             <ul
+              className="undefined tc-enumeration-items">
+              <Component>
+                <div
+                  id="autoSizer">
+                  <List
+                    className="undefined"
+                    estimatedRowSize={30}
+                    height={30}
+                    noRowsRenderer={[Function]}
+                    onRowsRendered={[Function]}
+                    onScroll={[Function]}
+                    overscanIndicesGetter={[Function]}
+                    overscanRowCount={10}
+                    rowCount={1}
+                    rowHeight={[Function]}
+                    rowRenderer={[Function]}
+                    scrollToAlignment="auto"
+                    scrollToIndex={-1}
+                    style={Object {}}
+                    width={30}>
+                    <Grid
+                      aria-label="grid"
+                      autoContainerWidth={true}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__List undefined"
+                      columnCount={1}
+                      columnWidth={30}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      height={30}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="grid"
+                      rowCount={1}
+                      rowHeight={[Function]}
+                      rowRenderer={[Function]}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollingResetTimeInterval={150}
+                      style={Object {}}
+                      tabIndex={0}
+                      width={30}>
+                      <div
+                        aria-label="grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+                        onScroll={[Function]}
+                        role="grid"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 30,
+                            "overflowX": "hidden",
+                            "overflowY": "auto",
+                            "position": "relative",
+                            "width": 30,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}>
+                        <div
+                          className="ReactVirtualized__Grid__innerScrollContainer"
+                          style={
+                            Object {
+                              "height": 33,
+                              "maxHeight": 33,
+                              "maxWidth": 30,
+                              "overflow": "hidden",
+                              "pointerEvents": "",
+                              "position": "relative",
+                              "width": "auto",
+                            }
+                          }>
+                          <div
+                            className="undefined tc-item-container"
+                            style={
+                              Object {
+                                "height": 33,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                                "width": "100%",
+                              }
+                            }>
+                            <Item
+                              id="0-item"
+                              item={
+                                Object {
+                                  "index": 0,
+                                  "itemProps": Object {
+                                    "actions": Array [
+                                      Object {
+                                        "icon": "talend-cross",
+                                        "id": "loading",
+                                        "inProgress": true,
+                                        "label": "Loading",
+                                      },
+                                    ],
+                                    "key": "values",
+                                    "onSelectItem": [Function],
+                                  },
+                                  "values": Array [
+                                    "titi",
+                                    "tata",
+                                  ],
+                                }
+                              }
+                              itemProps={
+                                Object {
+                                  "actions": Array [
+                                    Object {
+                                      "icon": "talend-cross",
+                                      "id": "loading",
+                                      "inProgress": true,
+                                      "label": "Loading",
+                                    },
+                                  ],
+                                  "key": "values",
+                                  "onSelectItem": [Function],
+                                }
+                              }>
+                              <li
+                                className="tc-enumeration-item"
+                                id="0-item">
+                                <Action
+                                  bsStyle="default"
+                                  className="undefined tc-enumeration-item-label"
+                                  disabled={false}
+                                  inProgress={false}
+                                  label="titi,tata"
+                                  onClick={[Function]}
+                                  tooltip={true}
+                                  tooltipPlacement="top">
+                                  <TooltipTrigger
+                                    label="titi,tata"
+                                    tooltipPlacement="top">
+                                    <OverlayTrigger
+                                      defaultOverlayShown={false}
+                                      delayShow={400}
+                                      overlay={
+                                        <Tooltip
+                                          bsClass="tooltip"
+                                          className="undefined tooltip-container"
+                                          id={42}
+                                          placement="right">
+                                          titi,tata
+                                        </Tooltip>
+                                      }
+                                      placement="top"
+                                      trigger={
+                                        Array [
+                                          "hover",
+                                          "focus",
+                                        ]
+                                      }>
+                                      <Button
+                                        active={false}
+                                        block={false}
+                                        bsClass="btn"
+                                        bsStyle="default"
+                                        className="undefined tc-enumeration-item-label"
+                                        disabled={false}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onMouseOut={[Function]}
+                                        onMouseOver={[Function]}
+                                        role={null}>
+                                        <button
+                                          className="undefined tc-enumeration-item-label btn btn-default"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
+                                          type="button">
+                                          <span>
+                                            titi,tata
+                                          </span>
+                                        </button>
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </TooltipTrigger>
+                                </Action>
+                                <div
+                                  className="undefined tc-enumeration-item-actions">
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-cross"
+                                    inProgress={true}
+                                    label="Loading"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Loading"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Loading
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={true}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={true}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <CircularProgress
+                                              size="small">
+                                              <svg
+                                                className=""
+                                                viewBox="0 0 50 50">
+                                                <circle
+                                                  cx={25}
+                                                  cy={25}
+                                                  fill="none"
+                                                  r={20}
+                                                  style={
+                                                    Object {
+                                                      "strokeDasharray": 12.566370614359172,
+                                                      "strokeDashoffset": 0,
+                                                    }
+                                                  } />
+                                              </svg>
+                                            </CircularProgress>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                </div>
+                              </li>
+                            </Item>
+                          </div>
+                        </div>
+                      </div>
+                    </Grid>
+                  </List>
+                </div>
+              </Component>
               className="undefined tc-enumeration-items"
               onScroll={[Function]}>
               <Item
@@ -4451,6 +5006,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -4557,6 +5113,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -4619,7 +5176,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -4631,7 +5187,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -4752,6 +5307,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -4809,6 +5365,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     "onClick": [Function],
                   },
                 ],
+                "getItemHeight": [Function],
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
@@ -4818,6 +5375,369 @@ exports[`EnumerationWidget should select an item 1`] = `
               }
             }>
             <ul
+              className="undefined tc-enumeration-items">
+              <Component>
+                <div
+                  id="autoSizer">
+                  <List
+                    className="undefined"
+                    estimatedRowSize={30}
+                    height={30}
+                    noRowsRenderer={[Function]}
+                    onRowsRendered={[Function]}
+                    onScroll={[Function]}
+                    overscanIndicesGetter={[Function]}
+                    overscanRowCount={10}
+                    rowCount={1}
+                    rowHeight={[Function]}
+                    rowRenderer={[Function]}
+                    scrollToAlignment="auto"
+                    scrollToIndex={-1}
+                    style={Object {}}
+                    width={30}>
+                    <Grid
+                      aria-label="grid"
+                      autoContainerWidth={true}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__List undefined"
+                      columnCount={1}
+                      columnWidth={30}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      height={30}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="grid"
+                      rowCount={1}
+                      rowHeight={[Function]}
+                      rowRenderer={[Function]}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollingResetTimeInterval={150}
+                      style={Object {}}
+                      tabIndex={0}
+                      width={30}>
+                      <div
+                        aria-label="grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+                        onScroll={[Function]}
+                        role="grid"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 30,
+                            "overflowX": "hidden",
+                            "overflowY": "auto",
+                            "position": "relative",
+                            "width": 30,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}>
+                        <div
+                          className="ReactVirtualized__Grid__innerScrollContainer"
+                          style={
+                            Object {
+                              "height": 33,
+                              "maxHeight": 33,
+                              "maxWidth": 30,
+                              "overflow": "hidden",
+                              "pointerEvents": "",
+                              "position": "relative",
+                              "width": "auto",
+                            }
+                          }>
+                          <div
+                            className="undefined tc-item-container"
+                            style={
+                              Object {
+                                "height": 33,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                                "width": "100%",
+                              }
+                            }>
+                            <Item
+                              id="0-item"
+                              item={
+                                Object {
+                                  "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "index": 0,
+                                  "isSelected": true,
+                                  "itemProps": Object {
+                                    "actions": Array [
+                                      Object {
+                                        "disabled": false,
+                                        "icon": "talend-pencil",
+                                        "id": "edit",
+                                        "label": "Edit",
+                                        "onClick": [Function],
+                                      },
+                                      Object {
+                                        "icon": "talend-trash",
+                                        "id": "delete",
+                                        "label": "Remove value",
+                                        "onClick": [Function],
+                                      },
+                                    ],
+                                    "key": "values",
+                                    "onSelectItem": [Function],
+                                  },
+                                  "values": Array [
+                                    "titi",
+                                    "tata",
+                                  ],
+                                }
+                              }
+                              itemProps={
+                                Object {
+                                  "actions": Array [
+                                    Object {
+                                      "disabled": false,
+                                      "icon": "talend-pencil",
+                                      "id": "edit",
+                                      "label": "Edit",
+                                      "onClick": [Function],
+                                    },
+                                    Object {
+                                      "icon": "talend-trash",
+                                      "id": "delete",
+                                      "label": "Remove value",
+                                      "onClick": [Function],
+                                    },
+                                  ],
+                                  "key": "values",
+                                  "onSelectItem": [Function],
+                                }
+                              }>
+                              <li
+                                className="undefined tc-enumeration-item selected-item"
+                                id="0-item">
+                                <Action
+                                  bsStyle="default"
+                                  className="undefined tc-enumeration-item-label"
+                                  disabled={false}
+                                  inProgress={false}
+                                  label="titi,tata"
+                                  onClick={[Function]}
+                                  tooltip={true}
+                                  tooltipPlacement="top">
+                                  <TooltipTrigger
+                                    label="titi,tata"
+                                    tooltipPlacement="top">
+                                    <OverlayTrigger
+                                      defaultOverlayShown={false}
+                                      delayShow={400}
+                                      overlay={
+                                        <Tooltip
+                                          bsClass="tooltip"
+                                          className="undefined tooltip-container"
+                                          id={42}
+                                          placement="right">
+                                          titi,tata
+                                        </Tooltip>
+                                      }
+                                      placement="top"
+                                      trigger={
+                                        Array [
+                                          "hover",
+                                          "focus",
+                                        ]
+                                      }>
+                                      <Button
+                                        active={false}
+                                        block={false}
+                                        bsClass="btn"
+                                        bsStyle="default"
+                                        className="undefined tc-enumeration-item-label"
+                                        disabled={false}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onMouseOut={[Function]}
+                                        onMouseOver={[Function]}
+                                        role={null}>
+                                        <button
+                                          className="undefined tc-enumeration-item-label btn btn-default"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
+                                          type="button">
+                                          <span>
+                                            titi,tata
+                                          </span>
+                                        </button>
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </TooltipTrigger>
+                                </Action>
+                                <div
+                                  className="undefined tc-enumeration-item-actions">
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-pencil"
+                                    inProgress={false}
+                                    label="Edit"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Edit"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Edit
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-pencil">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-pencil" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-trash"
+                                    inProgress={false}
+                                    label="Remove value"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Remove value"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Remove value
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-trash">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-trash" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                </div>
+                              </li>
+                            </Item>
+                          </div>
+                        </div>
+                      </div>
+                    </Grid>
+                  </List>
+                </div>
+              </Component>
               className="undefined tc-enumeration-items"
               onScroll={[Function]}>
               <Item
@@ -5217,6 +6137,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onClick": [Function],
             },
           ],
+          "getItemHeight": [Function],
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
@@ -5331,6 +6252,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -5393,7 +6315,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     }>
                     <Button
                       active={false}
-                      aria-describedby={42}
                       block={false}
                       bsClass="btn"
                       bsStyle="link"
@@ -5405,7 +6326,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       onMouseOver={[Function]}
                       role="link">
                       <button
-                        aria-describedby={42}
                         className="btn btn-link"
                         disabled={false}
                         onBlur={[Function]}
@@ -5534,6 +6454,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   "onClick": [Function],
                 },
               ],
+              "getItemHeight": [Function],
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
@@ -5599,6 +6520,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     "onClick": [Function],
                   },
                 ],
+                "getItemHeight": [Function],
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
@@ -5608,6 +6530,642 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               }
             }>
             <ul
+              className="undefined tc-enumeration-items">
+              <Component>
+                <div
+                  id="autoSizer">
+                  <List
+                    className="undefined"
+                    estimatedRowSize={30}
+                    height={30}
+                    noRowsRenderer={[Function]}
+                    onRowsRendered={[Function]}
+                    onScroll={[Function]}
+                    overscanIndicesGetter={[Function]}
+                    overscanRowCount={10}
+                    rowCount={2}
+                    rowHeight={[Function]}
+                    rowRenderer={[Function]}
+                    scrollToAlignment="auto"
+                    scrollToIndex={-1}
+                    style={Object {}}
+                    width={30}>
+                    <Grid
+                      aria-label="grid"
+                      autoContainerWidth={true}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__List undefined"
+                      columnCount={1}
+                      columnWidth={30}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      height={30}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="grid"
+                      rowCount={2}
+                      rowHeight={[Function]}
+                      rowRenderer={[Function]}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollingResetTimeInterval={150}
+                      style={Object {}}
+                      tabIndex={0}
+                      width={30}>
+                      <div
+                        aria-label="grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+                        onScroll={[Function]}
+                        role="grid"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 30,
+                            "overflowX": "hidden",
+                            "overflowY": "auto",
+                            "position": "relative",
+                            "width": 30,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}>
+                        <div
+                          className="ReactVirtualized__Grid__innerScrollContainer"
+                          style={
+                            Object {
+                              "height": 66,
+                              "maxHeight": 66,
+                              "maxWidth": 30,
+                              "overflow": "hidden",
+                              "pointerEvents": "",
+                              "position": "relative",
+                              "width": "auto",
+                            }
+                          }>
+                          <div
+                            className="undefined tc-item-container"
+                            style={
+                              Object {
+                                "height": 33,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                                "width": "100%",
+                              }
+                            }>
+                            <Item
+                              id="0-item"
+                              item={
+                                Object {
+                                  "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "index": 0,
+                                  "isSelected": true,
+                                  "itemProps": Object {
+                                    "actions": Array [
+                                      Object {
+                                        "disabled": false,
+                                        "icon": "talend-pencil",
+                                        "id": "edit",
+                                        "label": "Edit",
+                                        "onClick": [Function],
+                                      },
+                                      Object {
+                                        "icon": "talend-trash",
+                                        "id": "delete",
+                                        "label": "Remove value",
+                                        "onClick": [Function],
+                                      },
+                                    ],
+                                    "key": "values",
+                                    "onSelectItem": [Function],
+                                  },
+                                  "values": Array [
+                                    "titi",
+                                    "tata",
+                                  ],
+                                }
+                              }
+                              itemProps={
+                                Object {
+                                  "actions": Array [
+                                    Object {
+                                      "disabled": false,
+                                      "icon": "talend-pencil",
+                                      "id": "edit",
+                                      "label": "Edit",
+                                      "onClick": [Function],
+                                    },
+                                    Object {
+                                      "icon": "talend-trash",
+                                      "id": "delete",
+                                      "label": "Remove value",
+                                      "onClick": [Function],
+                                    },
+                                  ],
+                                  "key": "values",
+                                  "onSelectItem": [Function],
+                                }
+                              }>
+                              <li
+                                className="undefined tc-enumeration-item selected-item"
+                                id="0-item">
+                                <Action
+                                  bsStyle="default"
+                                  className="undefined tc-enumeration-item-label"
+                                  disabled={false}
+                                  inProgress={false}
+                                  label="titi,tata"
+                                  onClick={[Function]}
+                                  tooltip={true}
+                                  tooltipPlacement="top">
+                                  <TooltipTrigger
+                                    label="titi,tata"
+                                    tooltipPlacement="top">
+                                    <OverlayTrigger
+                                      defaultOverlayShown={false}
+                                      delayShow={400}
+                                      overlay={
+                                        <Tooltip
+                                          bsClass="tooltip"
+                                          className="undefined tooltip-container"
+                                          id={42}
+                                          placement="right">
+                                          titi,tata
+                                        </Tooltip>
+                                      }
+                                      placement="top"
+                                      trigger={
+                                        Array [
+                                          "hover",
+                                          "focus",
+                                        ]
+                                      }>
+                                      <Button
+                                        active={false}
+                                        block={false}
+                                        bsClass="btn"
+                                        bsStyle="default"
+                                        className="undefined tc-enumeration-item-label"
+                                        disabled={false}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onMouseOut={[Function]}
+                                        onMouseOver={[Function]}
+                                        role={null}>
+                                        <button
+                                          className="undefined tc-enumeration-item-label btn btn-default"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
+                                          type="button">
+                                          <span>
+                                            titi,tata
+                                          </span>
+                                        </button>
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </TooltipTrigger>
+                                </Action>
+                                <div
+                                  className="undefined tc-enumeration-item-actions">
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-pencil"
+                                    inProgress={false}
+                                    label="Edit"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Edit"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Edit
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-pencil">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-pencil" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-trash"
+                                    inProgress={false}
+                                    label="Remove value"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Remove value"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Remove value
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-trash">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-trash" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                </div>
+                              </li>
+                            </Item>
+                          </div>
+                          <div
+                            className="undefined tc-item-container"
+                            style={
+                              Object {
+                                "height": 33,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 33,
+                                "width": "100%",
+                              }
+                            }>
+                            <Item
+                              id="1-item"
+                              item={
+                                Object {
+                                  "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "index": 1,
+                                  "isSelected": true,
+                                  "itemProps": Object {
+                                    "actions": Array [
+                                      Object {
+                                        "disabled": false,
+                                        "icon": "talend-pencil",
+                                        "id": "edit",
+                                        "label": "Edit",
+                                        "onClick": [Function],
+                                      },
+                                      Object {
+                                        "icon": "talend-trash",
+                                        "id": "delete",
+                                        "label": "Remove value",
+                                        "onClick": [Function],
+                                      },
+                                    ],
+                                    "key": "values",
+                                    "onSelectItem": [Function],
+                                  },
+                                  "values": Array [
+                                    "titi2",
+                                    "tata2",
+                                  ],
+                                }
+                              }
+                              itemProps={
+                                Object {
+                                  "actions": Array [
+                                    Object {
+                                      "disabled": false,
+                                      "icon": "talend-pencil",
+                                      "id": "edit",
+                                      "label": "Edit",
+                                      "onClick": [Function],
+                                    },
+                                    Object {
+                                      "icon": "talend-trash",
+                                      "id": "delete",
+                                      "label": "Remove value",
+                                      "onClick": [Function],
+                                    },
+                                  ],
+                                  "key": "values",
+                                  "onSelectItem": [Function],
+                                }
+                              }>
+                              <li
+                                className="undefined tc-enumeration-item selected-item"
+                                id="1-item">
+                                <Action
+                                  bsStyle="default"
+                                  className="undefined tc-enumeration-item-label"
+                                  disabled={false}
+                                  inProgress={false}
+                                  label="titi2,tata2"
+                                  onClick={[Function]}
+                                  tooltip={true}
+                                  tooltipPlacement="top">
+                                  <TooltipTrigger
+                                    label="titi2,tata2"
+                                    tooltipPlacement="top">
+                                    <OverlayTrigger
+                                      defaultOverlayShown={false}
+                                      delayShow={400}
+                                      overlay={
+                                        <Tooltip
+                                          bsClass="tooltip"
+                                          className="undefined tooltip-container"
+                                          id={42}
+                                          placement="right">
+                                          titi2,tata2
+                                        </Tooltip>
+                                      }
+                                      placement="top"
+                                      trigger={
+                                        Array [
+                                          "hover",
+                                          "focus",
+                                        ]
+                                      }>
+                                      <Button
+                                        active={false}
+                                        block={false}
+                                        bsClass="btn"
+                                        bsStyle="default"
+                                        className="undefined tc-enumeration-item-label"
+                                        disabled={false}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onMouseOut={[Function]}
+                                        onMouseOver={[Function]}
+                                        role={null}>
+                                        <button
+                                          className="undefined tc-enumeration-item-label btn btn-default"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
+                                          type="button">
+                                          <span>
+                                            titi2,tata2
+                                          </span>
+                                        </button>
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </TooltipTrigger>
+                                </Action>
+                                <div
+                                  className="undefined tc-enumeration-item-actions">
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-pencil"
+                                    inProgress={false}
+                                    label="Edit"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Edit"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Edit
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-pencil">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-pencil" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-trash"
+                                    inProgress={false}
+                                    label="Remove value"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Remove value"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Remove value
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-trash">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-trash" />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                </div>
+                              </li>
+                            </Item>
+                          </div>
+                        </div>
+                      </div>
+                    </Grid>
+                  </List>
+                </div>
+              </Component>
               className="undefined tc-enumeration-items"
               onScroll={[Function]}>
               <Item
