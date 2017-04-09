@@ -17,7 +17,6 @@ const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
-const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -416,6 +415,12 @@ class EnumerationWidget extends React.Component {
 
 	getItemHeight(/* isInEdit */) {
 		return ITEMS_DEFAULT_HEIGHT;
+	}
+
+	// lazy loading
+	onLoadData() {
+		console.log('load data')
+		this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION);
 	}
 
 	setFormData() {

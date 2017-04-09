@@ -1,20 +1,51 @@
 {
   "jsonSchema": {
-    "title": "A enumeration form",
-    "description": "A enumeration form example.",
+    "title": "General",
     "type": "object",
     "properties": {
-      "documents": {
-        "type": "array",
+      "name": {
         "required": true,
-        "allowDuplicates": true,
-        "items": {
-          "type": "object",
-          "properties": {
-            "values": {
-              "type": "array",
-              "items": {
-                "type": "string"
+        "maxLength": 100,
+        "title": "Name",
+        "type": "string"
+      },
+      "type": {
+        "required": true,
+        "title": "Type",
+        "type": "string",
+        "default": "REGEX",
+        "enumNames": [
+          "Regular expression",
+          "Dictionary"
+        ],
+        "enum": [
+          "REGEX",
+          "DICT"
+        ]
+      },
+      "description": {
+        "title": "Description",
+        "type": "string"
+      },
+      "dictionary": {
+        "title": "Definition",
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "title": "Values",
+            "required": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "values": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -23,22 +54,517 @@
     }
   },
   "uiSchema": {
-    "documents": {
-      "ui:widget": "enumeration"
-    }
+    "name": {
+      "ui:autofocus": true
+    },
+    "description": {
+      "ui:widget": "textarea"
+    },
+    "type": {
+      "ui:trigger": [
+        "after"
+      ],
+      "ui:disabled": true
+    },
+    "dictionary": {
+      "values": {
+        "ui:widget": "enumeration"
+      }
+    },
+    "ui:order": [
+      "name",
+      "description",
+      "type",
+      "dictionary"
+    ]
   },
   "properties": {
-    "documents": [
-      {
-        "values": [
-          "France"
-        ]
-      },
-      {
-        "values": [
-          "Espagne"
-        ]
-      }
-    ]
+    "id": "5836fb6f42b02a69874f3a95",
+    "name": "ANIMAL",
+    "label": "Animal",
+    "description": "Animal (multilingual)",
+    "type": "DICT",
+    "privacyLevel": "NORMAL",
+    "creator": "Talend",
+    "completeness": false,
+    "dictionary": {
+      "values": [
+        {
+          "id": "5836fb6f42b02a69874f3a97",
+          "values": [
+            "ASS",
+            "BURRO",
+            "ANE",
+            "DONKEY"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3a99",
+          "values": [
+            "OURS",
+            "OSO",
+            "BEAR",
+            "URSO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3a9b",
+          "values": [
+            "BEE",
+            "ABEILLE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3a9d",
+          "values": [
+            "BŒUF",
+            "CARNE",
+            "BEEF"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3a9f",
+          "values": [
+            "BIRD",
+            "OISEAU"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aa1",
+          "values": [
+            "BOAR",
+            "SANGLIER",
+            "JAVALI"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aa3",
+          "values": [
+            "CALFSKIN",
+            "VEAL",
+            "VITELA",
+            "TERNERA",
+            "VEAU"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aa5",
+          "values": [
+            "CAMEL",
+            "CHAMEAU"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aa7",
+          "values": [
+            "CAMELLO",
+            "CAMELO",
+            "CHAMELLE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aa9",
+          "values": [
+            "CAT",
+            "CHAT"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aab",
+          "values": [
+            "GALLO",
+            "COQ",
+            "COCK",
+            "GALO",
+            "HAHN"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aad",
+          "values": [
+            "COW",
+            "VACHE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aaf",
+          "values": [
+            "CROCODILO",
+            "CROCODILE",
+            "COCODRILO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ab1",
+          "values": [
+            "DAUPHIN"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ab3",
+          "values": [
+            "CHIEN",
+            "DOG",
+            "PERRO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ab5",
+          "values": [
+            "DROMEDARY",
+            "DROMEDARIO",
+            "DROMADAIRE",
+            "DROMADAR",
+            "DROMEDÁRIO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ab7",
+          "values": [
+            "DUCK",
+            "PATO",
+            "ENTE",
+            "CANARD"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ab9",
+          "values": [
+            "ELEPHANT",
+            "ELEFANTE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3abb",
+          "values": [
+            "FLY",
+            "VOAR",
+            "MOUCHE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3abd",
+          "values": [
+            "RENARD",
+            "FOX"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3abf",
+          "values": [
+            "GAZELLE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ac1",
+          "values": [
+            "GIRAFE",
+            "JIRAFA",
+            "GIRAFFE",
+            "GIRAFA"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ac3",
+          "values": [
+            "CHÈVRE",
+            "GOAT",
+            "CABRA"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ac5",
+          "values": [
+            "HIPPOPOTAMUS",
+            "HIPPOPOTAME",
+            "HIPPO",
+            "HIPOPÓAMO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ac7",
+          "values": [
+            "HORSE",
+            "CHEVAL",
+            "CAVALO",
+            "CABALLO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ac9",
+          "values": [
+            "CANGURO",
+            "KÄNGURU",
+            "CANGURU",
+            "KANGOUROU",
+            "KANGAROO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3acb",
+          "values": [
+            "LAMB",
+            "AGNEAU"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3acd",
+          "values": [
+            "LEÃO",
+            "LEÓN",
+            "LION"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3acf",
+          "values": [
+            "LIONESS",
+            "LEONA",
+            "LEOA",
+            "LIONNE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ad1",
+          "values": [
+            "SOURIS",
+            "MAUS",
+            "RATÓN",
+            "MOUSE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ad3",
+          "values": [
+            "SALMONETE",
+            "MULLET",
+            "MULE",
+            "MULET"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ad5",
+          "values": [
+            "PANDA"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ad7",
+          "values": [
+            "PERROQUET",
+            "LORO",
+            "PARROT",
+            "PAPAGAIO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ad9",
+          "values": [
+            "PEACOCK",
+            "PAON",
+            "PAVÃO",
+            "PAVO REAL",
+            "PFAU"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3adb",
+          "values": [
+            "PORCO",
+            "COCHON",
+            "PIG"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3add",
+          "values": [
+            "PALOMA",
+            "TAUBE",
+            "POMBO",
+            "PIGEON"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3adf",
+          "values": [
+            "CARNE DE PORCO",
+            "SCHWEIN",
+            "PORC",
+            "CERDO",
+            "PORK"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ae1",
+          "values": [
+            "COELHO",
+            "RABBIT",
+            "CONEJO",
+            "LAPIN"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ae3",
+          "values": [
+            "RAT"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ae5",
+          "values": [
+            "ESCORPIÓN",
+            "SCORPION",
+            "ESCORPIÃO"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ae7",
+          "values": [
+            "SELO",
+            "PHOQUE",
+            "SEAL"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3ae9",
+          "values": [
+            "REQUIN",
+            "SHARK"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aeb",
+          "values": [
+            "OVEJAS",
+            "MOUTON",
+            "SHEEP",
+            "SCHAFE",
+            "OVINOS"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aed",
+          "values": [
+            "SNAKE",
+            "SERPENT"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3aef",
+          "values": [
+            "ARAIGNÉE",
+            "ARAÑA",
+            "SPIDER"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3af1",
+          "values": [
+            "TIGRE",
+            "TIGER"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3af3",
+          "values": [
+            "TIGRESSE",
+            "TIGRESS"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3af5",
+          "values": [
+            "TURTLE",
+            "TORTUGA",
+            "TORTUE",
+            "TARTARUGA"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3af7",
+          "values": [
+            "VIPÈRE",
+            "VIPER",
+            "Víbora"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3af9",
+          "values": [
+            "BALLENA",
+            "WHALE",
+            "WAL",
+            "BALEIA",
+            "BALEINE"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3afb",
+          "values": [
+            "WOLF",
+            "LOUP"
+          ],
+          "creator": "Talend"
+        },
+        {
+          "id": "5836fb6f42b02a69874f3afd",
+          "values": [
+            "ZEBRA",
+            "ZÈBRE"
+          ],
+          "creator": "Talend"
+        }
+      ]
+    }
   }
 }
