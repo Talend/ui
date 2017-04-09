@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import {AutoSizer, List} from 'react-virtualized';
+import { AutoSizer, List } from 'react-virtualized';
 
 import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
@@ -49,53 +49,52 @@ class Items extends React.Component {
 		};
 
 		switch (item.displayMode) {
-			case DISPLAY_MODE_EDIT: {
-				const itemPropsEdit = {
-					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsEdit,
-					onSubmitItem: this.props.itemsProp.onSubmitItem,
-					onAbortItem: this.props.itemsProp.onAbortItem,
-					onChangeItem: this.props.itemsProp.onChangeItem,
-				};
-				itemWithIndex.itemProps = itemPropsEdit;
+		case DISPLAY_MODE_EDIT: {
+			const itemPropsEdit = {
+				key: this.props.itemsProp.key,
+				actions: this.props.itemsProp.actionsEdit,
+				onSubmitItem: this.props.itemsProp.onSubmitItem,
+				onAbortItem: this.props.itemsProp.onAbortItem,
+				onChangeItem: this.props.itemsProp.onChangeItem,
+			};
+			itemWithIndex.itemProps = itemPropsEdit;
 
-				return (
-					<ItemEdit
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						currentEdit={this.props.currentEdit}
-					/>
-				);
-			}
-			default: {
-				const itemPropDefault = {
-					key: this.props.itemsProp.key,
-					actions: this.props.itemsProp.actionsDefault,
-					onSelectItem: this.props.itemsProp.onSelectItem,
-				};
-				itemWithIndex.itemProps = itemPropDefault;
+			return (
+				<ItemEdit
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					currentEdit={this.props.currentEdit}
+				/>
+			);
+		}
+		default: {
+			const itemPropDefault = {
+				key: this.props.itemsProp.key,
+				actions: this.props.itemsProp.actionsDefault,
+				onSelectItem: this.props.itemsProp.onSelectItem,
+			};
+			itemWithIndex.itemProps = itemPropDefault;
 
-				return (
-					<Item
-						key={`${index}-item`}
-						id={`${index}-item`}
-						item={itemWithIndex}
-						itemProps={itemPropDefault}
-						searchCriteria={this.props.searchCriteria}
-					/>
-				);
-			}
+			return (
+				<Item
+					key={`${index}-item`}
+					id={`${index}-item`}
+					item={itemWithIndex}
+					itemProps={itemPropDefault}
+					searchCriteria={this.props.searchCriteria}
+				/>
+			);
+		}
 		}
 	}
 
-	getRowHeight({index}) {
+	getRowHeight({ index }) {
 		const isEditMode = this.props.items[index].displayMode === DISPLAY_MODE_EDIT;
 		return this.props.itemsProp.getItemHeight(isEditMode);
 	}
 
 	scrollEnumeration(event) {
-		console.log('scroll')
 		// needed because of React's event pooling
 		event.persist();
 		if (this.lazyLoadingTimer !== null) {
@@ -127,7 +126,7 @@ class Items extends React.Component {
 		return (
 			<ul className={itemsClasses()}>
 				<AutoSizer>
-					{({height, width}) => (
+					{({ height, width }) => (
 						<List
 							className={listClasses()}
 							rowRenderer={this.rowRenderer}

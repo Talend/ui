@@ -413,14 +413,13 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	getItemHeight(/* isInEdit */) {
-		return ITEMS_DEFAULT_HEIGHT;
-	}
-
 	// lazy loading
 	onLoadData() {
-		console.log('load data')
 		this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION);
+	}
+
+	getItemHeight(/* isInEdit */) {
+		return ITEMS_DEFAULT_HEIGHT;
 	}
 
 	setFormData() {
