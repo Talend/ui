@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
-import { shallow } from 'enzyme';
 import Dialog from './Dialog.component';
 
 function mockFakeComponent(name) {
@@ -16,6 +15,7 @@ function mockFakeComponent(name) {
 	return fakeComponent;
 }
 
+jest.mock('react-dom');
 jest.mock('react-bootstrap/lib/Modal', () => {
 	const Modal = mockFakeComponent('Modal');
 	Modal.Header = mockFakeComponent('Header');
