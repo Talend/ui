@@ -35,12 +35,12 @@ const data = [
 
 describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
-		const updateState = jest.fn();
+		const setState = jest.fn();
 		const wrapper = shallow(
 			<Container
 				data={data}
 				state={DEFAULT_STATE}
-				updateState={updateState}
+				setState={setState}
 			/>,
 		);
 		expect(wrapper.find(Component).length).toBe(1);
@@ -61,24 +61,24 @@ describe('Container ObjectViewer', () => {
 			isOpened: false,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(1);
-		expect(updateState.mock.calls[0][0].get('opened').get(0)).toBe(path);
+		expect(setState.mock.calls.length).toBe(1);
+		expect(setState.mock.calls[0][0].get('opened').get(0)).toBe(path);
 		// close
 		props.onClick(null, {
 			isOpened: true,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(2);
-		expect(updateState.mock.calls[1][0].get('opened').size).toBe(0);
+		expect(setState.mock.calls.length).toBe(2);
+		expect(setState.mock.calls[1][0].get('opened').size).toBe(0);
 	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
-		const updateState = jest.fn();
+		const setState = jest.fn();
 		const wrapper = shallow(
 			<Container
 				data={data}
 				state={DEFAULT_STATE}
-				updateState={updateState}
+				setState={setState}
 				onSubmit={onSubmit}
 			/>,
 		);
@@ -93,16 +93,16 @@ describe('Container ObjectViewer', () => {
 		}, {
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(1);
-		expect(updateState.mock.calls[0][0].get('modified').size).toBe(1);
-		expect(updateState.mock.calls[0][0].get('modified').get(path)).toBe(2);
+		expect(setState.mock.calls.length).toBe(1);
+		expect(setState.mock.calls[0][0].get('modified').size).toBe(1);
+		expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
 
 		props.onClick(null, {
 			edit: false,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(2);
-		expect(updateState.mock.calls[1][0].get('edited').size).toBe(1);
+		expect(setState.mock.calls.length).toBe(2);
+		expect(setState.mock.calls[1][0].get('edited').size).toBe(1);
 	});
 });
 

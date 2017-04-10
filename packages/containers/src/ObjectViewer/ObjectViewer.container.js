@@ -67,7 +67,7 @@ class ObjectViewer extends React.Component {
 			newState = edit(data.jsonpath, this.props.state);
 		}
 		if (newState) {
-			this.props.updateState(newState);
+			this.props.setState(newState);
 		}
 	}
 
@@ -77,7 +77,7 @@ class ObjectViewer extends React.Component {
 			this.props.state,
 			event.target.value,
 		);
-		this.props.updateState(newState);
+		this.props.setState(newState);
 	}
 
 	render() {
