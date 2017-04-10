@@ -109,6 +109,7 @@ class EnumerationWidget extends React.Component {
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
 			items: (props.formData || []).map(item => ({
+				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {
