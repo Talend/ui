@@ -5,7 +5,7 @@ This document aims to ease the WIP migration from a version to another by provid
 
 ## v0.71.0
 
-* PR #364 [chore: remove Icon component]
+* PR #364 [feat: onTrigger !== onChange]
 
 Form on change was binded not on underlying onChange api but,
 on trigger api.
@@ -37,7 +37,7 @@ Can even use `real` onChange
 ```javascript
 <Form
 	data={schema}
-    onChange={this.onChange}
+	onChange={this.onChange}
 	onTrigger={this.onTrigger}
 	onSubmit={this.onSubmit}
 	actions={this.formActions(this.props.definition, this.props.formData.label, onCancelAction)}

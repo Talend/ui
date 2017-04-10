@@ -77,7 +77,7 @@ class Form extends React.Component {
 
 	/**
 	 * Handle changes only if modified field has "ui:trigger" option
-	 * use onTrigger property to take asvantage of this feature
+	 * use onTrigger property to take advantage of this feature
 	 * @param changes New formData
 	 * @param id Form id is provided
 	 * @param name Name of the modified field
