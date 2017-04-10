@@ -3,8 +3,7 @@ $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
-$tc-collapsible-selectable-panel-title-color: #63AEBD !default;
-$tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
+$tc-collapsible-selected-panel-color: #4f93a7 !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -58,7 +57,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	position: relative;
 
 	&.selected {
-		border-left: 4px solid $tc-collapsible-selected-panel-border-color;
+		border-left: 4px solid $tc-collapsible-selected-panel-color;
 		padding-left: 1px;
 	}
 
@@ -161,7 +160,11 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 
 	&.selected {
 		.title {
-			color: $tc-collapsible-selectable-panel-title-color;
+			color: $tc-collapsible-selected-panel-color;
+		}
+
+		.detail {
+			color: $tc-collapsible-selected-panel-color;
 		}
 	}
 
@@ -183,14 +186,15 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 	}
 
 	.tag {
-		color: $tc-collapsible-selectable-panel-content-description-color;
 		margin-left: 2px;
 		white-space: nowrap;
 		font-size: 12px;
 	}
 
 	.detail {
-		color: $tc-collapsible-selectable-panel-title-color;
+		font-family: 'Source Sans Pro';
+		font-weight: 500;
+		font-size: 14px;
 		white-space: nowrap;
 		justify-content: flex-end;
 	}
@@ -215,6 +219,7 @@ $tc-collapsible-selected-panel-border-color: #6AA9D1 !default;
 			}
 
 			.content-description {
+				white-space: pre-wrap;
 				padding-top: 5px;
 				color: $tc-collapsible-selectable-panel-content-description-color;
 			}
