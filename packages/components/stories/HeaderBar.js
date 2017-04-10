@@ -8,6 +8,7 @@ import { HeaderBar, IconsProvider } from '../src';
 const icons = {
 	'talend-burger': talendIcons['talend-burger'],
 	'talend-cog': talendIcons['talend-cog'],
+	'talend-environment': talendIcons['talend-environment'],
 	'talend-filter': talendIcons['talend-filter'],
 	'talend-launcher': talendIcons['talend-launcher'],
 	'talend-logo': talendIcons['talend-logo'],
