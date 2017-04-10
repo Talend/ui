@@ -3,12 +3,14 @@ exports[`EnumerationWidget delete all 1`] = `
   formData={
     Array [
       Object {
+        "id": "112",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
+        "id": "113",
         "values": Array [
           "titi2",
           "tata2",
@@ -1868,6 +1870,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -1937,7 +1940,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           Object {
             "displayMode": "DISPLAY_MODE_EDIT",
             "error": "",
-            "id": undefined,
+            "id": "111",
             "isSelected": false,
             "values": Array [
               "titi",
@@ -2052,7 +2055,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
                 "error": "",
-                "id": undefined,
+                "id": "111",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -2335,7 +2338,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
                 "error": "",
-                "id": undefined,
+                "id": "111",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -2401,7 +2404,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 Object {
                   "displayMode": "DISPLAY_MODE_EDIT",
                   "error": "",
-                  "id": undefined,
+                  "id": "111",
                   "isSelected": false,
                   "values": Array [
                     "titi",
@@ -2560,7 +2563,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 Object {
                                   "displayMode": "DISPLAY_MODE_EDIT",
                                   "error": "",
-                                  "id": undefined,
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": false,
                                   "itemProps": Object {
@@ -3125,6 +3128,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -3596,6 +3600,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
   formData={
     Array [
       Object {
+        "id": "11212242",
         "values": Array [
           "titi",
           "tata",
@@ -3663,7 +3668,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       items={
         Array [
           Object {
-            "id": undefined,
+            "id": "11212242",
             "values": Array [
               "titi",
               "tata",
@@ -3761,7 +3766,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           items={
             Array [
               Object {
-                "id": undefined,
+                "id": "11212242",
                 "values": Array [
                   "titi",
                   "tata",
@@ -4027,7 +4032,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           items={
             Array [
               Object {
-                "id": undefined,
+                "id": "11212242",
                 "values": Array [
                   "titi",
                   "tata",
@@ -4076,7 +4081,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             items={
               Array [
                 Object {
-                  "id": undefined,
+                  "id": "11212242",
                   "values": Array [
                     "titi",
                     "tata",
@@ -4218,7 +4223,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               id="0-item"
                               item={
                                 Object {
-                                  "id": undefined,
+                                  "id": "11212242",
                                   "index": 0,
                                   "itemProps": Object {
                                     "actions": Array [
@@ -4420,6 +4425,7 @@ exports[`EnumerationWidget should select an item 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -4481,7 +4487,7 @@ exports[`EnumerationWidget should select an item 1`] = `
         Array [
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
-            "id": undefined,
+            "id": "111",
             "isSelected": true,
             "values": Array [
               "titi",
@@ -4588,7 +4594,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -4782,7 +4788,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -4840,7 +4846,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               Array [
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                  "id": undefined,
+                  "id": "111",
                   "isSelected": true,
                   "values": Array [
                     "titi",
@@ -4991,7 +4997,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                                  "id": undefined,
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": true,
                                   "itemProps": Object {
@@ -5269,12 +5275,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
+        "id": "112",
         "values": Array [
           "titi2",
           "tata2",
@@ -5336,7 +5344,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
         Array [
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
-            "id": undefined,
+            "id": "111",
             "isSelected": true,
             "values": Array [
               "titi",
@@ -5345,7 +5353,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           },
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
-            "id": undefined,
+            "id": "112",
             "isSelected": true,
             "values": Array [
               "titi2",
@@ -5452,7 +5460,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -5461,7 +5469,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "112",
                 "isSelected": true,
                 "values": Array [
                   "titi2",
@@ -5655,7 +5663,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -5664,7 +5672,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
-                "id": undefined,
+                "id": "112",
                 "isSelected": true,
                 "values": Array [
                   "titi2",
@@ -5722,7 +5730,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               Array [
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                  "id": undefined,
+                  "id": "111",
                   "isSelected": true,
                   "values": Array [
                     "titi",
@@ -5731,7 +5739,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 },
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                  "id": undefined,
+                  "id": "112",
                   "isSelected": true,
                   "values": Array [
                     "titi2",
@@ -5882,7 +5890,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                                  "id": undefined,
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": true,
                                   "itemProps": Object {
@@ -6156,7 +6164,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
-                                  "id": undefined,
+                                  "id": "112",
                                   "index": 1,
                                   "isSelected": true,
                                   "itemProps": Object {
