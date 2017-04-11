@@ -5,16 +5,13 @@ Scoping to packages that match 'react-talend-components'
 > sass-lint -v -q
 
 
-src/AppHeaderBar/AppHeaderBar.scss
-  6:8  error  Strings must use single quotes  quotes
-
 src/List/Toolbar/Filter/Filter.scss
   14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   18:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
   33:1  warning  Space expected between blocks                            empty-line-between-blocks
   36:1  warning  Space expected between blocks                            empty-line-between-blocks
 
-✖ 5 problems (2 errors, 3 warnings)
+✖ 4 problems (1 error, 3 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
