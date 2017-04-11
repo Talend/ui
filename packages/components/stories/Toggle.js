@@ -4,23 +4,28 @@ import { storiesOf, action } from '@kadira/storybook';
 import { Toggle } from '../src/index';
 
 const onChange = action('onChange');
+const onBlur = action('onBlur');
 
 const defaultProps = {
 	id: 'id1',
+	onBlur,
 	onChange,
 };
 const checked = {
 	id: 'id2',
+	onBlur,
 	onChange,
 	checked: true,
 };
 const disabled = {
 	id: 'id3',
+	onBlur,
 	onChange,
 	disabled: true,
 };
 const withLabel = {
 	id: 'id4',
+	onBlur,
 	onChange,
 	label: 'Some label',
 };

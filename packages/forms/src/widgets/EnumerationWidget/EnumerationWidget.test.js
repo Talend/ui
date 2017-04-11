@@ -3,6 +3,13 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import EnumerationWidget from './EnumerationWidget';
 
+jest.mock(
+	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
+		/* eslint-disable */
+		<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div>
+	/* eslint-enable */
+);
+
 describe('EnumerationWidget', () => {
 	it('should be in default mode', () => {
 		// given
@@ -49,7 +56,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
+					{ id: '111', values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -67,7 +74,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
+					{ id: '111', values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -86,7 +93,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
+					{ id: '111', values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -105,8 +112,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
-					{ values: ['titi2', 'tata2'] },
+					{ id: '111', values: ['titi', 'tata'] },
+					{ id: '112', values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);
@@ -125,8 +132,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
-					{ values: ['titi2', 'tata2'] },
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
 			/>
 		);
@@ -153,7 +160,7 @@ describe('EnumerationWidget', () => {
 				onChange={jest.fn()}
 				registry={registry}
 				formData={[
-					{ values: ['titi', 'tata'] },
+					{ id: '11212242', values: ['titi', 'tata'] },
 				]}
 			/>
 		);
@@ -163,8 +170,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(registry.formContext.handleAction)
-			.toBeCalledWith(undefined, 'ENUMERATION_REMOVE_ACTION', 0);
+		expect(registry.formContext.handleAction).toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -174,8 +180,8 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				formData={[
-					{ values: ['titi', 'tata'] },
-					{ values: ['toto', 'tutu'] },
+					{ id: '111', values: ['titi', 'tata'] },
+					{ id: '112', values: ['toto', 'tutu'] },
 				]}
 			/>);
 

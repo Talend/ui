@@ -1,7 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import Enumeration from './Enumeration.component';
+
+jest.mock('../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
+	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div> // eslint-disable-line react/prop-types
+);
 
 describe('Enumeration', () => {
 	it('should render with header in default state, list in default state and required component', () => {
@@ -39,6 +42,7 @@ describe('Enumeration', () => {
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -102,6 +106,7 @@ describe('Enumeration', () => {
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -166,6 +171,7 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -237,6 +243,7 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -304,6 +311,7 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',
@@ -390,6 +398,7 @@ describe('Enumeration', () => {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
 				actionsDefault: [{
 					disabled: false,
 					label: 'Edit',

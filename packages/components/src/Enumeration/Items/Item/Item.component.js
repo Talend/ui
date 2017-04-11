@@ -52,6 +52,7 @@ function Item({ id, item, searchCriteria }) {
 				label={action.label}
 				icon={action.icon}
 				onClick={onClick}
+				inProgress={action.inProgress}
 				tooltipPlacement="bottom"
 				hideLabel
 				link

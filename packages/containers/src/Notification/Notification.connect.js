@@ -17,7 +17,7 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 			}
 			const newNotif = notifications.delete(index);
 			const newState = stateProps.state.set('notifications', newNotif);
-			dispatchProps.updateState(newState);
+			dispatchProps.setState(newState);
 		},
 	}, ownProps, stateProps, dispatchProps);
 }

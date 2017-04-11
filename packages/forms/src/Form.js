@@ -63,6 +63,7 @@ class Form extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.handleChange = this.handleChange.bind(this);
 		this.handleSchemaChange = this.handleSchemaChange.bind(this);
 		this.handleSchemaSubmit = this.handleSchemaSubmit.bind(this);
 		this.handleActionClick = this.handleActionClick.bind(this);
@@ -76,6 +77,7 @@ class Form extends React.Component {
 
 	/**
 	 * Handle changes only if modified field has "ui:trigger" option
+	 * use onTrigger property to take advantage of this feature
 	 * @param changes New formData
 	 * @param id Form id is provided
 	 * @param name Name of the modified field
@@ -85,8 +87,8 @@ class Form extends React.Component {
 	handleSchemaChange(changes, id, name, value, options) {
 		const triggers = options && options.trigger;
 		if (triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
-			if (this.props.onChange) {
-				this.props.onChange(changes, id, name, value);
+			if (this.props.onTrigger) {
+				this.props.onTrigger(changes, id, name, value);
 			}
 		}
 	}
@@ -98,11 +100,25 @@ class Form extends React.Component {
 		return () => {};
 	}
 
+	/**
+	 * Handle changes of form @see https://github.com/mozilla-services/react-jsonschema-form
+	 */
+	handleChange(...args) {
+		if (this.props.onChange) {
+			this.props.onChange(...args);
+		}
+	}
+
 	render() {
 		const schema = this.props.data && this.props.data.jsonSchema;
 		if (!schema) {
 			throw Error('You must provide data with valid JSON Schema');
 		}
+
+		const widgets = {
+			...customWidgets,
+			...this.props.widgets,
+		};
 
 		const formData = this.props.data && this.props.data.properties;
 
@@ -127,8 +143,8 @@ class Form extends React.Component {
 				formContext={customFormContext}
 				fields={customFields}
 				FieldTemplate={FieldTemplate}
-				widgets={customWidgets}
-				onChange={undefined}
+				widgets={widgets}
+				onChange={this.handleChange}
 				onSubmit={this.handleSchemaSubmit}
 				ref={(c) => {
 					this.form = c;
@@ -163,10 +179,12 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 Form.propTypes = {
 	data: DataPropTypes.isRequired,
 	onChange: PropTypes.func,
+	onTrigger: PropTypes.func,
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
 	handleAction: PropTypes.func,
+	widgets: PropTypes.object,
 };
 
 Form.defaultProps = {

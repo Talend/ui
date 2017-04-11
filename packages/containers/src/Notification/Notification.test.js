@@ -31,17 +31,17 @@ describe('Connected Notification', () => {
 			state: fromJS({ notifications: [message] }),
 		};
 		const dispatchProps = {
-			updateState: jest.fn(),
+			setState: jest.fn(),
 		};
 		const ownProps = { foo: 'bar' };
 		const props = mergeProps(stateProps, dispatchProps, ownProps);
 		expect(props.foo).toBe('bar');
 		expect(props.state.get('notifications').size).toBe(1);
-		expect(typeof props.updateState).toBe('function');
+		expect(typeof props.setState).toBe('function');
 		expect(typeof props.deleteNotification).toBe('function');
 		props.deleteNotification(message);
-		expect(dispatchProps.updateState).toHaveBeenCalledTimes(1);
-		const newState = dispatchProps.updateState.mock.calls[0][0];
+		expect(dispatchProps.setState).toHaveBeenCalledTimes(1);
+		const newState = dispatchProps.setState.mock.calls[0][0];
 		expect(newState.get('notifications').size).toBe(0);
 	});
 });
