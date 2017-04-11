@@ -112,13 +112,13 @@ renderFormGroup.propTypes = {
 
 export function renderForm(props, index) {
 	return (
-		<Navbar.Form {...props.form} key={index}>
-			{props.formgroups ? props.formgroups.map(renderFormGroup) : null}
+		<form className="navbar-form navbar-right" role="search" {...props.form} key={index}>
+			{props.formgroups && props.formgroups.map(renderFormGroup)}
 			<Button {...props.button}>
-				{props.icon ? (<Icon name={props.icon} />) : null}
+				{props.icon && <Icon name={props.icon} />}
 				{props.buttonLabel}
 			</Button>
-		</Navbar.Form>
+		</form>
 	);
 }
 renderForm.propTypes = {
@@ -132,9 +132,9 @@ renderForm.propTypes = {
 
 export function renderTypeahead(search, index) {
 	return (
-		<Navbar.Form pullRight role="search" key={index}>
+		<form className="navbar-form navbar-right" role="search" key={index}>
 			<Typeahead {...search} />
-		</Navbar.Form>
+		</form>
 	);
 }
 renderTypeahead.propTypes = React.PropTypes.shape(Typeahead.propTypes);

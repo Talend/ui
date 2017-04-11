@@ -1366,7 +1366,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               role="search"
             >
@@ -1445,7 +1445,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
@@ -2746,7 +2746,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               role="search"
             >
@@ -2806,7 +2806,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
@@ -4107,7 +4107,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               role="search"
             >
@@ -4129,7 +4129,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                   title={null}
                 />
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
@@ -5452,7 +5452,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               role="search"
             >
@@ -5505,7 +5505,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                   />
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
@@ -6807,7 +6807,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               role="search"
             >
@@ -7168,7 +7168,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
@@ -8469,9 +8469,10 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                 </ul>
               </li>
             </ul>
-            <div
+            <form
               className="navbar-form navbar-right"
               onSubmit={[Function]}
+              pullRight={true}
               role="search"
             >
               <div
@@ -8494,7 +8495,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
               >
                 submit
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </nav>
