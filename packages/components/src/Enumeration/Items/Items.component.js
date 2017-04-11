@@ -68,6 +68,7 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 				onSelectItem: itemsProp.onSelectItem,
+				isSelectable: itemsProp.isSelectable,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 

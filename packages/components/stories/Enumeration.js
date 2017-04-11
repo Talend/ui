@@ -150,66 +150,74 @@ editItemPropsWithError.items[0] = {
 };
 
 storiesOf('Enumeration', module)
-	.addWithInfo('default', () => (
+	.addDecorator((story) => (
 		<div>
-			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...props}
-			/>
+			<h1>Enumeration</h1>
+			{story()}
 		</div>
+	))
+	.addWithInfo('default', () => (
+		<Enumeration
+			{...props}
+		/>
 	))
 	.addWithInfo('add', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...addProps}
-			/>
-		</div>
+		<Enumeration
+			{...addProps}
+		/>
 	))
 	.addWithInfo('edit mode', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...editItemProps}
-			/>
-		</div>
+
+		<Enumeration
+			{...editItemProps}
+		/>
 	))
 	.addWithInfo('search mode', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...searchProps}
-			/>
-		</div>
+		<Enumeration
+			{...searchProps}
+		/>
 	))
 	.addWithInfo('selected values', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...selectedValuesProps}
-			/>
-		</div>
+		<Enumeration
+			{...selectedValuesProps}
+		/>
 	))
 	.addWithInfo('with header error', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...headerErrorProps}
-			/>
-		</div>
+		<Enumeration
+			{...headerErrorProps}
+		/>
 	))
 	.addWithInfo('with item in error', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...editItemPropsWithError}
-			/>
-		</div>
-	));
+		<Enumeration
+			{...editItemPropsWithError}
+		/>
+	))
+	.addWithInfo('with checkboxes', () => {
+		const props = {
+			required: true,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			headerDefault: [],
+			headerSelected: [],
+			headerInput: [validateAction, abortAction],
+			items: Array(1000).fill('').map((item, index) => ({
+				columns: [`Lorem ipsum dolor sit amet ${index}`],
+			})),
+			itemsProp: {
+				key: 'columns',
+				onSelectItem: action('itemEdit.onSelect'),
+				getItemHeight: (isInEdit) => {
+					return ITEM_DEFAULT_HEIGHT;
+				},
+				actionsDefault: [],
+				isSelectable: true,
+			},
+		};
+		return (
+			<form>
+				<Enumeration
+					{...props}
+				/>
+			</form>
+		);
+	});

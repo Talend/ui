@@ -29,7 +29,7 @@ function itemDefaultActionsClasses() {
 	});
 }
 
-function Item({ id, item, searchCriteria }) {
+function Item({ id, item, itemProps, searchCriteria }) {
 	const {
 		key,
 		actions,
@@ -86,6 +86,27 @@ function Item({ id, item, searchCriteria }) {
 	}
 
 	function getActionLabel() {
+		if (itemProps.isSelectable) {
+			return (
+				<div
+					className="checkbox"
+					key={item.index}
+				>
+					<label>
+						<input
+							type="checkbox"
+							onChange={event => onSelectItem(item, event)}
+							checked={item.selected}
+						/>
+						<span
+							className={itemLabelClasses()}
+						>
+						{item[key].join(',')}
+					</span>
+					</label>
+				</div>
+			);
+		}
 		if (searchCriteria) {
 			return (
 				<button
