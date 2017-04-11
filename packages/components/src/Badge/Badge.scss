@@ -7,20 +7,20 @@
 	padding: 0 $padding-smaller;
 	position: relative;
 
+	&,
+	svg {
+		color: $text-color;
+	}
+
 	&.tc-badge-outline {
 		background: $white;
 		border: 1px solid $brand-primary-darker;
-		color: $text-color;
 		font-weight: normal;
-
-		svg {
-			color: $text-color;
-		}
 
 		&.tc-badge-with-icon:hover {
 			background: opacify($brand-primary, 0.25);
-			color: $white;
 
+			&,
 			svg {
 				color: $white;
 			}
