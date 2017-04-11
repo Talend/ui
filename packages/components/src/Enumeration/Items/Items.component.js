@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
 
+import { DISPLAY_MODE_EDIT } from '../Enumeration.component';
 import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
@@ -28,9 +29,7 @@ function itemContainer() {
 	});
 }
 
-const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
-
-function Items({ items, itemsProp, currentEdit, searchCriteria }) {
+function Items({ items, itemsProp, currentEdit, searchCriteria, isSelectable }) {
 	function getRowHeight({ index }) {
 		const isEditMode = items[index].displayMode === DISPLAY_MODE_EDIT;
 		return itemsProp.getItemHeight(isEditMode);
@@ -68,7 +67,7 @@ function Items({ items, itemsProp, currentEdit, searchCriteria }) {
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 				onSelectItem: itemsProp.onSelectItem,
-				isSelectable: itemsProp.isSelectable,
+				isSelectable,
 			};
 			itemWithIndex.itemProps = itemPropDefault;
 
@@ -119,6 +118,7 @@ Items.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),
+	isSelectable: PropTypes.bool,
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,

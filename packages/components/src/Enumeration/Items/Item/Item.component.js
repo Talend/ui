@@ -96,7 +96,7 @@ function Item({ id, item, itemProps, searchCriteria }) {
 						<input
 							type="checkbox"
 							onChange={event => onSelectItem(item, event)}
-							checked={item.selected}
+							checked={item.isSelected}
 						/>
 						<span
 							className={itemLabelClasses()}

@@ -195,22 +195,19 @@ storiesOf('Enumeration', module)
 	))
 	.addWithInfo('with checkboxes', () => {
 		const props = {
-			required: true,
-			displayMode: 'DISPLAY_MODE_DEFAULT',
-			headerDefault: [],
-			headerSelected: [],
-			headerInput: [validateAction, abortAction],
+			displayMode: 'DISPLAY_MODE_CHECKBOX',
+			onToggleAll: action('onToggleAll'),
 			items: Array(1000).fill('').map((item, index) => ({
-				columns: [`Lorem ipsum dolor sit amet ${index}`],
+				values: [`Lorem ipsum dolor sit amet ${index}`],
+				isSelected: index % 5 === 0,
 			})),
 			itemsProp: {
-				key: 'columns',
+				key: 'values',
 				onSelectItem: action('itemEdit.onSelect'),
 				getItemHeight: (isInEdit) => {
 					return ITEM_DEFAULT_HEIGHT;
 				},
 				actionsDefault: [],
-				isSelectable: true,
 			},
 		};
 		return (

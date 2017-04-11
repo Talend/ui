@@ -4,11 +4,8 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-function headerClasses() {
-	return classNames({
-		[theme['tc-enumeration-header']]: true,
-		'tc-enumeration-header': true,
-	});
+export function headerClasses() {
+	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header');
 }
 
 function getAction(action, index) {

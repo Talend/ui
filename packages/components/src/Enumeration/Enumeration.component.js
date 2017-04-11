@@ -7,20 +7,19 @@ import Action from '../Actions/Action';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import HeaderSelected from './Header/HeaderSelected.component';
+import HeaderCheckbox from './Header/HeaderCheckbox.component';
 import Items from './Items/Items.component';
 import theme from './Enumeration.scss';
 
-const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
-const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
-const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
-const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+export const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+export const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
+export const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
+export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+export const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+export const DISPLAY_MODE_CHECKBOX = 'DISPLAY_MODE_CHECKBOX';
 
 function enumerationClasses() {
-	return classNames({
-		[theme['tc-enumeration']]: true,
-		'tc-enumeration': true,
-	});
+	return classNames(theme['tc-enumeration'], 'tc-enumeration');
 }
 
 function Enumeration(props) {
@@ -39,15 +38,18 @@ Enumeration.propTypes = {
 		DISPLAY_MODE_SELECTED,
 		DISPLAY_MODE_EDIT,
 		DISPLAY_MODE_SEARCH,
+		DISPLAY_MODE_CHECKBOX,
 	]),
 	required: PropTypes.bool,
 	headerError: PropTypes.string,
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})).isRequired,
+	toggleAll: PropTypes.bool,
+	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
@@ -68,19 +70,22 @@ Enumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
+function ItemsEnumeration({ displayMode, items, itemsProp, searchCriteria, currentEdit }) {
 	if (items.length > 0) {
+		const isSelectable = displayMode === DISPLAY_MODE_CHECKBOX;
 		return (<Items
 			items={items}
 			itemsProp={itemsProp}
 			currentEdit={currentEdit}
 			searchCriteria={searchCriteria}
+		    isSelectable={isSelectable}
 		/>);
 	}
 	return null;
 }
 
 ItemsEnumeration.propTypes = {
+	displayMode: Enumeration.propTypes.displayMode,
 	items: Enumeration.propTypes.items,
 	itemsProp: Enumeration.propTypes.itemsProp,
 	searchCriteria: Enumeration.propTypes.searchCriteria,
@@ -89,7 +94,7 @@ ItemsEnumeration.propTypes = {
 
 function HeaderEnumeration({
 	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, items, required,
+	headerInput, headerDefault, headerSelected, toggleAll, onToggleAll, items, required,
 }) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
@@ -128,6 +133,15 @@ function HeaderEnumeration({
 			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
 		};
 		return <HeaderSelected {...propsSelected} />;
+	}
+
+	case DISPLAY_MODE_CHECKBOX: {
+		const propsCheckbox = {
+			toggleAll,
+			onToggleAll,
+		};
+
+		return <HeaderCheckbox {...propsCheckbox} />;
 	}
 
 	default:
