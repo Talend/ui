@@ -88,6 +88,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
@@ -120,6 +121,7 @@ export {
 	Progress,
 	SidePanel,
 	Status,
+	TabBar,
 	Toggle,
 	TooltipTrigger,
 	Typeahead,
