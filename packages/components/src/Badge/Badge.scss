@@ -10,15 +10,20 @@
 	&.tc-badge-outline {
 		background: $white;
 		border: 1px solid $brand-primary-darker;
-		color: $black;
+		color: $text-color;
 		font-weight: normal;
 
 		svg {
-			color: $black;
+			color: $text-color;
 		}
 
 		&.tc-badge-with-icon:hover {
 			background: opacify($brand-primary, 0.25);
+			color: $white;
+
+			svg {
+				color: $white;
+			}
 		}
 	}
 
@@ -26,7 +31,6 @@
 		background: $brand-primary-darker;
 		color: $white;
 		border: 1px solid $brand-primary-darker;
-		letter-spacing: 0.5px;
 		text-transform: uppercase;
 		opacity: 0.85;
 
@@ -54,7 +58,7 @@
 		position: absolute;
 		top: -1px;
 		right: 0;
-		padding: 0;
+		padding: 0 3px;
 		border: none;
 		background: transparent;
 		box-shadow: none;
@@ -65,11 +69,12 @@
 			margin: 0;
 			height: $svg-sm-size;
 			width: $svg-sm-size;
+			padding: 2px;
 
 			& + span {
 				padding: 0;
 			}
 		}
-  }
+	}
 }
 
