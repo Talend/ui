@@ -13,7 +13,9 @@ const ToggleWidget = (props) => {
 
 	return (
 		<div className="switch">
-			<Toggle {...propsWithHiddenLabel} />
+			<Toggle
+				{...propsWithHiddenLabel}
+			/>
 		</div>
 	);
 };

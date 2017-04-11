@@ -10,6 +10,10 @@ module.exports = {
 				"type": "boolean",
 				"title": "Authentication"
 			},
+			"defaultChecked": {
+				"type": "boolean",
+				"title": "defaultChecked"
+			},
 			"customWidget": {
 				"type": "string",
 				"title": "Custom widget"
@@ -22,6 +26,9 @@ module.exports = {
 			"ui:trigger": [
 				"after"
 			]
+		},
+		"defaultChecked": {
+			"ui:widget": "toggle",
 		},
 		"customWidget": {
 			"ui:widget": ({ id, value, options }) => {
@@ -44,5 +51,6 @@ module.exports = {
 	},
 	"properties": {
 		"customWidget": "value",
+		"defaultChecked": true,
 	}
 };
