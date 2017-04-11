@@ -229,6 +229,7 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 			[css['default-panel']]: !theme,
 			[css[theme]]: !!theme,
 			[css.selected]: selected,
+			'selected-panel': selected,
 			[css.open]: expanded,
 		});
 

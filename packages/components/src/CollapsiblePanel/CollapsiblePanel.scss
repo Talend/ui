@@ -96,6 +96,7 @@ $tc-collapsible-selected-panel-color: #4f93a7 !default;
 			justify-content: space-between;
 			min-height: 30px;
 			padding-left: 5px;
+			padding-right: 5px;
 
 			> * {
 				@include col-style;
@@ -178,6 +179,7 @@ $tc-collapsible-selected-panel-color: #4f93a7 !default;
 	}
 
 	.title {
+		font-family: "Source Sans Pro", sans-serif;
 		text-transform: none;
 		font-weight: bold;
 		overflow: hidden;
@@ -192,7 +194,6 @@ $tc-collapsible-selected-panel-color: #4f93a7 !default;
 	}
 
 	.detail {
-		font-family: 'Source Sans Pro';
 		font-weight: 500;
 		font-size: 14px;
 		white-space: nowrap;
