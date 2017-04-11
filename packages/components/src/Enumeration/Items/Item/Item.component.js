@@ -86,7 +86,7 @@ function Item({ id, item, itemProps, searchCriteria }) {
 	}
 
 	function getActionLabel() {
-		if (itemProps.isSelectable) {
+		if (itemProps && itemProps.isSelectable) {
 			return (
 				<div
 					className="checkbox"

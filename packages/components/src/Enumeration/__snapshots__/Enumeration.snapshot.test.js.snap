@@ -2,7 +2,7 @@
 
 exports[`Enumeration should render with header in add state and list in default state 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
     className="undefined tc-enumeration-header"
@@ -355,10 +355,10 @@ exports[`Enumeration should render with header in add state and list in default 
 
 exports[`Enumeration should render with header in default state and first item in edit mode, validate button disabled is disabled 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="tc-enumeration-header"
   >
     <span>
       Values
@@ -677,10 +677,10 @@ exports[`Enumeration should render with header in default state and first item i
 
 exports[`Enumeration should render with header in default state, list in default state and required component 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="tc-enumeration-header"
   >
     <span>
       Values
@@ -1009,7 +1009,7 @@ exports[`Enumeration should render with header in default state, list in default
 
 exports[`Enumeration should render with header in search state and list in default state 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
     className="undefined tc-enumeration-header"
@@ -1353,7 +1353,7 @@ exports[`Enumeration should render with header in search state and list in defau
 
 exports[`Enumeration should render with header in selected state with trash icon, and two items in selected mode 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
     className="undefined tc-enumeration-header"
@@ -1670,10 +1670,10 @@ exports[`Enumeration should render with header in selected state with trash icon
 
 exports[`Enumeration should render with header without items 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="tc-enumeration-header"
   >
     <span>
       Values
