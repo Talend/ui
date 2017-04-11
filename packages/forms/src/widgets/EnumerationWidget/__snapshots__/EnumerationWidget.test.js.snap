@@ -32,7 +32,7 @@ exports[`EnumerationWidget delete all 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -127,7 +127,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -219,7 +219,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -309,12 +309,12 @@ exports[`EnumerationWidget delete all 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -325,7 +325,7 @@ exports[`EnumerationWidget delete all 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -390,7 +390,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -492,7 +492,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -587,7 +587,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -852,7 +852,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -954,7 +954,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -1049,7 +1049,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1141,7 +1141,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -1231,12 +1231,12 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -1247,7 +1247,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -1312,7 +1312,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1419,7 +1419,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -1514,7 +1514,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1606,7 +1606,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -1697,12 +1697,12 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -1713,7 +1713,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -1778,7 +1778,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1898,7 +1898,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -2012,7 +2012,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -2116,7 +2116,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -2206,12 +2206,12 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -2222,7 +2222,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -2294,7 +2294,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -2771,7 +2771,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -2858,7 +2858,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3038,7 +3038,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3143,7 +3143,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -3238,7 +3238,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3330,7 +3330,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -3420,12 +3420,12 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -3436,7 +3436,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -3501,7 +3501,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3621,7 +3621,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -3718,7 +3718,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3812,7 +3812,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -3902,12 +3902,12 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -3918,7 +3918,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -3983,7 +3983,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -4433,7 +4433,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -4539,7 +4539,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -4732,7 +4732,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -5283,7 +5283,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -5397,7 +5397,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -5598,7 +5598,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
