@@ -1,14 +1,14 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-function headerClasses() {
-	return classNames({
-		[theme['tc-enumeration-header']]: true,
-		'tc-enumeration-header': true,
-	});
+import headerPropTypes from './Header.propTypes';
+import headerDefaultProps from './Header.defaultProps';
+
+export function headerClasses() {
+	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header');
 }
 
 function getAction(action, index) {
@@ -24,6 +24,7 @@ function getAction(action, index) {
 			label={action.label}
 			icon={action.icon}
 			onClick={onClick}
+			disabled={action.disabled}
 			btooltipPlacement="bottom"
 			inProgress={action.inProgress}
 			hideLabel
@@ -32,20 +33,43 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault, required }) {
-	return (
-		<header className={headerClasses()}>
-			<span>Values{required && '*'}</span>
+export function renderActions(headerDefault = []) {
+	if (headerDefault.length) {
+		return (
 			<div className="actions">
 				{headerDefault.map(getAction)}
 			</div>
+		);
+	}
+	return null;
+}
+
+function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required }) {
+	function renderTitle() {
+		if (headerLabel) {
+			return <strong>{headerLabel}{required && '*'}</strong>;
+		}
+		return null;
+	}
+
+	function renderCount() {
+		if (nbItems >= 1 && nbItemsSelected >= 1) {
+			return (<span>{`(${nbItemsSelected}/${nbItems} selected)`}</span>);
+		}
+		return null;
+	}
+
+	return (
+		<header className={headerClasses()}>
+			{renderTitle()}
+			{renderCount()}
+			{renderActions(headerDefault)}
 		</header>
 	);
 }
 
-Header.propTypes = {
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	required: PropTypes.bool,
-};
+Header.propTypes = headerPropTypes;
+
+Header.defaultProps = headerDefaultProps;
 
 export default Header;

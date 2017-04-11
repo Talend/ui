@@ -3,6 +3,13 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import { Enumeration, IconsProvider } from '../src/index';
 
+import {
+	DISPLAY_MODE_DEFAULT,
+	DISPLAY_MODE_ADD,
+	DISPLAY_MODE_EDIT,
+	DISPLAY_MODE_SEARCH,
+} from '../lib/Enumeration/Enumeration.component';
+
 const addItemAction = {
 	label: 'Add item',
 	icon: 'talend-plus',
@@ -15,13 +22,22 @@ const loadingAction = {
 	icon: 'talend-cross',
 	inProgress: true,
 	id: 'loading',
+	onClick: () => {
+	},
+};
+
+const filterAction = {
+	label: 'Filter',
+	icon: 'talend-search',
+	id: 'filter',
+	onClick: action('header.onFilter'),
 };
 
 const deleteItemAction = {
 	label: 'Remove selected values',
 	icon: 'talend-trash',
 	id: 'del',
-	onClick: action('headerSelected.deleteAll'),
+	onClick: action('headerDefault.deleteAll'),
 };
 
 const validateAction = {
@@ -43,9 +59,8 @@ const ITEM_DEFAULT_HEIGHT = 33;
 
 const props = {
 	required: true,
-	displayMode: 'DISPLAY_MODE_DEFAULT',
-	headerDefault: [addItemAction, loadingAction],
-	headerSelected: [deleteItemAction],
+	displayMode: DISPLAY_MODE_DEFAULT,
+	headerDefault: [filterAction, addItemAction, loadingAction],
 	headerInput: [validateAction, abortAction],
 	items: Array(1000).fill('').map((item, index) => ({
 		values: [`Lorem ipsum dolor sit amet ${index}`],
@@ -56,7 +71,7 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
@@ -85,15 +100,21 @@ const props = {
 	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
+	headerLabel: 'Choose wisely',
+	emptyLabel: 'Nothing here yet',
+	toggleAllChecked: false,
+	toggleAllLabel: 'All values',
+	onToggleAll: action('onToggleAll'),
+	onInputChange: action('onInputChange'),
 };
 
 const addProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_ADD',
+	displayMode: DISPLAY_MODE_ADD,
 };
 const editItemProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_DEFAULT',
+	displayMode: DISPLAY_MODE_DEFAULT,
 	currentEdit: {
 		validate: {
 			disabled: false,
@@ -102,11 +123,10 @@ const editItemProps = {
 };
 const selectedValuesProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SELECTED',
 };
 const searchProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_SEARCH',
+	displayMode: DISPLAY_MODE_SEARCH,
 	searchCriteria: 'lorem',
 };
 
@@ -125,15 +145,21 @@ selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
 	isSelected: index % 2 === 0,
 }));
 
+if (selectedValuesProps.items.filter(item => !!item.isSelected).length > 1) {
+	const computedHeaderDefault = selectedValuesProps.headerDefault.slice();
+	computedHeaderDefault.unshift(deleteItemAction);
+	selectedValuesProps.headerDefault = computedHeaderDefault;
+}
+
 const headerErrorProps = {
 	...props,
-	displayMode: 'DISPLAY_MODE_ADD',
+	displayMode: DISPLAY_MODE_ADD,
 };
 headerErrorProps.headerError = 'an error occured';
 
 const editItemPropsWithError = {
 	...props,
-	displayMode: 'DISPLAY_MODE_DEFAULT',
+	displayMode: DISPLAY_MODE_DEFAULT,
 	currentEdit: {
 		validate: {
 			disabled: false,
@@ -146,71 +172,70 @@ editItemPropsWithError.items = Array(50).fill('').map((item, index) => ({
 }));
 editItemPropsWithError.items[0] = {
 	values: ['Lorem ipsum dolor sit amet 0'],
-	displayMode: 'DISPLAY_MODE_EDIT',
+	displayMode: DISPLAY_MODE_EDIT,
 	error: 'an error occured',
 };
 
 storiesOf('Enumeration', module)
-	.addWithInfo('default', () => (
+	.addDecorator((story) => (
 		<div>
-			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...props}
-			/>
+			<h1>Enumeration</h1>
+			<form>
+				{story()}
+			</form>
 		</div>
 	))
-	.addWithInfo('add', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
+	.addWithInfo('empty', () => {
+		const emptyProps = { ...props };
+		emptyProps.items = [];
+		return (
 			<Enumeration
-				{...addProps}
+				{...emptyProps}
 			/>
-		</div>
+		);
+	})
+	.addWithInfo('single entry', () => {
+		const singleEntryProps = { ...props };
+		singleEntryProps.items = [props.items[0]];
+		return (
+			<Enumeration
+				{...singleEntryProps}
+			/>
+		);
+	})
+	.addWithInfo('several values', () => (
+		<Enumeration
+			{...props}
+		/>
+	))
+	.addWithInfo('add mode', () => (
+		<Enumeration
+			{...addProps}
+		/>
 	))
 	.addWithInfo('edit mode', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...editItemProps}
-			/>
-		</div>
+		<Enumeration
+			{...editItemProps}
+		/>
 	))
 	.addWithInfo('search mode', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...searchProps}
-			/>
-		</div>
+		<Enumeration
+			{...searchProps}
+		/>
 	))
 	.addWithInfo('selected values', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...selectedValuesProps}
-			/>
-		</div>
+		<Enumeration
+			{...selectedValuesProps}
+		/>
 	))
 	.addWithInfo('with header error', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...headerErrorProps}
-			/>
-		</div>
+		<Enumeration
+			{...headerErrorProps}
+		/>
 	))
 	.addWithInfo('with item in error', () => (
-		<div>
-			<p>By default :</p>
-			<IconsProvider />
-			<Enumeration
-				{...editItemPropsWithError}
-			/>
-		</div>
+		<Enumeration
+			{...editItemPropsWithError}
+		/>
 	));

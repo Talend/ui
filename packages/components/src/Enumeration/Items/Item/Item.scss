@@ -3,25 +3,25 @@ $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-item-height: 3.3rem !default;
 
-$tc-enumeration-item-error-background-color: white !default;
-$tc-enumeration-item-error-color: red !default;
+$tc-enumeration-item-error-background-color: $white !default;
+$tc-enumeration-item-error-color: $chestnut-rose !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
 
+:global(.checkbox) {
+	margin-left: 5px;
+}
+
 .tc-enumeration-item {
-	display: flex;
-	font-size: 14px;
-	font-weight: 400;
-	height: $tc-enumeration-item-height;
-	text-align: left;
-	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
+	display: flex;
+	height: $tc-enumeration-item-height;
 
 	:global(button:disabled) {
-		height: $tc-enumeration-item-height;
 		padding: 0 $tc-enumeration-normal-padding;
+		height: $tc-enumeration-item-height;
 	}
 
 	:global(.btn-link) {
@@ -32,8 +32,6 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 		:global(.tc-svg-icon) {
 			height: $tc-enumeration-item-font-size;
 			width: $tc-enumeration-item-font-size;
-			stroke: currentColor;
-			fill: currentColor;
 			margin-right: 0;
 			vertical-align: top;
 		}
@@ -41,18 +39,13 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 
 	.tc-enumeration-item-label {
 		flex-grow: 1;
-		background-color: Transparent;
-		background-repeat: no-repeat;
+		background: transparent no-repeat;
 		border: none;
 		overflow: hidden;
 		outline: none;
 		box-shadow: none;
 		text-align: left;
-
-		// In order to show ellipsis, need to override <span> to be inline
-		span {
-			display: inline;
-		}
+		user-select: none;
 	}
 
 	.tc-enumeration-item-actions {
@@ -65,22 +58,21 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 		visibility: hidden;
 	}
 
-	button {
-		text-transform: none;
-		letter-spacing: 0;
-		font-size: 14px;
-		text-overflow: ellipsis;
-		overflow: hidden;
+	:global(.checkbox-container) {
+		display: inline-flex;
+		flex-basis: 100%;
+
+		:global(.checkbox) {
+			margin: {
+				top: auto;
+				bottom: auto;
+			}
+		}
 	}
 
-	button span {
-		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
-		vertical-align: top;
-	}
-
-	input {
+	input[type='text'] {
 		padding: 0;
-		margin: 0 $padding-normal;
+		font-size: 1.2rem;
 		line-height: $tc-enumeration-item-height;
 	}
 
@@ -94,20 +86,16 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 		padding: $tc-enumeration-item-error-padding;
 		z-index: 1;
 	}
-}
 
-.selected-item {
-	background-color: #D9EEFF;
-}
+	&:hover {
+		background: $white;
 
-.tc-enumeration-item:hover {
+		.tc-enumeration-item-actions {
+			visibility: visible;
+		}
 
-	.tc-enumeration-item-actions {
-		visibility: visible;
+		&:not(.selected-item) {
+			background-color: rgba(250, 250, 250, 1);
+		}
 	}
-}
-
-// disable hover if item is selected
-.tc-enumeration-item:hover:not(.selected-item) {
-	background-color: rgba(250, 250, 250, 1);
 }

@@ -80,8 +80,8 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-			.simulate('click');
+		const checkbox = wrapper.find('input[type="checkbox"]').at(0);
+		checkbox.simulate('change');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -99,7 +99,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
+		wrapper.find('.tc-enumeration-item-label').at(0).simulate('change');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -119,8 +119,30 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
+		wrapper.find('.tc-enumeration-item-label').at(0).simulate('change');
+		wrapper.find('.tc-enumeration-item-label').at(1).simulate('change');
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should select range of items', () => {
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				onChange={jest.fn()}
+				formData={[
+					{ id: '111', values: ['titi', 'tata'] },
+					{ id: '112', values: ['titi2', 'tata2'] },
+					{ id: '113', values: ['titi3', 'tata3'] },
+					{ id: '114', values: ['titi4', 'tata4'] },
+				]}
+			/>
+		);
+
+		// when
+		wrapper.find('.tc-enumeration-item-label').at(1).simulate('change');
+		wrapper.find('.tc-enumeration-item-label').at(3).simulate('change', { shifKey: true });
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -137,11 +159,11 @@ describe('EnumerationWidget', () => {
 				]}
 			/>
 		);
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
+		wrapper.find('.tc-enumeration-item [type="checkbox"]').at(0).simulate('change');
+		wrapper.find('.tc-enumeration-item [type="checkbox"]').at(1).simulate('change');
 
 		// when click on trash icon
-		wrapper.find('.tc-enumeration-header').find('.btn-link').simulate('click');
+		wrapper.find('.tc-enumeration-header').find('.btn-link').first().simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -172,28 +194,5 @@ describe('EnumerationWidget', () => {
 		// then
 		expect(registry.formContext.handleAction).toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
-	});
-
-	it('should deselect edit mode when select other item', () => {
-		// given
-		const wrapper = mount(
-			<EnumerationWidget
-				onChange={jest.fn()}
-				formData={[
-					{ id: '111', values: ['titi', 'tata'] },
-					{ id: '112', values: ['toto', 'tutu'] },
-				]}
-			/>);
-
-		// edit item
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
-			.simulate('click');
-
-		// when select another item
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
-
-		// should reset all items to default mode
-		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
-		expect(wrapper.find('.tc-enumeration-item .btn-default').length).toBe(2);
 	});
 });

@@ -1,26 +1,20 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
-import HeaderSelected from './Header/HeaderSelected.component';
 import Items from './Items/Items.component';
 import theme from './Enumeration.scss';
 
-const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
-const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
-const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
-const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+export const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
+export const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
+export const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
+export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
 function enumerationClasses() {
-	return classNames({
-		[theme['tc-enumeration']]: true,
-		'tc-enumeration': true,
-	});
+	return classNames(theme['tc-enumeration'], 'tc-enumeration');
 }
 
 function Enumeration(props) {
@@ -36,18 +30,21 @@ Enumeration.propTypes = {
 	displayMode: PropTypes.oneOf([
 		DISPLAY_MODE_DEFAULT,
 		DISPLAY_MODE_ADD,
-		DISPLAY_MODE_SELECTED,
 		DISPLAY_MODE_EDIT,
 		DISPLAY_MODE_SEARCH,
 	]),
 	required: PropTypes.bool,
 	headerError: PropTypes.string,
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
-	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
-	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
+	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})).isRequired,
+	headerLabel: PropTypes.string,
+	emptyLabel: PropTypes.string,
+	toggleAllChecked: PropTypes.bool,
+	toggleAllLabel: PropTypes.string,
+	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
@@ -69,29 +66,63 @@ Enumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
-	if (items.length > 0) {
-		return (<Items
-			items={items}
-			itemsProp={itemsProp}
-			currentEdit={currentEdit}
-			searchCriteria={searchCriteria}
-		/>);
-	}
-	return null;
+Enumeration.defaultProps = {
+	displayMode: DISPLAY_MODE_DEFAULT,
+	headerLabel: 'Values',
+	emptyLabel: 'This list is empty, click on + to add a value.',
+	toggleAllLabel: 'All',
+	items: [],
+};
+
+function ItemsEnumeration(props) {
+	// Default
+	const { items, itemsProp, emptyLabel } = props;
+	const { toggleAllChecked, toggleAllLabel, onToggleAll } = props;
+	// Edit
+	const { currentEdit } = props;
+	// Search
+	const { searchCriteria } = props;
+	const itemsProps = {
+		items,
+		itemsProp,
+		currentEdit,
+		searchCriteria,
+		toggleAllChecked,
+		toggleAllLabel,
+		onToggleAll,
+		emptyLabel,
+	};
+	return (
+		<Items
+			{...itemsProps}
+		/>
+	);
 }
 
 ItemsEnumeration.propTypes = {
 	items: Enumeration.propTypes.items,
 	itemsProp: Enumeration.propTypes.itemsProp,
+	emptyLabel: Enumeration.propTypes.emptyLabel,
 	searchCriteria: Enumeration.propTypes.searchCriteria,
+	toggleAllChecked: Enumeration.propTypes.toggleAllChecked,
+	toggleAllLabel: Enumeration.propTypes.toggleAllLabel,
+	onToggleAll: Enumeration.propTypes.onToggleAll,
 	...ItemEditPropTypes,
 };
 
-function HeaderEnumeration({
-	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, items, required,
-}) {
+function HeaderEnumeration(props) {
+	const {
+		displayMode,
+		headerError,
+		onInputChange,
+		onAddKeyDown,
+		headerInput,
+		headerDefault,
+		headerLabel,
+		items,
+		required,
+	} = props;
+
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
 		const propsInput = {
@@ -117,35 +148,29 @@ function HeaderEnumeration({
 	case DISPLAY_MODE_DEFAULT: {
 		const propsDefault = {
 			headerDefault,
+			headerLabel,
 			required,
+			nbItems: items.length,
+			nbItemsSelected: items.filter(item => !!item.isSelected).length,
 		};
 
 		return <Header {...propsDefault} />;
 	}
-
-	case DISPLAY_MODE_SELECTED: {
-		const propsSelected = {
-			headerSelected,
-			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-		};
-		return <HeaderSelected {...propsSelected} />;
-	}
-
 	default:
 		return null;
 	}
 }
 
 HeaderEnumeration.propTypes = {
-	headerError: Enumeration.propTypes.headerError,
 	displayMode: Enumeration.propTypes.displayMode,
-	headerInput: Enumeration.propTypes.headerInput,
 	headerDefault: Enumeration.propTypes.headerDefault,
-	headerSelected: Enumeration.propTypes.headerSelected,
+	headerInput: Enumeration.propTypes.headerInput,
+	headerError: Enumeration.propTypes.headerError,
 	onInputChange: Enumeration.propTypes.onInputChange,
 	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
-	items: Enumeration.propTypes.items,
+	headerLabel: Enumeration.propTypes.headerLabel,
 	required: Enumeration.propTypes.required,
+	items: Enumeration.propTypes.items,
 };
 
 export default Enumeration;

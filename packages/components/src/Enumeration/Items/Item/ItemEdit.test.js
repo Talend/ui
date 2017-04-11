@@ -24,7 +24,7 @@ const item = {
 	},
 };
 
-describe('Item', () => {
+describe('ItemEdit', () => {
 	it('should display value with two buttons and trigger callback on button title click', () => {
 		// given
 		const props = {
@@ -77,7 +77,8 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemEditInstance);
-		wrapper.find('input').simulate('keyDown', { keyCode: 13, target: { value: 'my new title' } });
+		const enterEvent = { keyCode: 13, target: { value: 'my new title' } };
+		wrapper.find('input[type="text"]').simulate('keyDown', enterEvent);
 
 		// then
 		expect(props.item.itemProps.onSubmitItem).toBeCalled();
@@ -114,7 +115,8 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemEditInstance);
-		wrapper.find('input').simulate('keyDown', { keyCode: 27 });
+		const escEvent = { keyCode: 27 };
+		wrapper.find('input[type="text"]').simulate('keyDown', escEvent);
 
 		// then
 		expect(props.item.itemProps.onAbortItem).toBeCalled();

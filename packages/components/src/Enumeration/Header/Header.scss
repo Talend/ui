@@ -6,8 +6,8 @@ $tc-enumeration-header-height: 28px !default;
 $tc-enumeration-svg-color: #666 !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
-$tc-enumeration-header-error-background-color: white !default;
-$tc-enumeration-header-error-color: red !default;
+$tc-enumeration-header-error-background-color: $white !default;
+$tc-enumeration-header-error-color: $chestnut-rose !default;
 $tc-enumeration-header-error-padding: 2px !default;
 
 .tc-enumeration-header {
@@ -17,8 +17,8 @@ $tc-enumeration-header-error-padding: 2px !default;
 	height: $tc-enumeration-header-height;
 	position: relative;
 
-	> span {
-		font-weight: 700;
+	> strong + span {
+		padding: 0 $padding-smaller;
 	}
 
 	:global(.actions) {

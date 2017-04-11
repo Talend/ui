@@ -8,32 +8,21 @@ import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 
 function itemClasses(error) {
-	return classNames({
-		[theme['tc-enumeration-item']]: true,
-		'tc-enumeration-item': true,
+	return classNames(theme['tc-enumeration-item'], 'tc-enumeration-item', {
 		'has-error': !!error,
 	});
 }
 
 function itemErrorClasses() {
-	return classNames({
-		[theme['tc-enumeration-item-error']]: true,
-		'tc-enumeration-item-error': true,
-	});
+	return classNames(theme['tc-enumeration-item-error'], 'tc-enumeration-item-error');
 }
 
 function itemLabelClasses() {
-	return classNames({
-		[theme['tc-enumeration-item-label']]: true,
-		'tc-enumeration-item-label': true,
-	});
+	return classNames(theme['tc-enumeration-item-label'], 'tc-enumeration-item-label');
 }
 
 function itemEditActionsClasses() {
-	return classNames({
-		[theme['tc-enumeration-item-actions']]: true,
-		'tc-enumeration-item-actions': true,
-	});
+	return classNames(theme['tc-enumeration-item-actions'], 'tc-enumeration-item-actions');
 }
 
 class ItemEdit extends React.Component {
@@ -130,25 +119,44 @@ class ItemEdit extends React.Component {
 			action => updateDisabledStatus(action, this.props.currentEdit)
 		);
 
+		const itemId = `checkbox-${this.props.item.index}`;
 		return (
-			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
-				<input
-					className={itemLabelClasses()}
-					ref={(input) => {
-						this.itemInput = input;
-					}}
-					type="text"
-					onKeyDown={this.onKeyDown}
-					onChange={this.itemChange}
-					autoFocus
-				/>
+			<li
+				className={itemClasses(this.props.item.error)}
+				id={this.props.id}
+				key={this.props.item.index}
+			>
+				<div className="checkbox-container">
+					<div className="checkbox">
+						<label htmlFor={itemId}>
+							<input
+								id={itemId}
+								type="checkbox"
+								onChange={event => this.props.item.itemsProp.onSelectItem(this.props.item, event)}
+								checked={!!this.props.item.isSelected}
+							/>
+							<span>
+								<span className="sr-only">
+									{this.props.item[this.props.item.itemProps.key].join(',')}
+								</span>
+							</span>
+						</label>
+					</div>
+					<input
+						className={itemLabelClasses()}
+						ref={(input) => {
+							this.itemInput = input;
+						}}
+						type="text"
+						onKeyDown={this.onKeyDown}
+						onChange={this.itemChange}
+						autoFocus
+					/>
+				</div>
 				<div className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
-				{
-					this.props.item.error &&
-					<div className={itemErrorClasses()}>{this.props.item.error}</div>
-				}
+				{this.props.item.error && <div className={itemErrorClasses()}>{this.props.item.error}</div>}
 			</li>
 		);
 	}

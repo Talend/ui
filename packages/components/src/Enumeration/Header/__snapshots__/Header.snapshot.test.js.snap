@@ -2,11 +2,11 @@
 
 exports[`Header should render header with one button 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="tc-enumeration-header"
 >
-  <span>
+  <strong>
     Values
-  </span>
+  </strong>
   <div
     className="actions"
   >
@@ -38,12 +38,12 @@ exports[`Header should render header with one button 1`] = `
 
 exports[`Header should render header with one button and indicate the component is required 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="tc-enumeration-header"
 >
-  <span>
+  <strong>
     Values
     *
-  </span>
+  </strong>
   <div
     className="actions"
   >

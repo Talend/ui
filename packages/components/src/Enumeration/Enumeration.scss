@@ -1,16 +1,10 @@
-$tc-enumeration-height: 50vh !default;
-$tc-enumeration-svg-color: #666 !default;
+$tc-enumeration-svg-color: $dove-gray !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
 .tc-enumeration {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-
-	:global(input[type=text]) {
-		font-size: $tc-enumeration-font-size;
-		line-height: $tc-enumeration-font-size;
-	}
 
 	:global(.btn.btn-link) {
 		padding: 0 $padding-smaller;

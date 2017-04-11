@@ -86,30 +86,37 @@ function Item({ id, item, searchCriteria }) {
 	}
 
 	function getActionLabel() {
-		if (searchCriteria) {
-			return (
-				<button
-					className={itemLabelClasses()}
-					disabled="disabled"
+		const itemId = `checkbox-${id}`;
+		return (
+			<div className="checkbox-container">
+				<div
+					className="checkbox"
+					key={item.index}
 				>
-					{getSearchedLabel(item[key].join(','))}
-				</button>
-			);
-		}
-		return (<Action
-			key={item.index}
-			label={item[key].join(',')}
-			onClick={event => onSelectItem(item, event)}
-			className={itemLabelClasses()}
-			tooltip
-		/>);
+					<label htmlFor={itemId}>
+						<input
+							id={itemId}
+							type="checkbox"
+							onClick={event => onSelectItem(item, event)}
+							checked={!!item.isSelected}
+						/>
+						<span
+							className={itemLabelClasses()}
+							tooltip
+						>
+							{searchCriteria ? getSearchedLabel(item[key].join(',')) : item[key].join(',')}
+						</span>
+					</label>
+				</div>
+			</div>
+		);
 	}
 
 	return (
 		<li className={itemClasses(item.isSelected)} id={id}>
 			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()}>
-				{actions.map((action, index) => getAction(action, index))}
+				{actions.map(getAction)}
 			</div>
 		</li>
 	);

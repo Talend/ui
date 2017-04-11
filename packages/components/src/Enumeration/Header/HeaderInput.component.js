@@ -7,18 +7,13 @@ import theme from './Header.scss';
 let inputRef;
 
 function headerClasses(headerError) {
-	return classNames({
-		[theme['tc-enumeration-header']]: true,
-		'tc-enumeration-header': true,
+	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {
 		'has-error': !!headerError,
 	});
 }
 
 function headerErrorClasses() {
-	return classNames({
-		[theme['tc-enumeration-header-error']]: true,
-		'tc-enumeration-header-error': true,
-	});
+	return classNames(theme['tc-enumeration-header-error'], 'tc-enumeration-header-error');
 }
 
 function getAction(action, index) {
@@ -70,9 +65,8 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ headerError &&
-			<div className={headerErrorClasses()}>{headerError}</div> }
-			{headerInput.map((action, index) => getAction(action, index))}
+			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
+			{headerInput.map(getAction)}
 		</header>
 	);
 }
