@@ -29,7 +29,7 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 		className,
 		'tc-drawer',
 		{
-			[theme.drawerStacked]: stacked,
+			[theme['drawer-stacked']]: stacked,
 			stacked,
 		});
 	return (

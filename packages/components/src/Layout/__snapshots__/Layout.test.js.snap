@@ -146,7 +146,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
           transitionName="tc-drawer"
         >
           <div
-            className={undefined}
+            className="tc-with-drawer-wrapper"
             drawer={true}
           >
             <div
@@ -165,7 +165,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
             </div>
           </div>
           <div
-            className={undefined}
+            className="tc-with-drawer-wrapper"
             drawer={true}
           >
             <div
