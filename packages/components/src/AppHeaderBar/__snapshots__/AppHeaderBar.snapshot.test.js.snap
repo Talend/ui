@@ -2422,29 +2422,6 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                         }
                                       }
                                     >
-                                      position
-                                    </span>
-                                    : 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#22a",
-                                          "wordBreak": "break-word",
-                                        }
-                                      }
-                                    >
-                                      "
-                                      right
-                                      "
-                                    </span>
-                                    , 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#666",
-                                        }
-                                      }
-                                    >
                                       value
                                     </span>
                                     : 
@@ -2459,6 +2436,30 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                       "
                                       le
                                       "
+                                    </span>
+                                    , 
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      searching
+                                    </span>
+                                    : 
+                                    <span>
+                                      {
+                                      <span
+                                        style={
+                                          Object {
+                                            "color": "#a11",
+                                          }
+                                        }
+                                      >
+                                        true
+                                      </span>
+                                      }
                                     </span>
                                     , 
                                     …
@@ -3783,29 +3784,6 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                         }
                                       }
                                     >
-                                      position
-                                    </span>
-                                    : 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#22a",
-                                          "wordBreak": "break-word",
-                                        }
-                                      }
-                                    >
-                                      "
-                                      right
-                                      "
-                                    </span>
-                                    , 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#666",
-                                        }
-                                      }
-                                    >
                                       value
                                     </span>
                                     : 
@@ -3820,6 +3798,31 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                       "
                                       le
                                       "
+                                    </span>
+                                    , 
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      items
+                                    </span>
+                                    : 
+                                    <span>
+                                      {
+                                      <span
+                                        style={
+                                          Object {
+                                            "color": "#666",
+                                          }
+                                        }
+                                      >
+                                        [
+                                        ]
+                                      </span>
+                                      }
                                     </span>
                                     , 
                                     …
@@ -8145,29 +8148,6 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                         }
                                       }
                                     >
-                                      position
-                                    </span>
-                                    : 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#22a",
-                                          "wordBreak": "break-word",
-                                        }
-                                      }
-                                    >
-                                      "
-                                      right
-                                      "
-                                    </span>
-                                    , 
-                                    <span
-                                      style={
-                                        Object {
-                                          "color": "#666",
-                                        }
-                                      }
-                                    >
                                       value
                                     </span>
                                     : 
@@ -8182,6 +8162,783 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                       "
                                       le
                                       "
+                                    </span>
+                                    , 
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      items
+                                    </span>
+                                    : 
+                                    <span>
+                                      {
+                                      <span
+                                        style={
+                                          Object {
+                                            "color": "#666",
+                                          }
+                                        }
+                                      >
+                                        [
+                                        <span>
+                                          {
+                                          <span
+                                            style={
+                                              Object {
+                                                "color": "#666",
+                                              }
+                                            }
+                                          >
+                                            {
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              title
+                                            </span>
+                                            : 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#22a",
+                                                  "wordBreak": "break-word",
+                                                }
+                                              }
+                                            >
+                                              "
+                                              category 1
+                                              "
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              icon
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                {
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  name
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  fa fa-filter
+                                                  "
+                                                </span>
+                                                , 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  title
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  icon
+                                                  "
+                                                </span>
+                                                }
+                                              </span>
+                                              }
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              suggestions
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                [
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      le title 1
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: Uxoresque est in pacto est marito est…
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                , 
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      title 2 les elephants elementaires ont des aile 
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: Aut aut cum satis inter Epicuri quide…
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                ]
+                                              </span>
+                                              }
+                                            </span>
+                                            }
+                                          </span>
+                                          }
+                                        </span>
+                                        , 
+                                        <span>
+                                          {
+                                          <span
+                                            style={
+                                              Object {
+                                                "color": "#666",
+                                              }
+                                            }
+                                          >
+                                            {
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              title
+                                            </span>
+                                            : 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#22a",
+                                                  "wordBreak": "break-word",
+                                                }
+                                              }
+                                            >
+                                              "
+                                              category 2
+                                              "
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              icon
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                {
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  name
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  fa fa-asterisk
+                                                  "
+                                                </span>
+                                                , 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  title
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  icon
+                                                  "
+                                                </span>
+                                                }
+                                              </span>
+                                              }
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              suggestions
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                [
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      title 3
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: In sanciatur libere audeamus exspecte…
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                ]
+                                              </span>
+                                              }
+                                            </span>
+                                            }
+                                          </span>
+                                          }
+                                        </span>
+                                        , 
+                                        <span>
+                                          {
+                                          <span
+                                            style={
+                                              Object {
+                                                "color": "#666",
+                                              }
+                                            }
+                                          >
+                                            {
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              title
+                                            </span>
+                                            : 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#22a",
+                                                  "wordBreak": "break-word",
+                                                }
+                                              }
+                                            >
+                                              "
+                                              category 3
+                                              "
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              icon
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                {
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  name
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  fa fa-asterisk
+                                                  "
+                                                </span>
+                                                , 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#666",
+                                                    }
+                                                  }
+                                                >
+                                                  title
+                                                </span>
+                                                : 
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#22a",
+                                                      "wordBreak": "break-word",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                  icon
+                                                  "
+                                                </span>
+                                                }
+                                              </span>
+                                              }
+                                            </span>
+                                            , 
+                                            <span
+                                              style={
+                                                Object {
+                                                  "color": "#666",
+                                                }
+                                              }
+                                            >
+                                              suggestions
+                                            </span>
+                                            : 
+                                            <span>
+                                              {
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#666",
+                                                  }
+                                                }
+                                              >
+                                                [
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      title 4
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: Praesentibus genero ne in Africani ma…
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                , 
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      title 5
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: Feceris unde tot illo tot clientes de…
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                , 
+                                                <span>
+                                                  {
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "color": "#666",
+                                                      }
+                                                    }
+                                                  >
+                                                    {
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      title
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      title 6
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      description
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      description: Gradu quos cedentium sunt appeterent …
+                                                      "
+                                                    </span>
+                                                    }
+                                                  </span>
+                                                  }
+                                                </span>
+                                                ]
+                                              </span>
+                                              }
+                                            </span>
+                                            }
+                                          </span>
+                                          }
+                                        </span>
+                                        ]
+                                      </span>
+                                      }
                                     </span>
                                     , 
                                     …
