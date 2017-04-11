@@ -58,46 +58,60 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -536,7 +550,30 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -563,29 +600,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -753,7 +768,30 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -780,29 +818,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -1212,6 +1228,54 @@ exports[`Storyshots AppHeaderBar default 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -1277,46 +1341,60 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -1783,7 +1861,30 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -1810,29 +1911,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -2000,7 +2079,30 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -2027,29 +2129,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -2592,6 +2672,54 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -2657,46 +2785,60 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -3144,7 +3286,30 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -3171,29 +3336,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -3361,7 +3504,30 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -3388,29 +3554,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -3953,6 +4097,54 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -4018,46 +4210,60 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -4467,7 +4673,30 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -4494,29 +4723,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -4684,7 +4891,30 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -4711,29 +4941,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -5298,6 +5506,54 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -5363,46 +5619,60 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -5843,7 +6113,30 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -5870,29 +6163,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -6060,7 +6331,30 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -6087,29 +6381,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -6653,6 +6925,54 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -6718,46 +7038,60 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -7506,7 +7840,30 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -7533,29 +7890,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -7723,7 +8058,30 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -7750,29 +8108,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -8315,6 +8651,54 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -8380,46 +8764,60 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -8832,7 +9230,30 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -8859,29 +9280,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -9049,7 +9448,30 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -9076,29 +9498,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -9931,6 +10331,54 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={
@@ -9996,46 +10444,60 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
               className="nav navbar-nav"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="hello"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-bars"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-burger"
+                    />
+                  </svg>
+                </button>
               </li>
             </ul>
             <ul
               className="nav navbar-nav navbar-right"
               role={null}
             >
-              <li
-                className=""
-                role="presentation"
-                style={undefined}
-              >
-                <a
-                  href="#"
+              <li>
+                <button
+                  aria-describedby={42}
+                  className="btn btn-link"
+                  disabled={false}
                   name="world"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  role="button"
+                  onFocus={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
-                  <i
+                  <svg
                     aria-hidden="true"
-                    className="fa fa-heart"
+                    className="tc-svg-icon"
                     title={null}
-                  />
-                </a>
+                  >
+                    <use
+                      xlinkHref="#talend-world"
+                    />
+                  </svg>
+                </button>
               </li>
               <li
                 className="dropdown"
@@ -10422,7 +10884,30 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-bars
+                                                      talend-burger
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Hello
                                                       "
                                                     </span>
                                                     , 
@@ -10449,29 +10934,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -10639,7 +11102,30 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                       }
                                                     >
                                                       "
-                                                      fa fa-heart
+                                                      talend-world
+                                                      "
+                                                    </span>
+                                                    , 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#666",
+                                                        }
+                                                      }
+                                                    >
+                                                      label
+                                                    </span>
+                                                    : 
+                                                    <span
+                                                      style={
+                                                        Object {
+                                                          "color": "#22a",
+                                                          "wordBreak": "break-word",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      World
                                                       "
                                                     </span>
                                                     , 
@@ -10666,29 +11152,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                       "
                                                     </span>
                                                     , 
-                                                    <span
-                                                      style={
-                                                        Object {
-                                                          "color": "#666",
-                                                        }
-                                                      }
-                                                    >
-                                                      onClick
-                                                    </span>
-                                                    : 
-                                                    <span>
-                                                      {
-                                                      <span
-                                                        style={
-                                                          Object {
-                                                            "color": "#170",
-                                                          }
-                                                        }
-                                                      >
-                                                        anonymous()
-                                                      </span>
-                                                      }
-                                                    </span>
+                                                    …
                                                     }
                                                   </span>
                                                   }
@@ -11098,6 +11562,54 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
       </div>
     </div>
   </div>
+  <svg
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="6.9"
+        />
+        <rect
+          height="2.3"
+          width="16"
+          x="0"
+          y="13.7"
+        />
+      </svg>
+    </symbol>
+  </svg>
   <div
     className="container"
     style={

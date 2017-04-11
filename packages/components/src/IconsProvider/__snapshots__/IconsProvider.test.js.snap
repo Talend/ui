@@ -527,6 +527,18 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     </svg>
   </symbol>
   <symbol
+    id="talend-environment"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
     id="talend-expanded"
   >
     <svg
@@ -2316,6 +2328,18 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
       <path
         className="ti-elastic-lighter"
         d="M10.99414,13.94775l-7.3,6.59644A5.73223,5.73223,0,0,1,3.94336,9.74072l5.71686,1.34857Zm11.43359,8.32617-1.14331,5.89282a4.10221,4.10221,0,0,0,6.33246-4.67615Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-environment"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
       />
     </svg>
   </symbol>
