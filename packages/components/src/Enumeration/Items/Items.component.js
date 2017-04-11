@@ -30,10 +30,10 @@ function itemContainer() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
-class Items extends React.Component {
+class Items extends React.PureComponent {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.lazyLoadingTimer = null;
 		this.getItem = this.getItem.bind(this);
 		this.getRowHeight = this.getRowHeight.bind(this);
@@ -102,7 +102,10 @@ class Items extends React.Component {
 		}
 
 		this.lazyLoadingTimer = setTimeout(() => {
-			if (event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+			// react-virtualized fire scroll events not to be considered
+			if (event.target.className !== 'contract-trigger' &&
+				event.target.className !== 'expand-trigger' &&
+				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
 				this.props.itemsProp.onLoadData();
 			}
 		}, 500);
@@ -124,10 +127,15 @@ class Items extends React.Component {
 
 	render() {
 		return (
-			<ul className={itemsClasses()}>
+			<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
+							/**
+							 * The props 'items' does not exist in <List> but only way to refresh component
+							 * See https://github.com/bvaughn/react-virtualized/#pure-components
+							 */
+							items={this.props.items}
 							className={listClasses()}
 							rowRenderer={this.rowRenderer}
 							width={width}
