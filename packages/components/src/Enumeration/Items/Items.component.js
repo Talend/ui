@@ -30,6 +30,8 @@ function itemContainer() {
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
+const virtualizedListClassName = 'ReactVirtualized__List';
+
 class Items extends React.PureComponent {
 
 	constructor(props) {
@@ -103,8 +105,7 @@ class Items extends React.PureComponent {
 
 		this.lazyLoadingTimer = setTimeout(() => {
 			// react-virtualized fire scroll events not to be considered
-			if (event.target.className !== 'contract-trigger' &&
-				event.target.className !== 'expand-trigger' &&
+			if (event.target.className.includes(virtualizedListClassName) &&
 				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
 				this.props.itemsProp.onLoadData();
 			}

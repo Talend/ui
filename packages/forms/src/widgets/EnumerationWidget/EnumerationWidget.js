@@ -277,6 +277,12 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
+	onLazyHandler() {
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+		});
+	}
+
 	onSearchHandler() {
 		this.setState({
 			headerInput: this.searchInputsActions,
@@ -415,7 +421,15 @@ class EnumerationWidget extends React.Component {
 
 	// lazy loading
 	onLoadData() {
-		this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION);
+		if (this.callActionHandler(
+			ENUMERATION_LOAD_DATA_ACTION,
+				undefined,
+				this.onLazyHandler.bind(this))
+		) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+			});
+		}
 	}
 
 	getItemHeight(/* isInEdit */) {
