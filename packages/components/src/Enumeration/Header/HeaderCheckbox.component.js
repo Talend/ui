@@ -5,13 +5,16 @@ function HeaderCheckbox({ toggleAll, onToggleAll }) {
 	return (
 		<header className={headerClasses()}>
 			<div className="checkbox">
-				<label>
+				<label htmlFor="toggle-all">
 					<input
+						id="toggle-all"
 						type="checkbox"
-					    onChange={onToggleAll}
+						onChange={onToggleAll}
 						checked={!!toggleAll}
 					/>
-					<span>Toggle all</span>
+					<span>
+						<span className="sr-only">Toggle all</span>
+					</span>
 				</label>
 			</div>
 		</header>

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderCheckbox should display toggle for mass selecting 1`] = `
+<header
+  className="tc-enumeration-header"
+>
+  <div
+    className="checkbox"
+  >
+    <label
+      htmlFor="toggle-all"
+    >
+      <input
+        checked={false}
+        id="toggle-all"
+        onChange={undefined}
+        type="checkbox"
+      />
+      <span>
+        <span
+          className="sr-only"
+        >
+          Toggle all
+        </span>
+      </span>
+    </label>
+  </div>
+</header>
+`;
