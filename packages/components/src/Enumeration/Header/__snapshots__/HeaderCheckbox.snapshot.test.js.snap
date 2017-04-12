@@ -16,13 +16,9 @@ exports[`HeaderCheckbox should display toggle for mass selecting 1`] = `
         onChange={undefined}
         type="checkbox"
       />
-      <span>
-        <span
-          className="sr-only"
-        >
-          Toggle all
-        </span>
-      </span>
+      <strong>
+        Toggle all
+      </strong>
     </label>
   </div>
 </header>

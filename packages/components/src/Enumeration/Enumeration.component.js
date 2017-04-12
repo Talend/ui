@@ -139,6 +139,7 @@ function HeaderEnumeration({
 	case DISPLAY_MODE_CHECKBOX: {
 		const { toggleAll, onToggleAll } = rest;
 		const propsCheckbox = {
+			headerDefault,
 			toggleAll,
 			onToggleAll,
 		};

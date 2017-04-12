@@ -21,6 +21,7 @@ function getAction(action, index) {
 			label={action.label}
 			icon={action.icon}
 			onClick={onClick}
+			disabled={action.disabled}
 			btooltipPlacement="bottom"
 			inProgress={action.inProgress}
 			hideLabel
@@ -29,13 +30,19 @@ function getAction(action, index) {
 	);
 }
 
+export function renderActions(headerDefault) {
+	return (
+		<div className="actions">
+			{headerDefault.map(getAction)}
+		</div>
+	);
+}
+
 function Header({ headerDefault, required }) {
 	return (
 		<header className={headerClasses()}>
 			<span>Values{required && '*'}</span>
-			<div className="actions">
-				{headerDefault.map(getAction)}
-			</div>
+			{headerDefault.length >  0 && renderActions(headerDefault)}
 		</header>
 	);
 }

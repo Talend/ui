@@ -17,6 +17,13 @@ const loadingAction = {
 	id: 'loading',
 };
 
+const filterAction = {
+	label: 'Filter',
+	icon: 'talend-search',
+	id: 'filter',
+	onClick: action('header.onFilter'),
+};
+
 const deleteItemAction = {
 	label: 'Remove selected values',
 	icon: 'talend-trash',
@@ -56,7 +63,7 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -194,7 +201,8 @@ storiesOf('Enumeration', module)
 		/>
 	))
 	.addWithInfo('with checkboxes', () => {
-		const props = {
+		const selectableProps = {
+			headerDefault: [filterAction],
 			displayMode: 'DISPLAY_MODE_CHECKBOX',
 			onToggleAll: action('onToggleAll'),
 			items: Array(1000).fill('').map((item, index) => ({
@@ -204,16 +212,14 @@ storiesOf('Enumeration', module)
 			itemsProp: {
 				key: 'values',
 				onSelectItem: action('itemEdit.onSelect'),
-				getItemHeight: (isInEdit) => {
-					return ITEM_DEFAULT_HEIGHT;
-				},
+				getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 				actionsDefault: [],
 			},
 		};
 		return (
 			<form>
 				<Enumeration
-					{...props}
+					{...selectableProps}
 				/>
 			</form>
 		);

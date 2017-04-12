@@ -7,6 +7,7 @@ describe('Header with checkboxes', () => {
 	it('should trigger callback when clicking on toggle all', () => {
 		// given
 		const props = {
+			headerDefault: [],
 			onToggleAll: jest.fn(),
 		};
 		const headerInstance = <HeaderCheckbox {...props} />;
