@@ -86,7 +86,7 @@ class EnumerationWidget extends React.Component {
 			onClick: this.changeDisplayToAddMode.bind(this),
 		}, {
 			disabled: false,
-			label: 'Search',
+			label: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
