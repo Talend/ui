@@ -148,7 +148,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 	if (content) {
 		const defaultCaret = (
 			<Button
-				className={css.toggle}
+				className={classNames(css.toggle, 'toggle-button')}
 				bsStyle="link"
 				key={2}
 				onClick={onToggle}

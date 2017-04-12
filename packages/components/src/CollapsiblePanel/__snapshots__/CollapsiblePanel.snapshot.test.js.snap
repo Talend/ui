@@ -142,7 +142,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       </div>
     </button>
     <button
-      className="btn btn-link"
+      className="toggle-button btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -340,7 +340,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       </div>
     </button>
     <button
-      className="btn btn-link"
+      className="toggle-button btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -605,7 +605,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       </div>
     </button>
     <button
-      className="btn btn-link"
+      className="toggle-button btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -686,7 +686,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
 
 exports[`CollapsiblePanel should render themed without textual content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default selected-panel"
 >
   <div
     className="panel-heading"

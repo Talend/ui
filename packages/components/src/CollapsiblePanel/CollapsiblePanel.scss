@@ -3,7 +3,7 @@ $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
-$tc-collapsible-selected-panel-color: #4f93a7 !default;
+$tc-collapsible-selected-panel-color: #4F93A7 !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -63,6 +63,7 @@ $tc-collapsible-selected-panel-color: #4f93a7 !default;
 
 	svg {
 		transform-origin: center;
+		vertical-align: text-bottom;
 	}
 
 	&.open {
@@ -179,7 +180,7 @@ $tc-collapsible-selected-panel-color: #4f93a7 !default;
 	}
 
 	.title {
-		font-family: "Source Sans Pro", sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		text-transform: none;
 		font-weight: bold;
 		overflow: hidden;
