@@ -167,6 +167,12 @@ Object {
     "type": "object",
   },
   "status": "initial",
-  "uiSchema": Object {},
+  "uiSchema": Object {
+    "admin": Object {
+      "ui:trigger": Array [
+        "after",
+      ],
+    },
+  },
 }
 `;

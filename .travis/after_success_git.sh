@@ -23,7 +23,7 @@ if [ -n "$GH_TOKEN" ]; then
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
-		git push -f -q https://jmfrancois:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH
+		git push -q https://jmfrancois:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH
 		echo "✓ Push to $TRAVIS_BRANCH"
 	fi
 	cd "$TRAVIS_BUILD_DIR"

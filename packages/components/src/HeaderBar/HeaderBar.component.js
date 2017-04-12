@@ -60,7 +60,7 @@ function Environment(props) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
-				icon="talend-burger"
+				icon="talend-environment"
 				id={props.id}
 				items={props.items}
 				label={props.label}
