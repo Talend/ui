@@ -1256,9 +1256,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.70.0:
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.70.0.tgz#5688f425dc0fdceb772e2d5aa7a91f87991e45be"
+bootstrap-talend-theme@^0.71.0:
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.71.0.tgz#b6946f3d5f9742cbefd7f71d3542c341c887ec7f"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -5296,13 +5296,14 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.70.0:
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.70.0.tgz#52e8e4058657be25249d424949592523aa5c6711"
+react-talend-components@^0.71.0:
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.71.0.tgz#dec2f1d5c14669e89460a1dbf56821124d340f9b"
   dependencies:
     lodash "^4.17.4"
     react-autowhatever "^7.0.0"
     react-debounce-input "^2.4.2"
+    react-virtualized "^9.1.0"
 
 react-test-renderer@15.4.0:
   version "15.4.0"
@@ -6010,9 +6011,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.70.0:
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.70.0.tgz#41ca48ce54e359421428b7600a4271b8e5d22913"
+talend-icons@^0.71.0:
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.71.0.tgz#d52c632180d35385a6ae382dfb59e7f56ccb9ac2"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

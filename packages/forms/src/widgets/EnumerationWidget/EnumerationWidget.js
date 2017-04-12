@@ -279,8 +279,17 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onLazyHandler() {
+		let headerActions;
+		if (this.state.searchCriteria) {
+			headerActions = this.searchInputsActions;
+		}		else {
+			headerActions = this.defaultHeaderActions;
+		}
+
+
 		this.setState({
 			headerDefault: this.defaultHeaderActions,
+			headerInput: headerActions,
 		});
 	}
 
@@ -423,12 +432,13 @@ class EnumerationWidget extends React.Component {
 	// lazy loading
 	onLoadData() {
 		if (this.callActionHandler(
-			ENUMERATION_LOAD_DATA_ACTION,
+				ENUMERATION_LOAD_DATA_ACTION,
 				undefined,
 				this.onLazyHandler.bind(this))
 		) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
+				headerInput: this.loadingInputsActions,
 			});
 		}
 	}
