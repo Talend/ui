@@ -30,19 +30,22 @@ function getAction(action, index) {
 	);
 }
 
-export function renderActions(headerDefault) {
-	return (
-		<div className="actions">
-			{headerDefault.map(getAction)}
-		</div>
-	);
+export function renderActions(headerDefault = []) {
+	if (headerDefault.length) {
+		return (
+			<div className="actions">
+				{headerDefault.map(getAction)}
+			</div>
+		);
+	}
+	return null;
 }
 
 function Header({ headerDefault, required }) {
 	return (
 		<header className={headerClasses()}>
 			<span>Values{required && '*'}</span>
-			{headerDefault.length >  0 && renderActions(headerDefault)}
+			{renderActions(headerDefault)}
 		</header>
 	);
 }

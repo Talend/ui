@@ -2,30 +2,31 @@ import React, { PropTypes } from 'react';
 import Action from '../../Actions/Action';
 import { headerClasses, renderActions } from './Header.component';
 
-function HeaderCheckbox({ headerDefault, toggleAll, toggleAllLabel, onToggleAll }) {
+function HeaderCheckbox({ headerDefault, toggleAllChecked, toggleAllLabel, onToggleAll }) {
+	const toggleAllId = 'toggle-all';
 	return (
 		<header className={headerClasses()}>
 			<div className="checkbox">
-				<label htmlFor="toggle-all">
+				<label htmlFor={toggleAllId}>
 					<input
-						id="toggle-all"
+						id={toggleAllId}
 						type="checkbox"
 						onChange={onToggleAll}
-						checked={!!toggleAll}
+						checked={!!toggleAllChecked}
 					/>
 					<strong>{toggleAllLabel}</strong>
 				</label>
 			</div>
-			{headerDefault.length > 0 && renderActions(headerDefault)}
+			{renderActions(headerDefault)}
 		</header>
 	);
 }
 
 HeaderCheckbox.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	toggleAll: PropTypes.bool,
-	onToggleAll: PropTypes.func,
+	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,
+	onToggleAll: PropTypes.func,
 };
 
 HeaderCheckbox.defaultProps = {

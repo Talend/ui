@@ -67,10 +67,11 @@ function Items({ items, itemsProp, currentEdit, searchCriteria, isSelectable }) 
 				key: itemsProp.key,
 				actions: itemsProp.actionsDefault,
 				onSelectItem: itemsProp.onSelectItem,
-				isSelectable,
 			};
+			if (isSelectable) {
+				itemPropDefault.isSelectable = true;
+			}
 			itemWithIndex.itemProps = itemPropDefault;
-
 			return (
 				<Item
 					key={`${index}-item`}

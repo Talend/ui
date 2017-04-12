@@ -48,7 +48,8 @@ Enumeration.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})).isRequired,
-	toggleAll: PropTypes.bool,
+	toggleAllChecked: PropTypes.bool,
+	toggleAllLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
@@ -72,13 +73,17 @@ Enumeration.propTypes = {
 
 function ItemsEnumeration({ displayMode, items, itemsProp, searchCriteria, currentEdit }) {
 	if (items.length > 0) {
-		const isSelectable = displayMode === DISPLAY_MODE_CHECKBOX;
+		const itemsProps = {
+			items,
+			itemsProp,
+			currentEdit,
+			searchCriteria,
+		};
+		if (displayMode === DISPLAY_MODE_CHECKBOX) {
+			itemsProps.isSelectable = true;
+		}
 		return (<Items
-			items={items}
-			itemsProp={itemsProp}
-			currentEdit={currentEdit}
-			searchCriteria={searchCriteria}
-			isSelectable={isSelectable}
+			{...itemsProps}
 		/>);
 	}
 	return null;
@@ -93,10 +98,10 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-		displayMode, headerError, onInputChange, onAddKeyDown,
-		headerInput, headerDefault, headerSelected, items, required,
-		...rest,
-	}) {
+	displayMode, headerError, onInputChange, onAddKeyDown,
+	headerInput, headerDefault, headerSelected, items, required,
+	...rest,
+}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
 		const propsInput = {
@@ -137,10 +142,11 @@ function HeaderEnumeration({
 	}
 
 	case DISPLAY_MODE_CHECKBOX: {
-		const { toggleAll, onToggleAll } = rest;
+		const { toggleAllChecked, toggleAllLabel, onToggleAll } = rest;
 		const propsCheckbox = {
 			headerDefault,
-			toggleAll,
+			toggleAllChecked,
+			toggleAllLabel,
 			onToggleAll,
 		};
 

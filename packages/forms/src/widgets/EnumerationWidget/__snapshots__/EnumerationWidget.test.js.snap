@@ -114,7 +114,7 @@ exports[`EnumerationWidget delete all 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
@@ -228,7 +228,7 @@ exports[`EnumerationWidget delete all 1`] = `
             }
             required={false}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
               </span>
@@ -574,7 +574,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_ADD"
           headerDefault={
@@ -1036,7 +1036,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
@@ -1150,7 +1150,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             }
             required={false}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
               </span>
@@ -1501,7 +1501,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       onInputChange={[Function]}
       required={true}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
@@ -1615,7 +1615,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             }
             required={true}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
                 *
@@ -1994,7 +1994,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           currentEdit={
             Object {
@@ -2128,7 +2128,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             }
             required={false}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
               </span>
@@ -2595,16 +2595,16 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 }
                               }>
                               <li
-                                className="undefined tc-enumeration-item"
+                                className="tc-enumeration-item"
                                 id="0-item">
                                 <input
                                   autoFocus={true}
-                                  className="undefined tc-enumeration-item-label"
+                                  className="tc-enumeration-item-label"
                                   onChange={[Function]}
                                   onKeyDown={[Function]}
                                   type="text" />
                                 <div
-                                  className="undefined tc-enumeration-item-actions">
+                                  className="tc-enumeration-item-actions">
                                   <Action
                                     bsStyle="default"
                                     disabled={false}
@@ -2851,7 +2851,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_SEARCH"
           headerDefault={
@@ -3232,7 +3232,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
@@ -3346,7 +3346,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
             }
             required={false}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
               </span>
@@ -3714,7 +3714,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_DEFAULT"
           headerDefault={
@@ -3831,7 +3831,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             }
             required={false}>
             <header
-              className="undefined tc-enumeration-header">
+              className="tc-enumeration-header">
               <span>
                 Values
               </span>
@@ -4541,7 +4541,7 @@ exports[`EnumerationWidget should select an item 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_SELECTED"
           headerDefault={
@@ -5407,7 +5407,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       onInputChange={[Function]}
       required={false}>
       <div
-        className="undefined tc-enumeration">
+        className="tc-enumeration">
         <HeaderEnumeration
           displayMode="DISPLAY_MODE_SELECTED"
           headerDefault={
