@@ -7,28 +7,42 @@ import {
 	Navbar,
 	Nav,
 	NavDropdown,
-	NavItem,
 } from 'react-bootstrap';
 
 import Icon from '../Icon';
+import Action from '../Actions/Action';
 import Typeahead from '../Typeahead';
 import theme from './AppHeaderBar.scss';
 
 const NAV_ITEM = 'navItem';
 const DROPDOWN = 'dropdown';
 
-export function renderNavItem(props, index) {
-	const { icon, ...rest } = props;
+function NavListItem(props) {
+	const { item, ...rest } = props;
 	return (
-		<NavItem key={index} {...rest}>
-			<Icon name={icon} />
-		</NavItem>
+		<li>
+			<Action
+				{...item}
+				hideLabel
+				label={item.name}
+				bsStyle={'link'}
+				{...rest}
+			/>
+		</li>
 	);
 }
 
+NavListItem.propTypes = {
+	item: React.PropTypes.shape(Action.propTypes),
+};
+
+export function renderNavItem(item, index) {
+	return <NavListItem item={item} key={index} />;
+}
+
 renderNavItem.propTypes = {
-	icon: React.PropTypes.string,
-	...NavItem.propTypes,
+	item: NavListItem.propTypes,
+	index: React.PropTypes.number,
 };
 
 export function renderDropdownItem(props, index) {
@@ -186,6 +200,7 @@ function AppHeaderBar(props) {
 			<span>{props.app}</span>
 		);
 	}
+
 	return (
 		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
 			<Navbar.Header>
