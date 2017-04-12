@@ -191,4 +191,6 @@ Form.defaultProps = {
 	buttonBlockClass: 'form-actions',
 };
 
+Form.displayName = 'TalendForm';
+
 export default Form;
