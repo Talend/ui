@@ -3,6 +3,7 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 
 .item-title {
 	display: flex;
+	min-width: 0;
 
 	.icon {
 		flex-shrink: 0;
