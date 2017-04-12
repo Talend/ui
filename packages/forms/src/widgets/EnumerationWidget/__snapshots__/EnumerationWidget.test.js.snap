@@ -2477,6 +2477,23 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
@@ -2507,6 +2524,23 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -4185,6 +4219,16 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "icon": "talend-cross",
+                          "id": "loading",
+                          "inProgress": true,
+                          "label": "Loading",
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
@@ -4212,6 +4256,16 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "icon": "talend-cross",
+                            "id": "loading",
+                            "inProgress": true,
+                            "label": "Loading",
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -4306,17 +4360,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   "itemProps": Object {
                                     "actions": Array [
                                       Object {
-                                        "disabled": false,
-                                        "icon": "talend-pencil",
-                                        "id": "edit",
-                                        "label": "Edit",
-                                        "onClick": [Function],
-                                      },
-                                      Object {
-                                        "icon": "talend-trash",
-                                        "id": "delete",
-                                        "label": "Remove value",
-                                        "onClick": [Function],
+                                        "icon": "talend-cross",
+                                        "id": "loading",
+                                        "inProgress": true,
+                                        "label": "Loading",
                                       },
                                     ],
                                     "key": "values",
@@ -4332,17 +4379,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 Object {
                                   "actions": Array [
                                     Object {
-                                      "disabled": false,
-                                      "icon": "talend-pencil",
-                                      "id": "edit",
-                                      "label": "Edit",
-                                      "onClick": [Function],
-                                    },
-                                    Object {
-                                      "icon": "talend-trash",
-                                      "id": "delete",
-                                      "label": "Remove value",
-                                      "onClick": [Function],
+                                      "icon": "talend-cross",
+                                      "id": "loading",
+                                      "inProgress": true,
+                                      "label": "Loading",
                                     },
                                   ],
                                   "key": "values",
@@ -4420,14 +4460,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
-                                    icon="talend-pencil"
-                                    inProgress={false}
-                                    label="Edit"
+                                    icon="talend-cross"
+                                    inProgress={true}
+                                    label="Loading"
                                     link={true}
                                     onClick={[Function]}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
-                                      label="Edit"
+                                      label="Loading"
                                       tooltipPlacement="bottom">
                                       <OverlayTrigger
                                         defaultOverlayShown={false}
@@ -4438,7 +4478,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                             className="undefined tooltip-container"
                                             id={42}
                                             placement="right">
-                                            Edit
+                                            Loading
                                           </Tooltip>
                                         }
                                         placement="bottom"
@@ -4453,7 +4493,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           block={false}
                                           bsClass="btn"
                                           bsStyle="link"
-                                          disabled={false}
+                                          disabled={true}
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -4462,7 +4502,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           role="link">
                                           <button
                                             className="btn btn-link"
-                                            disabled={false}
+                                            disabled={true}
                                             onBlur={[Function]}
                                             onClick={[Function]}
                                             onFocus={[Function]}
@@ -4470,85 +4510,24 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                             onMouseOver={[Function]}
                                             role="link"
                                             type="button">
-                                            <Icon
-                                              name="talend-pencil">
+                                            <CircularProgress
+                                              size="small">
                                               <svg
-                                                aria-hidden="true"
-                                                className="tc-svg-icon"
-                                                title={null}>
-                                                <use
-                                                  xlinkHref="#talend-pencil" />
+                                                className=""
+                                                viewBox="0 0 50 50">
+                                                <circle
+                                                  cx={25}
+                                                  cy={25}
+                                                  fill="none"
+                                                  r={20}
+                                                  style={
+                                                    Object {
+                                                      "strokeDasharray": 12.566370614359172,
+                                                      "strokeDashoffset": 0,
+                                                    }
+                                                  } />
                                               </svg>
-                                            </Icon>
-                                          </button>
-                                        </Button>
-                                      </OverlayTrigger>
-                                    </TooltipTrigger>
-                                  </Action>
-                                  <Action
-                                    bsStyle="default"
-                                    disabled={false}
-                                    hideLabel={true}
-                                    icon="talend-trash"
-                                    inProgress={false}
-                                    label="Remove value"
-                                    link={true}
-                                    onClick={[Function]}
-                                    tooltipPlacement="bottom">
-                                    <TooltipTrigger
-                                      label="Remove value"
-                                      tooltipPlacement="bottom">
-                                      <OverlayTrigger
-                                        defaultOverlayShown={false}
-                                        delayShow={400}
-                                        overlay={
-                                          <Tooltip
-                                            bsClass="tooltip"
-                                            className="undefined tooltip-container"
-                                            id={42}
-                                            placement="right">
-                                            Remove value
-                                          </Tooltip>
-                                        }
-                                        placement="bottom"
-                                        trigger={
-                                          Array [
-                                            "hover",
-                                            "focus",
-                                          ]
-                                        }>
-                                        <Button
-                                          active={false}
-                                          block={false}
-                                          bsClass="btn"
-                                          bsStyle="link"
-                                          disabled={false}
-                                          onBlur={[Function]}
-                                          onClick={[Function]}
-                                          onFocus={[Function]}
-                                          onMouseOut={[Function]}
-                                          onMouseOver={[Function]}
-                                          role="link">
-                                          <button
-                                            className="btn btn-link"
-                                            disabled={false}
-                                            onBlur={[Function]}
-                                            onClick={[Function]}
-                                            onFocus={[Function]}
-                                            onMouseOut={[Function]}
-                                            onMouseOver={[Function]}
-                                            role="link"
-                                            type="button">
-                                            <Icon
-                                              name="talend-trash">
-                                              <svg
-                                                aria-hidden="true"
-                                                className="tc-svg-icon"
-                                                title={null}>
-                                                <use
-                                                  xlinkHref="#talend-trash" />
-                                              </svg>
-                                            </Icon>
+                                            </CircularProgress>
                                           </button>
                                         </Button>
                                       </OverlayTrigger>
@@ -5060,6 +5039,23 @@ exports[`EnumerationWidget should select an item 1`] = `
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
@@ -5089,6 +5085,23 @@ exports[`EnumerationWidget should select an item 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -5984,6 +5997,23 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
@@ -6022,6 +6052,23 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}

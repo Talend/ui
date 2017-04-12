@@ -127,16 +127,19 @@ class Items extends React.PureComponent {
 	}
 
 	render() {
+		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
 			<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
 							/**
-							 * The props 'items' does not exist in <List> but only way to refresh component
+							 * The props 'items' and 'actions' does not exist in <List>
+							 * but only way to refresh component when items or actions change
 							 * See https://github.com/bvaughn/react-virtualized/#pure-components
 							 */
 							items={this.props.items}
+							actions={actions}
 							className={listClasses()}
 							rowRenderer={this.rowRenderer}
 							width={width}
