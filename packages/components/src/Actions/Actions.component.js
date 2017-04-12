@@ -18,34 +18,34 @@ function getButtonGroupProps(props) {
 /**
  * @param {object} props react props
  * @example
-const actions: [
-    {
-		label: 'edit',
-		icon: 'fa fa-edit',
-		onClick: action('onEdit'),
-	},
-    {
-		label: 'delete',
-		icon: 'fa fa-trash-o',
-		onClick: action('onDelete'),
-	},
-    {
-		displayMode: 'dropdown',
-		label: 'related items',
-		icon: 'fa fa-file-excel-o',
-		items: [
-			{
-				label: 'document 1',
-				onClick: action('document 1 click'),
-			},
-			{
-				label: 'document 2',
-				onClick: action('document 2 click'),
-			},
-		],
-	}
+ const actions: [
+ {
+ label: 'edit',
+ icon: 'fa fa-edit',
+ onClick: action('onEdit'),
+},
+ {
+ label: 'delete',
+ icon: 'fa fa-trash-o',
+ onClick: action('onDelete'),
+},
+ {
+ displayMode: 'dropdown',
+ label: 'related items',
+ icon: 'fa fa-file-excel-o',
+ items: [
+	 {
+		 label: 'document 1',
+		 onClick: action('document 1 click'),
+	 },
+	 {
+		 label: 'document 2',
+		 onClick: action('document 2 click'),
+	 },
+ ],
+}
  ];
-<Actions actions={actions} tooltipPlacement="right" hideLabel link />
+ <Actions actions={actions} tooltipPlacement="right" hideLabel link />
  */
 function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);
@@ -54,26 +54,26 @@ function Actions(props) {
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {
-				case TYPE_DROPDOWN:
-					return (
-						<ActionDropdown
-							hideLabel={props.hideLabel}
-							key={index}
-							link={props.link}
-							tooltipPlacement={props.tooltipPlacement}
-							{...rest}
-						/>
-					);
-				default:
-					return (
-						<Action
-							hideLabel={props.hideLabel}
-							key={index}
-							link={props.link}
-							tooltipPlacement={props.tooltipPlacement}
-							{...rest}
-						/>
-					);
+					case TYPE_DROPDOWN:
+						return (
+							<ActionDropdown
+								hideLabel={props.hideLabel}
+								key={index}
+								link={props.link}
+								tooltipPlacement={props.tooltipPlacement}
+								{...rest}
+							/>
+						);
+					default:
+						return (
+							<Action
+								hideLabel={props.hideLabel}
+								key={index}
+								link={props.link}
+								tooltipPlacement={props.tooltipPlacement}
+								{...rest}
+							/>
+						);
 				}
 			})}
 		</ButtonGroup>

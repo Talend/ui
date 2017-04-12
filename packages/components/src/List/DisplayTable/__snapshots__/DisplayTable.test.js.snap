@@ -93,6 +93,7 @@ exports[`ColumnHeader should render with sort 1`] = `
     label="Test"
     link={true}
     onClick={[Function]}
+    tooltipLabel={null}
     tooltipPlacement="top"
   />
   <div

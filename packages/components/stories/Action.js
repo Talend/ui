@@ -55,6 +55,12 @@ storiesOf('Action', module)
 				{...myAction}
 				iconTransform={'rotate-180'}
 			/>
+			<p>Custom tooltip</p>
+			<Action
+				id="default"
+				{...myAction}
+				tooltipLabel={'Custom label here'}
+			/>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {
@@ -64,4 +70,5 @@ storiesOf('Action', module)
 		hideLabel: [false, true],
 		inProgress: [true, false],
 		disabled: [false, true],
+		tooltipLabel: [undefined, 'Tooltip custom label'],
 	});
