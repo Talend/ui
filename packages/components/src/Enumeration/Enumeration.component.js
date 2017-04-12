@@ -42,7 +42,7 @@ Enumeration.propTypes = {
 	]),
 	required: PropTypes.bool,
 	headerError: PropTypes.string,
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	items: PropTypes.arrayOf(PropTypes.shape({
@@ -78,7 +78,7 @@ function ItemsEnumeration({ displayMode, items, itemsProp, searchCriteria, curre
 			itemsProp={itemsProp}
 			currentEdit={currentEdit}
 			searchCriteria={searchCriteria}
-		    isSelectable={isSelectable}
+			isSelectable={isSelectable}
 		/>);
 	}
 	return null;
@@ -93,9 +93,10 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, toggleAll, onToggleAll, items, required,
-}) {
+		displayMode, headerError, onInputChange, onAddKeyDown,
+		headerInput, headerDefault, headerSelected, items, required,
+		...rest,
+	}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
 		const propsInput = {
@@ -136,6 +137,7 @@ function HeaderEnumeration({
 	}
 
 	case DISPLAY_MODE_CHECKBOX: {
+		const { toggleAll, onToggleAll } = rest;
 		const propsCheckbox = {
 			toggleAll,
 			onToggleAll,

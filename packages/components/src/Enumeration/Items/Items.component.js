@@ -118,8 +118,8 @@ Items.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),
-	isSelectable: PropTypes.bool,
 	searchCriteria: PropTypes.string,
+	isSelectable: PropTypes.bool,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
 		getItemHeight: React.PropTypes.oneOfType([

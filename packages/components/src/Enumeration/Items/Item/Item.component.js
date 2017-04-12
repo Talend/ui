@@ -87,13 +87,15 @@ function Item({ id, item, itemProps, searchCriteria }) {
 
 	function getActionLabel() {
 		if (itemProps && itemProps.isSelectable) {
+			const itemId = `enumeration-item-${item.index}`;
 			return (
 				<div
 					className="checkbox"
 					key={item.index}
 				>
-					<label>
+					<label htmlFor={itemId}>
 						<input
+							id={itemId}
 							type="checkbox"
 							onChange={event => onSelectItem(item, event)}
 							checked={item.isSelected}
@@ -101,8 +103,8 @@ function Item({ id, item, itemProps, searchCriteria }) {
 						<span
 							className={itemLabelClasses()}
 						>
-						{item[key].join(',')}
-					</span>
+							{item[key].join(',')}
+						</span>
 					</label>
 				</div>
 			);
