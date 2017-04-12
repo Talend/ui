@@ -9,7 +9,7 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	flex-basis: $width;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	overflow: hidden;
+	display: flex;
 }
 
 @mixin col-style {
@@ -161,11 +161,7 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	}
 
 	&.selected {
-		.title {
-			color: $tc-collapsible-selected-panel-color;
-		}
-
-		.detail {
+		.title, .detail {
 			color: $tc-collapsible-selected-panel-color;
 		}
 	}
