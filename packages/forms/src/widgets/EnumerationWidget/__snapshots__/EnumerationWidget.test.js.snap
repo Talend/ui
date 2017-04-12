@@ -2471,7 +2471,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
@@ -2479,6 +2480,20 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_EDIT",
+                          "error": "",
+                          "id": "111",
+                          "isSelected": false,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -2503,6 +2518,20 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_EDIT",
+                            "error": "",
+                            "id": "111",
+                            "isSelected": false,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -4150,7 +4179,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
@@ -4158,6 +4188,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "id": "11212242",
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -4182,6 +4223,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "id": "11212242",
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -4254,10 +4306,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   "itemProps": Object {
                                     "actions": Array [
                                       Object {
-                                        "icon": "talend-cross",
-                                        "id": "loading",
-                                        "inProgress": true,
-                                        "label": "Loading",
+                                        "disabled": false,
+                                        "icon": "talend-pencil",
+                                        "id": "edit",
+                                        "label": "Edit",
+                                        "onClick": [Function],
+                                      },
+                                      Object {
+                                        "icon": "talend-trash",
+                                        "id": "delete",
+                                        "label": "Remove value",
+                                        "onClick": [Function],
                                       },
                                     ],
                                     "key": "values",
@@ -4273,10 +4332,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 Object {
                                   "actions": Array [
                                     Object {
-                                      "icon": "talend-cross",
-                                      "id": "loading",
-                                      "inProgress": true,
-                                      "label": "Loading",
+                                      "disabled": false,
+                                      "icon": "talend-pencil",
+                                      "id": "edit",
+                                      "label": "Edit",
+                                      "onClick": [Function],
+                                    },
+                                    Object {
+                                      "icon": "talend-trash",
+                                      "id": "delete",
+                                      "label": "Remove value",
+                                      "onClick": [Function],
                                     },
                                   ],
                                   "key": "values",
@@ -4354,14 +4420,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
-                                    icon="talend-cross"
-                                    inProgress={true}
-                                    label="Loading"
+                                    icon="talend-pencil"
+                                    inProgress={false}
+                                    label="Edit"
                                     link={true}
                                     onClick={[Function]}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
-                                      label="Loading"
+                                      label="Edit"
                                       tooltipPlacement="bottom">
                                       <OverlayTrigger
                                         defaultOverlayShown={false}
@@ -4372,7 +4438,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                             className="undefined tooltip-container"
                                             id={42}
                                             placement="right">
-                                            Loading
+                                            Edit
                                           </Tooltip>
                                         }
                                         placement="bottom"
@@ -4387,7 +4453,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           block={false}
                                           bsClass="btn"
                                           bsStyle="link"
-                                          disabled={true}
+                                          disabled={false}
                                           onBlur={[Function]}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -4396,7 +4462,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           role="link">
                                           <button
                                             className="btn btn-link"
-                                            disabled={true}
+                                            disabled={false}
                                             onBlur={[Function]}
                                             onClick={[Function]}
                                             onFocus={[Function]}
@@ -4404,24 +4470,85 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                             onMouseOver={[Function]}
                                             role="link"
                                             type="button">
-                                            <CircularProgress
-                                              size="small">
+                                            <Icon
+                                              name="talend-pencil">
                                               <svg
-                                                className=""
-                                                viewBox="0 0 50 50">
-                                                <circle
-                                                  cx={25}
-                                                  cy={25}
-                                                  fill="none"
-                                                  r={20}
-                                                  style={
-                                                    Object {
-                                                      "strokeDasharray": 12.566370614359172,
-                                                      "strokeDashoffset": 0,
-                                                    }
-                                                  } />
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-pencil" />
                                               </svg>
-                                            </CircularProgress>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </TooltipTrigger>
+                                  </Action>
+                                  <Action
+                                    bsStyle="default"
+                                    disabled={false}
+                                    hideLabel={true}
+                                    icon="talend-trash"
+                                    inProgress={false}
+                                    label="Remove value"
+                                    link={true}
+                                    onClick={[Function]}
+                                    tooltipPlacement="bottom">
+                                    <TooltipTrigger
+                                      label="Remove value"
+                                      tooltipPlacement="bottom">
+                                      <OverlayTrigger
+                                        defaultOverlayShown={false}
+                                        delayShow={400}
+                                        overlay={
+                                          <Tooltip
+                                            bsClass="tooltip"
+                                            className="undefined tooltip-container"
+                                            id={42}
+                                            placement="right">
+                                            Remove value
+                                          </Tooltip>
+                                        }
+                                        placement="bottom"
+                                        trigger={
+                                          Array [
+                                            "hover",
+                                            "focus",
+                                          ]
+                                        }>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          role="link">
+                                          <button
+                                            className="btn btn-link"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="link"
+                                            type="button">
+                                            <Icon
+                                              name="talend-trash">
+                                              <svg
+                                                aria-hidden="true"
+                                                className="tc-svg-icon"
+                                                title={null}>
+                                                <use
+                                                  xlinkHref="#talend-trash" />
+                                              </svg>
+                                            </Icon>
                                           </button>
                                         </Button>
                                       </OverlayTrigger>
@@ -4927,7 +5054,8 @@ exports[`EnumerationWidget should select an item 1`] = `
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
@@ -4935,6 +5063,19 @@ exports[`EnumerationWidget should select an item 1`] = `
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "111",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -4959,6 +5100,19 @@ exports[`EnumerationWidget should select an item 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "111",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -5824,7 +5978,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
@@ -5832,6 +5987,28 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "111",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "112",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi2",
+                            "tata2",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -5856,6 +6033,28 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "111",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "112",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi2",
+                              "tata2",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
