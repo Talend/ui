@@ -100,7 +100,7 @@ ItemsEnumeration.propTypes = {
 function HeaderEnumeration({
 	displayMode, headerError, onInputChange, onAddKeyDown,
 	headerInput, headerDefault, headerSelected, items, required,
-	...rest,
+	...rest
 }) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {

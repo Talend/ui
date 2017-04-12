@@ -12,7 +12,7 @@ describe('HeaderCheckbox', () => {
 
 		// when
 		const wrapper = renderer.create(
-			<HeaderCheckbox {...props}/>
+			<HeaderCheckbox {...props} />
 		).toJSON();
 
 		// then
