@@ -133,6 +133,7 @@ function Products({ id, items }) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
+				className="tc-header-bar-products"
 				id={id}
 				icon="talend-launcher"
 				items={items}
