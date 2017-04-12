@@ -54,26 +54,26 @@ function Actions(props) {
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {
-					case TYPE_DROPDOWN:
-						return (
-							<ActionDropdown
-								hideLabel={props.hideLabel}
-								key={index}
-								link={props.link}
-								tooltipPlacement={props.tooltipPlacement}
-								{...rest}
-							/>
-						);
-					default:
-						return (
-							<Action
-								hideLabel={props.hideLabel}
-								key={index}
-								link={props.link}
-								tooltipPlacement={props.tooltipPlacement}
-								{...rest}
-							/>
-						);
+				case TYPE_DROPDOWN:
+					return (
+						<ActionDropdown
+							hideLabel={props.hideLabel}
+							key={index}
+							link={props.link}
+							tooltipPlacement={props.tooltipPlacement}
+							{...rest}
+						/>
+					);
+				default:
+					return (
+						<Action
+							hideLabel={props.hideLabel}
+							key={index}
+							link={props.link}
+							tooltipPlacement={props.tooltipPlacement}
+							{...rest}
+						/>
+					);
 				}
 			})}
 		</ButtonGroup>
