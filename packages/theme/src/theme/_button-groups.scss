@@ -3,6 +3,16 @@
 /// @group Button Groups
 ////
 
+.btn-group-vertical {
+	.btn-group {
+		display: flex;
+
+		.dropdown-toggle {
+			flex: 1;
+		}
+	}
+}
+
 .btn-group {
 	display: inline-flex;
 
