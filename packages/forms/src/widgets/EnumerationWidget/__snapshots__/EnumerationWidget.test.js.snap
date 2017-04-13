@@ -246,7 +246,6 @@ exports[`EnumerationWidget delete all 1`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -317,7 +316,6 @@ exports[`EnumerationWidget delete all 1`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -715,7 +713,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 label="Validate"
                 link={true}
                 onClick={[Function]}
-                tooltipLabel={null}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
                   label="Validate"
@@ -785,7 +782,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 label="Abort"
                 link={true}
                 onClick={[Function]}
-                tooltipLabel={null}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
                   label="Abort"
@@ -1178,7 +1174,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -1249,7 +1244,6 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -1649,7 +1643,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -1720,7 +1713,6 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -2166,7 +2158,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -2237,7 +2228,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -2703,7 +2693,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     label="Validate"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Validate"
@@ -2773,7 +2762,6 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     label="Abort"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Abort"
@@ -3062,7 +3050,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 label="Abort"
                 link={true}
                 onClick={[Function]}
-                tooltipLabel={null}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
                   label="Abort"
@@ -3459,7 +3446,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -3530,7 +3516,6 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -3949,7 +3934,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   label="Add item"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Add item"
@@ -4020,7 +4004,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   label="Search for specific values"
                   link={true}
                   onClick={[Function]}
-                  tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Search for specific values"
@@ -4417,7 +4400,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   label="titi,tata"
                                   onClick={[Function]}
                                   tooltip={true}
-                                  tooltipLabel={null}
                                   tooltipPlacement="top">
                                   <TooltipTrigger
                                     label="titi,tata"
@@ -4483,7 +4465,6 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     label="Loading"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Loading"
@@ -4826,7 +4807,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                 label="Remove selected values"
                 link={true}
                 onClick={[Function]}
-                tooltipLabel={null}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
                   label="Remove selected values"
@@ -5274,7 +5254,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                                   label="titi,tata"
                                   onClick={[Function]}
                                   tooltip={true}
-                                  tooltipLabel={null}
                                   tooltipPlacement="top">
                                   <TooltipTrigger
                                     label="titi,tata"
@@ -5340,7 +5319,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     label="Edit"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Edit"
@@ -5410,7 +5388,6 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     label="Remove value"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Remove value"
@@ -5770,7 +5747,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 label="Remove selected values"
                 link={true}
                 onClick={[Function]}
-                tooltipLabel={null}
                 tooltipPlacement="bottom">
                 <TooltipTrigger
                   label="Remove selected values"
@@ -6254,7 +6230,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   label="titi,tata"
                                   onClick={[Function]}
                                   tooltip={true}
-                                  tooltipLabel={null}
                                   tooltipPlacement="top">
                                   <TooltipTrigger
                                     label="titi,tata"
@@ -6320,7 +6295,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     label="Edit"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Edit"
@@ -6390,7 +6364,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     label="Remove value"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Remove value"
@@ -6531,7 +6504,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   label="titi2,tata2"
                                   onClick={[Function]}
                                   tooltip={true}
-                                  tooltipLabel={null}
                                   tooltipPlacement="top">
                                   <TooltipTrigger
                                     label="titi2,tata2"
@@ -6597,7 +6569,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     label="Edit"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Edit"
@@ -6667,7 +6638,6 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     label="Remove value"
                                     link={true}
                                     onClick={[Function]}
-                                    tooltipLabel={null}
                                     tooltipPlacement="bottom">
                                     <TooltipTrigger
                                       label="Remove value"
