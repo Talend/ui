@@ -61,6 +61,7 @@ exports[`Enumeration should render with header in add state and list in default 
   </header>
   <ul
     className="undefined tc-enumeration-items"
+    onScroll={[Function]}
   >
     <div
       id="autoSizer"
@@ -392,6 +393,7 @@ exports[`Enumeration should render with header in default state and first item i
   </header>
   <ul
     className="undefined tc-enumeration-items"
+    onScroll={[Function]}
   >
     <div
       id="autoSizer"
@@ -715,6 +717,7 @@ exports[`Enumeration should render with header in default state, list in default
   </header>
   <ul
     className="undefined tc-enumeration-items"
+    onScroll={[Function]}
   >
     <div
       id="autoSizer"
@@ -1068,6 +1071,7 @@ exports[`Enumeration should render with header in search state and list in defau
   </header>
   <ul
     className="undefined tc-enumeration-items"
+    onScroll={[Function]}
   >
     <div
       id="autoSizer"
@@ -1376,6 +1380,7 @@ exports[`Enumeration should render with header in selected state with trash icon
   </header>
   <ul
     className="undefined tc-enumeration-items"
+    onScroll={[Function]}
   >
     <div
       id="autoSizer"
