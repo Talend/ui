@@ -42,6 +42,7 @@ function ActionDropdown(props) {
 		link,
 		onSelect,
 		tooltipPlacement,
+		tooltipLabel,
 		...rest
 	} = props;
 
@@ -52,6 +53,7 @@ function ActionDropdown(props) {
 		</span>
 	);
 	const style = link ? 'link' : bsStyle;
+
 	function onItemSelect(object, event) {
 		if (onSelect) {
 			onSelect(event, object);
@@ -78,9 +80,9 @@ function ActionDropdown(props) {
 		</DropdownButton>
 	);
 
-	if (hideLabel) {
+	if (hideLabel || tooltipLabel) {
 		return (<TooltipTrigger
-			label={label}
+			label={tooltipLabel || label}
 			tooltipPlacement={tooltipPlacement}
 		>
 			{dropdown}
@@ -102,6 +104,7 @@ ActionDropdown.propTypes = {
 	link: PropTypes.bool,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipLabel: PropTypes.string,
 };
 
 ActionDropdown.defaultProps = {

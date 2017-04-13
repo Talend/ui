@@ -76,7 +76,7 @@ const actions: [
 		],
 	},
  ];
-<Actions actions={actions} tooltipPlacement="right" hideLabel link />
+ <Actions actions={actions} tooltipPlacement="right" hideLabel link />
  */
 function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);

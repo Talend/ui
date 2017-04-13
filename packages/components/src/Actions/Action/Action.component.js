@@ -81,6 +81,7 @@ function Action(props) {
 		onClick,
 		tooltipPlacement,
 		tooltip,
+		tooltipLabel,
 		...rest
 	} = props;
 
@@ -105,8 +106,12 @@ function Action(props) {
 		</Button>
 	);
 
-	if (hideLabel || tooltip) {
-		return <TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>{btn}</TooltipTrigger>;
+	if (hideLabel || tooltip || tooltipLabel) {
+		return (
+			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				{btn}
+			</TooltipTrigger>
+		);
 	}
 	return btn;
 }
@@ -125,6 +130,7 @@ Action.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
+	tooltipLabel: PropTypes.string,
 };
 
 Action.defaultProps = {
