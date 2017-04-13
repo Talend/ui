@@ -138,7 +138,6 @@ Action.defaultProps = {
 	tooltipPlacement: 'top',
 	inProgress: false,
 	disabled: false,
-	tooltipLabel: null,
 };
 
 export default Action;

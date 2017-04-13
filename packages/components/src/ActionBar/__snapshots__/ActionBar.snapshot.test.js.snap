@@ -336,7 +336,6 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
     disabled={false}
     inProgress={false}
     label="action"
-    tooltipLabel={null}
     tooltipPlacement="top"
   />
 </Content>
@@ -355,7 +354,6 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
     disabled={false}
     inProgress={false}
     label="action"
-    tooltipLabel={null}
     tooltipPlacement="top"
   />
 </Content>
@@ -371,7 +369,6 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = 
     disabled={false}
     inProgress={false}
     label="action"
-    tooltipLabel={null}
     tooltipPlacement="top"
   />
 </Content>
