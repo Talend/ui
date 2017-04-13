@@ -60,7 +60,7 @@ function Environment(props) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
-				icon="talend-burger"
+				icon="talend-environment"
 				id={props.id}
 				items={props.items}
 				label={props.label}
@@ -133,6 +133,7 @@ function Products({ id, items }) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
+				className="tc-header-bar-products"
 				id={id}
 				icon="talend-launcher"
 				items={items}

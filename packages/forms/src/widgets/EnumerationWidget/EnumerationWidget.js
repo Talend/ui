@@ -14,7 +14,9 @@ const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
+const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
+const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -84,7 +86,7 @@ class EnumerationWidget extends React.Component {
 			onClick: this.changeDisplayToAddMode.bind(this),
 		}, {
 			disabled: false,
-			label: 'Search',
+			label: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
@@ -108,6 +110,7 @@ class EnumerationWidget extends React.Component {
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
 			items: (props.formData || []).map(item => ({
+				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {
@@ -117,6 +120,7 @@ class EnumerationWidget extends React.Component {
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
 				onSelectItem: this.onSelectItem.bind(this),
+				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,
 			},
@@ -213,6 +217,7 @@ class EnumerationWidget extends React.Component {
 
 	onSubmitItem(event, value) {
 		// dont want to fire select item on icon click
+		event.preventDefault();
 		event.stopPropagation();
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
@@ -261,6 +266,7 @@ class EnumerationWidget extends React.Component {
 						this.onSearchHandler.bind(this)
 					)) {
 					this.setState({
+						loadingSearchCriteria: value.value,
 						headerInput: this.loadingInputsActions,
 					});
 				} else {
@@ -272,9 +278,26 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
+	onLazyHandler() {
+		let headerActions;
+		if (this.state.searchCriteria) {
+			headerActions = this.searchInputsActions;
+		}		else {
+			headerActions = this.defaultHeaderActions;
+		}
+
+
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+			headerInput: headerActions,
+		});
+	}
+
 	onSearchHandler() {
 		this.setState({
 			headerInput: this.searchInputsActions,
+			searchCriteria: this.state.loadingSearchCriteria,
+			loadingSearchCriteria: '',
 		});
 	}
 
@@ -282,7 +305,22 @@ class EnumerationWidget extends React.Component {
 		if (this.state.displayMode === DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
+		if (this.callActionHandler(
+				ENUMERATION_RESET_LIST,
+				null,
+				this.onConnectedAbortHandler.bind(this))
+		) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+			});
+		}
 		this.setState({ displayMode: DISPLAY_MODE_DEFAULT, searchCriteria: null });
+	}
+
+	onConnectedAbortHandler() {
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+		});
 	}
 
 	onAddKeyDown(event, value) {
@@ -388,6 +426,20 @@ class EnumerationWidget extends React.Component {
 				this.setFormData.bind(this)
 			);
 			this.updateHeaderInputDisabled('');
+		}
+	}
+
+	// lazy loading
+	onLoadData() {
+		if (this.callActionHandler(
+				ENUMERATION_LOAD_DATA_ACTION,
+				undefined,
+				this.onLazyHandler.bind(this))
+		) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+				headerInput: this.loadingInputsActions,
+			});
 		}
 	}
 

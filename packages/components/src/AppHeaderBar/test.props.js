@@ -83,7 +83,7 @@ export const props = {
 					navItems: [
 						{
 							type: 'navItem',
-							item: { icon: 'fa fa-bars', name: 'hello', onClick: jest.fn() },
+							item: { icon: 'fa fa-bars', label: 'Hello', name: 'hello', onClick: jest.fn() },
 						},
 					],
 				},
@@ -92,7 +92,7 @@ export const props = {
 					navItems: [
 						{
 							type: 'navItem',
-							item: { icon: 'fa fa-heart', name: 'world', onClick: jest.fn() },
+							item: { icon: 'fa fa-heart', label: 'World', name: 'world', onClick: jest.fn() },
 						},
 						{
 							type: 'dropdown',

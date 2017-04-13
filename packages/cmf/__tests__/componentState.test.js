@@ -20,8 +20,8 @@ describe('state', () => {
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
 		const dispatch = jest.fn();
 		const props = getStateAccessors(dispatch, 'name', 'id');
-		expect(typeof props.updateState).toBe('function');
-		props.updateState();
+		expect(typeof props.setState).toBe('function');
+		props.setState();
 		const call = dispatch.mock.calls[0][0];
 		expect(call.type).toBe('REACT_CMF.COMPONENT_MERGE_STATE');
 		expect(call.componentName).toBe('name');
@@ -32,7 +32,7 @@ describe('state', () => {
 		const dispatch = jest.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
-		expect(typeof props.updateState).toBe('function');
+		expect(typeof props.setState).toBe('function');
 		expect(typeof props.initState).toBe('function');
 		expect(typeof props.deleteState).toBe('function');
 
@@ -43,7 +43,7 @@ describe('state', () => {
 		expect(call.componentName).toBe('name');
 		expect(call.key).toBe('id');
 
-		props.updateState({ foo: 'baz' });
+		props.setState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
 		const mergeComp = actions.componentsActions.mergeComponentState(
 			'name', 'id', DEFAULT_STATE.set('foo', 'baz'),
@@ -94,7 +94,7 @@ describe('state', () => {
 		expect(typeof statePropTypes).toBe('object');
 		expect(statePropTypes.state).toBe(PropTypes.object);
 		expect(statePropTypes.initialState).toBe(PropTypes.object);
-		expect(statePropTypes.updateState).toBe(PropTypes.func);
+		expect(statePropTypes.setState).toBe(PropTypes.func);
 		expect(statePropTypes.initState).toBe(PropTypes.func);
 	});
 });
