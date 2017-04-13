@@ -54,6 +54,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 	}
 
+	:global(.tc-header-bar-products) + :global(.dropdown-menu) :global(.tc-svg-icon) {
+		fill: $st-tropaz;
+		height: $svg-lg-size;
+		width: $svg-lg-size;
+	}
+
 	:global(.btn):global(.btn-link) {
 		color: $white;
 		font-size: $font-size-base;

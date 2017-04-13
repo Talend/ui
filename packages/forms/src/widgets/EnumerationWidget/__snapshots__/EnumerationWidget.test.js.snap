@@ -106,6 +106,7 @@ exports[`EnumerationWidget delete all 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -201,6 +202,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -466,6 +468,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -568,6 +571,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -663,6 +667,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -930,6 +935,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1032,6 +1038,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -1127,6 +1134,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1392,6 +1400,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1499,6 +1508,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -1594,6 +1604,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1860,6 +1871,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -1994,6 +2006,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -2109,6 +2122,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -2394,6 +2408,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -2460,19 +2475,52 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_EDIT",
+                          "error": "",
+                          "id": "111",
+                          "isSelected": false,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -2486,6 +2534,23 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -2497,6 +2562,20 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_EDIT",
+                            "error": "",
+                            "id": "111",
+                            "isSelected": false,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -2855,6 +2934,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -2942,6 +3022,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3123,6 +3204,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3237,6 +3319,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -3332,6 +3415,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3597,6 +3681,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -3721,6 +3806,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -3819,6 +3905,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4087,6 +4174,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4136,19 +4224,42 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "icon": "talend-cross",
+                          "id": "loading",
+                          "inProgress": true,
+                          "label": "Loading",
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "id": "11212242",
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -4162,6 +4273,16 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "icon": "talend-cross",
+                            "id": "loading",
+                            "inProgress": true,
+                            "label": "Loading",
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -4173,6 +4294,17 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "id": "11212242",
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -4552,6 +4684,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -4659,6 +4792,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4854,6 +4988,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -4912,19 +5047,51 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "111",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -4938,6 +5105,23 @@ exports[`EnumerationWidget should select an item 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -4949,6 +5133,19 @@ exports[`EnumerationWidget should select an item 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "111",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
@@ -5422,6 +5619,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           "key": "values",
           "onAbortItem": [Function],
           "onChangeItem": [Function],
+          "onLoadData": [Function],
           "onSelectItem": [Function],
           "onSubmitItem": [Function],
         }
@@ -5538,6 +5736,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -5742,6 +5941,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "key": "values",
               "onAbortItem": [Function],
               "onChangeItem": [Function],
+              "onLoadData": [Function],
               "onSelectItem": [Function],
               "onSubmitItem": [Function],
             }
@@ -5809,19 +6009,60 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "key": "values",
                 "onAbortItem": [Function],
                 "onChangeItem": [Function],
+                "onLoadData": [Function],
                 "onSelectItem": [Function],
                 "onSubmitItem": [Function],
               }
             }>
             <ul
-              className="undefined tc-enumeration-items">
+              className="undefined tc-enumeration-items"
+              onScroll={[Function]}>
               <Component>
                 <div
                   id="autoSizer">
                   <List
+                    actions={
+                      Array [
+                        Object {
+                          "disabled": false,
+                          "icon": "talend-pencil",
+                          "id": "edit",
+                          "label": "Edit",
+                          "onClick": [Function],
+                        },
+                        Object {
+                          "icon": "talend-trash",
+                          "id": "delete",
+                          "label": "Remove value",
+                          "onClick": [Function],
+                        },
+                      ]
+                    }
                     className="undefined"
                     estimatedRowSize={30}
                     height={30}
+                    items={
+                      Array [
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "111",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi",
+                            "tata",
+                          ],
+                        },
+                        Object {
+                          "displayMode": "DISPLAY_MODE_DEFAULT",
+                          "id": "112",
+                          "isSelected": true,
+                          "values": Array [
+                            "titi2",
+                            "tata2",
+                          ],
+                        },
+                      ]
+                    }
                     noRowsRenderer={[Function]}
                     onRowsRendered={[Function]}
                     onScroll={[Function]}
@@ -5835,6 +6076,23 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     style={Object {}}
                     width={30}>
                     <Grid
+                      actions={
+                        Array [
+                          Object {
+                            "disabled": false,
+                            "icon": "talend-pencil",
+                            "id": "edit",
+                            "label": "Edit",
+                            "onClick": [Function],
+                          },
+                          Object {
+                            "icon": "talend-trash",
+                            "id": "delete",
+                            "label": "Remove value",
+                            "onClick": [Function],
+                          },
+                        ]
+                      }
                       aria-label="grid"
                       autoContainerWidth={true}
                       cellRangeRenderer={[Function]}
@@ -5846,6 +6104,28 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       height={30}
+                      items={
+                        Array [
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "111",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi",
+                              "tata",
+                            ],
+                          },
+                          Object {
+                            "displayMode": "DISPLAY_MODE_DEFAULT",
+                            "id": "112",
+                            "isSelected": true,
+                            "values": Array [
+                              "titi2",
+                              "tata2",
+                            ],
+                          },
+                        ]
+                      }
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}

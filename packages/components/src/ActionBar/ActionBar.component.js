@@ -84,7 +84,7 @@ function SwitchActions({ actions, left, right, selected }) {
 	);
 }
 SwitchActions.propTypes = {
-	actions: PropTypes.shape(actionsShape).isRequired,
+	actions: PropTypes.arrayOf(PropTypes.shape(actionsShape)).isRequired,
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	selected: PropTypes.number,
