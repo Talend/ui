@@ -162,7 +162,8 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	}
 
 	&.selected {
-		.title, .detail {
+		.title,
+		.detail {
 			color: $tc-collapsible-selected-panel-color;
 		}
 	}
