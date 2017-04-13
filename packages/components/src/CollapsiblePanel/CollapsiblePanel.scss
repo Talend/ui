@@ -10,6 +10,7 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	display: flex;
+	overflow: hidden;
 }
 
 @mixin col-style {
