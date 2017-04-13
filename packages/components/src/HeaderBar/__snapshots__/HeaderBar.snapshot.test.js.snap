@@ -1404,6 +1404,18 @@ exports[`Storyshots HeaderBar default 1`] = `
       </svg>
     </symbol>
     <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
       id="talend-filter"
     >
       <svg
@@ -2985,6 +2997,18 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </svg>
     </symbol>
     <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
       id="talend-filter"
     >
       <svg
@@ -3270,7 +3294,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-burger"
+                      xlinkHref="#talend-environment"
                     />
                   </svg>
                   <span>
@@ -4808,6 +4832,18 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       >
         <path
           d="M10.66667,8A2.66735,2.66735,0,0,0,8,5.33333,2.66735,2.66735,0,0,0,5.33333,8,2.66735,2.66735,0,0,0,8,10.66667,2.66735,2.66735,0,0,0,10.66667,8ZM16,6.86458v2.3125l-2.21875.66667-.40625.94792,1.21875,1.69792L12.75,14.59375,10.78125,13.375l-.95825.39583L9.15625,16H6.844l-.66692-2.22917-.9375-.38542L3.51042,14.59375,1.45833,12.48958l1.17708-1.66667L2.20833,9.79167,0,9.13542V6.82292l2.21875-.66667L2.625,5.19792,1.5,3.27083,3.51042,1.40625,5.21875,2.625l.94792-.39583L6.84375,0h2.3125l.66667,2.22917.9375.38542L12.75,1.51042l1.71875,1.77083L13.36458,5.17708l.42708,1.02083Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
         />
       </svg>
     </symbol>
@@ -6441,6 +6477,18 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </svg>
     </symbol>
     <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
       id="talend-filter"
     >
       <svg
@@ -8004,6 +8052,18 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </svg>
     </symbol>
     <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
       id="talend-filter"
     >
       <svg
@@ -9554,6 +9614,18 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       >
         <path
           d="M10.66667,8A2.66735,2.66735,0,0,0,8,5.33333,2.66735,2.66735,0,0,0,5.33333,8,2.66735,2.66735,0,0,0,8,10.66667,2.66735,2.66735,0,0,0,10.66667,8ZM16,6.86458v2.3125l-2.21875.66667-.40625.94792,1.21875,1.69792L12.75,14.59375,10.78125,13.375l-.95825.39583L9.15625,16H6.844l-.66692-2.22917-.9375-.38542L3.51042,14.59375,1.45833,12.48958l1.17708-1.66667L2.20833,9.79167,0,9.13542V6.82292l2.21875-.66667L2.625,5.19792,1.5,3.27083,3.51042,1.40625,5.21875,2.625l.94792-.39583L6.84375,0h2.3125l.66667,2.22917.9375.38542L12.75,1.51042l1.71875,1.77083L13.36458,5.17708l.42708,1.02083Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
         />
       </svg>
     </symbol>
@@ -12182,6 +12254,18 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       >
         <path
           d="M10.66667,8A2.66735,2.66735,0,0,0,8,5.33333,2.66735,2.66735,0,0,0,5.33333,8,2.66735,2.66735,0,0,0,8,10.66667,2.66735,2.66735,0,0,0,10.66667,8ZM16,6.86458v2.3125l-2.21875.66667-.40625.94792,1.21875,1.69792L12.75,14.59375,10.78125,13.375l-.95825.39583L9.15625,16H6.844l-.66692-2.22917-.9375-.38542L3.51042,14.59375,1.45833,12.48958l1.17708-1.66667L2.20833,9.79167,0,9.13542V6.82292l2.21875-.66667L2.625,5.19792,1.5,3.27083,3.51042,1.40625,5.21875,2.625l.94792-.39583L6.84375,0h2.3125l.66667,2.22917.9375.38542L12.75,1.51042l1.71875,1.77083L13.36458,5.17708l.42708,1.02083Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4,4h8V6H4ZM4,7h8V9H4Zm0,3h8v2H4ZM2,13V3L0,1V15Zm14,2V1L14,3V13ZM3,2H13l2-2H1ZM1,16H15l-2-2H3Z"
         />
       </svg>
     </symbol>

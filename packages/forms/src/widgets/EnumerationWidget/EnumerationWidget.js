@@ -85,7 +85,7 @@ class EnumerationWidget extends React.Component {
 			onClick: this.changeDisplayToAddMode.bind(this),
 		}, {
 			disabled: false,
-			label: 'Search',
+			label: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
@@ -109,6 +109,7 @@ class EnumerationWidget extends React.Component {
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
 			items: (props.formData || []).map(item => ({
+				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {

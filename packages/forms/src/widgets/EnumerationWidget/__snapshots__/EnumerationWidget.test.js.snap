@@ -3,12 +3,14 @@ exports[`EnumerationWidget delete all 1`] = `
   formData={
     Array [
       Object {
+        "id": "112",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
+        "id": "113",
         "values": Array [
           "titi2",
           "tata2",
@@ -32,7 +34,7 @@ exports[`EnumerationWidget delete all 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -127,7 +129,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -219,7 +221,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -310,13 +312,13 @@ exports[`EnumerationWidget delete all 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -327,7 +329,7 @@ exports[`EnumerationWidget delete all 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -392,7 +394,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -494,7 +496,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -589,7 +591,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -856,7 +858,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -958,7 +960,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -1053,7 +1055,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1145,7 +1147,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -1236,13 +1238,13 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -1253,7 +1255,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -1318,7 +1320,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1425,7 +1427,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -1520,7 +1522,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1612,7 +1614,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -1704,13 +1706,13 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -1721,7 +1723,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -1786,7 +1788,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -1876,6 +1878,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -1906,7 +1909,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -1945,6 +1948,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           Object {
             "displayMode": "DISPLAY_MODE_EDIT",
             "error": "",
+            "id": "111",
             "isSelected": false,
             "values": Array [
               "titi",
@@ -2020,7 +2024,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -2059,6 +2063,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
                 "error": "",
+                "id": "111",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -2124,7 +2129,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -2215,13 +2220,13 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -2232,7 +2237,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -2304,7 +2309,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -2343,6 +2348,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               Object {
                 "displayMode": "DISPLAY_MODE_EDIT",
                 "error": "",
+                "id": "111",
                 "isSelected": false,
                 "values": Array [
                   "titi",
@@ -2408,6 +2414,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 Object {
                   "displayMode": "DISPLAY_MODE_EDIT",
                   "error": "",
+                  "id": "111",
                   "isSelected": false,
                   "values": Array [
                     "titi",
@@ -2566,6 +2573,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 Object {
                                   "displayMode": "DISPLAY_MODE_EDIT",
                                   "error": "",
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": false,
                                   "itemProps": Object {
@@ -2783,7 +2791,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -2870,7 +2878,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3051,7 +3059,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3133,6 +3141,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -3156,7 +3165,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -3251,7 +3260,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3343,7 +3352,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -3434,13 +3443,13 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -3451,7 +3460,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -3516,7 +3525,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3606,6 +3615,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
   formData={
     Array [
       Object {
+        "id": "11212242",
         "values": Array [
           "titi",
           "tata",
@@ -3636,7 +3646,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -3673,6 +3683,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       items={
         Array [
           Object {
+            "id": "11212242",
             "values": Array [
               "titi",
               "tata",
@@ -3733,7 +3744,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -3770,6 +3781,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           items={
             Array [
               Object {
+                "id": "11212242",
                 "values": Array [
                   "titi",
                   "tata",
@@ -3827,7 +3839,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "disabled": false,
                   "icon": "talend-search",
                   "id": "search",
-                  "label": "Search",
+                  "label": "Search for specific values",
                   "onClick": [Function],
                 },
               ]
@@ -3918,13 +3930,13 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   hideLabel={true}
                   icon="talend-search"
                   inProgress={false}
-                  label="Search"
+                  label="Search for specific values"
                   link={true}
                   onClick={[Function]}
                   tooltipLabel={null}
                   tooltipPlacement="top">
                   <TooltipTrigger
-                    label="Search"
+                    label="Search for specific values"
                     tooltipPlacement="top">
                     <OverlayTrigger
                       defaultOverlayShown={false}
@@ -3935,7 +3947,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           className="undefined tooltip-container"
                           id={42}
                           placement="right">
-                          Search
+                          Search for specific values
                         </Tooltip>
                       }
                       placement="top"
@@ -4000,7 +4012,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -4037,6 +4049,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           items={
             Array [
               Object {
+                "id": "11212242",
                 "values": Array [
                   "titi",
                   "tata",
@@ -4085,6 +4098,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             items={
               Array [
                 Object {
+                  "id": "11212242",
                   "values": Array [
                     "titi",
                     "tata",
@@ -4226,6 +4240,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               id="0-item"
                               item={
                                 Object {
+                                  "id": "11212242",
                                   "index": 0,
                                   "itemProps": Object {
                                     "actions": Array [
@@ -4429,6 +4444,7 @@ exports[`EnumerationWidget should select an item 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
@@ -4452,7 +4468,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -4490,6 +4506,7 @@ exports[`EnumerationWidget should select an item 1`] = `
         Array [
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
+            "id": "111",
             "isSelected": true,
             "values": Array [
               "titi",
@@ -4558,7 +4575,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -4596,6 +4613,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -4752,7 +4770,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -4790,6 +4808,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -4847,6 +4866,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               Array [
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                  "id": "111",
                   "isSelected": true,
                   "values": Array [
                     "titi",
@@ -4997,6 +5017,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": true,
                                   "itemProps": Object {
@@ -5277,12 +5298,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
   formData={
     Array [
       Object {
+        "id": "111",
         "values": Array [
           "titi",
           "tata",
         ],
       },
       Object {
+        "id": "112",
         "values": Array [
           "titi2",
           "tata2",
@@ -5306,7 +5329,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             "disabled": false,
             "icon": "talend-search",
             "id": "search",
-            "label": "Search",
+            "label": "Search for specific values",
             "onClick": [Function],
           },
         ]
@@ -5344,6 +5367,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
         Array [
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
+            "id": "111",
             "isSelected": true,
             "values": Array [
               "titi",
@@ -5352,6 +5376,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           },
           Object {
             "displayMode": "DISPLAY_MODE_DEFAULT",
+            "id": "112",
             "isSelected": true,
             "values": Array [
               "titi2",
@@ -5420,7 +5445,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -5458,6 +5483,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -5466,6 +5492,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "112",
                 "isSelected": true,
                 "values": Array [
                   "titi2",
@@ -5622,7 +5649,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "disabled": false,
                 "icon": "talend-search",
                 "id": "search",
-                "label": "Search",
+                "label": "Search for specific values",
                 "onClick": [Function],
               },
             ]
@@ -5660,6 +5687,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "111",
                 "isSelected": true,
                 "values": Array [
                   "titi",
@@ -5668,6 +5696,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
               Object {
                 "displayMode": "DISPLAY_MODE_DEFAULT",
+                "id": "112",
                 "isSelected": true,
                 "values": Array [
                   "titi2",
@@ -5725,6 +5754,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               Array [
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                  "id": "111",
                   "isSelected": true,
                   "values": Array [
                     "titi",
@@ -5733,6 +5763,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 },
                 Object {
                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                  "id": "112",
                   "isSelected": true,
                   "values": Array [
                     "titi2",
@@ -5883,6 +5914,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "id": "111",
                                   "index": 0,
                                   "isSelected": true,
                                   "itemProps": Object {
@@ -6159,6 +6191,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               item={
                                 Object {
                                   "displayMode": "DISPLAY_MODE_DEFAULT",
+                                  "id": "112",
                                   "index": 1,
                                   "isSelected": true,
                                   "itemProps": Object {
