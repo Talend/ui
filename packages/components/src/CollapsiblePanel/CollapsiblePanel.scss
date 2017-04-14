@@ -2,15 +2,15 @@ $tc-collapsible-panel-padding-smaller: $padding-smaller !default;
 $tc-collapsible-panel-padding-normal: $padding-normal !default;
 $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
-$tc-collapsible-selectable-panel-content-description-color: #918F8F !default;
-$tc-collapsible-selected-panel-color: #4F93A7 !default;
+$tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
+$tc-toggle-color: #555964 !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
 	display: flex;
 	overflow: hidden;
 
-	> * {
+	> span {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -62,13 +62,16 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	position: relative;
 
 	&.selected {
-		border-left: 4px solid $tc-collapsible-selected-panel-color;
+		border-left: 4px solid $brand-primary;
 		padding-left: 1px;
+	}
+
+	:global(.toggle) {
+		display: flex;
 	}
 
 	svg {
 		transform-origin: center;
-		vertical-align: text-bottom;
 	}
 
 	&.open {
@@ -100,7 +103,7 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
-			min-height: 40px;
+			min-height: 4rem;
 			padding-left: 5px;
 			padding-right: 5px;
 
@@ -165,10 +168,18 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 		box-shadow: none;
 	}
 
+	:global(.toggle) {
+		svg {
+			fill: $tc-toggle-color;
+			height: 10px;
+			width: 10px;
+		}
+	}
+
 	&.selected {
 		.title,
 		.detail {
-			color: $tc-collapsible-selected-panel-color;
+			color: $brand-primary;
 		}
 	}
 
@@ -182,7 +193,6 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	}
 
 	.title {
-		font-family: 'Source Sans Pro', sans-serif;
 		text-transform: none;
 		font-weight: bold;
 		overflow: hidden;
@@ -197,8 +207,6 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 	}
 
 	.detail {
-		font-weight: 500;
-		font-size: 14px;
 		white-space: nowrap;
 		justify-content: flex-end;
 	}
@@ -225,7 +233,7 @@ $tc-collapsible-selected-panel-color: #4F93A7 !default;
 			.content-description {
 				white-space: pre-wrap;
 				padding-top: 5px;
-				color: $tc-collapsible-selectable-panel-content-description-color;
+				color: $tc-collapsible-descriptive-panel-content-description-color;
 			}
 		}
 	}
