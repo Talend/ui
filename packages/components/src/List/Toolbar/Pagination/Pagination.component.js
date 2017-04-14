@@ -25,7 +25,14 @@ function getMenuItem(option, index) {
 	</MenuItem>);
 }
 
-function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOptions, onChange }) {
+function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
+	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
+	const {
+		first = { name: "fa fa-backward" },
+		prev = { name: "fa fa-play", transform: 'rotate-180' },
+		next = { name: "fa fa-play" },
+		last = { name: "fa fa-forward" },
+	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
 	function onChangeItemsPerPage(value) {
@@ -71,7 +78,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 					className="btn-link"
 					disabled={startIndex === 1}
 				>
-					<Icon name="fa fa-backward" />
+					<Icon {...first} />
 				</NavItem>
 			)}
 			{itemsPerPage > 0 && (
@@ -81,7 +88,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 					className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
 					disabled={startIndex === 1}
 				>
-					<Icon name="fa fa-play" />
+					<Icon {...prev} />
 				</NavItem>
 			)}
 			{itemsPerPage > 0 && (
@@ -96,7 +103,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 					className="btn-link"
 					disabled={startIndex + itemsPerPage > totalResults}
 				>
-					<Icon name="fa fa-play" />
+					<Icon {...next} />
 				</NavItem>
 			)}
 			{itemsPerPage > 0 && (
@@ -106,7 +113,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, itemsPerPageOp
 					className="btn-link"
 					disabled={startIndex + itemsPerPage > totalResults}
 				>
-					<Icon name="fa fa-forward" />
+					<Icon {...last} />
 				</NavItem>
 			)}
 		</Nav>
