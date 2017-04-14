@@ -28,10 +28,10 @@ function getMenuItem(option, index) {
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
 	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
 	const {
-		first = { name: "fa fa-backward" },
-		prev = { name: "fa fa-play", transform: 'rotate-180' },
-		next = { name: "fa fa-play" },
-		last = { name: "fa fa-forward" },
+		first = { name: 'fa fa-backward' },
+		prev = { name: 'fa fa-play', transform: 'rotate-180' },
+		next = { name: 'fa fa-play' },
+		last = { name: 'fa fa-forward' },
 	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
