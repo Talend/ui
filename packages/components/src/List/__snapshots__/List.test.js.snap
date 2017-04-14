@@ -640,7 +640,7 @@ exports[`List should render 1`] = `
             >
               <i
                 aria-hidden="true"
-                className="fa fa-play"
+                className="fa fa-play fa-rotate-180"
                 title={null}
               />
             </a>
@@ -1380,7 +1380,7 @@ exports[`List should render id if provided 1`] = `
             >
               <i
                 aria-hidden="true"
-                className="fa fa-play"
+                className="fa fa-play fa-rotate-180"
                 title={null}
               />
             </a>
