@@ -505,7 +505,7 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              ASCENDING
+              Ascending
             </a>
           </li>
         </ul>
@@ -1245,7 +1245,7 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              ASCENDING
+              Ascending
             </a>
           </li>
         </ul>
