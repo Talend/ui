@@ -62,7 +62,7 @@ $line-height: 30px;
 				overflow: hidden;
 				padding: 0;
 				text-overflow: ellipsis;
-				text-transform: uppercase;
+				text-transform: none;
 				white-space: nowrap;
 			}
 
@@ -156,7 +156,7 @@ $line-height: 30px;
 				font-weight: 400;
 				margin-right: $padding-small;
 				text-align: right;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				width: $definition-width - $description-width - $padding-small;
 
 				&:after {
