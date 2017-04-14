@@ -16,10 +16,15 @@
 			&-success,
 			&-info,
 			&-warning,
-			&-danger {
+			&-danger,
+			&-group {
 				margin: 0 $padding-smaller;
 				min-height: inherit;
 				height: auto;
+			}
+
+			&-group > .btn {
+				margin: 0;
 			}
 		}
 	}
