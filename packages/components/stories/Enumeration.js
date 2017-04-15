@@ -57,6 +57,7 @@ const props = {
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
 		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',

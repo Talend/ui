@@ -16,10 +16,15 @@
 			&-success,
 			&-info,
 			&-warning,
-			&-danger {
-				margin: 0 $padding-smaller;				
+			&-danger,
+			&-group {
+				margin: 0 $padding-smaller;
 				min-height: inherit;
 				height: auto;
+			}
+
+			&-group > .btn {
+				margin: 0;
 			}
 		}
 	}
@@ -49,7 +54,8 @@
 	}
 
 	&-nav {
-		> li > a {
+		> li > a,
+		> li > button {
 			display: flex;
 			align-items: center;
 			height: $navbar-height;

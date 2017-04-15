@@ -9,27 +9,28 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 
 .tc-side-panel {
 	overflow-x: hidden;
-	padding: 0 $padding-large;
+	padding: 0;
 	transition: 0.2s padding ease-out;
 
 	:global(.btn) svg:global(.tc-svg-icon) {
-		width: 1.4em;
-		height: 1.4em;
+		width: $svg-lg-size;
+		height: $svg-lg-size;
 		margin: 0;
 	}
 
 	.action-list {
-		margin: 0 (-$padding-large);
+		margin: 0;
 		transition: 0.2s margin ease-out;
 	}
 
 	.link {
 		text-align: left;
-		font-size: 1em;
+		font-size: $font-size-small;
 		text-transform: uppercase;
 
 		:global(.tc-svg-icon) + span {
-			padding-left: $padding-normal;
+			margin-left: $padding-normal;
+			vertical-align: text-bottom;
 		}
 
 		span {
@@ -39,7 +40,7 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 
 	//override nav-pill a bit
 	:global(.nav-pills .btn.btn-link) {
-		padding: 12px 90px 12px $padding-large;
+		padding: $padding-normal $padding-large;
 	}
 
 	:global(.tc-side-panel-list-item):hover {
@@ -47,26 +48,17 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 	}
 
 	&.docked {
-		padding: 0 $padding-normal;
+		padding: 0;
 
 		:global(.nav-pills) {
 			//override nav-pill a bit
 			:global(.btn.btn-link) {
-				padding-left: $padding-normal;
-				padding-right: $padding-normal;
+				padding: $padding-normal;
 			}
 
 			.toggle-btn {
 				:global(.tc-svg-icon) {
 					transform: rotate(-180deg);
-				}
-
-				:global(.btn.btn-link) {
-					padding-left: 0;
-				}
-
-				&:before {
-					margin: 12px 0 0 20px;
 				}
 			}
 
@@ -77,14 +69,10 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 	}
 
 	.toggle-btn {
-		margin-left: 0;
-		margin-bottom: $padding-normal;
+		margin-bottom: $padding-normal + $padding-large;
 
 		:global(.btn.btn-link) {
-			width: 20px;
-			padding: 12px 0;
 			outline: none;
-			vertical-align: baseline;
 
 			:global(.tc-svg-icon) {
 				fill: $tc-side-panel-toggle-color;
@@ -92,14 +80,13 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 				height: $svg-md-size;
 				transition: 0.2s transform ease-out;
 			}
-		}
 
-		&:before {
-			color: $tc-side-panel-toggle-color;
-			content: '|';
-			font-weight: bold;
-			height: 0.9em;
-			margin: 12px 0 0 20px;
+			&:before {
+				color: $tc-side-panel-toggle-color;
+				content: '|';
+				font-size: $font-size-base;
+				font-weight: bold;
+			}
 		}
 
 		&:hover {

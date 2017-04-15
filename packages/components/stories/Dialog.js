@@ -22,6 +22,7 @@ const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
+	onHide: action('onHide'),
 	action: {
 		label: 'OK',
 		onClick: action('ok'),
@@ -31,6 +32,22 @@ const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
+const bsProps = {
+	header: 'OnHide + no backdrop + esc',
+	bsDialogProps: {
+		show: true,
+		size: 'small',
+		onHide: action('onHide'),
+		dialogClassName: 'customDialogClassName',
+		keyboard: true,
+		backdrop: false,
+	},
 	action: {
 		label: 'OK',
 		onClick: action('ok'),
@@ -70,4 +87,11 @@ storiesOf('Dialog', module)
 			<h1>Dialog</h1>
 			<Dialog {...largeProps}>{children}</Dialog>
 		</div>
+	))
+	.addWithInfo('passing bootstrap modal options', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...bsProps}>{children}</Dialog>
+		</div>
 	));
+

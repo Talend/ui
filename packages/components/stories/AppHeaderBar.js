@@ -1,7 +1,13 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
-import { AppHeaderBar } from '../src';
+import { IconsProvider, AppHeaderBar } from '../src';
+
+const icons = {
+	'talend-world': talendIcons['talend-world'],
+	'talend-burger': talendIcons['talend-burger'],
+};
 
 const typeaheadItems = [
 	{
@@ -97,7 +103,8 @@ const props = {
 						{
 							type: 'navItem',
 							item: {
-								icon: 'fa fa-bars',
+								icon: 'talend-burger',
+								label: 'Hello',
 								name: 'hello',
 								onClick: action('onClick bars'),
 							},
@@ -110,7 +117,8 @@ const props = {
 						{
 							type: 'navItem',
 							item: {
-								icon: 'fa fa-heart',
+								icon: 'talend-world',
+								label: 'World',
 								name: 'world',
 								onClick: action('onClick heart'),
 							},
@@ -143,6 +151,7 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 	.addDecorator(story => (
 		<div>
 			{story()}
+			<IconsProvider defaultIcons={icons} />
 			<div className="container" style={{ paddingTop: 40 }} />
 		</div>
 	));

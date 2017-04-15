@@ -36,6 +36,22 @@ const actions = [
 			},
 		],
 	},
+	{
+		id: 'split-dropdown-id',
+		displayMode: 'splitDropdown',
+		label: 'add file',
+		onClick: action('click'),
+		items: [
+			{
+				label: 'file 1',
+				onClick: action('file 1 click'),
+			},
+			{
+				label: 'file 2',
+				onClick: action('file 2 click'),
+			},
+		],
+	},
 ];
 
 storiesOf('Actions', module)
