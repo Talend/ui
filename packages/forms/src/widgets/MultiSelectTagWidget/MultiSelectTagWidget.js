@@ -36,7 +36,7 @@ function DropDownOptions({
 		</MenuItem>
 	);
 	const NEW_OPTION = (
-		<MenuItem onClick={onCreateNew}>
+		<MenuItem active onClick={onCreateNew}>
 			{filterText} (new)
 		</MenuItem>
 	);
