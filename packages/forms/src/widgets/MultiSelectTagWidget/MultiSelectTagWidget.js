@@ -2,14 +2,11 @@ import React from 'react';
 import Badge from 'react-talend-components/lib/Badge';
 import { MenuItem } from 'react-bootstrap';
 import classNames from 'classnames';
+import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
 
 const ENTER = 'ENTER';
 const LEAVE = 'LEAVE';
-const KEY_UP = 38;
-const KEY_DOWN = 40;
-const KEY_ENTER = 13;
-const KEY_BACK_SPACE = 8;
 
 const INPUT_TEXT_INDENT = 7.5;
 const INPUT_HEIGHT = 32;
@@ -26,7 +23,7 @@ function mapValue2Label(enumOptions) {
 }
 
 function DropDownOptions({
- options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent,
+	options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent,
 }) {
 	const optionsToShow = options.map((item, index) => (
 		<MenuItem active={selectedIndex === index} key={index} onClick={() => onSelectOption(item)}>
@@ -133,19 +130,19 @@ class MultiSelectTagWidget extends React.Component {
 	onKeyDown(event) {
 		const optionsToShow = this.getOptionsToShow();
 		switch (event.which) {
-		case KEY_BACK_SPACE: {
+		case keycode.codes.backspace: {
 			if (this.state.filterText === '' && this.props.value.length > 0) {
 				this.onRemoveTag(this.props.value[this.props.value.length - 1]);
 			}
 			break;
 		}
-		case KEY_ENTER: {
+		case keycode.codes.enter: {
 			if (optionsToShow.length > 0) {
 				this.onSelectTag(optionsToShow[this.state.selectedIndex]);
 				this.setState({
 					selectedIndex: 0,
 				});
-				this.scrollDropDownIfRequired(0, KEY_UP);
+				this.scrollDropDownIfRequired(0, keycode.codes.up);
 			} else if (this.state.filterText.length > 0) {
 				const { schema } = this.props;
 				if (schema.createIfNoneMatch) {
@@ -155,21 +152,21 @@ class MultiSelectTagWidget extends React.Component {
 			event.preventDefault();
 			break;
 		}
-		case KEY_UP: {
+		case keycode.codes.up: {
 			if (this.state.selectedIndex > 0) {
 				this.setState({
 					selectedIndex: this.state.selectedIndex - 1,
 				});
-				this.scrollDropDownIfRequired(this.state.selectedIndex - 1, KEY_UP);
+				this.scrollDropDownIfRequired(this.state.selectedIndex - 1, keycode.codes.up);
 			}
 			break;
 		}
-		case KEY_DOWN: {
+		case keycode.codes.down: {
 			if (this.state.selectedIndex < optionsToShow.length - 1) {
 				this.setState({
 					selectedIndex: this.state.selectedIndex + 1,
 				});
-				this.scrollDropDownIfRequired(this.state.selectedIndex + 1, KEY_DOWN);
+				this.scrollDropDownIfRequired(this.state.selectedIndex + 1, keycode.codes.down);
 			}
 			break;
 		}
@@ -221,7 +218,7 @@ class MultiSelectTagWidget extends React.Component {
 		const itemStart = (selectedIndex * DROP_DOWN_ITEM_HEIGHT) + 10;
 		const itemEnd = ((selectedIndex + 1) * DROP_DOWN_ITEM_HEIGHT) + 10;
 
-		if (direction === KEY_DOWN) {
+		if (direction === keycode.codes.down) {
 			if (itemStart < scrollPosition) {
 				dropDown.scrollTop = itemStart;
 			}
@@ -229,7 +226,7 @@ class MultiSelectTagWidget extends React.Component {
 				dropDown.scrollTop = ((itemEnd - dropDownHeight));
 			}
 		}
-		if (direction === KEY_UP) {
+		if (direction === keycode.codes.up) {
 			if (itemStart > scrollPosition + dropDownHeight) {
 				dropDown.scrollTop = ((itemEnd - dropDownHeight));
 			}
