@@ -27,12 +27,14 @@ const props = {
 
 describe('TabBar', () => {
 	it('should trigger tab callback on tab click', () => {
-		// when
+		// given
 		const tabBar = (<TabBar {...props} />);
 		const wrapper = mount(tabBar);
+
+		// when
 		wrapper.find('button').at(1).simulate('click');
 
 		// then
-		expect(onClick).toBeCalledWith(jasmine.anything(), props.items[1]);
+		expect(onClick).toBeCalledWith(expect.anything(), props.items[1]);
 	});
 });
