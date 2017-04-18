@@ -153,7 +153,7 @@ Products.propTypes = {
 
 function HeaderBar(props) {
 	return (
-		<nav className={classNames([`tc-header-bar, ${theme['tc-header-bar']}`])} >
+		<nav className={classNames([`tc-header-bar ${theme['tc-header-bar']}`])} >
 			<ul className="tc-header-bar-actions">
 				<Logo {...props.logo} />
 				<Brand {...props.brand} isSeparated={!!props.env} />

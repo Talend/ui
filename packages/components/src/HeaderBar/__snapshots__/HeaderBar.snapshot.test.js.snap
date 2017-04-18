@@ -12,7 +12,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -1888,7 +1888,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -3740,7 +3740,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -5838,7 +5838,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -7738,7 +7738,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -9572,7 +9572,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
@@ -11397,7 +11397,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       }
     >
       <nav
-        className="tc-header-bar, undefined"
+        className="tc-header-bar undefined"
       >
         <ul
           className="tc-header-bar-actions"
