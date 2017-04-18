@@ -26,8 +26,8 @@ function mapValue2Label(enumOptions) {
 }
 
 function DropDownOptions({
-	                         options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent
-                         }) {
+ options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent,
+}) {
 	const optionsToShow = options.map((item, index) => (
 		<MenuItem active={selectedIndex === index} key={index} onClick={() => onSelectOption(item)}>
 			{item.label}
@@ -325,13 +325,13 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	MultiSelectTagWidget.propTypes = {
-		value: React.PropTypes.array,
+		value: React.PropTypes.array, //eslint-disable-line
 		options: React.PropTypes.shape({
 			enumOptions: React.PropTypes.arrayOf(Tag),
 		}),
 		readonly: React.PropTypes.bool,
 		onChange: React.PropTypes.func,
-		schema: React.PropTypes.object.isRequired,
+		schema: React.PropTypes.object.isRequired, //eslint-disable-line
 	};
 }
 
