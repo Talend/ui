@@ -6,12 +6,17 @@ import theme from './MultiSelectTagWidget.scss';
 
 const ENTER = 'ENTER';
 const LEAVE = 'LEAVE';
+const KEY_UP = 38;
+const KEY_DOWN = 40;
+const KEY_ENTER = 13;
+const KEY_BACK_SPACE = 8;
 
 const INPUT_TEXT_INDENT = 7.5;
 const INPUT_HEIGHT = 32;
 const BADGE_HEIGHT = 24;
 const BADGES_MARGIN_TOP = 7;
 const INPUT_MIN_WIDTH = 135;
+const DROP_DOWN_ITEM_HEIGHT = 39;
 
 function mapValue2Label(enumOptions) {
 	return enumOptions.reduce((map, option) => {
@@ -21,9 +26,10 @@ function mapValue2Label(enumOptions) {
 }
 
 function DropDownOptions({
-	options, onSelectOption, filterText, createIfNoneMatch, onCreateNew, onMouseEvent }) {
+	                         options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent
+                         }) {
 	const optionsToShow = options.map((item, index) => (
-		<MenuItem key={index} onClick={() => onSelectOption(item)}>
+		<MenuItem active={selectedIndex === index} key={index} onClick={() => onSelectOption(item)}>
 			{item.label}
 		</MenuItem>
 	));
@@ -64,6 +70,7 @@ class MultiSelectTagWidget extends React.Component {
 		super(props);
 		this.state = {
 			showDropDownOptions: false,
+			selectedIndex: 0,
 			filterText: '',
 		};
 
@@ -119,11 +126,26 @@ class MultiSelectTagWidget extends React.Component {
 		this.input = input;
 	}
 
+	onComponentMount(component) {
+		this.component = component;
+	}
+
 	onKeyDown(event) {
-		if (event.which === 13) {
-			const optionsToShow = this.getOptionsToShow();
+		const optionsToShow = this.getOptionsToShow();
+		switch (event.which) {
+		case KEY_BACK_SPACE: {
+			if (this.state.filterText === '' && this.props.value.length > 0) {
+				this.onRemoveTag(this.props.value[this.props.value.length - 1]);
+			}
+			break;
+		}
+		case KEY_ENTER: {
 			if (optionsToShow.length > 0) {
-				this.onSelectTag(optionsToShow[0]);
+				this.onSelectTag(optionsToShow[this.state.selectedIndex]);
+				this.setState({
+					selectedIndex: 0,
+				});
+				this.scrollDropDownIfRequired(0, KEY_UP);
 			} else if (this.state.filterText.length > 0) {
 				const { schema } = this.props;
 				if (schema.createIfNoneMatch) {
@@ -131,6 +153,32 @@ class MultiSelectTagWidget extends React.Component {
 				}
 			}
 			event.preventDefault();
+			break;
+		}
+		case KEY_UP: {
+			if (this.state.selectedIndex > 0) {
+				this.setState({
+					selectedIndex: this.state.selectedIndex - 1,
+				});
+				this.scrollDropDownIfRequired(this.state.selectedIndex - 1, KEY_UP);
+			}
+			break;
+		}
+		case KEY_DOWN: {
+			if (this.state.selectedIndex < optionsToShow.length - 1) {
+				this.setState({
+					selectedIndex: this.state.selectedIndex + 1,
+				});
+				this.scrollDropDownIfRequired(this.state.selectedIndex + 1, KEY_DOWN);
+			}
+			break;
+		}
+		default: {
+			this.setState({
+				selectedIndex: 0,
+			});
+			break;
+		}
 		}
 	}
 
@@ -166,6 +214,31 @@ class MultiSelectTagWidget extends React.Component {
 		);
 	}
 
+	scrollDropDownIfRequired(selectedIndex, direction) {
+		const dropDown = this.component.querySelector('.dropdown-menu');
+		const scrollPosition = dropDown.scrollTop;
+		const dropDownHeight = dropDown.clientHeight;
+		const itemStart = (selectedIndex * DROP_DOWN_ITEM_HEIGHT) + 10;
+		const itemEnd = ((selectedIndex + 1) * DROP_DOWN_ITEM_HEIGHT) + 10;
+
+		if (direction === KEY_DOWN) {
+			if (itemStart < scrollPosition) {
+				dropDown.scrollTop = itemStart;
+			}
+			if (itemEnd > (scrollPosition + dropDownHeight)) {
+				dropDown.scrollTop = ((itemEnd - dropDownHeight));
+			}
+		}
+		if (direction === KEY_UP) {
+			if (itemStart > scrollPosition + dropDownHeight) {
+				dropDown.scrollTop = ((itemEnd - dropDownHeight));
+			}
+			if (itemStart < scrollPosition) {
+				dropDown.scrollTop = itemStart;
+			}
+		}
+	}
+
 	toggleDropDownOptions(isOpen) {
 		if (!isOpen && this.isMouseHoverOnOptions) {
 			return;
@@ -186,7 +259,7 @@ class MultiSelectTagWidget extends React.Component {
 		});
 
 		return (
-			<div className={className}>
+			<div className={className} ref={component => this.onComponentMount(component)}>
 				<input
 					aria-label="Filter"
 					value={this.state.filterText}
@@ -227,6 +300,7 @@ class MultiSelectTagWidget extends React.Component {
 						createIfNoneMatch={schema.createIfNoneMatch}
 						onCreateNew={this.onCreateNewTag}
 						onMouseEvent={this.onMouseEvent}
+						selectedIndex={this.state.selectedIndex}
 					/>
 				}
 			</div>
@@ -247,6 +321,7 @@ if (process.env.NODE_ENV !== 'production') {
 		createIfNoneMatch: React.PropTypes.bool,
 		onCreateNew: React.PropTypes.func,
 		onMouseEvent: React.PropTypes.func,
+		selectedIndex: React.PropTypes.number,
 	};
 
 	MultiSelectTagWidget.propTypes = {
