@@ -259,7 +259,7 @@ CollapsiblePanel.propTypes = {
 	expanded: PropTypes.bool,
 	selected: PropTypes.bool,
 	theme: PropTypes.string,
-	content: PropTypes.oneOf([
+	content: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.shape({
 			label: PropTypes.string,
 			description: PropTypes.string,
