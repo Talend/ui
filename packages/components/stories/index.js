@@ -22,6 +22,7 @@ import './ObjectViewer';
 import './Progress';
 import './SidePanel';
 import './Status';
+import './TabBar';
 import './TooltipTrigger';
 import './TreeView';
 import './Toggle';
