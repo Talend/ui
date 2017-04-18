@@ -120,6 +120,86 @@ exports[`Actions should render actions 1`] = `
       </li>
     </ul>
   </div>
+  <div
+    className="dropdown btn-group"
+  >
+    <button
+      className="btn btn-default"
+      disabled={false}
+      hideLabel={false}
+      link={false}
+      onClick={[Function]}
+      tooltipPlacement={undefined}
+      type="button"
+    >
+      <span>
+        <span>
+          add file
+        </span>
+      </span>
+    </button>
+    <button
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label={
+        <span>
+          <span>
+            add file
+          </span>
+        </span>
+      }
+      className="dropdown-toggle btn btn-default"
+      disabled={false}
+      id="split-dropdown-id"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      type="button"
+    >
+       
+      <span
+        className="caret"
+      />
+    </button>
+    <ul
+      aria-labelledby="split-dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 1
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 2
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
@@ -239,6 +319,86 @@ exports[`Actions should render actions with "link" theme 1`] = `
           tabIndex="-1"
         >
           document 2
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="dropdown btn-group"
+  >
+    <button
+      className="btn btn-default"
+      disabled={false}
+      hideLabel={false}
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement={undefined}
+      type="button"
+    >
+      <span>
+        <span>
+          add file
+        </span>
+      </span>
+    </button>
+    <button
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label={
+        <span>
+          <span>
+            add file
+          </span>
+        </span>
+      }
+      className="dropdown-toggle btn btn-default"
+      disabled={false}
+      id="split-dropdown-id"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      type="button"
+    >
+       
+      <span
+        className="caret"
+      />
+    </button>
+    <ul
+      aria-labelledby="split-dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 1
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 2
         </a>
       </li>
     </ul>
@@ -374,6 +534,86 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       </li>
     </ul>
   </div>
+  <div
+    className="dropdown btn-group"
+  >
+    <button
+      className="btn btn-default"
+      disabled={false}
+      hideLabel={true}
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="right"
+      type="button"
+    >
+      <span>
+        <span>
+          add file
+        </span>
+      </span>
+    </button>
+    <button
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label={
+        <span>
+          <span>
+            add file
+          </span>
+        </span>
+      }
+      className="dropdown-toggle btn btn-default"
+      disabled={false}
+      id="split-dropdown-id"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      type="button"
+    >
+       
+      <span
+        className="caret"
+      />
+    </button>
+    <ul
+      aria-labelledby="split-dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 1
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 2
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
@@ -501,6 +741,86 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
           tabIndex="-1"
         >
           document 2
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="dropdown btn-group"
+  >
+    <button
+      className="btn btn-default"
+      disabled={false}
+      hideLabel={true}
+      link={false}
+      onClick={[Function]}
+      tooltipPlacement={undefined}
+      type="button"
+    >
+      <span>
+        <span>
+          add file
+        </span>
+      </span>
+    </button>
+    <button
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label={
+        <span>
+          <span>
+            add file
+          </span>
+        </span>
+      }
+      className="dropdown-toggle btn btn-default"
+      disabled={false}
+      id="split-dropdown-id"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      type="button"
+    >
+       
+      <span
+        className="caret"
+      />
+    </button>
+    <ul
+      aria-labelledby="split-dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 1
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          label="file 2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          file 2
         </a>
       </li>
     </ul>

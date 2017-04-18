@@ -86,11 +86,16 @@ $tc-list-table-header-height: 36px !default;
 			}
 		}
 
+		td {
+			max-width: 200px;
+		}
+
 		.tc-list-display-table-td {
 			display: flex;
 			position: relative;
 
 			.cell {
+				display: flex;
 				flex-shrink: 1;
 				flex-grow: 1;
 				min-width: 0;
