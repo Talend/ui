@@ -10,25 +10,20 @@
 				content: '';
 				flex: 1 0 auto;
 			}
-
-			@media (min-width: $grid-float-breakpoint) {
-				padding-top: $navbar-padding-vertical;
-				padding-bottom: $navbar-padding-vertical;
-			}
 		}
 
 		.form-control {
-			padding-right: $navbar-search-btn-width;
 			font-style: italic;
 			color: $navbar-search-btn-color;
 			border-radius: 0;
-			min-height: $navbar-height;
 		}
 	}
 
 	.navbar-form {
 		.form-group {
-			padding: 0;
+			padding: $padding-small $padding-small $padding-smaller;
+			min-height: $navbar-height;
+			background: $white;
 		}
 	}
 }

@@ -135,7 +135,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     >
       <i
         aria-hidden="true"
-        className="fa fa-play"
+        className="fa fa-play fa-rotate-180"
         title={null}
       />
     </a>
@@ -351,7 +351,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     >
       <i
         aria-hidden="true"
-        className="fa fa-play"
+        className="fa fa-play fa-rotate-180"
         title={null}
       />
     </a>
@@ -650,7 +650,7 @@ exports[`Pagination should render 1`] = `
     >
       <i
         aria-hidden="true"
-        className="fa fa-play"
+        className="fa fa-play fa-rotate-180"
         title={null}
       />
     </a>
@@ -842,7 +842,7 @@ exports[`Pagination should render id if provided 1`] = `
     >
       <i
         aria-hidden="true"
-        className="fa fa-play"
+        className="fa fa-play fa-rotate-180"
         title={null}
       />
     </a>
