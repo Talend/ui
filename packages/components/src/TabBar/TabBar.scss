@@ -10,12 +10,12 @@
 		}
 
 		&:global(.active) {
-			background-color: tint($brand-primary, 80);
+			background-color: tint($brand-primary, 75);
 			color: tint($black, 15);
 
 			&:hover,
 			&:focus {
-				background-color: tint($brand-primary, 75);
+				background-color: tint($brand-primary, 70);
 			}
 		}
 	}
