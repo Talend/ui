@@ -25,7 +25,8 @@ function mapValue2Label(enumOptions) {
 
 function DropDownOptions({
 	options, onSelectOption, filterText, createIfNoneMatch, onCreateNew, onMouseEvent,
-	noAvailableMessage }) {
+	selectedIndex, noAvailableMessage,
+}) {
 	const optionsToShow = options.map((item, index) => (
 		<MenuItem active={selectedIndex === index} key={index} onClick={() => onSelectOption(item)}>
 			{item.label}
