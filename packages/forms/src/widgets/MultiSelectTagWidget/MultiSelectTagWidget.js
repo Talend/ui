@@ -14,6 +14,7 @@ const BADGE_HEIGHT = 24;
 const BADGES_MARGIN_TOP = 7;
 const INPUT_MIN_WIDTH = 135;
 const DROP_DOWN_ITEM_HEIGHT = 39;
+const DROP_DOWN_PADDING = 10;
 
 function mapValue2Label(enumOptions) {
 	return enumOptions.reduce((map, option) => {
@@ -23,8 +24,8 @@ function mapValue2Label(enumOptions) {
 }
 
 function DropDownOptions({
-	options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent,
-}) {
+	                         options, onSelectOption, filterText, createIfNoneMatch, selectedIndex, onCreateNew, onMouseEvent,
+                         }) {
 	const optionsToShow = options.map((item, index) => (
 		<MenuItem active={selectedIndex === index} key={index} onClick={() => onSelectOption(item)}>
 			{item.label}
@@ -215,8 +216,8 @@ class MultiSelectTagWidget extends React.Component {
 		const dropDown = this.component.querySelector('.dropdown-menu');
 		const scrollPosition = dropDown.scrollTop;
 		const dropDownHeight = dropDown.clientHeight;
-		const itemStart = (selectedIndex * DROP_DOWN_ITEM_HEIGHT) + 10;
-		const itemEnd = ((selectedIndex + 1) * DROP_DOWN_ITEM_HEIGHT) + 10;
+		const itemStart = (selectedIndex * DROP_DOWN_ITEM_HEIGHT) + DROP_DOWN_PADDING;
+		const itemEnd = ((selectedIndex + 1) * DROP_DOWN_ITEM_HEIGHT) + DROP_DOWN_PADDING;
 
 		if (direction === keycode.codes.down) {
 			if (itemStart < scrollPosition) {
