@@ -35,7 +35,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
           "value": "bar-1",
         },
       ]
-    } />
+    }
+    selectedIndex={0} />
 </div>
 `;
 
@@ -102,6 +103,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
           "value": "bar-1",
         },
       ]
-    } />
+    }
+    selectedIndex={0} />
 </div>
 `;
