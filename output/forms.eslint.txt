@@ -131,8 +131,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  27:1  error  Line 27 exceeds the maximum line length of 100  max-len
-  27:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
+   30:21  error  'selectedIndex' is not defined                              no-undef
+  327:18  error  'selectedIndex' PropType is defined but prop is never used  react/no-unused-prop-types
 
 ✖ 114 problems (114 errors, 0 warnings)
 
