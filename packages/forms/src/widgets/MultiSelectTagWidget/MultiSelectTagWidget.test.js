@@ -20,6 +20,7 @@ describe('MultiSelectTagWidget', () => {
 
 		const schema = {
 			createIfNoneMatch: false,
+			noAvailableMessage: 'None',
 		};
 
 		const wrapper = shallow(
@@ -50,6 +51,7 @@ describe('MultiSelectTagWidget', () => {
 
 		const schema = {
 			createIfNoneMatch: false,
+			noAvailableMessage: 'None',
 		};
 
 		const wrapper = shallow(

@@ -24,6 +24,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
   <DropDownOptions
     createIfNoneMatch={false}
     filterText=""
+    noAvailableMessage="None"
     onCreateNew={[Function]}
     onMouseEvent={[Function]}
     onSelectOption={[Function]}
@@ -91,6 +92,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   <DropDownOptions
     createIfNoneMatch={false}
     filterText=""
+    noAvailableMessage="No Available"
     onCreateNew={[Function]}
     onMouseEvent={[Function]}
     onSelectOption={[Function]}
