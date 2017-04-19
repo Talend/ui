@@ -156,7 +156,7 @@ $line-height: 30px;
 				font-weight: 400;
 				margin-right: $padding-small;
 				text-align: right;
-				text-transform: capitalize;
+				text-transform: uppercase;
 				width: $definition-width - $description-width - $padding-small;
 
 				&:after {

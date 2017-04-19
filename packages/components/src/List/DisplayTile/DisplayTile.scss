@@ -88,7 +88,7 @@ $tile-width: 16em;
 	line-height: 2.5em;
 	margin-left: -($tile-width / 2) - 0.5;
 	text-align: right;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	width: ($tile-width / 2) - 1;
 
 	&:after {
