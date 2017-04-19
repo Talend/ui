@@ -190,12 +190,15 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onDeleteItemHandler() {
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+		const newState = {
 			itemsProp: {
 				...this.state.itemsProp, actionsDefault: this.defaultActions,
 			},
-		});
+		};
+		if (this.state.displayMode !== DISPLAY_MODE_SEARCH) {
+			newState.displayMode = DISPLAY_MODE_DEFAULT;
+		}
+		this.setState(newState);
 	}
 
 	onAbortItem(event, value) {
@@ -282,7 +285,7 @@ class EnumerationWidget extends React.Component {
 		let headerActions;
 		if (this.state.searchCriteria) {
 			headerActions = this.searchInputsActions;
-		}		else {
+		} else {
 			headerActions = this.defaultHeaderActions;
 		}
 
