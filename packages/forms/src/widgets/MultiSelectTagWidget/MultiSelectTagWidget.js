@@ -21,7 +21,8 @@ function mapValue2Label(enumOptions) {
 }
 
 function DropDownOptions({
-	options, onSelectOption, filterText, createIfNoneMatch, onCreateNew, onMouseEvent }) {
+	options, onSelectOption, filterText, createIfNoneMatch, onCreateNew, onMouseEvent,
+	noAvailableMessage }) {
 	const optionsToShow = options.map((item, index) => (
 		<MenuItem key={index} onClick={() => onSelectOption(item)}>
 			{item.label}
@@ -29,7 +30,7 @@ function DropDownOptions({
 	));
 	const NO_AVAILABLE = (
 		<MenuItem onClick={() => onSelectOption()}>
-			No Available
+			{noAvailableMessage}
 		</MenuItem>
 	);
 	const NEW_OPTION = (
@@ -227,12 +228,17 @@ class MultiSelectTagWidget extends React.Component {
 						createIfNoneMatch={schema.createIfNoneMatch}
 						onCreateNew={this.onCreateNewTag}
 						onMouseEvent={this.onMouseEvent}
+						noAvailableMessage={schema.noAvailableMessage}
 					/>
 				}
 			</div>
 		);
 	}
 }
+
+DropDownOptions.defaultProps = {
+	noAvailableMessage: 'No Available',
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	const Tag = React.PropTypes.shape({
@@ -247,6 +253,7 @@ if (process.env.NODE_ENV !== 'production') {
 		createIfNoneMatch: React.PropTypes.bool,
 		onCreateNew: React.PropTypes.func,
 		onMouseEvent: React.PropTypes.func,
+		noAvailableMessage: React.PropTypes.string,
 	};
 
 	MultiSelectTagWidget.propTypes = {

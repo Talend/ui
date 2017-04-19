@@ -1,0 +1,107 @@
+exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1`] = `
+<div
+  className="undefined dropdown open">
+  <input
+    aria-label="Filter"
+    className="form-control"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    value="" />
+  <div
+    className="dropdown-toggle">
+    <span
+      className="caret" />
+  </div>
+  <div
+    className="tags-container">
+    <Badge
+      label="Foo"
+      onDelete={[Function]}
+      tcStyle="solid" />
+  </div>
+  <DropDownOptions
+    createIfNoneMatch={false}
+    filterText=""
+    noAvailableMessage="None"
+    onCreateNew={[Function]}
+    onMouseEvent={[Function]}
+    onSelectOption={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "Bar",
+          "value": "bar-1",
+        },
+      ]
+    } />
+</div>
+`;
+
+exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdown 1`] = `
+<div
+  className="undefined dropdown">
+  <input
+    aria-label="Filter"
+    className="form-control"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    value="" />
+  <div
+    className="dropdown-toggle">
+    <span
+      className="caret" />
+  </div>
+  <div
+    className="tags-container">
+    <Badge
+      label="Foo"
+      onDelete={[Function]}
+      tcStyle="solid" />
+  </div>
+</div>
+`;
+
+exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
+<div
+  className="undefined dropdown open">
+  <input
+    aria-label="Filter"
+    className="form-control"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    value="" />
+  <div
+    className="dropdown-toggle">
+    <span
+      className="caret" />
+  </div>
+  <div
+    className="tags-container">
+    <Badge
+      label="Foo"
+      onDelete={[Function]}
+      tcStyle="solid" />
+  </div>
+  <DropDownOptions
+    createIfNoneMatch={false}
+    filterText=""
+    noAvailableMessage="No Available"
+    onCreateNew={[Function]}
+    onMouseEvent={[Function]}
+    onSelectOption={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "Bar",
+          "value": "bar-1",
+        },
+      ]
+    } />
+</div>
+`;
