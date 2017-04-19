@@ -175,31 +175,7 @@ const propsCollapsibleSelectablePanel = {
 				className: 'text-right',
 			},
 		],
-		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elit`,
+		description: `1 - First row, ...\n2 - Second row, ...\n3 - Third row, ...\nLast row, ...`,
 	},
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),

@@ -206,7 +206,6 @@ decoratedStories
 				icon: {
 					name: 'fa fa-search',
 				},
-				position: 'right',
 				value: 'le',
 				searching: true,
 				onBlur: action('onBlur'),
@@ -221,7 +220,6 @@ decoratedStories
 				icon: {
 					name: 'fa fa-search',
 				},
-				position: 'right',
 				value: 'le',
 				items: typeaheadItems,
 				onBlur: action('onBlur'),
@@ -237,7 +235,6 @@ decoratedStories
 				icon: {
 					name: 'fa fa-search',
 				},
-				position: 'right',
 				value: 'le',
 				items: [],
 				onBlur: action('onBlur'),
