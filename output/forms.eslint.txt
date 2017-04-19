@@ -130,7 +130,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 112 problems (112 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  27:1  error  Line 27 exceeds the maximum line length of 100  max-len
+  27:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
+
+✖ 114 problems (114 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
