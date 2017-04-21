@@ -610,7 +610,7 @@ exports[`Toolbar should render sort selector 1`] = `
             onClick={[Function]}
             role="button"
           >
-            DESCENDING
+            Descending
           </a>
         </li>
       </ul>
