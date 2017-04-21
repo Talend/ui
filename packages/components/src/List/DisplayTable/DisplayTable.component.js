@@ -23,7 +23,7 @@ export function CellContent({ isTitle, item, column, titleProps, id }) {
 			hideLabel
 		/>);
 	}
-	const str = item[column.key] !== undefined ? item[column.key].toString() : '';
+	const str = item[column.key] != undefined ? item[column.key].toString() : '';
 	return (
 		<TooltipTrigger label={str} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
