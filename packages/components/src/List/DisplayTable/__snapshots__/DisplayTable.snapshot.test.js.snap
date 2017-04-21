@@ -105,7 +105,7 @@ exports[`DisplayTable should render column actions 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -322,7 +322,7 @@ exports[`DisplayTable should render column actions 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -692,7 +692,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -967,7 +967,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -1360,7 +1360,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -1519,7 +1519,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -1828,7 +1828,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -1987,7 +1987,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -2366,7 +2366,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -2641,7 +2641,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -3034,7 +3034,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -3193,7 +3193,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -3509,7 +3509,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     role="link"
                     type="button"
                   >
-                    1
+                    0
                   </button>
                 </div>
               </div>
@@ -3671,7 +3671,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     role="link"
                     type="button"
                   >
-                    2
+                    1
                   </button>
                 </div>
               </div>
@@ -3974,7 +3974,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -4133,7 +4133,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
@@ -4442,7 +4442,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  1
+                  0
                 </span>
               </div>
             </div>
@@ -4601,7 +4601,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
-                  2
+                  1
                 </span>
               </div>
             </div>
