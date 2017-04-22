@@ -12,10 +12,11 @@ export const COLLECTION_MUTATE = 'REACT_CMF.COLLECTION_MUTATE';
  * @param {string} collectionId identifier
  * @param {any} data element that represent business data
  */
-export const addOrReplaceCollection = (collectionId, data) => ({
+export const addOrReplaceCollection = (collectionId, data, http) => ({
 	type: COLLECTION_ADD_OR_REPLACE,
 	collectionId,
 	data,
+	http,
 });
 
 /**
