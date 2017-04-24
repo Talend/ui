@@ -4,15 +4,3 @@ Scoping to packages that match 'react-talend-components'
 > react-talend-components@0.72.1 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
-
-src/List/Toolbar/Filter/Filter.scss
-  20:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  24:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  39:1  warning  Space expected between blocks                            empty-line-between-blocks
-  42:1  warning  Space expected between blocks                            empty-line-between-blocks
-
-✖ 4 problems (1 error, 3 warnings)
-
-Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:style
