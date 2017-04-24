@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import mock, { Provider } from 'react-cmf/lib/mock';
 import { fromJS, Map } from 'immutable';
 
@@ -79,15 +79,32 @@ reduxState.cmf.components = new Map({});
 reduxState.cmf.collections = new Map({});
 
 describe('Component HomeListView', () => {
-	it('should render', () => {
-		const wrapper = renderer.create(
+	it('should render with object props', () => {
+		const wrapper = shallow(
 			<Provider state={reduxState}>
-				<Component header={(<div className="header" />)} sidepanel={sidepanel} list={listProps}>
+				<Component
+					header={{ app: 'hello app' }}
+					sidepanel={sidepanel}
+					list={listProps}>
 					<h1>Hello children</h1>
 				</Component>
 			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+
+	it('should render with element props', () => {
+		const wrapper = shallow(
+			<Provider state={reduxState}>
+				<Component
+					header={(<div>hello app</div>)}
+					sidepanel={(<div>hello sidepanel</div>)}
+					list={(<div>hello list</div>)}>
+					<h1>Hello children</h1>
+				</Component>
+			</Provider>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 });
 

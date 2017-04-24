@@ -5,6 +5,13 @@ import AppHeaderBar from '../AppHeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
+function getContent(Component, props) {
+	if (typeof props === 'object') {
+		return (<Component {...props} />);
+	}
+	return props;
+}
+
 function HomeListView({ sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
@@ -12,23 +19,29 @@ function HomeListView({ sidepanel, list, header, children }) {
 	return (
 		<Layout
 			mode="TwoColumns"
-			header={(<AppHeaderBar {...header} />)}
-			one={(<SidePanel {...sidepanel} />)}
+			header={getContent(AppHeaderBar, header)}
+			one={getContent(SidePanel, sidepanel)}
 			drawers={children}
 		>
-			<List {...list} />
+			{getContent(List, list)}
 		</Layout>
 	);
 }
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
-	header: Layout.propTypes.header,
-	sidepanel: PropTypes.shape({
-		actionIds: PropTypes.arrayOf(PropTypes.string),
-	}).isRequired,
-	list: PropTypes.shape({
-	}).isRequired,
+	header: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]),
+	sidepanel: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]).isRequired,
+	list: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]).isRequired,
 	children: PropTypes.node,
 };
 
