@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock, { Provider } from 'react-cmf/lib/mock';
-import { fromJS, Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
@@ -54,9 +53,6 @@ const listProps = {
 	toolbar,
 	items,
 };
-const reduxState = mock.state();
-reduxState.cmf.components = new Map({});
-reduxState.cmf.collections = new Map({});
 
 describe('Component HomeListView', () => {
 	it('should render with object props', () => {
