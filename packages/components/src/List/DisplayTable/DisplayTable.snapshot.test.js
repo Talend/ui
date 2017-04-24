@@ -21,7 +21,7 @@ const columnActions = [
 
 const items = [
 	{
-		id: 1,
+		id: 0,
 		name: 'Hello world',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -39,7 +39,7 @@ const items = [
 		className: 'item-0-class',
 	},
 	{
-		id: 2,
+		id: 1,
 		name: 'Foo',
 		created: '2016-09-22',
 		modified: '2016-09-22',
