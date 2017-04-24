@@ -223,9 +223,7 @@ describe('CMF http middleware', () => {
 		const config = {
 			body: formData,
 			credentials: 'same-origin',
-			headers: {
-				Accept: 'application/json',
-			},
+			headers: DEFAULT_HTTP_HEADERS,
 			method: 'POST',
 			onError: 'CALL_ME_BACK on error',
 			onResponse: 'CALL_ME_BACK on response',
@@ -288,6 +286,7 @@ describe('CMF http middleware', () => {
 			done();
 		});
 	});
+
 	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
 		const store = {
 			dispatch: jest.fn(),

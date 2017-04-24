@@ -56,10 +56,6 @@ export function mergeOptions(action) {
 		options.body = JSON.stringify(options.body);
 	}
 
-	if (options.body instanceof FormData) {
-		delete options.headers['Content-Type'];
-	}
-
 	delete options.type;
 	return options;
 }
