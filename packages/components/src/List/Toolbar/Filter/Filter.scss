@@ -6,16 +6,22 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 	display: flex;
 	align-items: center;
 	padding: 0;
+	background: $white;
 
 	.search-icon {
 		margin: $padding-small;
 	}
 
-	input.search {
+	:global(.form-group.form-group) {
+		padding: 0;
+		background: none;
+	}
+
+	.search {
 		width: $tc-list-filter-input-size;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 
-		&::-ms-clear {
+		&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 	}
@@ -30,9 +36,11 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 		opacity: 0;
 		width: 0;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		width: $tc-list-filter-input-size;
 	}
