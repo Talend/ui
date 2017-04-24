@@ -1,17 +1,19 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.68.1 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.72.1 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
-
-/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
-  22:4  error  Expected space(s) after "switch"  keyword-spacing
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
   7:27  error  'name' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
+  1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
+  2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:2  error  Unexpected require()                                                                                      global-require
+
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
@@ -32,7 +34,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 13 problems (13 errors, 0 warnings)
+✖ 15 problems (15 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute

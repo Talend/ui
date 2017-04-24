@@ -5,24 +5,25 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-
+const SASS_DATA = '@import "~bootstrap-talend-theme/src/theme/guidelines";';
 const autoprefixer = require('autoprefixer');
-const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
 
 module.exports = {
-	plugins: [
-		// your custom plugins
-	],
 	module: {
 		loaders: [
+			{
+				test: /\.js?$/,
+				include: /node_modules\/(react-storybook-addon-props-combinations)/,
+				loader: 'babel',
+			},
 			{
 				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
 				loader: 'url-loader',
 				options: {
 					limit: 50000,
 					mimetype: 'application/font-woff',
-					name: './fonts/[name].[ext]'
-				}
+					name: './fonts/[name].[ext]',
+				},
 			},
 			{
 				test: /\.scss$/,
@@ -31,14 +32,11 @@ module.exports = {
 		],
 	},
 	postcss: [
-		require('autoprefixer')({
-			browsers: ['last 2 versions']
-		})
+		autoprefixer({
+			browsers: ['last 2 versions'],
+		}),
 	],
 	sassLoader: {
 		data: SASS_DATA,
-	},
-	postcss: function () {
-		return [autoprefixer({ browsers: ['last 2 versions'] })];
 	},
 };

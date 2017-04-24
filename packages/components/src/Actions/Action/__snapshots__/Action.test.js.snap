@@ -124,6 +124,30 @@ exports[`Action should render a button 1`] = `
 </button>
 `;
 
+exports[`Action should render action with html property name = props.name if set 1`] = `
+<button
+  className="btn btn-default"
+  disabled={false}
+  name="custom_name"
+  onClick={[Function]}
+  role={null}
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    className="tc-svg-icon"
+    title={null}
+  >
+    <use
+      xlinkHref="#talend-caret-down"
+    />
+  </svg>
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
 exports[`Action should reverse icon/label 1`] = `
 <button
   className="btn btn-default"

@@ -77,7 +77,7 @@ const props = {
 		],
 		items: [
 			{
-				id: 1,
+				id: 0,
 				name: 'Title with actions',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -88,7 +88,7 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
-				id: 2,
+				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -98,7 +98,7 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
-				id: 3,
+				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -106,7 +106,7 @@ const props = {
 				className: 'item-2-class',
 			},
 			{
-				id: 4,
+				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -414,7 +414,13 @@ storiesOf('List', module)
 	})
 	.add('Table with column actions', () => {
 		const columnActionsProps = Immutable.fromJS(props).toJS();
-		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
+		const actionsColumn = {
+			key: 'columnActions',
+			label: 'Actions',	// label should be set for screen readers
+			hideHeader: true,	// header will created with a sr-only class, so it will be hidden
+		};
+
+		columnActionsProps.list.columns.splice(2, 0, actionsColumn);
 		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
 			columnActions: [
 				{

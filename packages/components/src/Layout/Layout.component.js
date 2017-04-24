@@ -51,17 +51,15 @@ function Layout({ header, footer, mode, drawers, children, ...rest }) {
 	}
 	return (
 		<div className={appCSS}>
-			<div className={headerCSS}>
-				{header}
-			</div>
-			{Component ? (
-				<Component drawers={drawers} {...rest}>
-					{children}
-				</Component>
-			) : null}
-			{footer && <footer role="contentinfo" className={footerCSS}>
-				{footer}
-			</footer>}
+			{header &&
+				<div className={headerCSS}>{header}</div>
+			}
+			{Component &&
+				<Component drawers={drawers} {...rest}>{children}</Component>
+			}
+			{footer &&
+				<footer role="contentinfo" className={footerCSS}>{footer}</footer>
+			}
 		</div>
 	);
 }

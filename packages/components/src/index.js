@@ -70,6 +70,7 @@ import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions'
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
+import HeaderBar from './HeaderBar';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -87,6 +88,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
@@ -99,6 +101,7 @@ export {
 	ActionSplitDropdown,
 	Actions,
 	AppHeaderBar,
+	HeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
@@ -118,6 +121,7 @@ export {
 	Progress,
 	SidePanel,
 	Status,
+	TabBar,
 	Toggle,
 	TooltipTrigger,
 	Typeahead,

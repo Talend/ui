@@ -1,21 +1,13 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.68.1 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.72.1 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  3:21  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  3:1   error  'react-cmf' should be listed in the project's dependencies. Run 'npm i -S react-cmf' to add it  import/no-extraneous-dependencies
-  3:25  error  Unable to resolve path to module 'react-cmf'                                                    import/no-unresolved
+  36:3  warning  Unexpected console statement  no-console
 
-✖ 4 problems (4 errors, 0 warnings)
+✖ 1 problem (0 errors, 1 warning)
 
-Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:es

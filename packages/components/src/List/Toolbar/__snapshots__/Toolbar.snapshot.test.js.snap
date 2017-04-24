@@ -405,7 +405,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <i
               aria-hidden="true"
-              className="fa fa-play"
+              className="fa fa-play fa-rotate-180"
               title={null}
             />
           </a>
@@ -610,7 +610,7 @@ exports[`Toolbar should render sort selector 1`] = `
             onClick={[Function]}
             role="button"
           >
-            DESCENDING
+            Descending
           </a>
         </li>
       </ul>

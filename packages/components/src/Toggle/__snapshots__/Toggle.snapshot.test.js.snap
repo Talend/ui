@@ -11,6 +11,7 @@ exports[`Toggle should render a Checkbox 1`] = `
       checked={false}
       disabled={false}
       id="id"
+      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
@@ -32,6 +33,7 @@ exports[`Toggle should render a Toggle 1`] = `
       checked={false}
       disabled={false}
       id="id"
+      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
@@ -53,6 +55,7 @@ exports[`Toggle should render a Toggle with label 1`] = `
       checked={false}
       disabled={false}
       id="id"
+      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
@@ -74,6 +77,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
       checked={true}
       disabled={false}
       id="id"
+      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
@@ -95,6 +99,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
       checked={false}
       disabled={true}
       id="id"
+      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />

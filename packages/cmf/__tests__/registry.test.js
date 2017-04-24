@@ -25,6 +25,16 @@ describe('CMF registry', () => {
 		expect(registry.Registry.getRegistry().okey.foo).toBe('bar');
 	});
 
+	it('addToRegistry should throw if value is undefined', () => {
+		function addUndefined() {
+			registry.addToRegistry('undefined', undefined);
+		}
+		expect(addUndefined).toThrow(
+			`CMF: you can't register undefined in 'undefined'.
+			You may have an import error in your configuration`
+		);
+	});
+
 	it('getFromRegistry should return the item', () => {
 		// given
 		registry.addToRegistry('key', 'value');
@@ -58,8 +68,8 @@ describe('CMF registry', () => {
 		registry.lock();
 
 		// when / then
-		expect(() => registry.addToRegistry('key', 'value')).toThrow(
-			'CMF: The registry is locked, you cannot therefore add \'key\' in it. ' +
+		expect(() => registry.addToRegistry('locked', 'value')).toThrow(
+			'CMF: The registry is locked, you cannot therefore add \'locked\' in it. ' +
 			'Please check your CMF configuration, it should not move after the initial configuration before bootstrap.'
 		);
 	});

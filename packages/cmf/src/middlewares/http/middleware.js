@@ -49,6 +49,7 @@ export function mergeOptions(action) {
 	const options = Object.assign({
 		method: getMethod(action),
 		headers: DEFAULT_HTTP_HEADERS,
+		credentials: 'same-origin',
 	}, action);
 
 	if (typeof options.body === 'object') {

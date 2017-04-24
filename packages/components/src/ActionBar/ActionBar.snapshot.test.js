@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import ActionBar from './ActionBar.component';
 
@@ -62,11 +62,14 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
+		const switchActions = wrapper.find(ActionBar.SwitchActions);
+		expect(switchActions.props().left).toBe(true);
+		expect(switchActions.props().selected).toBe(0);
 	});
 
 	it('should render no-selected actions, some on left, the other on right', () => {
@@ -79,11 +82,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render no-selected actions, all on right', () => {
@@ -95,11 +98,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions, all on left', () => {
@@ -112,11 +115,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions,' +
@@ -131,11 +134,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions, all on right', () => {
@@ -148,11 +151,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
+		);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render a btn-group', () => {
@@ -161,9 +164,63 @@ describe('ActionBar', () => {
 				left: [btnGroupAction],
 			},
 		};
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<ActionBar {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+});
+
+describe('ActionBar.Count', () => {
+	it('should render if selected', () => {
+		const wrapper = shallow(
+			<ActionBar.Count selected={1} />
+		);
+		const noselected = shallow(
+			<ActionBar.Count />
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+		expect(noselected.root.node).toBe(null);
+	});
+});
+
+describe('ActionBar.SwitchActions', () => {
+	const actions = [{ label: 'action' }];
+	it('should render one Action on navbar-left', () => {
+		const wrapper = shallow(
+			<ActionBar.SwitchActions
+				actions={actions}
+				left
+			/>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+	it('should render one Action on navbar-right', () => {
+		const wrapper = shallow(
+			<ActionBar.SwitchActions
+				actions={actions}
+				right
+			/>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+	it('should render one Action on navbar-left with selected', () => {
+		const wrapper = shallow(
+			<ActionBar.SwitchActions
+				selected={3}
+				actions={actions}
+				left
+			/>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+	it('should not render selected on right', () => {
+		const wrapper = shallow(
+			<ActionBar.SwitchActions
+				selected={3}
+				right
+			/>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 });
