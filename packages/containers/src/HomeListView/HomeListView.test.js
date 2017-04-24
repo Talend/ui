@@ -14,9 +14,6 @@ const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
-		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created' },
-		{ key: 'modified', label: 'Modified' },
 	],
 	titleProps: {
 		key: 'label',
@@ -49,23 +46,6 @@ const items = fromJS([
 		display: 'text',
 		className: 'item-0-class',
 	},
-	{
-		id: 2,
-		label: 'Title in input mode',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'fa fa-file-pdf-o',
-		display: 'input',
-		className: 'item-1-class',
-	},
-	{
-		id: 3,
-		label: 'Super long title to trigger overflow on tile rendering',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT with super long name',
-	},
 ]);
 
 const listProps = {
@@ -81,31 +61,42 @@ reduxState.cmf.collections = new Map({});
 describe('Component HomeListView', () => {
 	it('should render with object props', () => {
 		const wrapper = shallow(
-			<Provider state={reduxState}>
 				<Component
 					header={{ app: 'hello app' }}
 					sidepanel={sidepanel}
-					list={listProps}>
+					list={listProps}
+				>
 					<h1>Hello children</h1>
 				</Component>
-			</Provider>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render with element props', () => {
 		const wrapper = shallow(
-			<Provider state={reduxState}>
 				<Component
 					header={(<div>hello app</div>)}
 					sidepanel={(<div>hello sidepanel</div>)}
-					list={(<div>hello list</div>)}>
+					list={(<div>hello list</div>)}
+				>
 					<h1>Hello children</h1>
 				</Component>
-			</Provider>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
+	it('should children transformed as array in props.drawer', () => {
+		const wrapper = shallow(
+				<Component
+					header={(<div>hello app</div>)}
+					sidepanel={(<div>hello sidepanel</div>)}
+					list={(<div>hello list</div>)}
+				>
+					<h1>Hello children</h1>
+				</Component>
+		);
+		expect(wrapper.props().drawers).toMatchSnapshot();
+	});
+
 });
 
 describe('Connected HomeListView', () => {

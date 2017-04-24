@@ -16,12 +16,18 @@ function HomeListView({ sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
+	let arrayChildren = children;
+	if (!Array.isArray(children) && children !== null) {
+		arrayChildren = [children];
+	} else if (children === null) {
+		arrayChildren = [];
+	}
 	return (
 		<Layout
 			mode="TwoColumns"
 			header={getContent(AppHeaderBar, header)}
 			one={getContent(SidePanel, sidepanel)}
-			drawers={children}
+			drawers={arrayChildren}
 		>
 			{getContent(List, list)}
 		</Layout>

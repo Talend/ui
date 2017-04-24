@@ -1,128 +1,133 @@
+exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
+Array [
+  <h1>
+    Hello children
+</h1>,
+]
+`;
+
 exports[`Component HomeListView should render with element props 1`] = `
-<div
-  className="mock-provider">
-  <HomeListView
-    header={
-      <div>
-        hello app
-      </div>
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
+  }
+  header={
+    <Connect(AppHeaderBar)
+      $$typeof={Symbol(react.element)}
+      _owner={null}
+      _store={Object {}}
+      props={
+        Object {
+          "children": "hello app",
+        }
+      }
+      type="div" />
+  }
+  mode="TwoColumns"
+  one={
+    <Connect(CMF(undefined))
+      $$typeof={Symbol(react.element)}
+      _owner={null}
+      _store={Object {}}
+      props={
+        Object {
+          "children": "hello sidepanel",
+        }
+      }
+      type="div" />
+  }>
+  <Connect(CMF(Container(List)))
+    $$typeof={Symbol(react.element)}
+    _owner={null}
+    _store={Object {}}
+    props={
+      Object {
+        "children": "hello list",
+      }
     }
-    list={
-      <div>
-        hello list
-      </div>
-    }
-    sidepanel={
-      <div>
-        hello sidepanel
-      </div>
-    }>
-    <h1>
-      Hello children
-    </h1>
-  </HomeListView>
-</div>
+    type="div" />
+</Layout>
 `;
 
 exports[`Component HomeListView should render with object props 1`] = `
-<div
-  className="mock-provider">
-  <HomeListView
-    header={
-      Object {
-        "app": "hello app",
-      }
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
+  }
+  header={
+    <Connect(AppHeaderBar)
+      app="hello app" />
+  }
+  mode="TwoColumns"
+  one={
+    <Connect(CMF(undefined))
+      actionIds={
+        Array [
+          "menu:demo",
+          "menu:article",
+        ]
+      } />
+  }>
+  <Connect(CMF(Container(List)))
+    actions={Object {}}
+    items={
+      Array [
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "className": "item-0-class",
+          "created": "2016-09-22",
+          "display": "text",
+          "icon": "fa fa-file-excel-o",
+          "id": 1,
+          "label": "Title with actions",
+          "modified": "2016-09-22",
+        },
+      ]
     }
     list={
       Object {
-        "actions": Object {},
-        "items": Array [
+        "columns": Array [
           Object {
-            "author": "Jean-Pierre DUPONT",
-            "className": "item-0-class",
-            "created": "2016-09-22",
-            "display": "text",
-            "icon": "fa fa-file-excel-o",
-            "id": 1,
-            "label": "Title with actions",
-            "modified": "2016-09-22",
+            "key": "id",
+            "label": "Id",
           },
           Object {
-            "author": "Jean-Pierre DUPONT",
-            "className": "item-1-class",
-            "created": "2016-09-22",
-            "display": "input",
-            "icon": "fa fa-file-pdf-o",
-            "id": 2,
-            "label": "Title in input mode",
-            "modified": "2016-09-22",
-          },
-          Object {
-            "author": "Jean-Pierre DUPONT with super long name",
-            "created": "2016-09-22",
-            "id": 3,
-            "label": "Super long title to trigger overflow on tile rendering",
-            "modified": "2016-09-22",
+            "key": "label",
+            "label": "Name",
           },
         ],
-        "list": Object {
-          "columns": Array [
-            Object {
-              "key": "id",
-              "label": "Id",
-            },
-            Object {
-              "key": "label",
-              "label": "Name",
-            },
-            Object {
-              "key": "author",
-              "label": "Author",
-            },
-            Object {
-              "key": "created",
-              "label": "Created",
-            },
-            Object {
-              "key": "modified",
-              "label": "Modified",
-            },
-          ],
-          "titleProps": Object {
-            "key": "label",
-          },
-        },
-        "toolbar": Object {
-          "filter": Object {
-            "placeholder": "find an object",
-          },
-          "sort": Object {
-            "field": "id",
-            "options": Array [
-              Object {
-                "id": "id",
-                "name": "Id",
-              },
-              Object {
-                "id": "label",
-                "name": "Name",
-              },
-            ],
-          },
+        "titleProps": Object {
+          "key": "label",
         },
       }
     }
-    sidepanel={
+    toolbar={
       Object {
-        "actionIds": Array [
-          "menu:demo",
-          "menu:article",
-        ],
+        "filter": Object {
+          "placeholder": "find an object",
+        },
+        "sort": Object {
+          "field": "id",
+          "options": Array [
+            Object {
+              "id": "id",
+              "name": "Id",
+            },
+            Object {
+              "id": "label",
+              "name": "Name",
+            },
+          ],
+        },
       }
-    }>
-    <h1>
-      Hello children
-    </h1>
-  </HomeListView>
-</div>
+    } />
+</Layout>
 `;
