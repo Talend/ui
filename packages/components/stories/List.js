@@ -69,11 +69,11 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+			{ key: 'id', label: 'Id', flexGrow: 0, flexShrink: 0, width: 35 },
+			{ key: 'name', label: 'Name', type: 'title', flexGrow: 1, flexShrink: 0, width: 400 },
+			{ key: 'author', label: 'Author', flexGrow: 1, flexShrink: 0, width: 90 },
+			{ key: 'created', label: 'Created', flexGrow: 0, flexShrink: 0, width: 90 },
+			{ key: 'modified', label: 'Modified', flexGrow: 0, flexShrink: 0, width: 90 },
 		],
 		items: [
 			{
@@ -119,6 +119,7 @@ const props = {
 		],
 		titleProps: {
 			key: 'name',
+			actionsKey: 'actions',
 			iconKey: 'icon',
 			displayModeKey: 'display',
 			onClick: action('onClick'),
@@ -290,13 +291,13 @@ function getPropsFor(displayMode) {
 }
 
 storiesOf('List', module)
-	.addDecorator((story) => (
+	.addDecorator(story => (
 		<form>
 			{story()}
 		</form>
 	))
 	.add('Table (default)', () => (
-		<div className="display-table tc-list-fixed-name-column">
+		<div style={{ height: '50vh' }}>
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
 			<IconsProvider defaultIcons={icons} />
@@ -310,7 +311,7 @@ storiesOf('List', module)
 			{ id: 'name', name: 'Name' },
 		];
 		return (
-			<div>
+			<div style={{ height: '50vh' }}>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
 				<IconsProvider defaultIcons={icons} />

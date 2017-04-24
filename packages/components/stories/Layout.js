@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer, VirtualizedList } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -109,15 +109,16 @@ const listProps = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+			{ key: 'id', label: 'Id', flexGrow: 0, flexShrink: 0, width: 35 },
+			{ key: 'name', label: 'Name', type: 'title', flexGrow: 1, flexShrink: 0, width: 400 },
+			{ key: 'author', label: 'Author', flexGrow: 1, flexShrink: 0, width: 90 },
+			{ key: 'created', label: 'Created', flexGrow: 0, flexShrink: 0, width: 90 },
+			{ key: 'modified', label: 'Modified', flexGrow: 0, flexShrink: 0, width: 90 },
 		],
 		items: collection,
 		titleProps: {
 			key: 'name',
+			actionsKey: 'actions',
 			iconKey: 'icon',
 			displayModeKey: 'display',
 			onClick: action('onClick'),
@@ -240,72 +241,6 @@ storiesOf('Layout', module)
 		>
 			<List {...listProps} displayMode={'tile'} />
 			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with Virtualized List', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<IconsProvider defaultIcons={icons} />
-			<VirtualizedList
-				collection={collection}
-				sort={action('sort')}
-				sortBy={'name'}
-				sortDirection={'ASC'}
-			>
-				<VirtualizedList.Field
-					label="Id"
-					dataKey="id"
-					width={50}
-					flexShrink={0}
-					flexGrow={0}
-				/>
-				<VirtualizedList.Field
-					label="Name"
-					dataKey="name"
-					width={400}
-					flexShrink={0}
-					flexGrow={0}
-					columnData={{
-						id: 'my-list-item',
-						onClick: action('click'),
-						iconKey: 'icon',
-						actionsKey: 'actions',
-					}}
-					{...VirtualizedList.Cell.TitleRenderer}
-				/>
-				<VirtualizedList.Field
-					label="Description (non sortable)"
-					dataKey="description"
-					width={120}
-					flexShrink={0}
-					flexGrow={1}
-					disableSort
-				/>
-				<VirtualizedList.Field
-					label="Author"
-					dataKey="author"
-					width={90}
-					flexShrink={0}
-					flexGrow={1}
-				/>
-				<VirtualizedList.Field
-					label="Created"
-					dataKey="created"
-					width={90}
-					flexShrink={0}
-					flexGrow={0}
-				/>
-				<VirtualizedList.Field
-					label="Modified"
-					dataKey="modified"
-					width={90}
-					flexShrink={0}
-					flexGrow={0}
-				/>
-			</VirtualizedList>
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => (
