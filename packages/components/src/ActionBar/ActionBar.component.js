@@ -110,10 +110,6 @@ Count.propTypes = {
 function ActionBar(props) {
 	const { left, right } = getActionsToRender(props);
 
-	if (!left && !right && !props.children) {
-		return null;
-	}
-
 	const cssClass = classNames(
 		css['tc-actionbar-container'],
 		'tc-actionbar-container',

@@ -93,7 +93,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 .tc-drawer-footer {
 	padding: $padding-small;
 	background: $tc-action-bar-background-color;
-	height: $btn-default-height + 2 * $padding-small;
 
 	.navbar-left,
 	.navbar-right {
