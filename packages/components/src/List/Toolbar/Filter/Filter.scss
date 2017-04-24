@@ -17,11 +17,11 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 		background: none;
 	}
 
-	input.search {
+	.search {
 		width: $tc-list-filter-input-size;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 
-		&::-ms-clear {
+		&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 	}
@@ -36,9 +36,11 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 		opacity: 0;
 		width: 0;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		width: $tc-list-filter-input-size;
 	}
