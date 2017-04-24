@@ -61,42 +61,41 @@ reduxState.cmf.collections = new Map({});
 describe('Component HomeListView', () => {
 	it('should render with object props', () => {
 		const wrapper = shallow(
-				<Component
-					header={{ app: 'hello app' }}
-					sidepanel={sidepanel}
-					list={listProps}
-				>
-					<h1>Hello children</h1>
-				</Component>
+			<Component
+				header={{ app: 'hello app' }}
+				sidepanel={sidepanel}
+				list={listProps}
+			>
+				<h1>Hello children</h1>
+			</Component>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should render with element props', () => {
 		const wrapper = shallow(
-				<Component
-					header={(<div>hello app</div>)}
-					sidepanel={(<div>hello sidepanel</div>)}
-					list={(<div>hello list</div>)}
-				>
-					<h1>Hello children</h1>
-				</Component>
+			<Component
+				header={(<div>hello app</div>)}
+				sidepanel={(<div>hello sidepanel</div>)}
+				list={(<div>hello list</div>)}
+			>
+				<h1>Hello children</h1>
+			</Component>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
 	it('should children transformed as array in props.drawer', () => {
 		const wrapper = shallow(
-				<Component
-					header={(<div>hello app</div>)}
-					sidepanel={(<div>hello sidepanel</div>)}
-					list={(<div>hello list</div>)}
-				>
-					<h1>Hello children</h1>
-				</Component>
+			<Component
+				header={(<div>hello app</div>)}
+				sidepanel={(<div>hello sidepanel</div>)}
+				list={(<div>hello list</div>)}
+			>
+				<h1>Hello children</h1>
+			</Component>
 		);
 		expect(wrapper.props().drawers).toMatchSnapshot();
 	});
-
 });
 
 describe('Connected HomeListView', () => {
