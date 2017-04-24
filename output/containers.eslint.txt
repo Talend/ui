@@ -19,11 +19,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.component.js
-  28:14  error  'sidepanel.actionIds' PropType is defined but prop is never used  react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies                                       import/no-extraneous-dependencies
+   88:22  error  The closing bracket must be aligned with the line containing the opening tag (expected column 5 on the next line)  react/jsx-closing-bracket-location
+  102:36  error  The closing bracket must be aligned with the line containing the opening tag (expected column 5 on the next line)  react/jsx-closing-bracket-location
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
     2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -48,7 +47,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 16 problems (15 errors, 1 warning)
+✖ 17 problems (16 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
 Errored while running ExecCommand.execute
