@@ -20,10 +20,8 @@ const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
-		const { options, value, onChange } = props;
+		const { options, value } = props;
 		const { enumOptions } = options;
-
-		console.log('[NC] value: ', value);
 
 		this.timerSearch = null;
 		this.value = value;
@@ -53,23 +51,12 @@ class ListViewWidget extends React.Component {
 				checked: value.indexOf(option.value) !== -1,
 				label: option.label,
 				onChange: onItemChange.bind(this),
-				// onChange: (item, event) => {
-				// 	onItemChange.call(
-				// 		this,
-				// 		item,
-				// 		event,
-				// 		() => onChange(this.state.items.filter(i => i.checked).map(f => f.label))
-				// 	);
-				// },
 			})),
 		};
 	}
 
 	setFormData() {
-		this.props.onChange(this.state.items);
-		if (this.props.onBlur) {
-			this.props.onBlur(this.props.id, this.state.items);
-		}
+		this.props.onChange(this.state.items.filter(i => i.checked).map(f => f.label));
 	}
 
 	selectValue(value, selected, all) {
@@ -116,12 +103,10 @@ class ListViewWidget extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
-		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
-		onBlur: PropTypes.func,
 		value: PropTypes.any,
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,

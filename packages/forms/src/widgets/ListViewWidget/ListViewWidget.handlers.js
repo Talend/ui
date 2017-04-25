@@ -43,7 +43,6 @@ export function onToggleAll() {
 }
 
 export function onItemChange(item, event) {
-	// TODO [NC]:
 	this.setState({
 		...this.state,
 		items: this.state.items.map((i) => ({
