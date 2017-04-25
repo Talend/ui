@@ -1,0 +1,33 @@
+{
+  "jsonSchema": {
+    "title": "A enumeration form",
+    "description": "A enumeration form example.",
+    "type": "object",
+    "properties": {
+      "documents": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "France",
+            "Espagne",
+            "Italie",
+            "Portugal"
+          ]
+        },
+        "uniqueItems": true
+      }
+    }
+  },
+  "uiSchema": {
+    "documents": {
+      "ui:widget": "listview"
+    }
+  },
+  "properties": {
+    "documents": [
+      "France",
+      "Portugal"
+    ]
+  }
+}

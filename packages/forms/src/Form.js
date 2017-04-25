@@ -15,6 +15,7 @@ import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
+import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -28,6 +29,7 @@ const customWidgets = {
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
+	listview: ListViewWidget,
 };
 
 export function renderActionIcon(icon) {
