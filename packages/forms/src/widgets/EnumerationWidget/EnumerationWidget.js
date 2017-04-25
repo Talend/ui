@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
+import classNames from 'classnames';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
@@ -17,14 +18,18 @@ const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
+const IMPORT_FILE_ACTION = 'IMPORT_FILE_ACTION';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
 		this.allowDuplicate = false;
+		this.allowImport = false;
+
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
+			this.allowImport = !!props.schema.allowImport;
 		}
 
 		this.addInputs = [{
@@ -80,17 +85,27 @@ class EnumerationWidget extends React.Component {
 			onClick: this.onDeleteItem.bind(this),
 		}];
 		this.defaultHeaderActions = [{
-			label: 'Add item',
-			icon: 'talend-plus',
-			id: 'add',
-			onClick: this.changeDisplayToAddMode.bind(this),
-		}, {
 			disabled: false,
 			label: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
+		}, {
+			label: 'Add item',
+			icon: 'talend-plus',
+			id: 'add',
+			onClick: this.changeDisplayToAddMode.bind(this),
 		}];
+
+		if (this.allowImport) {
+			this.defaultHeaderActions.splice(1, 0, {
+				label: 'Import values from a file',
+				icon: 'talend-download',
+				id: 'upload',
+				onClick: this.simulateClickInputFile.bind(this),
+			});
+		}
+
 		this.selectedHeaderActions = [{
 			label: 'Remove selected values',
 			icon: 'talend-trash',
@@ -489,6 +504,48 @@ class EnumerationWidget extends React.Component {
 		return false;
 	}
 
+
+	/**
+	 * simulateClickInputFile - simulate the click on the hidden input
+	 *
+	 */
+	simulateClickInputFile() {
+		this.inputImport.click();
+	}
+
+
+	/**
+	 * importFile - importFile
+	 *
+	 * @param  {Event} event Event trigger when the user change the input file
+	 */
+	importFile(event) {
+		if (this.callActionHandler(
+			IMPORT_FILE_ACTION,
+			event.target.files[0],
+			this.importFileHandler.bind(this),
+			this.importFileHandler.bind(this)
+		)) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+			});
+		}
+
+		// reinit the input file
+		this.formInput.reset();
+	}
+
+
+	/**
+	 * importFileHandler - Action after the upload
+	 *
+	 */
+	importFileHandler() {
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+		});
+	}
+
 	searchItems(searchCriteria) {
 		if (!searchCriteria) {
 			return this.state.items;
@@ -557,6 +614,19 @@ class EnumerationWidget extends React.Component {
 		const stateToShow = { ...this.state, items };
 		return (
 			<div>
+				{
+					this.allowImport &&
+					<form
+						ref={(element) => { this.formInput = element; }}
+					>
+						<input
+							type="file"
+							ref={(element) => { this.inputImport = element; }}
+							onChange={(event) => { this.importFile(event); }}
+							className={classNames('hidden')}
+						/>
+					</form>
+				}
 				<Enumeration
 					{...stateToShow}
 				/>
