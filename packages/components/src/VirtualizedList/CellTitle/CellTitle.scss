@@ -15,21 +15,22 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
 
-		+ input {
+		+ form > input {
 			margin-left: $padding-normal;
 			width: auto;
 		}
 	}
 
-	.main-button {
+	.main-title {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
-		letter-spacing: inherit;
 		font-weight: 600;
+		letter-spacing: inherit;
+		text-transform: none;
 
 		&:first-child {
 			padding-left: 0;

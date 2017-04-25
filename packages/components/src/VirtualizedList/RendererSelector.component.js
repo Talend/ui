@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
-import { LARGE, TABLE } from './utils/constants';
+import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
+
+const { TABLE, LARGE } = listTypes;
 
 /**
  * Select the ListGrid row renderer to use

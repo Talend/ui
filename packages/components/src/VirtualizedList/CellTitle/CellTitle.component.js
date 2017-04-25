@@ -1,9 +1,13 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { Button } from 'react-bootstrap';
 import { Actions } from '../../Actions';
 import Icon from '../../Icon';
+import CellTitleSelector from './CellTitleSelector.component';
+import { cellTitleDisplayModes } from '../utils/constants';
+
 import theme from './CellTitle.scss';
+
+const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
 /**
  * Cell that renders the item's title.
@@ -13,32 +17,40 @@ import theme from './CellTitle.scss';
  * - actions (rowData[columnData.actionsKey])
  */
 function CellTitle({ cellData, columnData, rowData, rowIndex }) {
-	const { id, onClick, iconKey, actionsKey } = columnData;
+	const {
+		id,
+		onClick,
+		actionsKey,
+		displayModeKey,
+		iconKey,
+		onEditCancel,
+		onEditSubmit,
+	} = columnData;
+	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 
 	return (
-		<div
-			id={id && `${id}-${rowIndex}-title-cell`}
-			className={classNames('tc-list-title', theme['tc-list-title'])}
-		>
+		<div className={classNames('tc-list-title', theme['tc-list-title'])}>
 			{
 				iconKey &&
 				rowData[iconKey] &&
 				(<Icon name={rowData[iconKey]} className={theme.icon} />)
 			}
 
-			<Button
+			<CellTitleSelector
 				id={id && `${id}-${rowIndex}-title-cell`}
-				className={theme['main-button']}
-				onClick={event => onClick(event, rowData)}
-				role="link"
-				bsStyle="link"
-			>
-				{cellData}
-			</Button>
+				cellData={cellData}
+				className={theme['main-title']}
+				displayMode={displayMode}
+				onClick={onClick}
+				onEditCancel={onEditCancel}
+				onEditSubmit={onEditSubmit}
+				rowData={rowData}
+			/>
 
 			{
 				actionsKey &&
 				rowData[actionsKey] &&
+				displayMode === TITLE_MODE_TEXT &&
 				(
 					<Actions
 						actions={rowData[actionsKey]}
@@ -56,9 +68,12 @@ CellTitle.propTypes = {
 	cellData: PropTypes.string,
 	columnData: PropTypes.shape({
 		id: PropTypes.string,
-		onClick: PropTypes.func.isRequired,
-		iconKey: PropTypes.string,
+		onClick: PropTypes.func,
 		actionsKey: PropTypes.string,
+		displayModeKey: PropTypes.string,
+		iconKey: PropTypes.string,
+		onEditCancel: PropTypes.func,
+		onEditSubmit: PropTypes.func,
 	}),
 	rowData: PropTypes.object, // eslint-disable-line
 	rowIndex: PropTypes.number,

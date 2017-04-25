@@ -1,5 +1,5 @@
 import RowLarge from './RowLarge.component';
-import { LARGE } from '../utils/constants';
+import { listTypes } from '../utils/constants';
 
-export const rowType = LARGE;
+export const rowType = listTypes.LARGE;
 export default RowLarge;

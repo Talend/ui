@@ -3,7 +3,7 @@ import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line i
 import talendIcons from 'talend-icons/dist/react';
 
 import { IconsProvider } from '../src/index';
-import VirtualizedList, { LARGE } from '../src/VirtualizedList';
+import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 
@@ -29,8 +29,11 @@ const icons = {
 
 const titleProps = {
 	onClick: action('click'),
-	iconKey: 'icon',
 	actionsKey: 'titleActions',
+	displayModeKey: 'display',
+	iconKey: 'icon',
+	onEditCancel: action('cancel-edit'),
+	onEditSubmit: action('submit-edit'),
 };
 
 const titleActions = [
@@ -227,7 +230,7 @@ storiesOf('Virtualized List', module)
 		<div style={{ height: '80vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
-			<VirtualizedList id={'my-list'} collection={collection} type={LARGE}>
+			<VirtualizedList id={'my-list'} collection={collection} type={listTypes.LARGE}>
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"

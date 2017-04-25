@@ -190,105 +190,12 @@ const props = {
 		},
 	},
 };
-const columnsForItems = [
-	{ key: 'icon', label: '', type: 'icon' },
-	{ key: 'name', label: 'Name', type: 'title' },
-	{ key: 'favorite', label: 'Favorite', type: 'action' },
-	{ key: 'certify', label: 'Certify', type: 'action' },
-	{ key: 'id', label: 'ID' },
-	{ key: 'author', label: 'Author' },
-	{ key: 'created', label: 'Created' },
-	{ key: 'modified', label: 'Modified' },
-];
-const actionsForItems = [
-	{
-		key: 'favorite',
-		label: 'Favorite',
-		icon: 'talend-star',
-		className: 'favorite',
-		onClick: action('onFavoriteActionClick'),
-	}, {
-		key: 'certify',
-		label: 'Certify',
-		icon: 'talend-badge',
-		className: 'certify',
-		onClick: action('onCertifyActionClick'),
-	}, {
-		key: 'edit',
-		label: 'Edit',
-		icon: 'talend-pencil',
-		onClick: action('onEdit'),
-	}, {
-		key: 'delete',
-		label: 'Delete',
-		icon: 'talend-trash',
-		onClick: action('onDelete'),
-	},
-];
-const itemsForItems = [
-	{
-		id: 1,
-		name: 'Title with actions',
-		author: 'Jean-Pierre DUPONT',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		icon: 'talend-file-xls-o',
-		display: 'button',
-		className: 'item-0-class',
-	},
-	{
-		id: 2,
-		name: 'Title in input mode',
-		author: 'Jean-Pierre DUPONT',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		icon: 'talend-file-json-o',
-		favorite: false,
-		certify: true,
-		display: 'input',
-		className: 'item-1-class',
-	},
-	{
-		id: 3,
-		name: 'Super long title to trigger overflow on tile rendering',
-		author: 'Jean-Pierre DUPONT with long name',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		favorite: true,
-		certify: false,
-	},
-];
-const itemPropsForItems = {
-	classNameKey: 'className',
-	onSelect: action('onItemSelect'),
-	onOpen: action('onItemOpen'),
-	onToggleAll: action('onToggleAll'),
-	isSelected: item => selected.find(next => next.id === item.id),
-	onCancel: action('onTitleEditCancel'),
-	onChange: action('onTitleChange'),
-	onSubmit: action('onTitleEditSubmit'),
-};
 
 const sort = {
 	field: 'name',
 	isDescending: false,
 	onChange: action('sort.onChange'),
 };
-
-function getPropsFor(displayMode) {
-	return {
-		id: props.id,
-		displayMode,
-		list: {
-			columns: columnsForItems,
-			actions: actionsForItems,
-			items: itemsForItems,
-			itemProps: itemPropsForItems,
-		},
-		toolbar: props.toolbar,
-		useContent: true,
-	};
-}
 
 storiesOf('List', module)
 	.addDecorator(story => (
@@ -482,39 +389,6 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with scroll', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list in a limited container. To enable content scroll.</p>
-				<IconsProvider defaultIcons={icons} />
-				<div className="tc-list-small-container">
-					<List {...tprops} />
-				</div>
-			</div>
-		);
-	})
-	.add('Table with ellipsis', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div className="tc-list-fixed-name-column">
-				<h1>List</h1>
-				<p>
-					Display a list with NAME content ellipsis.
-					The NAME column is limited to 400px in css.
-				</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
-			</div>
-		);
-	})
 	.add('Table with sort header click', () => {
 		const tprops = Immutable.fromJS(props).toJS();
 		tprops.toolbar = undefined;
@@ -527,30 +401,4 @@ storiesOf('List', module)
 				<List {...tprops} />
 			</div>
 		);
-	})
-	.add('table of Content', () => (
-		<div>
-			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Display a table from Items component.</p>
-			<h2>Examples</h2>
-			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('table')} />
-		</div>
-	))
-	.add('large of Content', () => (
-		<div>
-			<h1>List</h1>
-			<p>Display the list in large mode</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('large')} />
-		</div>
-	))
-	.add('tile of Content', () => (
-		<div>
-			<h1>List</h1>
-			<p>Display the list in tile mode</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('tile')} />
-		</div>
-	));
+	});
