@@ -9,6 +9,7 @@
 			&:after {
 				content: '';
 				flex: 1 0 auto;
+				min-height: $navbar-height;
 			}
 		}
 
