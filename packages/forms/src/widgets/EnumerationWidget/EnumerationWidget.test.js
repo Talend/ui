@@ -268,7 +268,7 @@ describe('EnumerationWidget', () => {
 			expect(wrapper.instance().formInput.reset).toBeCalled();
 			expect(spy).toBeCalledWith(
 				'enumeration',
-				'IMPORT_FILE_ACTION',
+				'ENUMERATION_IMPORT_FILE_ACTION',
 				'file',
 				jasmine.any(Function),
 				jasmine.any(Function)

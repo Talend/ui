@@ -18,7 +18,7 @@ const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
-const IMPORT_FILE_ACTION = 'IMPORT_FILE_ACTION';
+const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -521,7 +521,7 @@ class EnumerationWidget extends React.Component {
 	 */
 	importFile(event) {
 		if (this.callActionHandler(
-			IMPORT_FILE_ACTION,
+			ENUMERATION_IMPORT_FILE_ACTION,
 			event.target.files[0],
 			this.importFileHandler.bind(this),
 			this.importFileHandler.bind(this)
