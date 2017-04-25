@@ -5,7 +5,14 @@ import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 import theme from './CellTitle.scss';
 
-function CellTitle({ cellData, columnData, dataKey, rowData, rowIndex }) {
+/**
+ * Cell that renders the item's title.
+ * A title is composed by
+ * - an optional icon (rowData[columnData.iconKey])
+ * - a button with a click action (columnData.onClick)
+ * - actions (rowData[columnData.actionsKey])
+ */
+function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 	const { id, onClick, iconKey, actionsKey } = columnData;
 
 	return (
@@ -53,7 +60,6 @@ CellTitle.propTypes = {
 		iconKey: PropTypes.string,
 		actionsKey: PropTypes.string,
 	}),
-	dataKey: PropTypes.string,
 	rowData: PropTypes.object, // eslint-disable-line
 	rowIndex: PropTypes.number,
 };

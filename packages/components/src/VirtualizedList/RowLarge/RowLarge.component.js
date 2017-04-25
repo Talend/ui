@@ -5,10 +5,13 @@ import {
 	getId,
 	getLabel,
 	renderCell,
-} from '../utils/row';
+} from '../utils/gridrow';
 
 import theme from './RowLarge.scss';
 
+/**
+ * Row renderer that displays a Large item
+ */
 function RowLarge({ index, key, parent, style }) {
 	const { titleField, otherFields } = extractTitle(parent);
 
@@ -51,7 +54,7 @@ RowLarge.propTypes = {
 	index: PropTypes.number,
 	key: PropTypes.string,
 	parent: PropTypes.arrayOf(PropTypes.element),
-	style: PropTypes.object,
+	style: PropTypes.object, // eslint-disable-line
 };
 
 export default RowLarge;

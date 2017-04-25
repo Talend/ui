@@ -3,7 +3,10 @@ import { Actions } from '../../Actions';
 
 import theme from './CellActions.scss';
 
-function ActionsCell({ cellData, columnData, dataKey, rowData, rowIndex }) {
+/**
+ * Cell that renders actions
+ */
+function CellActions({ cellData }) {
 	return (
 		<div className={`tc-list-actions ${theme['tc-list-actions']}`}>
 			<Actions
@@ -15,12 +18,9 @@ function ActionsCell({ cellData, columnData, dataKey, rowData, rowIndex }) {
 	);
 }
 
-ActionsCell.displayName = 'VirtualizedList(ActionsCell)';
-ActionsCell.propTypes = {
+CellActions.displayName = 'VirtualizedList(ActionsCell)';
+CellActions.propTypes = {
 	cellData: PropTypes.arrayOf(PropTypes.shape(Actions.propTypes)),
-	dataKey: PropTypes.string,
-	rowData: PropTypes.object, // eslint-disable-line
-	rowIndex: PropTypes.number,
 };
 
-export default ActionsCell;
+export default CellActions;

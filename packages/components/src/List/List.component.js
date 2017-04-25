@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import VirtualizedList, { cellDictionnary } from '../VirtualizedList';
+import VirtualizedList, { cellDictionary } from '../VirtualizedList';
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import Content from './Content';
@@ -46,7 +46,7 @@ function getCellRendererConfig(type, list) {
 		null;
 
 	return {
-		...cellDictionnary[type],
+		...cellDictionary[type],
 		columnData,
 	};
 }

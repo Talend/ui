@@ -3,7 +3,7 @@ import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line i
 import talendIcons from 'talend-icons/dist/react';
 
 import { IconsProvider } from '../src/index';
-import VirtualizedList from '../src/VirtualizedList';
+import VirtualizedList, { LARGE } from '../src/VirtualizedList';
 import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 
@@ -227,7 +227,7 @@ storiesOf('Virtualized List', module)
 		<div style={{ height: '80vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
-			<VirtualizedList id={'my-list'} collection={collection} type={'LARGE'}>
+			<VirtualizedList id={'my-list'} collection={collection} type={LARGE}>
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"

@@ -11,6 +11,10 @@ function NoRow() {
 	);
 }
 
+/**
+ * List renderer that accepts a custom row renderer.
+ * The row renderer will create a row element for each collection item
+ */
 function ListGrid(props) {
 	const {
 		children,

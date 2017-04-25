@@ -1,20 +1,26 @@
 import React, { PropTypes } from 'react';
+import { LARGE, TABLE } from './utils/constants';
+import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
-import RowLarge from './RowLarge';
 
-const TABLE = 'TABLE';
-const LARGE = 'LARGE';
-
+/**
+ * Select the ListGrid row renderer to use
+ * @param type The row renderer type
+ * @returns {RowLarge}
+ */
 function getRowRenderer(type) {
-	switch (type) {
-	case LARGE:
-		return RowLarge;
-	default:
-		throw new Error(`Unknown row renderer in Virtualized List : ${type}`);
+	const rowRenderer = rowDictionary[type];
+	if (!rowRenderer) {
+		const rowRendererTypes = [TABLE].concat(Object.keys(rowDictionary));
+		throw new Error(`Unknown row renderer in Virtualized List : ${type}. Possible values are [${rowRendererTypes}].`);
 	}
+	return rowRenderer;
 }
 
+/**
+ * Component that maps list types to the corresponding component
+ */
 function RendererSelector(props) {
 	const {
 		children,

@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 import RendererSelector from './RendererSelector.component';
-import Large from './RowLarge/RowLarge.component';
-import ActionsCell from './CellActions/CellActions.component';
-import TitleCell from './CellTitle/CellTitle.component';
 
+/**
+ * Composable List based on react-virtualized
+ */
 function VirtualizedList(props) {
 	const {
 		collection,
@@ -19,7 +19,6 @@ function VirtualizedList(props) {
 		<AutoSizer>
 			{({ height, width }) => (
 				<RendererSelector
-					children={children}
 					collection={collection}
 					height={height}
 					id={id}
@@ -28,7 +27,9 @@ function VirtualizedList(props) {
 					sortDirection={sortDirection}
 					type={type}
 					width={width}
-				/>
+				>
+					{children}
+				</RendererSelector>
 			)}
 		</AutoSizer>
 	);

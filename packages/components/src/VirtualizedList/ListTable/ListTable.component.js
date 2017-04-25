@@ -1,34 +1,12 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-import { Table as VirtualizedTable, Column } from 'react-virtualized';
+import { Table as VirtualizedTable } from 'react-virtualized';
+import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
 
 /**
- * Create new Columns from children with component fixed classnames
+ * List renderer that enhances the Field configuration an render a react-virtualized Table
  */
-function toColumns(id, children) {
-	return React.Children.toArray(children)
-		.map((field, index) => {
-			const colProps = {
-				...field.props,
-				headerClassName: classNames(
-					field.props.headerClassName,
-					theme.header,
-				),
-				className: classNames(
-					field.props.className,
-					theme.cell,
-				),
-				columnData: {
-					...field.props.columnData,
-					id,
-				},
-			};
-			return <Column key={index} {...colProps} />;
-		});
-}
-
 function ListTable(props) {
 	const {
 		children,
@@ -56,7 +34,7 @@ function ListTable(props) {
 			sortDirection={sortDirection}
 			width={width}
 		>
-			{toColumns(id, children)}
+			{toColumns(id, theme, children)}
 		</VirtualizedTable>
 	);
 }
