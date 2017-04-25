@@ -31,7 +31,7 @@ form {
 		[type=email].form-control,
 		[type=tel].form-control,
 		[contenteditable].form-control {
-			&:focus + label {
+			&:not(:read-only):focus + label {
 				color: $brand-primary;
 			}
 		}
@@ -55,7 +55,7 @@ form {
 		border-radius: 0;
 		font-size: $font-size-base;
 
-		&:focus {
+		&:not(:read-only):focus {
 			@include box-shadow(inset 0 -2px 0 $brand-primary);
 		}
 
@@ -342,7 +342,6 @@ form {
 			top: 2.6rem;
 			font-size: $font-size-large;
 		}
-
 	}
 
 	&-control:focus,
@@ -358,7 +357,8 @@ form {
 		}
 	}
 
-	&-control:disabled {
+	&-control:disabled,
+	&-control:read-only {
 		+ label {
 			opacity: 0.4;
 		}
