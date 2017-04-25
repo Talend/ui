@@ -95,6 +95,59 @@ describe('Container(Form)', () => {
 		const formData = Container.getFormData(state, formId);
 		expect(formData.get('foo')).toBe('bar');
 	});
+
+	it('should formActions return props.action', () => {
+		const actions = { foo: 'bar' };
+		const form = new Container({
+			actions,
+		});
+		expect(form.formActions()).toBe(actions);
+	});
+
+	it('should formActions return call results from props.actions function', () => {
+		const actions = { foo: 'bar' };
+		const actionsFunc = () => actions;
+		const form = new Container({
+			actions: actionsFunc,
+		});
+		expect(form.formActions()).toBe(actions);
+	});
+
+	it('should jsonSchema return call results from props.jsonSchema function', () => {
+		const jsonSchema = { foo: 'bar' };
+		const jsonSchemaFunc = () => jsonSchema;
+		const form = new Container({
+			jsonSchema: jsonSchemaFunc,
+		});
+		expect(form.jsonSchema()).toBe(jsonSchema);
+	});
+
+	it('should jsonSchema return call results from props.jsonSchema function', () => {
+		const jsonSchema = { foo: 'bar' };
+		const jsonSchemaFunc = () => jsonSchema;
+		const form = new Container({
+			jsonSchema: jsonSchemaFunc,
+		});
+		expect(form.jsonSchema()).toBe(jsonSchema);
+	});
+
+	it('should uiSchema return call results from props.uiSchema function', () => {
+		const uiSchema = { foo: 'bar' };
+		const uiSchemaFunc = () => uiSchema;
+		const form = new Container({
+			uiSchema: uiSchemaFunc,
+		});
+		expect(form.uiSchema()).toBe(uiSchema);
+	});
+
+	it('should uiSchema return call results from props.uiSchema function', () => {
+		const uiSchema = { foo: 'bar' };
+		const uiSchemaFunc = () => uiSchema;
+		const form = new Container({
+			uiSchema: uiSchemaFunc,
+		});
+		expect(form.uiSchema()).toBe(uiSchema);
+	});
 });
 
 describe('Connected Form', () => {
