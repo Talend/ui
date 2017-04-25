@@ -29,6 +29,7 @@ function RendererSelector(props) {
 		collection,
 		height,
 		id,
+		rowHeight,
 		sort,
 		sortBy,
 		sortDirection,
@@ -53,10 +54,11 @@ function RendererSelector(props) {
 	return (
 		<ListGrid
 			collection={collection}
-			id={id}
 			height={height}
-			width={width}
+			id={id}
+			rowHeight={rowHeight}
 			rowRenderer={getRowRenderer(type)}
+			width={width}
 		>
 			{children}
 		</ListGrid>
@@ -68,6 +70,7 @@ RendererSelector.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	id: PropTypes.string,
 	height: PropTypes.number,
+	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,

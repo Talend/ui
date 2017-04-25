@@ -230,7 +230,7 @@ storiesOf('Virtualized List', module)
 		<div style={{ height: '80vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
-			<VirtualizedList id={'my-list'} collection={collection} type={listTypes.LARGE}>
+			<VirtualizedList id={'my-list'} collection={collection} type={listTypes.LARGE} rowHeight={135}>
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"
