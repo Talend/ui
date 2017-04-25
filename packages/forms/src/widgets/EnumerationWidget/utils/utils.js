@@ -1,45 +1,27 @@
 // private
 function selectAllBetween(min, max, items) {
-	return items.map((item, index) => {
-		if (index >= min && index <= max) {
-			return { ...item, isSelected: true };
-		}
-		return { ...item, isSelected: false };
-	});
+	return items.map((item, index) => ({
+		...item,
+		isSelected: (index >= min && index <= max),
+	}));
 }
 
 export function manageCtrlKey(indexSelected, items) {
 	const itemsList = [...items];
 	const itemSelected = itemsList[indexSelected] && itemsList[indexSelected].isSelected;
-	if (itemSelected) {
-		itemsList[indexSelected].isSelected = false;
-	} else {
-		itemsList[indexSelected].isSelected = true;
-	}
+
+	itemsList[indexSelected].isSelected = !itemSelected;
+
 	return itemsList;
 }
 
 export function manageShiftKey(indexSelected, items) {
 	const itemSelected = items[indexSelected].isSelected && items[indexSelected].isSelected === true;
-	let firstIndex = 0;
-	let	lastIndex = 0;
-	// get first item selected
-	items.find((item, index) => {
-		if (item.isSelected) {
-			firstIndex = index;
-			return true;
-		}
-		return false;
-	});
-	// get last item selected
+	const firstIndex = items.findIndex(item => item.isSelected);
 	const itemsReversed = [...items].reverse();
-	itemsReversed.find((item, index) => {
-		if (item.isSelected && item.isSelected === true) {
-			lastIndex = items.length - index - 1;
-			return true;
-		}
-		return false;
-	});
+	const index = itemsReversed.findIndex(item => (item.isSelected && item.isSelected === true));
+	const lastIndex = items.length - index - 1;
+
 	if (itemSelected) {
 		return selectAllBetween(firstIndex, indexSelected, items);
 	}
@@ -60,6 +42,10 @@ export function deleteSelectedItems(items) {
  * @param items
  */
 export function resetItems(items) {
-	return items.map((currentItem) =>
-	({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
+	return items.map((currentItem) => (
+		{
+			...currentItem,
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+		}
+	));
 }

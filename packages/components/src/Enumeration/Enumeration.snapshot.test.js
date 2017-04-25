@@ -362,7 +362,6 @@ describe('Enumeration', () => {
 
 	it('should render with header in selected state with trash icon, and two items in selected mode', () => {
 		const props = {
-			displayMode: 'DISPLAY_MODE_SELECTED',
 			currentEdit: {
 				validate: {
 					disabled: false,

@@ -24,26 +24,23 @@ const item = {
 };
 
 describe('Item', () => {
-	it('should display value with three buttons and trigger callback on button title click', () => {
+	it('should have actions', () => {
 		// given
 		const props = {
 			item,
 		};
+
 		const itemInstance = <Item {...props} />;
 
 		// when
 		const wrapper = mount(itemInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(1).simulate('click', { stopPropagation: () => {} });
-
 		// then
-		expect(buttons.length).toBe(3);
-		expect(props.item.itemProps.actions[0].onClick).toBeCalled();
+		expect(buttons.length).toBe(2);
 	});
 
-
-	it('should display value with three buttons and trigger callback on item click', () => {
+	it('should trigger callback on item selection', () => {
 		// given
 		const props = {
 			item,
@@ -53,12 +50,11 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find(Button);
+		const checkbox = wrapper.find('[type="checkbox"]');
 
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		checkbox.at(0).simulate('click');
 
 		// then
-		expect(buttons.length).toBe(3);
 		expect(props.item.itemProps.onSelectItem).toBeCalled();
 	});
 });

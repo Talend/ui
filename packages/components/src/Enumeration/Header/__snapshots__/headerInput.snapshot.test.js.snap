@@ -2,7 +2,7 @@
 
 exports[`Header should render header input with error 1`] = `
 <header
-  className="undefined tc-enumeration-header has-error"
+  className="tc-enumeration-header has-error"
 >
   <input
     autoFocus={true}
@@ -12,7 +12,7 @@ exports[`Header should render header input with error 1`] = `
     type="text"
   />
   <div
-    className="undefined tc-enumeration-header-error"
+    className="tc-enumeration-header-error"
   >
     duplicate value
   </div>
@@ -65,7 +65,7 @@ exports[`Header should render header input with error 1`] = `
 
 exports[`Header should render header input with two buttons 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="tc-enumeration-header"
 >
   <input
     autoFocus={true}

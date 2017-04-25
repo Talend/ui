@@ -7,10 +7,16 @@ $tc-enumeration-height: 40vh !default;
 	list-style: none;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
 	height: $tc-enumeration-height;
+	background-color: rgba(0, 0, 0, 0.025);
 
-	.tc-item-container:first-child {
-		li:hover {
-			box-shadow: inset 0 21px 3px -20px $shadow;
+	p {
+		padding: $padding-normal $padding-small;
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	.tc-item-container {
+		&.toggle {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
 	}
 }
