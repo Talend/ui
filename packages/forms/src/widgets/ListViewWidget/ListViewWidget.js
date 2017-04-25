@@ -11,6 +11,7 @@ import {
 	onToggleAll,
 	onAbortHandler,
 	onItemChange,
+	onAddKeyDown,
 } from './ListViewWidget.handlers';
 
 
@@ -46,6 +47,8 @@ class ListViewWidget extends React.Component {
 			headerInput: this.addInputs,
 			onToggleAll: onToggleAll.bind(this),
 			onInputChange: onInputChange.bind(this),
+			onAddKeyDown: onAddKeyDown.bind(this),
+			onAbortHandler: onAbortHandler.bind(this),
 			items: enumOptions.map((option, index) => ({
 				index,
 				checked: value.indexOf(option.value) !== -1,
@@ -56,7 +59,10 @@ class ListViewWidget extends React.Component {
 	}
 
 	setFormData() {
-		this.props.onChange(this.state.items.filter(i => i.checked).map(f => f.label));
+		this.props.onChange(
+			this.state.items.filter(item => item.checked)
+				.map(itemChecked => itemChecked.label)
+		);
 	}
 
 	selectValue(value, selected, all) {
@@ -75,12 +81,24 @@ class ListViewWidget extends React.Component {
 		}
 		const searchedItems = [];
 		this.state.items.forEach((item) => {
-			if (item.toLowerCase().includes(searchCriteria.toLowerCase())) {
+			if (item.label.toLowerCase().includes(searchCriteria.toLowerCase())) {
 				searchedItems.push(item);
 			}
 		});
 
 		return searchedItems;
+	}
+
+	callActionHandler(actionName, value, successHandler, errorHandler) {
+		if (this.props.registry &&
+			this.props.registry.formContext &&
+			this.props.registry.formContext.handleAction !== undefined) {
+			this.props.registry.formContext.handleAction(
+				this.props.id, actionName, value, successHandler, errorHandler
+			);
+			return true;
+		}
+		return false;
 	}
 
 	changeDisplayToSearchMode() {
@@ -103,6 +121,7 @@ class ListViewWidget extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
+		id: PropTypes.number,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line

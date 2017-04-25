@@ -1,5 +1,8 @@
+import keycode from 'keycode';
+
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
+
 
 export function onSearchHandler() {
 	this.setState({
@@ -10,7 +13,6 @@ export function onSearchHandler() {
 }
 
 export function onInputChange(event, value) {
-	console.log('[NC] value: ', value);
 	if (this.timerSearch !== null) {
 		clearTimeout(this.timerSearch);
 	}
@@ -54,4 +56,16 @@ export function onItemChange(item, event) {
 
 export function onAbortHandler() {
 	this.setState({ displayMode: DISPLAY_MODE_DEFAULT, searchCriteria: null });
+}
+
+export function onAddKeyDown(event) {
+	if (event.keyCode === keycode('enter')) {
+		event.stopPropagation();
+		event.preventDefault();
+	}
+	if (event.keyCode === keycode('escape')) {
+		event.stopPropagation();
+		event.preventDefault();
+		onAbortHandler.call(this);
+	}
 }
