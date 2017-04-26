@@ -90,21 +90,23 @@ class EnumerationWidget extends React.Component {
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
-		}, {
-			label: 'Add item',
-			icon: 'talend-plus',
-			id: 'add',
-			onClick: this.changeDisplayToAddMode.bind(this),
 		}];
 
 		if (this.allowImport) {
-			this.defaultHeaderActions.splice(1, 0, {
+			this.defaultHeaderActions.push({
 				label: 'Import values from a file',
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.simulateClickInputFile.bind(this),
 			});
 		}
+
+		this.defaultHeaderActions.push({
+			label: 'Add item',
+			icon: 'talend-plus',
+			id: 'add',
+			onClick: this.changeDisplayToAddMode.bind(this),
+		});
 
 		this.selectedHeaderActions = [{
 			label: 'Remove selected values',
@@ -612,24 +614,28 @@ class EnumerationWidget extends React.Component {
 		}));
 	}
 
+	renderImportFile() {
+		return (
+			this.allowImport &&
+			<form
+				ref={(element) => { this.formInput = element; }}
+			>
+				<input
+					type="file"
+					ref={(element) => { this.inputImport = element; }}
+					onChange={(event) => { this.importFile(event); }}
+					className={classNames('hidden')}
+				/>
+			</form>
+		);
+	}
+
 	render() {
 		const items = this.searchItems(this.state.searchCriteria);
 		const stateToShow = { ...this.state, items };
 		return (
 			<div>
-				{
-					this.allowImport &&
-					<form
-						ref={(element) => { this.formInput = element; }}
-					>
-						<input
-							type="file"
-							ref={(element) => { this.inputImport = element; }}
-							onChange={(event) => { this.importFile(event); }}
-							className={classNames('hidden')}
-						/>
-					</form>
-				}
+				{ this.renderImportFile() }
 				<Enumeration
 					{...stateToShow}
 				/>
