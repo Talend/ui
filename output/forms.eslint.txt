@@ -130,7 +130,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 112 problems (112 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
+  153:2   error  parseStringValueToArray should be placed after setFormData  react/sort-comp
+  154:54  error  Missing semicolon                                           semi
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
+  290:4  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+
+✖ 115 problems (115 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
