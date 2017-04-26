@@ -10,7 +10,9 @@ function VirtualizedList(props) {
 		collection,
 		children,
 		id,
+		isSelected,
 		rowHeight,
+		selectionToggle,
 		sort,
 		sortBy,
 		sortDirection,
@@ -23,7 +25,9 @@ function VirtualizedList(props) {
 					collection={collection}
 					height={height}
 					id={id}
+					isSelected={isSelected}
 					rowHeight={rowHeight}
+					selectionToggle={selectionToggle}
 					sort={sort}
 					sortBy={sortBy}
 					sortDirection={sortDirection}
@@ -41,7 +45,9 @@ VirtualizedList.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
 	id: PropTypes.string,
+	isSelected: PropTypes.func,
 	rowHeight: PropTypes.number,
+	selectionToggle: PropTypes.func,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,

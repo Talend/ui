@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Table as VirtualizedTable } from 'react-virtualized';
-import { toColumns } from '../utils/tablerow';
+import {
+	Table as VirtualizedTable,
+	defaultTableRowRenderer as DefaultTableRowRenderer,
+} from 'react-virtualized';
+import RowTableSelectionRenderer from '../RowTable';
+import { insertSelectionConfiguration, toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
 
@@ -13,11 +17,24 @@ function ListTable(props) {
 		collection,
 		height,
 		id,
+		isSelected,
+		selectionToggle,
 		sort,
 		sortBy,
 		sortDirection,
 		width,
 	} = props;
+
+	const contentsConfiguration = insertSelectionConfiguration({
+		children,
+		isSelected,
+		selectionToggle,
+	});
+
+	const RowTableRenderer = selectionToggle ?
+		RowTableSelectionRenderer(DefaultTableRowRenderer, props) :
+		DefaultTableRowRenderer;
+
 	return (
 		<VirtualizedTable
 			className={theme['tc-list-table']}
@@ -29,12 +46,13 @@ function ListTable(props) {
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}
+			rowRenderer={RowTableRenderer}
 			sort={sort}
 			sortBy={sortBy}
 			sortDirection={sortDirection}
 			width={width}
 		>
-			{toColumns(id, theme, children)}
+			{toColumns(id, theme, contentsConfiguration)}
 		</VirtualizedTable>
 	);
 }
@@ -44,6 +62,8 @@ ListTable.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isSelected: PropTypes.func,
+	selectionToggle: PropTypes.func,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,

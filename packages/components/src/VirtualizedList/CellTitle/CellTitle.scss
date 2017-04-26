@@ -1,7 +1,6 @@
+@import '../colors';
 $tc-list-title-actions-color: $brand-primary-dark !default;
-$tc-list-title-color: $brand-primary !default;
-$tc-list-title-hover-bg: $concrete !default;
-$tc-list-title-hover-color: $black !default;
+$tc-list-title-color: $black !default;
 $tc-list-title-icon-size: $svg-lg-size !default;
 
 .tc-list-title {
@@ -38,7 +37,6 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 		&:hover,
 		&:focus {
-			color: $tc-list-title-hover-color;
 			text-decoration: none;
 		}
 	}
@@ -53,7 +51,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		position: absolute;
 		right: 0;
 		top: 0;
-		background: linear-gradient(to right, transparent, $tc-list-title-hover-bg $padding-large);
+		background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
 
 		:global(.btn-link) {
 			color: $tc-list-title-actions-color;
@@ -69,6 +67,11 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	padding-left: $padding-large;
 	transition: opacity 0.15s ease-in;
 	visibility: visible;
+}
+
+:global(.tc-list-large-row.selected):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.selected):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
 }
 
 // START : hack to allow actions dropdown to display

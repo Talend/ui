@@ -1,8 +1,5 @@
 $tc-list-table-cell-padding: 8px !default;
 $tc-list-table-header-color: $black !default;
-$tc-list-table-hover-color: $black !default;
-$tc-list-table-hover-bg: $concrete !default;
-$tc-list-table-title-color: $dove-gray !default;
 
 .tc-list-table {
 
@@ -31,11 +28,6 @@ $tc-list-table-title-color: $dove-gray !default;
 
 	.grid {
 		box-shadow: $shadow-default;
-
-		.row:hover {
-			background: $tc-list-table-hover-bg;
-			color: $tc-list-table-hover-color;
-		}
 
 		.cell {
 			white-space: nowrap;

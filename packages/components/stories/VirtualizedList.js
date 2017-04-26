@@ -155,6 +155,19 @@ const collection = [
 		actions,
 		titleActions,
 	},
+	{
+		id: 6,
+		name: 'Selected row',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Selected row with highlighted background',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
+		display: 'text',
+		className: 'item-3-class',
+		actions,
+		titleActions,
+	},
 ];
 
 storiesOf('Virtualized List', module)
@@ -165,6 +178,8 @@ storiesOf('Virtualized List', module)
 			<VirtualizedList
 				collection={collection}
 				id={'my-list'}
+				isSelected={item => item.id === 6}
+				selectionToggle={action('selectionToggle')}
 				sort={action('sort')}
 				sortBy={'name'}
 				sortDirection={'ASC'}
@@ -230,7 +245,12 @@ storiesOf('Virtualized List', module)
 		<div style={{ height: '80vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
-			<VirtualizedList id={'my-list'} collection={collection} type={listTypes.LARGE} rowHeight={135}>
+			<VirtualizedList
+				id={'my-list'}
+				collection={collection}
+				type={listTypes.LARGE}
+				rowHeight={135}
+			>
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"

@@ -1,0 +1,15 @@
+@import '../colors';
+
+.row-table-selection {
+	&:hover {
+		background: $tc-list-row-hover-bg;
+	}
+
+	&.selected {
+		background: $tc-list-row-selected-bg;
+
+		&:hover {
+			background: $tc-list-row-selected-hover-bg;
+		}
+	}
+}
