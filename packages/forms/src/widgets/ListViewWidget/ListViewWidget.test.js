@@ -81,4 +81,24 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('#tc-listview-toggle-all').props().checked).toBe(true);
 		});
 	});
+
+	it('should only returns checked', () => {
+		// given
+		const evt = { target: { checked: true } };
+		const values = ['A', 'B', 'C', 'D'];
+		const handler = jest.fn();
+		const wrapper = mount(
+			<ListViewWidget
+				onChange={handler}
+				{...generateProps(values)}
+			/>
+		);
+
+		// when
+		wrapper.find('#checkbox-2-item').at(0).simulate('change', evt);
+		wrapper.find('#checkbox-3-item').at(0).simulate('change', evt);
+
+		// then
+		expect(handler).toBeCalledWith(['B', 'C']);
+	});
 });
