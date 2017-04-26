@@ -2,7 +2,7 @@
 
 exports[`Header should render header with one button 1`] = `
 <header
-  className="tc-enumeration-header"
+  className="tc-listview-header"
 >
   <strong>
     Values
@@ -28,44 +28,7 @@ exports[`Header should render header with one button 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-plus"
-        />
-      </svg>
-    </button>
-  </div>
-</header>
-`;
-
-exports[`Header should render header with one button and indicate the component is required 1`] = `
-<header
-  className="tc-enumeration-header"
->
-  <strong>
-    Values
-    *
-  </strong>
-  <div
-    className="actions"
-  >
-    <button
-      aria-describedby={42}
-      className="btn btn-link"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOut={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-plus"
+          xlinkHref="#talend-search"
         />
       </svg>
     </button>

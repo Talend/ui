@@ -14,7 +14,7 @@ exports[`Item should display a selected item 1`] = `
         htmlFor="checkbox-0-item"
       >
         <input
-          checked={undefined}
+          checked={true}
           id="checkbox-0-item"
           onChange={[Function]}
           type="checkbox"
@@ -22,36 +22,9 @@ exports[`Item should display a selected item 1`] = `
         <span
           className="undefined tc-listview-item-label"
           tooltip={true}
-        />
-      </label>
-    </div>
-  </div>
-</li>
-`;
-
-exports[`Item should display value with three buttons 1`] = `
-<li
-  id="0-item"
->
-  <div
-    className="checkbox-container"
-  >
-    <div
-      className="checkbox"
-    >
-      <label
-        htmlFor="checkbox-0-item"
-      >
-        <input
-          checked={undefined}
-          id="checkbox-0-item"
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <span
-          className="undefined tc-listview-item-label"
-          tooltip={true}
-        />
+        >
+          toto
+        </span>
       </label>
     </div>
   </div>

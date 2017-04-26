@@ -9,9 +9,10 @@ describe('Header', () => {
 		// given
 		const props = {
 			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
+				disabled: false,
+				label: 'Search for specific values',
+				icon: 'talend-search',
+				id: 'search',
 				onClick: jest.fn(), // provided click callback
 			}],
 		};

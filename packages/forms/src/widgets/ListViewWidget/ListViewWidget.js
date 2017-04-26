@@ -14,9 +14,9 @@ import {
 	onAddKeyDown,
 } from './ListViewWidget.handlers';
 
-
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+
 
 class ListViewWidget extends React.Component {
 	constructor(props) {
@@ -39,6 +39,13 @@ class ListViewWidget extends React.Component {
 			defaultDisplayMode = props.schema.displayMode;
 		}
 
+		const items = enumOptions.map((option, index) => ({
+			index,
+			checked: value.indexOf(option.value) !== -1,
+			label: option.label,
+			onChange: onItemChange.bind(this),
+		}));
+
 		this.state = {
 			displayMode: defaultDisplayMode,
 			required: (props.schema && props.schema.required) || false,
@@ -49,12 +56,8 @@ class ListViewWidget extends React.Component {
 			onInputChange: onInputChange.bind(this),
 			onAddKeyDown: onAddKeyDown.bind(this),
 			onAbortHandler: onAbortHandler.bind(this),
-			items: enumOptions.map((option, index) => ({
-				index,
-				checked: value.indexOf(option.value) !== -1,
-				label: option.label,
-				onChange: onItemChange.bind(this),
-			})),
+			toggleAllChecked: items.length === items.filter(i => i.checked).length,
+			items,
 		};
 	}
 
@@ -66,17 +69,17 @@ class ListViewWidget extends React.Component {
 	}
 
 	searchItems(searchCriteria) {
-		if (!searchCriteria) {
-			return this.state.items;
+		if (searchCriteria) {
+			const searchedItems = [];
+			this.state.items.forEach((item) => {
+				if (item.label.toLowerCase().includes(searchCriteria.toLowerCase())) {
+					searchedItems.push(item);
+				}
+			});
+			return searchedItems;
 		}
-		const searchedItems = [];
-		this.state.items.forEach((item) => {
-			if (item.label.toLowerCase().includes(searchCriteria.toLowerCase())) {
-				searchedItems.push(item);
-			}
-		});
 
-		return searchedItems;
+		return this.state.items;
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
@@ -108,6 +111,13 @@ class ListViewWidget extends React.Component {
 		);
 	}
 }
+
+
+ListViewWidget.defaultProps = {
+	options: {
+		enumOptions: [],
+	},
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Items should display one item in edit mode and the other in default 1`] = `
+exports[`Items should display a checked item betweew the two other 1`] = `
 <ul
   className="tc-listview-items"
   onScroll={undefined}
@@ -104,7 +104,9 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   <span
                     className="undefined tc-listview-item-label"
                     tooltip={true}
-                  />
+                  >
+                    Lorem ipsum dolor sit amet 0
+                  </span>
                 </label>
               </div>
             </div>
@@ -135,7 +137,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   htmlFor="checkbox-2-item"
                 >
                   <input
-                    checked={undefined}
+                    checked={true}
                     id="checkbox-2-item"
                     onChange={[Function]}
                     type="checkbox"
@@ -143,7 +145,9 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   <span
                     className="undefined tc-listview-item-label"
                     tooltip={true}
-                  />
+                  >
+                    Lorem ipsum dolor sit amet 1
+                  </span>
                 </label>
               </div>
             </div>
@@ -182,7 +186,9 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   <span
                     className="undefined tc-listview-item-label"
                     tooltip={true}
-                  />
+                  >
+                    Lorem ipsum dolor sit amet 2
+                  </span>
                 </label>
               </div>
             </div>
