@@ -65,16 +65,6 @@ class ListViewWidget extends React.Component {
 		);
 	}
 
-	selectValue(value, selected, all) {
-		const at = all.indexOf(value);
-		const updated = selected.slice(0, at).concat(value, selected.slice(at));
-		return updated.sort((a, b) => all.indexOf(a) > all.indexOf(b));
-	}
-
-	deselectValue(value, selected) {
-		return selected.filter(v => v !== value);
-	}
-
 	searchItems(searchCriteria) {
 		if (!searchCriteria) {
 			return this.state.items;
