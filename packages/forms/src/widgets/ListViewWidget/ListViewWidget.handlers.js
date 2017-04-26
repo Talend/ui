@@ -40,17 +40,20 @@ export function onToggleAll() {
 	this.setState({
 		...this.state,
 		toggleAllChecked: checked,
-		items: this.state.items.map(i => ({ ...i, isSelected: checked })),
-	});
+		items: this.state.items.map(i => ({ ...i, checked })),
+	}, this.setFormData.bind(this));
 }
 
 export function onItemChange(item, event) {
+	const items = this.state.items.map((i) => ({
+		...i,
+		checked: i.index === item.index ? event.target.checked : i.checked,
+	}));
+
 	this.setState({
 		...this.state,
-		items: this.state.items.map((i) => ({
-			...i,
-			checked: i.index === item.index ? event.target.checked : i.checked,
-		})),
+		toggleAllChecked: items.length === items.filter(i => i.checked).length,
+		items,
 	}, this.setFormData.bind(this));
 }
 
