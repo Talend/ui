@@ -6,8 +6,8 @@ import ItemPropTypes from './Item.propTypes';
 
 function itemLabelClasses() {
 	return classNames({
-		[theme['tc-enumeration-item-label']]: true,
-		'tc-enumeration-item-label': true,
+		[theme['tc-listview-item-label']]: true,
+		'tc-listview-item-label': true,
 	});
 }
 

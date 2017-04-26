@@ -1,20 +1,20 @@
-$tc-enumeration-smaller-padding: $padding-smaller !default;
-$tc-enumeration-small-padding: $padding-small !default;
-$tc-enumeration-normal-padding: $padding-normal !default;
-$tc-enumeration-large-padding: $padding-large !default;
-$tc-enumeration-header-height: 28px !default;
-$tc-enumeration-svg-color: #666 !default;
-$tc-enumeration-font-size: 1.4rem !default;
+$tc-listview-smaller-padding: $padding-smaller !default;
+$tc-listview-small-padding: $padding-small !default;
+$tc-listview-normal-padding: $padding-normal !default;
+$tc-listview-large-padding: $padding-large !default;
+$tc-listview-header-height: 28px !default;
+$tc-listview-svg-color: #666 !default;
+$tc-listview-font-size: 1.4rem !default;
 
-$tc-enumeration-header-error-background-color: $white !default;
-$tc-enumeration-header-error-color: $chestnut-rose !default;
-$tc-enumeration-header-error-padding: 2px !default;
+$tc-listview-header-error-background-color: $white !default;
+$tc-listview-header-error-color: $chestnut-rose !default;
+$tc-listview-header-error-padding: 2px !default;
 
-.tc-enumeration-header {
+.tc-listview-header {
 	display: flex;
-	line-height: $tc-enumeration-large-padding;
+	line-height: $tc-listview-large-padding;
 	align-items: center;
-	height: $tc-enumeration-header-height;
+	height: $tc-listview-header-height;
 	position: relative;
 
 	> strong + span {
@@ -36,26 +36,26 @@ $tc-enumeration-header-error-padding: 2px !default;
 
 	:global(.btn-link) {
 		margin-left: auto;
-		padding: 0 $tc-enumeration-smaller-padding;
+		padding: 0 $tc-listview-smaller-padding;
 		height: 30px;
 		outline: none;
 
 		:global(.tc-svg-icon) {
-			fill: $tc-enumeration-svg-color;
-			height: $tc-enumeration-font-size;
-			width: $tc-enumeration-font-size;
+			fill: $tc-listview-svg-color;
+			height: $tc-listview-font-size;
+			width: $tc-listview-font-size;
 			margin-right: 0;
 			vertical-align: text-top;
 		}
 	}
 
-	.tc-enumeration-header-error {
+	.tc-listview-header-error {
 		position: absolute;
 		top: 100%;
-		background-color: $tc-enumeration-header-error-background-color;
+		background-color: $tc-listview-header-error-background-color;
 		width: 100%;
-		color: $tc-enumeration-header-error-color;
-		padding: $tc-enumeration-header-error-padding;
+		color: $tc-listview-header-error-color;
+		padding: $tc-listview-header-error-padding;
 		z-index: 1;
 	}
 }

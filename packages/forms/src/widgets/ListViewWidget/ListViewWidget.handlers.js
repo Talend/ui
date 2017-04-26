@@ -1,7 +1,7 @@
 import keycode from 'keycode';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
+const LISTVIEW_SEARCH_ACTION = 'LISTVIEW_SEARCH_ACTION';
 
 
 export function onSearchHandler() {
@@ -19,7 +19,7 @@ export function onInputChange(event, value) {
 	this.timerSearch = setTimeout(() => {
 		this.timerSearch = null;
 		if (this.callActionHandler(
-				ENUMERATION_SEARCH_ACTION,
+				LISTVIEW_SEARCH_ACTION,
 				value.value,
 				onSearchHandler.bind(this)
 			)) {

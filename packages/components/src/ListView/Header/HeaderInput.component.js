@@ -7,13 +7,13 @@ import theme from './Header.scss';
 let inputRef;
 
 function headerClasses(headerError) {
-	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {
+	return classNames(theme['tc-listview-header'], 'tc-listview-header', {
 		'has-error': !!headerError,
 	});
 }
 
 function headerErrorClasses() {
-	return classNames(theme['tc-enumeration-header-error'], 'tc-enumeration-header-error');
+	return classNames(theme['tc-listview-header-error'], 'tc-listview-header-error');
 }
 
 function getAction(action, index) {

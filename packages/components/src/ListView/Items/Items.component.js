@@ -14,8 +14,8 @@ function listClasses() {
 
 function itemsClasses() {
 	return classNames(
-		theme['tc-enumeration-items'],
-		'tc-enumeration-items',
+		theme['tc-listview-items'],
+		'tc-listview-items',
 	);
 }
 
@@ -88,7 +88,7 @@ class Items extends React.PureComponent {
 
 	renderToggleAll() {
 		const { toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
-		const toggleAllId = 'tc-enumeration-toggle-all';
+		const toggleAllId = 'tc-listview-toggle-all';
 		return (
 			<div className="checkbox">
 				<label htmlFor={toggleAllId}>

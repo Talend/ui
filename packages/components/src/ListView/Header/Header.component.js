@@ -8,7 +8,7 @@ import headerPropTypes from './Header.propTypes';
 import headerDefaultProps from './Header.defaultProps';
 
 export function headerClasses() {
-	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header');
+	return classNames(theme['tc-listview-header'], 'tc-listview-header');
 }
 
 function getAction(action, index) {
