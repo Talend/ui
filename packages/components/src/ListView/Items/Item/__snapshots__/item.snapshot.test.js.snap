@@ -2,7 +2,6 @@
 
 exports[`Item should display a selected item 1`] = `
 <li
-  className="undefined tc-enumeration-item selected-item"
   id="0-item"
 >
   <div
@@ -15,29 +14,23 @@ exports[`Item should display a selected item 1`] = `
         htmlFor="checkbox-0-item"
       >
         <input
-          checked={true}
+          checked={undefined}
           id="checkbox-0-item"
-          onClick={[Function]}
+          onChange={[Function]}
           type="checkbox"
         />
         <span
-          className="undefined tc-enumeration-item-label"
+          className="undefined tc-listview-item-label"
           tooltip={true}
-        >
-          toto
-        </span>
+        />
       </label>
     </div>
   </div>
-  <div
-    className="undefined tc-enumeration-item-actions"
-  />
 </li>
 `;
 
 exports[`Item should display value with three buttons 1`] = `
 <li
-  className="tc-enumeration-item"
   id="0-item"
 >
   <div
@@ -50,47 +43,17 @@ exports[`Item should display value with three buttons 1`] = `
         htmlFor="checkbox-0-item"
       >
         <input
-          checked={false}
+          checked={undefined}
           id="checkbox-0-item"
-          onClick={[Function]}
+          onChange={[Function]}
           type="checkbox"
         />
         <span
-          className="undefined tc-enumeration-item-label"
+          className="undefined tc-listview-item-label"
           tooltip={true}
-        >
-          toto
-        </span>
+        />
       </label>
     </div>
-  </div>
-  <div
-    className="undefined tc-enumeration-item-actions"
-  >
-    <button
-      aria-describedby={42}
-      className="btn btn-link"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOut={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button"
-    />
-    <button
-      aria-describedby={42}
-      className="btn btn-link"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOut={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button"
-    />
   </div>
 </li>
 `;

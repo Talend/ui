@@ -24,23 +24,7 @@ const item = {
 };
 
 describe('Item', () => {
-	it('should have actions', () => {
-		// given
-		const props = {
-			item,
-		};
-
-		const itemInstance = <Item {...props} />;
-
-		// when
-		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find(Button);
-
-		// then
-		expect(buttons.length).toBe(2);
-	});
-
-	it('should trigger callback on item selection', () => {
+	it('should trigger callback on item click', () => {
 		// given
 		const props = {
 			item,
