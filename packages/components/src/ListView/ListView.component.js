@@ -12,13 +12,13 @@ export const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 export const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
-function enumerationClasses() {
-	return classNames(theme['tc-enumeration'], 'tc-enumeration');
+function listviewClasses() {
+	return classNames(theme['tc-listview'], 'tc-listview');
 }
 
 function ListView(props) {
 	return (
-		<div className={enumerationClasses()}>
+		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
 			<ItemsListView {...props} />
 		</div>
@@ -81,7 +81,6 @@ ItemsListView.propTypes = {
 function HeaderListView(props) {
 	const {
 		displayMode,
-		headerError,
 		onInputChange,
 		onAddKeyDown,
 		headerInput,
@@ -97,19 +96,16 @@ function HeaderListView(props) {
 			headerInput,
 			onInputChange,
 			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'Search',
 		};
 		return <HeaderInput {...propsInput} />;
 	}
 	default: {
-		// FIXME [NC]:
 		const propsDefault = {
 			headerDefault,
 			headerLabel,
 			required,
 			nbItems: items.length,
-			nbItemsSelected: 0, // items.filter(item => !!item.isSelected).length,
+			nbItemsSelected: items.filter(item => !!item.checked).length,
 		};
 
 		return <Header {...propsDefault} />;
@@ -121,7 +117,6 @@ HeaderListView.propTypes = {
 	displayMode: ListView.propTypes.displayMode,
 	headerDefault: ListView.propTypes.headerDefault,
 	headerInput: ListView.propTypes.headerInput,
-	headerError: ListView.propTypes.headerError,
 	onInputChange: ListView.propTypes.onInputChange,
 	onAddKeyDown: ListView.propTypes.onAddKeyDown,
 	headerLabel: ListView.propTypes.headerLabel,
