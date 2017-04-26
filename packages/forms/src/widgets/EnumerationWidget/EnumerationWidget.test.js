@@ -217,12 +217,14 @@ describe('EnumerationWidget', () => {
 					}}
 				/>);
 			wrapper.instance().inputImport.click = jest.fn();
+			spyOn(document.activeElement, 'blur').and.callThrough();
 
 			// when
 			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
 
 			// then
 			expect(wrapper.instance().inputImport.click).toBeCalled();
+			expect(document.activeElement.blur).toBeCalled();
 		});
 
 		it('should trigger a event when the user clicks on the upload action'
