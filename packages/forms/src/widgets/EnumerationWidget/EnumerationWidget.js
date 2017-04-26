@@ -616,7 +616,6 @@ class EnumerationWidget extends React.Component {
 
 	renderImportFile() {
 		return (
-			this.allowImport &&
 			<form
 				ref={(element) => { this.formInput = element; }}
 			>
@@ -635,7 +634,7 @@ class EnumerationWidget extends React.Component {
 		const stateToShow = { ...this.state, items };
 		return (
 			<div>
-				{ this.renderImportFile() }
+				{ this.allowImport && this.renderImportFile() }
 				<Enumeration
 					{...stateToShow}
 				/>
