@@ -3,8 +3,9 @@ import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
+import propTypes from './PropTypes';
 
-const { TABLE, LARGE } = listTypes;
+const { TABLE } = listTypes;
 
 /**
  * Select the ListGrid row renderer to use
@@ -72,17 +73,8 @@ function RendererSelector(props) {
 }
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.element),
-	collection: PropTypes.arrayOf(PropTypes.object),
+	...propTypes,
 	height: PropTypes.number,
-	id: PropTypes.string,
-	isSelected: PropTypes.func,
-	rowHeight: PropTypes.number,
-	selectionToggle: PropTypes.func,
-	sort: PropTypes.func,
-	sortBy: PropTypes.string,
-	sortDirection: PropTypes.string,
-	type: PropTypes.oneOf([TABLE, LARGE]),
 	width: PropTypes.number,
 };
 RendererSelector.defaultProps = {

@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 import RendererSelector from './RendererSelector.component';
+import propTypes from './PropTypes';
 
 /**
  * Composable List based on react-virtualized
@@ -41,18 +42,7 @@ function VirtualizedList(props) {
 	);
 }
 VirtualizedList.displayName = 'VirtualizedList';
-VirtualizedList.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.element),
-	collection: PropTypes.arrayOf(PropTypes.object),
-	id: PropTypes.string,
-	isSelected: PropTypes.func,
-	rowHeight: PropTypes.number,
-	selectionToggle: PropTypes.func,
-	sort: PropTypes.func,
-	sortBy: PropTypes.string,
-	sortDirection: PropTypes.string,
-	type: RendererSelector.propTypes.type,
-};
+VirtualizedList.propTypes = propTypes;
 
 VirtualizedList.Content = Column;
 
