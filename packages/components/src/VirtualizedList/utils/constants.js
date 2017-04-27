@@ -8,3 +8,6 @@ export const cellTitleDisplayModes = {
 	TITLE_MODE_INPUT: 'input',
 };
 
+export const internalIds = {
+	rowSelector: 'tc-list-internal-row-selector',
+};

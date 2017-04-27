@@ -1,5 +1,6 @@
 import React from 'react';
 import TitleCell from '../CellTitle/CellTitle.component';
+import { internalIds } from './constants';
 
 /**
  * Get the cell renderer from VirtualizedList.Content configuration
@@ -61,20 +62,24 @@ export function getRowData(parent, index) {
  * @param index The item index in collection
  */
 export function getCellData(field, parent, index) {
-	const item = getRowData(parent, index);
-	return item[getDataKey(field)];
+	return field.props.cellDataGetter({
+		columnData: getColumnData(parent, field),
+		dataKey: getDataKey(field),
+		rowData: getRowData(parent, index),
+	});
 }
 
 /**
  * Extract the title VirtualizedList.Content from the other ones
  * @param parent The row parent
  */
-export function extractTitle(parent) {
+export function extractSpecialFields(parent) {
 	const children = React.Children.toArray(parent.props.children);
 	const titleField = children.find(field => getCellRenderer(field) === TitleCell);
-	const otherFields = children.filter(field => field !== titleField);
+	const selectionField = children.find(field => field.props.id === internalIds.rowSelector);
+	const otherFields = children.filter(field => field !== titleField && field !== selectionField);
 
-	return { titleField, otherFields };
+	return { titleField, selectionField, otherFields };
 }
 
 /**

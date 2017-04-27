@@ -4,19 +4,22 @@ import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
+import { insertSelectionConfiguration } from './utils/tablerow';
 
 const { TABLE } = listTypes;
 
 /**
  * Select the ListGrid row renderer to use
  * @param type The row renderer type
- * @returns {RowLarge}
  */
 function getRowRenderer(type) {
 	const rowRenderer = rowDictionary[type];
 	if (!rowRenderer) {
 		const rowRendererTypes = [TABLE].concat(Object.keys(rowDictionary));
-		throw new Error(`Unknown row renderer in Virtualized List : ${type}. Possible values are [${rowRendererTypes}].`);
+		throw new Error(
+			`Unknown row renderer in Virtualized List : ${type}. ` +
+			`Possible values are [${rowRendererTypes}].`
+		);
 	}
 	return rowRenderer;
 }
@@ -39,6 +42,12 @@ function RendererSelector(props) {
 		type,
 		width,
 	} = props;
+	const contentsConfiguration = insertSelectionConfiguration({
+		children,
+		isSelected,
+		selectionToggle,
+	});
+
 	if (type === TABLE) {
 		return (
 			<ListTable
@@ -52,7 +61,7 @@ function RendererSelector(props) {
 				sortDirection={sortDirection}
 				width={width}
 			>
-				{children}
+				{contentsConfiguration}
 			</ListTable>
 		);
 	}
@@ -67,7 +76,7 @@ function RendererSelector(props) {
 			selectionToggle={selectionToggle}
 			width={width}
 		>
-			{children}
+			{contentsConfiguration}
 		</ListGrid>
 	);
 }

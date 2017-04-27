@@ -4,7 +4,7 @@ import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
 import RowTableSelectionRenderer from '../RowTable';
-import { insertSelectionConfiguration, toColumns } from '../utils/tablerow';
+import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
 
@@ -25,19 +25,13 @@ function ListTable(props) {
 		width,
 	} = props;
 
-	const contentsConfiguration = insertSelectionConfiguration({
-		children,
-		isSelected,
-		selectionToggle,
-	});
-
 	const RowTableRenderer = selectionToggle ?
-		RowTableSelectionRenderer(DefaultTableRowRenderer, props) :
+		RowTableSelectionRenderer(DefaultTableRowRenderer, { isSelected }) :
 		DefaultTableRowRenderer;
 
 	return (
 		<VirtualizedTable
-			className={theme['tc-list-table']}
+			className={`tc-list-table ${theme['tc-list-table']}`}
 			gridClassName={theme.grid}
 			headerHeight={35}
 			height={height}
@@ -52,7 +46,7 @@ function ListTable(props) {
 			sortDirection={sortDirection}
 			width={width}
 		>
-			{toColumns(id, theme, contentsConfiguration)}
+			{toColumns(id, theme, children)}
 		</VirtualizedTable>
 	);
 }

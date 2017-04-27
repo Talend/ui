@@ -1,3 +1,5 @@
+@import '../colors';
+
 $tc-list-table-cell-padding: 8px !default;
 $tc-list-table-header-color: $black !default;
 
@@ -7,6 +9,10 @@ $tc-list-table-header-color: $black !default;
 		border-bottom: 1px solid darken($concrete, 5%);
 		display: flex;
 		align-items: center;
+
+		&:hover {
+			background: $tc-list-row-hover-bg;
+		}
 	}
 
 	:global(.ReactVirtualized__Table__headerRow) {

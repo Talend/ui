@@ -5,14 +5,14 @@ import theme from './CellCheckbox.scss';
 /**
  * Cell renderer that displays a checkbox
  */
-function CellCheckbox({ cellData, columnData, rowData }) {
+function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 	const { id, label, onChange } = columnData;
 	return (
 		<form className={`tc-list-checkbox ${theme['tc-list-checkbox']}`} >
 			<div className="checkbox">
-				<label htmlFor={id && `${id}-check`}>
+				<label htmlFor={id && `${id}-${rowIndex}-check`}>
 					<input
-						id={id && `${id}-check`}
+						id={id && `${id}-${rowIndex}-check`}
 						type="checkbox"
 						onChange={(e) => { onChange(e, rowData); }}
 						checked={cellData}
@@ -33,6 +33,7 @@ CellCheckbox.propTypes = {
 		onChange: PropTypes.func.isRequired,
 	}),
 	rowData: PropTypes.object, // eslint-disable-line
+	rowIndex: PropTypes.number,
 };
 
 export default CellCheckbox;

@@ -18,8 +18,16 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		}
 	}
 
-	:global(.tc-list-title) {
-		padding: $padding-smaller 0 $padding-smaller $padding-large;
+	.header {
+		padding: $padding-smaller $padding-small $padding-smaller $padding-large;
+		display: flex;
+		align-items: center;
+
+		:global(.tc-list-title) {
+			flex-grow: 1;
+			flex-shrink: 1;
+			overflow: hidden;
+		}
 	}
 
 	.content {

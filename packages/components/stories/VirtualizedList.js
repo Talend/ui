@@ -171,15 +171,76 @@ const collection = [
 ];
 
 storiesOf('Virtualized List', module)
-	.add('Table (default)', () => (
+	.add('List > Table', () => (
 		<div style={{ height: '60vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
 			<VirtualizedList
 				collection={collection}
 				id={'my-list'}
-				isSelected={item => item.id === 6}
-				selectionToggle={action('selectionToggle')}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					width={50}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+					width={350}
+					flexShrink={0}
+					flexGrow={0}
+					columnData={titleProps}
+					{...CellTitle}
+				/>
+				<VirtualizedList.Content
+					label=""
+					dataKey="actions"
+					width={120}
+					flexShrink={0}
+					flexGrow={0}
+					{...CellActions}
+				/>
+				<VirtualizedList.Content
+					label="Description (non sortable)"
+					dataKey="description"
+					width={120}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Author"
+					dataKey="author"
+					width={90}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Created"
+					dataKey="created"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Modified"
+					dataKey="modified"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+			</VirtualizedList>
+		</div>
+	))
+	.add('List > Table : sort', () => (
+		<div style={{ height: '60vh' }}>
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<VirtualizedList
+				collection={collection}
+				id={'my-list'}
 				sort={action('sort')}
 				sortBy={'name'}
 				sortDirection={'ASC'}
@@ -194,7 +255,7 @@ storiesOf('Virtualized List', module)
 				<VirtualizedList.Content
 					label="Name"
 					dataKey="name"
-					width={400}
+					width={350}
 					flexShrink={0}
 					flexGrow={0}
 					columnData={titleProps}
@@ -241,46 +302,199 @@ storiesOf('Virtualized List', module)
 			</VirtualizedList>
 		</div>
 	))
-	.add('List > Large', () => (
-		<div style={{ height: '80vh' }}>
+	.add('List > Table : selection', () => (
+		<div style={{ height: '60vh' }}>
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
 			<VirtualizedList
-				id={'my-list'}
 				collection={collection}
-				type={listTypes.LARGE}
-				rowHeight={135}
+				id={'my-list'}
+				isSelected={item => item.id === 6}
+				selectionToggle={action('selectionToggle')}
 			>
 				<VirtualizedList.Content
 					label="Id"
 					dataKey="id"
+					width={50}
+					flexShrink={0}
+					flexGrow={0}
 				/>
 				<VirtualizedList.Content
 					label="Name"
 					dataKey="name"
+					width={350}
+					flexShrink={0}
+					flexGrow={0}
 					columnData={titleProps}
 					{...CellTitle}
 				/>
 				<VirtualizedList.Content
 					label=""
 					dataKey="actions"
+					width={120}
+					flexShrink={0}
+					flexGrow={0}
+					{...CellActions}
+				/>
+				<VirtualizedList.Content
+					label="Description (non sortable)"
+					dataKey="description"
+					width={120}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Author"
+					dataKey="author"
+					width={90}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Created"
+					dataKey="created"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Modified"
+					dataKey="modified"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+			</VirtualizedList>
+		</div>
+	))
+	.add('List > Large', () => (
+		<div style={{ height: '60vh' }}>
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<VirtualizedList
+				collection={collection}
+				id={'my-list'}
+				rowHeight={135}
+				type={listTypes.LARGE}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					width={50}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+					width={400}
+					flexShrink={0}
+					flexGrow={0}
+					columnData={titleProps}
+					{...CellTitle}
+				/>
+				<VirtualizedList.Content
+					label=""
+					dataKey="actions"
+					width={120}
+					flexShrink={0}
+					flexGrow={0}
 					{...CellActions}
 				/>
 				<VirtualizedList.Content
 					label="Description"
 					dataKey="description"
+					width={120}
+					flexShrink={0}
+					flexGrow={1}
 				/>
 				<VirtualizedList.Content
 					label="Author"
 					dataKey="author"
+					width={90}
+					flexShrink={0}
+					flexGrow={1}
 				/>
 				<VirtualizedList.Content
 					label="Created"
 					dataKey="created"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
 				/>
 				<VirtualizedList.Content
 					label="Modified"
 					dataKey="modified"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+			</VirtualizedList>
+		</div>
+	))
+	.add('List > Large : selection', () => (
+		<div style={{ height: '60vh' }}>
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<VirtualizedList
+				collection={collection}
+				id={'my-list'}
+				isSelected={item => item.id === 6}
+				selectionToggle={action('selectionToggle')}
+				rowHeight={135}
+				type={listTypes.LARGE}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					width={50}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+					width={400}
+					flexShrink={0}
+					flexGrow={0}
+					columnData={titleProps}
+					{...CellTitle}
+				/>
+				<VirtualizedList.Content
+					label=""
+					dataKey="actions"
+					width={120}
+					flexShrink={0}
+					flexGrow={0}
+					{...CellActions}
+				/>
+				<VirtualizedList.Content
+					label="Description"
+					dataKey="description"
+					width={120}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Author"
+					dataKey="author"
+					width={90}
+					flexShrink={0}
+					flexGrow={1}
+				/>
+				<VirtualizedList.Content
+					label="Created"
+					dataKey="created"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
+				/>
+				<VirtualizedList.Content
+					label="Modified"
+					dataKey="modified"
+					width={90}
+					flexShrink={0}
+					flexGrow={0}
 				/>
 			</VirtualizedList>
 		</div>

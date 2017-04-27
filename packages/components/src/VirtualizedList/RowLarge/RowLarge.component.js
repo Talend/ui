@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import {
-	extractTitle,
+	extractSpecialFields,
 	getId,
 	getLabel,
 	renderCell,
@@ -13,11 +13,12 @@ import theme from './RowLarge.scss';
  * Row renderer that displays a Large item
  */
 function RowLarge({ index, key, parent, style }) {
-	const { titleField, otherFields } = extractTitle(parent);
+	const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 	const parentId = getId(parent);
 	const id = parentId && `${parentId}-${index}`;
-	const titleCell = renderCell(index, parent, titleField);
+	const titleCell = titleField && renderCell(index, parent, titleField);
+	const selectionCell = selectionField && renderCell(index, parent, selectionField);
 	const otherCellsListItems = otherFields.map((field) => {
 		const cellContent = renderCell(index, parent, field);
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
@@ -40,7 +41,10 @@ function RowLarge({ index, key, parent, style }) {
 				className={classNames('tc-list-large-row', theme['inner-box'])}
 				id={id}
 			>
-				{titleCell}
+				<div className={theme.header}>
+					{titleCell}
+					{selectionCell}
+				</div>
 				<ul className={theme.content}>
 					{otherCellsListItems}
 				</ul>

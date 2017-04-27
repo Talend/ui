@@ -1,11 +1,7 @@
 @import '../colors';
 
-.row-table-selection {
-	&:hover {
-		background: $tc-list-row-hover-bg;
-	}
-
-	&.selected {
+:global(.tc-list-table) {
+	.row-table-selection.selected {
 		background: $tc-list-row-selected-bg;
 
 		&:hover {
