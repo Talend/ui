@@ -33,9 +33,9 @@ our architecture
 ===
 
 Our architecture is the following.
-JSONSchema + UISchema define a form which is send to the client wich is in charge of displaying the form.
+JSONSchema + UISchema define a form which is send to the client which is in charge of displaying the form.
 FormData can be added to the mix as to set default value for the model.
-If the UIschema define triggers on some fields, change on said field can trigger a call back. Main usage of this feature was to allow TCOMP + Daikon to specify that certains part of the model change should trigger a refresh of the form definition (JSONSChema, UISchema). This by sending formData to the server so he can compute wich part of the JSONSchema + UISchema to update and send back to the user.
+If the UIschema define triggers on some fields, change on said field can trigger a call back. Main usage of this feature was to allow TCOMP + Daikon to specify that certains part of the model change should trigger a refresh of the form definition (JSONSChema, UISchema). This by sending formData to the server so he can compute which part of the JSONSchema + UISchema to update and send back to the user.
 
 fieldsets
 ===
@@ -59,7 +59,7 @@ Note that fieldset and fieldset nesting doesn't inpact the shape of the data sub
 ```
 
 Needs: We need to be able to build UI schema that define fieldset.
-And we need to be able to specify wich field goes in wich fieldset if any is preset.
+And we need to be able to specify which field goes in which fieldset if any is preset.
 The payload must be as in HTML as if fieldset were not in the form.
 ```
 // ?
@@ -144,9 +144,12 @@ Wizard
 
 A wizard is a series of Forms with at the end a final submit with all the needed information.
 
-react-jsonschema-form only allow wizard composed of one field per slide of the wizard.
+~~react-jsonschema-form only allow wizard composed of one field per slide of the wizard.
 Meaning that for complex wizard you have to build multiple forms
-And coordonate them from outside making this complicated.
+And coordonate them from outside making this complicated.~~
+This is possible with one uiSchema per step. The uiSchema can compose multiple fields.
+
+Example : https://jsfiddle.net/sn4bnw9h/1/ where you can add some fields in the steps uiSchema.
 
 TComp can provide wizards (how ?)
 TODO: see what is wizard from TCOMP and if it can be covered.
