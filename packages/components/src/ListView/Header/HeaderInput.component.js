@@ -6,14 +6,8 @@ import theme from './Header.scss';
 
 let inputRef;
 
-function headerClasses(headerError) {
-	return classNames(theme['tc-listview-header'], 'tc-listview-header', {
-		'has-error': !!headerError,
-	});
-}
-
-function headerErrorClasses() {
-	return classNames(theme['tc-listview-header-error'], 'tc-listview-header-error');
+function headerClasses() {
+	return classNames(theme['tc-listview-header'], 'tc-listview-header');
 }
 
 function getAction(action, index) {
@@ -27,7 +21,7 @@ function getAction(action, index) {
 
 	return (
 		<Action
-			key={`${index}-enum-header-action`}
+			key={`${index}-listview-header-action`}
 			label={action.label}
 			icon={action.icon}
 			onClick={onClick}
@@ -40,7 +34,7 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDown }) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -54,18 +48,15 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 	}
 
 	return (
-		<header className={headerClasses(headerError)}>
+		<header className={headerClasses()}>
 			<input
 				type="text"
 				placeholder={inputPlaceholder}
-				ref={(input) => {
-					inputRef = input;
-				}}
+				ref={(input) => { inputRef = input; }}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
-			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
 			{headerInput.map(getAction)}
 		</header>
 	);
@@ -73,7 +64,6 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	headerError: PropTypes.string,
 	onInputChange: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,

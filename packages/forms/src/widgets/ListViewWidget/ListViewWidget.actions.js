@@ -4,3 +4,9 @@ export const search = {
 	icon: 'talend-search',
 	id: 'search',
 };
+
+export const abort = {
+	label: 'Abort',
+	icon: 'talend-cross',
+	id: 'abort',
+};

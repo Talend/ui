@@ -20,7 +20,7 @@ function getAction(action, index) {
 
 	return (
 		<Action
-			key={`${index}-enum-header-action`}
+			key={`${index}-listview-header-action`}
 			label={action.label}
 			icon={action.icon}
 			onClick={onClick}
