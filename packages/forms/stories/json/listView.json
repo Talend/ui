@@ -1,7 +1,7 @@
 {
   "jsonSchema": {
-    "title": "A enumeration form",
-    "description": "A enumeration form example.",
+    "title": "A listview form",
+    "description": "A listview form example.",
     "type": "object",
     "properties": {
       "documents": {
