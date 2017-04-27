@@ -23,7 +23,10 @@ src/theme/_forms.scss
   311:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   447:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-✖ 12 problems (11 errors, 1 warning)
+src/theme/_navbar.search.scss
+  14:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+
+✖ 13 problems (11 errors, 2 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
