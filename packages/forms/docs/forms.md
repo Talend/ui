@@ -22,7 +22,7 @@ Summary
 - validation
 - Error display (feedback on validation)
 - Documentation
-- Wizzard
+- Wizard
 - Widgets
 - Event handler
 - Mutliple Submit
@@ -147,6 +147,7 @@ A wizard is a series of Forms with at the end a final submit with all the needed
 ~~react-jsonschema-form only allow wizard composed of one field per slide of the wizard.
 Meaning that for complex wizard you have to build multiple forms
 And coordonate them from outside making this complicated.~~
+
 This is possible with one uiSchema per step. The uiSchema can compose multiple fields.
 
 Example : https://jsfiddle.net/sn4bnw9h/1/ where you can add some fields in the steps uiSchema.
