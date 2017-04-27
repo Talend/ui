@@ -20,14 +20,14 @@ const actionsShape = {
 	children: PropTypes.node,
 };
 
-function getComponents(props) {
+function getRenderers(props) {
 	return Object.assign(
 		{
 			Action,
 			Actions,
 			ActionSplitDropdown,
 		},
-		props.components,
+		props ? props.renderers : {},
 	);
 }
 
@@ -68,8 +68,8 @@ Content.propTypes = {
 	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
 };
 
-function SwitchActions({ actions, left, right, selected, components }) {
-	const SafeComponents = getComponents({components});
+function SwitchActions({ actions, left, right, selected, renderers }) {
+	const Renderers = getRenderers({ renderers });
 	return (
 		<Content left={left} right={right}>
 			{ selected > 0 && !right ? (
@@ -80,15 +80,15 @@ function SwitchActions({ actions, left, right, selected, components }) {
 				switch (displayMode) {
 				case DISPLAY_MODES.SPLIT_DROPDOWN:
 					return (
-						<SafeComponents.ActionSplitDropdown key={index} {...rest} />
+						<Renderers.ActionSplitDropdown key={index} {...rest} />
 					);
 				case DISPLAY_MODES.BTN_GROUP:
 					return (
-						<SafeComponents.Actions key={index} {...rest} />
+						<Renderers.Actions key={index} {...rest} />
 					);
 				default:
 					return (
-						<SafeComponents.Action key={index} {...rest} />
+						<Renderers.Action key={index} {...rest} />
 					);
 				}
 			}) }
@@ -100,7 +100,7 @@ SwitchActions.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	selected: PropTypes.number,
-	components: PropTypes.shape(
+	renderers: PropTypes.shape(
 		{
 			Action: PropTypes.func,
 			Actions: PropTypes.func,
@@ -138,7 +138,7 @@ function ActionBar(props) {
 		<nav className={cssClass}>
 			{ (left || !!props.selected) && (
 				<SwitchActions
-					components={props.components}
+					renderers={props.renderers}
 					key={0}
 					actions={left}
 					selected={props.selected}
@@ -148,7 +148,7 @@ function ActionBar(props) {
 			{props.children}
 			{ right && (
 				<SwitchActions
-					components={props.components}
+					renderers={props.renderers}
 					key={1}
 					actions={right}
 					selected={props.selected}
@@ -163,13 +163,15 @@ ActionBar.propTypes = {
 	selected: PropTypes.number,
 	children: PropTypes.node,
 	className: PropTypes.string,
-	components: PropTypes.shape(SwitchActions.propTypes.components),
+	renderers: PropTypes.shape(SwitchActions.propTypes.renderers),
 };
 
+ActionBar.displayName = 'ActionBar';
 ActionBar.DISPLAY_MODES = DISPLAY_MODES;
 ActionBar.Count = Count;
 ActionBar.SwitchActions = SwitchActions;
 ActionBar.getActionsToRender = getActionsToRender;
 ActionBar.Content = Content;
 ActionBar.getContentClassName = getContentClassName;
+ActionBar.getRenderers = getRenderers;
 export default ActionBar;

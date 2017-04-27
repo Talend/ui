@@ -36,7 +36,7 @@ function ActionBar({ actions, actionIds, ...props }, context) {
 	return (
 		<Component
 			actions={actionsProps}
-			components={{
+			renderers={{
 				Action,
 				Actions,
 			}}

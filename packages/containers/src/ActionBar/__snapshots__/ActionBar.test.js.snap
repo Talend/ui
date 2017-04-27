@@ -89,7 +89,7 @@ Object {
       },
     ],
   },
-  "components": Object {
+  "renderers": Object {
     "Action": [Function],
     "Actions": [Function],
   },
@@ -148,7 +148,7 @@ Object {
       },
     ],
   },
-  "components": Object {
+  "renderers": Object {
     "Action": [Function],
     "Actions": [Function],
   },
