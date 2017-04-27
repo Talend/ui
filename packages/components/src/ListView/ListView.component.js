@@ -36,6 +36,7 @@ ListView.propTypes = {
 	toggleAllLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
+	searchPlaceholder: PropTypes.string,
 };
 
 ListView.defaultProps = {
@@ -43,6 +44,7 @@ ListView.defaultProps = {
 	headerLabel: 'Values',
 	emptyLabel: 'This list is empty, click on + to add a value.',
 	toggleAllLabel: 'All',
+	searchPlaceholder: 'Search',
 	items: [],
 };
 
@@ -88,6 +90,7 @@ function HeaderListView(props) {
 		headerLabel,
 		items,
 		required,
+		searchPlaceholder,
 	} = props;
 
 	switch (displayMode) {
@@ -96,6 +99,7 @@ function HeaderListView(props) {
 			headerInput,
 			onInputChange,
 			onAddKeyDown,
+			inputPlaceholder: searchPlaceholder,
 		};
 		return <HeaderInput {...propsInput} />;
 	}
@@ -120,6 +124,7 @@ HeaderListView.propTypes = {
 	onInputChange: ListView.propTypes.onInputChange,
 	onAddKeyDown: ListView.propTypes.onAddKeyDown,
 	headerLabel: ListView.propTypes.headerLabel,
+	searchPlaceholder: ListView.propTypes.searchPlaceholder,
 	required: ListView.propTypes.required,
 	items: ListView.propTypes.items,
 };

@@ -17,7 +17,6 @@ import {
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
-
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
