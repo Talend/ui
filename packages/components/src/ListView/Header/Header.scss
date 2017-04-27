@@ -1,14 +1,8 @@
 $tc-listview-smaller-padding: $padding-smaller !default;
-$tc-listview-small-padding: $padding-small !default;
-$tc-listview-normal-padding: $padding-normal !default;
 $tc-listview-large-padding: $padding-large !default;
 $tc-listview-header-height: 28px !default;
 $tc-listview-svg-color: #666 !default;
 $tc-listview-font-size: 1.4rem !default;
-
-$tc-listview-header-error-background-color: $white !default;
-$tc-listview-header-error-color: $chestnut-rose !default;
-$tc-listview-header-error-padding: 2px !default;
 
 .tc-listview-header {
 	display: flex;
@@ -47,15 +41,5 @@ $tc-listview-header-error-padding: 2px !default;
 			margin-right: 0;
 			vertical-align: text-top;
 		}
-	}
-
-	.tc-listview-header-error {
-		position: absolute;
-		top: 100%;
-		background-color: $tc-listview-header-error-background-color;
-		width: 100%;
-		color: $tc-listview-header-error-color;
-		padding: $tc-listview-header-error-padding;
-		z-index: 1;
 	}
 }

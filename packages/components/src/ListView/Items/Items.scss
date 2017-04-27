@@ -9,11 +9,6 @@ $tc-listview-height: 40vh !default;
 	height: $tc-listview-height;
 	background-color: rgba(0, 0, 0, 0.025);
 
-	p {
-		padding: $padding-normal $padding-small;
-		color: rgba(0, 0, 0, 0.5);
-	}
-
 	.tc-item-container {
 		&.toggle {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);

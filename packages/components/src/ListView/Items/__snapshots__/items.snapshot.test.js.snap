@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Items should display a checked item betweew the two other 1`] = `
+exports[`Items should display a checked item between the two others 1`] = `
 <ul
   className="tc-listview-items"
   onScroll={undefined}
