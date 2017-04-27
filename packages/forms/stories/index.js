@@ -1,30 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
-
+import { Provider } from 'react-redux';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
-import Form from '../src/Form';
+
+import { createStore, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+
+const reducers = {
+  // ... your other reducers here ...
+  form: formReducer,     // <---- Mounted at 'form'
+};
+
+const reducer = combineReducers(reducers);
+const store = createStore(reducer);
+
+import Form from '../src/UIForm';
 
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
-		<div className="container-fluid">
-			<div
-				className="col-md-offset-1 col-md-10"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				<Well>
-					{story()}
-				</Well>
+		<Provider store={store}>
+			<div className="container-fluid">
+				<div
+					className="col-md-offset-1 col-md-10"
+					style={{ marginTop: '20px', marginBottom: '20px' }}
+				>
+					<Well>
+						{story()}
+					</Well>
+				</div>
 			</div>
-		</div>
+		</Provider>
 	));
 
 const capitalizeFirstLetter =
