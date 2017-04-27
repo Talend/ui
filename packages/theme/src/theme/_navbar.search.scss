@@ -11,7 +11,7 @@
 				flex: 1 0 auto;
 				min-height: $navbar-height;
 
-				@-moz-document url-prefix() {
+				@-moz-document url-prefix() { // sass-lint:disable-line no-vendor-prefixes
 					min-height: 0;
 				}
 			}
