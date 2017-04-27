@@ -30,7 +30,7 @@ ListView.propTypes = {
 	headerError: PropTypes.string,
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-	items: PropTypes.arrayOf(PropTypes.string),
+	items: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,

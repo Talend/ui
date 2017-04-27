@@ -7,7 +7,7 @@ jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoS
 );
 
 describe('Items', () => {
-	it('should display a checked item betweew the two other', () => {
+	it('should display a checked item between the two others', () => {
 		// given
 		const props = {
 			items: Array(3).fill('').map((item, index) => ({
