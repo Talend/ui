@@ -1,6 +1,12 @@
 
 .navbar {
 	[role='search'] {
+		.btn {
+			display: flex;
+			align-items: center;
+			height: $navbar-height;
+		}
+
 		.form-control {
 			font-style: italic;
 			color: $navbar-search-btn-color;
