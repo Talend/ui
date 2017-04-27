@@ -89,6 +89,10 @@ Object {
       },
     ],
   },
+  "components": Object {
+    "Action": [Function],
+    "Actions": [Function],
+  },
 }
 `;
 
@@ -143,6 +147,10 @@ Object {
         "displayMode": "btnGroup",
       },
     ],
+  },
+  "components": Object {
+    "Action": [Function],
+    "Actions": [Function],
   },
 }
 `;

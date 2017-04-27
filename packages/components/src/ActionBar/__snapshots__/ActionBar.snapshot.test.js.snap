@@ -26,6 +26,7 @@ exports[`ActionBar should render a btn-group 1`] = `
         },
       ]
     }
+    components={undefined}
     left={true}
     selected={undefined}
   />
@@ -69,6 +70,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
         },
       ]
     }
+    components={undefined}
     left={true}
     selected={0}
   />
@@ -112,6 +114,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
         },
       ]
     }
+    components={undefined}
     right={true}
     selected={0}
   />
@@ -133,6 +136,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         },
       ]
     }
+    components={undefined}
     left={true}
     selected={0}
   />
@@ -163,6 +167,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         },
       ]
     }
+    components={undefined}
     right={true}
     selected={0}
   />
@@ -205,6 +210,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         },
       ]
     }
+    components={undefined}
     left={true}
     selected={1}
   />
@@ -217,6 +223,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 >
   <SwitchActions
     actions={Array []}
+    components={undefined}
     left={true}
     selected={1}
   />
@@ -252,6 +259,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         },
       ]
     }
+    components={undefined}
     right={true}
     selected={1}
   />
@@ -272,6 +280,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         },
       ]
     }
+    components={undefined}
     left={true}
     selected={1}
   />
@@ -302,6 +311,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         },
       ]
     }
+    components={undefined}
     right={true}
     selected={1}
   />
