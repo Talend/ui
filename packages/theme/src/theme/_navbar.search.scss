@@ -1,22 +1,6 @@
 
 .navbar {
 	[role='search'] {
-		.btn {
-			display: inline-flex;
-			align-items: center;
-
-			&:before,
-			&:after {
-				content: '';
-				flex: 1 0 auto;
-				min-height: $navbar-height;
-
-				@-moz-document url-prefix() { // sass-lint:disable-line no-vendor-prefixes
-					min-height: 0;
-				}
-			}
-		}
-
 		.form-control {
 			font-style: italic;
 			color: $navbar-search-btn-color;
