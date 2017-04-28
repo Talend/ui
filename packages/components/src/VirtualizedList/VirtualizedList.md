@@ -113,6 +113,7 @@ A `utils/gridrow.js` files contains useful function to render each field (cell).
 For more information and example, see `RowLarge.component.js` which separates the Title cell from the rest of the cells, and renders them, using `gridrow.js` functions.
 
 **Global row features**
+
 To add more global features, we use higher order component composition.
 The higher order row-renderer would take the row renderer to use anc enhance it with extra info.
 
