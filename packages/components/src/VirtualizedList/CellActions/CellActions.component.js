@@ -18,7 +18,7 @@ function CellActions({ cellData }) {
 	);
 }
 
-CellActions.displayName = 'VirtualizedList(ActionsCell)';
+CellActions.displayName = 'VirtualizedList(CellActions)';
 CellActions.propTypes = {
 	/** The cell value */
 	cellData: PropTypes.arrayOf(PropTypes.shape(Actions.propTypes)),
