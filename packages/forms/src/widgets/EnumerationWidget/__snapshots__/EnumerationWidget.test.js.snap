@@ -296,6 +296,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -366,6 +367,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -763,6 +765,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}>
                             <use
                               xlinkHref="#talend-check" />
@@ -832,6 +835,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}>
                             <use
                               xlinkHref="#talend-cross" />
@@ -1224,6 +1228,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -1294,6 +1299,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -1693,6 +1699,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -1763,6 +1770,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -2208,6 +2216,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -2278,6 +2287,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -2743,6 +2753,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-check" />
@@ -2812,6 +2823,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-cross" />
@@ -3100,6 +3112,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}>
                             <use
                               xlinkHref="#talend-cross" />
@@ -3496,6 +3509,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -3566,6 +3580,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -3984,6 +3999,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -4054,6 +4070,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -4514,6 +4531,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                               size="small">
                                               <svg
                                                 className=""
+                                                focusable="false"
                                                 viewBox="0 0 50 50">
                                                 <circle
                                                   cx={25}
@@ -4857,6 +4875,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}>
                             <use
                               xlinkHref="#talend-trash" />
@@ -5369,6 +5388,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -5438,6 +5458,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -5797,6 +5818,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}>
                             <use
                               xlinkHref="#talend-trash" />
@@ -6345,6 +6367,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -6414,6 +6437,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -6619,6 +6643,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -6688,6 +6713,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -7025,6 +7051,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -7095,6 +7122,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-download" />
@@ -7165,6 +7193,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -7613,6 +7642,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             size="small">
                             <svg
                               className=""
+                              focusable="false"
                               viewBox="0 0 50 50">
                               <circle
                                 cx={25}
@@ -8146,6 +8176,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -8215,6 +8246,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -8418,6 +8450,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -8487,6 +8520,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -8884,6 +8918,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-search" />
@@ -8954,6 +8989,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-download" />
@@ -9024,6 +9060,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             <svg
                               aria-hidden="true"
                               className="tc-svg-icon"
+                              focusable="false"
                               title={null}>
                               <use
                                 xlinkHref="#talend-plus" />
@@ -9561,6 +9598,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -9630,6 +9668,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />
@@ -9833,6 +9872,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-pencil" />
@@ -9902,6 +9942,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               <svg
                                                 aria-hidden="true"
                                                 className="tc-svg-icon"
+                                                focusable="false"
                                                 title={null}>
                                                 <use
                                                   xlinkHref="#talend-trash" />

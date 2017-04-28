@@ -155,6 +155,7 @@ exports[`DisplayTable should render column actions 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -173,6 +174,7 @@ exports[`DisplayTable should render column actions 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -205,6 +207,7 @@ exports[`DisplayTable should render column actions 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -227,6 +230,7 @@ exports[`DisplayTable should render column actions 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -742,6 +746,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -760,6 +765,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -792,6 +798,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -814,6 +821,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -850,6 +858,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -872,6 +881,7 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -1410,6 +1420,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -1428,6 +1439,7 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -1878,6 +1890,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -1896,6 +1909,7 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -2247,6 +2261,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -2416,6 +2431,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -2434,6 +2450,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -2466,6 +2483,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -2488,6 +2506,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -2524,6 +2543,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -2546,6 +2566,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -3084,6 +3105,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -3102,6 +3124,7 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -3499,6 +3522,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   <i
                     aria-hidden="true"
                     className="fa fa-file-excel-o tc-list-icon"
+                    focusable="false"
                     title={null}
                   />
                   <button
@@ -3534,6 +3558,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -3552,6 +3577,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -3661,6 +3687,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   <i
                     aria-hidden="true"
                     className="fa fa-file-pdf-o tc-list-icon"
+                    focusable="false"
                     title={null}
                   />
                   <button
@@ -4024,6 +4051,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -4042,6 +4070,7 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -4492,6 +4521,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     <i
                       aria-hidden="true"
                       className="fa fa-edit"
+                      focusable="false"
                       title={null}
                     />
                   </button>
@@ -4510,6 +4540,7 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     <i
                       aria-hidden="true"
                       className="fa fa-trash-o"
+                      focusable="false"
                       title={null}
                     />
                   </button>

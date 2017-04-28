@@ -22,6 +22,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

@@ -26,6 +26,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -71,6 +72,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -85,6 +87,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             <svg
               aria-hidden="true"
               className="tc-svg-icon"
+              focusable="false"
               title={null}
             >
               <use
@@ -123,6 +126,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -166,6 +170,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -180,6 +185,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
@@ -214,6 +220,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -246,6 +253,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     <svg
                       aria-hidden="true"
                       className="tc-svg-icon"
+                      focusable="false"
                       title={null}
                     >
                       <use
@@ -294,6 +302,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -308,6 +317,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
