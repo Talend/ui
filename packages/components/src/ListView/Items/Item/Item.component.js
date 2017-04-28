@@ -41,7 +41,7 @@ function Item(props) {
 	const itemId = `checkbox-${id}`;
 
 	return (
-		<li id={id}>
+		<div id={id}>
 			<div className="checkbox-container">
 				<div
 					className="checkbox"
@@ -60,7 +60,7 @@ function Item(props) {
 					</label>
 				</div>
 			</div>
-		</li>
+		</div>
 	);
 }
 

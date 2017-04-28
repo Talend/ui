@@ -60,29 +60,15 @@ ListView.defaultProps = {
 };
 
 function ItemsListView(props) {
-	const {
-		items,
-		emptyLabel,
-		toggleAllChecked,
-		toggleAllLabel,
-		onToggleAll,
-		getItemHeight,
-		searchCriteria,
-	} = props;
-
-	const itemsProps = {
-		items,
-		searchCriteria,
-		toggleAllChecked,
-		toggleAllLabel,
-		onToggleAll,
-		emptyLabel,
-		getItemHeight,
-	};
-
 	return (
 		<Items
-			{...itemsProps}
+			items={props.items}
+			searchCriteria={props.searchCriteria}
+			toggleAllChecked={props.toggleAllChecked}
+			toggleAllLabel={props.toggleAllLabel}
+			onToggleAll={props.onToggleAll}
+			emptyLabel={props.emptyLabel}
+			getItemHeight={props.getItemHeight}
 		/>
 	);
 }

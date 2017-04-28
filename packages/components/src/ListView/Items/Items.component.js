@@ -123,7 +123,7 @@ class Items extends React.PureComponent {
 		}
 
 		return (
-			<ul className={itemsClasses()}>
+			<div className={itemsClasses()}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -142,7 +142,7 @@ class Items extends React.PureComponent {
 						/>
 					)}
 				</AutoSizer>
-			</ul>
+			</div>
 		);
 	}
 }

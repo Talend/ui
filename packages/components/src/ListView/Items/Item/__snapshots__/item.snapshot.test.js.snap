@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Item should display a selected item 1`] = `
-<li
+<div
   id="0-item"
 >
   <div
@@ -27,5 +27,5 @@ exports[`Item should display a selected item 1`] = `
       </label>
     </div>
   </div>
-</li>
+</div>
 `;
