@@ -15,7 +15,7 @@ function NoRow() {
 
 /**
  * List renderer that accepts a custom row renderer.
- * The row renderer will create a row element for each collection item
+ * The row renderer will create a row element for each collection item.
  */
 function ListGrid(props) {
 	const {
@@ -31,7 +31,7 @@ function ListGrid(props) {
 	} = props;
 
 	const enhancedRowRenderer = selectionToggle ?
-		RowSelectionRenderer(
+		RowSelectionRenderer( // eslint-disable-line new-cap
 			rowRenderer,
 			{
 				isSelected,

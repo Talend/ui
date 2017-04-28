@@ -40,7 +40,7 @@ export default class CellTitleInput extends React.Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<input
-					id={this.props.id}
+					id={this.props.id && `${this.props.id}-input`}
 					ref={(input) => { this.titleInput = input; }}
 					onBlur={this.onBlur}
 					onKeyUp={this.onKeyUp}
@@ -52,9 +52,14 @@ export default class CellTitleInput extends React.Component {
 }
 
 CellTitleInput.propTypes = {
+	/** The id prefix. */
 	id: PropTypes.string,
+	/** The input value. */
 	cellData: PropTypes.string.isRequired,
+	/** The cancel callback on ESC keydown. */
 	onEditCancel: PropTypes.func.isRequired,
+	/** The submit callback on ENTER keydown or blur. */
 	onEditSubmit: PropTypes.func.isRequired,
+	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };

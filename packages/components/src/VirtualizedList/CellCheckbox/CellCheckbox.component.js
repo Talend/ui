@@ -26,13 +26,20 @@ function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 
 CellCheckbox.displayName = 'VirtualizedList(CellCheckbox)';
 CellCheckbox.propTypes = {
+	/** The cell value : props.rowData[props.dataKey] */
 	cellData: PropTypes.string,
+	/** The custom props passed to <VirtualizedList.Content columnData={}>. */
 	columnData: PropTypes.shape({
+		/** The List id. This is used as the checkbox id prefix. */
 		id: PropTypes.string,
+		/** The checkbox label. */
 		label: PropTypes.string,
+		/** The onChange callback triggered on checkbox toggle. */
 		onChange: PropTypes.func.isRequired,
 	}),
+	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line
+	/** The collection item index. */
 	rowIndex: PropTypes.number,
 };
 

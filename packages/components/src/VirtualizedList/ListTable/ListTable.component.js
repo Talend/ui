@@ -9,7 +9,7 @@ import { toColumns } from '../utils/tablerow';
 import theme from './ListTable.scss';
 
 /**
- * List renderer that enhances the Field configuration an render a react-virtualized Table
+ * List renderer that renders a react-virtualized Table
  */
 function ListTable(props) {
 	const {
@@ -26,7 +26,7 @@ function ListTable(props) {
 	} = props;
 
 	const RowTableRenderer = selectionToggle ?
-		RowSelectionRenderer(
+		RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
 				isSelected,

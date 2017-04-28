@@ -23,7 +23,7 @@ function CellTitleSelector(props) {
 	if (displayMode === TITLE_MODE_INPUT) {
 		return (
 			<CellTitleInput
-				id={id}
+				id={id && `${id}-input`}
 				cellData={cellData}
 				rowData={rowData}
 				onEditSubmit={onEditSubmit}
@@ -35,7 +35,7 @@ function CellTitleSelector(props) {
 	if (onClick) {
 		return (
 			<Button
-				id={id}
+				id={id && `${id}-btn`}
 				className={className}
 				onClick={event => onClick(event, rowData)}
 				role="link"
@@ -50,13 +50,21 @@ function CellTitleSelector(props) {
 }
 
 CellTitleSelector.propTypes = {
+	/** The id prefix. */
 	id: PropTypes.string,
+	/** The input value. */
 	cellData: PropTypes.string.isRequired,
+	/** The title element className. */
 	className: PropTypes.string,
+	/** The display mode. */
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
+	/** The onClick callback triggered on title main button click. */
 	onClick: PropTypes.func,
+	/** Input mode : the cancel callback on ESC keydown. */
 	onEditCancel: PropTypes.func,
+	/** Input mode : the submit callback on ENTER keydown or blur. */
 	onEditSubmit: PropTypes.func,
+	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 

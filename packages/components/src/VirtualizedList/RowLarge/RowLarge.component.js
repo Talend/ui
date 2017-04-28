@@ -54,10 +54,15 @@ function RowLarge({ className, index, key, parent, style }) {
 
 RowLarge.displayName = 'VirtualizedList(RowLarge)';
 RowLarge.propTypes = {
+	/** Custom classname to set on the row */
 	className: PropTypes.string,
+	/** Row index */
 	index: PropTypes.number,
+	/** Row technical key to identify this row for React consolidation */
 	key: PropTypes.string,
+	/** Parent (ListGrid) component instance */
 	parent: PropTypes.arrayOf(PropTypes.element),
+	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line
 };
 

@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import theme from './RowSelection.scss';
 
 /**
- * Row renderer that wrap the default table row renderer
- * It manages row selection classname
+ * Higher order row-renderer that wrap the provided row renderer.
+ * It manages row selection classname and inject it to the row renderer props.
  */
 function RowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
 	function RowSelection(props) {

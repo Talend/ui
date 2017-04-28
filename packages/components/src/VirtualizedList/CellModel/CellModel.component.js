@@ -34,9 +34,15 @@ CellModel.propTypes = {
 	 TODO
 	 * change the propTypes accordingly to your data format
 	 */
+	/** The cell value : props.rowData[props.dataKey] */
 	cellData: PropTypes.string,
+	/** The custom props passed to <VirtualizedList.Content columnData={}>. */
+	columnData: PropTypes.shape({}),
+		/** The data property key. */
 	dataKey: PropTypes.string,
+	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line
+	/** The collection item index. */
 	rowIndex: PropTypes.number,
 };
 
