@@ -11,9 +11,6 @@ const filterAction = {
 	onClick: action('header.onFilter'),
 };
 
-
-const ITEM_DEFAULT_HEIGHT = 33;
-
 const props = {
 	required: true,
 	items: [
@@ -22,9 +19,16 @@ const props = {
 		'Dolor',
 		'Sit',
 		'Amet',
-	],
+	].map(v => ({
+		label: v,
+		value: v,
+		onChange: action('onChange'),
+	})),
+	headerDefault: [filterAction],
+	getItemHeight: () => 33,
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
+	searchPlaceholder: 'Search',
 	headerLabel: 'Choose wisely',
 	emptyLabel: 'Nothing here yet',
 	toggleAllChecked: false,
@@ -32,12 +36,16 @@ const props = {
 	onToggleAll: action('onToggleAll'),
 };
 
-const selectedValuesProps = {
-	...props,
-};
 const searchProps = {
 	...props,
-	searchCriteria: 'lorem',
+	displayMode: 'DISPLAY_MODE_SEARCH',
+	headerInput: [{
+		label: 'Abort',
+		icon: 'talend-cross',
+		id: 'abort',
+		onClick: action('abort'),
+	}],
+	searchCriteria: 'ore',
 };
 
 
@@ -79,8 +87,14 @@ storiesOf('ListView', module)
 			{...searchProps}
 		/>
 	))
-	.addWithInfo('selected values', () => (
-		<ListView
-			{...selectedValuesProps}
-		/>
-	));
+	.addWithInfo('selected values', () => {
+		const selectedValuesProps = { ...props };
+
+		selectedValuesProps.items[1].checked = true;
+
+		return (
+			<ListView
+				{...selectedValuesProps}
+			/>
+		);
+	});
