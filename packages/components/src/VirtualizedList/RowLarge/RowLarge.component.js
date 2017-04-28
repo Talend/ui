@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import {
 	extractSpecialFields,
 	getId,
@@ -12,7 +11,7 @@ import theme from './RowLarge.scss';
 /**
  * Row renderer that displays a Large item
  */
-function RowLarge({ index, key, parent, style }) {
+function RowLarge({ className, index, key, parent, style }) {
 	const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 	const parentId = getId(parent);
@@ -33,12 +32,12 @@ function RowLarge({ index, key, parent, style }) {
 
 	return (
 		<div
-			className={theme['tc-list-large']}
+			className={`tc-list-large ${theme['tc-list-large']}`}
 			key={key}
 			style={style}
 		>
 			<div
-				className={classNames('tc-list-large-row', theme['inner-box'])}
+				className={`tc-list-large-row ${theme['inner-box']} ${className}`}
 				id={id}
 			>
 				<div className={theme.header}>
@@ -55,6 +54,7 @@ function RowLarge({ index, key, parent, style }) {
 
 RowLarge.displayName = 'VirtualizedList(RowLarge)';
 RowLarge.propTypes = {
+	className: PropTypes.string,
 	index: PropTypes.number,
 	key: PropTypes.string,
 	parent: PropTypes.arrayOf(PropTypes.element),

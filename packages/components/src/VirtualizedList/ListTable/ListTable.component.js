@@ -3,7 +3,7 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import RowTableSelectionRenderer from '../RowTable';
+import RowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -26,7 +26,12 @@ function ListTable(props) {
 	} = props;
 
 	const RowTableRenderer = selectionToggle ?
-		RowTableSelectionRenderer(DefaultTableRowRenderer, { isSelected }) :
+		RowSelectionRenderer(
+			DefaultTableRowRenderer,
+			{
+				isSelected,
+				getRowData: rowProps => rowProps.rowData,
+			}) :
 		DefaultTableRowRenderer;
 
 	return (

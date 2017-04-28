@@ -2,6 +2,7 @@ import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
+import { insertSelectionConfiguration } from './utils/tablerow';
 
 /**
  * Composable List based on react-virtualized
@@ -19,6 +20,13 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 	} = props;
+
+	const contentsConfiguration = insertSelectionConfiguration({
+		children,
+		isSelected,
+		selectionToggle,
+	});
+
 	return (
 		<AutoSizer>
 			{({ height, width }) => (
@@ -35,7 +43,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 				>
-					{children}
+					{contentsConfiguration}
 				</RendererSelector>
 			)}
 		</AutoSizer>

@@ -86,10 +86,7 @@ If we want to add a type of List, we only have to create a row renderer that `<R
 
 **Table (ListTable.component.js)**
 
-To add a feature in Table row, we use higher order component composition.
-The default table row renderer is used, enhanced by `RowTableSelection` that manages selected rows.
-
-See `RowTableSelection.component.js` for more information.
+The default `<Table>` row renderer is used.
 
 **Grid (ListGrid.component.js)**
 
@@ -114,6 +111,12 @@ import VirtualizedList, { listTypes } from 'react-talend-components/lib/Virtuali
 
 A `utils/gridrow.js` files contains useful function to render each field (cell).
 For more information and example, see `RowLarge.component.js` which separates the Title cell from the rest of the cells, and renders them, using `gridrow.js` functions.
+
+**Global row features**
+To add more global features, we use higher order component composition.
+The higher order row-renderer would take the row renderer to use anc enhance it with extra info.
+
+See `RowSelection.component.js` for more information.
 
 ### Cell renderers
 

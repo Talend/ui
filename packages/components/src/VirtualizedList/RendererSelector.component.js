@@ -4,7 +4,6 @@ import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
-import { insertSelectionConfiguration } from './utils/tablerow';
 
 const { TABLE } = listTypes;
 
@@ -42,11 +41,6 @@ function RendererSelector(props) {
 		type,
 		width,
 	} = props;
-	const contentsConfiguration = insertSelectionConfiguration({
-		children,
-		isSelected,
-		selectionToggle,
-	});
 
 	if (type === TABLE) {
 		return (
@@ -61,7 +55,7 @@ function RendererSelector(props) {
 				sortDirection={sortDirection}
 				width={width}
 			>
-				{contentsConfiguration}
+				{children}
 			</ListTable>
 		);
 	}
@@ -76,7 +70,7 @@ function RendererSelector(props) {
 			selectionToggle={selectionToggle}
 			width={width}
 		>
-			{contentsConfiguration}
+			{children}
 		</ListGrid>
 	);
 }

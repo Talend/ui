@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
+import RowSelectionRenderer from '../RowSelection';
+import { getRowData } from '../utils/gridrow';
 
 import theme from './ListGrid.scss';
 
@@ -21,10 +23,22 @@ function ListGrid(props) {
 		collection,
 		id,
 		height,
+		isSelected,
 		rowHeight,
 		rowRenderer,
+		selectionToggle,
 		width,
 	} = props;
+
+	const enhancedRowRenderer = selectionToggle ?
+		RowSelectionRenderer(
+			rowRenderer,
+			{
+				isSelected,
+				getRowData: ({ parent, index }) => getRowData(parent, index),
+			}) :
+		rowRenderer;
+
 	return (
 		<VirtualizedList
 			className={theme['tc-list-list']}
@@ -35,7 +49,7 @@ function ListGrid(props) {
 			noRowsRenderer={NoRow}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
-			rowRenderer={rowRenderer}
+			rowRenderer={enhancedRowRenderer}
 			width={width}
 		>
 			{children}
@@ -48,8 +62,10 @@ ListGrid.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isSelected: PropTypes.func,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
+	selectionToggle: PropTypes.func,
 	width: PropTypes.number,
 };
 ListGrid.defaultProps = {

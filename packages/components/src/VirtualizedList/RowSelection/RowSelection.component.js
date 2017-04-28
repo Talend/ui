@@ -1,18 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import theme from './RowTableSelection.scss';
+import theme from './RowSelection.scss';
 
 /**
  * Row renderer that wrap the default table row renderer
  * It manages row selection classname
  */
-function RowTableSelectionRenderer(WrappedComponent, { isSelected }) {
-	function RowTableSelection(props) {
-		const { className, rowData } = props;
+function RowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
+	function RowSelection(props) {
+		const rowData = getRowData(props);
+
 		const enhancedClassNames = classNames(
-			className,
-			theme['row-table-selection'],
+			props.className,
+			theme['row-selection'],
 			{ [theme.selected]: isSelected(rowData) },
 			{ selected: isSelected(rowData) },
 		);
@@ -20,9 +21,9 @@ function RowTableSelectionRenderer(WrappedComponent, { isSelected }) {
 			<WrappedComponent {...props} className={enhancedClassNames} />
 		);
 	}
-	RowTableSelection.propTypes = WrappedComponent.propTypes;
+	RowSelection.propTypes = WrappedComponent.propTypes;
 
-	return RowTableSelection;
+	return RowSelection;
 }
 
-export default RowTableSelectionRenderer;
+export default RowSelectionRenderer;
