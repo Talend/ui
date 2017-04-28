@@ -13,6 +13,7 @@ describe('Items', () => {
 			items: Array(3).fill('').map((item, index) => ({
 				label: `Lorem ipsum dolor sit amet ${index}`,
 			})),
+			getItemHeight: () => 42,
 		};
 
 		props.items[1].checked = true;

@@ -37,6 +37,10 @@ ListView.propTypes = {
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	searchPlaceholder: PropTypes.string,
+	getItemHeight: React.PropTypes.oneOfType([
+		React.PropTypes.func,
+		React.PropTypes.number,
+	]),
 };
 
 ListView.defaultProps = {
@@ -49,20 +53,26 @@ ListView.defaultProps = {
 };
 
 function ItemsListView(props) {
-	// Default
-	const { items, itemsProp, emptyLabel } = props;
-	const { toggleAllChecked, toggleAllLabel, onToggleAll } = props;
-	// Search
-	const { searchCriteria } = props;
+	const {
+		items,
+		emptyLabel,
+		toggleAllChecked,
+		toggleAllLabel,
+		onToggleAll,
+		getItemHeight,
+		searchCriteria,
+	} = props;
+
 	const itemsProps = {
 		items,
-		itemsProp,
 		searchCriteria,
 		toggleAllChecked,
 		toggleAllLabel,
 		onToggleAll,
 		emptyLabel,
+		getItemHeight,
 	};
+
 	return (
 		<Items
 			{...itemsProps}
@@ -72,12 +82,12 @@ function ItemsListView(props) {
 
 ItemsListView.propTypes = {
 	items: ListView.propTypes.items,
-	itemsProp: ListView.propTypes.itemsProp,
 	emptyLabel: ListView.propTypes.emptyLabel,
 	searchCriteria: ListView.propTypes.searchCriteria,
 	toggleAllChecked: ListView.propTypes.toggleAllChecked,
 	toggleAllLabel: ListView.propTypes.toggleAllLabel,
 	onToggleAll: ListView.propTypes.onToggleAll,
+	getItemHeight: ListView.propTypes.getItemHeight,
 };
 
 function HeaderListView(props) {

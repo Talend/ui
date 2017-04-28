@@ -3,7 +3,6 @@
 exports[`Items should display a checked item between the two others 1`] = `
 <ul
   className="tc-listview-items"
-  onScroll={undefined}
 >
   <div
     id="autoSizer"
@@ -33,8 +32,8 @@ exports[`Items should display a checked item between the two others 1`] = `
         className="ReactVirtualized__Grid__innerScrollContainer"
         style={
           Object {
-            "height": 144,
-            "maxHeight": 144,
+            "height": 166,
+            "maxHeight": 166,
             "maxWidth": 30,
             "overflow": "hidden",
             "pointerEvents": "",
@@ -47,7 +46,7 @@ exports[`Items should display a checked item between the two others 1`] = `
           className="tc-item-container toggle"
           style={
             Object {
-              "height": 36,
+              "height": 40,
               "left": 0,
               "position": "absolute",
               "top": 0,
@@ -75,10 +74,10 @@ exports[`Items should display a checked item between the two others 1`] = `
           className="tc-item-container"
           style={
             Object {
-              "height": 36,
+              "height": 42,
               "left": 0,
               "position": "absolute",
-              "top": 36,
+              "top": 40,
               "width": "100%",
             }
           }
@@ -116,10 +115,10 @@ exports[`Items should display a checked item between the two others 1`] = `
           className="tc-item-container"
           style={
             Object {
-              "height": 36,
+              "height": 42,
               "left": 0,
               "position": "absolute",
-              "top": 72,
+              "top": 82,
               "width": "100%",
             }
           }
@@ -157,10 +156,10 @@ exports[`Items should display a checked item between the two others 1`] = `
           className="tc-item-container"
           style={
             Object {
-              "height": 36,
+              "height": 42,
               "left": 0,
               "position": "absolute",
-              "top": 108,
+              "top": 124,
               "width": "100%",
             }
           }

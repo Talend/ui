@@ -16,12 +16,12 @@ import {
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
+const DEFAULT_ITEM_HEIGHT = 33;
 
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		const { options, value } = props;
-		const { enumOptions } = options;
 
 		this.timerSearch = null;
 		this.value = value;
@@ -38,7 +38,7 @@ class ListViewWidget extends React.Component {
 			defaultDisplayMode = props.schema.displayMode;
 		}
 
-		const items = enumOptions.map((option, index) => ({
+		const items = options.enumOptions.map((option, index) => ({
 			index,
 			checked: value.indexOf(option.value) !== -1,
 			label: option.label,
@@ -56,6 +56,7 @@ class ListViewWidget extends React.Component {
 			onAddKeyDown: onAddKeyDown.bind(this),
 			onAbortHandler: onAbortHandler.bind(this),
 			toggleAllChecked: items.length === items.filter(i => i.checked).length,
+			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			items,
 		};
 	}
@@ -67,18 +68,10 @@ class ListViewWidget extends React.Component {
 		);
 	}
 
-	searchItems(searchCriteria) {
-		if (searchCriteria) {
-			const searchedItems = [];
-			this.state.items.forEach((item) => {
-				if (item.label.toLowerCase().includes(searchCriteria.toLowerCase())) {
-					searchedItems.push(item);
-				}
-			});
-			return searchedItems;
-		}
-
-		return this.state.items;
+	searchItems(criteria) {
+		return criteria ? this.state.items.filter(
+			item => item.label.toLowerCase().includes(criteria.toLowerCase())
+		) : this.state.items;
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {

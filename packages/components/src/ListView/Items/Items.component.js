@@ -42,16 +42,11 @@ class Items extends React.PureComponent {
 		this.hasToggleAll = this.props.items.length > 1;
 	}
 
-	getRowHeight() {
-		return 36;
-
-		// FIXME [NC]:
-		// getRowHeight({ index }) {
-		// 	if (this.hasToggleAll && index === 0) {
-		// 		return 40;
-		// 	}
-		// 	return this.props.itemsProp.getItemHeight();
-		// }
+	getRowHeight({ index }) {
+		if (this.hasToggleAll && index === 0) {
+			return 40;
+		}
+		return this.props.getItemHeight();
 	}
 
 	getRowCount() {
@@ -128,7 +123,7 @@ class Items extends React.PureComponent {
 		}
 
 		return (
-			<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
+			<ul className={itemsClasses()}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -159,6 +154,10 @@ Items.propTypes = {
 		checked: PropTypes.bool,
 		index: PropTypes.number,
 	})),
+	getItemHeight: React.PropTypes.oneOfType([
+		React.PropTypes.func,
+		React.PropTypes.number,
+	]),
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,
