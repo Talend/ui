@@ -216,14 +216,14 @@ describe('EnumerationWidget', () => {
 						allowImport: true,
 					}}
 				/>);
-			wrapper.instance().inputImport.click = jest.fn();
+			wrapper.instance().inputFile.click = jest.fn();
 			spyOn(document.activeElement, 'blur').and.callThrough();
 
 			// when
 			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
 
 			// then
-			expect(wrapper.instance().inputImport.click).toBeCalled();
+			expect(wrapper.instance().inputFile.click).toBeCalled();
 			expect(document.activeElement.blur).toBeCalled();
 		});
 
@@ -260,14 +260,14 @@ describe('EnumerationWidget', () => {
 				},
 			};
 
-			wrapper.instance().resetInputForm = jest.fn();
+			wrapper.instance().resetInputFile = jest.fn();
 
 			// when
 			wrapper.instance().importFile(event);
 
 
 			// then
-			expect(wrapper.instance().resetInputForm).toBeCalled();
+			expect(wrapper.instance().resetInputFile).toBeCalled();
 			expect(spy).toBeCalledWith(
 				'enumeration',
 				'ENUMERATION_IMPORT_FILE_ACTION',
