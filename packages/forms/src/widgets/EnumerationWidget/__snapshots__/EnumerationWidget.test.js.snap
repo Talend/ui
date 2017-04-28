@@ -6751,12 +6751,10 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
     }
   }>
   <div>
-    <form>
-      <input
-        className="hidden"
-        onChange={[Function]}
-        type="file" />
-    </form>
+    <input
+      className="hidden"
+      onChange={[Function]}
+      type="file" />
     <Enumeration
       displayMode="DISPLAY_MODE_DEFAULT"
       headerDefault={
@@ -7348,12 +7346,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
     }
   }>
   <div>
-    <form>
-      <input
-        className="hidden"
-        onChange={[Function]}
-        type="file" />
-    </form>
+    <input
+      className="hidden"
+      onChange={[Function]}
+      type="file" />
     <Enumeration
       displayMode="DISPLAY_MODE_DEFAULT"
       headerDefault={
@@ -8584,12 +8580,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
     }
   }>
   <div>
-    <form>
-      <input
-        className="hidden"
-        onChange={[Function]}
-        type="file" />
-    </form>
+    <input
+      className="hidden"
+      onChange={[Function]}
+      type="file" />
     <Enumeration
       displayMode="DISPLAY_MODE_DEFAULT"
       headerDefault={

@@ -260,14 +260,14 @@ describe('EnumerationWidget', () => {
 				},
 			};
 
-			wrapper.instance().formInput.reset = jest.fn();
+			wrapper.instance().resetInputForm = jest.fn();
 
 			// when
 			wrapper.instance().importFile(event);
 
 
 			// then
-			expect(wrapper.instance().formInput.reset).toBeCalled();
+			expect(wrapper.instance().resetInputForm).toBeCalled();
 			expect(spy).toBeCalledWith(
 				'enumeration',
 				'ENUMERATION_IMPORT_FILE_ACTION',

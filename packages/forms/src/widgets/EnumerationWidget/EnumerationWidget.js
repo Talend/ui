@@ -536,8 +536,12 @@ class EnumerationWidget extends React.Component {
 				headerDefault: this.loadingInputsActions,
 			});
 		}
+		this.resetInputForm();
+	}
+
+	resetInputForm() {
 		// reinit the input file
-		this.formInput.reset();
+		this.inputImport.value = '';
 	}
 
 
@@ -616,16 +620,12 @@ class EnumerationWidget extends React.Component {
 
 	renderImportFile() {
 		return (
-			<form
-				ref={(element) => { this.formInput = element; }}
-			>
-				<input
-					type="file"
-					ref={(element) => { this.inputImport = element; }}
-					onChange={(event) => { this.importFile(event); }}
-					className={classNames('hidden')}
-				/>
-			</form>
+			<input
+				type="file"
+				ref={(element) => { this.inputImport = element; }}
+				onChange={(event) => { this.importFile(event); }}
+				className={classNames('hidden')}
+			/>
 		);
 	}
 
