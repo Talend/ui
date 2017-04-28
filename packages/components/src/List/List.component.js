@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import VirtualizedList, { cellDictionary } from '../VirtualizedList';
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
+import DisplayLarge from './DisplayLarge';
+import DisplayTable from './DisplayTable';
+import DisplayTile from './DisplayTile';
 import Content from './Content';
 import theme from './List.scss';
 
@@ -40,46 +42,43 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
 
-function getCellRendererConfig(type, list) {
-	const columnData = type === 'title' ?
-		list.titleProps :
-		null;
+function DisplayModeComponent({ id, useContent, displayMode, list }) {
+	if (useContent) {
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+	}
 
-	return {
-		...cellDictionary[type],
-		columnData,
-	};
+	switch (displayMode) {
+	case 'tile': return <DisplayTile id={id} {...list} />;
+	case 'large': return <DisplayLarge id={id} {...list} />;
+	default: return <DisplayTable id={id} {...list} />;
+	}
 }
-
-function ListDisplay({ id, displayMode, list }) {
-	return (
-		<VirtualizedList
-			collection={list.items}
-			id={id}
-			sort={list.sort && list.sort.onChange}
-			sortBy={list.sort && list.sort.field}
-			sortDirection={list.sort && list.sort.isDescending ? 'DESC' : 'ASC'}
-			type={displayMode.toUpperCase()}
-		>
-			{list.columns.map(col => (
-				<VirtualizedList.Content
-					label={col.label}
-					dataKey={col.key}
-					disableSort={col.disableSort}
-					width={col.width}
-					flexShrink={col.flexShrink}
-					flexGrow={col.flexGrow}
-					{...getCellRendererConfig(col.type, list)}
-				/>
-			))}
-		</VirtualizedList>
-	);
-}
-ListDisplay.propTypes = {
+DisplayModeComponent.propTypes = {
 	id: PropTypes.string,
 	displayMode: PropTypes.string,
-	list: PropTypes.shape(DisplayPropTypes),
+	list: PropTypes.oneOfType([
+		PropTypes.shape(DisplayPropTypes),
+		PropTypes.shape(Content.propTypes),
+	]),
+	useContent: PropTypes.bool,
 };
+
+function ListDisplay({ id, useContent, displayMode, list }) {
+	if (list.items && list.items.length) {
+		return (
+			<DisplayModeComponent
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
+		);
+	}
+
+	return (<span className={theme['no-result']}>No result found</span>);
+}
+ListDisplay.propTypes = DisplayModeComponent.propTypes;
+
 
 /**
  * @param {object} props react props
@@ -129,14 +128,12 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 				displayMode={displayMode}
 				list={list}
 			/>
-			<div className="tc-list-display">
-				<ListDisplay
-					id={id}
-					useContent={useContent}
-					displayMode={displayMode}
-					list={list}
-				/>
-			</div>
+			<ListDisplay
+				id={id}
+				useContent={useContent}
+				displayMode={displayMode}
+				list={list}
+			/>
 		</div>
 	);
 }
