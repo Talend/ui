@@ -47,7 +47,8 @@ class ListViewWidget extends React.Component {
 
 		this.state = {
 			displayMode: defaultDisplayMode,
-			required: (props.schema && props.schema.required) || false,
+			required: !!(props.schema && props.schema.required),
+			headerLabel: props.schema && props.schema.title,
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,

@@ -5,6 +5,7 @@
     "type": "object",
     "properties": {
       "documents": {
+        "title": "Documents",
         "type": "array",
         "items": {
           "type": "string",
