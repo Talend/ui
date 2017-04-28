@@ -113,7 +113,7 @@ ListViewWidget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
-		id: PropTypes.number,
+		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line

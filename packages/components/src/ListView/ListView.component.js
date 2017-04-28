@@ -26,6 +26,10 @@ function ListView(props) {
 }
 
 ListView.propTypes = {
+	displayMode: PropTypes.oneOf([
+		DISPLAY_MODE_DEFAULT,
+		DISPLAY_MODE_SEARCH,
+	]),
 	required: PropTypes.bool,
 	headerError: PropTypes.string,
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
@@ -34,9 +38,12 @@ ListView.propTypes = {
 	headerLabel: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,
+	emptyLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	searchPlaceholder: PropTypes.string,
+	onInputChange: PropTypes.func.isRequired,
+	onAddKeyDown: PropTypes.func,
 	getItemHeight: React.PropTypes.oneOfType([
 		React.PropTypes.func,
 		React.PropTypes.number,
@@ -46,7 +53,7 @@ ListView.propTypes = {
 ListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
 	headerLabel: 'Values',
-	emptyLabel: 'This list is empty, click on + to add a value.',
+	emptyLabel: 'This list is empty.',
 	toggleAllLabel: 'All',
 	searchPlaceholder: 'Search',
 	items: [],

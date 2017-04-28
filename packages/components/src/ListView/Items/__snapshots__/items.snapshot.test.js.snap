@@ -102,7 +102,6 @@ exports[`Items should display a checked item between the two others 1`] = `
                   />
                   <span
                     className="undefined tc-listview-item-label"
-                    tooltip={true}
                   >
                     Lorem ipsum dolor sit amet 0
                   </span>
@@ -143,7 +142,6 @@ exports[`Items should display a checked item between the two others 1`] = `
                   />
                   <span
                     className="undefined tc-listview-item-label"
-                    tooltip={true}
                   >
                     Lorem ipsum dolor sit amet 1
                   </span>
@@ -184,7 +182,6 @@ exports[`Items should display a checked item between the two others 1`] = `
                   />
                   <span
                     className="undefined tc-listview-item-label"
-                    tooltip={true}
                   >
                     Lorem ipsum dolor sit amet 2
                   </span>

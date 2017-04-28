@@ -54,10 +54,7 @@ function Item(props) {
 							checked={item.checked}
 							onChange={event => item.onChange(item, event)}
 						/>
-						<span
-							className={itemLabelClasses()}
-							tooltip
-						>
+						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
 						</span>
 					</label>

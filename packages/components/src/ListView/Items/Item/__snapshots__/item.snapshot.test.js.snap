@@ -21,7 +21,6 @@ exports[`Item should display a selected item 1`] = `
         />
         <span
           className="undefined tc-listview-item-label"
-          tooltip={true}
         >
           toto
         </span>
