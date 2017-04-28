@@ -30,7 +30,7 @@ export default class CellTitleInput extends React.Component {
 
 	onSubmit(event) {
 		this.props.onEditSubmit(event, {
-			value: event.target.value,
+			value: this.titleInput.value,
 			model: this.props.rowData,
 		});
 		event.preventDefault();
