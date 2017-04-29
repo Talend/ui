@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellTitle should render the input 1`] = `
+exports[`CellTitleInput should render the input 1`] = `
 <form
   onSubmit={[Function]}
 >
   <input
     autoFocus={true}
-    id="my-cell-input"
+    id="my-cell"
     onBlur={[Function]}
     onKeyUp={[Function]}
   />

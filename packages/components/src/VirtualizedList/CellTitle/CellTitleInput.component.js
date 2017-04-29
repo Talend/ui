@@ -40,7 +40,7 @@ export default class CellTitleInput extends React.Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<input
-					id={this.props.id && `${this.props.id}-input`}
+					id={this.props.id}
 					ref={(input) => { this.titleInput = input; }}
 					onBlur={this.onBlur}
 					onKeyUp={this.onKeyUp}

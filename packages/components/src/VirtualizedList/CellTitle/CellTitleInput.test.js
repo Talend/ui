@@ -4,7 +4,7 @@ import keycode from 'keycode';
 
 import CellTitleInput from './CellTitleInput.component';
 
-describe('CellTitle', () => {
+describe('CellTitleInput', () => {
 	it('should render the input', () => {
 		// given
 		const rowData = { id: 1 };
@@ -32,7 +32,7 @@ describe('CellTitle', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell'}
+				id={'my-cell-input'}
 				cellData={'my value'}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
@@ -61,7 +61,7 @@ describe('CellTitle', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell'}
+				id={'my-cell-input'}
 				cellData={'my value'}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
@@ -91,7 +91,7 @@ describe('CellTitle', () => {
 
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell'}
+				id={'my-cell-input'}
 				cellData={'my value'}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
