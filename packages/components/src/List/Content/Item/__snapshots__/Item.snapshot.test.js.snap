@@ -103,6 +103,7 @@ exports[`Item should render with actions 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-edit"
+        focusable="false"
         title={null}
       />
     </button>
@@ -130,6 +131,7 @@ exports[`Item should render with actions 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-trash-o"
+        focusable="false"
         title={null}
       />
     </button>
@@ -262,6 +264,7 @@ exports[`Item should render with icon 1`] = `
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
+      focusable="false"
       title={null}
     />
   </div>

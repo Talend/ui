@@ -45,7 +45,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 					id={id && `${id}-order`}
 					onClick={onChangeOrder}
 				>
-					{order ? 'DESCENDING' : 'ASCENDING'}
+					{order ? 'Descending' : 'Ascending'}
 				</NavItem>
 			)}
 		</Nav>

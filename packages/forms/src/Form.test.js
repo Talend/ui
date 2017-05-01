@@ -131,6 +131,10 @@ describe('<Form/>', () => {
 	const onChange = jest.fn();
 	const onTrigger = jest.fn();
 
+	it('should have a displayName', () => {
+		expect(Form.displayName).toBe('TalendForm');
+	});
+
 	describe('render simple elements', () => {
 		beforeEach(() => {
 			wrapper = mount(<Form noHtml5Validate data={data} />);

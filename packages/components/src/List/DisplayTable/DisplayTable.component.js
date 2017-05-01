@@ -8,6 +8,13 @@ import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
 
+function getItemString(item) {
+	if (item === undefined || item === null) {
+		return '';
+	}
+	return item.toString();
+}
+
 export function CellContent({ isTitle, item, column, titleProps, id }) {
 	if (isTitle) {
 		return (<ItemTitle
@@ -23,7 +30,7 @@ export function CellContent({ isTitle, item, column, titleProps, id }) {
 			hideLabel
 		/>);
 	}
-	const str = item[column.key] ? item[column.key].toString() : '';
+	const str = getItemString(item[column.key]);
 	return (
 		<TooltipTrigger label={str} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
