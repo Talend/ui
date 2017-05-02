@@ -287,7 +287,7 @@ describe('EnumerationWidget', () => {
 		it('should split with using coma separator and trim the sub strings', () => {
 			// given
 			const enumerationWidget = new EnumerationWidget({});
-			//when
+			// when
 			const resultArray = enumerationWidget.parseStringValueToArray('toto ,  to , tata ');
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);

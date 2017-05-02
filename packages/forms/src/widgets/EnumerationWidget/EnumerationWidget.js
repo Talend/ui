@@ -150,10 +150,6 @@ class EnumerationWidget extends React.Component {
 		this.setState({ ...this.state, items: nextProps.formData });
 	}
 
-	parseStringValueToArray(values) {
-		return values.split(',').map(value => value.trim())
-	}
-
 	// default mode
 	onEnterEditModeItem(event, value) {
 		let items = resetItems([...this.state.items]);
@@ -476,6 +472,10 @@ class EnumerationWidget extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
+	}
+
+	parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
 	}
 
 	itemSubmitHandler() {
