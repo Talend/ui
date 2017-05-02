@@ -28,4 +28,6 @@ Action.contextTypes = {
 	registry: PropTypes.object,
 };
 
+Action.displayName = 'CMFContainer(Action)';
+
 export default Action;
