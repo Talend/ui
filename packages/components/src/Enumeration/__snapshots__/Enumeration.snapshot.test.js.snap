@@ -29,6 +29,7 @@ exports[`Enumeration should render with header in add state and list in default 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -51,6 +52,7 @@ exports[`Enumeration should render with header in add state and list in default 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -151,6 +153,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -173,6 +176,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -233,6 +237,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -255,6 +260,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -315,6 +321,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -337,6 +344,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -382,6 +390,7 @@ exports[`Enumeration should render with header in default state and first item i
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -474,6 +483,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -496,6 +506,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -556,6 +567,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -578,6 +590,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -638,6 +651,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -660,6 +674,7 @@ exports[`Enumeration should render with header in default state and first item i
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -706,6 +721,7 @@ exports[`Enumeration should render with header in default state, list in default
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -807,6 +823,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -829,6 +846,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -889,6 +907,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -911,6 +930,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -971,6 +991,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -993,6 +1014,7 @@ exports[`Enumeration should render with header in default state, list in default
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1039,6 +1061,7 @@ exports[`Enumeration should render with header in search state and list in defau
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -1061,6 +1084,7 @@ exports[`Enumeration should render with header in search state and list in defau
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -1158,6 +1182,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1180,6 +1205,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1237,6 +1263,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1259,6 +1286,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1316,6 +1344,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1338,6 +1367,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1470,6 +1500,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1492,6 +1523,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1552,6 +1584,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1574,6 +1607,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1634,6 +1668,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1656,6 +1691,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1701,6 +1737,7 @@ exports[`Enumeration should render with header without items 1`] = `
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use

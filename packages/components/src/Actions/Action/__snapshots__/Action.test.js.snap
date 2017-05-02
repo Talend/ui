@@ -11,6 +11,7 @@ exports[`Action should apply transformation on icon 1`] = `
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use
@@ -33,6 +34,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
 >
   <svg
     className=""
+    focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
@@ -66,6 +68,7 @@ exports[`Action should display a disabled Icon 1`] = `
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use
@@ -89,6 +92,7 @@ exports[`Action should pass all props to the Button 1`] = `
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use
@@ -112,6 +116,7 @@ exports[`Action should render a button 1`] = `
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use
@@ -136,6 +141,7 @@ exports[`Action should render action with html property name = props.name if set
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use
@@ -162,6 +168,7 @@ exports[`Action should reverse icon/label 1`] = `
   <svg
     aria-hidden="true"
     className="tc-svg-icon"
+    focusable="false"
     title={null}
   >
     <use

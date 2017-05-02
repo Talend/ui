@@ -51,6 +51,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-filter"
+              focusable="false"
               title="icon"
             />
             <span
@@ -180,6 +181,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
+              focusable="false"
               title="icon"
             />
             <span
@@ -282,6 +284,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-filter"
+              focusable="false"
               title="icon"
             />
             <span
@@ -355,6 +358,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
+              focusable="false"
               title="icon"
             />
             <span
@@ -507,6 +511,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   <i
     aria-hidden="true"
     className="fa fa-search"
+    focusable="false"
     title={null}
   />
 </button>

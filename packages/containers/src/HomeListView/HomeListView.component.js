@@ -5,30 +5,49 @@ import AppHeaderBar from '../AppHeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
+function getContent(Component, props) {
+	if (typeof props === 'object') {
+		return (<Component {...props} />);
+	}
+	return props;
+}
+
 function HomeListView({ sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
+	let arrayChildren = children;
+	if (!Array.isArray(children) && children !== null) {
+		arrayChildren = [children];
+	} else if (children === null) {
+		arrayChildren = [];
+	}
 	return (
 		<Layout
 			mode="TwoColumns"
-			header={(<AppHeaderBar {...header} />)}
-			one={(<SidePanel {...sidepanel} />)}
-			drawers={children}
+			header={getContent(AppHeaderBar, header)}
+			one={getContent(SidePanel, sidepanel)}
+			drawers={arrayChildren}
 		>
-			<List {...list} />
+			{getContent(List, list)}
 		</Layout>
 	);
 }
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
-	header: Layout.propTypes.header,
-	sidepanel: PropTypes.shape({
-		actionIds: PropTypes.arrayOf(PropTypes.string),
-	}).isRequired,
-	list: PropTypes.shape({
-	}).isRequired,
+	header: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]),
+	sidepanel: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]).isRequired,
+	list: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.object,
+	]).isRequired,
 	children: PropTypes.node,
 };
 
