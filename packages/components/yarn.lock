@@ -1239,9 +1239,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.72.2:
-  version "0.72.2"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.72.2.tgz#d164a2d5cc39538b40bf3918b9e0738184ae9a0b"
+bootstrap-talend-theme@^0.72.3:
+  version "0.72.3"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.72.3.tgz#5607cac1d7b576ca5c8c7a0fea43dc13cc16210d"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -5987,9 +5987,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.72.2:
-  version "0.72.2"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.72.2.tgz#4bdabf0091695c6ede2ecdb218c4fb0cb66b8da9"
+talend-icons@^0.72.3:
+  version "0.72.3"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.72.3.tgz#d3c67a5b207de14ea9d038589aed92ad8993a100"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
