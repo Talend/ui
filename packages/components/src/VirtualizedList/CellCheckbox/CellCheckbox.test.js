@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import CellCheckbox from './CellCheckbox.component';
 
@@ -52,7 +52,6 @@ describe('CellActions', () => {
 				rowIndex={25}
 			/>
 		);
-		console.log(wrapper.find('#my-checkbox-25-check').debug());
 		wrapper.find('#my-checkbox-25-check').simulate('change', event);
 
 		// then
