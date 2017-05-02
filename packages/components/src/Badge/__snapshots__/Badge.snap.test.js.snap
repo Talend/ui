@@ -24,6 +24,7 @@ exports[`Badge should render Badge with icon in outline style 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -58,6 +59,7 @@ exports[`Badge should render Badge with icon in solid style 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

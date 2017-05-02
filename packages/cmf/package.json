@@ -92,7 +92,7 @@
     "redux-batched-actions": "0",
     "redux-thunk": "2"
   },
-  "version": "0.72.1",
+  "version": "0.72.3",
   "dependencies": {
     "hoist-non-react-statics": "^1.2.0"
   }

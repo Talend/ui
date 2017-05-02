@@ -33,7 +33,7 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -195,5 +195,91 @@ describe('EnumerationWidget', () => {
 		// should reset all items to default mode
 		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
 		expect(wrapper.find('.tc-enumeration-item .btn-default').length).toBe(2);
+	});
+
+	describe('upload file', () => {
+		it('should add a upload icon', () => {
+			const wrapper = mount(
+				<EnumerationWidget
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+			expect(toJson(wrapper)).toMatchSnapshot();
+		});
+
+		it('should simulate click on the input', () => {
+			// given
+			const wrapper = mount(
+				<EnumerationWidget
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+			wrapper.instance().inputImport.click = jest.fn();
+			spyOn(document.activeElement, 'blur').and.callThrough();
+
+			// when
+			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+
+			// then
+			expect(wrapper.instance().inputImport.click).toBeCalled();
+			expect(document.activeElement.blur).toBeCalled();
+		});
+
+		it('should trigger a event when the user clicks on the upload action'
+				+ ', shows a loading and return to initial state when we call the success callback', () => {
+			// given
+			let successUploadHandler;
+			const registry = {
+				formContext: {
+					handleAction: (component, actionName, value, successHandler) => {
+						successUploadHandler = successHandler;
+					},
+				},
+			};
+
+			const spy = spyOn(registry.formContext, 'handleAction').and.callThrough();
+
+			const wrapper = mount(
+				<EnumerationWidget
+					id="enumeration"
+					schema={{
+						allowImport: true,
+					}}
+					registry={registry}
+					formData={[
+						{ id: '111', values: ['titi', 'tata'] },
+						{ id: '112', values: ['titi2', 'tata2'] },
+					]}
+				/>);
+
+			const event = {
+				target: {
+					files: ['file'],
+				},
+			};
+
+			wrapper.instance().formInput.reset = jest.fn();
+
+			// when
+			wrapper.instance().importFile(event);
+
+
+			// then
+			expect(wrapper.instance().formInput.reset).toBeCalled();
+			expect(spy).toBeCalledWith(
+				'enumeration',
+				'ENUMERATION_IMPORT_FILE_ACTION',
+				'file',
+				jasmine.any(Function),
+				jasmine.any(Function)
+			);
+
+			expect(toJson(wrapper.update())).toMatchSnapshot();
+
+			successUploadHandler();
+			expect(toJson(wrapper.update())).toMatchSnapshot();
+		});
 	});
 });
