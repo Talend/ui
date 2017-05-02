@@ -3,6 +3,7 @@
 exports[`CircularProgress should render as light if set 1`] = `
 <svg
   className=""
+  focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
@@ -24,6 +25,7 @@ exports[`CircularProgress should render as light if set 1`] = `
 exports[`CircularProgress should render at large size if set 1`] = `
 <svg
   className="undefined"
+  focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
@@ -45,6 +47,7 @@ exports[`CircularProgress should render at large size if set 1`] = `
 exports[`CircularProgress should render at small size if set 1`] = `
 <svg
   className=""
+  focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
@@ -66,6 +69,7 @@ exports[`CircularProgress should render at small size if set 1`] = `
 exports[`CircularProgress should render by default at default size 1`] = `
 <svg
   className=""
+  focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
@@ -87,6 +91,7 @@ exports[`CircularProgress should render by default at default size 1`] = `
 exports[`CircularProgress should render with percent if set 1`] = `
 <svg
   className=""
+  focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
