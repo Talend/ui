@@ -13,6 +13,10 @@ function NoRow() {
 	);
 }
 
+function getRowDataFromParent({ parent, index }) {
+	return getRowData(parent, index);
+}
+
 /**
  * List renderer that accepts a custom row renderer.
  * The row renderer will create a row element for each collection item.
@@ -35,7 +39,7 @@ function ListGrid(props) {
 			rowRenderer,
 			{
 				isSelected,
-				getRowData: ({ parent, index }) => getRowData(parent, index),
+				getRowData: getRowDataFromParent,
 			}) :
 		rowRenderer;
 

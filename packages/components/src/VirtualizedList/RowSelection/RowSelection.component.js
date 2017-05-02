@@ -22,6 +22,7 @@ function RowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
 		);
 	}
 	RowSelection.propTypes = WrappedComponent.propTypes;
+	RowSelection.displayName = `RowSelection(${WrappedComponent.displayName})`;
 
 	return RowSelection;
 }

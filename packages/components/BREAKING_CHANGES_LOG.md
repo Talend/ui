@@ -11,6 +11,7 @@ The new List requires to be in a container with a calculated size. If you use a 
 |---|---|---|
 | list.columns | No column size defined | You need to configure the flex style on each column :<br>`list.columns.width`: the flex basis (number)<br>`list.columns.flexGrow`: the flex-grow<br>`list.columns.flexShrink`: the flex-shrink |
 | list.titleProps | No defined key for actions | You need to configure the actions property key. The old default was `actions`, so `titleProps.actionsKey: 'actions'` should be ok |
+| list.rowHeight | For Large : No row height defined | You need to configure the row height depending on your data to display |
 
 ## v0.63.0
 * Component: Layout
