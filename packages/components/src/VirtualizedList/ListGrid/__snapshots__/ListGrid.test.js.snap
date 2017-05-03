@@ -1,73 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListGrid should enhance the rowRenderer with selection Higher Order renderer 1`] = `
-<List
-  className={undefined}
-  collection={
-    Array [
-      Object {
-        "author": "Jean-Pierre DUPONT",
-        "description": "Simple row with icon and actions",
-        "id": 0,
-        "name": "Title with icon and actions",
-      },
-      Object {
-        "author": "Jean-Pierre DUPONT",
-        "description": "Simple row without actions",
-        "id": 1,
-        "name": "Title without actions",
-      },
-    ]
-  }
-  estimatedRowSize={30}
-  height={600}
-  id="my-list"
-  noRowsRenderer={[Function]}
-  onRowsRendered={[Function]}
-  onScroll={[Function]}
-  overscanIndicesGetter={[Function]}
-  overscanRowCount={10}
-  rowCount={2}
-  rowHeight={130}
-  rowRenderer={[Function]}
-  scrollToAlignment="auto"
-  scrollToIndex={-1}
-  style={Object {}}
-  width={1024}
->
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="id"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label="Id"
-    style={Object {}}
-  />
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="name"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label="Name"
-    style={Object {}}
-  />
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="actions"
-    flexGrow={0}
-    flexShrink={1}
-    headerRenderer={[Function]}
-    label=""
-    style={Object {}}
-  />
-</List>
-`;
-
 exports[`ListGrid should render react-virtualized list 1`] = `
 <List
   className={undefined}
@@ -126,7 +58,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
-    dataKey="actions"
+    dataKey="description"
     flexGrow={0}
     flexShrink={1}
     headerRenderer={[Function]}

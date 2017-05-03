@@ -2,8 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import VirtualizedList from '../VirtualizedList.component';
-import RowLarge from '../RowLarge';
-import ListGrid from './ListGrid.component';
+import ListTable from './ListTable.component';
 
 describe('ListGrid', () => {
 	const collection = [
@@ -21,15 +20,13 @@ describe('ListGrid', () => {
 		},
 	];
 
-	it('should render react-virtualized list', () => {
+	it('should render react-virtualized table', () => {
 		// when
 		const wrapper = shallow(
-			<ListGrid
+			<ListTable
 				collection={collection}
 				height={600}
 				id={'my-list'}
-				rowHeight={130}
-				rowRenderer={RowLarge}
 				width={1024}
 			>
 				<VirtualizedList.Content
@@ -44,24 +41,54 @@ describe('ListGrid', () => {
 					label=""
 					dataKey="description"
 				/>
-			</ListGrid>
+			</ListTable>
 		);
 
 		// then
 		expect(wrapper.node).toMatchSnapshot();
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.node.props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
 	});
 
-	it('should enhance the rowRenderer with selection Higher Order renderer', () => {
+
+	it('should render table with sort props', () => {
 		// when
 		const wrapper = shallow(
-			<ListGrid
+			<ListTable
+				collection={collection}
+				height={600}
+				id={'my-list'}
+				sort={jest.fn()}
+				sortBy={'name'}
+				sortDirection={'DESC'}
+				width={1024}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+				/>
+				<VirtualizedList.Content
+					label=""
+					dataKey="description"
+				/>
+			</ListTable>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should enhance the default rowRenderer with selection Higher Order renderer', () => {
+		// when
+		const wrapper = shallow(
+			<ListTable
 				collection={collection}
 				height={600}
 				id={'my-list'}
 				isSelected={jest.fn()}
-				rowHeight={130}
-				rowRenderer={RowLarge}
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
@@ -73,10 +100,10 @@ describe('ListGrid', () => {
 					label="Name"
 					dataKey="name"
 				/>
-			</ListGrid>
+			</ListTable>
 		);
 
 		// then
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(VirtualizedList(RowLarge))');
+		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(undefined)');
 	});
 });

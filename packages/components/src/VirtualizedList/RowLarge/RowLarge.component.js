@@ -18,12 +18,12 @@ function RowLarge({ className, index, key, parent, style }) {
 	const id = parentId && `${parentId}-${index}`;
 	const titleCell = titleField && renderCell(index, parent, titleField);
 	const selectionCell = selectionField && renderCell(index, parent, selectionField);
-	const otherCellsListItems = otherFields.map((field) => {
+	const otherCellsListItems = otherFields.map((field, fieldIndex) => {
 		const cellContent = renderCell(index, parent, field);
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
 		const label = getLabel(field);
 		return (
-			<li>
+			<li key={fieldIndex}>
 				{label && (<span className={theme['field-label']}>{label}: </span>)}
 				<span className={theme['field-value']} title={tooltip}>{cellContent}</span>
 			</li>
@@ -61,7 +61,7 @@ RowLarge.propTypes = {
 	/** Row technical key to identify this row for React consolidation */
 	key: PropTypes.string,
 	/** Parent (ListGrid) component instance */
-	parent: PropTypes.arrayOf(PropTypes.element),
+	parent: PropTypes.object,
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line
 };
