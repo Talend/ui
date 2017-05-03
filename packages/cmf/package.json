@@ -36,8 +36,8 @@
     "babel-preset-es2015": "6.14.0",
     "babel-preset-react": "6.11.1",
     "classnames": "2",
-    "codacy-coverage": "^2.0.0",
-    "enzyme": "^2.6.0",
+    "codacy-coverage": "^2.0.2",
+    "enzyme": "^2.8.2",
     "eslint": "3.7.1",
     "eslint-config-airbnb": "10.0.1",
     "eslint-plugin-import": "1.16.0",
@@ -47,8 +47,8 @@
     "ink-docstrap": "^1.3.0",
     "invariant": "2.2.1",
     "jasmine-immutable-matchers": "1.0.1",
-    "jest": "^19.0.1",
-    "jest-cli": "^17.0.3",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.2",
     "react": "^15.4.1",
@@ -63,7 +63,7 @@
     "redux-logger": "2.6.1",
     "redux-mock-store": "^1.1.4",
     "redux-thunk": "2",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.6.1"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -75,7 +75,7 @@
       ".*": "<rootDir>/node_modules/babel-jest"
     },
     "setupFiles": [
-      "env__tests.js"
+      "./env__tests.js"
     ]
   },
   "peerDependencies": {
@@ -92,7 +92,7 @@
     "redux-batched-actions": "0",
     "redux-thunk": "2"
   },
-  "version": "0.72.3",
+  "version": "0.73.0",
   "dependencies": {
     "hoist-non-react-statics": "^1.2.0"
   }

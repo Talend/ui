@@ -242,8 +242,7 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
 					index: value.index,
-					value: value.value,
-					oldValue: this.state.items[value.index].values[0],
+					value: this.parseStringValueToArray(value.value),
 				},
 				this.itemSubmitHandler.bind(this),
 				this.itemSubmitHandler.bind(this)
@@ -259,7 +258,8 @@ class EnumerationWidget extends React.Component {
 			const valueExist = this.valueAlreadyExist(value.value);
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				items[value.index].values[0] = value.value;
+				items[value.index].values =
+					this.parseStringValueToArray(value.value);
 			}
 			if (valueExist) {
 				items[value.index].error = DUPLICATION_ERROR;
@@ -428,7 +428,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				value.value,
+				this.parseStringValueToArray(value.value),
 				this.addSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -440,7 +440,7 @@ class EnumerationWidget extends React.Component {
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
 					items: this.state.items.concat([{
-						values: [value.value],
+						values: this.parseStringValueToArray(value.value),
 					}]),
 				},
 				this.setFormData.bind(this)
@@ -472,6 +472,10 @@ class EnumerationWidget extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
+	}
+
+	parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
 	}
 
 	itemSubmitHandler() {
@@ -512,7 +516,7 @@ class EnumerationWidget extends React.Component {
 	 *
 	 */
 	simulateClickInputFile() {
-		this.inputImport.click();
+		this.inputFile.click();
 
 		// when we close the file dialog focus is still on the import icon. The tooltip still appears.
 		// we force to remove the current focus on the icon
@@ -536,8 +540,12 @@ class EnumerationWidget extends React.Component {
 				headerDefault: this.loadingInputsActions,
 			});
 		}
+		this.resetInputFile();
+	}
+
+	resetInputFile() {
 		// reinit the input file
-		this.formInput.reset();
+		this.inputFile.value = '';
 	}
 
 
@@ -616,16 +624,12 @@ class EnumerationWidget extends React.Component {
 
 	renderImportFile() {
 		return (
-			<form
-				ref={(element) => { this.formInput = element; }}
-			>
-				<input
-					type="file"
-					ref={(element) => { this.inputImport = element; }}
-					onChange={(event) => { this.importFile(event); }}
-					className={classNames('hidden')}
-				/>
-			</form>
+			<input
+				type="file"
+				ref={(element) => { this.inputFile = element; }}
+				onChange={(event) => { this.importFile(event); }}
+				className={classNames('hidden')}
+			/>
 		);
 	}
 

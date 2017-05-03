@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
-
 import { ActionBar as Component } from 'react-talend-components';
 import { getActionsProps } from '../actionAPI';
+import Action from '../Action';
+import Actions from '../Actions';
 
 function getActions(context, idOrInfo, model) {
 	if (typeof idOrInfo === 'string') {
@@ -35,6 +36,10 @@ function ActionBar({ actions, actionIds, ...props }, context) {
 	return (
 		<Component
 			actions={actionsProps}
+			renderers={{
+				Action,
+				Actions,
+			}}
 			{...props}
 		/>
 	);
@@ -49,6 +54,9 @@ const actionPropTypes = PropTypes.oneOfType([
 	}),
 ]);
 
+Object.keys(Component).forEach((key) => {
+	ActionBar[key] = Component[key];
+});
 ActionBar.displayName = 'CMFContainer(ActionBar)';
 ActionBar.propTypes = {
 	...Component.propTypes,

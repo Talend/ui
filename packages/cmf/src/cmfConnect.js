@@ -159,10 +159,11 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign({
-					state: defaultState,
-					dispatchActionCreator: this.dispatchActionCreator,
-				}, this.props);
+				const props = Object.assign(
+					{ state: defaultState },
+					this.props,
+					{ dispatchActionCreator: this.dispatchActionCreator },
+				);
 				return createElement(
 					WrappedComponent,
 					props,
