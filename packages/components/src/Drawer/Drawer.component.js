@@ -134,7 +134,7 @@ function Drawer({
 	return (
 		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>

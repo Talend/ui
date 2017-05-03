@@ -516,7 +516,7 @@ class EnumerationWidget extends React.Component {
 	 *
 	 */
 	simulateClickInputFile() {
-		this.inputImport.click();
+		this.inputFile.click();
 
 		// when we close the file dialog focus is still on the import icon. The tooltip still appears.
 		// we force to remove the current focus on the icon
@@ -540,8 +540,12 @@ class EnumerationWidget extends React.Component {
 				headerDefault: this.loadingInputsActions,
 			});
 		}
+		this.resetInputFile();
+	}
+
+	resetInputFile() {
 		// reinit the input file
-		this.formInput.reset();
+		this.inputFile.value = '';
 	}
 
 
@@ -620,16 +624,12 @@ class EnumerationWidget extends React.Component {
 
 	renderImportFile() {
 		return (
-			<form
-				ref={(element) => { this.formInput = element; }}
-			>
-				<input
-					type="file"
-					ref={(element) => { this.inputImport = element; }}
-					onChange={(event) => { this.importFile(event); }}
-					className={classNames('hidden')}
-				/>
-			</form>
+			<input
+				type="file"
+				ref={(element) => { this.inputFile = element; }}
+				onChange={(event) => { this.importFile(event); }}
+				className={classNames('hidden')}
+			/>
 		);
 	}
 
