@@ -55,6 +55,7 @@ function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDow
 				ref={(input) => { inputRef = input; }}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
+				aria-label={inputPlaceholder}
 				autoFocus
 			/>
 			{headerInput.map(getAction)}

@@ -5,14 +5,12 @@ import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 
 function itemLabelClasses() {
-	return classNames({
-		[theme['tc-listview-item-label']]: true,
-		'tc-listview-item-label': true,
-	});
+	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');
 }
 
 function Item(props) {
 	const { id, item, searchCriteria } = props;
+
 	/**
 	 * This function allow to get component rendering based on searchCriteria
 	 * @param label the current label to parse & to render
@@ -23,18 +21,16 @@ function Item(props) {
 		return (<span>
 			{/* Set the label to go on the first index if the index is not 0 */}
 			{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
-			{indexes.map((matchIndex, index, matchIndexes) =>
-				(
-					<span key={index}>
-						{/* get the string from label with indexes ( to keep words case ) */}
-						<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
-						{/* get the string before next index if there is */}
-						{index === matchIndex.length + 1 ? null :
-							label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
-						}
-					</span>
-				))
-			}
+			{indexes.map((matchIndex, index, matchIndexes) => (
+				<span key={index}>
+					{/* get the string from label with indexes ( to keep words case ) */}
+					<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
+					{/* get the string before next index if there is */}
+					{index === matchIndex.length + 1 ? null :
+						label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
+					}
+				</span>
+			))}
 		</span>);
 	}
 

@@ -59,6 +59,7 @@ class ListViewWidget extends React.Component {
 			toggleAllChecked: items.length === items.filter(i => i.checked).length,
 			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			items,
+			displayedItems: items,
 		};
 	}
 
@@ -67,12 +68,6 @@ class ListViewWidget extends React.Component {
 			this.state.items.filter(item => item.checked)
 				.map(itemChecked => itemChecked.label)
 		);
-	}
-
-	searchItems(criteria) {
-		return criteria ? this.state.items.filter(
-			item => item.label.toLowerCase().includes(criteria.toLowerCase())
-		) : this.state.items;
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
@@ -95,11 +90,13 @@ class ListViewWidget extends React.Component {
 	}
 
 	render() {
-		const items = this.searchItems(this.state.searchCriteria);
-		const stateToShow = { ...this.state, items };
+		const listViewProps = {
+			...this.state,
+			items: this.state.displayedItems,
+		};
 		return (
 			<div>
-				<ListView {...stateToShow} />
+				<ListView {...listViewProps} />
 			</div>
 		);
 	}

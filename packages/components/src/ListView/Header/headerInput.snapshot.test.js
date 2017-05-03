@@ -5,22 +5,18 @@ import renderer from 'react-test-renderer';
 import HeaderInput from './HeaderInput.component';
 
 describe('Header', () => {
-	it('should render header input with two buttons', () => {
+	it('should render filter header', () => {
 		// given
 		const props = {
-			inputPlaceholder: 'New entry',
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // provided click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // provided click callback
-			}],
+			inputPlaceholder: 'Search',
+			headerInput: [
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 
 		function createNodeMock(element) {

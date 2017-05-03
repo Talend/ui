@@ -11,12 +11,8 @@ $tc-listview-font-size: 1.4rem !default;
 	height: $tc-listview-header-height;
 	position: relative;
 
-	> strong + span {
+	> strong + small {
 		padding: 0 $padding-smaller;
-	}
-
-	:global(.actions) {
-		margin-left: auto;
 	}
 
 	input {
@@ -26,6 +22,10 @@ $tc-listview-font-size: 1.4rem !default;
 		flex-grow: 1;
 		height: 100%;
 		background-color: transparent;
+	}
+
+	:global(.actions) {
+		margin-left: auto;
 	}
 
 	:global(.btn-link) {
@@ -42,4 +42,5 @@ $tc-listview-font-size: 1.4rem !default;
 			vertical-align: text-top;
 		}
 	}
+
 }

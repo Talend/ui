@@ -54,7 +54,7 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 
 	function renderCount() {
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
-			return (<span>{`(${nbItemsSelected}/${nbItems} selected)`}</span>);
+			return <small>{`(${nbItemsSelected}/${nbItems} selected)`}</small>;
 		}
 		return null;
 	}

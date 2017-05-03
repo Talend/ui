@@ -8,8 +8,6 @@ import Items from './Items/Items.component';
 import theme from './ListView.scss';
 
 export const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-export const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
-export const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 export const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 
 function listviewClasses() {
@@ -114,7 +112,6 @@ function HeaderListView(props) {
 			nbItems: items.length,
 			nbItemsSelected: items.filter(item => !!item.checked).length,
 		};
-
 		return <Header {...propsDefault} />;
 	}
 	}

@@ -101,7 +101,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                     type="checkbox"
                   />
                   <span
-                    className="undefined tc-listview-item-label"
+                    className="tc-listview-item-label"
                   >
                     Lorem ipsum dolor sit amet 0
                   </span>
@@ -141,7 +141,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                     type="checkbox"
                   />
                   <span
-                    className="undefined tc-listview-item-label"
+                    className="tc-listview-item-label"
                   >
                     Lorem ipsum dolor sit amet 1
                   </span>
@@ -181,7 +181,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                     type="checkbox"
                   />
                   <span
-                    className="undefined tc-listview-item-label"
+                    className="tc-listview-item-label"
                   >
                     Lorem ipsum dolor sit amet 2
                   </span>

@@ -8,7 +8,7 @@ describe('allIndexOf', () => {
 		expect(indexes[1]).toBe(6);
 	});
 
-	it('should get 1 indexes with allIndexOf', () => {
+	it('should get 1 index with allIndexOf', () => {
 		const indexes = allIndexOf('AaBbCcAa'.toLowerCase(), 'bb'.toLowerCase());
 		expect(indexes.length).toBe(1);
 		expect(indexes[0]).toBe(2);

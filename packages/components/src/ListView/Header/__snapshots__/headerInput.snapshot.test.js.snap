@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render header input with two buttons 1`] = `
+exports[`Header should render filter header 1`] = `
 <header
   className="tc-listview-header"
 >
   <input
+    aria-label="Search"
     autoFocus={true}
     onChange={[Function]}
     onKeyDown={[Function]}
-    placeholder="New entry"
+    placeholder="Search"
     type="text"
   />
   <button
@@ -26,28 +27,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-check"
-      />
-    </svg>
-  </button>
-  <button
-    aria-describedby={42}
-    className="btn btn-link"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
-  >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
