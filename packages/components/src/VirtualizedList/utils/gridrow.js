@@ -1,5 +1,12 @@
+/**
+ * This utility file contains any common functions that are used in row renderers
+ * - get infos from parent props, content field, ...
+ * - render a cell
+ * - ...
+ */
+
 import React from 'react';
-import TitleCell from '../CellTitle/CellTitle.component';
+import CellTitle from '../CellTitle/CellTitle.component';
 import { internalIds } from './constants';
 
 /**
@@ -75,7 +82,7 @@ export function getCellData(field, parent, index) {
  */
 export function extractSpecialFields(parent) {
 	const children = React.Children.toArray(parent.props.children);
-	const titleField = children.find(field => getCellRenderer(field) === TitleCell);
+	const titleField = children.find(field => getCellRenderer(field) === CellTitle);
 	const selectionField = children.find(field => field.props.id === internalIds.rowSelector);
 	const otherFields = children.filter(field => field !== titleField && field !== selectionField);
 
