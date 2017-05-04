@@ -76,6 +76,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 // START : hack to allow actions dropdown to display
 // there are important to override some inline styles injected by react-virtualized... sorry !
+// sass-lint:disable no-important
 
 :global(.ReactVirtualized__Grid__innerScrollContainer):hover,
 :global(.ReactVirtualized__Table__row):hover,
@@ -83,6 +84,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
 	overflow: visible !important;
 }
+
 :global(.ReactVirtualized__Table__row):hover {
 	/* avoid scrolling over x axis */
 	width: auto !important;
@@ -100,4 +102,5 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
+// sass-lint:enable no-important
 // END : hack to allow actions dropdown to display
