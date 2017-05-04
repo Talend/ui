@@ -28,6 +28,7 @@ export function attachRefs(state, props) {
 			attachedProps[key] = attachRef(state, attachedProps[key]);
 		}
 	);
+	return attachedProps;
 }
 
 /**
