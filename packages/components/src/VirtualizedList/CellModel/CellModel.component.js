@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
  TODO
  * change the style file
  */
+/* eslint-disable */ // TODO remove that
 import theme from './CellModel.scss';
 
 /**
@@ -45,5 +46,6 @@ CellModel.propTypes = {
 	/** The collection item index. */
 	rowIndex: PropTypes.number,
 };
+/* eslint-enable */ // TODO remove that
 
 export default CellModel;

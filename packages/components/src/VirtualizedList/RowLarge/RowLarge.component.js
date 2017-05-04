@@ -61,9 +61,9 @@ RowLarge.propTypes = {
 	/** Row technical key to identify this row for React consolidation */
 	key: PropTypes.string,
 	/** Parent (ListGrid) component instance */
-	parent: PropTypes.object,
+	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
-	style: PropTypes.object, // eslint-disable-line
+	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default RowLarge;

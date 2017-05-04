@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import RendererSelector from './RendererSelector.component';
 import VirtualizedList from './VirtualizedList.component';
 import { listTypes } from './utils/constants';
 
-const { TABLE, LARGE } = listTypes;
+const { TABLE } = listTypes;
 
 const collection = [
 	{
