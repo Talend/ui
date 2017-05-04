@@ -211,14 +211,6 @@ describe('gridrow', () => {
 		});
 	});
 
-	/**
-	 * cellData: {props.cellData}
-	 columnData: {props.columnData}
-	 dataKey: {props.dataKey}
-	 rowData: {props.rowData}
-	 rowIndex: {props.rowIndex}
-	 */
-
 	describe('#renderCell', () => {
 		it('should render content field', () => {
 			// given

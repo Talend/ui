@@ -1,3 +1,6 @@
+/**
+ * This file contains all utility functions that applies to table
+ */
 import React from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
