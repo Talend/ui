@@ -6,17 +6,17 @@ Scoping to packages that match 'react-talend-components'
 
 
 src/VirtualizedList/CellModel/CellModel.scss
-   5:16  error    No empty blocks allowed        no-empty-rulesets
-  15:44  error    No empty blocks allowed        no-empty-rulesets
-  17:1   warning  Space expected between blocks  empty-line-between-blocks
-  18:55  error    No empty blocks allowed        no-empty-rulesets
+   7:16  error    No empty blocks allowed        no-empty-rulesets
+  17:44  error    No empty blocks allowed        no-empty-rulesets
+  19:1   warning  Space expected between blocks  empty-line-between-blocks
+  20:55  error    No empty blocks allowed        no-empty-rulesets
 
 src/VirtualizedList/CellTitle/CellTitle.scss
-  83:20  error    !important not allowed         no-important
-  84:1   warning  Space expected between blocks  empty-line-between-blocks
-  87:14  error    !important not allowed         no-important
-  88:11  error    !important not allowed         no-important
-  89:13  error    !important not allowed         no-important
+  84:20  error    !important not allowed         no-important
+  85:1   warning  Space expected between blocks  empty-line-between-blocks
+  88:14  error    !important not allowed         no-important
+  89:11  error    !important not allowed         no-important
+  90:13  error    !important not allowed         no-important
 
 src/VirtualizedList/RowLarge/RowLarge.scss
   35:10  warning  Space expected after `:`  space-after-colon
