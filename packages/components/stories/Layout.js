@@ -7,12 +7,9 @@ import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '..
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-folder': talendIcons['talend-folder'],
-	'talend-pencil': talendIcons['talend-pencil'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
-	'talend-trash': talendIcons['talend-trash'],
 };
 
 const actions = [
@@ -63,62 +60,28 @@ const dockedSidePanel = (<SidePanel
 const header = (<AppHeaderBar app="Example App Name" />);
 const footer = 'Footer content';
 
-const collectionActions = [
-	{
-		label: 'edit',
-		icon: 'talend-pencil',
-		onClick: action('onEdit'),
-	},
-	{
-		label: 'delete',
-		icon: 'talend-trash',
-		onClick: action('onDelete'),
-	},
-	{
-		displayMode: 'dropdown',
-		label: 'related items',
-		icon: 'talend-folder',
-		items: [
-			{
-				label: 'document 1',
-				onClick: action('document 1 click'),
-			},
-			{
-				label: 'document 2',
-				onClick: action('document 2 click'),
-			},
-		],
-		pullRight: true,
-	},
-];
 const listItem = {
 	id: 1,
-	name: 'Title with icon and actions',
+	name: 'Title',
 	created: '2016-09-22',
 	modified: '2016-09-22',
-	description: 'Simple row with icon and actions',
 	author: 'Jean-Pierre DUPONT',
-	icon: 'talend-file-xls-o',
 	display: 'text',
-	className: 'item-0-class',
-	actions: collectionActions,
 };
-const collection = [...new Array(61)].map(() => listItem);
 const listProps = {
 	id: 'talend-list',
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', flexGrow: 0, flexShrink: 0, width: 35 },
-			{ key: 'name', label: 'Name', type: 'title', flexGrow: 1, flexShrink: 0, width: 400 },
-			{ key: 'author', label: 'Author', flexGrow: 1, flexShrink: 0, width: 90 },
-			{ key: 'created', label: 'Created', flexGrow: 0, flexShrink: 0, width: 90 },
-			{ key: 'modified', label: 'Modified', flexGrow: 0, flexShrink: 0, width: 90 },
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'author', label: 'Author' },
+			{ key: 'created', label: 'Created' },
+			{ key: 'modified', label: 'Modified' },
 		],
-		items: collection,
+		items: [...new Array(61)].map(() => listItem),
 		titleProps: {
 			key: 'name',
-			actionsKey: 'actions',
 			iconKey: 'icon',
 			displayModeKey: 'display',
 			onClick: action('onClick'),
