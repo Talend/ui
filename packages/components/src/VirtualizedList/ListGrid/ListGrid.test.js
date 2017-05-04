@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import VirtualizedList from '../VirtualizedList.component';
 import RowLarge from '../RowLarge';
-import ListGrid from './ListGrid.component';
+import ListGrid, { NoRow } from './ListGrid.component';
 
 describe('ListGrid', () => {
 	const collection = [
@@ -78,5 +78,13 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(VirtualizedList(RowLarge))');
+	});
+
+	it('should render no-rows component', () => {
+		// when
+		const wrapper = shallow(<NoRow />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });

@@ -5,7 +5,7 @@ import { getRowData } from '../utils/gridrow';
 
 import theme from './ListGrid.scss';
 
-function NoRow() {
+export function NoRow() {
 	return (
 		<div className={'tc-list-no-rows'}>
 			No rows
