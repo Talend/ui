@@ -41,7 +41,7 @@ export function getStateToProps({
 	cmfProps.getCollection = function getCollection(id) {
 		return state.cmf.collections.get(id);
 	};
-	// This is a revamp of mapStateToViewProps that is deprecated
+
 	let viewProps = {};
 	if (ownProps.view) {
 		viewProps = Object.assign(
