@@ -71,7 +71,10 @@ function oldConnectView(context, component, view) {
 
 export const connectView = deprecated(
 	oldConnectView,
-	(args) => `The component ${args[1].displayName || args[1].name || 'Unknown'} must be connected using cmfConnect`
+	(args) => {
+		const cName = args[1].displayName || args[1].name || 'Unknown';
+		return `The component ${cName} must be connected using cmfConnect`;
+	},
 );
 
 /**
