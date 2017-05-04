@@ -70,28 +70,20 @@ export function onToggleAll() {
 }
 
 export function onItemChange(item, event) {
-	const newItems = this.state.items.map((i) => {
-		if (i.index === item.index) {
+	function itemUpdater(current) {
+		if (current.index === item.index) {
 			return {
-				...i,
+				...current,
 				checked: event.target.checked,
 			};
 		}
-		return i;
-	});
-	const newDisplayedItems = this.state.displayedItems.map((displayedItem) => {
-		if (displayedItem.index === item.index) {
-			return {
-				...displayedItem,
-				checked: event.target.checked,
-			};
-		}
-		return displayedItem;
-	});
+		return current;
+	}
 
+	const newDisplayedItems = this.state.displayedItems.map(itemUpdater);
 	this.setState({
 		toggleAllChecked: newDisplayedItems.length === newDisplayedItems.filter(i => i.checked).length,
-		items: newItems,
+		items: this.state.items.map(itemUpdater),
 		displayedItems: newDisplayedItems,
 	}, this.setFormData.bind(this));
 }

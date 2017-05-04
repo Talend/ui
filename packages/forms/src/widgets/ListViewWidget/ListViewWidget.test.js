@@ -23,6 +23,14 @@ function generateProps(values, selected) {
 	};
 }
 
+function simulateSearch(wrp, value) {
+	return new Promise(res => {
+		wrp.find('HeaderListView > input').simulate('change', { target: { value } });
+		setTimeout(res, 401); // because there is a debounce timer
+	});
+}
+
+
 describe('ListViewWidget', () => {
 	describe('toggleAll', () => {
 		it('should check every items', () => {
@@ -79,6 +87,87 @@ describe('ListViewWidget', () => {
 
 			// then
 			expect(wrapper.find('#tc-listview-toggle-all').props().checked).toBe(true);
+		});
+
+		it('should check only filterd items', (cb) => {
+			// given
+			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
+			const onChangeHandler = jest.fn();
+			const wrapper = mount(
+				<ListViewWidget
+					onChange={onChangeHandler}
+					{...generateProps(values)}
+				/>
+			);
+			expect(wrapper.find('Item').length).toBe(4);
+
+			// when
+			wrapper.find('button').at(0).simulate('click');
+			simulateSearch(wrapper, 'e')
+				.then(() => {
+					wrapper.find('#tc-listview-toggle-all').simulate('change');
+					return simulateSearch(wrapper, '');
+				})
+				.then(() => {
+					const w = wrapper.find('.checkbox input');
+					expect(w.filterWhere(n => n.props().checked).length).toBe(2);
+					cb();
+				});
+		});
+	});
+
+	describe('search', () => {
+		it('input should be hidden by default', () => {
+			// given
+			const wrapper = mount(
+				<ListViewWidget
+					{...generateProps([])}
+				/>
+			);
+
+			// when
+			// nothing
+
+			// then
+			expect(wrapper.find('HeaderListView > input').length).toBe(0);
+		});
+
+		it('should input should be toggled when clicking on searh icon', () => {
+			// given
+			const wrapper = mount(
+				<ListViewWidget
+					{...generateProps([])}
+				/>
+			);
+
+			// when
+			wrapper.find('button').at(0).simulate('click');
+
+			// then
+			expect(wrapper.find('HeaderListView > input').length).toBe(1);
+		});
+
+		it('should filter displayed items', (cb) => {
+			// given
+			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
+			const onChangeHandler = jest.fn();
+			const wrapper = mount(
+				<ListViewWidget
+					onChange={onChangeHandler}
+					{...generateProps(values)}
+				/>
+			);
+			expect(wrapper.find('Item').length).toBe(4);
+
+			// when
+			wrapper.find('button').at(0).simulate('click');
+
+			simulateSearch(wrapper, 'e')
+				.then(() => {
+					// then
+					expect(wrapper.find('Item').length).toBe(2);
+					cb();
+				});
 		});
 	});
 
