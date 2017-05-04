@@ -9,7 +9,7 @@ import {
 	getStateAccessors,
 	getStateProps,
 } from './componentState';
-import { attachRef } from './route';
+import { mapStateToViewProps } from './settings';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -41,20 +41,9 @@ export function getStateToProps({
 	cmfProps.getCollection = function getCollection(id) {
 		return state.cmf.collections.get(id);
 	};
-	// This is a revamp of mapStateToViewProps that is deprecated
-	let viewProps = {};
-	if (ownProps.view) {
-		viewProps = Object.assign(
-			{},
-			state.cmf.settings.views[ownProps.view],
-		);
-		viewProps = attachRef(state, viewProps);
-		Object.keys(viewProps).forEach(
-			key => {
-				viewProps[key] = attachRef(state, viewProps[key]);
-			}
-		);
-	}
+
+	const viewProps = mapStateToViewProps(state, ownProps);
+
 	let userProps = {};
 	if (mapStateToProps) {
 		userProps = mapStateToProps(state, ownProps, cmfProps);
