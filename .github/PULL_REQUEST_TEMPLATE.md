@@ -2,9 +2,6 @@
 
 **What is the chosen solution to this problem?**
 
-**Link to the JIRA issue**
-e.g. https://jira.talendforge.org/browse/TPSVC-XXX
-
 **Please check if the PR fulfills these requirements**
 - [ ] The PR commit message follows our [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md)
 - [ ] Tests for the changes have been added (for bug fixes / features)
