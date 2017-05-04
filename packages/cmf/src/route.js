@@ -152,8 +152,10 @@ export function connectView(context, component, view) {
 function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
+		const cName = item.component;
 		item.component = getComponentFromRegistry(context, item.component);
-		if (item.view) {
+		if (item.view && !item.component.CMFContainer) {
+			console.warn(`DEPREACTED: The component ${cName} must be connected using cmfConnect`);
 			item.component = connectView(context, item.component, item.view);
 		}
 	}
