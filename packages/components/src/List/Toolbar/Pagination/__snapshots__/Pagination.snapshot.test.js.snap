@@ -93,7 +93,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -109,16 +109,20 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-backward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl-prev disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -134,12 +138,16 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play fa-rotate-180"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
@@ -168,7 +176,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -184,16 +192,20 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -209,12 +221,16 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-forward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
 </ul>
@@ -313,7 +329,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </ul>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -329,16 +345,20 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-backward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl-prev disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -354,12 +374,16 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play fa-rotate-180"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
@@ -388,7 +412,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -404,16 +428,20 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link tc-pagination-ctrl disabled"
     role="presentation"
     style={undefined}
   >
@@ -429,12 +457,16 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       }
       tabIndex={-1}
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-forward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
 </ul>
@@ -628,7 +660,7 @@ exports[`Pagination should render 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -638,16 +670,20 @@ exports[`Pagination should render 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-backward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl-prev"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -657,12 +693,16 @@ exports[`Pagination should render 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play fa-rotate-180"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
@@ -691,7 +731,7 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -701,16 +741,20 @@ exports[`Pagination should render 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -720,12 +764,16 @@ exports[`Pagination should render 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-forward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
 </ul>
@@ -824,7 +872,7 @@ exports[`Pagination should render id if provided 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -834,16 +882,20 @@ exports[`Pagination should render id if provided 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-backward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl-prev"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -853,12 +905,16 @@ exports[`Pagination should render id if provided 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play fa-rotate-180"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
@@ -887,7 +943,7 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -897,16 +953,20 @@ exports[`Pagination should render id if provided 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-play"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-left"
+        />
+      </svg>
     </a>
   </li>
   <li
-    className="btn-link"
+    className="btn-link tc-pagination-ctrl"
     role="presentation"
     style={undefined}
   >
@@ -916,12 +976,16 @@ exports[`Pagination should render id if provided 1`] = `
       onClick={[Function]}
       role="button"
     >
-      <i
+      <svg
         aria-hidden="true"
-        className="fa fa-forward"
+        className="tc-svg-icon"
         focusable="false"
         title={null}
-      />
+      >
+        <use
+          xlinkHref="#talend-chevron-end"
+        />
+      </svg>
     </a>
   </li>
 </ul>

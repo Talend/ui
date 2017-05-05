@@ -382,7 +382,7 @@ exports[`Toolbar should render pagination 1`] = `
           </ul>
         </li>
         <li
-          className="btn-link"
+          className="btn-link tc-pagination-ctrl"
           role="presentation"
           style={undefined}
         >
@@ -392,16 +392,20 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-backward"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
           </a>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl-prev"
+          className="btn-link tc-pagination-ctrl"
           role="presentation"
           style={undefined}
         >
@@ -411,12 +415,16 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-play fa-rotate-180"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
           </a>
         </li>
         <li
@@ -445,7 +453,7 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          className="btn-link"
+          className="btn-link tc-pagination-ctrl"
           role="presentation"
           style={undefined}
         >
@@ -455,16 +463,20 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-play"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
           </a>
         </li>
         <li
-          className="btn-link"
+          className="btn-link tc-pagination-ctrl"
           role="presentation"
           style={undefined}
         >
@@ -474,12 +486,16 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-forward"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
           </a>
         </li>
       </ul>

@@ -8,6 +8,8 @@ import { List, IconsProvider } from '../src/index';
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-chevron-end': talendIcons['talend-chevron-end'],
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],

@@ -3,3 +3,10 @@
 	justify-content: space-between;
 	align-items: baseline;
 }
+
+.tc-pagination-ctrl {
+	:global(.tc-svg-icon) {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+	}
+}
