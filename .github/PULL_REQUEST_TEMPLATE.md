@@ -1,25 +1,17 @@
-**Please check if the PR fulfills these requirements**
+**What is the problem this PR is trying to solve?**
 
-- [ ] The commit(s) message(s) follows our
-  [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md#commit-message-format)
+**What is the chosen solution to this problem?**
+
+**Please check if the PR fulfills these requirements**
+- [ ] The PR commit message follows our [guidelines](https://github.com/talend/tools/blob/master/tools-root-github/CONTRIBUTING.md)
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
+- [ ] Related design / discussions / pages (not in jira), if any, are all linked or available in the PR
 
-**What is the current behavior?** (You can also link to an open issue here)
+<!-- You can add more checkboxes here -->
 
+**[ ] This PR introduces a breaking change**
 
+<!-- **Original Template** -->
+<!-- https://github.com/Talend/tools/blob/master/tools-root-github/.github/PULL_REQUEST_TEMPLATE.md -->
 
-**What is the new behavior?**
-
-
-
-**Does this PR introduce a breaking change?**
-
-- [ ] Yes
-- [ ] No
-
-If this PR contains a breaking change, please describe the impact and migration
-path for existing applications: ...
-
-
-**Other information**:
