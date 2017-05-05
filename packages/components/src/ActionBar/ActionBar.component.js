@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { Action, Actions, ActionSplitDropdown } from '../Actions';
+import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import css from './ActionBar.scss';
 
 const DISPLAY_MODES = {
+	DROPDOWN: 'dropdown',
 	SPLIT_DROPDOWN: 'splitDropdown',
 	BTN_GROUP: 'btnGroup',
 };
@@ -25,6 +26,7 @@ function getRenderers(props) {
 		{
 			Action,
 			Actions,
+			ActionDropdown,
 			ActionSplitDropdown,
 		},
 		props ? props.renderers : {},
@@ -78,18 +80,14 @@ function SwitchActions({ actions, left, right, selected, renderers }) {
 			{ actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {
+				case DISPLAY_MODES.DROPDOWN:
+					return <Renderers.ActionDropdown key={index} {...rest} />;
 				case DISPLAY_MODES.SPLIT_DROPDOWN:
-					return (
-						<Renderers.ActionSplitDropdown key={index} {...rest} />
-					);
+					return <Renderers.ActionSplitDropdown key={index} {...rest} />;
 				case DISPLAY_MODES.BTN_GROUP:
-					return (
-						<Renderers.Actions key={index} {...rest} />
-					);
+					return <Renderers.Actions key={index} {...rest} />;
 				default:
-					return (
-						<Renderers.Action key={index} {...rest} />
-					);
+					return <Renderers.Action key={index} {...rest} />;
 				}
 			}) }
 		</Content>
