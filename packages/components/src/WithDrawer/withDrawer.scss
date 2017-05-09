@@ -1,16 +1,12 @@
 .tc-with-drawer {
-    height: 100%;
-    position: initial;
-    overflow: hidden;
+	height: 100%;
+	position: initial;
+	overflow: hidden;
 }
 
 .tc-with-drawer-container {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-:global(.tc-with-drawer-wrapper) {
-    height: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
 }

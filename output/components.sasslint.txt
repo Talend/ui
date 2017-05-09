@@ -1,44 +1,6 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.70.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.73.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
-
-src/Drawer/Drawer.scss
-  10:3   warning  Mixed tabs and spaces                                                     indentation
-  11:5   warning  Mixed tabs and spaces                                                     indentation
-  11:13  error    Hex values should use the shorthand format - 3 characters where possible  hex-length
-  12:5   warning  Statement must begin on a new line                                        brace-style
-  13:5   warning  Mixed tabs and spaces                                                     indentation
-  13:13  error    Hex values should use the shorthand format - 3 characters where possible  hex-length
-  13:13  warning  Hex notation should all be upper case                                     hex-notation
-  24:14  warning  No unit allowed for values of 0                                           zero-unit
-  24:18  warning  No unit allowed for values of 0                                           zero-unit
-  24:27  warning  No unit allowed for values of 0                                           zero-unit
-  36:34  warning  Whitespace required before {                                              space-before-brace
-  48:2   error    Class '.drawerStacked' should be written in lowercase with hyphens        class-name-format
-  56:1   warning  Space expected between blocks                                             empty-line-between-blocks
-
-src/List/Toolbar/Filter/Filter.scss
-  14:7  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  18:6  warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  33:1  warning  Space expected between blocks                            empty-line-between-blocks
-  36:1  warning  Space expected between blocks                            empty-line-between-blocks
-
-src/WithDrawer/withDrawer.scss
-   2:5  warning  Mixed tabs and spaces           indentation
-   3:5  warning  Mixed tabs and spaces           indentation
-   4:5  warning  Mixed tabs and spaces           indentation
-   8:5  warning  Mixed tabs and spaces           indentation
-   9:5  warning  Mixed tabs and spaces           indentation
-  10:5  warning  Mixed tabs and spaces           indentation
-  11:5  warning  Mixed tabs and spaces           indentation
-  15:5  warning  Mixed tabs and spaces           indentation
-  16:1  warning  Files must end with a new line  final-newline
-
-✖ 26 problems (4 errors, 22 warnings)
-
-Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:style

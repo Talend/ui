@@ -16,7 +16,7 @@ exports[`Drawer should render 1`] = `
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
-          "overflow": "auto",
+          "overflow": "hidden",
         }
       }
     >
@@ -49,7 +49,7 @@ exports[`Drawer should render stacked 1`] = `
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
-          "overflow": "auto",
+          "overflow": "hidden",
         }
       }
     >
@@ -82,7 +82,7 @@ exports[`Drawer should render using custom className 1`] = `
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
-          "overflow": "auto",
+          "overflow": "hidden",
         }
       }
     >
@@ -119,7 +119,7 @@ exports[`Drawer should render using custom styles 1`] = `
           "display": "flex",
           "flexDirection": "column",
           "flexGrow": 1,
-          "overflow": "auto",
+          "overflow": "hidden",
         }
       }
     >

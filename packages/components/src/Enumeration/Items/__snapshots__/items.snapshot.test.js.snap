@@ -3,6 +3,7 @@
 exports[`Items should display one item in edit mode and the other in default 1`] = `
 <ul
   className="undefined tc-enumeration-items"
+  onScroll={[Function]}
 >
   <div
     id="autoSizer"
@@ -83,6 +84,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
@@ -143,6 +145,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
@@ -165,6 +168,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
@@ -225,6 +229,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use
@@ -247,6 +252,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 <svg
                   aria-hidden="true"
                   className="tc-svg-icon"
+                  focusable="false"
                   title={null}
                 >
                   <use

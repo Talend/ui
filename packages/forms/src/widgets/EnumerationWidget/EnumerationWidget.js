@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
+import classNames from 'classnames';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
@@ -16,14 +17,19 @@ const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
 const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
+const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
+const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
 		this.allowDuplicate = false;
+		this.allowImport = false;
+
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
+			this.allowImport = !!props.schema.allowImport;
 		}
 
 		this.addInputs = [{
@@ -79,17 +85,29 @@ class EnumerationWidget extends React.Component {
 			onClick: this.onDeleteItem.bind(this),
 		}];
 		this.defaultHeaderActions = [{
-			label: 'Add item',
-			icon: 'talend-plus',
-			id: 'add',
-			onClick: this.changeDisplayToAddMode.bind(this),
-		}, {
 			disabled: false,
-			label: 'Search',
+			label: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
 		}];
+
+		if (this.allowImport) {
+			this.defaultHeaderActions.push({
+				label: 'Import values from a file',
+				icon: 'talend-download',
+				id: 'upload',
+				onClick: this.simulateClickInputFile.bind(this),
+			});
+		}
+
+		this.defaultHeaderActions.push({
+			label: 'Add item',
+			icon: 'talend-plus',
+			id: 'add',
+			onClick: this.changeDisplayToAddMode.bind(this),
+		});
+
 		this.selectedHeaderActions = [{
 			label: 'Remove selected values',
 			icon: 'talend-trash',
@@ -109,6 +127,7 @@ class EnumerationWidget extends React.Component {
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
 			items: (props.formData || []).map(item => ({
+				id: item.id,
 				values: item.values,
 			})),
 			itemsProp: {
@@ -118,6 +137,7 @@ class EnumerationWidget extends React.Component {
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
 				onSelectItem: this.onSelectItem.bind(this),
+				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,
 			},
@@ -187,12 +207,15 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onDeleteItemHandler() {
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+		const newState = {
 			itemsProp: {
 				...this.state.itemsProp, actionsDefault: this.defaultActions,
 			},
-		});
+		};
+		if (this.state.displayMode !== DISPLAY_MODE_SEARCH) {
+			newState.displayMode = DISPLAY_MODE_DEFAULT;
+		}
+		this.setState(newState);
 	}
 
 	onAbortItem(event, value) {
@@ -219,8 +242,7 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
 					index: value.index,
-					value: value.value,
-					oldValue: this.state.items[value.index].values[0],
+					value: this.parseStringValueToArray(value.value),
 				},
 				this.itemSubmitHandler.bind(this),
 				this.itemSubmitHandler.bind(this)
@@ -236,7 +258,8 @@ class EnumerationWidget extends React.Component {
 			const valueExist = this.valueAlreadyExist(value.value);
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				items[value.index].values[0] = value.value;
+				items[value.index].values =
+					this.parseStringValueToArray(value.value);
 			}
 			if (valueExist) {
 				items[value.index].error = DUPLICATION_ERROR;
@@ -273,6 +296,21 @@ class EnumerationWidget extends React.Component {
 				}
 			}, 400);
 		}
+	}
+
+	onLazyHandler() {
+		let headerActions;
+		if (this.state.searchCriteria) {
+			headerActions = this.searchInputsActions;
+		} else {
+			headerActions = this.defaultHeaderActions;
+		}
+
+
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+			headerInput: headerActions,
+		});
 	}
 
 	onSearchHandler() {
@@ -390,7 +428,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				value.value,
+				this.parseStringValueToArray(value.value),
 				this.addSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -402,12 +440,26 @@ class EnumerationWidget extends React.Component {
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
 					items: this.state.items.concat([{
-						values: [value.value],
+						values: this.parseStringValueToArray(value.value),
 					}]),
 				},
 				this.setFormData.bind(this)
 			);
 			this.updateHeaderInputDisabled('');
+		}
+	}
+
+	// lazy loading
+	onLoadData() {
+		if (this.callActionHandler(
+				ENUMERATION_LOAD_DATA_ACTION,
+				undefined,
+				this.onLazyHandler.bind(this))
+		) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+				headerInput: this.loadingInputsActions,
+			});
 		}
 	}
 
@@ -420,6 +472,10 @@ class EnumerationWidget extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
+	}
+
+	parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
 	}
 
 	itemSubmitHandler() {
@@ -452,6 +508,55 @@ class EnumerationWidget extends React.Component {
 			return true;
 		}
 		return false;
+	}
+
+
+	/**
+	 * simulateClickInputFile - simulate the click on the hidden input
+	 *
+	 */
+	simulateClickInputFile() {
+		this.inputFile.click();
+
+		// when we close the file dialog focus is still on the import icon. The tooltip still appears.
+		// we force to remove the current focus on the icon
+		document.activeElement.blur();
+	}
+
+
+	/**
+	 * importFile - importFile
+	 *
+	 * @param  {Event} event Event trigger when the user change the input file
+	 */
+	importFile(event) {
+		if (this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_ACTION,
+			event.target.files[0],
+			this.importFileHandler.bind(this),
+			this.importFileHandler.bind(this)
+		)) {
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+			});
+		}
+		this.resetInputFile();
+	}
+
+	resetInputFile() {
+		// reinit the input file
+		this.inputFile.value = '';
+	}
+
+
+	/**
+	 * importFileHandler - Action after the upload
+	 *
+	 */
+	importFileHandler() {
+		this.setState({
+			headerDefault: this.defaultHeaderActions,
+		});
 	}
 
 	searchItems(searchCriteria) {
@@ -517,11 +622,23 @@ class EnumerationWidget extends React.Component {
 		}));
 	}
 
+	renderImportFile() {
+		return (
+			<input
+				type="file"
+				ref={(element) => { this.inputFile = element; }}
+				onChange={(event) => { this.importFile(event); }}
+				className={classNames('hidden')}
+			/>
+		);
+	}
+
 	render() {
 		const items = this.searchItems(this.state.searchCriteria);
 		const stateToShow = { ...this.state, items };
 		return (
 			<div>
+				{ this.allowImport && this.renderImportFile() }
 				<Enumeration
 					{...stateToShow}
 				/>

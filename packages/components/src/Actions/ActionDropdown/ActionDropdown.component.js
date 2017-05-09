@@ -8,6 +8,19 @@ import {
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 
+
+function getMenuItem(item, index) {
+	if (item.divider) {
+		return (<MenuItem key={index} divider />);
+	}
+	return (
+		<MenuItem key={index} eventKey={item} {...item} >
+			{item.icon && (<Icon name={item.icon} />)}
+			{item.label}
+		</MenuItem>
+	);
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -19,6 +32,9 @@ import Icon from '../../Icon';
 			icon: 'talend-icon',
 			label: 'document 1',
 			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
 		},
 		{
 			label: 'document 2',
@@ -42,6 +58,7 @@ function ActionDropdown(props) {
 		link,
 		onSelect,
 		tooltipPlacement,
+		tooltipLabel,
 		...rest
 	} = props;
 
@@ -52,6 +69,7 @@ function ActionDropdown(props) {
 		</span>
 	);
 	const style = link ? 'link' : bsStyle;
+
 	function onItemSelect(object, event) {
 		if (onSelect) {
 			onSelect(event, object);
@@ -66,21 +84,13 @@ function ActionDropdown(props) {
 			onSelect={onItemSelect}
 			{...rest}
 		>
-			{
-				items.length ?
-					items.map((item, index) => (
-						<MenuItem {...item} key={index} eventKey={item}>
-							{item.icon && (<Icon name={item.icon} />)}
-							{item.label}
-						</MenuItem>
-					)) : (<MenuItem disabled>No options</MenuItem>)
-			}
+			{items.length ? items.map(getMenuItem) : (<MenuItem disabled>No options</MenuItem>)}
 		</DropdownButton>
 	);
 
-	if (hideLabel) {
+	if (hideLabel || tooltipLabel) {
 		return (<TooltipTrigger
-			label={label}
+			label={tooltipLabel || label}
 			tooltipPlacement={tooltipPlacement}
 		>
 			{dropdown}
@@ -102,6 +112,7 @@ ActionDropdown.propTypes = {
 	link: PropTypes.bool,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipLabel: PropTypes.string,
 };
 
 ActionDropdown.defaultProps = {

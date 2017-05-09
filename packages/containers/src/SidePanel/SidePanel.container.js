@@ -50,7 +50,7 @@ class SidePanel extends React.Component {
 
 	onToggleDock() {
 		const state = this.props.state || DEFAULT_STATE;
-		this.props.updateState({ docked: !state.get('docked') });
+		this.props.setState({ docked: !state.get('docked') });
 	}
 
 	render() {

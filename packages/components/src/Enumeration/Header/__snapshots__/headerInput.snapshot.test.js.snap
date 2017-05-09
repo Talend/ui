@@ -31,6 +31,7 @@ exports[`Header should render header input with error 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -53,6 +54,7 @@ exports[`Header should render header input with error 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -89,6 +91,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -111,6 +114,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

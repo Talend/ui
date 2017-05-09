@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`cmfConnect should create a connected component 1`] = `
 Object {
   "deleteState": [Function],
@@ -5,6 +7,7 @@ Object {
   "dispatchActionCreator": [Function],
   "getCollection": [Function],
   "initState": [Function],
+  "setState": [Function],
   "state": undefined,
   "updateState": [Function],
 }

@@ -101,15 +101,25 @@
                       <div class="form-group">
                         <input type="text" class="form-control" aria-label="Search over the whole app" placeholder="Search">
                       </div>
-                      <button type="submit" class="sr-only">Search</button>
+                      <button type="submit" tabindex="-1" class="sr-only">Search</button>
                     </form>
-                    <button class="btn btn-link">Button</button>
+                    <button class="btn btn-link" aria-hidden="true">Button</button>
                     <ul class="nav navbar-nav navbar-right">
                       <li>
                         <button class="btn btn-default">Button</button>
                       </li>
                       <li>
-                        <button class="btn btn-danger">Button</button>
+                        <div class="btn-group">
+                          <button class="btn btn-danger">Dropdown</button>
+                          <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                          </ul>
+                        </div>
                       </li>
                       <li><a href="#">Link</a></li>
                       <li>
@@ -185,9 +195,9 @@
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
-                      <button type="submit" class="sr-only">Search</button>
+                      <button type="submit" tabindex="-1" class="sr-only">Search</button>
                     </form>
-                    <button class="btn btn-link">Button</button>
+                    <button class="btn btn-link" aria-hidden="true">Button</button>
                     <ul class="nav navbar-nav navbar-right">
                       <li>
                         <button class="btn btn-warning">Button</button>

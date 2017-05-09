@@ -38,6 +38,11 @@ const data = {
 			},
 		},
 	},
+	uiSchema: {
+		admin: {
+			'ui:trigger': ['after'],
+		},
+	},
 };
 
 const dataListData = {
@@ -88,20 +93,20 @@ describe('renderActions', () => {
 				type: 'button',
 				style: 'link',
 				label: 'CANCEL',
-				onClick: () => {},
+				onClick: () => { },
 			},
 			{
 				type: 'button',
 				style: 'primary',
 				label: 'VALIDATE',
-				onClick: () => {},
+				onClick: () => { },
 			},
 			{
 				type: 'submit',
 				style: 'primary',
 				label: 'SUBMIT',
 				disabled: true,
-				onClick: () => {},
+				onClick: () => { },
 			},
 		];
 
@@ -124,6 +129,11 @@ describe('<Form/>', () => {
 	let wrapper;
 	const onSubmit = jest.fn();
 	const onChange = jest.fn();
+	const onTrigger = jest.fn();
+
+	it('should have a displayName', () => {
+		expect(Form.displayName).toBe('TalendForm');
+	});
 
 	describe('render simple elements', () => {
 		beforeEach(() => {
@@ -176,9 +186,11 @@ describe('<Form/>', () => {
 
 	describe('events', () => {
 		beforeEach(() => {
+			jest.resetAllMocks();
 			wrapper = mount(<Form
 				data={data}
 				onChange={onChange}
+				onTrigger={onTrigger}
 				onSubmit={onSubmit}
 			/>);
 		});
@@ -187,7 +199,7 @@ describe('<Form/>', () => {
 		// and update accordingly.
 		// So far it's not possible to get the onChange method to be bubbled up to the
 		// form
-		it('should handles change', () => {
+		it('should handles change', (done) => {
 			// given
 			const input = wrapper.find('input').first();
 
@@ -196,7 +208,46 @@ describe('<Form/>', () => {
 
 			// then
 			expect(input.props().value).toEqual('Test');
-			// expect(onChange.mock.calls.length).toEqual(1);
+			setTimeout(() => {
+				wrapper.setState({}, () => {
+					expect(onChange.mock.calls.length).toEqual(1);
+					done();
+				});
+			}, 100);
+		});
+
+		it('should handles triggers and change if fied as ui:trigger property', (done) => {
+			// given
+			const input = wrapper.find('input').at(1);
+
+			// when
+			input.simulate('change', { target: { value: true } });
+
+			// then
+			setTimeout(() => {
+				wrapper.setState({}, () => {
+					expect(onChange.mock.calls.length).toEqual(1);
+					expect(onTrigger.mock.calls.length).toEqual(1);
+					done();
+				});
+			}, 100);
+		});
+
+		it('should not trigger onTrigger if updated field has no ui:trigger property', (done) => {
+			// given
+			const input = wrapper.find('input').first();
+
+			// when
+			input.simulate('change', { target: { value: 'Test' } });
+
+			// then
+			setTimeout(() => {
+				wrapper.setState({}, () => {
+					expect(onTrigger.mock.calls.length).toEqual(0);
+					expect(onChange.mock.calls.length).toEqual(1);
+					done();
+				});
+			}, 100);
 		});
 
 		it('should handle submit', () => {

@@ -60,7 +60,7 @@ function Environment(props) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
-				icon="talend-burger"
+				icon="talend-environment"
 				id={props.id}
 				items={props.items}
 				label={props.label}
@@ -133,6 +133,7 @@ function Products({ id, items }) {
 		<li className="tc-header-bar-action">
 			<ActionDropdown
 				bsStyle="link"
+				className="tc-header-bar-products"
 				id={id}
 				icon="talend-launcher"
 				items={items}
@@ -152,7 +153,7 @@ Products.propTypes = {
 
 function HeaderBar(props) {
 	return (
-		<nav className={classNames([`tc-header-bar, ${theme['tc-header-bar']}`])} >
+		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className="tc-header-bar-actions">
 				<Logo {...props.logo} />
 				<Brand {...props.brand} isSeparated={!!props.env} />

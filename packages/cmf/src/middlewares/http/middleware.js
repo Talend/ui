@@ -52,9 +52,10 @@ export function mergeOptions(action) {
 		credentials: 'same-origin',
 	}, action);
 
-	if (typeof options.body === 'object') {
+	if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
 		options.body = JSON.stringify(options.body);
 	}
+
 	delete options.type;
 	return options;
 }

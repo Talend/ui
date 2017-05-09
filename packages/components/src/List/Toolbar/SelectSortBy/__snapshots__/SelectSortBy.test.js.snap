@@ -75,7 +75,7 @@ exports[`SelectSortBy should render 1`] = `
       onClick={[Function]}
       role="button"
     >
-      ASCENDING
+      Ascending
     </a>
   </li>
 </ul>
@@ -156,7 +156,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
       onClick={[Function]}
       role="button"
     >
-      ASCENDING
+      Ascending
     </a>
   </li>
 </ul>
@@ -187,7 +187,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
       onClick={[Function]}
       role="button"
     >
-      ASCENDING
+      Ascending
     </a>
   </li>
 </ul>

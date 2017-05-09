@@ -46,6 +46,7 @@ function CircularProgress({ size, light, percent }) {
 
 	return (
 		<svg
+			focusable="false"
 			className={classes}
 			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
 		>
