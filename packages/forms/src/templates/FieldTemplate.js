@@ -44,13 +44,15 @@ function CustomFieldTemplate(props) {
 	}
 
 	function renderLabel(classPrefix) {
-		return !isToggle && shouldDisplayLabel &&
-			<Label
+		if (!isToggle && shouldDisplayLabel) {
+			return (<Label
 				label={label}
 				required={required || schema.required}
 				id={id}
 				className={`${classPrefix}-label`}
-			/>;
+			/>);
+		}
+		return null;
 	}
 
 	return (

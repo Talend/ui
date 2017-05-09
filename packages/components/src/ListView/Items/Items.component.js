@@ -55,11 +55,7 @@ class Items extends React.PureComponent {
 	}
 
 	rowRenderer(props) {
-		const {
-			key,   // eslint-disable-line react/prop-types
-			index, // eslint-disable-line react/prop-types
-			style, // eslint-disable-line react/prop-types
-		} = props;
+		const { key, index, style } = props;
 		const isToggle = this.hasToggleAll && index === 0;
 		return (
 			<div className={itemContainer(isToggle && 'toggle')} key={key} style={style}>
