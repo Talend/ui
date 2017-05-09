@@ -75,9 +75,9 @@
     "lint:es": "eslint --config .eslintrc src",
     "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6008",
-    "start": "start-storybook -p 6008",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -s ./stories/static -p 6008",
+    "start": "start-storybook -s ./stories/static -p 6008",
+    "build-storybook": "build-storybook -s ./stories/static"
   },
   "jest": {
     "collectCoverageFrom": [

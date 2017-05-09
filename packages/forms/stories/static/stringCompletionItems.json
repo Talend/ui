@@ -1,0 +1,18 @@
+[{
+	"title": "A",
+	"suggestions": [{
+		"title": "Apple"
+	}, {
+		"title": "Apricot"
+	}]
+}, {
+	"title": "B",
+	"suggestions": [{
+		"title": "Banana"
+	}]
+}, {
+	"title": "C",
+	"suggestions": [{
+		"title": "Cherry"
+	}]
+}]

@@ -9,6 +9,7 @@ import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
 import Form from '../src/Form';
+import items from './static/stringCompletionItems.json';
 
 a11y(ReactDOM);
 
@@ -114,6 +115,43 @@ decoratedStories.add('Multiple actions', () => {
 	);
 });
 
+
+decoratedStories.add('String Completion', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'A string completion',
+			description: 'A string completion example',
+			type: 'object',
+			required: [
+				'completion',
+			],
+			properties: {
+				completion: {
+					type: 'string',
+					title: 'Completion',
+				},
+			},
+		},
+		uiSchema: {
+			completion: {
+				'ui:widget': 'stringCompletion',
+				'ui:options': {
+					itemsSrc: '/stringCompletionItems.json',
+				},
+			},
+		},
+		properties: {},
+	};
+	function fetchItems() {
+		return items;
+	}
+	return (<Form
+		data={schema}
+		onSubmit={action('SUBMIT')}
+		formContext={{ fetchItems }}
+	/>);
+});
+
 const UnknownWidget = (props) => {
 	const { value } = props;
 
@@ -156,7 +194,7 @@ decoratedStories.add('Custom widget', () => {
 			list: {
 				'ui:widget': 'unknown',
 			},
-		}
+		},
 	};
 	return (
 		<Form
