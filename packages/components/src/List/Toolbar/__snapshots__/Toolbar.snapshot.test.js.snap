@@ -382,7 +382,7 @@ exports[`Toolbar should render pagination 1`] = `
           </ul>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl"
+          className="btn-link"
           role="presentation"
           style={undefined}
         >
@@ -405,7 +405,7 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl"
+          className="btn-link"
           role="presentation"
           style={undefined}
         >
@@ -453,7 +453,7 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl"
+          className="btn-link"
           role="presentation"
           style={undefined}
         >
@@ -476,7 +476,7 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl"
+          className="btn-link"
           role="presentation"
           style={undefined}
         >

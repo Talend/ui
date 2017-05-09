@@ -93,7 +93,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -122,7 +122,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -176,7 +176,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -205,7 +205,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -329,7 +329,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </ul>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -358,7 +358,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -412,7 +412,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -441,7 +441,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl disabled"
+    className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
@@ -660,7 +660,7 @@ exports[`Pagination should render 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -683,7 +683,7 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -731,7 +731,7 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -754,7 +754,7 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -872,7 +872,7 @@ exports[`Pagination should render id if provided 1`] = `
     </ul>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -895,7 +895,7 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -943,7 +943,7 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -966,7 +966,7 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    className="btn-link tc-pagination-ctrl"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >

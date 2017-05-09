@@ -614,7 +614,7 @@ exports[`List should render 1`] = `
             </ul>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -637,7 +637,7 @@ exports[`List should render 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -685,7 +685,7 @@ exports[`List should render 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -708,7 +708,7 @@ exports[`List should render 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1379,7 +1379,7 @@ exports[`List should render id if provided 1`] = `
             </ul>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1402,7 +1402,7 @@ exports[`List should render id if provided 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1450,7 +1450,7 @@ exports[`List should render id if provided 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1473,7 +1473,7 @@ exports[`List should render id if provided 1`] = `
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
