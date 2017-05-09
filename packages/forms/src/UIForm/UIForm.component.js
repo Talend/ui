@@ -7,18 +7,21 @@ import {
 	merge,
 	traverseSchema,
 	traverseForm,
-} from 'json-schema-form-core';
+} from 'talend-json-schema-form-core';
 
 class UIForm extends React.Component {
 
 	render() {
 		const { jsonSchema, uiSchema, properties } = this.props.data || {};
-		debugger;
-		schemaDefaults;
-		jsonref;
-		merge;
-		traverseSchema;
-		traverseForm;
+		try {
+			console.log(merge(jsonSchema, uiSchema));
+		}
+		catch (error) {}
+		// schemaDefaults;
+		// jsonref;
+		// merge;
+		// traverseSchema;
+		// traverseForm;
 		return (
 			<form onSubmit={this.props.handleSubmit}>
 				<div>
