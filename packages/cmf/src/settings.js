@@ -6,19 +6,25 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 import invariant from 'invariant';
 
+/**
+ * if an object try to find _ref property and resolve it
+ */
 export function attachRef(state, obj) {
-	let props = Object.assign({}, obj);
-	if (props._ref) {
-		const ref = state.cmf.settings.ref[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
+	if (obj !== null && typeof obj === 'object') {
+		let props = Object.assign({}, obj);
+		if (props._ref) {
+			const ref = state.cmf.settings.ref[props._ref];
+			invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
+			props = Object.assign(
 			{},
 			state.cmf.settings.ref[props._ref],
 			obj
 		);
-		delete props._ref;
+			delete props._ref;
+		}
+		return props;
 	}
-	return props;
+	return obj;
 }
 
 export function attachRefs(state, props) {
