@@ -5,6 +5,13 @@ import css from './HttpError.scss';
 
 const className = 'http-error';
 
+function getScopedClassName(scopedClassName = className) {
+	return [
+		css[scopedClassName],
+		scopedClassName,
+	];
+}
+
 function HttpError(props) {
 	const {
 		status,
@@ -15,11 +22,11 @@ function HttpError(props) {
 
 	return (
 		<div
-			className={classNames(css[className], className, `${className}-${status}`)}
+			className={classNames(getScopedClassName())}
 			data-status={status}
 		>
 			<div
-				className={`${className}-${status}`}
+				className={classNames(getScopedClassName(`${className}-content`), `${className}-${status}`)}
 				style={style}
 			>
 				<h1>{title}</h1>

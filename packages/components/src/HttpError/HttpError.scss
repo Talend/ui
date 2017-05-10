@@ -21,7 +21,7 @@ $tc-http-error-message-color: #888888 !default;
 		opacity: 0.1;
 	}
 
-	div {
+	&-content {
 		padding: 13rem 0 0 43rem;
 
 		h1 {
