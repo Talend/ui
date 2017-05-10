@@ -71,6 +71,7 @@ import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
 import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -102,6 +103,7 @@ export {
 	Actions,
 	AppHeaderBar,
 	HeaderBar,
+	HttpError,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
