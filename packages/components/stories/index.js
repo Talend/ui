@@ -15,6 +15,7 @@ import './Drawer';
 import './Enumeration';
 import './ListView';
 import './HeaderBar';
+import './HttpError';
 import './Icon';
 import './Layout';
 import './List';
