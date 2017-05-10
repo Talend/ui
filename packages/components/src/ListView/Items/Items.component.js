@@ -50,8 +50,10 @@ class Items extends React.PureComponent {
 	}
 
 	getRowCount() {
-		const { items } = this.props;
-		return this.hasToggleAll ? items.length + 1 : items.length;
+		if (this.hasToggleAll) {
+			return this.props.items.length + 1;
+		}
+		return this.props.items.length;
 	}
 
 	rowRenderer(props) {
