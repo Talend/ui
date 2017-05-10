@@ -4571,6 +4571,10 @@ object.values@^1.0.3:
     function-bind "^1.1.0"
     has "^1.0.1"
 
+objectpath@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/objectpath/-/objectpath-1.2.1.tgz#c87433bdd352aea014e4f9c0b52d70a42652052e"
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -6061,9 +6065,12 @@ talend-icons@^0.73.0:
   version "0.73.0"
   resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.73.0.tgz#5e75efbce39925883e43125345a8524f4418bbf7"
 
-talend-json-schema-form-core@^1.0.0-alpha.2:
-  version "1.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/talend-json-schema-form-core/-/talend-json-schema-form-core-1.0.0-alpha.2.tgz#d7f9da3f3ec88d38dc5d5643f5dd7c573feca863"
+talend-json-schema-form-core@1.0.2-alpha.2:
+  version "1.0.2-alpha.2"
+  resolved "https://registry.yarnpkg.com/talend-json-schema-form-core/-/talend-json-schema-form-core-1.0.2-alpha.2.tgz#5e78155e25aa99f50cfb7b054b263a1367a9201d"
+  dependencies:
+    objectpath "^1.2.1"
+    tv4 "^1.3.0"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
@@ -6175,6 +6182,10 @@ tunnel-agent@^0.6.0:
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
   dependencies:
     safe-buffer "^5.0.1"
+
+tv4@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
