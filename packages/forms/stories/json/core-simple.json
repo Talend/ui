@@ -7,11 +7,29 @@
         "title": "Name",
         "type": "string"
       },
+      "lastname": {
+        "title": "Last Name (with description)",
+        "type": "string",
+        "description": "Hint: this is the last name"
+      },
+      "firstname": {
+        "title": "First Name (with placeholder)",
+        "type": "string"
+      },
+      "nochange": {
+        "title": "Field (read only mode)",
+        "type": "string"
+      },
+      "age": {
+        "title": "Age",
+        "type": "number"
+      },
       "email": {
-        "title": "Email",
+        "title": "Email (with pattern validation and custom validation message)",
         "type": "string",
         "pattern": "^\\S+@\\S+$",
-        "description": "Email will be used for evil."
+        "description": "Email will be used for evil.",
+        "validationMessage": "Please enter a valid email address, e.g. user@email.com"
       },
       "comment": {
         "title": "Comment",
@@ -22,26 +40,35 @@
     },
     "required": [
       "name",
+      "firstname",
       "email",
       "comment"
     ]
   },
   "uiSchema": [
     "name",
+    "lastname",
+    {
+      "key": "firstname",
+      "type": "text",
+      "placeholder": "Enter your firstname here"
+    },
+    "age",
     "email",
+    {
+      "key": "nochange",
+      "type": "text",
+      "readOnly": true
+    },
     {
       "key": "comment",
       "type": "textarea",
       "placeholder": "Make a comment"
-    },
-    {
-      "type": "submit",
-      "style": "btn-info",
-      "title": "OK"
     }
   ],
   "properties": {
     "name": "Chuck Norris",
+    "nochange": "You can't change that",
     "email": "ChuckyFTW@gmail.com",
     "comment": "lol"
   }
