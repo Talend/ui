@@ -1,3 +1,4 @@
+$tc-http-error-status-color: $scooter !default;
 $tc-http-error-title-color: $brand-primary !default;
 $tc-http-error-message-color: #888888 !default;
 
@@ -17,7 +18,7 @@ $tc-http-error-message-color: #888888 !default;
 		font-size: 62rem;
 		font-weight: 700;
 		line-height: 0.7;
-		color: $tc-http-error-title-color;
+		color: $tc-http-error-status-color;
 		opacity: 0.1;
 	}
 
