@@ -33,6 +33,7 @@ HttpError.propTypes = {
 	status: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
+	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 };
 
 export default HttpError;
