@@ -1,12 +1,10 @@
-$tc-listview-smaller-padding: $padding-smaller !default;
-$tc-listview-large-padding: $padding-large !default;
 $tc-listview-header-height: 28px !default;
 $tc-listview-svg-color: #666 !default;
 $tc-listview-font-size: 1.4rem !default;
 
 .tc-listview-header {
 	display: flex;
-	line-height: $tc-listview-large-padding;
+	line-height: $padding-large;
 	align-items: center;
 	height: $tc-listview-header-height;
 	position: relative;
@@ -30,7 +28,7 @@ $tc-listview-font-size: 1.4rem !default;
 
 	:global(.btn-link) {
 		margin-left: auto;
-		padding: 0 $tc-listview-smaller-padding;
+		padding: 0 $padding-smaller;
 		height: 30px;
 		outline: none;
 
