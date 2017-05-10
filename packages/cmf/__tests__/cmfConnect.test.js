@@ -63,6 +63,17 @@ describe('cmfConnect.getStateToProps', () => {
 		});
 		expect(props.state.get('foo')).toBe('bar');
 	});
+	it('should inject view settings using props.view', () => {
+		const state = mock.state();
+		state.cmf.components = fromJS({});
+		const props = getStateToProps({
+			componentId: 'testId',
+			ownProps: { view: 'homepage' },
+			state,
+			WrappedComponent: { displayName: 'TestComponent' },
+		});
+		expect(props.sidemenu.actions.length).toBe(2);
+	});
 });
 
 describe('cmfConnect.getDispatchToProps', () => {
