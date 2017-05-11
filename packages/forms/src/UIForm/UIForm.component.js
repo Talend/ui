@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { merge, validate } from 'talend-json-schema-form-core';
 
 import Widget from './Widget';
-import validateAll from './utils/validation';
+import { validateAll } from './utils/validation';
 import { mutateValue } from './utils/properties';
 
 class UIForm extends React.Component {
@@ -15,6 +15,7 @@ class UIForm extends React.Component {
 			properties: { ...properties },
 			validations: {},
 		};
+		console.log(this.state.mergedSchema)
 
 		this.consolidate = this.consolidate.bind(this);
 		this.submit = this.submit.bind(this);
@@ -105,15 +106,17 @@ class UIForm extends React.Component {
 	}
 }
 
-UIForm.propTypes = {
-	data: PropTypes.shape({
-		jsonSchema: PropTypes.object,
-		uiSchema: PropTypes.array,
-		properties: PropTypes.object,
-	}),
-	formName: PropTypes.string,
-	onSubmit: PropTypes.func.isRequired,
-};
+if (process.env.NODE_ENV !== 'production') {
+	UIForm.propTypes = {
+		data: PropTypes.shape({
+			jsonSchema: PropTypes.object,
+			uiSchema: PropTypes.array,
+			properties: PropTypes.object,
+		}),
+		formName: PropTypes.string,
+		onSubmit: PropTypes.func.isRequired,
+	};
+}
 
 export default reduxForm({
 	form: 'form', // a unique name for this form

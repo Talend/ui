@@ -27,14 +27,16 @@ export default function Widget({ formName, onChange, properties, schema, validat
 		) : null;
 }
 
-Widget.propTypes = {
-	formName: PropTypes.string,
-	onChange: PropTypes.func,
-	schema: PropTypes.shape({
-		key: PropTypes.array,
-		type: PropTypes.string.isRequired,
-		validationMessage: PropTypes.string,
-	}).isRequired,
-	properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	validations: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-};
+if (process.env.NODE_ENV !== 'production') {
+	Widget.propTypes = {
+		formName: PropTypes.string,
+		onChange: PropTypes.func,
+		schema: PropTypes.shape({
+			key: PropTypes.array,
+			type: PropTypes.string.isRequired,
+			validationMessage: PropTypes.string,
+		}).isRequired,
+		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		validations: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	};
+}

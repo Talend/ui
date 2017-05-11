@@ -17,8 +17,10 @@ export default function Message(props) {
 		null;
 }
 
-Message.propTypes = {
-	errorMessage: PropTypes.string,
-	description: PropTypes.string,
-	isValid: PropTypes.bool,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Message.propTypes = {
+		errorMessage: PropTypes.string,
+		description: PropTypes.string,
+		isValid: PropTypes.bool,
+	};
+}

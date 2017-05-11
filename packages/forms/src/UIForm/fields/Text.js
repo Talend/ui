@@ -40,20 +40,22 @@ export default function Text(props) {
 	);
 }
 
-Text.propTypes = {
-	id: PropTypes.string,
-	isValid: PropTypes.bool,
-	errorMessage: PropTypes.string,
-	onChange: PropTypes.func,
-	schema: PropTypes.shape({
-		description: PropTypes.string,
-		placeholder: PropTypes.string,
-		readOnly: PropTypes.bool,
-		title: PropTypes.string,
-		type: PropTypes.string,
-	}),
-	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+if (process.env.NODE_ENV !== 'production') {
+	Text.propTypes = {
+		id: PropTypes.string,
+		isValid: PropTypes.bool,
+		errorMessage: PropTypes.string,
+		onChange: PropTypes.func,
+		schema: PropTypes.shape({
+			description: PropTypes.string,
+			placeholder: PropTypes.string,
+			readOnly: PropTypes.bool,
+			title: PropTypes.string,
+			type: PropTypes.string,
+		}),
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	};
+}
 Text.defaultProps = {
 	isValid: true,
 	value: '',

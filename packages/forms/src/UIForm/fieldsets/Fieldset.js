@@ -19,9 +19,11 @@ export default function Fieldset(props) {
 	);
 }
 
-Fieldset.propTypes = {
-	schema: PropTypes.shape({
-		items: PropTypes.array.isRequired,
-		title: PropTypes.string,
-	}).isRequired,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Fieldset.propTypes = {
+		schema: PropTypes.shape({
+			title: PropTypes.string,
+			items: PropTypes.array.isRequired,
+		}).isRequired,
+	};
+}
