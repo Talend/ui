@@ -11,6 +11,7 @@ import ArrayField from './fields/ArrayField';
 import FieldTemplate from './templates/FieldTemplate';
 import ToggleWidget from './widgets/ToggleWidget';
 import TabsWidget from './widgets/TabsWidget';
+import ColumnsWidget from './widgets/ColumnsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
@@ -22,6 +23,7 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 const TRIGGER_AFTER = 'after';
 
 const customWidgets = {
+	columns: ColumnsWidget,
 	toggle: ToggleWidget,
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
