@@ -9,7 +9,7 @@ import {
 
 import validateAll from '../utils/validation';
 import widgets from '../utils/widgets';
-import { getValue, mutateValue } from '../utils/propertiesNavigator';
+import { getValue, mutateValue } from '../utils/properties';
 
 class UIForm extends React.Component {
 	constructor(props) {

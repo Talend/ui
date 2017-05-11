@@ -1,6 +1,6 @@
 import { validate } from 'talend-json-schema-form-core';
 
-import { getValue } from './propertiesNavigator';
+import { getValue } from './properties';
 
 /**
  * Validate values. This supports only 1 level of fields for now
