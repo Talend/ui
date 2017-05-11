@@ -31,11 +31,11 @@ class UIForm extends React.Component {
 		if (!jsonSchema || !uiSchema || !properties) {
 			return;
 		}
-		this.setState(() => ({
+		this.setState({
 			mergedSchema: merge(jsonSchema, uiSchema),
 			properties: { ...properties },
 			validations: {},
-		}));
+		});
 	}
 
 	/**
@@ -64,7 +64,7 @@ class UIForm extends React.Component {
 		const keys = Object.keys(validations);
 		for (const key of keys) {
 			if (!validations[key].valid) {
-				this.setState(() => ({ validations }));
+				this.setState({ validations });
 				return false;
 			}
 		}
