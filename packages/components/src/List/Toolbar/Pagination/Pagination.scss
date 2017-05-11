@@ -1,5 +1,6 @@
-:global(.navbar-btn.btn-group) {
-	display: inline-flex;
-	justify-content: space-between;
-	align-items: baseline;
+.tc-pagination {
+	:global(.tc-svg-icon) {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+	}
 }
