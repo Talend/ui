@@ -3,7 +3,7 @@ import { validate } from 'talend-json-schema-form-core';
 import { getValue } from './properties';
 
 /**
- * Validate values. This supports only 1 level of fields for now
+ * Validate values.
  * @param mergedSchema The merged schema.
  * @param properties The values.
  * @returns {object} The validation result by field.
@@ -11,10 +11,17 @@ import { getValue } from './properties';
 export default function validateAll(mergedSchema, properties) {
 	const validations = {};
 	mergedSchema.forEach((schema) => {
-		validations[schema.key] = validate(
-			schema,
-			getValue(properties, schema.key)
-		);
+		const { key, items } = schema;
+		if (key) {
+			validations[key] = validate(
+				schema,
+				getValue(properties, key)
+			);
+		}
+		if (items) {
+			const subValidations = validateAll(items, properties);
+			Object.assign(validations, subValidations);
+		}
 	});
 	return validations;
 }

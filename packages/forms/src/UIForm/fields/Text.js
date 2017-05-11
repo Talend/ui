@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import FieldMessage from '../FieldMessage';
+import Message from '../Message';
 
 function convertValue(type, value) {
 	if (type === 'number') {
@@ -10,7 +10,7 @@ function convertValue(type, value) {
 	return value;
 }
 
-export default function TextField(props) {
+export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
 	const { description, placeholder, readOnly, title, type } = schema;
 
@@ -31,7 +31,7 @@ export default function TextField(props) {
 				value={value}
 			/>
 			<label htmlFor={id} className="control-label">{title}</label>
-			<FieldMessage
+			<Message
 				errorMessage={errorMessage}
 				description={description}
 				isValid={isValid}
@@ -40,7 +40,7 @@ export default function TextField(props) {
 	);
 }
 
-TextField.propTypes = {
+Text.propTypes = {
 	id: PropTypes.string,
 	isValid: PropTypes.bool,
 	errorMessage: PropTypes.string,
@@ -54,7 +54,7 @@ TextField.propTypes = {
 	}),
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
-TextField.defaultProps = {
+Text.defaultProps = {
 	isValid: true,
 	value: '',
 };

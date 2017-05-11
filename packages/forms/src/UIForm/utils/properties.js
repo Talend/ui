@@ -4,6 +4,10 @@
  * @param {array} key The key chain (array of strings) to access to the value
  */
 export function getValue(properties, key) {
+	if (!key) {
+		return undefined;
+	}
+
 	return key.reduce(
 		(accu, nextKey) => accu[nextKey],
 		properties

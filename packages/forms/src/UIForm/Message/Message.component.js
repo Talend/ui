@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-export default function FieldMessage(props) {
+export default function Message(props) {
 	const {
 		errorMessage,
 		description,
@@ -17,7 +17,7 @@ export default function FieldMessage(props) {
 		null;
 }
 
-FieldMessage.propTypes = {
+Message.propTypes = {
 	errorMessage: PropTypes.string,
 	description: PropTypes.string,
 	isValid: PropTypes.bool,

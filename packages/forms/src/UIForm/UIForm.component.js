@@ -1,15 +1,10 @@
 import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
+import { merge, validate } from 'talend-json-schema-form-core';
 
-import {
-	merge,
-	sfPath,
-	validate,
-} from 'talend-json-schema-form-core';
-
-import validateAll from '../utils/validation';
-import widgets from '../utils/widgets';
-import { getValue, mutateValue } from '../utils/properties';
+import Widget from './Widget';
+import validateAll from './utils/validation';
+import { mutateValue } from './utils/properties';
 
 class UIForm extends React.Component {
 	constructor(props) {
@@ -93,24 +88,16 @@ class UIForm extends React.Component {
 		return (
 			<form onSubmit={this.submit}>
 				{
-					this.state.mergedSchema.map((nextSchema) => {
-						const { key, type, validationMessage } = nextSchema;
-						const id = sfPath.name(key, '-', formName);
-						const { error, valid } = validations[nextSchema.key] || {};
-						const errorMessage = validationMessage || (error && error.message);
-						const Widget = widgets[type];
-						return Widget && (
-							<Widget
-								id={id}
-								isValid={valid}
-								key={id}
-								errorMessage={errorMessage}
-								onChange={this.consolidate}
-								schema={nextSchema}
-								value={getValue(properties, key)}
-							/>
-						);
-					})
+					this.state.mergedSchema.map((nextSchema, index) => (
+						<Widget
+							key={index}
+							formName={formName}
+							onChange={this.consolidate}
+							schema={nextSchema}
+							properties={properties}
+							validations={validations}
+						/>
+					))
 				}
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
