@@ -89,6 +89,12 @@ function loadComponents(context, item) {
 		item.component = getComponentFromRegistry(context, item.component);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
+		} else if (item.view && item.component.CMFContainer) {
+			const component = item.component;
+			item.component = (props, rcontext) => component(
+				Object.assign({ view: item.view }, props),
+				rcontext
+			);
 		}
 	}
 	if (item.components) {
