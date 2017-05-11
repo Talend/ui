@@ -5,6 +5,7 @@
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 
+import React from 'react';
 import { connect } from 'react-redux';
 import registry from './registry';
 import { mapStateToViewProps } from './settings';
@@ -90,11 +91,12 @@ function loadComponents(context, item) {
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if (item.view && item.component.CMFContainer) {
-			const component = item.component;
-			item.component = (props, rcontext) => component(
-				Object.assign({ view: item.view }, props),
-				rcontext
-			);
+			const WithView = item.component;
+			item.component = (props) => <WithView view={item.view} {...props} />;
+			item.component.displayName = 'WithView';
+			item.component.propTypes = {
+				view: React.PropTypes.string,
+			};
 		}
 	}
 	if (item.components) {
