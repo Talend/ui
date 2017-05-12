@@ -21,9 +21,25 @@ describe('loadComponent behavior', () => {
 			component: 'component',
 			view: 'something',
 		};
-		// console.error('mock', mock.context());
 		route.loadComponents(mock.context(), mockItem);
 		const wrapper = shallow(React.createElement(mockItem.component), { context: mock.context() });
 		expect(wrapper.props().dispatch()).toBe('dispatch');
+	});
+	it('should replace component by regitry one', () => {
+		const mockItem = {
+			component: 'TestContainer',
+			view: 'appmenu',
+		};
+		const obj = { fn: jest.fn() };
+		const component = obj.fn;
+		component.CMFContainer = true;
+		const mockContext = mock.context();
+		mockContext.registry = {
+			'_.route.component:TestContainer': component,
+		};
+		route.loadComponents(mockContext, mockItem);
+		component();
+		expect(obj.fn).toHaveBeenCalled();
+		expect(mockItem.component.displayName).toBe('WithView');
 	});
 });
