@@ -19,16 +19,15 @@ before_script:
 sudo: required
 jobs:
   include:
-    - stage: test
-      script: yarn test
+    - script: yarn test
     - stage: lint_docs
       script: .travis/after_success_lint.sh
-      script: .travis/after_success_static.sh
-      script: .travis/after_success_coverage.sh
-      script: .travis/after_success_screenshots.sh
+    - script: .travis/after_success_static.sh
+    - script: .travis/after_success_coverage.sh
+    - script: .travis/after_success_screenshots.sh
     - stage: deploy
       script: .travis/after_success_git.sh
-      script: .travis/after_success_deploy.sh
+    - script: .travis/after_success_deploy.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
