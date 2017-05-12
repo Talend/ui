@@ -52,7 +52,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 :global(.tc-with-drawer-wrapper) {
 	@for $i from 1 through 10 {
 		&:nth-child(#{$i}) > .drawer-stacked {
-			$width: 100% - ($i * 2 - 2);
+			$width: 100% - (($i * 2) - 2);
 			width: $width;
 		}
 	}
