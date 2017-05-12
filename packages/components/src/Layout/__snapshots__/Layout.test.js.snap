@@ -34,9 +34,9 @@ exports[`Layout should render Layout OneColumn 1`] = `
       <div
         className="react-addons-css-transition-group"
         transitionAppear={true}
-        transitionAppearTimeout={400}
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={400}
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
         transitionName="tc-with-drawer-wrapper"
       />
     </div>
@@ -88,9 +88,9 @@ exports[`Layout should render Layout TwoColumns 1`] = `
         <div
           className="react-addons-css-transition-group"
           transitionAppear={true}
-          transitionAppearTimeout={400}
-          transitionEnterTimeout={400}
-          transitionLeaveTimeout={400}
+          transitionAppearTimeout={230}
+          transitionEnterTimeout={230}
+          transitionLeaveTimeout={230}
           transitionName="tc-with-drawer-wrapper"
         />
       </div>
@@ -143,9 +143,9 @@ exports[`Layout should render layout with Drawer component 1`] = `
         <div
           className="react-addons-css-transition-group"
           transitionAppear={true}
-          transitionAppearTimeout={400}
-          transitionEnterTimeout={400}
-          transitionLeaveTimeout={400}
+          transitionAppearTimeout={230}
+          transitionEnterTimeout={230}
+          transitionLeaveTimeout={230}
           transitionName="tc-with-drawer-wrapper"
         >
           <div
@@ -227,9 +227,9 @@ exports[`Layout should render layout with footer component 1`] = `
       <div
         className="react-addons-css-transition-group"
         transitionAppear={true}
-        transitionAppearTimeout={400}
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={400}
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
         transitionName="tc-with-drawer-wrapper"
       />
     </div>
@@ -272,9 +272,9 @@ exports[`Layout should render layout without header 1`] = `
       <div
         className="react-addons-css-transition-group"
         transitionAppear={true}
-        transitionAppearTimeout={400}
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={400}
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
         transitionName="tc-with-drawer-wrapper"
       />
     </div>

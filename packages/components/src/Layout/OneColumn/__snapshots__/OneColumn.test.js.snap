@@ -24,9 +24,9 @@ exports[`OneColumn should render 1`] = `
     <div
       className="react-addons-css-transition-group"
       transitionAppear={true}
-      transitionAppearTimeout={400}
-      transitionEnterTimeout={400}
-      transitionLeaveTimeout={400}
+      transitionAppearTimeout={230}
+      transitionEnterTimeout={230}
+      transitionLeaveTimeout={230}
       transitionName="tc-with-drawer-wrapper"
     />
   </div>

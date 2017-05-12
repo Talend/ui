@@ -11,9 +11,9 @@ function DrawerAnimation({ children }) {
 		<ReactCSSTransitionGroup
 			transitionName="tc-with-drawer-wrapper"
 			transitionAppear
-			transitionAppearTimeout={400}
-			transitionEnterTimeout={400}
-			transitionLeaveTimeout={400}
+			transitionAppearTimeout={230}
+			transitionEnterTimeout={230}
+			transitionLeaveTimeout={230}
 		>
 			{children}
 		</ReactCSSTransitionGroup>
