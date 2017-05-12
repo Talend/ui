@@ -14,8 +14,6 @@ before_script:
   - yarn global add sassdoc http-server surge
 jobs:
   include:
-    - stage: prepare cache
-      script: true
     - stage: lint_docs
       install: skip
       script: .travis/after_success_lint.sh
