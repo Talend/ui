@@ -4,10 +4,6 @@ cache:
     - $HOME/.cache/yarn
 notifications:
   email: false
-env:
-  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
-addons:
-  firefox: "50.0"
 node_js:
   - '6'
 before_install:
@@ -18,16 +14,26 @@ before_script:
   - yarn global add sassdoc http-server surge
 jobs:
   include:
+    - stage: prepare cache
+      script: true
     - stage: lint_docs
       install: skip
       script: .travis/after_success_lint.sh
     - script: .travis/after_success_static.sh
+      install: skip
     - script: .travis/after_success_coverage.sh
+      install: skip
     - script: .travis/after_success_screenshots.sh
+      install: skip
+      env:
+        - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+      addons:
+        firefox: "50.0"
     - stage: deploy
       install: skip
       script: .travis/after_success_git.sh
     - script: .travis/after_success_deploy.sh
+      install: skip
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
