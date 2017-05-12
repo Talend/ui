@@ -137,3 +137,36 @@ exports[`Drawer should render using custom styles 1`] = `
   </div>
 </div>
 `;
+
+exports[`Drawer should render without tc-drawer-transition class 1`] = `
+<div
+  className="tc-drawer"
+  style={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className={undefined}
+      >
+        <h1>
+          Hello world
+        </h1>
+      </div>
+      <nav
+        className="tc-actionbar-container nav"
+      />
+    </div>
+  </div>
+</div>
+`;

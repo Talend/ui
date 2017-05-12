@@ -13,6 +13,14 @@ describe('Drawer', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render without tc-drawer-transition class', () => {
+		const wrapper = renderer.create(
+			<Drawer withoutTransition>
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should render using custom styles', () => {
 		const wrapper = renderer.create(
 			<Drawer style={{ top: 45 }}>
