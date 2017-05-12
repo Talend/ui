@@ -2,7 +2,7 @@
 
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #FFF !default;
-$tc-drawer-transition-duration: 0.4s !default;
+$tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
@@ -116,7 +116,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 :global(.tc-with-drawer-wrapper-enter.tc-with-drawer-wrapper-enter-active) > .tc-drawer-transition {
-	transition: transform 230ms ease-in;
+	transition: transform $tc-drawer-transition-duration ease-in;
 	transform: translateX(0%);
 }
 
@@ -125,7 +125,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 :global(.tc-with-drawer-wrapper-appear.tc-with-drawer-wrapper-appear-active) > .tc-drawer-transition {
-	transition: transform 230ms ease-in;
+	transition: transform $tc-drawer-transition-duration ease-in;
 	transform: translateX(0%);
 }
 
@@ -134,6 +134,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 :global(.tc-with-drawer-wrapper-leave.tc-with-drawer-wrapper-leave-active) > .tc-drawer-transition {
-	transition: transform 230ms ease-in;
+	transition: transform $tc-drawer-transition-duration ease-in;
 	transform: translateX(100%);
 }
