@@ -4,7 +4,9 @@ import { toIdSchema } from 'react-jsonschema-form/lib/utils';
 import ObjectField from '../fields/ObjectField';
 
 const TOTAL_SPANS = 12;
-
+/***
+ * Display form fields in multiple columns
+ */
 class ColumnsWidget extends Component {
 
 	render() {
