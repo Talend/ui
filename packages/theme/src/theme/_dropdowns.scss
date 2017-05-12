@@ -4,10 +4,16 @@
 ////
 
 .dropdown {
+	max-width: 250px;
+
 	&-toggle {
 		padding-left: $padding-normal;
 		padding-right: $padding-normal;
 		transition: 0.1s background-color ease-out;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 0;
 
 		.caret {
 			@include dropdown-caret-color($dropdown-caret-color);
