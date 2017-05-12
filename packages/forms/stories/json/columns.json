@@ -5,7 +5,7 @@
     "properties": {
       "columns": {
         "type": "object",
-        "totalColumns": 2,
+        "totalColumns": 3,
         "properties": {
           "0":{
             "type": "object",
@@ -42,14 +42,6 @@
                 "type": "string"
               }
             }
-          },
-          "2": {
-            "type": "object",
-            "properties": {
-              "tags": {
-                "type": "string"
-              }
-            }
           }
         }
       }
@@ -78,9 +70,6 @@
       "1": {
         "roles": "admin",
         "teams": "front-end"
-      },
-      "2": {
-        "tags": "ok"
       }
     }
   }

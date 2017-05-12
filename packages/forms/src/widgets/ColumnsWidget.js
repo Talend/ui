@@ -16,11 +16,14 @@ class ColumnsWidget extends Component {
 			definitions,
 			onChange,
 		} = this.props;
+
 		const spans = TOTAL_SPANS/(Object.keys(schema.properties).length||1);
+
 		return (
 				<Row>
 					{
 						Object.keys(schema.properties).map((col, idx) => {
+
 							const columnsSchema = schema.properties[col];
 							const itemIdSchema = toIdSchema(columnsSchema, col, definitions);
 
@@ -30,7 +33,7 @@ class ColumnsWidget extends Component {
 										formData={formData[col]}
 										onChange={(newState => onChange(newState))}
 										registry={registry}
-										schema={Object.assign({}, columnsSchema, { title: '' })}
+										schema={columnsSchema}
 										uiSchema={uiSchema[col]}
 								/>
 							</Col>);
