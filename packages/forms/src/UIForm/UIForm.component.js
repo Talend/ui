@@ -6,6 +6,8 @@ import Widget from './Widget';
 import { validateAll } from './utils/validation';
 import { mutateValue } from './utils/properties';
 
+const TRIGGER_AFTER = 'after';
+
 class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -35,24 +37,49 @@ class UIForm extends React.Component {
 			mergedSchema: merge(jsonSchema, uiSchema),
 			properties: { ...properties },
 			validations: {},
+			// TODO consolidate validation
+			// or each state.validations, revalidate it if key is still in form, remove otherwise
 		});
 	}
 
 	/**
 	 * Consolidate form with the new value.
-	 * This updates the validation on the modified field.
+	 * - it updates the validation on the modified field.
+	 * - it triggers onChange / onTrigger callbacks
 	 * @param event The change event
 	 * @param schema The schema of the changed field
 	 * @param value The new field value
 	 */
 	consolidate(event, schema, value) {
-		this.setState(prevState => ({
-			properties: mutateValue(prevState.properties, schema.key, value),
-			validations: {
-				...prevState.validations,
-				[schema.key]: validate(schema, value),
-			},
-		}));
+		this.setState(
+			prevState => ({
+				properties: mutateValue(prevState.properties, schema.key, value),
+				validations: {
+					...prevState.validations,
+					[schema.key]: validate(schema, value),
+				},
+			}),
+			() => {
+				const { onChange, onTrigger } = this.props;
+
+				if (onChange) {
+					onChange({
+						jsonSchema: this.props.data.jsonSchema, // original jsonSchema
+						uiSchema: this.props.data.uiSchema,     // original uiSchema
+						properties: this.state.properties,      // current properties values
+					});
+				}
+
+				const { key, triggers } = schema;
+				if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
+					onTrigger(
+						this.state.properties,  // current properties values
+						key[key.length - 1],    // field name
+						value                   // field value
+					);
+				}
+			}
+		);
 	}
 
 	/**
@@ -108,13 +135,26 @@ class UIForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
+		/** Form schema configuration */
 		data: PropTypes.shape({
+			/** Json schema that specify the data model */
 			jsonSchema: PropTypes.object,
+			/** UI schema that specify how to render the fields */
 			uiSchema: PropTypes.array,
+			/** Form fields values. Note that it should contains @definitionName for triggers. */
 			properties: PropTypes.object,
 		}),
+		/** The form name that will be used to create ids */
 		formName: PropTypes.string,
+		/** The change callback. It takes  */
+		onChange: PropTypes.func,
+		/** Form submit callback */
 		onSubmit: PropTypes.func.isRequired,
+		/**
+		 * Tigger > after callback.
+		 * This is executed on changes on fields with uiSchema > triggers : ['after']
+		 */
+		onTrigger: PropTypes.func,
 	};
 }
 

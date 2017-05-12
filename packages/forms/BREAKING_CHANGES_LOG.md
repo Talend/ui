@@ -3,6 +3,15 @@
 Before 1.0, `react-talend-forms` do NOT follow semver version in releases.
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## Next version
+
+Schemas format changes
+TODO
+
+On change callback api change
+On trigger callback api change
+TODO
+
 ## v0.71.0
 
 * PR #364 [feat: onTrigger !== onChange]
