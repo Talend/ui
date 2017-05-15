@@ -1,0 +1,76 @@
+{
+  "jsonSchema": {
+    "title": "columns",
+    "type": "object",
+    "properties": {
+      "columns": {
+        "type": "object",
+        "totalColumns": 3,
+        "properties": {
+          "0":{
+            "type": "object",
+            "properties": {
+              "login": {
+                "title": "Login *",
+                "type": "string"
+              },
+              "firstName": {
+                "title": "First Name *",
+                "type": "string"
+              },
+              "lastName": {
+                "title": "Last Name *",
+                "type": "string"
+              },
+              "password": {
+                "title": "Password",
+                "type": "string"
+              },
+              "password2": {
+                "title": "Repeat Password",
+                "type": "string"
+              }
+            }
+          },
+          "1": {
+            "type": "object",
+            "properties": {
+              "roles": {
+                "type": "string"
+              },
+              "teams": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": {
+    "columns": {
+      "ui:widget": "columns",
+      "0": {
+          "password": {
+            "ui:widget": "password"
+          },
+          "password2":{
+            "ui:widget": "password"
+          }
+      }
+    }
+  },
+  "properties": {
+    "columns": {
+      "0":{
+        "login": "someone@company",
+        "firstName": "some",
+        "lastName": "one"
+      },
+      "1": {
+        "roles": "admin",
+        "teams": "front-end"
+      }
+    }
+  }
+}
