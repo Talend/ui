@@ -36,9 +36,6 @@ class UIForm extends React.Component {
 		this.setState({
 			mergedSchema: merge(jsonSchema, uiSchema),
 			properties: { ...properties },
-			validations: {},
-			// TODO consolidate validation
-			// or each state.validations, revalidate it if key is still in form, remove otherwise
 		});
 	}
 
