@@ -4,11 +4,11 @@ import { sfPath } from 'talend-json-schema-form-core';
 import widgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
-export default function Widget({ formName, onChange, properties, schema, validations }) {
+export default function Widget({ errors, formName, onChange, properties, schema }) {
 	const { key, type, validationMessage } = schema;
 	const id = sfPath.name(key, '-', formName);
-	const { error, valid } = validations[key] || {};
-	const errorMessage = validationMessage || (error && error.message);
+	const error = errors[key];
+	const errorMessage = validationMessage || error;
 	const WidgetImpl = widgets[type];
 	return WidgetImpl ?
 		(
@@ -17,11 +17,11 @@ export default function Widget({ formName, onChange, properties, schema, validat
 				key={id}
 				errorMessage={errorMessage}
 				formName={formName}
-				isValid={valid}
+				isValid={!error}
 				onChange={onChange}
 				properties={properties}
 				schema={schema}
-				validations={validations}
+				errors={errors}
 				value={getValue(properties, key)}
 			/>
 		) : null;
@@ -29,6 +29,7 @@ export default function Widget({ formName, onChange, properties, schema, validat
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
+		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formName: PropTypes.string,
 		onChange: PropTypes.func,
 		schema: PropTypes.shape({
@@ -37,6 +38,5 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 		}).isRequired,
 		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		validations: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};
 }

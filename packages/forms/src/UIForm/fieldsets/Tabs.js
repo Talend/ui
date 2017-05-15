@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Tabs as RBTabs, Tab as RBTab } from 'react-bootstrap';
 
 import Fieldset from './Fieldset';
-import { isValid } from '../utils/validation';
+import isValid from '../utils/validation';
 import theme from './Tabs.scss';
 
 export default function Tabs(props) {
@@ -12,7 +12,7 @@ export default function Tabs(props) {
 	return (
 		<RBTabs className={theme['tf-tabs']}>
 			{tabs.map((tabSchema, index) => {
-				const tabClassName = isValid(tabSchema, restProps.validations) ?
+				const tabClassName = isValid(tabSchema, restProps.errors) ?
 					null :
 					theme['has-error'];
 				return (
@@ -32,6 +32,7 @@ export default function Tabs(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Tabs.propTypes = {
+		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		schema: PropTypes.shape({
 			items: PropTypes.arrayOf(
 				React.PropTypes.shape({
