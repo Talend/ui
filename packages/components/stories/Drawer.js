@@ -118,6 +118,10 @@ storiesOf('Drawer', module)
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 		/>);
+		const rows = [];
+		for (let index = 0; index < 20; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
 		return (
 			<Layout
 				header={header}
@@ -126,40 +130,7 @@ storiesOf('Drawer', module)
 				drawers={drawers}
 			>
 				<span>zone with drawer</span>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
+				{rows}
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
@@ -185,6 +156,10 @@ storiesOf('Drawer', module)
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 		/>);
+		const rows = [];
+		for (let index = 0; index < 20; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
 		return (
 			<Layout
 				header={header}
@@ -193,40 +168,7 @@ storiesOf('Drawer', module)
 				drawers={stackedDrawers}
 			>
 				<span>zone with drawer</span>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
+				{rows}
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);

@@ -15,7 +15,7 @@ describe('Drawer', () => {
 	});
 	it('should render without tc-drawer-transition class', () => {
 		const wrapper = renderer.create(
-			<Drawer withoutTransition>
+			<Drawer withTransition={false}>
 				<h1>Hello world</h1>
 			</Drawer>
 		).toJSON();

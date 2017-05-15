@@ -24,14 +24,14 @@ DrawerAnimation.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContainer({ stacked, className, children, withoutTransition = false, ...rest }) {
+function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
 		{
-			[theme['tc-drawer-transition']]: !withoutTransition,
-			'tc-drawer-transition': !withoutTransition,
+			[theme['tc-drawer-transition']]: withTransition,
+			'tc-drawer-transition': withTransition,
 		},
 		{
 			[theme['drawer-stacked']]: stacked,
@@ -48,7 +48,7 @@ function DrawerContainer({ stacked, className, children, withoutTransition = fal
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
-	withoutTransition: PropTypes.bool,
+	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -133,7 +133,7 @@ function Drawer({
 	children,
 	footerActions,
 	onCancelAction,
-	withoutTransition = false,
+	withTransition = true,
 }) {
 	if (!children) {
 		return null;
@@ -143,7 +143,7 @@ function Drawer({
 			stacked={stacked}
 			className={className}
 			style={style}
-			withoutTransition={withoutTransition}
+			withTransition={withTransition}
 		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
@@ -165,7 +165,7 @@ Drawer.propTypes = {
 	// footer action, see action bar for api
 	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
 	onCancelAction: PropTypes.shape(Action.propTypes),
-	withoutTransition: PropTypes.bool,
+	withTransition: PropTypes.bool,
 };
 
 Drawer.Animation = DrawerAnimation;
