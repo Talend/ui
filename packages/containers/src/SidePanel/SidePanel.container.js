@@ -15,7 +15,7 @@ export function getActions(actionIds, context) {
 		info.onClick = () => context.store.dispatch(info.payload);
 		const route = get(info, 'payload.cmf.routerReplace');
 		if (route) {
-			const currentRoute = context.router.location.pathname;
+			const currentRoute = context.router.route.location.pathname;
 			if (currentRoute.indexOf(route) !== -1) {
 				info.active = true;
 			}

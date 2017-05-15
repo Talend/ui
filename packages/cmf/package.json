@@ -94,6 +94,7 @@
   },
   "version": "0.74.2",
   "dependencies": {
+    "history": "^4.6.1",
     "hoist-non-react-statics": "^1.2.0"
   }
 }

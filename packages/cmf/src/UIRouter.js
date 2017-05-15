@@ -31,7 +31,7 @@ function CMFRoute(props, context) {
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
 		return (
-			<Component {...subprops}>
+			<Component view={props.view} {...subprops}>
 				{props.childRoutes ? props.childRoutes.map((route, index) => (
 					<CMFRoute key={index} {...route} />
 				)) : null}

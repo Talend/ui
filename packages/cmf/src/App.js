@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import { Provider } from 'react-redux';
-
 import { createHashHistory } from 'history';
+
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 
