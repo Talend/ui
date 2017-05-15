@@ -38,10 +38,11 @@ exports[`TwoColumns should render two columns 1`] = `
       </div>
       <div
         className="react-addons-css-transition-group"
+        transitionAppear={true}
         transitionAppearTimeout={230}
         transitionEnterTimeout={230}
         transitionLeaveTimeout={230}
-        transitionName="tc-drawer"
+        transitionName="tc-with-drawer-wrapper"
       />
     </div>
   </div>

@@ -118,6 +118,10 @@ storiesOf('Drawer', module)
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 		/>);
+		const rows = [];
+		for (let index = 0; index < 20; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
 		return (
 			<Layout
 				header={header}
@@ -126,40 +130,45 @@ storiesOf('Drawer', module)
 				drawers={drawers}
 			>
 				<span>zone with drawer</span>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
+				{rows}
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('stacked drawers', () => {
+		const stackedDrawers = [
+			(<Drawer stacked title="Im stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 1</h1>
+				<p>{ "You should not being able to read this because I'm first" }</p>
+			</Drawer>),
+			(<Drawer stacked title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 2</h1>
+				<p>The content dictate the scroll</p>
+				{scrollableContent()}
+			</Drawer>),
+			(<Drawer stacked title="Im drawer 3" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 3</h1>
+				<p>The content dictate the scroll</p>
+				{scrollableContent()}
+			</Drawer>),
+		];
+		const sidePanel = (<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+		/>);
+		const rows = [];
+		for (let index = 0; index < 20; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={stackedDrawers}
+			>
+				<span>zone with drawer</span>
+				{rows}
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
