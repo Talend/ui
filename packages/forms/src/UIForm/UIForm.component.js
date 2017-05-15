@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { merge, validate } from 'talend-json-schema-form-core';
+import { merge } from 'talend-json-schema-form-core';
 
 import Widget from './Widget';
-import { validateAll } from './utils/validation';
+import { validate, validateAll } from './utils/validation';
 import { mutateValue } from './utils/properties';
 
 const TRIGGER_AFTER = 'after';
@@ -52,34 +52,44 @@ class UIForm extends React.Component {
 	 */
 	consolidate(event, schema, value) {
 		this.setState(
-			prevState => ({
-				properties: mutateValue(prevState.properties, schema.key, value),
-				validations: {
+			(prevState) => {
+				const properties = mutateValue(prevState.properties, schema.key, value);
+				const validations = {
 					...prevState.validations,
-					[schema.key]: validate(schema, value),
-				},
-			}),
-			() => {
-				const { onChange, onTrigger } = this.props;
-
-				if (onChange) {
-					onChange({
-						jsonSchema: this.props.data.jsonSchema, // original jsonSchema
-						uiSchema: this.props.data.uiSchema,     // original uiSchema
-						properties: this.state.properties,      // current properties values
-					});
-				}
-
-				const { key, triggers } = schema;
-				if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
-					onTrigger(
-						this.state.properties,  // current properties values
-						key[key.length - 1],    // field name
-						value                   // field value
-					);
-				}
-			}
+					[schema.key]: validate(schema, value, properties, this.props.validation),
+				};
+				return { properties, validations };
+			},
+			() => this.handleChangesCallbacks(schema, value)
 		);
+	}
+
+	/**
+	 * Triggers the onTrigger and onChange if needed
+	 * - onChange : at each field change
+	 * - onTrigger : when schema.trigger : ['after']
+	 * @param schema The field schema
+	 * @param value The new value
+	 */
+	handleChangesCallbacks(schema, value) {
+		const { onChange, onTrigger } = this.props;
+
+		if (onChange) {
+			onChange({
+				jsonSchema: this.props.data.jsonSchema, // original jsonSchema
+				uiSchema: this.props.data.uiSchema,     // original uiSchema
+				properties: this.state.properties,      // current properties values
+			});
+		}
+
+		const { key, triggers } = schema;
+		if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
+			onTrigger(
+				this.state.properties,  // current properties values
+				key[key.length - 1],    // field name
+				value                   // field value
+			);
+		}
 	}
 
 	/**
@@ -87,15 +97,17 @@ class UIForm extends React.Component {
 	 * @returns {boolean} true if the form is valid, false otherwise
 	 */
 	isValid() {
-		const validations = validateAll(this.state.mergedSchema, this.state.properties);
-		const keys = Object.keys(validations);
-		for (const key of keys) {
-			if (!validations[key].valid) {
-				this.setState({ validations });
-				return false;
-			}
+		const validations = validateAll(
+			this.state.mergedSchema,
+			this.state.properties,
+			this.props.validation
+		);
+
+		const isValid = Object.keys(validations).every(key => validations[key].valid);
+		if (!isValid) {
+			this.setState({ validations });
 		}
-		return true;
+		return isValid;
 	}
 
 	/**
@@ -152,9 +164,17 @@ if (process.env.NODE_ENV !== 'production') {
 		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * Tigger > after callback.
+		 * Prototype: function onTrigger(properties, fieldName, value)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
+		/**
+		 * Custom validation function.
+		 * Prototype: function validation(properties, fieldName, value)
+		 * Return format : { valid: true|false, error: { message: 'my validation message' } }
+		 * This is triggered on fields that has their uiSchema > customValidation : true
+		 */
+		validation: PropTypes.func,
 	};
 }
 

@@ -65,6 +65,15 @@ sampleFilenames
 						onTrigger={action('Trigger')}
 						onBlur={action('Blur')}
 						onSubmit={action('Submit')}
+						validation={(properties, schema, value) => {
+							action('customValidation')(properties, schema, value);
+							return {
+								valid: value.length < 5,
+								error: {
+									message: 'Custom validation : The value should be less than 5 chars',
+								},
+							};
+						}}
 					/>
 				</section>
 			));
