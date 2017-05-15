@@ -15,6 +15,7 @@ import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
+import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 
 /**
@@ -29,6 +30,7 @@ const customWidgets = {
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
+	columns: ColumnsWidget,
 	listview: ListViewWidget,
 };
 
@@ -50,7 +52,7 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>)
+			</Action>),
 		);
 	}
 	return (<Action
@@ -134,7 +136,6 @@ class Form extends React.Component {
 			handleSchemaChange: this.handleSchemaChange,
 			handleAction: this.props.handleAction,
 		};
-
 		return (
 			<RJSForm
 				{...this.props}
