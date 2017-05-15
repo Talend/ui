@@ -118,6 +118,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   21:2  error  'schema' is missing in props validation         react/prop-types
   42:1  error  Line 42 exceeds the maximum line length of 100  max-len
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
+  20:3   warning  Unexpected console statement  no-console
+  20:39  error    Missing semicolon             semi
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
    30:10  error  Missing trailing comma                        comma-dangle
    72:10  error  Missing trailing comma                        comma-dangle
@@ -130,7 +134,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
-✖ 112 problems (112 errors, 0 warnings)
+✖ 114 problems (113 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
