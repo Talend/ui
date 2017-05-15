@@ -40,6 +40,7 @@ Enumeration.propTypes = {
 		DISPLAY_MODE_EDIT,
 		DISPLAY_MODE_SEARCH,
 	]),
+	required: PropTypes.bool,
 	headerError: PropTypes.string,
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
@@ -50,10 +51,15 @@ Enumeration.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
+		getItemHeight: React.PropTypes.oneOfType([
+			React.PropTypes.func,
+			React.PropTypes.number,
+		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
+		onLoadData: PropTypes.func,
 		actionsDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 		actionsEdit: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	}).isRequired,
@@ -84,7 +90,7 @@ ItemsEnumeration.propTypes = {
 
 function HeaderEnumeration({
 	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, items,
+	headerInput, headerDefault, headerSelected, items, required,
 }) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
@@ -98,19 +104,20 @@ function HeaderEnumeration({
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_ADD : {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputPlaceholder: 'New entry',
-		};
+		const propsInput =
+			{
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				headerError,
+				inputPlaceholder: 'New entry',
+			};
 		return <HeaderInput {...propsInput} />;
 	}
 	case DISPLAY_MODE_DEFAULT: {
 		const propsDefault = {
 			headerDefault,
-			onInputChange,
+			required,
 		};
 
 		return <Header {...propsDefault} />;
@@ -138,6 +145,7 @@ HeaderEnumeration.propTypes = {
 	onInputChange: Enumeration.propTypes.onInputChange,
 	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
 	items: Enumeration.propTypes.items,
+	required: Enumeration.propTypes.required,
 };
 
 export default Enumeration;

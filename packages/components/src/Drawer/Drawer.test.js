@@ -13,6 +13,14 @@ describe('Drawer', () => {
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render without tc-drawer-transition class', () => {
+		const wrapper = renderer.create(
+			<Drawer withTransition={false}>
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should render using custom styles', () => {
 		const wrapper = renderer.create(
 			<Drawer style={{ top: 45 }}>
@@ -24,6 +32,14 @@ describe('Drawer', () => {
 	it('should render using custom className', () => {
 		const wrapper = renderer.create(
 			<Drawer className="my-custom-drawer">
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render stacked', () => {
+		const wrapper = renderer.create(
+			<Drawer stacked>
 				<h1>Hello world</h1>
 			</Drawer>
 		).toJSON();

@@ -148,7 +148,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 	if (content) {
 		const defaultCaret = (
 			<Button
-				className={css.toggle}
+				className={classNames(css.toggle, 'toggle')}
 				bsStyle="link"
 				key={2}
 				onClick={onToggle}
@@ -229,6 +229,7 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 			[css['default-panel']]: !theme,
 			[css[theme]]: !!theme,
 			[css.selected]: selected,
+			selected,
 			[css.open]: expanded,
 		});
 
@@ -258,7 +259,7 @@ CollapsiblePanel.propTypes = {
 	expanded: PropTypes.bool,
 	selected: PropTypes.bool,
 	theme: PropTypes.string,
-	content: PropTypes.oneOf([
+	content: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.shape({
 			label: PropTypes.string,
 			description: PropTypes.string,

@@ -23,6 +23,8 @@ public class SidePanel extends Component {
 
     static final String MENU_ITEMS_SELECTOR = ".tc-side-panel-list-item span";
 
+    static final String MENU_ITEM_ACTIVE_SELECTOR = ".tc-side-panel-list-item.active span";
+
     /**
      * SidePanel constructor
      *
@@ -49,5 +51,15 @@ public class SidePanel extends Component {
             }
         }
         throw new NotFoundException(label);
+    }
+
+    /**
+     * Get current active menu item
+     *
+     * @return WebElement of menu item
+     * @throws NotFoundException if no active element is find
+     */
+    public WebElement getActiveMenu() throws NotFoundException {
+        return this.getElement().findElement(By.cssSelector(MENU_ITEM_ACTIVE_SELECTOR));
     }
 }

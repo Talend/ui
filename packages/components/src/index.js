@@ -70,6 +70,8 @@ import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions'
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
+import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -78,6 +80,7 @@ import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Enumeration from './Enumeration';
+import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -87,6 +90,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
@@ -99,12 +103,15 @@ export {
 	ActionSplitDropdown,
 	Actions,
 	AppHeaderBar,
+	HeaderBar,
+	HttpError,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
+	ListView,
 	ConfirmDialog,
 	Drawer,
 	TreeView,
@@ -118,6 +125,7 @@ export {
 	Progress,
 	SidePanel,
 	Status,
+	TabBar,
 	Toggle,
 	TooltipTrigger,
 	Typeahead,

@@ -175,31 +175,7 @@ const propsCollapsibleSelectablePanel = {
 				className: 'text-right',
 			},
 		],
-		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitLorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elit`,
+		description: `1 - First row, ...\n2 - Second row, ...\n3 - Third row, ...\nLast row, ...`,
 	},
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),
@@ -268,11 +244,11 @@ storiesOf('CollapsiblePanel', module)
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
 			</div>
 			<p>Opened with Content:</p>
-			<div id="selectable-panel-with-content2">
+			<div id="selectable-panel-with-content3">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
 			</div>
 			<p>Panel Without readonly tag and without content:</p>
-			<div id="selectable-panel-with-content2">
+			<div id="selectable-panel-with-content4">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
 			</div>
 		</div>
@@ -296,5 +272,26 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel {...propsCollapsiblePanel} selected/>
 			<p>Selected key/Value CollapsiblePanel without content:</p>
 			<CollapsiblePanel {...propsPanelWithoutActions} selected/>
+		</div>
+	))
+	.addWithInfo('Adjustment textual collapsibles', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
+			<p>Adjustement Story:</p>
+			<div id="selectable-panel-with-content1">
+				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
+			</div>
+			<div id="selectable-panel-with-content2">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
+			</div>
+			<div id="selectable-panel-with-content3">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
+			</div>
+			<div id="selectable-panel-with-content4">
+				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
+			</div>
+			<div id="selected-panel-without-content5">
+				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
+			</div>
 		</div>
 	));

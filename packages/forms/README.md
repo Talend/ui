@@ -51,7 +51,28 @@ Here is the archetype of the data property required to render the form:
 	"properties": {}
 }
 ```
+### Actions
+Forms now render a **react-talend-components** `Action` component for each action given to it.
+Each action accept the following properties :
 
+| property              | propType                | required | default | doc |
+| ----------------------|:-----------------------:|:--------:|:-------:|:---:|
+| iconPosition          |	other                   | no       | - 
+| icon                  | string                  | no       | -
+| hideLabel             | bool                    | no       | -
+| disabled              | bool                    | no       | {false}
+| style                 | string                  | no       | "default" | equivalent to action **bsStyle** `props`
+| iconTransform         | string                  | no       | -
+| id                    | string                  | no       | -
+| inProgress            | bool                    | no       | {false}
+| label                 | string                  | yes      | -
+| link                  | bool                    | no       | -
+| model                 | object                  | no       | -
+| name                  | string                  | no       | - | render a name button html property
+| onClick               | func                    | yes      | - | execute the callback with `formData`, `formId`, `propertyName`, `propertyValue` as parameters
+| tooltip               | bool                    | no       | -
+| tooltipPlacement      | other                   | no       | "top"
+| type                  | 'submit'\|'button'      | no       | -      | by default render a button without `submit` **type**
 
 ### Handlers
 

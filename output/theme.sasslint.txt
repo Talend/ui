@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'bootstrap-talend-theme'
 
-> bootstrap-talend-theme@0.66.4 lint:style /home/travis/build/Talend/ui/packages/theme
+> bootstrap-talend-theme@0.74.1 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -23,10 +23,7 @@ src/theme/_forms.scss
   311:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   447:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-src/theme/_tooltip.scss
-  2:3  warning  Mixed tabs and spaces  indentation
-
-✖ 13 problems (11 errors, 2 warnings)
+✖ 12 problems (11 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute

@@ -98,4 +98,16 @@ describe('Action', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render action with html property name = props.name if set', () => {
+		// when
+		const wrapper = renderer.create(
+			<Action
+				name="custom_name"
+				{...myAction}
+			/>).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

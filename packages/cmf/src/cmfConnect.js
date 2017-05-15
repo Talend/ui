@@ -1,7 +1,7 @@
 import React, { PropTypes, createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import { api } from 'react-cmf';
 import { connect } from 'react-redux';
+import api from './api';
 
 import {
 	statePropTypes,
@@ -9,6 +9,7 @@ import {
 	getStateAccessors,
 	getStateProps,
 } from './componentState';
+import { mapStateToViewProps } from './settings';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -41,12 +42,14 @@ export function getStateToProps({
 		return state.cmf.collections.get(id);
 	};
 
+	const viewProps = mapStateToViewProps(state, ownProps);
+
 	let userProps = {};
 	if (mapStateToProps) {
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...userProps };
+	return { ...cmfProps, ...viewProps, ...userProps };
 }
 
 export function getDispatchToProps({
@@ -84,11 +87,11 @@ export function getDispatchToProps({
 /**
  * this function wrap your component to inject the following:
  * - props.state
- * - props.updateState
- * - props.initState (call it un didMount)
+ * - props.setState
+ * - props.initState (you should never have to call it your self)
  * - props.getCollection
  * - dispatch(action)
- * - dispatchActionCreator(id, event, data, context)
+ * - dispatchActionCreator(id, event, data, [context])
  *
  * support for the following props
  * - initialState (called by props.initState)
@@ -96,6 +99,8 @@ export function getDispatchToProps({
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
+ * - didMountActionCreator (string called as action creator in didMount)
+ * - view (string to inject the settings as props with ref support)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -122,25 +127,28 @@ export default function cmfConnect({
 			};
 			static WrappedComponent = WrappedComponent;
 
+			constructor(props, context) {
+				super(props, context);
+				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
+			}
+
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.didMountActionCreator) {
-					this.props.dispatchActionCreator(
+					this.dispatchActionCreator(
 						this.props.didMountActionCreator,
 						null,
 						this.props,
-						this.context,
 					);
 				}
 			}
 
 			componentWillUnmount() {
 				if (this.props.willUnmountActionCreator) {
-					this.props.dispatchActionCreator(
+					this.dispatchActionCreator(
 						this.props.willUnmountActionCreator,
 						null,
 						this.props,
-						this.context
 					);
 				}
 				// if the props.keepComponentState is present we have to stick to it
@@ -150,17 +158,24 @@ export default function cmfConnect({
 				}
 			}
 
+			dispatchActionCreator(actionCreatorId, event, data, context) {
+				const extendedContext = Object.assign({}, this.context, context);
+				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
+			}
+
 			render() {
-				const props = Object.assign({
-					state: defaultState,
-				}, this.props);
+				const props = Object.assign(
+					{ state: defaultState },
+					this.props,
+					{ dispatchActionCreator: this.dispatchActionCreator },
+				);
 				return createElement(
 					WrappedComponent,
 					props,
 				);
 			}
 		}
-		return connect(
+		const Connected = connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
 				ownProps,
@@ -179,5 +194,7 @@ export default function cmfConnect({
 			mergeProps,
 			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
+		Connected.CMFContainer = CMFContainer;
+		return Connected;
 	};
 }

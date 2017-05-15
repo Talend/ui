@@ -10,8 +10,15 @@ const addItemAction = {
 	onClick: action('header.onAdd'),
 };
 
+const loadingAction = {
+	label: 'loading',
+	icon: 'talend-cross',
+	inProgress: true,
+	id: 'loading',
+};
+
 const deleteItemAction = {
-	label: 'Delete items',
+	label: 'Remove selected values',
 	icon: 'talend-trash',
 	id: 'del',
 	onClick: action('headerSelected.deleteAll'),
@@ -32,12 +39,15 @@ const abortAction = {
 	onClick: action('headerInput.onAbort'),
 };
 
+const ITEM_DEFAULT_HEIGHT = 33;
+
 const props = {
+	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
-	headerDefault: [addItemAction],
+	headerDefault: [addItemAction, loadingAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
-	items: Array(50).fill('').map((item, index) => ({
+	items: Array(1000).fill('').map((item, index) => ({
 		values: [`Lorem ipsum dolor sit amet ${index}`],
 	})),
 	itemsProp: {
@@ -46,6 +56,8 @@ const props = {
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
+		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
 			label: 'Edit',
@@ -53,7 +65,7 @@ const props = {
 			id: 'edit',
 			onClick: action('item.onEnterEditMode'),
 		}, {
-			label: 'Delete',
+			label: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: action('item.onDelete'),
@@ -99,7 +111,7 @@ const searchProps = {
 };
 
 // custom edit props
-editItemProps.items = Array(50).fill('').map((item, index) => ({
+editItemProps.items = Array(100000).fill('').map((item, index) => ({
 	values: [`Lorem ipsum dolor sit amet ${index}`],
 }));
 editItemProps.items[0] = {

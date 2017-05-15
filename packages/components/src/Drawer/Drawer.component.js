@@ -9,7 +9,8 @@ import theme from './Drawer.scss';
 function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
-			transitionName="tc-drawer"
+			transitionName="tc-with-drawer-wrapper"
+			transitionAppear
 			transitionAppearTimeout={230}
 			transitionEnterTimeout={230}
 			transitionLeaveTimeout={230}
@@ -23,13 +24,18 @@ DrawerAnimation.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContainer({ stacked, className, children, ...rest }) {
+function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
 		{
-			[theme.drawerStacked]: stacked,
+			[theme['tc-drawer-transition']]: withTransition,
+			'tc-drawer-transition': withTransition,
+		},
+		{
+			[theme['drawer-stacked']]: stacked,
+			stacked,
 		});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
@@ -42,6 +48,7 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
+	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -77,8 +84,8 @@ function DrawerTitle({ title, children, onCancelAction }) {
 
 DrawerTitle.propTypes = {
 	title: PropTypes.string.isRequired,
-	onCancelAction: Action.propTypes,
-	children: PropTypes.nodes,
+	onCancelAction: PropTypes.shape(Action.propTypes),
+	children: PropTypes.node,
 };
 
 function DrawerContent({ children, ...rest }) {
@@ -126,14 +133,20 @@ function Drawer({
 	children,
 	footerActions,
 	onCancelAction,
+	withTransition = true,
 }) {
 	if (!children) {
 		return null;
 	}
 	return (
-		<DrawerContainer stacked={stacked} className={className} style={style}>
+		<DrawerContainer
+			stacked={stacked}
+			className={className}
+			style={style}
+			withTransition={withTransition}
+		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>
@@ -150,8 +163,9 @@ Drawer.propTypes = {
 	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.arrayOf(Action.propTypes).isRequired,
-	onCancelAction: Action.propTypes,
+	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	onCancelAction: PropTypes.shape(Action.propTypes),
+	withTransition: PropTypes.bool,
 };
 
 Drawer.Animation = DrawerAnimation;

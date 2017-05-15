@@ -5,6 +5,8 @@
 
 .navbar {
 	.btn {
+		display: inline-flex;
+		align-items: center;
 		min-height: $navbar-height;
 
 		&:hover,
@@ -12,10 +14,28 @@
 		&:focus {
 			text-decoration: none;
 		}
+
+		&-default,
+		&-primary,
+		&-success,
+		&-info,
+		&-warning,
+		&-danger,
+		&-group {
+			margin-left: $padding-smaller;
+			margin-right: $padding-smaller;
+			min-height: inherit;
+			height: auto;
+		}
+
+		&-group > .btn {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 
 	&-inverse {
-		.btn {
+		.btn-link {
 			&:hover,
 			&:active,
 			&:focus {

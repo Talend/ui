@@ -10,7 +10,7 @@ import api from './api';
 
 function CMFRoute(props, context) {
 	let Component = api.route.getComponentFromRegistry(context, props.component);
-	if (props.view) {
+	if (props.view && !Component.CMFContainer) {
 		Component = api.route.connectView(context, Component, props.view);
 	}
 	if (props.path === '/') {
@@ -19,7 +19,7 @@ function CMFRoute(props, context) {
 			IndexComponent = api.route.connectView(context, IndexComponent, props.indexRoute.view);
 		}
 		return (
-			<Component>
+			<Component view={props.view}>
 				<Route exact path="/" component={IndexComponent} />
 				{props.childRoutes ? props.childRoutes.map((route, index) => (
 					<CMFRoute key={index} {...route} />

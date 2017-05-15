@@ -85,8 +85,12 @@ exports[`Dialog should render header 1`] = `
 
 exports[`Dialog should render large 1`] = `
 <div
+  backdrop={false}
   bsSize="large"
   className="Modal"
+  dialogClassName="customDialogClassName"
+  keyboard={true}
+  onHide={[Function]}
   show={true}
 >
   <div
@@ -126,8 +130,12 @@ exports[`Dialog should render large 1`] = `
 
 exports[`Dialog should render small 1`] = `
 <div
+  backdrop={false}
   bsSize="small"
   className="Modal"
+  dialogClassName="customDialogClassName"
+  keyboard={true}
+  onHide={[Function]}
   show={true}
 >
   <div

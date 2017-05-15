@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
-import Button from 'react-bootstrap/lib/Button';
+import { Action } from 'react-talend-components';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
@@ -15,6 +15,7 @@ import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
+import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -28,10 +29,7 @@ const customWidgets = {
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
-};
-
-const customUiSchema = {
-	'ui:widget': ['toggle', 'tabs', 'keyValue', 'multiSelectTag', 'datalist', 'enumeration'],
+	listview: ListViewWidget,
 };
 
 export function renderActionIcon(icon) {
@@ -44,26 +42,29 @@ export function renderActionIcon(icon) {
 export function renderActions(actions, handleActionClick) {
 	if (actions) {
 		return actions.map((action, index) => (
-			<Button
+			<Action
 				key={index}
 				bsStyle={action.style}
-				type={action.type}
-				onClick={handleActionClick(action.onClick)}
-				title={action.title}
-				name={action.name}
+				label={action.title}
+				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Button>)
+			</Action>)
 		);
 	}
-	return <Button bsStyle="primary" type="submit">Submit</Button>;
+	return (<Action
+		bsStyle="primary"
+		onClick={() => {}}
+		type="submit"
+		label="Submit"
+	/>);
 }
 
 class Form extends React.Component {
-
 	constructor(props) {
 		super(props);
+		this.handleChange = this.handleChange.bind(this);
 		this.handleSchemaChange = this.handleSchemaChange.bind(this);
 		this.handleSchemaSubmit = this.handleSchemaSubmit.bind(this);
 		this.handleActionClick = this.handleActionClick.bind(this);
@@ -77,6 +78,7 @@ class Form extends React.Component {
 
 	/**
 	 * Handle changes only if modified field has "ui:trigger" option
+	 * use onTrigger property to take advantage of this feature
 	 * @param changes New formData
 	 * @param id Form id is provided
 	 * @param name Name of the modified field
@@ -86,17 +88,26 @@ class Form extends React.Component {
 	handleSchemaChange(changes, id, name, value, options) {
 		const triggers = options && options.trigger;
 		if (triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
-			if (this.props.onChange) {
-				this.props.onChange(changes, id, name, value);
+			if (this.props.onTrigger) {
+				this.props.onTrigger(changes, id, name, value);
 			}
 		}
 	}
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return event => onClick(event, this.form.state);
+			return (event, data) => onClick(event, { ...data, ...this.form.state });
 		}
-		return null;
+		return () => {};
+	}
+
+	/**
+	 * Handle changes of form @see https://github.com/mozilla-services/react-jsonschema-form
+	 */
+	handleChange(...args) {
+		if (this.props.onChange) {
+			this.props.onChange(...args);
+		}
 	}
 
 	render() {
@@ -105,9 +116,9 @@ class Form extends React.Component {
 			throw Error('You must provide data with valid JSON Schema');
 		}
 
-		const uiSchema = {
-			...(this.props.data && this.props.data.uiSchema),
-			...customUiSchema,
+		const widgets = {
+			...customWidgets,
+			...this.props.widgets,
 		};
 
 		const formData = this.props.data && this.props.data.properties;
@@ -128,13 +139,13 @@ class Form extends React.Component {
 			<RJSForm
 				{...this.props}
 				schema={schema}
-				uiSchema={uiSchema}
+				uiSchema={this.props.data && this.props.data.uiSchema}
 				formData={formData}
 				formContext={customFormContext}
 				fields={customFields}
 				FieldTemplate={FieldTemplate}
-				widgets={customWidgets}
-				onChange={undefined}
+				widgets={widgets}
+				onChange={this.handleChange}
 				onSubmit={this.handleSchemaSubmit}
 				ref={(c) => {
 					this.form = c;
@@ -169,14 +180,18 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 Form.propTypes = {
 	data: DataPropTypes.isRequired,
 	onChange: PropTypes.func,
+	onTrigger: PropTypes.func,
 	onSubmit: PropTypes.func,
 	actions: ActionsPropTypes,
 	buttonBlockClass: PropTypes.string,
 	handleAction: PropTypes.func,
+	widgets: PropTypes.object,
 };
 
 Form.defaultProps = {
 	buttonBlockClass: 'form-actions',
 };
+
+Form.displayName = 'TalendForm';
 
 export default Form;

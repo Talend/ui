@@ -480,6 +480,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <button
@@ -556,6 +557,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <button
@@ -714,6 +716,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <span
@@ -792,6 +795,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <span

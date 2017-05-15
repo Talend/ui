@@ -8,6 +8,13 @@ import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
 
+function getItemString(item) {
+	if (item === undefined || item === null) {
+		return '';
+	}
+	return item.toString();
+}
+
 export function CellContent({ isTitle, item, column, titleProps, id }) {
 	if (isTitle) {
 		return (<ItemTitle
@@ -23,7 +30,7 @@ export function CellContent({ isTitle, item, column, titleProps, id }) {
 			hideLabel
 		/>);
 	}
-	const str = item[column.key] ? item[column.key].toString() : '';
+	const str = getItemString(item[column.key]);
 	return (
 		<TooltipTrigger label={str} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
@@ -121,7 +128,7 @@ RowRenderer.propTypes = {
 		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
-	titleProps: ItemTitle.propTypes.titleProps.isRequired,
+	titleProps: PropTypes.shape(ItemTitle.propTypes.titleProps).isRequired,
 };
 
 function getCaretIcon(isCurrentSortField) {
@@ -149,7 +156,9 @@ function getNextDirection(isCurrentSortField, currentSort) {
 export function ColumnHeader({ index, column, sort }) {
 	let header;
 
-	if (sort) {
+	if (column.hideHeader) {
+		header = (<span className="sr-only">{column.label}</span>);
+	} else	if (sort) {
 		const isCurrentSortField = sort.field === column.key;
 		const onChange = event => sort.onChange(
 			event,
@@ -176,7 +185,7 @@ export function ColumnHeader({ index, column, sort }) {
 	return (
 		<th key={index}>
 			{header}
-			<div aria-hidden="true">{column.label}</div>
+			{ !column.hideHeader && (<div aria-hidden="true">{column.label}</div>)}
 		</th>
 	);
 }
@@ -185,6 +194,7 @@ ColumnHeader.propTypes = {
 	column: PropTypes.shape({
 		key: PropTypes.string,
 		label: PropTypes.string,
+		hideHeader: PropTypes.bool,
 	}).isRequired,
 	sort: PropTypes.shape({
 		field: PropTypes.string,
@@ -204,6 +214,7 @@ export function ListHeaders(props) {
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
 			{columns.map((column, index) => (<ColumnHeader
+				key={index}
 				index={index}
 				column={column}
 				sort={sort}

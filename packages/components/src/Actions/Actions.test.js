@@ -38,6 +38,22 @@ const actions = [
 			},
 		],
 	},
+	{
+		id: 'split-dropdown-id',
+		displayMode: 'splitDropdown',
+		label: 'add file',
+		onClick: jest.fn(),
+		items: [
+			{
+				label: 'file 1',
+				onClick: jest.fn(),
+			},
+			{
+				label: 'file 2',
+				onClick: jest.fn(),
+			},
+		],
+	},
 ];
 
 describe('Actions', () => {

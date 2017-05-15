@@ -33,10 +33,11 @@ exports[`Layout should render Layout OneColumn 1`] = `
       </div>
       <div
         className="react-addons-css-transition-group"
+        transitionAppear={true}
         transitionAppearTimeout={230}
         transitionEnterTimeout={230}
         transitionLeaveTimeout={230}
-        transitionName="tc-drawer"
+        transitionName="tc-with-drawer-wrapper"
       />
     </div>
   </div>
@@ -86,10 +87,11 @@ exports[`Layout should render Layout TwoColumns 1`] = `
         </div>
         <div
           className="react-addons-css-transition-group"
+          transitionAppear={true}
           transitionAppearTimeout={230}
           transitionEnterTimeout={230}
           transitionLeaveTimeout={230}
-          transitionName="tc-drawer"
+          transitionName="tc-with-drawer-wrapper"
         />
       </div>
     </div>
@@ -140,14 +142,14 @@ exports[`Layout should render layout with Drawer component 1`] = `
         </div>
         <div
           className="react-addons-css-transition-group"
+          transitionAppear={true}
           transitionAppearTimeout={230}
           transitionEnterTimeout={230}
           transitionLeaveTimeout={230}
-          transitionName="tc-drawer"
+          transitionName="tc-with-drawer-wrapper"
         >
           <div
-            className={undefined}
-            drawer={true}
+            className="tc-with-drawer-wrapper"
           >
             <div
               style={
@@ -165,8 +167,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
             </div>
           </div>
           <div
-            className={undefined}
-            drawer={true}
+            className="tc-with-drawer-wrapper"
           >
             <div
               style={
@@ -223,10 +224,11 @@ exports[`Layout should render layout with footer component 1`] = `
       </div>
       <div
         className="react-addons-css-transition-group"
+        transitionAppear={true}
         transitionAppearTimeout={230}
         transitionEnterTimeout={230}
         transitionLeaveTimeout={230}
-        transitionName="tc-drawer"
+        transitionName="tc-with-drawer-wrapper"
       />
     </div>
   </div>
@@ -238,5 +240,42 @@ exports[`Layout should render layout with footer component 1`] = `
       Footer
     </h3>
   </footer>
+</div>
+`;
+
+exports[`Layout should render layout without header 1`] = `
+<div
+  className="tc-layout"
+>
+  <div
+    className="tc-layout-one-column"
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className="react-addons-css-transition-group"
+        transitionAppear={true}
+        transitionAppearTimeout={230}
+        transitionEnterTimeout={230}
+        transitionLeaveTimeout={230}
+        transitionName="tc-with-drawer-wrapper"
+      />
+    </div>
+  </div>
 </div>
 `;
