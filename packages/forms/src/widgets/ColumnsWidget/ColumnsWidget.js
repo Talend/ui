@@ -30,7 +30,7 @@ function onColumnChange(key, onChange, formData) {
 	};
 }
 
-export default function ColumnsWidget({ schema, formData, onChange, onBlur, ...props }) {
+export default function ColumnsWidget({ schema, formData, onChange, onBlur }) {
 	return (
 		<div className={`tf-widget-columns ${theme.columns}`}>
 			{schema.properties ? Object.keys(schema.properties).map(

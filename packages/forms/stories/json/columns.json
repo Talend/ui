@@ -25,10 +25,10 @@
             "type": "object",
             "title": "Column 2",
             "properties": {
-              "field1": {
+              "field3": {
                 "type": "string"
               },
-              "field2": {
+              "field4": {
                 "type": "string"
              }
             }
@@ -37,10 +37,10 @@
             "type": "object",
             "title": "Column 3",
             "properties": {
-              "field1": {
+              "field5": {
                 "type": "string"
               },
-              "field2": {
+              "field6": {
                 "type": "string"
              }
             }
