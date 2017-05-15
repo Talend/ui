@@ -10,7 +10,7 @@ $tc-notification-error-bgcolor: #F5E0E0 !default;
 $tc-notification-animation-duration: 0.3s;
 
 $notification-width: 450px;
-$icon-size: 16px;
+$icon-size: $svg-md-size;
 
 .tc-notification-container {
 	position: fixed;
@@ -44,6 +44,11 @@ $icon-size: 16px;
 			color: $tc-notification-error-color;
 		}
 
+		svg {
+			height: $icon-size;
+			width: $icon-size;
+		}
+
 		.tc-notification-close {
 			font-size: $icon-size;
 			float: right;
@@ -52,10 +57,11 @@ $icon-size: 16px;
 		.tc-notification-action {
 			background-color: transparent;
 			border: none;
+			padding: 0;
 		}
 
 		.tc-notification-message {
-			margin-right: $padding-larger + $icon-size;
+			margin-right: $padding-larger;
 
 			&:last-of-type {
 				margin-bottom: 0;

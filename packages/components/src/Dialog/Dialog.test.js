@@ -45,6 +45,12 @@ const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
+	bsDialogProps: {
+		onHide: jest.fn(),
+		dialogClassName: 'customDialogClassName',
+		keyboard: true,
+		backdrop: false,
+	},
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),
@@ -54,11 +60,18 @@ const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
+	bsDialogProps: {
+		onHide: jest.fn(),
+		dialogClassName: 'customDialogClassName',
+		keyboard: true,
+		backdrop: false,
+	},
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),
 	},
 };
+
 const children = (<div>BODY</div>);
 
 describe('Dialog', () => {

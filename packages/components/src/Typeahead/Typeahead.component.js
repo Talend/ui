@@ -28,6 +28,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 				icon={icon.name}
 				bsStyle={icon.bsStyle}
 				className={theme['only-icon-cls']}
+				tooltipPlacement={icon.tooltipPlacement}
 			/>
 		);
 	}

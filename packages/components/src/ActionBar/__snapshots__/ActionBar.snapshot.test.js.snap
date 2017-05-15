@@ -4,58 +4,32 @@ exports[`ActionBar should render a btn-group 1`] = `
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-left"
-  >
-    <div
-      className="tc-actions btn-group"
-    >
-      <button
-        aria-describedby={42}
-        className="btn btn-default"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cog"
-          />
-        </svg>
-      </button>
-      <button
-        aria-describedby={42}
-        className="btn btn-default"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-badge"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "actions": Array [
+            Object {
+              "hideLabel": true,
+              "icon": "talend-cog",
+              "label": "hidden mean tooltips",
+              "onClick": [Function],
+            },
+            Object {
+              "hideLabel": true,
+              "icon": "talend-badge",
+              "label": "you are a super star",
+              "onClick": [Function],
+            },
+          ],
+          "displayMode": "btnGroup",
+        },
+      ]
+    }
+    left={true}
+    renderers={undefined}
+    selected={undefined}
+  />
 </nav>
 `;
 
@@ -63,127 +37,43 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-left"
-  >
-    <button
-      className="btn btn-primary"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "bsStyle": "primary",
+          "icon": "fa fa-asterisk",
+          "label": "Primary",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    left={true}
+    renderers={undefined}
+    selected={0}
+  />
 </nav>
 `;
 
@@ -191,127 +81,43 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-right"
-  >
-    <button
-      className="btn btn-primary"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "bsStyle": "primary",
+          "icon": "fa fa-asterisk",
+          "label": "Primary",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    renderers={undefined}
+    right={true}
+    selected={0}
+  />
 </nav>
 `;
 
@@ -319,131 +125,52 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-left"
-  >
-    <button
-      className="btn btn-primary"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Primary
-      </span>
-    </button>
-  </div>
-  <div
-    className="navbar-right"
-  >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "bsStyle": "primary",
+          "icon": "fa fa-asterisk",
+          "label": "Primary",
+          "onClick": [Function],
+        },
+      ]
+    }
+    left={true}
+    renderers={undefined}
+    selected={0}
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    renderers={undefined}
+    right={true}
+    selected={0}
+  />
 </nav>
 `;
 
@@ -451,133 +178,42 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-left"
-  >
-    <span
-      className="tc-actionbar-selected-count"
-    >
-      1
-       selected
-    </span>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    left={true}
+    renderers={undefined}
+    selected={1}
+  />
 </nav>
 `;
 
@@ -585,133 +221,48 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-right"
-  >
-    <span
-      className="tc-actionbar-selected-count"
-    >
-      1
-       selected
-    </span>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={Array []}
+    left={true}
+    renderers={undefined}
+    selected={1}
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    renderers={undefined}
+    right={true}
+    selected={1}
+  />
 </nav>
 `;
 
@@ -719,136 +270,116 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
 <nav
   className="tc-actionbar-container nav"
 >
-  <div
-    className="navbar-left"
-  >
-    <span
-      className="tc-actionbar-selected-count"
-    >
-      1
-       selected
-    </span>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-  </div>
-  <div
-    className="navbar-right"
-  >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      role={null}
-      type="button"
-    >
-      <i
-        aria-hidden="true"
-        className="fa fa-asterisk"
-        title={null}
-      />
-      <span>
-        Secondary
-      </span>
-    </button>
-    <div
-      className="dropdown btn-group"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          <i
-            aria-hidden="true"
-            className="fa fa-plus"
-            title={null}
-          />
-          <span>
-            Add File
-          </span>
-        </span>
-      </button>
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label={
-          <span>
-            <Icon
-              name="fa fa-plus"
-            />
-            <span>
-              Add File
-            </span>
-          </span>
-        }
-        className="dropdown-toggle btn btn-default"
-        disabled={false}
-        id={undefined}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-         
-        <span
-          className="caret"
-        />
-      </button>
-      <ul
-        aria-labelledby={undefined}
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Local"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Local
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            label="From Remote"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-          >
-            From Remote
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+      ]
+    }
+    left={true}
+    renderers={undefined}
+    selected={1}
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [Function],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [Function],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [Function],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [Function],
+        },
+      ]
+    }
+    renderers={undefined}
+    right={true}
+    selected={1}
+  />
 </nav>
+`;
+
+exports[`ActionBar.Count should render if selected 1`] = `
+<span
+  className="tc-actionbar-selected-count"
+>
+  1
+   selected
+</span>
+`;
+
+exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
+<Content
+  left={undefined}
+  right={true}
+>
+  
+</Content>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
+<Content
+  left={true}
+  right={undefined}
+>
+  <Action
+    bsStyle="default"
+    disabled={false}
+    inProgress={false}
+    label="action"
+    tooltipPlacement="top"
+  />
+</Content>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-left with selected 1`] = `
+<Content
+  left={true}
+  right={undefined}
+>
+  <Count
+    selected={3}
+  />
+  <Action
+    bsStyle="default"
+    disabled={false}
+    inProgress={false}
+    label="action"
+    tooltipPlacement="top"
+  />
+</Content>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
+<Content
+  left={undefined}
+  right={true}
+>
+  <Action
+    bsStyle="default"
+    disabled={false}
+    inProgress={false}
+    label="action"
+    tooltipPlacement="top"
+  />
+</Content>
 `;

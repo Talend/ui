@@ -3,29 +3,21 @@ import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
 import { store, Provider } from 'react-cmf/lib/mock';
 
-import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
-import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
-} from './ConfirmDialog.connect';
+import Container from './ConfirmDialog.container';
+import Connected from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-const initialState = new Map({
-	size: 'small',
-	header: 'DO SOMETHING',
-	show: true,
-	children: 'Confirm this !',
-});
-
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Container initialState={initialState} />
-			</Provider>,
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const state = new Map({
+			size: 'small',
+			header: 'DO SOMETHING',
+			show: true,
+			children: 'Confirm this !',
+		});
+		const instance = new Container({ state });
+		expect(instance.render()).toBe(null);
 	});
 	it('should render', () => {
 		const state = new Map({
@@ -35,11 +27,12 @@ describe('Container ConfirmDialog', () => {
 			children: 'Confirm this !',
 			validateAction: 'menu:demo',
 			cancelAction: 'menu:demo',
+			model: { foo: 'bar' },
 		});
 		const wrapper = renderer.create(
 			<Provider>
-				<Container state={state} />
-			</Provider>,
+				<Container state={state} />,
+			</Provider>
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -47,26 +40,8 @@ describe('Container ConfirmDialog', () => {
 
 describe('Connected ConfirmDialog', () => {
 	it('should connect ConfirmDialog', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					ConfirmDialog: {
-						ConfirmDialog: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
-		expect(typeof props).toBe('object');
 	});
 });
 
@@ -98,7 +73,8 @@ describe('ConfirmDialog.show/hide', () => {
 
 		const newState = showConfirmDialog(state, action);
 		expect(newState).not.toBe(state);
-		const confirmDialoVisibility = newState.cmf.components.getIn(['ConfirmDialog', 'ConfirmDialog', 'show']);
+		const confirmDialoVisibility =
+			newState.cmf.components.getIn(['CMFContainer(ConfirmDialog)', 'ConfirmDialog', 'show']);
 		expect(confirmDialoVisibility).toBeTruthy();
 	});
 
@@ -114,7 +90,8 @@ describe('ConfirmDialog.show/hide', () => {
 
 		const newState = hideConfirmDialog(state);
 		expect(newState).not.toBe(state);
-		const confirmDialogVisibility = newState.cmf.components.getIn(['ConfirmDialog', 'ConfirmDialog', 'show']);
+		const confirmDialogVisibility =
+			newState.cmf.components.getIn(['CMFContainer(ConfirmDialog)', 'ConfirmDialog', 'show']);
 		expect(confirmDialogVisibility).toBeFalsy();
 	});
 });

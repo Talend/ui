@@ -29,7 +29,8 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 		className,
 		'tc-drawer',
 		{
-			[theme.drawerStacked]: stacked,
+			[theme['drawer-stacked']]: stacked,
+			stacked,
 		});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
@@ -77,8 +78,8 @@ function DrawerTitle({ title, children, onCancelAction }) {
 
 DrawerTitle.propTypes = {
 	title: PropTypes.string.isRequired,
-	onCancelAction: Action.propTypes,
-	children: PropTypes.nodes,
+	onCancelAction: PropTypes.shape(Action.propTypes),
+	children: PropTypes.node,
 };
 
 function DrawerContent({ children, ...rest }) {
@@ -133,7 +134,7 @@ function Drawer({
 	return (
 		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>
@@ -150,8 +151,8 @@ Drawer.propTypes = {
 	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.arrayOf(Action.propTypes).isRequired,
-	onCancelAction: Action.propTypes,
+	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	onCancelAction: PropTypes.shape(Action.propTypes),
 };
 
 Drawer.Animation = DrawerAnimation;

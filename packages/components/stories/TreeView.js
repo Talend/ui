@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
 
 import { TreeView, IconsProvider } from '../src/index';
 
@@ -24,6 +24,22 @@ const structure = [
 	},
 ];
 
+const structureWithActions = [
+	{
+		name: 'hitmonlee',
+		toggled: true,
+		actions: [{
+			action: action('itemRemoveCallback'),
+			icon: 'talend-trash',
+			label: 'remove element',
+		}],
+		children: [{ name: 'raichu', showCounter: true, counter: 111 }],
+		counter: -1,
+		showCounter: true,
+	},
+	{ name: 'pikachu', toggled: true, counter: 911, showCounter: true },
+];
+
 const defaultProps = {
 	structure,
 	itemSelectCallback: action('itemSelectCallback'),
@@ -43,9 +59,8 @@ const withHeader = {
 
 const withRemoval = {
 	...withAddAction,
-	itemRemoveCallback: action('itemRemoveCallback'),
-	itemRemoveLabel: 'remove element',
 };
+withRemoval.structure = structureWithActions;
 
 const hugeStructure = [{
 	name: 'Hitmonlee1',
@@ -149,7 +164,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with remove action', () => (
+	.addWithInfo('with remove action and counter', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>

@@ -7,28 +7,42 @@ import {
 	Navbar,
 	Nav,
 	NavDropdown,
-	NavItem,
 } from 'react-bootstrap';
 
 import Icon from '../Icon';
+import Action from '../Actions/Action';
 import Typeahead from '../Typeahead';
 import theme from './AppHeaderBar.scss';
 
 const NAV_ITEM = 'navItem';
 const DROPDOWN = 'dropdown';
 
-export function renderNavItem(props, index) {
-	const { icon, ...rest } = props;
+function NavListItem(props) {
+	const { item, ...rest } = props;
 	return (
-		<NavItem key={index} {...rest}>
-			<Icon name={icon} />
-		</NavItem>
+		<li>
+			<Action
+				{...item}
+				hideLabel
+				label={item.name}
+				bsStyle={'link'}
+				{...rest}
+			/>
+		</li>
 	);
 }
 
+NavListItem.propTypes = {
+	item: React.PropTypes.shape(Action.propTypes),
+};
+
+export function renderNavItem(item, index) {
+	return <NavListItem item={item} key={index} />;
+}
+
 renderNavItem.propTypes = {
-	icon: React.PropTypes.string,
-	...NavItem.propTypes,
+	item: NavListItem.propTypes,
+	index: React.PropTypes.number,
 };
 
 export function renderDropdownItem(props, index) {
@@ -112,13 +126,13 @@ renderFormGroup.propTypes = {
 
 export function renderForm(props, index) {
 	return (
-		<Navbar.Form {...props.form} key={index}>
-			{props.formgroups ? props.formgroups.map(renderFormGroup) : null}
+		<form className="navbar-form navbar-right" role="search" {...props.form} key={index}>
+			{props.formgroups && props.formgroups.map(renderFormGroup)}
 			<Button {...props.button}>
-				{props.icon ? (<Icon name={props.icon} />) : null}
+				{props.icon && <Icon name={props.icon} />}
 				{props.buttonLabel}
 			</Button>
-		</Navbar.Form>
+		</form>
 	);
 }
 renderForm.propTypes = {
@@ -132,9 +146,9 @@ renderForm.propTypes = {
 
 export function renderTypeahead(search, index) {
 	return (
-		<Navbar.Form pullRight role="search" key={index}>
+		<form className="navbar-form navbar-right" role="search" key={index}>
 			<Typeahead {...search} />
-		</Navbar.Form>
+		</form>
 	);
 }
 renderTypeahead.propTypes = React.PropTypes.shape(Typeahead.propTypes);
@@ -186,6 +200,7 @@ function AppHeaderBar(props) {
 			<span>{props.app}</span>
 		);
 	}
+
 	return (
 		<Navbar fluid fixedTop inverse className={`tc-app-header-bar ${theme['tc-app-header-bar']}`}>
 			<Navbar.Header>

@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
-function contains(listItem, query) {
+function contains(listItem, query, columns) {
 	let item = listItem;
 	if (Map.isMap(listItem)) {
 		item = listItem.toJS();
 	}
-	for (const pp of Object.keys(item)) {
-		if (typeof item[pp] === 'string') {
-			if (item[pp].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+	for (const column of columns) {
+		if (typeof item[column.key] === 'string') {
+			if (item[column.key].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
 				return true;
 			}
 		}
@@ -47,7 +47,7 @@ export function configureGetFilteredItems(configure) {
 	const getCollectionData = state => getCollectionItems(state, localConfig.collectionId);
 
 	const getComponentState = state => state.cmf
-		.components.getIn(['List', localConfig.collectionId || 'default']);
+		.components.getIn(['Container(List)', localConfig.collectionId || 'default']);
 
 	const getFilteredList = createSelector(
 		[getCollectionData, getComponentState],
@@ -55,8 +55,8 @@ export function configureGetFilteredItems(configure) {
 			let results = items || localConfig.items;
 			if (componentState) {
 				const searchQuery = componentState.get('searchQuery');
-				if (searchQuery !== '' && !!searchQuery) {
-					results = results.filter(item => contains(item, searchQuery));
+				if (searchQuery) {
+					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
 				}
 			}
 			return results;
@@ -78,10 +78,12 @@ export function configureGetFilteredItems(configure) {
 						if (a.get(sortBy).localCompare) {
 							return a.get(sortBy).localeCompare(b.get(sortBy));
 						}
-						if (a.get(sortBy) < b.get(sortBy)) {
+						const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
+						const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
+						if (aValue < bValue) {
 							return -1;
 						}
-						if (a.get(sortBy) > b.get(sortBy)) {
+						if (aValue > bValue) {
 							return 1;
 						}
 						return 0;

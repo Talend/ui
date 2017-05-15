@@ -8,6 +8,8 @@ import { List, IconsProvider } from '../src/index';
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-chevron-end': talendIcons['talend-chevron-end'],
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
@@ -77,7 +79,7 @@ const props = {
 		],
 		items: [
 			{
-				id: 1,
+				id: 0,
 				name: 'Title with actions',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -88,7 +90,7 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
-				id: 2,
+				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -98,15 +100,15 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
-				id: 3,
+				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super long name',
+				author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
-				id: 4,
+				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -250,7 +252,7 @@ const itemsForItems = [
 	{
 		id: 3,
 		name: 'Super long title to trigger overflow on tile rendering',
-		author: 'Jean-Pierre DUPONT with super long name',
+		author: 'Jean-Pierre DUPONT with long name',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		favorite: true,
@@ -290,6 +292,11 @@ function getPropsFor(displayMode) {
 }
 
 storiesOf('List', module)
+	.addDecorator((story) => (
+		<form>
+			{story()}
+		</form>
+	))
 	.add('Table (default)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
@@ -409,7 +416,13 @@ storiesOf('List', module)
 	})
 	.add('Table with column actions', () => {
 		const columnActionsProps = Immutable.fromJS(props).toJS();
-		columnActionsProps.list.columns.splice(2, 0, { key: 'columnActions', label: '' });// label should be empty as the cell will appear only when item is hovered
+		const actionsColumn = {
+			key: 'columnActions',
+			label: 'Actions',	// label should be set for screen readers
+			hideHeader: true,	// header will created with a sr-only class, so it will be hidden
+		};
+
+		columnActionsProps.list.columns.splice(2, 0, actionsColumn);
 		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
 			columnActions: [
 				{

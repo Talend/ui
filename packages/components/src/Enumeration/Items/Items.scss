@@ -1,11 +1,17 @@
-.tc-enumeration-items{
-	padding-left: 0px;
+$tc-enumeration-height: 40vh !default;
+
+.tc-enumeration-items {
+	padding-left: 0;
 	min-height: 0;
 	overflow-y: auto;
+	overflow-x: hidden;
 	list-style: none;
-	box-shadow: inset 0px 21px 3px -20px $shadow, inset 0px -21px 3px -20px $shadow;
+	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
+	height: $tc-enumeration-height;
 
-	li:first-child:hover{
-		box-shadow: inset 0px 21px 3px -20px $shadow
+	.tc-item-container:first-child {
+		li:hover {
+			box-shadow: inset 0 21px 3px -20px $shadow;
+		}
 	}
 }

@@ -1,7 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import DisplayTable from './DisplayTable.component';
+import DisplayTable, {
+	CellContent,
+	RowRenderer,
+	ColumnHeader,
+	ListHeaders,
+} from './DisplayTable.component';
 
 const items = [
 	{
@@ -99,5 +104,82 @@ describe('DisplayTable', () => {
 			field: 'name',
 			isDescending: false,
 		});
+	});
+});
+
+describe('CellContent', () => {
+	it('should render', () => {
+		const wrapper = shallow(<CellContent
+			column={{ key: 'test' }}
+			item={{ test: 'hello' }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+	it('should render undefined', () => {
+		const wrapper = shallow(<CellContent
+			column={{ key: 'test' }}
+			item={{}}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+	it('should render array', () => {
+		const wrapper = shallow(<CellContent
+			column={{ key: 'test' }}
+			item={{ test: [{ label: 'action' }] }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+	it('should render title', () => {
+		const wrapper = shallow(<CellContent
+			column={{ key: 'test' }}
+			item={{ test: 'hello' }}
+			isTitle
+			id="my-id"
+			titleProps={{ foo: 'bar' }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+});
+
+describe('RowRenderer', () => {
+	it('should render', () => {
+		const wrapper = shallow(<RowRenderer
+			columns={[{ key: 'foo' }, { key: 'baz' }]}
+			item={{ foo: 'bar', baz: 'hello' }}
+			titleProps={{ key: 'foo' }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+});
+
+describe('ColumnHeader', () => {
+	it('should render', () => {
+		const wrapper = shallow(<ColumnHeader
+			column={{ key: 'test', label: 'Test' }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+	it('should render an invisible screen reader compatible column header', () => {
+		const wrapper = shallow(<ColumnHeader
+			column={{ key: 'test', label: 'Test', hideHeader: true }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+	it('should render with sort', () => {
+		const wrapper = shallow(<ColumnHeader
+			column={{ key: 'test', label: 'Test' }}
+			sort={{ field: 'test', onChange: jest.fn() }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
+	});
+});
+
+describe('ListHeaders', () => {
+	it('should render', () => {
+		const wrapper = shallow(<ListHeaders
+			columns={[{ item: 'value' }]}
+			sort={{ foo: 'bar' }}
+		/>);
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });

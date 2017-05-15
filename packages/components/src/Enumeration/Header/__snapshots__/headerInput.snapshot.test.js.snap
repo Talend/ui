@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Header should render header input with error 1`] = `
+<header
+  className="undefined tc-enumeration-header has-error"
+>
+  <input
+    autoFocus={true}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="New entry"
+    type="text"
+  />
+  <div
+    className="undefined tc-enumeration-header-error"
+  >
+    duplicate value
+  </div>
+  <button
+    aria-describedby={42}
+    className="btn btn-link"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-check"
+      />
+    </svg>
+  </button>
+  <button
+    aria-describedby={42}
+    className="btn btn-link"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
+</header>
+`;
+
 exports[`Header should render header input with two buttons 1`] = `
 <header
   className="undefined tc-enumeration-header"
@@ -26,6 +91,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -48,6 +114,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

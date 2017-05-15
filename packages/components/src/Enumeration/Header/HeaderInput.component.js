@@ -6,13 +6,20 @@ import theme from './Header.scss';
 
 let inputRef;
 
-function headerClasses() {
+function headerClasses(headerError) {
 	return classNames({
 		[theme['tc-enumeration-header']]: true,
 		'tc-enumeration-header': true,
+		'has-error': !!headerError,
 	});
 }
 
+function headerErrorClasses() {
+	return classNames({
+		[theme['tc-enumeration-header-error']]: true,
+		'tc-enumeration-header-error': true,
+	});
+}
 
 function getAction(action, index) {
 	function onClick(event) {
@@ -31,15 +38,16 @@ function getAction(action, index) {
 			onClick={onClick}
 			disabled={action.disabled}
 			tooltipPlacement="bottom"
+			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>
 	);
 }
 
-function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
-	function onAddChangeHandler(event) {
-		onAddChange(event, {
+function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+	function onInputChangeHandler(event) {
+		onInputChange(event, {
 			value: event.target.value,
 		});
 	}
@@ -51,15 +59,19 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
 	}
 
 	return (
-		<header className={headerClasses()}>
+		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
-				placeholder="New entry"
-				ref={(input) => { inputRef = input; }}
-				onChange={onAddChangeHandler}
+				placeholder={inputPlaceholder}
+				ref={(input) => {
+					inputRef = input;
+				}}
+				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
 				autoFocus
 			/>
+			{ headerError &&
+			<div className={headerErrorClasses()}>{headerError}</div> }
 			{headerInput.map((action, index) => getAction(action, index))}
 		</header>
 	);
@@ -67,7 +79,9 @@ function HeaderInput({ headerInput, onAddChange, onAddKeyDown }) {
 
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	onAddChange: PropTypes.func,
+	headerError: PropTypes.string,
+	onInputChange: PropTypes.func,
+	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
 };
 

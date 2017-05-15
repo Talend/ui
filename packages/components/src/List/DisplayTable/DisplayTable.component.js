@@ -1,14 +1,21 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
-
 import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
 
-function cellContent(isTitle, item, column, titleProps, id) {
+function getItemString(item) {
+	if (item === undefined || item === null) {
+		return '';
+	}
+	return item.toString();
+}
+
+export function CellContent({ isTitle, item, column, titleProps, id }) {
 	if (isTitle) {
 		return (<ItemTitle
 			id={id && `${id}-title`}
@@ -23,30 +30,45 @@ function cellContent(isTitle, item, column, titleProps, id) {
 			hideLabel
 		/>);
 	}
+	const str = getItemString(item[column.key]);
 	return (
-		<TooltipTrigger label={item[column.key]} tooltipPlacement="top">
+		<TooltipTrigger label={str} tooltipPlacement="top">
 			<span className={classnames(theme['item-text'], 'item-text')}>
-				{item[column.key]}
+				{str}
 			</span>
 		</TooltipTrigger>
 	);
 }
+CellContent.propTypes = {
+	isTitle: PropTypes.bool,
+	item: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	column: PropTypes.shape({
+		key: PropTypes.string,
+	}).isRequired,
+	titleProps: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	id: PropTypes.string,
+};
 
-function RowRenderer(props) {
+export function RowRenderer(props) {
 	const { id, item, itemProps, titleProps } = props;
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
-	const checkboxColumn = onToggle && isSelected ?
-		(<td>
-			<input
-				id={id && `${id}-check`}
-				type="checkbox"
-				onChange={(e) => {
-					onToggle(e, item);
-				}}
-				checked={isSelected(item)}
-			/>
-		</td>) :
-		null;
+	const checkboxColumn = onToggle && isSelected ? (
+		<td>
+			<div className="checkbox">
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={(e) => {
+							onToggle(e, item);
+						}}
+						checked={isSelected(item)}
+					/>
+					<span><span className="sr-only">Select {item.name}</span></span>
+				</label>
+			</div>
+		</td>
+	) : null;
 	const classes = classnames(
 		classNameKey && item[classNameKey],
 		isSelected && isSelected(item) && (selectedClass || 'active'),
@@ -56,20 +78,19 @@ function RowRenderer(props) {
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				const isTitle = column.key === titleProps.key;
-				const cell = cellContent(isTitle, item, column, titleProps, id);
+				const cell = (<CellContent
+					isTitle={isTitle}
+					item={item}
+					column={column}
+					titleProps={titleProps}
+					id={id}
+				/>);
 
 				// actions are only on title and on 'text' display mode
 				const { displayModeKey } = titleProps;
 				const displayActions =
 					isTitle &&
 					(!displayModeKey || !item[displayModeKey] || item[displayModeKey] === 'text');
-				const actions = displayActions ?
-					(<Actions
-						actions={item.actions || []}
-						hideLabel
-						link
-					/>) :
-					null;
 
 				return (
 					<td key={index}>
@@ -80,7 +101,19 @@ function RowRenderer(props) {
 							)}
 						>
 							<div className={classnames('cell', theme.cell)}>{cell}</div>
-							<div className={classnames('actions', theme.actions)}>{actions}</div>
+							{
+								displayActions &&
+								item.actions &&
+								(
+									<div className={classnames('actions', theme.actions)}>
+										<Actions
+											actions={item.actions}
+											hideLabel
+											link
+										/>
+									</div>
+								)
+							}
 						</div>
 					</td>
 				);
@@ -95,7 +128,7 @@ RowRenderer.propTypes = {
 		PropTypes.shape({ key: PropTypes.string.isRequired }),
 	).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
-	titleProps: ItemTitle.propTypes.titleProps,
+	titleProps: PropTypes.shape(ItemTitle.propTypes.titleProps).isRequired,
 };
 
 function getCaretIcon(isCurrentSortField) {
@@ -120,10 +153,12 @@ function getNextDirection(isCurrentSortField, currentSort) {
 	return false;
 }
 
-function columnHeader(index, column, sort) {
+export function ColumnHeader({ index, column, sort }) {
 	let header;
 
-	if (sort) {
+	if (column.hideHeader) {
+		header = (<span className="sr-only">{column.label}</span>);
+	} else	if (sort) {
 		const isCurrentSortField = sort.field === column.key;
 		const onChange = event => sort.onChange(
 			event,
@@ -142,21 +177,33 @@ function columnHeader(index, column, sort) {
 			link: true,
 			onClick: onChange,
 		};
-
-		header = <Action {...actionProps} />;
+		header = (<Action {...actionProps} />);
 	} else {
-		header = <span className={theme.header}>{column.label}</span>;
+		header = (<span className={theme.header}>{column.label}</span>);
 	}
 
 	return (
 		<th key={index}>
 			{header}
-			<div aria-hidden="true">{column.label}</div>
+			{ !column.hideHeader && (<div aria-hidden="true">{column.label}</div>)}
 		</th>
 	);
 }
+ColumnHeader.propTypes = {
+	index: PropTypes.number,
+	column: PropTypes.shape({
+		key: PropTypes.string,
+		label: PropTypes.string,
+		hideHeader: PropTypes.bool,
+	}).isRequired,
+	sort: PropTypes.shape({
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+		onChange: PropTypes.func,
+	}),
+};
 
-function ListHeaders(props) {
+export function ListHeaders(props) {
 	const {
 		columns,
 		isSelected,
@@ -166,7 +213,12 @@ function ListHeaders(props) {
 	return (
 		<tr>
 			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => columnHeader(index, column, sort))}
+			{columns.map((column, index) => (<ColumnHeader
+				key={index}
+				index={index}
+				column={column}
+				sort={sort}
+			/>))}
 		</tr>
 	);
 }
@@ -174,7 +226,7 @@ function ListHeaders(props) {
 ListHeaders.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({ label: PropTypes.string }),
-	),
+	).isRequired,
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 	sort: PropTypes.shape({

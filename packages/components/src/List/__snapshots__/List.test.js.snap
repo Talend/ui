@@ -46,12 +46,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Hello world
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -72,9 +88,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -96,9 +109,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -107,12 +117,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Foo
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -133,9 +159,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -157,9 +180,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -168,12 +188,28 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Bar
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -194,9 +230,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -218,9 +251,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -249,20 +279,22 @@ exports[`List should render 1`] = `
           className="navbar-form navbar-left"
         >
           <div
-            className="navbar-text"
+            className="checkbox-inline navbar-text"
           >
-            <input
-              checked={false}
-              disabled={false}
-              id={undefined}
-              onChange={[Function]}
-              type="checkbox"
-            />
             <label
               className="tc-list-toolbar-select-all"
               htmlFor={undefined}
             >
-              Select All
+              <input
+                checked={false}
+                disabled={false}
+                id={undefined}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Select All
+              </span>
             </label>
           </div>
         </form>
@@ -296,6 +328,7 @@ exports[`List should render 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -328,6 +361,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -353,6 +387,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -378,6 +413,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -473,7 +509,7 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              ASCENDING
+              Ascending
             </a>
           </li>
         </ul>
@@ -588,15 +624,20 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -606,11 +647,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -649,11 +695,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -667,11 +718,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
@@ -690,6 +746,7 @@ exports[`List should render 1`] = `
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
+            focusable="false"
             title={null}
           >
             <use
@@ -742,12 +799,28 @@ exports[`List should render 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Hello world
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -768,9 +841,6 @@ exports[`List should render 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -792,9 +862,6 @@ exports[`List should render 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -803,12 +870,28 @@ exports[`List should render 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Foo
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -829,9 +912,6 @@ exports[`List should render 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -853,9 +933,6 @@ exports[`List should render 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -864,12 +941,28 @@ exports[`List should render 1`] = `
             id={undefined}
           >
             <td>
-              <input
-                checked={false}
-                id={undefined}
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor={undefined}
+                >
+                  <input
+                    checked={false}
+                    id={undefined}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Bar
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -890,9 +983,6 @@ exports[`List should render 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -914,9 +1004,6 @@ exports[`List should render 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -957,20 +1044,22 @@ exports[`List should render id if provided 1`] = `
           className="navbar-form navbar-left"
         >
           <div
-            className="navbar-text"
+            className="checkbox-inline navbar-text"
           >
-            <input
-              checked={false}
-              disabled={false}
-              id="context-check-all"
-              onChange={[Function]}
-              type="checkbox"
-            />
             <label
               className="tc-list-toolbar-select-all"
               htmlFor="context-check-all"
             >
-              Select All
+              <input
+                checked={false}
+                disabled={false}
+                id="context-check-all"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Select All
+              </span>
             </label>
           </div>
         </form>
@@ -1004,6 +1093,7 @@ exports[`List should render id if provided 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -1036,6 +1126,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1061,6 +1152,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1086,6 +1178,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1181,7 +1274,7 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              ASCENDING
+              Ascending
             </a>
           </li>
         </ul>
@@ -1296,15 +1389,20 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1314,11 +1412,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1357,11 +1460,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1375,11 +1483,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
@@ -1399,6 +1512,7 @@ exports[`List should render id if provided 1`] = `
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
+            focusable="false"
             title={null}
           >
             <use
@@ -1451,12 +1565,28 @@ exports[`List should render id if provided 1`] = `
             id="context-0"
           >
             <td>
-              <input
-                checked={false}
-                id="context-0-check"
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="context-0-check"
+                >
+                  <input
+                    checked={false}
+                    id="context-0-check"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Hello world
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -1477,9 +1607,6 @@ exports[`List should render id if provided 1`] = `
                     1
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1501,9 +1628,6 @@ exports[`List should render id if provided 1`] = `
                     Hello world
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -1512,12 +1636,28 @@ exports[`List should render id if provided 1`] = `
             id="context-1"
           >
             <td>
-              <input
-                checked={false}
-                id="context-1-check"
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="context-1-check"
+                >
+                  <input
+                    checked={false}
+                    id="context-1-check"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Foo
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -1538,9 +1678,6 @@ exports[`List should render id if provided 1`] = `
                     2
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1562,9 +1699,6 @@ exports[`List should render id if provided 1`] = `
                     Foo
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>
@@ -1573,12 +1707,28 @@ exports[`List should render id if provided 1`] = `
             id="context-2"
           >
             <td>
-              <input
-                checked={false}
-                id="context-2-check"
-                onChange={[Function]}
-                type="checkbox"
-              />
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="context-2-check"
+                >
+                  <input
+                    checked={false}
+                    id="context-2-check"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span>
+                    <span
+                      className="sr-only"
+                    >
+                      Select 
+                      Bar
+                    </span>
+                  </span>
+                </label>
+              </div>
             </td>
             <td>
               <div
@@ -1599,9 +1749,6 @@ exports[`List should render id if provided 1`] = `
                     3
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
             <td>
@@ -1623,9 +1770,6 @@ exports[`List should render id if provided 1`] = `
                     Bar
                   </span>
                 </div>
-                <div
-                  className="actions"
-                />
               </div>
             </td>
           </tr>

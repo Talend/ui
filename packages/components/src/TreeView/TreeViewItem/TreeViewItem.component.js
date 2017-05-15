@@ -1,12 +1,8 @@
 import React, { PropTypes } from 'react';
 
-import Action from '../../Actions/Action';
-import Icon from '../../Icon';
-import getClassNames from '../getClassNames';
+import { Action, Icon, Badge } from '../../';
 
-import theme from './TreeViewItem.scss';
-
-const getClassName = getClassNames(theme);
+import css from './TreeViewItem.scss';
 
 function getActionHandler(func, item) {
 	return function actionHandler(event) {
@@ -15,102 +11,119 @@ function getActionHandler(func, item) {
 	};
 }
 
-function getIconAction(label, iconName, onClickHandler, item) {
-	return (<Action
-		label={label}
-		icon={iconName}
-		onClick={getActionHandler(onClickHandler, item)}
-		tooltipPlacement="right"
-		hideLabel
-		link
-	/>);
-}
 
 /**
  *
  * Single item of TreeView component
  *
- * @param item required, item to display, consists of:
+ * @param id, for qa purposes
+ * @param item required, item to display
+ * 		  item.actions optional, array with actions' to be displayed meta-info
  * @param itemSelectCallback required, callback function to trigger once item was clicked
  * @param itemToggleCallback required, callback function to trigger once item was clicked
- * @param itemRemoveCallback optional, callback function to trigger once trash icon was clicked
- * @param itemRemoveLabel optional, label string for trash icon
  * @param depth optional, depth of an item in a tree
  *
  * @returns XML, jsx to display
  */
 
 function TreeViewItem({
+	id,
 	item,
+	depth = 0,
 	itemSelectCallback,
 	itemToggleCallback,
-	itemRemoveCallback,
-	itemRemoveLabel,
-	depth,
 }) {
-	const toggleIconLabel = item.toggled ? 'Collapse' : 'Expand';
-	const selectHandler = () => itemSelectCallback(item);
+	const {
+		toggled = false,
+		selected,
+		hidden,
+		name,
+		children = [],
+		showCounter,
+		actions,
+		icon = 'talend-folder',
+		counter = children.length,
+	} = item;
+	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
+
+	function selectHandler() {
+		return itemSelectCallback(item);
+	}
+
+	function getTreeViewItem(child, i) {
+		return (<TreeViewItem
+			{...{
+				id: id && `${id}-${i}`,
+				item: child,
+				itemSelectCallback,
+				itemToggleCallback,
+				depth: depth + 1,
+				key: i,
+			}}
+		/>);
+	}
+
+	function getIconAction(label, icon_, action, id_) {
+		return (<Action
+			label={label}
+			icon={icon_}
+			onClick={getActionHandler(action, item)}
+			tooltipPlacement="right"
+			hideLabel
+			key={label}
+			id={id_ || `${id}-${icon_}`}
+			link
+		/>);
+	}
 
 	return (
-		<li className={getClassName('tc-treeview-li')} data-tc-treeview-hidden={item.hidden}>
+		<li className={css['tc-treeview-li']} data-hidden={hidden}>
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
-				className={getClassName('tc-treeview-item')}
+				className={css['tc-treeview-item']}
+				data-depth={depth}
+				data-selected={selected}
 				onClick={selectHandler}
-				data-tc-treeview-depth={depth}
-				data-tc-treeview-selected={item.selected}
+				id={id}
 			>
-				{item.children && (
-					<div
-						className={getClassName('tc-treeview-toggle')}
-						data-tc-treeview-toggled={item.toggled}
-					>
-						{getIconAction(
-							toggleIconLabel, 'talend-caret-down', itemToggleCallback, item,
-						)}
+				{!children.length ||
+					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
+						{getIconAction(toggleIconLabel, 'talend-caret-down', itemToggleCallback, `${id}-toggle`)}
 					</div>
-				)}
-				<span className={getClassName('tc-treeview-folder')}>
-					<Icon name="talend-folder" />
-				</span>
-				<span>{item.name}</span>
-				{itemRemoveCallback && (
-					<div className={getClassName('tc-treeview-remove')}>
-						{getIconAction(
-							itemRemoveLabel, 'talend-trash', itemRemoveCallback, item,
-						)}
-					</div>
-				)}
+				}
+				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
+				<span>{name}</span>
+				<div className={'tc-treeview-item-ctrl'}>
+					{showCounter && <Badge label={counter.toString()} />}
+					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
+				</div>
 			</div>
-			{item.children && item.toggled && (
-				<ul className={getClassName('tc-treeview-ul')}>
-					{item.children.map(child => (
-						<TreeViewItem
-							item={child}
-							itemSelectCallback={itemSelectCallback}
-							itemToggleCallback={itemToggleCallback}
-							itemRemoveCallback={itemRemoveCallback}
-							itemRemoveLabel={itemRemoveLabel}
-							depth={depth + 1}
-							key={child.name}
-						/>
-					))}
+			{children && toggled &&
+				<ul className={css['tc-treeview-ul']}>
+					{children.map(getTreeViewItem)}
 				</ul>
-			)}
+			}
 		</li>
 	);
 }
 
 TreeViewItem.propTypes = {
+	id: PropTypes.string,
 	item: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 		toggled: PropTypes.bool,
 		selected: PropTypes.bool,
 		children: PropTypes.arrayOf(PropTypes.object),
-	}),
+		icon: PropTypes.string,
+		actions: PropTypes.arrayOf(PropTypes.shape({
+			action: PropTypes.func,
+			label: PropTypes.string,
+			icon: PropTypes.string,
+		})),
+		counter: PropTypes.number,
+		showCounter: PropTypes.bool,
+	}).isRequired,
 	itemSelectCallback: PropTypes.func.isRequired,
 	itemToggleCallback: PropTypes.func.isRequired,
-	itemRemoveCallback: PropTypes.func,
-	itemRemoveLabel: PropTypes.string,
 	depth: PropTypes.number,
 };
 

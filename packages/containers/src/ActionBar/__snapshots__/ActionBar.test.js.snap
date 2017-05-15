@@ -89,6 +89,10 @@ Object {
       },
     ],
   },
+  "renderers": Object {
+    "Action": [Function],
+    "Actions": [Function],
+  },
 }
 `;
 
@@ -143,6 +147,10 @@ Object {
         "displayMode": "btnGroup",
       },
     ],
+  },
+  "renderers": Object {
+    "Action": [Function],
+    "Actions": [Function],
   },
 }
 `;

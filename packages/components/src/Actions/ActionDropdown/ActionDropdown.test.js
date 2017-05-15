@@ -1,99 +1,32 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { mount } from 'enzyme';
 import ActionDropdown from './ActionDropdown.component';
 
-jest.mock('react-dom');
-
-const items = [
-	{
-		label: 'document 1',
-		onClick: jest.fn(),
-	},
-	{
-		label: 'document 2',
-		onClick: jest.fn(),
-	},
-];
-
 describe('ActionDropdown', () => {
-	it('should render a button with label', () => {
+	it('should call onSelect callback when click on item', () => {
 		// given
+		const onSelectClick = jest.fn();
 		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			items,
+			id: 'dropdwon-id',
+			label: 'Dropdown',
+			onSelect: onSelectClick,
+			items: [
+				{ id: 'item1', label: 'Item 1' },
+				{ id: 'item2', label: 'Item 2' },
+			],
 		};
+		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		actionDropdownInstance.find('MenuItem').at(0).find('SafeAnchor').simulate('click');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render a button with icon and label', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			icon: 'fa fa-file-excel-o',
-			items,
-		};
+		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[0]);
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		actionDropdownInstance.find('MenuItem').at(1).find('SafeAnchor').simulate('click');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render a button with icon', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			icon: 'fa fa-file-excel-o',
-			items,
-			tooltipPlacement: 'right',
-			hideLabel: true,
-		};
-
-		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render a button with "link" theme', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			items,
-			link: true,
-		};
-
-		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render "no option" item when items array is empty', () => {
-		// given
-		const props = {
-			id: 'dropdown-id',
-			label: 'related items',
-			items: [],
-		};
-
-		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[1]);
 	});
 });

@@ -1,14 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 
 import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
-import Connected, {
-	mapDispatchToProps,
-	mapStateToProps,
-} from './ObjectViewer.connect';
+import Connected from './ObjectViewer.connect';
 
 const data = [
 	{
@@ -40,12 +35,12 @@ const data = [
 
 describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
-		const updateState = jest.fn();
+		const setState = jest.fn();
 		const wrapper = shallow(
 			<Container
 				data={data}
 				state={DEFAULT_STATE}
-				updateState={updateState}
+				setState={setState}
 			/>,
 		);
 		expect(wrapper.find(Component).length).toBe(1);
@@ -66,24 +61,24 @@ describe('Container ObjectViewer', () => {
 			isOpened: false,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(1);
-		expect(updateState.mock.calls[0][0].get('opened').get(0)).toBe(path);
-		//close
+		expect(setState.mock.calls.length).toBe(1);
+		expect(setState.mock.calls[0][0].get('opened').get(0)).toBe(path);
+		// close
 		props.onClick(null, {
 			isOpened: true,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(2);
-		expect(updateState.mock.calls[1][0].get('opened').size).toBe(0);
+		expect(setState.mock.calls.length).toBe(2);
+		expect(setState.mock.calls[1][0].get('opened').size).toBe(0);
 	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
-		const updateState = jest.fn();
+		const setState = jest.fn();
 		const wrapper = shallow(
 			<Container
 				data={data}
 				state={DEFAULT_STATE}
-				updateState={updateState}
+				setState={setState}
 				onSubmit={onSubmit}
 			/>,
 		);
@@ -98,41 +93,23 @@ describe('Container ObjectViewer', () => {
 		}, {
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(1);
-		expect(updateState.mock.calls[0][0].get('modified').size).toBe(1);
-		expect(updateState.mock.calls[0][0].get('modified').get(path)).toBe(2);
+		expect(setState.mock.calls.length).toBe(1);
+		expect(setState.mock.calls[0][0].get('modified').size).toBe(1);
+		expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
 
 		props.onClick(null, {
 			edit: false,
 			jsonpath: path,
 		});
-		expect(updateState.mock.calls.length).toBe(2);
-		expect(updateState.mock.calls[1][0].get('edited').size).toBe(1);
+		expect(setState.mock.calls.length).toBe(2);
+		expect(setState.mock.calls[1][0].get('edited').size).toBe(1);
 	});
 });
 
 describe('Connected ObjectViewer', () => {
 	it('should connect ObjectViewer', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
-	});
-	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					ObjectViewer: {
-						ObjectViewer: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
-		const props = mapStateToProps(state, {});
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch, {});
-		expect(typeof props).toBe('object');
 	});
 });
 

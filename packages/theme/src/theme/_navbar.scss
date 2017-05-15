@@ -27,10 +27,18 @@
 	}
 
 	&-nav {
-		> li > a {
+		display: flex;
+
+		li {
 			display: flex;
 			align-items: center;
-			height: $navbar-height;			
+		}
+
+		> li > a,
+		> li > button {
+			display: flex;
+			align-items: center;
+			height: $navbar-height;
 		}
 	}
 }

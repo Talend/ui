@@ -80,16 +80,22 @@ $tc-list-table-header-height: 36px !default;
 
 				.cell + .actions {
 					opacity: 1;
-					margin-left: $padding-large;
+					padding-left: $padding-large;
 					visibility: visible;
 				}
 			}
 		}
 
+		td {
+			max-width: 200px;
+		}
+
 		.tc-list-display-table-td {
 			display: flex;
+			position: relative;
 
 			.cell {
+				display: flex;
 				flex-shrink: 1;
 				flex-grow: 1;
 				min-width: 0;

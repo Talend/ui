@@ -44,6 +44,11 @@
     "jest-cli": "^19.0.2"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
@@ -52,7 +57,7 @@
     ]
   },
   "peerDependencies": {},
-  "version": "0.64.0",
+  "version": "0.74.1",
   "dependencies": {
     "tracekit": "^0.4.4",
     "whatwg-fetch": "^2.0.2"

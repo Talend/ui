@@ -480,18 +480,14 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
@@ -561,18 +557,14 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
@@ -640,15 +632,10 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
           className={undefined}
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             id={undefined}
-            onBlur={[Function]}
             onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
             role="link"
             type="button"
           >
@@ -729,6 +716,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <span
@@ -807,6 +795,7 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o tc-list-icon"
+            focusable="false"
             title={null}
           />
           <span
