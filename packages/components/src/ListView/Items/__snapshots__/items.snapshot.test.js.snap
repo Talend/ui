@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items should display a checked item between the two others 1`] = `
+<div
+  className="tc-listview-items"
+>
+  <div
+    id="autoSizer"
+  >
+    <div
+      aria-label="grid"
+      className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+      id={undefined}
+      onScroll={[Function]}
+      role="grid"
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "boxSizing": "border-box",
+          "direction": "ltr",
+          "height": 30,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "position": "relative",
+          "width": 30,
+          "willChange": "transform",
+        }
+      }
+      tabIndex={0}
+    >
+      <div
+        className="ReactVirtualized__Grid__innerScrollContainer"
+        style={
+          Object {
+            "height": 166,
+            "maxHeight": 166,
+            "maxWidth": 30,
+            "overflow": "hidden",
+            "pointerEvents": "",
+            "position": "relative",
+            "width": "auto",
+          }
+        }
+      >
+        <div
+          className="tc-item-container toggle"
+          style={
+            Object {
+              "height": 40,
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            className="checkbox"
+          >
+            <label
+              htmlFor="tc-listview-toggle-all"
+            >
+              <input
+                checked={false}
+                id="tc-listview-toggle-all"
+                onChange={undefined}
+                type="checkbox"
+              />
+              <strong />
+            </label>
+          </div>
+        </div>
+        <div
+          className="tc-item-container"
+          style={
+            Object {
+              "height": 42,
+              "left": 0,
+              "position": "absolute",
+              "top": 40,
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            id="1-item"
+          >
+            <div
+              className="checkbox-container"
+            >
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="checkbox-1-item"
+                >
+                  <input
+                    checked={undefined}
+                    id="checkbox-1-item"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span
+                    className="tc-listview-item-label"
+                  >
+                    Lorem ipsum dolor sit amet 0
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="tc-item-container"
+          style={
+            Object {
+              "height": 42,
+              "left": 0,
+              "position": "absolute",
+              "top": 82,
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            id="2-item"
+          >
+            <div
+              className="checkbox-container"
+            >
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="checkbox-2-item"
+                >
+                  <input
+                    checked={true}
+                    id="checkbox-2-item"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span
+                    className="tc-listview-item-label"
+                  >
+                    Lorem ipsum dolor sit amet 1
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="tc-item-container"
+          style={
+            Object {
+              "height": 42,
+              "left": 0,
+              "position": "absolute",
+              "top": 124,
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            id="3-item"
+          >
+            <div
+              className="checkbox-container"
+            >
+              <div
+                className="checkbox"
+              >
+                <label
+                  htmlFor="checkbox-3-item"
+                >
+                  <input
+                    checked={undefined}
+                    id="checkbox-3-item"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span
+                    className="tc-listview-item-label"
+                  >
+                    Lorem ipsum dolor sit amet 2
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
