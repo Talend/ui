@@ -150,7 +150,6 @@ exports[`Layout should render layout with Drawer component 1`] = `
         >
           <div
             className="tc-with-drawer-wrapper"
-            drawer={true}
           >
             <div
               style={
@@ -169,7 +168,6 @@ exports[`Layout should render layout with Drawer component 1`] = `
           </div>
           <div
             className="tc-with-drawer-wrapper"
-            drawer={true}
           >
             <div
               style={
