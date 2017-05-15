@@ -4,7 +4,7 @@ exports[`Drawer should not render if no children 1`] = `null`;
 
 exports[`Drawer should render 1`] = `
 <div
-  className="tc-drawer"
+  className="tc-drawer undefined tc-drawer-transition"
   style={undefined}
 >
   <div
@@ -37,7 +37,7 @@ exports[`Drawer should render 1`] = `
 
 exports[`Drawer should render stacked 1`] = `
 <div
-  className="tc-drawer undefined stacked"
+  className="tc-drawer undefined tc-drawer-transition undefined stacked"
   style={undefined}
 >
   <div
@@ -70,7 +70,7 @@ exports[`Drawer should render stacked 1`] = `
 
 exports[`Drawer should render using custom className 1`] = `
 <div
-  className="my-custom-drawer tc-drawer"
+  className="my-custom-drawer tc-drawer undefined tc-drawer-transition"
   style={undefined}
 >
   <div
@@ -103,7 +103,7 @@ exports[`Drawer should render using custom className 1`] = `
 
 exports[`Drawer should render using custom styles 1`] = `
 <div
-  className="tc-drawer"
+  className="tc-drawer undefined tc-drawer-transition"
   style={
     Object {
       "top": 45,

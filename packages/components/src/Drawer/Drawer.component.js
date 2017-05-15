@@ -29,7 +29,10 @@ function DrawerContainer({ stacked, className, children, withoutTransition = fal
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
-		!withoutTransition && theme['tc-drawer-transition'],
+		{
+			[theme['tc-drawer-transition']]: !withoutTransition,
+			'tc-drawer-transition': !withoutTransition,
+		},
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
