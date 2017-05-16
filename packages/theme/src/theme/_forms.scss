@@ -48,7 +48,8 @@ form {
 	[type=password].form-control,
 	[type=email].form-control,
 	[type=tel].form-control,
-	[contenteditable].form-control {
+	[contenteditable].form-control,
+	div.form-control {
 		@include box-shadow(inset 0 -1px 0 $alto);
 		padding: 0;
 		border: none;
@@ -348,6 +349,7 @@ form {
 	&-control:focus,
 	&-control[placeholder]:not([placeholder='']),
 	&-control:not(:empty),
+	&-control:nth-child(1) > input:not(:empty),
 	&-control:disabled,
 	&-control[value]:not([value='']),
 	input[type='date'],

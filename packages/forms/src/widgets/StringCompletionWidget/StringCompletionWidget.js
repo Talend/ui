@@ -1,33 +1,9 @@
 import React, { PropTypes } from 'react';
 import Typeahead from 'react-talend-components/lib/Typeahead';
 
-function handleSelect(items, onChange) {
-	return function onSelect(event, { sectionIndex, itemIndex }) {
-		if (sectionIndex) {
-			onChange(items[sectionIndex].suggestions[itemIndex].title);
-		}
-		onChange(items[itemIndex].title);
-	};
-}
+class StringCompletionWidget extends React.Component {
 
-function StringCompletionWidget(props) {
-	let items = [];
-	if (props.formContext.fetchItems) {
-		items = props.formContext.fetchItems(props.options.itemsSrc);
-	}
-	return (
-		<Typeahead
-			items={items}
-			value={props.value || ''}
-			multiSection={props.options.multiSection}
-			onChange={change => props.onChange(change.target.value)}
-			onSelect={handleSelect(items, props.onChange)}
-		/>
-	);
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	StringCompletionWidget.propTypes = {
+	static propTypes = {
 		options: PropTypes.shape({
 			multiSection: PropTypes.bool,
 			itemsSrc: PropTypes.string,
@@ -37,7 +13,48 @@ if (process.env.NODE_ENV !== 'production') {
 		formContext: PropTypes.shape({
 			fetchItems: PropTypes.func.isRequired,
 		}),
-	};
+	}
+
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.handleSelect = this.handleSelect.bind(this);
+		this.handleFocus = this.handleFocus.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
+	}
+
+	handleFocus() {
+		if (this.props.formContext.fetchItems) {
+			this.setState({ items: this.props.formContext.fetchItems(this.props.options.itemsSrc) });
+		}
+	}
+
+	handleSelect(event, { sectionIndex, itemIndex }) {
+		if (sectionIndex) {
+			this.props.onChange(this.state.items[sectionIndex].suggestions[itemIndex].title);
+		}
+		this.props.onChange(this.state.items[itemIndex].title);
+	}
+
+	handleBlur() {
+		if (this.state.items && this.state.items.length > 0) {
+			this.setState({ items: null });
+		}
+	}
+
+	render() {
+		return (
+			<Typeahead
+				items={this.state.items}
+				value={this.props.value || ''}
+				multiSection={this.props.options.multiSection}
+				onChange={change => this.props.onChange(change.target.value)}
+				onKeyDown={this.handleFocus}
+				onBlur={this.handleBlur}
+				onSelect={this.handleSelect}
+			/>
+		);
+	}
 }
 
 export default StringCompletionWidget;
