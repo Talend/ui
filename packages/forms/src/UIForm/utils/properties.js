@@ -9,7 +9,25 @@ export function getValue(properties, key) {
 	}
 
 	return key.reduce(
-		(accu, nextKey) => accu[nextKey],
+		(accu, nextKey) => accu && accu[nextKey],
 		properties
 	);
+}
+
+/**
+ * Omit a properties from an object
+ * @param properties The object
+ * @param key The key to omit
+ */
+export function omit(properties, key) {
+	if (!key) {
+		return properties;
+	}
+	const result = {};
+	Object.keys(properties)
+		.filter(nextKey => nextKey !== key)
+		.forEach((nextKey) => {
+			result[nextKey] = properties[nextKey];
+		});
+	return result;
 }

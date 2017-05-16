@@ -34,10 +34,10 @@ export default class UIForm extends React.Component {
 	 * If onChange is provided, it is triggered
 	 * @param schema The schema
 	 * @param value The new value
-	 * @param properties The values
+	 * @param error The validation error
 	 */
-	onChange(schema, value, properties) {
-		const action = mutateValue(schema, value, properties, this.props.validation);
+	onChange(schema, value, error) {
+		const action = mutateValue(this.props.formName, schema, value, error);
 		this.setState(
 			{
 				properties: modelReducer(this.state.properties, action),
@@ -58,29 +58,16 @@ export default class UIForm extends React.Component {
 	/**
 	 * Triggers submit callback if form is valid
 	 * @param event the submit event
-	 * @param schema the schema
 	 * @param properties the properties values
+	 * @param errors the validation errors
 	 */
-	onSubmit(event, schema, properties) {
-		event.preventDefault();
-		if (this.isValid(schema, properties)) {
-			this.props.onSubmit(event, properties);
-		}
-	}
-
-	/**
-	 * Triggers a validation and update state.
-	 * @returns {boolean} true if the form is valid, false otherwise
-	 */
-	isValid(schema, properties) {
-		const action = validateAll(schema, properties, this.props.validation);
-		const errors = validationReducer(this.state.errors, action);
+	onSubmit(event, properties, errors) {
 		const isValid = !Object.keys(errors).length;
-
-		if (!isValid) {
+		if (isValid) {
+			this.props.onSubmit(event, properties);
+		} else {
 			this.setState({ errors });
 		}
-		return isValid;
 	}
 
 	render() {
@@ -109,7 +96,10 @@ if (process.env.NODE_ENV !== 'production') {
 			jsonSchema: PropTypes.object,
 			/** UI schema that specify how to render the fields */
 			uiSchema: PropTypes.array,
-			/** Form fields values. Note that it should contains @definitionName for triggers. */
+			/**
+			 * Form fields initial values.
+			 * Note that it should contains @definitionName for triggers.
+			 */
 			properties: PropTypes.object,
 		}),
 		/** The form name that will be used to create ids */

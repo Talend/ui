@@ -8,19 +8,13 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
-
 import { createStore, combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+import { UIForm, ConnectedUIForm, formReducer } from '../src/UIForm';
 
-const reducers = {
-  // ... your other reducers here ...
-  form: formReducer,     // <---- Mounted at 'form'
-};
+const reducers = { forms: formReducer };
 
 const reducer = combineReducers(reducers);
 const store = createStore(reducer);
-
-import Form from '../src/UIForm';
 
 a11y(ReactDOM);
 
@@ -58,9 +52,29 @@ sampleFilenames
 			decoratedStories.add(capitalizedSampleName, () => (
 				<section>
 					<IconsProvider />
-					<Form
+					<UIForm
 						autocomplete="off"
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
+						formName={'my-form'}
+						onChange={action('Change')}
+						onTrigger={action('Trigger')}
+						onBlur={action('Blur')}
+						onSubmit={action('Submit')}
+						validation={(properties, schema, value) => {
+							action('customValidation')(properties, schema, value);
+							return value.length >= 5 &&
+								'Custom validation : The value should be less than 5 chars';
+						}}
+					/>
+				</section>
+			));
+			decoratedStories.add(`Redux-${capitalizedSampleName}`, () => (
+				<section>
+					<IconsProvider />
+					<ConnectedUIForm
+						autocomplete="off"
+						data={object(capitalizedSampleName, sampleFilenames(filename))}
+						formName={'my-form'}
 						onChange={action('Change')}
 						onTrigger={action('Trigger')}
 						onBlur={action('Blur')}

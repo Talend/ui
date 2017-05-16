@@ -1,8 +1,9 @@
 import UIForm from './UIForm.container';
-import { modelReducer, validationReducer } from './reducers';
+import ConnectedUIForm from './UIForm.connect';
+import { formReducer } from './reducers';
 
-export const formReducers = {
-	model: modelReducer,
-	errors: validationReducer,
+export {
+	ConnectedUIForm,
+	UIForm,
+	formReducer,
 };
-export default UIForm;

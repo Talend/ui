@@ -1,10 +1,9 @@
 import { VALIDATE_ALL } from './constants';
 
-export function validateAll(schema, properties, customValidationFn) {
+export function validateAll(formName, errors) {
 	return {
 		type: VALIDATE_ALL,
-		schema,
-		properties,
-		customValidationFn,
+		formName,
+		errors,
 	};
 }

@@ -1,10 +1,10 @@
 import { MUTATE_VALUE } from './constants';
 
-export function mutateValue(schema, value, properties, customValidationFn) {
+export function mutateValue(formName, schema, value, error) {
 	return {
 		type: MUTATE_VALUE,
-		customValidationFn,
-		properties,
+		error,
+		formName,
 		schema,
 		value,
 	};

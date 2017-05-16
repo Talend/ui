@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
+import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
 
 const TRIGGER_AFTER = 'after';
@@ -40,8 +41,9 @@ export default class UIForm extends React.Component {
 	 * @param value The new value
 	 */
 	onChange(event, schema, value) {
-		const { onChange, onTrigger, properties } = this.props;
-		onChange(schema, value, properties);
+		const { onChange, onTrigger, properties, validation } = this.props;
+		const error = validateValue(schema, value, properties, validation);
+		onChange(schema, value, error);
 
 		const { key, triggers } = schema;
 		if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
@@ -59,7 +61,10 @@ export default class UIForm extends React.Component {
 	 */
 	submit(event) {
 		event.preventDefault();
-		this.props.onSubmit(event, this.state.mergedSchema, this.props.properties);
+		const { mergedSchema } = this.state;
+		const { properties, validation } = this.props;
+		const errors = validateAll(mergedSchema, properties, validation);
+		this.props.onSubmit(event, properties, errors);
 	}
 
 	render() {
@@ -106,5 +111,12 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		/** UI schema that specify how to render the fields */
 		uiSchema: PropTypes.array, // eslint-disable-line react/forbid-prop-types
+		/**
+		 * Custom validation function.
+		 * Prototype: function validation(properties, fieldName, value)
+		 * Return format : { valid: true|false, error: { message: 'my validation message' } }
+		 * This is triggered on fields that has their uiSchema > customValidation : true
+		 */
+		validation: PropTypes.func,
 	};
 }

@@ -25,7 +25,7 @@ function mutateValue(properties, key, value) {
  * @param state The model
  * @param action The action to perform
  */
-export default function modelConsolidation(state = {}, action) {
+export default function modelReducer(state = {}, action) {
 	switch (action.type) {
 	case MUTATE_VALUE:
 		return mutateValue(state, action.schema.key, action.value);
