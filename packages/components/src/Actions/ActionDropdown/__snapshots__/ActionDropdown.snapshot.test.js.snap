@@ -96,6 +96,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -149,6 +150,7 @@ exports[`ActionDropdown should render a button with icon 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-file-excel-o"
+        focusable="false"
         title={null}
       />
     </span>
@@ -179,6 +181,7 @@ exports[`ActionDropdown should render a button with icon 1`] = `
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -227,6 +230,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-file-excel-o"
+        focusable="false"
         title={null}
       />
       <span>
@@ -260,6 +264,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -336,6 +341,7 @@ exports[`ActionDropdown should render a button with label 1`] = `
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use

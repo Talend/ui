@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-containers'
 
-> react-talend-containers@0.72.2 lint:es /home/travis/build/Talend/ui/packages/containers
+> react-talend-containers@0.74.2 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -19,11 +19,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.component.js
-  28:14  error  'sidepanel.actionIds' PropType is defined but prop is never used  react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
     2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -48,7 +45,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 16 problems (15 errors, 1 warning)
+✖ 15 problems (14 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
 Errored while running ExecCommand.execute

@@ -45,6 +45,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -63,6 +64,7 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>
@@ -353,6 +355,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -371,6 +374,7 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>
@@ -661,6 +665,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -679,6 +684,7 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>
@@ -941,6 +947,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o tc-list-icon"
+          focusable="false"
           title={null}
         />
         <button
@@ -972,6 +979,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -990,6 +998,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>
@@ -1069,6 +1078,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
         <i
           aria-hidden="true"
           className="fa fa-file-pdf-o tc-list-icon"
+          focusable="false"
           title={null}
         />
         <button
@@ -1281,6 +1291,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -1299,6 +1310,7 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>
@@ -1589,6 +1601,7 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           <i
             aria-hidden="true"
             className="fa fa-edit"
+            focusable="false"
             title={null}
           />
         </button>
@@ -1607,6 +1620,7 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           <i
             aria-hidden="true"
             className="fa fa-trash-o"
+            focusable="false"
             title={null}
           />
         </button>

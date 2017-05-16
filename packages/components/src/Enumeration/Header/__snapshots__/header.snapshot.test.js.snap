@@ -25,6 +25,7 @@ exports[`Header should render header with one button 1`] = `
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -62,6 +63,7 @@ exports[`Header should render header with one button and indicate the component 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
