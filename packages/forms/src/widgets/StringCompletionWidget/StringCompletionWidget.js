@@ -3,19 +3,23 @@ import Typeahead from 'react-talend-components/lib/Typeahead';
 
 function handleSelect(items, onChange) {
 	return function onSelect(event, { sectionIndex, itemIndex }) {
-		onChange(items[sectionIndex].suggestions[itemIndex].title);
+		if (sectionIndex) {
+			onChange(items[sectionIndex].suggestions[itemIndex].title);
+		}
+		onChange(items[itemIndex].title);
 	};
 }
 
 function StringCompletionWidget(props) {
 	let items = [];
-	if (props.options.itemsSrc) {
+	if (props.formContext.fetchItems) {
 		items = props.formContext.fetchItems(props.options.itemsSrc);
 	}
 	return (
 		<Typeahead
 			items={items}
 			value={props.value || ''}
+			multiSection={props.options.multiSection}
 			onChange={change => props.onChange(change.target.value)}
 			onSelect={handleSelect(items, props.onChange)}
 		/>
@@ -25,12 +29,13 @@ function StringCompletionWidget(props) {
 if (process.env.NODE_ENV !== 'production') {
 	StringCompletionWidget.propTypes = {
 		options: PropTypes.shape({
+			multiSection: PropTypes.bool,
 			itemsSrc: PropTypes.string,
-		}).required,
+		}).isRequired,
 		value: PropTypes.string,
 		onChange: PropTypes.func,
 		formContext: PropTypes.shape({
-			fetchItems: PropTypes.func.required,
+			fetchItems: PropTypes.func.isRequired,
 		}),
 	};
 }

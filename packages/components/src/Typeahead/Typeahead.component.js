@@ -58,7 +58,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			rest.items, rest.noResultText, rest.searching, rest.searchingText),
 		renderSectionTitle,
 		renderItem,
-		multiSection: true,
+		multiSection: rest.multiSection,
 		getSectionItems: section => section.suggestions,
 		theme: {
 			...rest.theme,
@@ -88,6 +88,7 @@ Typeahead.defaultProps = {
 	items: null,
 	noResultText: 'No result.',
 	searching: false,
+	multiSection: true,
 	searchingText: 'Searching for matches…',
 };
 
