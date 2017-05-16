@@ -66,7 +66,8 @@ export default class UIForm extends React.Component {
 		if (isValid) {
 			this.props.onSubmit(event, properties);
 		} else {
-			this.setState({ errors });
+			const action = validateAll(this.props.formName, errors);
+			this.setState({ errors: validationReducer(this.state.errors, action) });
 		}
 	}
 
