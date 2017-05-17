@@ -349,7 +349,6 @@ form {
 	&-control:focus,
 	&-control[placeholder]:not([placeholder='']),
 	&-control:not(:empty),
-	&-control:nth-child(1) > input:not(:empty),
 	&-control:disabled,
 	&-control[value]:not([value='']),
 	input[type='date'],
