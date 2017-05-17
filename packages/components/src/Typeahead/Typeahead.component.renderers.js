@@ -12,6 +12,7 @@ export const renderInputComponent = (props) => {
 		debounceMinLength,
 		debounceTimeout,
 		icon,
+		autoFocus,
 		...rest
 	} = props;
 
@@ -26,18 +27,21 @@ export const renderInputComponent = (props) => {
 				<DebounceInput
 					id={key}
 					{...rest}
-					autoFocus
+					autoFocus={autoFocus}
 					element={FormControl}
 					minLength={debounceMinLength}
 					debounceTimeout={debounceTimeout}
 				/> : <FormControl
 					id={key}
-					autoFocus
+					autoFocus={autoFocus}
 					{...rest}
 				/> }
 			{renderedIcon}
 		</div>
 	);
+};
+renderInputComponent.defaultProps = {
+	autoFocus: true,
 };
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
@@ -47,6 +51,7 @@ renderInputComponent.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 	}),
+	autoFocus: PropTypes.bool,
 };
 
 const ItemContainer = (props) => {

@@ -50,9 +50,12 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			onKeyDown: rest.onKeyDown,
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
+			autoFocus: rest.autoFocus,
 			icon,
 		},
 		itemProps: {
+			onMouseEnter: rest.onMouseEnter,
+			onMouseLeave: rest.onMouseLeave,
 			onMouseDown: rest.onSelect,
 		},
 		renderInputComponent,
