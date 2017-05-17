@@ -31,9 +31,7 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 		{ [theme.infinite]: !!infinite }
 	);
 
-	let progress = (
-		<div style={style} className={progressionClassNames} />
-	);
+	let progress = <div style={style} className={progressionClassNames} />;
 
 	if (tooltip) {
 		progress = (
@@ -43,11 +41,7 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 		);
 	}
 
-	return (
-		<div id={id} className={rootClassNames}>
-			{progress}
-		</div>
-	);
+	return <div id={id} className={rootClassNames}>{progress}</div>;
 }
 
 Progress.propTypes = {

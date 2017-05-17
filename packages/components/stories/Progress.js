@@ -3,7 +3,7 @@ import { storiesOf } from '@kadira/storybook';
 
 import { Progress } from '../src/index';
 
-const test = {
+const containerStyle = {
 	border: '1px solid black',
 	width: '450px',
 	height: '200px',
@@ -59,12 +59,12 @@ storiesOf('Progress', module)
 				<a href="http://guidelines.talend.com/document/92132#/messaging-communication/progress-bar-circle">Spec</a>
 			</p>
 
-			<div style={test}>
+			<div style={containerStyle}>
 				<h2>Examples</h2>
 				Look above, the progress bar is contained in a div :<br />
 				<Progress id="my-progress" contained percent={75} tooltip="Hey ! Already 75% !" />
 				And a infinite contained progress bar :<br />
-				<Progress id="my-infinite-progress" contained infinite tooltip="Hey ! Already 75% !" />
+				<Progress id="my-infinite-progress" contained infinite tooltip="Hey !" />
 			</div>
 		</div>
 	));
