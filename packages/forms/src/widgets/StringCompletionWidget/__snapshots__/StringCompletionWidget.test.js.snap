@@ -7,40 +7,19 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Typeahead
+    autoFocus={false}
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
     id={42}
-    items={
-        Array [
-            Object {
-              "suggestions": Array [
-                Object {
-                  "title": "Apple",
-                },
-                Object {
-                  "title": "Apricot",
-                },
-              ],
-              "title": "A",
-            },
-            Object {
-              "suggestions": Array [
-                Object {
-                  "title": "Banana",
-                },
-              ],
-              "title": "B",
-            },
-            Object {
-              "suggestions": Array [
-                Object {
-                  "title": "Cherry",
-                },
-              ],
-              "title": "C",
-            },
-          ]
-    }
+    items={null}
+    multiSection={true}
     noResultText="No result."
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onSelect={[Function]}
     position="left"
     searching={false}
@@ -48,40 +27,19 @@ ShallowWrapper {
     value="" />,
   "nodes": Array [
     <Typeahead
+      autoFocus={false}
+      focusedItemIndex={null}
+      focusedSectionIndex={null}
       id={42}
-      items={
-            Array [
-                  Object {
-                    "suggestions": Array [
-                      Object {
-                        "title": "Apple",
-                      },
-                      Object {
-                        "title": "Apricot",
-                      },
-                    ],
-                    "title": "A",
-                  },
-                  Object {
-                    "suggestions": Array [
-                      Object {
-                        "title": "Banana",
-                      },
-                    ],
-                    "title": "B",
-                  },
-                  Object {
-                    "suggestions": Array [
-                      Object {
-                        "title": "Cherry",
-                      },
-                    ],
-                    "title": "C",
-                  },
-                ]
-      }
+      items={null}
+      multiSection={true}
       noResultText="No result."
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onSelect={[Function]}
       position="left"
       searching={false}
@@ -92,7 +50,7 @@ ShallowWrapper {
   "renderer": ReactShallowRenderer {
     "_instance": ShallowComponentWrapper {
       "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
+      "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <StringCompletionWidget
         fetchItems={[Function]}
@@ -104,9 +62,15 @@ ShallowWrapper {
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": StatelessComponent {
+      "_instance": StringCompletionWidget {
         "_reactInternalInstance": [Circular],
         "context": Object {},
+        "handleBlur": [Function],
+        "handleFocus": [Function],
+        "handleKeyDown": [Function],
+        "handleMouseEnter": [Function],
+        "handleMouseLeave": [Function],
+        "handleSelect": [Function],
         "props": Object {
           "fetchItems": [Function],
           "options": Object {
@@ -114,7 +78,10 @@ ShallowWrapper {
           },
         },
         "refs": Object {},
-        "state": null,
+        "state": Object {
+          "highlightedItemIndex": null,
+          "highlightedSectionIndex": null,
+        },
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -134,40 +101,19 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Typeahead
+          autoFocus={false}
+          focusedItemIndex={null}
+          focusedSectionIndex={null}
           id={42}
-          items={
-                    Array [
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Apple",
-                                  },
-                                  Object {
-                                    "title": "Apricot",
-                                  },
-                                ],
-                                "title": "A",
-                              },
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Banana",
-                                  },
-                                ],
-                                "title": "B",
-                              },
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Cherry",
-                                  },
-                                ],
-                                "title": "C",
-                              },
-                            ]
-          }
+          items={null}
+          multiSection={true}
           noResultText="No result."
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onSelect={[Function]}
           position="left"
           searching={false}
@@ -175,40 +121,19 @@ ShallowWrapper {
           value="" />,
         "_debugID": 2,
         "_renderedOutput": <Typeahead
+          autoFocus={false}
+          focusedItemIndex={null}
+          focusedSectionIndex={null}
           id={42}
-          items={
-                    Array [
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Apple",
-                                  },
-                                  Object {
-                                    "title": "Apricot",
-                                  },
-                                ],
-                                "title": "A",
-                              },
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Banana",
-                                  },
-                                ],
-                                "title": "B",
-                              },
-                              Object {
-                                "suggestions": Array [
-                                  Object {
-                                    "title": "Cherry",
-                                  },
-                                ],
-                                "title": "C",
-                              },
-                            ]
-          }
+          items={null}
+          multiSection={true}
           noResultText="No result."
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onSelect={[Function]}
           position="left"
           searching={false}
@@ -244,10 +169,19 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Typeahead
+    autoFocus={false}
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
     id={42}
-    items={Array []}
+    items={null}
+    multiSection={true}
     noResultText="No result."
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onSelect={[Function]}
     position="left"
     searching={false}
@@ -255,10 +189,19 @@ ShallowWrapper {
     value="" />,
   "nodes": Array [
     <Typeahead
+      autoFocus={false}
+      focusedItemIndex={null}
+      focusedSectionIndex={null}
       id={42}
-      items={Array []}
+      items={null}
+      multiSection={true}
       noResultText="No result."
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onSelect={[Function]}
       position="left"
       searching={false}
@@ -269,7 +212,7 @@ ShallowWrapper {
   "renderer": ReactShallowRenderer {
     "_instance": ShallowComponentWrapper {
       "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
+      "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <StringCompletionWidget
         fetchItems={[Function]}
@@ -277,15 +220,24 @@ ShallowWrapper {
       "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": StatelessComponent {
+      "_instance": StringCompletionWidget {
         "_reactInternalInstance": [Circular],
         "context": Object {},
+        "handleBlur": [Function],
+        "handleFocus": [Function],
+        "handleKeyDown": [Function],
+        "handleMouseEnter": [Function],
+        "handleMouseLeave": [Function],
+        "handleSelect": [Function],
         "props": Object {
           "fetchItems": [Function],
           "options": Object {},
         },
         "refs": Object {},
-        "state": null,
+        "state": Object {
+          "highlightedItemIndex": null,
+          "highlightedSectionIndex": null,
+        },
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -305,10 +257,19 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Typeahead
+          autoFocus={false}
+          focusedItemIndex={null}
+          focusedSectionIndex={null}
           id={42}
-          items={Array []}
+          items={null}
+          multiSection={true}
           noResultText="No result."
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onSelect={[Function]}
           position="left"
           searching={false}
@@ -316,10 +277,19 @@ ShallowWrapper {
           value="" />,
         "_debugID": 4,
         "_renderedOutput": <Typeahead
+          autoFocus={false}
+          focusedItemIndex={null}
+          focusedSectionIndex={null}
           id={42}
-          items={Array []}
+          items={null}
+          multiSection={true}
           noResultText="No result."
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onSelect={[Function]}
           position="left"
           searching={false}

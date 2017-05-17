@@ -38,16 +38,6 @@ describe('StringCompletionWidget', () => {
 		const wrapper = shallow(
 			<StringCompletionWidget options={{}} fetchItems={() => {}} />
 		);
-		expect(wrapper.prop('items')).toEqual([]);
 		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should call fetchItems', () => {
-		const fi = jest.fn();
-		shallow(
-			<StringCompletionWidget options={options} fetchItems={fi} />
-		);
-		expect(fi.mock.calls[0][0]).toBeDefined();
-		expect(fi.mock.calls.length).toBe(1);
 	});
 });

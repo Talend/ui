@@ -1456,7 +1456,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               role="search"
             >
               <div
-                style={Object {}}
+                className="form-control"
               >
                 <div
                   className={undefined}
@@ -1474,11 +1474,12 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                     aria-haspopup={false}
                     aria-owns="react-autowhatever-42"
                     autoComplete="off"
-                    autoFocus={true}
+                    autoFocus={undefined}
                     className="form-control"
                     id="react-autowhatever-42-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={undefined}
                     onKeyDown={undefined}
                     placeholder={undefined}
                     role="combobox"
@@ -2907,7 +2908,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               role="search"
             >
               <div
-                style={Object {}}
+                className="form-control"
               >
                 <div
                   className={undefined}
@@ -2925,11 +2926,12 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                     aria-haspopup={false}
                     aria-owns="react-autowhatever-42"
                     autoComplete="off"
-                    autoFocus={true}
+                    autoFocus={undefined}
                     className="form-control"
                     id="react-autowhatever-42-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={undefined}
                     onKeyDown={undefined}
                     placeholder={undefined}
                     role="combobox"
@@ -5753,7 +5755,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               role="search"
             >
               <div
-                style={Object {}}
+                className="form-control"
               >
                 <div
                   className={undefined}
@@ -5771,11 +5773,12 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                     aria-haspopup={false}
                     aria-owns="react-autowhatever-42"
                     autoComplete="off"
-                    autoFocus={true}
+                    autoFocus={undefined}
                     className="form-control"
                     id="react-autowhatever-42-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={undefined}
                     onKeyDown={undefined}
                     placeholder="Search..."
                     role="combobox"
@@ -7177,7 +7180,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               role="search"
             >
               <div
-                style={Object {}}
+                className="form-control"
               >
                 <div
                   className={undefined}
@@ -7195,11 +7198,12 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                     aria-haspopup={true}
                     aria-owns="react-autowhatever-42"
                     autoComplete="off"
-                    autoFocus={true}
+                    autoFocus={undefined}
                     className="form-control"
                     id="react-autowhatever-42-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={undefined}
                     onKeyDown={undefined}
                     placeholder={undefined}
                     role="combobox"
@@ -7252,7 +7256,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                       >
                         <li
                           id="react-autowhatever-42-section-0-item-0"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >
@@ -7291,7 +7297,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         </li>
                         <li
                           id="react-autowhatever-42-section-0-item-1"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >
@@ -7382,7 +7390,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                       >
                         <li
                           id="react-autowhatever-42-section-1-item-0"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >
@@ -7441,7 +7451,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                       >
                         <li
                           id="react-autowhatever-42-section-2-item-0"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >
@@ -7472,7 +7484,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         </li>
                         <li
                           id="react-autowhatever-42-section-2-item-1"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >
@@ -7503,7 +7517,9 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         </li>
                         <li
                           id="react-autowhatever-42-section-2-item-2"
-                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={undefined}
+                          onMouseLeave={undefined}
                           role="option"
                           style={Object {}}
                         >

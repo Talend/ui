@@ -100,7 +100,7 @@ class StringCompletionWidget extends React.Component {
 				autoFocus={false}
 				items={this.state.items}
 				value={this.props.value || ''}
-				multiSection={this.props.options.multiSection}
+				multiSection={this.props.options ? this.props.options.multiSection : null}
 				onChange={change => this.props.onChange(change.target.value)}
 				onFocus={this.handleFocus}
 				onKeyDown={this.handleKeyDown}

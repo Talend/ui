@@ -1955,7 +1955,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <div
-              style={Object {}}
+              className="form-control"
             >
               <div
                 className={undefined}
@@ -1973,11 +1973,12 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   aria-haspopup={false}
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
-                  autoFocus={true}
+                  autoFocus={undefined}
                   className="form-control"
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={undefined}
                   onKeyDown={undefined}
                   placeholder={undefined}
                   role="combobox"
@@ -7836,7 +7837,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <div
-              style={Object {}}
+              className="form-control"
             >
               <div
                 className={undefined}
@@ -7854,11 +7855,12 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   aria-haspopup={false}
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
-                  autoFocus={true}
+                  autoFocus={undefined}
                   className="form-control"
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={undefined}
                   onKeyDown={undefined}
                   placeholder={undefined}
                   role="combobox"
@@ -9679,7 +9681,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <div
-              style={Object {}}
+              className="form-control"
             >
               <div
                 className={undefined}
@@ -9697,11 +9699,12 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   aria-haspopup={false}
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
-                  autoFocus={true}
+                  autoFocus={undefined}
                   className="form-control"
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={undefined}
                   onKeyDown={undefined}
                   placeholder="Search..."
                   role="combobox"
@@ -11513,7 +11516,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <div
-              style={Object {}}
+              className="form-control"
             >
               <div
                 className={undefined}
@@ -11531,11 +11534,12 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   aria-haspopup={true}
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
-                  autoFocus={true}
+                  autoFocus={undefined}
                   className="form-control"
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={undefined}
                   onKeyDown={undefined}
                   placeholder={undefined}
                   role="combobox"
@@ -11582,7 +11586,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-0-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
@@ -11621,7 +11627,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-0-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
@@ -11716,7 +11724,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-1-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
@@ -11779,7 +11789,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-2-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
@@ -11810,7 +11822,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
@@ -11841,7 +11855,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-2"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={undefined}
+                        onMouseLeave={undefined}
                         role="option"
                         style={Object {}}
                       >
