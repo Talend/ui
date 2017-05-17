@@ -1,11 +1,10 @@
 import React from 'react';
-import classNames from 'classnames';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 import Icon from '../../../Icon';
 
-import css from './Pagination.scss';
+import theme from './Pagination.scss';
 
 const FIRST = 'first';
 const PREV = 'prev';
@@ -28,10 +27,10 @@ function getMenuItem(option, index) {
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
 	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
 	const {
-		first = { name: 'fa fa-backward' },
-		prev = { name: 'fa fa-play', transform: 'rotate-180' },
-		next = { name: 'fa fa-play' },
-		last = { name: 'fa fa-forward' },
+		first = { name: 'talend-chevron-end' },
+		prev = { name: 'talend-chevron-left' },
+		next = { name: 'talend-chevron-left', transform: 'rotate-180' },
+		last = { name: 'talend-chevron-end', transform: 'rotate-180' },
 	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
@@ -63,7 +62,10 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		onChange(from, itemsPerPage);
 	}
 	return (
-		<Nav onSelect={selectedKey => changePageTo(selectedKey)}>
+		<Nav
+			className={theme['tc-pagination']}
+			onSelect={selectedKey => changePageTo(selectedKey)}
+		>
 			<NavDropdown
 				id={id ? `${id}-size` : uuid.v4()}
 				title={getItemsPerPageTitle(itemsPerPage)}
@@ -75,7 +77,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<NavItem
 					eventKey={FIRST}
 					id={id && `${id}-nav-to-first`}
-					className="btn-link"
+					className={'btn-link'}
 					disabled={startIndex === 1}
 				>
 					<Icon {...first} />
@@ -85,7 +87,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<NavItem
 					eventKey={PREV}
 					id={id && `${id}-nav-to-prev`}
-					className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
+					className={'btn-link'}
 					disabled={startIndex === 1}
 				>
 					<Icon {...prev} />
@@ -100,7 +102,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<NavItem
 					eventKey={NEXT}
 					id={id && `${id}-nav-to-next`}
-					className="btn-link"
+					className={'btn-link'}
 					disabled={startIndex + itemsPerPage > totalResults}
 				>
 					<Icon {...next} />
@@ -110,7 +112,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<NavItem
 					eventKey={LAST}
 					id={id && `${id}-nav-to-last`}
-					className="btn-link"
+					className={'btn-link'}
 					disabled={startIndex + itemsPerPage > totalResults}
 				>
 					<Icon {...last} />

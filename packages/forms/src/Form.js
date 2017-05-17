@@ -16,6 +16,8 @@ import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagW
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import StringCompletionWidget from './widgets/StringCompletionWidget';
+import ColumnsWidget from './widgets/ColumnsWidget';
+import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -30,6 +32,8 @@ const customWidgets = {
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
 	stringCompletion: StringCompletionWidget,
+	columns: ColumnsWidget,
+	listview: ListViewWidget,
 };
 
 export function renderActionIcon(icon) {
@@ -50,7 +54,7 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>)
+			</Action>),
 		);
 	}
 	return (<Action
@@ -62,7 +66,6 @@ export function renderActions(actions, handleActionClick) {
 }
 
 class Form extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
@@ -136,7 +139,6 @@ class Form extends React.Component {
 			handleAction: this.props.handleAction,
 			...this.props.formContext,
 		};
-
 		return (
 			<RJSForm
 				{...this.props}
