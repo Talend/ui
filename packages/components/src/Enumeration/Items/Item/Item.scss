@@ -20,7 +20,6 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 	position: relative;
 
 	:global(button:disabled) {
-		height: $tc-enumeration-item-height;
 		padding: 0 $tc-enumeration-normal-padding;
 	}
 
