@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import DebounceInput from 'react-debounce-input';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
@@ -25,7 +27,7 @@ function getAction(action, index) {
 	function onClick(event) {
 		if (action.onClick) {
 			action.onClick(event, {
-				value: inputRef.value,
+				value: inputRef.state.value,
 			});
 		}
 	}
@@ -46,6 +48,13 @@ function getAction(action, index) {
 }
 
 function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+	const inputProps = {
+		onChange: event => onInputChangeHandler(event),
+		onKeyDown: event => onAddKeyDownHandler(event),
+		autoFocus: true,
+	};
+	const debounceTimeout = 300;
+
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -60,15 +69,14 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 
 	return (
 		<header className={headerClasses(headerError)}>
-			<input
-				type="text"
+			<DebounceInput
+				{...inputProps}
+				element={FormControl}
+				debounceTimeout={debounceTimeout}
 				placeholder={inputPlaceholder}
 				ref={(input) => {
 					inputRef = input;
 				}}
-				onChange={onInputChangeHandler}
-				onKeyDown={onAddKeyDownHandler}
-				autoFocus
 			/>
 			{ headerError &&
 			<div className={headerErrorClasses()}>{headerError}</div> }

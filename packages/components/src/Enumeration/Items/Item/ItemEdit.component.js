@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
+import DebounceInput from 'react-debounce-input';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
@@ -44,10 +46,15 @@ class ItemEdit extends React.Component {
 		this.itemChange = this.itemChange.bind(this);
 		this.cancel = this.cancel.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
-	}
-
-	componentDidMount() {
-		this.itemInput.value = this.props.item[this.props.item.itemProps.key].join(',');
+		this.inputProps = {
+			id: this.id,
+			className: itemLabelClasses(),
+			onChange: event => this.itemChange(event),
+			onKeyDown: event => this.onKeyDown(event),
+			autoFocus: true,
+		};
+		this.inputValue = this.props.item[this.props.item.itemProps.key].join(','),
+		this.debounceTimeout = 300;
 	}
 
 	onKeyDown(event) {
@@ -67,7 +74,7 @@ class ItemEdit extends React.Component {
 		const indexItem = this.props.item.index;
 		if (action.onClick) {
 			action.onClick(event, {
-				value: this.itemInput.value,
+				value: this.itemInput.state.value,
 				index: indexItem,
 			});
 		}
@@ -98,6 +105,7 @@ class ItemEdit extends React.Component {
 	}
 
 	itemChange(event) {
+		this.inputValue = event.target.value;
 		return this.props.item.itemProps.onChangeItem(event, {
 			value: event.target.value,
 			model: this.props.item,
@@ -112,7 +120,6 @@ class ItemEdit extends React.Component {
 			index: this.props.item.index,
 		});
 	}
-
 
 	render() {
 		function updateDisabledStatus(action, currentEdit) {
@@ -132,15 +139,14 @@ class ItemEdit extends React.Component {
 
 		return (
 			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
-				<input
-					className={itemLabelClasses()}
+				<DebounceInput
+					{...this.inputProps}
+					element={FormControl}
+					debounceTimeout={this.debounceTimeout}
 					ref={(input) => {
 						this.itemInput = input;
 					}}
-					type="text"
-					onKeyDown={this.onKeyDown}
-					onChange={this.itemChange}
-					autoFocus
+					value={this.inputValue}
 				/>
 				<div className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
