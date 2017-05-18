@@ -599,9 +599,8 @@ exports[`Toolbar should render sort selector 1`] = `
             >
               <a
                 href="#"
-                id="my-toolbar-sort-by-item-id"
+                id={0}
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
               >
@@ -615,9 +614,8 @@ exports[`Toolbar should render sort selector 1`] = `
             >
               <a
                 href="#"
-                id="my-toolbar-sort-by-item-name"
+                id="1-by-item-name"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
               >
