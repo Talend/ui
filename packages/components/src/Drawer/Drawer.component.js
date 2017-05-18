@@ -3,6 +3,7 @@ import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
+import TabBar from '../TabBar';
 
 import theme from './Drawer.scss';
 
@@ -151,6 +152,7 @@ function Drawer({
 	children,
 	footerActions,
 	onCancelAction,
+	tabs,
 	withTransition = true,
 }) {
 	if (!children) {
@@ -164,6 +166,7 @@ function Drawer({
 			withTransition={withTransition}
 		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
+			{tabs && (<TabBar {...tabs} />)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
@@ -183,6 +186,7 @@ Drawer.propTypes = {
 	// footer action, see action bar for api
 	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
 	onCancelAction: PropTypes.shape(Action.propTypes),
+	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
 };
 
