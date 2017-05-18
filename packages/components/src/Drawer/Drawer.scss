@@ -16,6 +16,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 .tc-drawer {
+	pointer-events: all;
 	background-color: $tc-drawer-bgcolor;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	position: absolute;
