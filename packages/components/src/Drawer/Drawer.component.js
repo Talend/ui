@@ -26,8 +26,8 @@ class DrawerAnimation extends React.Component {
 				{...rest}
 				onTransitionComplete={this.handleTransitionComplete}
 				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', 500, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', 500, 'ease-in-out') }}
+				enterStyle={{ transform: transit('translateX(0%)', 350, 'ease-in-out') }}
+				leaveStyle={{ transform: transit('translateX(100%)', 350, 'ease-in-out') }}
 				activeStyle={{ transform: 'translateX(0%)' }}
 			>
 				{React.cloneElement(children, this.state)}
