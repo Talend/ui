@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react';
 import UIFormComponent from './UIForm.component';
 
-import { modelReducer, validationReducer } from './reducers';
-import { mutateValue, validate, validateAll } from './actions';
+import { formReducer, modelReducer, validationReducer } from './reducers';
+import { createForm, changeForm, mutateValue, validate, validateAll } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			properties: { ...props.data.properties },
-			errors: {},
-		};
+
+		const action = createForm(
+			this.props.formName,
+			this.props.data.jsonSchema,
+			this.props.data.uiSchema,
+			this.props.data.properties,
+		);
+		this.state = formReducer(undefined, action)[this.props.formName];
 
 		this.onChange = this.onChange.bind(this);
+		this.onFormChange = this.onFormChange.bind(this);
 		this.onValidate = this.onValidate.bind(this);
 		this.onValidateAll = this.onValidateAll.bind(this);
 	}
@@ -20,11 +25,12 @@ export default class UIForm extends React.Component {
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
+	 * @param formName The form name
 	 * @param schema The schema
 	 * @param value The new value
 	 * @param error The validation error
 	 */
-	onChange(schema, value, error) {
+	onChange(formName, schema, value, error) {
 		const action = mutateValue(this.props.formName, schema, value, error);
 		this.setState(
 			{
@@ -41,6 +47,23 @@ export default class UIForm extends React.Component {
 				}
 			}
 		);
+	}
+
+	/**
+	 * Update the form, the model and errors
+	 * @param formName The form name
+	 * @param schema The schema
+	 * @param values The values
+	 * @param errors The validation errors
+	 */
+	onFormChange(formName, schema, values, errors) {
+		const action = changeForm(formName, schema, values, errors);
+		const nextState = formReducer(
+			{ [formName]: this.state },
+			action
+		)[formName];
+
+		this.setState(nextState);
 	}
 
 	/**
@@ -64,17 +87,22 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const { data, ...restProps } = this.props;
-		const { properties, errors } = this.state;
+		const { jsonSchema, uiSchema, properties, errors } = this.state;
 
 		return (
 			<UIFormComponent
-				{...restProps}
-				jsonSchema={data.jsonSchema}
-				uiSchema={data.uiSchema}
+				formName={this.props.formName}
+				jsonSchema={jsonSchema}
+				uiSchema={uiSchema}
 				properties={properties}
 				errors={errors}
+
+				customValidation={this.props.customValidation}
+				onSubmit={this.props.onSubmit}
+				onTrigger={this.props.onTrigger}
+
 				onChange={this.onChange}
+				onFormChange={this.onFormChange}
 				onValidate={this.onValidate}
 				onValidateAll={this.onValidateAll}
 			/>

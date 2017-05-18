@@ -41,9 +41,17 @@ export default class UIForm extends React.Component {
 	 * @param value The new value
 	 */
 	onChange(event, schema, value) {
-		const { formName, onChange, onTrigger, onValidate, properties, customValidation } = this.props;
+		const {
+			formName,
+			onChange,
+			onTrigger,
+			onFormChange,
+			onValidate,
+			properties,
+			customValidation,
+		} = this.props;
 		const error = validateValue(schema, value, properties, customValidation);
-		onChange(schema, value, error);
+		onChange(formName, schema, value, error);
 
 		const { triggers } = schema;
 		if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
@@ -52,8 +60,14 @@ export default class UIForm extends React.Component {
 				schema,         // field schema
 				value           // field value
 			)
-				.then(() => {})
-				.catch(({ errors }) => onValidate(formName, errors));
+				.then(newForm => onFormChange(
+					formName,
+					newForm.jsonSchema,
+					newForm.uiSchema,
+					newForm.properties,
+					newForm.errors)
+				)
+				.catch(({ errors }) => { console.log(errors); onValidate(formName, errors); });
 		}
 	}
 
@@ -129,8 +143,11 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		onTrigger: PropTypes.func,
 
+
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
+		/** State management impl: The form change callback */
+		onFormChange: PropTypes.func.isRequired,
 		/** State management impl: Partial fields validation callback */
 		onValidate: PropTypes.func,
 		/** State management impl: All fields validation callback */

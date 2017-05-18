@@ -1,4 +1,11 @@
-import { CREATE_FORM, REMOVE_FORM, MUTATE_VALUE, VALIDATE_ALL, VALIDATE_PARTIAL } from '../actions';
+import {
+	CREATE_FORM,
+	CHANGE_FORM,
+	REMOVE_FORM,
+	MUTATE_VALUE,
+	VALIDATE_ALL,
+	VALIDATE_PARTIAL,
+} from '../actions';
 import { omit } from '../utils/properties';
 import modelReducer from './model.reducer';
 import validationsReducer from './validations.reducer';
@@ -23,8 +30,25 @@ export default function formReducer(state = {}, action) {
 		return {
 			...state,
 			[action.formName]: {
+				jsonSchema: action.jsonSchema,
+				uiSchema: action.uiSchema,
 				properties: action.properties || {},
 				errors: action.errors || {},
+			},
+		};
+	}
+	case CHANGE_FORM: {
+		const form = state[action.formName];
+		if (!form) {
+			return state;
+		}
+		return {
+			...state,
+			[action.formName]: {
+				jsonSchema: action.jsonSchema || form.jsonSchema,
+				uiSchema: action.uiSchema || form.uiSchema,
+				properties: action.properties || form.properties,
+				errors: action.errors || form.errors,
 			},
 		};
 	}

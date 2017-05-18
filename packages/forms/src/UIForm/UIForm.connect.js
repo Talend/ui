@@ -5,6 +5,7 @@ import UIFormComponent from './UIForm.component';
 
 import {
 	createForm,
+	changeForm,
 	removeForm,
 	mutateValue,
 	validate,
@@ -23,6 +24,8 @@ class UIForm extends React.Component {
 	componentWillMount() {
 		this.props.createForm(
 			this.props.formName,
+			this.props.data.jsonSchema,
+			this.props.data.uiSchema,
 			this.props.data.properties,
 		);
 	}
@@ -37,13 +40,14 @@ class UIForm extends React.Component {
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
+	 * @param formName The form name
 	 * @param schema The schema
 	 * @param value The new value
 	 * @param error The validation error
 	 */
-	onChange(schema, value, error) {
+	onChange(formName, schema, value, error) {
 		this.props.mutateValue(
-			this.props.formName,
+			formName,
 			schema,
 			value,
 			error
@@ -58,16 +62,24 @@ class UIForm extends React.Component {
 	}
 
 	render() {
-		const { data, form, ...restProps } = this.props;
+		const { form } = this.props;
 
 		return (
 			<UIFormComponent
-				{...restProps}
-				jsonSchema={data.jsonSchema}
-				uiSchema={data.uiSchema}
+				formName={this.props.formName}
+				jsonSchema={form.jsonSchema}
+				uiSchema={form.uiSchema}
 				properties={form.properties}
 				errors={form.errors}
+
+				customValidation={this.props.customValidation}
+				onSubmit={this.props.onSubmit}
+				onTrigger={this.props.onTrigger}
+
 				onChange={this.onChange}
+				onFormChange={this.props.onFormChange}
+				onValidate={this.props.onValidate}
+				onValidateAll={this.props.onValidateAll}
 			/>
 		);
 	}
@@ -75,7 +87,7 @@ class UIForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
-		/** Form schema configuration */
+		/** Form schema initial configuration */
 		data: PropTypes.shape({
 			/** Json schema that specify the data model */
 			jsonSchema: PropTypes.object,
@@ -112,6 +124,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is injected by react-redux. See mapStateToProps
 		 */
 		form: PropTypes.shape({
+			/** Json schema that specify the data model */
+			jsonSchema: PropTypes.object,
+			/** UI schema that specify how to render the fields */
+			uiSchema: PropTypes.array,
 			/** Form properties values */
 			properties: PropTypes.object,
 			/** Form validations errors */
@@ -133,6 +149,16 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		mutateValue: PropTypes.func,
 		/**
+		 * Form change action.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		onFormChange: PropTypes.func,
+		/**
+		 * Partial form validation action.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		onValidate: PropTypes.func,
+		/**
 		 * Form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
@@ -142,6 +168,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 UIForm.defaultProps = {
 	form: {
+		jsonSchema: {},
+		uiSchema: [],
 		properties: {},
 		errors: {},
 	},
@@ -156,6 +184,7 @@ function mapDispatchToProps(dispatch) {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
 		mutateValue: bindActionCreators(mutateValue, dispatch),
+		onFormChange: bindActionCreators(changeForm, dispatch),
 		onValidate: bindActionCreators(validate, dispatch),
 		onValidateAll: bindActionCreators(validateAll, dispatch),
 	};
