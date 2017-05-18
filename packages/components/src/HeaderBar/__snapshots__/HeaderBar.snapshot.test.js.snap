@@ -1222,8 +1222,6 @@ exports[`Storyshots HeaderBar default 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -1307,8 +1305,6 @@ exports[`Storyshots HeaderBar default 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -1392,13 +1388,35 @@ exports[`Storyshots HeaderBar default 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -3084,8 +3102,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -3169,8 +3185,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -3254,13 +3268,35 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -5031,8 +5067,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -5116,8 +5150,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -5201,13 +5233,35 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -7103,8 +7157,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -7188,8 +7240,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -7273,13 +7323,35 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -8946,8 +9018,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -9031,8 +9101,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -9116,13 +9184,35 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -10780,8 +10870,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -10865,8 +10953,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -10950,13 +11036,35 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -13691,8 +13799,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                       Data Preparation
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -13776,8 +13882,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                       Integration Cloud
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
@@ -13861,13 +13965,35 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                       Management Console
                                       "
                                     </span>
-                                    , 
-                                    …
                                     }
                                   </span>
                                   }
                                 </span>
                                 ]
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              onSelect
+                            </span>
+                            : 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#170",
+                                  }
+                                }
+                              >
+                                anonymous()
                               </span>
                               }
                             </span>
