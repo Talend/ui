@@ -1,8 +1,13 @@
 $tc-progress-color: $brand-success !default;
-$gradient-part-width: 100%/6;
+$gradient-part-width: 100% / 6;
 @keyframes infinite-progression-keyframes {
-	0% { background-position-x: 100%; }
-	100% { background-position-x: 0%; }
+	0% {
+		background-position-x: 100%;
+	}
+
+	100% {
+		background-position-x: 0%;
+	}
 }
 
 .progress {
@@ -42,11 +47,11 @@ $gradient-part-width: 100%/6;
 
 			background-image: linear-gradient(to right,
 				$tc-progress-color 0%, $tc-progress-color $gradient-part-width,
-				transparent $gradient-part-width, transparent 2*$gradient-part-width,
-				$tc-progress-color 2*$gradient-part-width, $tc-progress-color 3*$gradient-part-width,
-				transparent 3*$gradient-part-width, transparent 4*$gradient-part-width,
-				$tc-progress-color 4*$gradient-part-width, $tc-progress-color 5*$gradient-part-width,
-				transparent 5*$gradient-part-width, transparent 100%
+				transparent $gradient-part-width, transparent 2 * $gradient-part-width,
+				$tc-progress-color 2 * $gradient-part-width, $tc-progress-color 3 * $gradient-part-width,
+				transparent 3 * $gradient-part-width, transparent 4 * $gradient-part-width,
+				$tc-progress-color 4 * $gradient-part-width, $tc-progress-color 5 * $gradient-part-width,
+				transparent 5 * $gradient-part-width, transparent 100%
 			);
 		}
 	}
