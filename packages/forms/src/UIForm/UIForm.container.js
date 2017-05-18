@@ -33,11 +33,11 @@ export default class UIForm extends React.Component {
 			},
 			() => {
 				if (this.props.onChange) {
-					this.props.onChange({
-						jsonSchema: this.props.data.jsonSchema,
-						uiSchema: this.props.data.uiSchema,
-						properties: this.state.properties,
-					});
+					this.props.onChange(
+						this.state.properties,
+						schema,
+						value
+					);
 				}
 			}
 		);

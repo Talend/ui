@@ -49,11 +49,11 @@ class UIForm extends React.Component {
 			error
 		);
 		if (this.props.onChange) {
-			this.props.onChange({
-				jsonSchema: this.props.data.jsonSchema,
-				uiSchema: this.props.data.uiSchema,
-				properties: this.props.form.properties, // TODO fix that, old props
-			});
+			this.props.onChange(
+				this.props.form.properties, // TODO fix that, old props
+				schema,
+				value
+			);
 		}
 	}
 
