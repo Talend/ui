@@ -91,6 +91,28 @@ const basicProps = {
 	multiSelectActions,
 };
 
+const tabs = {
+	items: [{
+		id: '1',
+		key: 'info',
+		label: 'Info',
+	}, {
+		id: '2',
+		key: 'navigator',
+		label: 'Navigator',
+	}, {
+		id: '3',
+		key: 'profile',
+		label: 'Profile',
+	}, {
+		id: '4',
+		key: 'metrics',
+		label: 'Metrics',
+	}],
+	onSelect: action('Tab clicked'),
+	selected: 'navigator',
+};
+
 function scrollableContent() {
 	const content = [];
 	for (let i = 0; i < 42; i += 1) {
@@ -112,12 +134,13 @@ const drawers = [
 	</Drawer>),
 ];
 
+const sidePanel = (<SidePanel
+	actions={actions}
+	onToggleDock={action('Toggle dock clicked')}
+/>);
+
 storiesOf('Drawer', module)
 	.addWithInfo('Default', () => {
-		const sidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-		/>);
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -152,10 +175,6 @@ storiesOf('Drawer', module)
 				{scrollableContent()}
 			</Drawer>),
 		];
-		const sidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-		/>);
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -169,6 +188,28 @@ storiesOf('Drawer', module)
 			>
 				<span>zone with drawer</span>
 				{rows}
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('With tabs', () => {
+		const drawersWithTabs = [(
+			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
+				<p>The content</p>
+			</Drawer>
+		), (
+			<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
+				<p>The content</p>
+			</Drawer>
+		)];
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={drawersWithTabs}
+			>
+				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
@@ -228,10 +269,6 @@ storiesOf('Drawer', module)
 				</Tab.Container>
 			</Drawer.Container>
 		)];
-		const sidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-		/>);
 		return (
 			<Layout
 				header={header}

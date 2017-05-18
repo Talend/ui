@@ -70,6 +70,17 @@ const settings = {
 				},
 			},
 		},
+		'menu:routerPush': {
+			id: 'routerPush',
+			name: 'Menu',
+			icon: 'fa-bars',
+			payload: {
+				type: 'TEST_MENU',
+				cmf: {
+					routerReplace: '/push',
+				},
+			},
+		},
 	},
 	views: {
 		appmenu: {
