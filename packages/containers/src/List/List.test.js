@@ -52,7 +52,6 @@ const settings = {
 	actions,
 };
 
-
 const items = [
 	{
 		id: 1,
@@ -84,10 +83,14 @@ const items = [
 ];
 
 describe('Container List', () => {
+	beforeEach(() => {
+		localStorage.clear();
+	});
+
 	it('should put default props', () => {
 		const wrapper = shallow(
 			<Container {...settings} items={items} />
-		, { lifecycleExperimental: true });
+			, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
@@ -108,7 +111,7 @@ describe('Container List', () => {
 	it('should render without toolbar', () => {
 		const wrapper = shallow(
 			<Container items={items} />
-		, { lifecycleExperimental: true });
+			, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
@@ -116,7 +119,7 @@ describe('Container List', () => {
 	it('should support displayMode as props', () => {
 		const wrapper = shallow(
 			<Container displayMode="large" items={items} />
-		, { lifecycleExperimental: true });
+			, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -131,10 +134,10 @@ describe('Container List', () => {
 		};
 		const wrapper = shallow(
 			<Container {...settings} items={items} dispatchActionCreator={dispatchActionCreator} />
-		, {
-			lifecycleExperimental: true,
-			context,
-		});
+			, {
+				lifecycleExperimental: true,
+				context,
+			});
 		const props = wrapper.props();
 		const onClick = props.list.titleProps.onClick;
 		const e = {};
@@ -180,6 +183,65 @@ describe('Container List', () => {
 		// then
 		expect(dispatchActionCreator).toBeCalledWith("pagination:change", event, data, context);
 	});
+
+	it('should set things in local storage', () => {
+		const instance = new Container({ localStorageKey: 'testList' });
+		expect(instance.getStoredInformations()).toEqual({});
+		expect(localStorage.getItem('testList')).toBeUndefined();
+		instance.storeInformations({ test: 'value' });
+		expect(instance.getStoredInformations()).toEqual({ test: 'value' });
+		expect(localStorage.getItem('testList')).toBeDefined();
+	});
+
+	it('should not set things in local storage when there is no localStorageKey given', () => {
+		const instance = new Container({});
+		expect(instance.getStoredInformations()).toEqual({});
+		instance.storeInformations({ test: 'value' });
+		expect(instance.getStoredInformations()).toEqual({});
+	});
+
+	it('should set things in local storage with some functions', () => {
+		const instance = new Container({
+			localStorageKey: 'testList',
+			setState: jest.fn(),
+			state: {
+				get: () => false,
+			},
+		});
+		expect(instance.getStoredInformations()).toEqual({});
+		expect(localStorage.getItem('testList')).toBeUndefined();
+
+		instance.onSelectSortBy(null, { field: 'name', isDescending: true });
+		expect(instance.getStoredInformations()).toEqual({ sortOn: 'name', sortAsc: false });
+
+		instance.onSelectDisplayMode(null, 'table');
+		expect(instance.getStoredInformations()).toEqual({
+			sortOn: 'name',
+			sortAsc: false,
+			displayMode: 'table',
+		});
+
+		instance.onToggle();
+		expect(instance.getStoredInformations()).toEqual({
+			sortOn: 'name',
+			sortAsc: false,
+			displayMode: 'table',
+			filterDocked: true,
+			searchQuery: '',
+		});
+
+		instance.onFilter(null, 'hi there');
+		expect(instance.getStoredInformations()).toEqual({
+			sortOn: 'name',
+			sortAsc: false,
+			displayMode: 'table',
+			filterDocked: true,
+			searchQuery: 'hi there',
+		});
+
+		expect(localStorage.getItem('testList')).toBeDefined();
+	});
+
 });
 
 describe('Connected List', () => {
