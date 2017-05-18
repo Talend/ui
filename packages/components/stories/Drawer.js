@@ -157,7 +157,7 @@ storiesOf('Drawer', module)
 			onToggleDock={action('Toggle dock clicked')}
 		/>);
 		const rows = [];
-		for (let index = 0; index < 20; index++) {
+		for (let index = 0; index < 50; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
 		}
 		return (

@@ -1,27 +1,45 @@
 import React, { PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 
 import theme from './Drawer.scss';
 
-function DrawerAnimation({ children }) {
-	return (
-		<ReactCSSTransitionGroup
-			transitionName="tc-with-drawer-wrapper"
-			transitionAppear
-			transitionAppearTimeout={230}
-			transitionEnterTimeout={230}
-			transitionLeaveTimeout={230}
-		>
-			{children}
-		</ReactCSSTransitionGroup>
-	);
+class DrawerAnimation extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
+		this.state = { transitioned: false };
+	}
+
+	handleTransitionComplete() {
+		this.props.onTransitionComplete();
+		this.setState({ transitioned: true });
+	}
+
+	render() {
+		const { children, ...rest } = this.props;
+		return (
+			<CSSTransition
+				{...rest}
+				onTransitionComplete={this.handleTransitionComplete}
+				defaultStyle={{ transform: 'translateX(100%)' }}
+				enterStyle={{ transform: transit('translateX(0%)', 500, 'ease-in-out') }}
+				leaveStyle={{ transform: transit('translateX(100%)', 500, 'ease-in-out') }}
+				activeStyle={{ transform: 'translateX(0%)' }}
+			>
+				{React.cloneElement(children, this.state)}
+			</CSSTransition>
+		);
+	}
+
 }
 
 DrawerAnimation.propTypes = {
 	children: PropTypes.node,
+	onTransitionComplete: PropTypes.func.isRequired,
 };
 
 function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {

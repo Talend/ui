@@ -6,7 +6,24 @@
 
 .tc-with-drawer-container {
 	height: 100%;
+	width: 100%;
+	top: 0;
+	right: 0;
+}
+
+.tc-with-drawer-container > div {
+	height: 100%;
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 100%;
+}
+
+.tc-with-drawer-container > div {
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) > :global(.stacked) {
+			$width: 100% - (($i * 2) - 2);
+			width: $width;
+		}
+	}
 }
