@@ -16,6 +16,7 @@ export default class UIForm extends React.Component {
 		console.log(this.state.mergedSchema)
 
 		this.onChange = this.onChange.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 		this.submit = this.submit.bind(this);
 	}
 
@@ -37,6 +38,7 @@ export default class UIForm extends React.Component {
 	 * Triggers the onTrigger and onChange if needed
 	 * - onChange : at each field change
 	 * - onTrigger : when schema.trigger : ['after']
+	 * @param event The event that triggered the callback
 	 * @param schema The field schema
 	 * @param value The new value
 	 */
@@ -44,9 +46,6 @@ export default class UIForm extends React.Component {
 		const {
 			formName,
 			onChange,
-			onTrigger,
-			onFormChange,
-			onValidate,
 			properties,
 			customValidation,
 		} = this.props;
@@ -54,21 +53,38 @@ export default class UIForm extends React.Component {
 		onChange(formName, schema, value, error);
 
 		const { triggers } = schema;
-		if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
-			onTrigger(
-				properties,     // current properties values
-				schema,         // field schema
-				value           // field value
-			)
-				.then(newForm => onFormChange(
-					formName,
-					newForm.jsonSchema,
-					newForm.uiSchema,
-					newForm.properties,
-					newForm.errors)
-				)
-				.catch(({ errors }) => { console.log(errors); onValidate(formName, errors); });
+		if (triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
+			this.onTrigger(event, TRIGGER_AFTER, schema, value, properties);
 		}
+	}
+
+	/**
+	 * Triggers an onTrigger callback that is allowed to modify the form
+	 * @param event The event that triggered the callback
+	 * @param type The type of trigger
+	 * @param schema The field schema
+	 * @param value The field value
+	 */
+	onTrigger(event, type, schema, value) {
+		const { formName, onFormChange, onTrigger, onValidate, properties } = this.props;
+		if (!onTrigger) {
+			return;
+		}
+
+		onTrigger(
+			type,           // type of trigger
+			schema,         // field schema
+			value,          // field value
+			properties,     // current properties values
+		)
+			.then(newForm => onFormChange(
+				formName,
+				newForm.jsonSchema,
+				newForm.uiSchema,
+				newForm.properties,
+				newForm.errors)
+			)
+			.catch(({ errors }) => onValidate(formName, errors));
 	}
 
 	/**
@@ -90,15 +106,16 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const { errors, formName, properties } = this.props;
+		const { autoComplete, errors, formName, properties } = this.props;
 		return (
-			<form onSubmit={this.submit}>
+			<form onSubmit={this.submit} autoComplete={autoComplete}>
 				{
 					this.state.mergedSchema.map((nextSchema, index) => (
 						<Widget
 							key={index}
 							formName={formName}
 							onChange={this.onChange}
+							onTrigger={this.onTrigger}
 							schema={nextSchema}
 							properties={properties}
 							errors={errors}
@@ -113,6 +130,8 @@ export default class UIForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
+		/** Form auto complete */
+		autoComplete: PropTypes.bool,
 		/** Form definition: The form name that will be used to create ids */
 		formName: PropTypes.string,
 		/** Form definition: Json schema that specify the data model */
@@ -129,7 +148,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/**
 		 * User callback: Custom validation function.
-		 * Prototype: function customValidation(properties, fieldName, value)
+		 * Prototype: function customValidation(schema, value, properties)
 		 * Return format : errorMessage String | falsy
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
@@ -138,7 +157,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * User callback: Trigger > after callback.
-		 * Prototype: function onTrigger(properties, schema, value)
+		 * Prototype: function onTrigger(type, schema, value, properties)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

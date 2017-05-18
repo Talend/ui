@@ -9,6 +9,16 @@ Schemas format changes
 TODO
 
 On change callback api change
+TODO
+status --> -
+schema --> jsonSchema
+uiSchema --> uiSchema
+idSchema --> -
+formData --> properties
+edit --> -
+errors --> -
+errorSchema --> -
+
 On trigger callback api change
 TODO
 

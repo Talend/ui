@@ -50,23 +50,23 @@ sampleFilenames
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 			const props = {
-				customValidation(properties, schema, value) {
-					action('customValidation')(properties, schema, value);
+				autocomplete: 'off',
+				// onBlur: action('Blur'),
+				customValidation(schema, value, properties) {
+					action('customValidation')(schema, value, properties);
 					return value.length >= 5 &&
 						'Custom validation : The value should be less than 5 chars';
 				},
 				formName: 'my-form',
 				onChange: action('Change'),
-				onTrigger(properties, schema, value) {
-					action('Trigger')(properties, schema, value);
+				onTrigger(type, schema, value, properties) {
+					action('Trigger')(type, schema, value, properties);
 					const key = schema.key[schema.key.length - 1];
 					return key.includes('fail') ?
 						Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
 						Promise.resolve({});
 				},
 				onSubmit: action('Submit'),
-				// autocomplete: 'off',
-				// onBlur: action('Blur'),
 			};
 			decoratedStories.add(capitalizedSampleName, () => (
 				<section>

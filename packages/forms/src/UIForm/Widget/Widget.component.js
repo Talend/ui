@@ -4,7 +4,7 @@ import { sfPath } from 'talend-json-schema-form-core';
 import widgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
-export default function Widget({ errors, formName, onChange, properties, schema }) {
+export default function Widget({ errors, formName, onChange, onTrigger, properties, schema }) {
 	const { key, type, validationMessage } = schema;
 	const id = sfPath.name(key, '-', formName);
 	const error = errors[key];
@@ -19,6 +19,7 @@ export default function Widget({ errors, formName, onChange, properties, schema 
 				formName={formName}
 				isValid={!error}
 				onChange={onChange}
+				onTrigger={onTrigger}
 				properties={properties}
 				schema={schema}
 				errors={errors}
@@ -32,6 +33,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formName: PropTypes.string,
 		onChange: PropTypes.func,
+		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
 			key: PropTypes.array,
 			type: PropTypes.string.isRequired,

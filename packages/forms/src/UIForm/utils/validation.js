@@ -13,7 +13,7 @@ import { getValue } from '../utils/properties';
 export function validateValue(schema, value, properties, customValidationFn) {
 	const staticResult = validate(schema, value);
 	if (staticResult.valid && schema.customValidation && customValidationFn) {
-		return customValidationFn(properties, schema, value);
+		return customValidationFn(schema, value, properties);
 	}
 	return staticResult.valid ? null : staticResult.error.message;
 }
