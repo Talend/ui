@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import { CSSTransitionGroup } from 'react-css-transition';
+
 import Drawer from '../Drawer';
 
 import theme from './withDrawer.scss';
@@ -23,13 +25,13 @@ function WithDrawer({ drawers, children }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
-			<Drawer.Animation className={theme['tc-with-drawer-container']}>
+			<CSSTransitionGroup transitionAppear className={theme['tc-with-drawer-container']}>
 				{drawers && drawers.map((drawer, key) => (
-					<div key={key} className="tc-with-drawer-wrapper">
+					<Drawer.Animation key={key} className="tc-with-drawer-wrapper">
 						{drawer}
-					</div>
+					</Drawer.Animation>
 				))}
-			</Drawer.Animation>
+			</CSSTransitionGroup>
 		</div>
 	);
 }
