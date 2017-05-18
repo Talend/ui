@@ -75,7 +75,7 @@ storiesOf('SidePanel', module)
 				actions={items}
 				onSelect={action('onItemSelect')}
 				onToggleDock={action('onToggleDock')}
-				selected="datasets"
+				selected={items[1]}
 				tooltipPlacement="top"
 			/>
 		</div>

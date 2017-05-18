@@ -3371,17 +3371,87 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                       <span
                         style={Object {}}
                       >
-                        <span
-                          style={
-                            Object {
-                              "color": "#22a",
-                              "wordBreak": "break-word",
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
                             }
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              key
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              datasets
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              label
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              Datasets
+                              "
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              icon
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              "
+                              talend-download
+                              "
+                            </span>
+                            }
+                          </span>
                           }
-                        >
-                          "
-                          datasets
-                          "
                         </span>
                       </span>
                     </span>

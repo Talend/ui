@@ -25,6 +25,7 @@ import theme from './SidePanel.scss';
  *
  */
 function SidePanel(props) {
+	const { selected, onSelect } = props;
 	const actions = props.actions || [];
 
 	const dockedCSS = { [theme.docked]: props.docked };
@@ -39,8 +40,8 @@ function SidePanel(props) {
 		theme['action-list'],
 	);
 	const isActionSelected = (action) => {
-		if (props.selected) {
-			return action.key === props.selected;
+		if (selected) {
+			return action === selected;
 		}
 		return action.active;
 	};
@@ -74,8 +75,8 @@ function SidePanel(props) {
 							role="link"
 							className={theme.link}
 							onClick={(event) => {
-								if (props.onSelect) {
-									props.onSelect(event, action);
+								if (onSelect) {
+									onSelect(event, action);
 								}
 								if (action.onClick) {
 									action.onClick(event);
