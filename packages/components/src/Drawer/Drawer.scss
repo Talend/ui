@@ -99,6 +99,15 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	}
 }
 
-// :global(.tc-with-drawer-wrapper) > .tc-drawer {
-// 	transform: translateX(0%);
-// }
+:global(.tc-with-drawer-wrapper) > :global(.tc-drawer.stacked)::after {
+	background: rgba(0, 0, 0, 0.4);
+	content: ' ';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+
+:global(.tc-with-drawer-wrapper:last-child) > :global(.tc-drawer.stacked)::after {
+	content: none;
+}
