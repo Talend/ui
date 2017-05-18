@@ -62,9 +62,15 @@ export default class UIForm extends React.Component {
 	submit(event) {
 		event.preventDefault();
 		const { mergedSchema } = this.state;
-		const { properties, validation } = this.props;
+		const { formName, properties, validation } = this.props;
 		const errors = validateAll(mergedSchema, properties, validation);
-		this.props.onSubmit(event, properties, errors);
+
+		const isValid = !Object.keys(errors).length;
+		if (isValid) {
+			this.props.onSubmit(event, properties);
+		} else {
+			this.props.onValidateAll(formName, errors);
+		}
 	}
 
 	render() {
@@ -107,6 +113,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
+		/** All fields validation callback */
+		onValidateAll: PropTypes.func,
 		/** Form fields values. Note that it should contains @definitionName for triggers. */
 		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		/** UI schema that specify how to render the fields */

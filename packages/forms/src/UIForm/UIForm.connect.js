@@ -13,13 +13,7 @@ import {
 class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			properties: { ...props.data.properties },
-			errors: {},
-		};
-
 		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	/**
@@ -62,25 +56,6 @@ class UIForm extends React.Component {
 		}
 	}
 
-	/**
-	 * Triggers submit callback if form is valid
-	 * @param event the submit event
-	 * @param properties the properties values
-	 * @param errors the validations errors
-	 */
-	onSubmit(event, properties, errors) {
-		event.preventDefault();
-		const isValid = !Object.keys(errors).length;
-		if (isValid) {
-			this.props.onSubmit(event, properties);
-		} else {
-			this.props.validateAll(
-				this.props.formName,
-				errors
-			);
-		}
-	}
-
 	render() {
 		const { data, form, ...restProps } = this.props;
 
@@ -92,7 +67,6 @@ class UIForm extends React.Component {
 				properties={form.properties}
 				errors={form.errors}
 				onChange={this.onChange}
-				onSubmit={this.onSubmit}
 			/>
 		);
 	}
@@ -161,7 +135,7 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
-		validateAll: PropTypes.func,
+		onValidateAll: PropTypes.func,
 	};
 }
 
@@ -181,7 +155,7 @@ function mapDispatchToProps(dispatch) {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
 		mutateValue: bindActionCreators(mutateValue, dispatch),
-		validateAll: bindActionCreators(validateAll, dispatch),
+		onValidateAll: bindActionCreators(validateAll, dispatch),
 	};
 }
 

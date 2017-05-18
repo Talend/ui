@@ -13,7 +13,7 @@ export default class UIForm extends React.Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.onValidateAll = this.onValidateAll.bind(this);
 	}
 
 	/**
@@ -56,19 +56,13 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
-	 * Triggers submit callback if form is valid
-	 * @param event the submit event
-	 * @param properties the properties values
+	 * Set all fields validation in state
+	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	onSubmit(event, properties, errors) {
-		const isValid = !Object.keys(errors).length;
-		if (isValid) {
-			this.props.onSubmit(event, properties);
-		} else {
-			const action = validateAll(this.props.formName, errors);
-			this.setState({ errors: validationReducer(this.state.errors, action) });
-		}
+	onValidateAll(formName, errors) {
+		const action = validateAll(formName, errors);
+		this.setState({ errors: validationReducer(this.state.errors, action) });
 	}
 
 	render() {
@@ -83,7 +77,7 @@ export default class UIForm extends React.Component {
 				properties={properties}
 				errors={errors}
 				onChange={this.onChange}
-				onSubmit={this.onSubmit}
+				onValidateAll={this.onValidateAll}
 			/>
 		);
 	}
