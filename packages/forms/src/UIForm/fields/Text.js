@@ -12,7 +12,7 @@ function convertValue(type, value) {
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { description, placeholder, readOnly, title, type } = schema;
+	const { autoFocus, description, placeholder, readOnly, title, type } = schema;
 
 	const groupsClassNames = classNames(
 		'form-group',
@@ -22,6 +22,7 @@ export default function Text(props) {
 		<div className={groupsClassNames}>
 			<input
 				id={id}
+				autoFocus={autoFocus}
 				className="form-control"
 				label={title}
 				placeholder={placeholder}
@@ -47,6 +48,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func,
 		schema: PropTypes.shape({
+			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,

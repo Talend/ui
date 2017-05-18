@@ -42,7 +42,8 @@
     {
       "key": "lastname",
       "title": "Last Name (with description)",
-      "description": "Hint: this is the last name"
+      "description": "Hint: this is the last name",
+      "autoFocus": true
     },
     {
       "key": "firstname",
