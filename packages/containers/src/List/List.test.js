@@ -181,7 +181,7 @@ describe('Container List', () => {
 		props.toolbar.pagination.onChange(event, data);
 
 		// then
-		expect(dispatchActionCreator).toBeCalledWith("pagination:change", event, data, context);
+		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
 	});
 
 	it('should set things in local storage', () => {
@@ -241,7 +241,6 @@ describe('Container List', () => {
 
 		expect(localStorage.getItem('testList')).toBeDefined();
 	});
-
 });
 
 describe('Connected List', () => {
