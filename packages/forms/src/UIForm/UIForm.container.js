@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import UIFormComponent from './UIForm.component';
 
 import { modelReducer, validationReducer } from './reducers';
-import { mutateValue, validateAll } from './actions';
+import { mutateValue, validate, validateAll } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -13,20 +13,8 @@ export default class UIForm extends React.Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
+		this.onValidate = this.onValidate.bind(this);
 		this.onValidateAll = this.onValidateAll.bind(this);
-	}
-
-	/**
-	 * Update the properties.
-	 */
-	componentWillReceiveProps({ properties }) {
-		if (!properties) {
-			return;
-		}
-
-		this.setState({
-			properties: { ...properties },
-		});
 	}
 
 	/**
@@ -56,6 +44,16 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
+	 * Set partial fields validation in state
+	 * @param formName the form name
+	 * @param errors the validation errors
+	 */
+	onValidate(formName, errors) {
+		const action = validate(formName, errors);
+		this.setState({ errors: validationReducer(this.state.errors, action) });
+	}
+
+	/**
 	 * Set all fields validation in state
 	 * @param formName the form name
 	 * @param errors the validation errors
@@ -77,6 +75,7 @@ export default class UIForm extends React.Component {
 				properties={properties}
 				errors={errors}
 				onChange={this.onChange}
+				onValidate={this.onValidate}
 				onValidateAll={this.onValidateAll}
 			/>
 		);
@@ -97,6 +96,13 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
+		/**
+		 * Custom validation function.
+		 * Prototype: function customValidation(properties, fieldName, value)
+		 * Return format : errorMessage String | falsy
+		 * This is triggered on fields that has their uiSchema > customValidation : true
+		 */
+		customValidation: PropTypes.func,
 		/** The form name that will be used to create ids */
 		formName: PropTypes.string,
 		/** The change callback. It takes  */
@@ -105,16 +111,9 @@ if (process.env.NODE_ENV !== 'production') {
 		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * Tigger > after callback.
-		 * Prototype: function onTrigger(properties, fieldName, value)
+		 * Prototype: function onTrigger(properties, schema, value)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
-		/**
-		 * Custom validation function.
-		 * Prototype: function validation(properties, fieldName, value)
-		 * Return format : { valid: true|false, error: { message: 'my validation message' } }
-		 * This is triggered on fields that has their uiSchema > customValidation : true
-		 */
-		validation: PropTypes.func,
 	};
 }

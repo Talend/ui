@@ -1,4 +1,5 @@
 export const MUTATE_VALUE = 'MUTATE_VALUE';
 export const VALIDATE_ALL = 'VALIDATE_ALL';
+export const VALIDATE_PARTIAL = 'VALIDATE_PARTIAL';
 export const CREATE_FORM = 'CREATE_FORM';
 export const REMOVE_FORM = 'REMOVE_FORM';

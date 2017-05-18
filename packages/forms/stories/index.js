@@ -49,22 +49,31 @@ sampleFilenames
 			const sampleNameMatches = filename.match(sampleFilenameRegex);
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
+			const props = {
+				customValidation(properties, schema, value) {
+					action('customValidation')(properties, schema, value);
+					return value.length >= 5 &&
+						'Custom validation : The value should be less than 5 chars';
+				},
+				formName: 'my-form',
+				onChange: action('Change'),
+				onTrigger(properties, schema, value) {
+					action('Trigger')(properties, schema, value);
+					const key = schema.key[schema.key.length - 1];
+					return key.includes('fail') ?
+						Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
+						Promise.resolve({});
+				},
+				onSubmit: action('Submit'),
+				// autocomplete: 'off',
+				// onBlur: action('Blur'),
+			};
 			decoratedStories.add(capitalizedSampleName, () => (
 				<section>
 					<IconsProvider />
 					<UIForm
-						autocomplete="off"
+						{...props}
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
-						formName={'my-form'}
-						onChange={action('Change')}
-						onTrigger={action('Trigger')}
-						onBlur={action('Blur')}
-						onSubmit={action('Submit')}
-						validation={(properties, schema, value) => {
-							action('customValidation')(properties, schema, value);
-							return value.length >= 5 &&
-								'Custom validation : The value should be less than 5 chars';
-						}}
 					/>
 				</section>
 			));
@@ -72,18 +81,8 @@ sampleFilenames
 				<section>
 					<IconsProvider />
 					<ConnectedUIForm
-						autocomplete="off"
+						{...props}
 						data={object(capitalizedSampleName, sampleFilenames(filename))}
-						formName={'my-form'}
-						onChange={action('Change')}
-						onTrigger={action('Trigger')}
-						onBlur={action('Blur')}
-						onSubmit={action('Submit')}
-						validation={(properties, schema, value) => {
-							action('customValidation')(properties, schema, value);
-							return value.length >= 5 &&
-								'Custom validation : The value should be less than 5 chars';
-						}}
 					/>
 				</section>
 			));

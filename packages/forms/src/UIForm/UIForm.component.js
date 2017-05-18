@@ -41,17 +41,19 @@ export default class UIForm extends React.Component {
 	 * @param value The new value
 	 */
 	onChange(event, schema, value) {
-		const { onChange, onTrigger, properties, validation } = this.props;
-		const error = validateValue(schema, value, properties, validation);
+		const { formName, onChange, onTrigger, onValidate, properties, customValidation } = this.props;
+		const error = validateValue(schema, value, properties, customValidation);
 		onChange(schema, value, error);
 
-		const { key, triggers } = schema;
+		const { triggers } = schema;
 		if (onTrigger && triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
 			onTrigger(
-				this.props.properties,  // current properties values
-				key[key.length - 1],    // field name
-				value                   // field value
-			);
+				properties,     // current properties values
+				schema,         // field schema
+				value           // field value
+			)
+				.then(() => {})
+				.catch(({ errors }) => onValidate(formName, errors));
 		}
 	}
 
@@ -62,8 +64,8 @@ export default class UIForm extends React.Component {
 	submit(event) {
 		event.preventDefault();
 		const { mergedSchema } = this.state;
-		const { formName, properties, validation } = this.props;
-		const errors = validateAll(mergedSchema, properties, validation);
+		const { formName, properties, customValidation } = this.props;
+		const errors = validateAll(mergedSchema, properties, customValidation);
 
 		const isValid = !Object.keys(errors).length;
 		if (isValid) {
@@ -97,34 +99,41 @@ export default class UIForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
-		/** The forms errors { [fieldKey]: errorMessage } */
-		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		/** The form name that will be used to create ids */
+		/** Form definition: The form name that will be used to create ids */
 		formName: PropTypes.string,
-		/** Json schema that specify the data model */
+		/** Form definition: Json schema that specify the data model */
 		jsonSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		/** The change callback */
-		onChange: PropTypes.func.isRequired,
-		/** Form submit callback */
+		/**
+		 * Form definition: Form fields values.
+		 * Note that it should contains @definitionName for triggers.
+		 */
+		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		/** Form definition: UI schema that specify how to render the fields */
+		uiSchema: PropTypes.array, // eslint-disable-line react/forbid-prop-types
+		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
+		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+
+		/**
+		 * User callback: Custom validation function.
+		 * Prototype: function customValidation(properties, fieldName, value)
+		 * Return format : errorMessage String | falsy
+		 * This is triggered on fields that has their uiSchema > customValidation : true
+		 */
+		customValidation: PropTypes.func,
+		/** User callback: Form submit callback */
 		onSubmit: PropTypes.func.isRequired,
 		/**
-		 * Tigger > after callback.
-		 * Prototype: function onTrigger(properties, fieldName, value)
+		 * User callback: Trigger > after callback.
+		 * Prototype: function onTrigger(properties, schema, value)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
-		/** All fields validation callback */
+
+		/** State management impl: The change callback */
+		onChange: PropTypes.func.isRequired,
+		/** State management impl: Partial fields validation callback */
+		onValidate: PropTypes.func,
+		/** State management impl: All fields validation callback */
 		onValidateAll: PropTypes.func,
-		/** Form fields values. Note that it should contains @definitionName for triggers. */
-		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		/** UI schema that specify how to render the fields */
-		uiSchema: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-		/**
-		 * Custom validation function.
-		 * Prototype: function validation(properties, fieldName, value)
-		 * Return format : { valid: true|false, error: { message: 'my validation message' } }
-		 * This is triggered on fields that has their uiSchema > customValidation : true
-		 */
-		validation: PropTypes.func,
 	};
 }

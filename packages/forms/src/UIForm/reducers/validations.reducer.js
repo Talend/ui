@@ -1,4 +1,4 @@
-import { MUTATE_VALUE, VALIDATE_ALL } from '../actions';
+import { MUTATE_VALUE, VALIDATE_ALL, VALIDATE_PARTIAL } from '../actions';
 import { omit } from '../utils/properties';
 
 /**
@@ -17,6 +17,15 @@ export default function validations(state = {}, action) {
 			};
 		}
 		return omit(state, schema.key.toString());
+	}
+	case VALIDATE_PARTIAL: {
+		if (Object.keys(action.errors).length === 0) {
+			return state;
+		}
+		return {
+			...state,
+			...action.errors,
+		};
 	}
 	case VALIDATE_ALL: {
 		return action.errors;

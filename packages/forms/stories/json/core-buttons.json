@@ -1,0 +1,27 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "check": {},
+      "checkfail": {}
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "check",
+      "title": "Check me",
+      "type": "button",
+      "triggers": ["after"],
+      "description": "This should trigger a successful check"
+    },
+    {
+      "key": "checkfail",
+      "title": "Check me",
+      "type": "button",
+      "triggers": ["after"],
+      "description": "This should trigger a failing check"
+    }
+  ],
+  "properties": {}
+}

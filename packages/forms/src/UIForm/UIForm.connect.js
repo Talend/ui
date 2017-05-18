@@ -7,6 +7,7 @@ import {
 	createForm,
 	removeForm,
 	mutateValue,
+	validate,
 	validateAll,
 } from './actions';
 
@@ -86,6 +87,13 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
+		/**
+		 * Custom validation function.
+		 * Prototype: function customValidation(properties, fieldName, value)
+		 * Return format : errorMessage String | falsy
+		 * This is triggered on fields that has their uiSchema > customValidation : true
+		 */
+		customValidation: PropTypes.func,
 		/** The form name that will be used to create ids */
 		formName: PropTypes.string.isRequired,
 		/** The change callback. */
@@ -94,17 +102,10 @@ if (process.env.NODE_ENV !== 'production') {
 		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * Tigger > after callback.
-		 * Prototype: function onTrigger(properties, fieldName, value)
+		 * Prototype: function onTrigger(properties, schema, value)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
-		/**
-		 * Custom validation function.
-		 * Prototype: function validation(properties, fieldName, value)
-		 * Return format : string
-		 * This is triggered on fields that has their uiSchema > customValidation : true
-		 */
-		validation: PropTypes.func,
 
 		/**
 		 * Form data from store.
@@ -155,6 +156,7 @@ function mapDispatchToProps(dispatch) {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
 		mutateValue: bindActionCreators(mutateValue, dispatch),
+		onValidate: bindActionCreators(validate, dispatch),
 		onValidateAll: bindActionCreators(validateAll, dispatch),
 	};
 }

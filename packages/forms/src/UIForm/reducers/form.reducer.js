@@ -1,4 +1,4 @@
-import { CREATE_FORM, REMOVE_FORM, MUTATE_VALUE, VALIDATE_ALL } from '../actions';
+import { CREATE_FORM, REMOVE_FORM, MUTATE_VALUE, VALIDATE_ALL, VALIDATE_PARTIAL } from '../actions';
 import { omit } from '../utils/properties';
 import modelReducer from './model.reducer';
 import validationsReducer from './validations.reducer';
@@ -31,6 +31,7 @@ export default function formReducer(state = {}, action) {
 	case REMOVE_FORM:
 		return omit(state, action.formName);
 	case MUTATE_VALUE:
+	case VALIDATE_PARTIAL:
 	case VALIDATE_ALL: {
 		const form = state[action.formName];
 		if (!form) {
