@@ -44,5 +44,9 @@ describe('SidePanel:getActions', () => {
 		context.router = { location: { pathname: '/different' } };
 		const notactive = getActions(['menu:routerReplace'], context)[0];
 		expect(notactive.active).toBe(undefined);
+
+		context.router = { location: { pathname: '/push' } };
+		const push = getActions(['menu:routerPush'], context)[0];
+		expect(push.active).toBe(true);
 	});
 });
