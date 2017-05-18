@@ -2,7 +2,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 .tc-header-bar {
 	background-color: $brand-primary-darker;
-	color: $white;
 	display: flex;
 	position: fixed;
 	top: 0;
@@ -25,6 +24,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 			&:global(.separated):after {
 				content: '|';
+				color: $white;
 			}
 
 			&:global(.flex) {
