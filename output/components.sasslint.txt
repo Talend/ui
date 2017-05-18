@@ -8,13 +8,7 @@ Scoping to packages that match 'react-talend-components'
 src/HttpError/HttpError.scss
   3:31  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
 
-src/Progress/Progress.scss
-  2:27  warning  Space expected around operator          space-around-operator
-  4:2   warning  Single line statements are not allowed  brace-style
-  5:1   warning  Space expected between blocks           empty-line-between-blocks
-  5:2   warning  Single line statements are not allowed  brace-style
-
-✖ 5 problems (1 error, 4 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
