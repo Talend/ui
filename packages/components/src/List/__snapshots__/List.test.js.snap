@@ -471,7 +471,7 @@ exports[`List should render 1`] = `
               >
                 <a
                   href="#"
-                  id={0}
+                  id={undefined}
                   onClick={[Function]}
                   role="menuitem"
                   tabIndex="-1"
@@ -486,7 +486,7 @@ exports[`List should render 1`] = `
               >
                 <a
                   href="#"
-                  id="1-by-item-name"
+                  id={undefined}
                   onClick={[Function]}
                   role="menuitem"
                   tabIndex="-1"
@@ -1234,7 +1234,7 @@ exports[`List should render id if provided 1`] = `
               >
                 <a
                   href="#"
-                  id={0}
+                  id="context-sort-by-item-id"
                   onClick={[Function]}
                   role="menuitem"
                   tabIndex="-1"
@@ -1249,7 +1249,7 @@ exports[`List should render id if provided 1`] = `
               >
                 <a
                   href="#"
-                  id="1-by-item-name"
+                  id="context-sort-by-item-name"
                   onClick={[Function]}
                   role="menuitem"
                   tabIndex="-1"

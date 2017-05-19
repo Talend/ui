@@ -10,7 +10,6 @@ function SortByItem({ option, index, id }) {
 			id={id && `${id}-by-item-${option.id}`}
 			key={index}
 			eventKey={option}
-			className={theme['sort-by-item']}
 		>
 			{option.name || option.id}
 		</MenuItem>
@@ -46,11 +45,12 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 					id={id ? `${id}-by` : uuid.v4()}
 					title={selected ? (selected.name || selected.id) : 'N.C'}
 					onSelect={onChangeField}
+					className={theme['sort-by-items']}
 				>
 					{options.map((option, index) => <SortByItem
 						option={option}
 						index={index}
-						id={index}
+						id={id}
 					/>)}
 				</NavDropdown>)
 			}

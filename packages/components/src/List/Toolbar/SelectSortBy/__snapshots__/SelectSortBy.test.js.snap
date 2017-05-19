@@ -37,7 +37,7 @@ exports[`SelectSortBy should render 1`] = `
       >
         <a
           href="#"
-          id={0}
+          id={undefined}
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
@@ -52,7 +52,7 @@ exports[`SelectSortBy should render 1`] = `
       >
         <a
           href="#"
-          id="1-by-item-name"
+          id={undefined}
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
@@ -116,7 +116,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
       >
         <a
           href="#"
-          id={0}
+          id="toolbar-sort-by-item-id"
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
@@ -131,7 +131,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
       >
         <a
           href="#"
-          id="1-by-item-name"
+          id="toolbar-sort-by-item-name"
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
@@ -226,7 +226,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
       >
         <a
           href="#"
-          id={0}
+          id={undefined}
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
@@ -241,7 +241,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
       >
         <a
           href="#"
-          id="1-by-item-name"
+          id={undefined}
           onClick={[Function]}
           role="menuitem"
           tabIndex="-1"
