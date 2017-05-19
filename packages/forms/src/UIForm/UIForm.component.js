@@ -106,7 +106,7 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const { autoComplete, errors, formName, properties } = this.props;
+		const { autoComplete, errors, formName, properties, widgets } = this.props;
 		return (
 			<form onSubmit={this.submit} autoComplete={autoComplete}>
 				{
@@ -119,6 +119,7 @@ export default class UIForm extends React.Component {
 							schema={nextSchema}
 							properties={properties}
 							errors={errors}
+							widgets={widgets}
 						/>
 					))
 				}
@@ -161,7 +162,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
-
+		/** Custom widgets */
+		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,

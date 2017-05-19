@@ -4,6 +4,7 @@ import a11y from 'react-a11y';
 import { Provider } from 'react-redux';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
+import { Tabs, Tab } from 'react-bootstrap';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
@@ -71,19 +72,29 @@ sampleFilenames
 			decoratedStories.add(capitalizedSampleName, () => (
 				<section>
 					<IconsProvider />
-					<UIForm
-						{...props}
-						data={object(capitalizedSampleName, sampleFilenames(filename))}
-					/>
-				</section>
-			));
-			decoratedStories.add(`Redux-${capitalizedSampleName}`, () => (
-				<section>
-					<IconsProvider />
-					<ConnectedUIForm
-						{...props}
-						data={object(capitalizedSampleName, sampleFilenames(filename))}
-					/>
+
+					<Tabs>
+						<Tab
+							eventKey={0}
+							key={'without'}
+							title={'State'}
+						>
+							<UIForm
+								{...props}
+								data={object(capitalizedSampleName, sampleFilenames(filename))}
+							/>
+						</Tab>
+						<Tab
+							eventKey={1}
+							key={'with'}
+							title={'Redux'}
+						>
+							<ConnectedUIForm
+								{...props}
+								data={object(capitalizedSampleName, sampleFilenames(filename))}
+							/>
+						</Tab>
+					</Tabs>
 				</section>
 			));
 		});
@@ -185,17 +196,14 @@ decoratedStories.add('Custom widget', () => {
 		properties: {
 			list: 'two',
 		},
-		uiSchema: {
-			list: {
-				'ui:widget': 'unknown',
+		uiSchema: [
+			{
+				key: 'list',
+				type: 'unknown',
 			},
-		}
+		],
 	};
 	return (
-		<Form
-			data={schema}
-			widgets={widgets}
-			onSubmit={action('SUBMIT')}
-		/>
+		<UIForm widgets={widgets} data={schema} />
 	);
 });

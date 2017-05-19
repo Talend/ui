@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
 import { sfPath } from 'talend-json-schema-form-core';
 
-import widgets from '../utils/widgets';
+import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
-export default function Widget({ errors, formName, onChange, onTrigger, properties, schema }) {
+export default function Widget(props) {
+	const { errors, formName, onChange, onTrigger, properties, schema, widgets } = props;
 	const { key, type, validationMessage } = schema;
 	const id = sfPath.name(key, '-', formName);
 	const error = errors[key];
 	const errorMessage = validationMessage || error;
-	const WidgetImpl = widgets[type];
+	const WidgetImpl = widgets[type] || defaultWidgets[type];
 	return WidgetImpl ?
 		(
 			<WidgetImpl
@@ -40,5 +41,10 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 		}).isRequired,
 		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};
 }
+
+Widget.defaultProps = {
+	widgets: [],
+};

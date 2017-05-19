@@ -75,6 +75,7 @@ class UIForm extends React.Component {
 				customValidation={this.props.customValidation}
 				onSubmit={this.props.onSubmit}
 				onTrigger={this.props.onTrigger}
+				widgets={this.props.widgets}
 
 				onChange={this.onChange}
 				onFormChange={this.props.onFormChange}
@@ -113,11 +114,13 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Form submit callback */
 		onSubmit: PropTypes.func.isRequired,
 		/**
-		 * Tigger > after callback.
-		 * Prototype: function onTrigger(properties, schema, value)
+		 * Tigger callback.
+		 * Prototype: function onTrigger(type, properties, schema, value)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,
+		/** Custom widgets */
+		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
 		/**
 		 * Form data from store.
