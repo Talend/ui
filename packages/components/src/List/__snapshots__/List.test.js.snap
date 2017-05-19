@@ -473,6 +473,7 @@ exports[`List should render 1`] = `
                   href="#"
                   id={undefined}
                   onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
                 >
@@ -488,12 +489,14 @@ exports[`List should render 1`] = `
                   href="#"
                   id={undefined}
                   onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
                 >
                   Name
                 </a>
               </li>
+              ;
             </ul>
           </li>
           <li
@@ -1236,6 +1239,7 @@ exports[`List should render id if provided 1`] = `
                   href="#"
                   id="context-sort-by-item-id"
                   onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
                 >
@@ -1251,12 +1255,14 @@ exports[`List should render id if provided 1`] = `
                   href="#"
                   id="context-sort-by-item-name"
                   onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
                 >
                   Name
                 </a>
               </li>
+              ;
             </ul>
           </li>
           <li

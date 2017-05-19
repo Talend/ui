@@ -36,7 +36,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 		return onChange(event, { field: selected.id, isDescending: !order });
 	}
 
-
+	const getMenuItem = SortByItem;
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			{options.length === 1 ?
@@ -47,11 +47,11 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}
 				>
-					{options.map((option, index) => <SortByItem
-						option={option}
-						index={index}
-						id={id}
-					/>)}
+					{options.map((option, index) => getMenuItem({
+						option,
+						index,
+						id,
+					}))};
 				</NavDropdown>)
 			}
 			{selected && (

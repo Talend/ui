@@ -39,6 +39,7 @@ exports[`SelectSortBy should render 1`] = `
           href="#"
           id={undefined}
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
@@ -54,12 +55,14 @@ exports[`SelectSortBy should render 1`] = `
           href="#"
           id={undefined}
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
           Name
         </a>
       </li>
+      ;
     </ul>
   </li>
   <li
@@ -118,6 +121,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
           href="#"
           id="toolbar-sort-by-item-id"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
@@ -133,12 +137,14 @@ exports[`SelectSortBy should render id if provided 1`] = `
           href="#"
           id="toolbar-sort-by-item-name"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
           Name
         </a>
       </li>
+      ;
     </ul>
   </li>
   <li
@@ -228,6 +234,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
           href="#"
           id={undefined}
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
@@ -243,12 +250,14 @@ exports[`SelectSortBy should render without field selected 1`] = `
           href="#"
           id={undefined}
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
           Name
         </a>
       </li>
+      ;
     </ul>
   </li>
 </ul>
