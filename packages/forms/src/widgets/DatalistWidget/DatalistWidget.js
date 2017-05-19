@@ -152,7 +152,8 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur() {
-		if (this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
+		if (this.props.options &&
+			this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
 			this.resetValue();
 		} else {
 			this.resetSuggestions();

@@ -711,6 +711,11 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 <DatalistWidget
   id="myWidget"
   onChange={[Function]}
+  options={
+    Object {
+      "restricted": true,
+    }
+  }
   required={true}
   schema={
     Object {
