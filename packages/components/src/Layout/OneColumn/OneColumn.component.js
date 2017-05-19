@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import theme from './OneColumn.scss';
+import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 
 /**
@@ -9,7 +10,7 @@ import WithDrawer from '../../WithDrawer';
  * @example
 <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn({ drawers, children, ...props }) {
+function OneColumn({ drawers, children, tabs, ...props }) {
 	const container = classnames(
 		'tc-layout-one-column',
 		theme.main,
@@ -17,6 +18,7 @@ function OneColumn({ drawers, children, ...props }) {
 	return (
 		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
+				{tabs && <TabBar {...tabs} />}
 				<div style={{ overflow: 'auto', height: '100%', display: 'flex', flexDirection: 'column' }}>
 					{children}
 				</div>
@@ -28,6 +30,7 @@ function OneColumn({ drawers, children, ...props }) {
 OneColumn.propTypes = {
 	children: React.PropTypes.node,
 	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
+	tabs: React.PropTypes.shape(TabBar.propTypes),
 };
 
 export default OneColumn;
