@@ -69,13 +69,17 @@ const actions = [
 const props = {
 	id: 'talend',
 	displayMode: 'table',
+	displayModes: [
+		{ id: 'table', label: 'Table', icon: 'talend-table', component: List.Table },
+		{ id: 'large', label: 'Large', icon: 'talend-large', component: List.Large },
+	],
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
+			{ key: 'id', label: 'Id', component: List.ItemValue },
+			{ key: 'name', label: 'Name', component: List.ItemTitle },
 			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+			{ key: 'created', label: 'Created', component: List.ItemDate },
+			{ key: 'modified', label: 'Modified', component: List.ItemTimeago },
 		],
 		items: [
 			{
@@ -119,22 +123,9 @@ const props = {
 				className: 'item-3-class',
 			},
 		],
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
-		itemProps: {
-			classNameKey: 'className',
-			onSelect: action('onSelect'),
-			onToggle: action('onToggle'),
-			onToggleAll: action('onToggleAll'),
-		},
 	},
 	toolbar: {
+		component: List.Toolbar,
 		actionBar: {
 			actions: {
 				left: [
