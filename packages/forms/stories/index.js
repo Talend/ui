@@ -114,6 +114,81 @@ decoratedStories.add('Multiple actions', () => {
 	);
 });
 
+decoratedStories.add('Datalist', () => {
+	function fetchItems() {
+		return [
+			'Apple',
+			'Pine[apple]',
+			'Banana',
+			'Cher[ry',
+			'Lemo}n',
+			'Grapefruit',
+		];
+	}
+	const schema = {
+		jsonSchema: {
+			title: 'A simple typeahead',
+			description: 'A simple typeahead widget example.',
+			type: 'object',
+			required: [
+				'fullDatalist',
+				'select1',
+			],
+			definitions: {
+				datalist: {
+					type: 'string',
+					enum: [
+						'Apple',
+						'Pine[apple]',
+						'Banana',
+						'Cher[ry',
+						'Lemo}n',
+						'Grapefruit',
+					],
+				},
+			},
+			properties: {
+				select1: {
+					$ref: '#/definitions/datalist',
+				},
+				fullDatalist: {
+					$ref: '#/definitions/datalist',
+				},
+				remoteDataList: {
+					type: 'string',
+				},
+			},
+		},
+		uiSchema: {
+			remoteDataList: {
+				'ui:widget': 'datalist',
+			},
+			fullDatalist: {
+				'ui:widget': 'datalist',
+				'ui:options': {
+					restricted: true,
+				},
+			},
+			'ui:order': [
+				'select1',
+				'fullDatalist',
+				'remoteDataList',
+			],
+		},
+		properties: {
+			fullDatalist: 'Apple',
+		},
+	};
+
+	return (
+		<Form
+			data={schema}
+			formContext={{ fetchItems }}
+			onSubmit={action('SUBMIT')}
+		/>
+	);
+});
+
 const UnknownWidget = (props) => {
 	const { value } = props;
 
@@ -156,7 +231,7 @@ decoratedStories.add('Custom widget', () => {
 			list: {
 				'ui:widget': 'unknown',
 			},
-		}
+		},
 	};
 	return (
 		<Form

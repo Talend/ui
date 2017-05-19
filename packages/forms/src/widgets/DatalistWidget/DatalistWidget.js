@@ -18,6 +18,9 @@ export function escapeRegexCharacters(str) {
  * @param value
  */
 export function getMatchingSuggestions(suggestions, value) {
+	if (!suggestions) {
+		return [];
+	}
 	if (!value) {
 		return suggestions;
 	}
@@ -66,7 +69,7 @@ function renderDatalistItem(item, { value }) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
 				emphasisedText.push(
-					<em className={theme['highlight-match']}>{matchedValues[i]}</em>
+					<em className={theme['highlight-match']}>{matchedValues[i]}</em>,
 				);
 			}
 		}
@@ -95,10 +98,29 @@ function renderNoMatch() {
  * @param props
  */
 class DatalistWidget extends React.Component {
+
+	static propTypes = {
+		id: PropTypes.string,
+		value: PropTypes.string,
+		required: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+		schema: PropTypes.shape({
+			enum: PropTypes.arrayOf(PropTypes.string),
+		}).isRequired,
+		formContext: PropTypes.shape({
+			fetchItems: PropTypes.func,
+		}),
+		options: PropTypes.shape({
+			// Is the field value restricted to the suggestion list
+			restricted: PropTypes.bool,
+		}),
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			value: props.value || '',
+			initalItems: [],
 			items: [],
 			itemIndex: null,
 			noMatch: false,
@@ -130,7 +152,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur() {
-		if (this.props.schema.enum.indexOf(this.state.value) === -1) {
+		if (this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
 			this.resetValue();
 		} else {
 			this.resetSuggestions();
@@ -151,6 +173,7 @@ class DatalistWidget extends React.Component {
 			break;
 		case keycode.codes.up:
 		case keycode.codes.down:
+			event.preventDefault();
 			this.focusOnItem(newFocusedItemIndex);
 			break;
 		default:
@@ -168,7 +191,23 @@ class DatalistWidget extends React.Component {
 	}
 
 	initSuggestions(value) {
-		const suggestions = getMatchingSuggestions(this.props.schema.enum, value);
+		let items;
+		if (this.props.schema.enum) {
+			items = getMatchingSuggestions(this.props.schema.enum, value);
+		} else if (this.props.formContext && this.props.formContext.fetchItems) {
+			items = getMatchingSuggestions(this.props.formContext.fetchItems(), value);
+		}
+		this.setState({
+			value,
+			initalItems: items,
+			items,
+			itemIndex: null,
+			noMatch: value && !items.length,
+		});
+	}
+
+	updateSuggestions(value) {
+		const suggestions = getMatchingSuggestions(this.state.initalItems, value);
 		this.setState({
 			value,
 			items: suggestions,
@@ -214,18 +253,6 @@ class DatalistWidget extends React.Component {
 			/>
 		);
 	}
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	DatalistWidget.propTypes = {
-		id: PropTypes.string,
-		value: PropTypes.string,
-		required: PropTypes.bool,
-		onChange: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			enum: PropTypes.arrayOf(PropTypes.string),
-		}).isRequired,
-	};
 }
 
 export default DatalistWidget;
