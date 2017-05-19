@@ -13,7 +13,10 @@ export function getActions(actionIds, context) {
 	return actionIds.map((id) => {
 		const info = api.action.getActionInfo(context, id);
 		info.onClick = () => context.store.dispatch(info.payload);
-		const route = get(info, 'payload.cmf.routerReplace');
+		let route = get(info, 'payload.cmf.routerReplace');
+		if (!route) {
+			route = get(info, 'payload.cmf.routerPush');
+		}
 		if (route) {
 			const currentRoute = context.router.location.pathname;
 			if (currentRoute.indexOf(route) !== -1) {
