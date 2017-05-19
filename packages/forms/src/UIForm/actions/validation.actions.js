@@ -1,8 +1,8 @@
-import { VALIDATE_ALL, VALIDATE_PARTIAL } from './constants';
+import { TF_VALIDATE_ALL, TF_VALIDATE_PARTIAL } from './constants';
 
 export function validate(formName, errors) {
 	return {
-		type: VALIDATE_PARTIAL,
+		type: TF_VALIDATE_PARTIAL,
 		formName,
 		errors,
 	};
@@ -10,7 +10,7 @@ export function validate(formName, errors) {
 
 export function validateAll(formName, errors) {
 	return {
-		type: VALIDATE_ALL,
+		type: TF_VALIDATE_ALL,
 		formName,
 		errors,
 	};

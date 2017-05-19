@@ -1,6 +1,6 @@
-export const MUTATE_VALUE = 'MUTATE_VALUE';
-export const VALIDATE_ALL = 'VALIDATE_ALL';
-export const VALIDATE_PARTIAL = 'VALIDATE_PARTIAL';
-export const CREATE_FORM = 'CREATE_FORM';
-export const CHANGE_FORM = 'CHANGE_FORM';
-export const REMOVE_FORM = 'REMOVE_FORM';
+export const TF_MUTATE_VALUE = 'TF_MUTATE_VALUE';
+export const TF_VALIDATE_ALL = 'TF_VALIDATE_ALL';
+export const TF_VALIDATE_PARTIAL = 'TF_VALIDATE_PARTIAL';
+export const TF_CREATE_FORM = 'TF_CREATE_FORM';
+export const TF_CHANGE_FORM = 'TF_CHANGE_FORM';
+export const TF_REMOVE_FORM = 'TF_REMOVE_FORM';

@@ -1,8 +1,8 @@
-import { MUTATE_VALUE } from './constants';
+import { TF_MUTATE_VALUE } from './constants';
 
 export function mutateValue(formName, schema, value, error) {
 	return {
-		type: MUTATE_VALUE,
+		type: TF_MUTATE_VALUE,
 		error,
 		formName,
 		schema,

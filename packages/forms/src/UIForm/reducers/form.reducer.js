@@ -1,10 +1,10 @@
 import {
-	CREATE_FORM,
-	CHANGE_FORM,
-	REMOVE_FORM,
-	MUTATE_VALUE,
-	VALIDATE_ALL,
-	VALIDATE_PARTIAL,
+	TF_CREATE_FORM,
+	TF_CHANGE_FORM,
+	TF_REMOVE_FORM,
+	TF_MUTATE_VALUE,
+	TF_VALIDATE_ALL,
+	TF_VALIDATE_PARTIAL,
 } from '../actions';
 import { omit } from '../utils/properties';
 import modelReducer from './model.reducer';
@@ -22,7 +22,7 @@ import validationsReducer from './validations.reducer';
  */
 export default function formReducer(state = {}, action) {
 	switch (action.type) {
-	case CREATE_FORM: {
+	case TF_CREATE_FORM: {
 		const form = state[action.formName];
 		if (form) {
 			return state;
@@ -37,7 +37,7 @@ export default function formReducer(state = {}, action) {
 			},
 		};
 	}
-	case CHANGE_FORM: {
+	case TF_CHANGE_FORM: {
 		const form = state[action.formName];
 		const { jsonSchema, uiSchema, properties, errors } = action;
 		if (!form || (!jsonSchema && !uiSchema && !properties && !errors)) {
@@ -56,11 +56,11 @@ export default function formReducer(state = {}, action) {
 			},
 		};
 	}
-	case REMOVE_FORM:
+	case TF_REMOVE_FORM:
 		return omit(state, action.formName);
-	case MUTATE_VALUE:
-	case VALIDATE_PARTIAL:
-	case VALIDATE_ALL: {
+	case TF_MUTATE_VALUE:
+	case TF_VALIDATE_PARTIAL:
+	case TF_VALIDATE_ALL: {
 		const form = state[action.formName];
 		if (!form) {
 			return state;

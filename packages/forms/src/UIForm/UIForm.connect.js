@@ -54,9 +54,9 @@ class UIForm extends React.Component {
 		);
 		if (this.props.onChange) {
 			this.props.onChange(
-				this.props.form.properties, // TODO fix that, old props
 				schema,
-				value
+				value,
+				this.props.form.properties // TODO fix that, old props
 			);
 		}
 	}
@@ -102,20 +102,23 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		/**
 		 * Custom validation function.
-		 * Prototype: function customValidation(properties, fieldName, value)
+		 * Prototype: function customValidation(schema, value, properties)
 		 * Return format : errorMessage String | falsy
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
 		customValidation: PropTypes.func,
 		/** The form name that will be used to create ids */
 		formName: PropTypes.string.isRequired,
-		/** The change callback. */
+		/**
+		 * The change callback.
+		 * Prototype: function onChange(schema, value, properties)
+		 */
 		onChange: PropTypes.func,
 		/** Form submit callback */
 		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * Tigger callback.
-		 * Prototype: function onTrigger(type, properties, schema, value)
+		 * Prototype: function onTrigger(type, schema, value, properties)
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

@@ -1,8 +1,8 @@
-import { CREATE_FORM, CHANGE_FORM, REMOVE_FORM } from './constants';
+import { TF_CREATE_FORM, TF_CHANGE_FORM, TF_REMOVE_FORM } from './constants';
 
 export function createForm(formName, jsonSchema, uiSchema, properties, errors) {
 	return {
-		type: CREATE_FORM,
+		type: TF_CREATE_FORM,
 		formName,
 		jsonSchema,
 		uiSchema,
@@ -13,7 +13,7 @@ export function createForm(formName, jsonSchema, uiSchema, properties, errors) {
 
 export function changeForm(formName, jsonSchema, uiSchema, properties, errors) {
 	return {
-		type: CHANGE_FORM,
+		type: TF_CHANGE_FORM,
 		formName,
 		jsonSchema,
 		uiSchema,
@@ -24,7 +24,7 @@ export function changeForm(formName, jsonSchema, uiSchema, properties, errors) {
 
 export function removeForm(formName) {
 	return {
-		type: REMOVE_FORM,
+		type: TF_REMOVE_FORM,
 		formName,
 	};
 }
