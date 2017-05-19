@@ -39,7 +39,8 @@ export default function formReducer(state = {}, action) {
 	}
 	case CHANGE_FORM: {
 		const form = state[action.formName];
-		if (!form) {
+		const { jsonSchema, uiSchema, properties, errors } = action;
+		if (!form || (!jsonSchema && !uiSchema && !properties && !errors)) {
 			return state;
 		}
 		return {
@@ -48,7 +49,10 @@ export default function formReducer(state = {}, action) {
 				jsonSchema: action.jsonSchema || form.jsonSchema,
 				uiSchema: action.uiSchema || form.uiSchema,
 				properties: action.properties || form.properties,
-				errors: action.errors || form.errors,
+				errors: {
+					...form.errors,
+					...action.errors,
+				},
 			},
 		};
 	}
