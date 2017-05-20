@@ -31,6 +31,14 @@ if [ -n "$GH_TOKEN" ]; then
 		git add packages/icons/package.json
 		git add packages/logging/package.json
 		git add packages/theme/package.json
+		git add packages/cmf/yarn.lock
+		git add packages/components/yarn.lock
+		git add packages/containers/yarn.lock
+		git add packages/forms/yarn.lock
+		git add packages/generator/yarn.lock
+		git add packages/icons/yarn.lock
+		git add packages/logging/yarn.lock
+		git add packages/theme/yarn.lock
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update dependencies"
 		echo "✓ Commit updated deps to $TRAVIS_BRANCH"
 

@@ -47,6 +47,7 @@ const VERSIONS = {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	rimraf: '^2.6.1',
+	storyshots: '3.2.2',
 };
 
 let files = [
@@ -71,12 +72,15 @@ if (program.debug) {
 
 
 function check(source, dep, version) {
+	let modified = false;
 	if (source && source[dep] && source[dep] !== version) {
 		if (!program.quiet) {
 			console.log(`update ${dep}: '${version}' from ${source[dep]}`);
 		}
 		source[dep] = version;
+		modified = true;
 	}
+	return modified;
 }
 
 function checkAll(source, dep) {
@@ -84,13 +88,19 @@ function checkAll(source, dep) {
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
-	check(devDeps, dep, version);
-	check(deps, dep, version);
-	check(peer, dep, version);
+	const mDevDeps = check(devDeps, dep, version);
+	const mDeps = check(deps, dep, version);
+	const mPeers = check(peer, dep, version);
+	if (mDevDeps || mDeps || mPeers) {
+		source.modified = true;
+	}
 }
 
-function save(path, data) {
-	fs.open(path, 'w', function(err, fd) {
+function save(ppath, data) {
+	if (!program.quiet) {
+		console.log(`save ${ppath}`);
+	}
+	fs.open(ppath, 'w', function(err, fd) {
 		if (err) {
 				throw 'error opening file: ' + err;
 		}
@@ -106,8 +116,8 @@ function save(path, data) {
 	});
 }
 
-files.forEach((path) => {
-	const packageJSON = require(path);
+files.forEach((ppath) => {
+	const packageJSON = require(ppath);
 	if (!program.quiet) {
 		console.log(`=== check ${packageJSON.name} ===`);
 	}
@@ -115,5 +125,11 @@ files.forEach((path) => {
 	Object.keys(VERSIONS).forEach((dep) => {
 		checkAll(packageJSON, dep);
 	});
-	save(path, JSON.stringify(packageJSON, null, 2));
+	if (packageJSON.modified) {
+		delete packageJSON.modified;
+		save(ppath, JSON.stringify(packageJSON, null, 2));
+		console.log(path.join(path.dirname(ppath), 'yarn.lock'));
+		// TODO: remove yarn.lock using fs.unlink();
+		fs.unlink(path.join(path.dirname(ppath), 'yarn.lock'));
+	}
 });
