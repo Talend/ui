@@ -18,7 +18,6 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-0-title"
             onBlur={[Function]}
@@ -91,7 +90,6 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-1-title"
             onBlur={[Function]}
@@ -164,7 +162,6 @@ exports[`DisplayTile shoudl render selected list element with custom selectedCla
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-2-title"
             onBlur={[Function]}
@@ -248,7 +245,6 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-0-title"
             onBlur={[Function]}
@@ -321,7 +317,6 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-1-title"
             onBlur={[Function]}
@@ -394,7 +389,6 @@ exports[`DisplayTile shoudl render selected list element with defaut 'active' cl
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-2-title"
             onBlur={[Function]}
@@ -720,7 +714,6 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
             title={null}
           />
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -799,7 +792,6 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
             title={null}
           />
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -872,7 +864,6 @@ exports[`DisplayTile should render 3 tiles with id as title by setting 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -956,7 +947,6 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -1029,7 +1019,6 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -1102,7 +1091,6 @@ exports[`DisplayTile should render 3 tiles with name as title by default 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id={undefined}
             onBlur={[Function]}
@@ -1186,7 +1174,6 @@ exports[`DisplayTile should render with id if provided 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-0-title"
             onBlur={[Function]}
@@ -1259,7 +1246,6 @@ exports[`DisplayTile should render with id if provided 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-1-title"
             onBlur={[Function]}
@@ -1332,7 +1318,6 @@ exports[`DisplayTile should render with id if provided 1`] = `
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-2-title"
             onBlur={[Function]}
@@ -1416,7 +1401,6 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-0-title"
             onBlur={[Function]}
@@ -1489,7 +1473,6 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-1-title"
             onBlur={[Function]}
@@ -1562,7 +1545,6 @@ exports[`DisplayTile should render with item custom className if provided 1`] = 
           className={undefined}
         >
           <span
-            aria-describedby={42}
             className=""
             id="tile-list-2-title"
             onBlur={[Function]}

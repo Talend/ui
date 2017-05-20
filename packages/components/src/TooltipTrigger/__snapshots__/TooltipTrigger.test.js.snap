@@ -2,7 +2,6 @@
 
 exports[`ActionTooltip should render tooltip 1`] = `
 <div
-  aria-describedby={42}
   onBlur={[Function]}
   onClick={null}
   onFocus={[Function]}

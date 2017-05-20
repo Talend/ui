@@ -77,7 +77,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -98,7 +97,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -148,7 +146,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -169,7 +166,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -219,7 +215,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -240,7 +235,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -733,7 +727,6 @@ exports[`List should render 1`] = `
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
           onBlur={[Function]}
@@ -831,7 +824,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -852,7 +844,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -902,7 +893,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -923,7 +913,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -973,7 +962,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -994,7 +982,6 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1499,7 +1486,6 @@ exports[`List should render id if provided 1`] = `
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
           id="context-filter"
@@ -1598,7 +1584,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1619,7 +1604,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1669,7 +1653,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1690,7 +1673,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1740,7 +1722,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}
@@ -1761,7 +1742,6 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
                     onBlur={[Function]}
                     onClick={null}

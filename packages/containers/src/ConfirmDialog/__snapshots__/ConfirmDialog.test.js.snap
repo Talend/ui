@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Container ConfirmDialog should render 1`] = `
 <div
-  className="mock-provider">
+  className="mock-provider"
+>
   <div
     cancelAction={
       Object {
@@ -38,7 +41,8 @@ exports[`Container ConfirmDialog should render 1`] = `
           "type": "TEST_MENU",
         },
       }
-    }>
+    }
+  >
     Confirm this !
   </div>
   ,

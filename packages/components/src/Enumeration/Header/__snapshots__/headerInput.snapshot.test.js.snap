@@ -17,7 +17,6 @@ exports[`Header should render header input with error 1`] = `
     duplicate value
   </div>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -40,7 +39,6 @@ exports[`Header should render header input with error 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -77,7 +75,6 @@ exports[`Header should render header input with two buttons 1`] = `
     type="text"
   />
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -100,7 +97,6 @@ exports[`Header should render header input with two buttons 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}

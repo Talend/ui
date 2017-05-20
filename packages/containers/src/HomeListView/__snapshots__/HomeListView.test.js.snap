@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
 Array [
   <h1>
@@ -25,7 +27,8 @@ exports[`Component HomeListView should render with element props 1`] = `
           "children": "hello app",
         }
       }
-      type="div" />
+      type="div"
+    />
   }
   mode="TwoColumns"
   one={
@@ -38,8 +41,10 @@ exports[`Component HomeListView should render with element props 1`] = `
           "children": "hello sidepanel",
         }
       }
-      type="div" />
-  }>
+      type="div"
+    />
+  }
+>
   <Connect(CMF(Container(List)))
     $$typeof={Symbol(react.element)}
     _owner={null}
@@ -49,7 +54,8 @@ exports[`Component HomeListView should render with element props 1`] = `
         "children": "hello list",
       }
     }
-    type="div" />
+    type="div"
+  />
 </Layout>
 `;
 
@@ -64,7 +70,8 @@ exports[`Component HomeListView should render with object props 1`] = `
   }
   header={
     <Connect(AppHeaderBar)
-      app="hello app" />
+      app="hello app"
+    />
   }
   mode="TwoColumns"
   one={
@@ -74,21 +81,23 @@ exports[`Component HomeListView should render with object props 1`] = `
           "menu:demo",
           "menu:article",
         ]
-      } />
-  }>
+      }
+    />
+  }
+>
   <Connect(CMF(Container(List)))
     actions={Object {}}
     items={
-      Array [
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "className": "item-0-class",
-          "created": "2016-09-22",
-          "display": "text",
-          "icon": "fa fa-file-excel-o",
-          "id": 1,
-          "label": "Title with actions",
-          "modified": "2016-09-22",
+      Immutable.List [
+        Immutable.Map {
+          id: 1,
+          label: "Title with actions",
+          created: "2016-09-22",
+          modified: "2016-09-22",
+          author: "Jean-Pierre DUPONT",
+          icon: "fa fa-file-excel-o",
+          display: "text",
+          className: "item-0-class",
         },
       ]
     }
@@ -128,6 +137,7 @@ exports[`Component HomeListView should render with object props 1`] = `
           ],
         },
       }
-    } />
+    }
+  />
 </Layout>
 `;

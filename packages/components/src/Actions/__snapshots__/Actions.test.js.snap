@@ -419,7 +419,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
   className="tc-actions btn-group"
 >
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -438,7 +437,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     />
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -457,7 +455,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     />
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
     onBlur={[Function]}
@@ -479,7 +476,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     className="dropdown btn-group btn-group-link"
   >
     <button
-      aria-describedby={42}
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle btn btn-link"
@@ -634,7 +630,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
   className="tc-actions btn-group"
 >
   <button
-    aria-describedby={42}
     className="btn btn-primary"
     disabled={false}
     onBlur={[Function]}
@@ -653,7 +648,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     />
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-default"
     disabled={false}
     onBlur={[Function]}
@@ -672,7 +666,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     />
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-default"
     disabled={false}
     onBlur={[Function]}
@@ -694,7 +687,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     className="dropdown btn-group btn-group-default"
   >
     <button
-      aria-describedby={42}
       aria-expanded={false}
       aria-haspopup={true}
       className="dropdown-toggle btn btn-default"
