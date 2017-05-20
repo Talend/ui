@@ -64,6 +64,7 @@ function Environment(props) {
 				id={props.id}
 				items={props.items}
 				label={props.label}
+				onSelect={props.onSelect}
 				tooltipPlacement="bottom"
 			/>
 		</li>
@@ -74,6 +75,7 @@ Environment.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
 	label: ActionDropdown.propTypes.label,
+	onSelect: ActionDropdown.propTypes.onSelect,
 };
 
 function Search(props) {
@@ -106,7 +108,7 @@ Help.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 };
 
-function User({ id, items, name }) {
+function User({ id, items, name, onSelect }) {
 	return (
 		<li className="tc-header-bar-action separated">
 			<ActionDropdown
@@ -116,6 +118,7 @@ function User({ id, items, name }) {
 				items={items}
 				label={name}
 				noCaret
+				onSelect={onSelect}
 				tooltipPlacement="bottom"
 			/>
 		</li>
@@ -126,9 +129,10 @@ User.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
 	name: ActionDropdown.propTypes.label,
+	onSelect: ActionDropdown.propTypes.onSelect,
 };
 
-function Products({ id, items }) {
+function Products({ id, items, onSelect }) {
 	return (
 		<li className="tc-header-bar-action">
 			<ActionDropdown
@@ -139,6 +143,7 @@ function Products({ id, items }) {
 				items={items}
 				label="Apps"
 				noCaret
+				onSelect={onSelect}
 				pullRight
 				tooltipPlacement="bottom"
 			/>
@@ -149,6 +154,7 @@ function Products({ id, items }) {
 Products.propTypes = {
 	id: React.PropTypes.string,
 	items: ActionDropdown.propTypes.items,
+	onSelect: ActionDropdown.propTypes.onSelect,
 };
 
 function HeaderBar(props) {

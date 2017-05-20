@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should display a selected item 1`] = `
+<div
+  id="0-item"
+>
+  <div
+    className="checkbox-container"
+  >
+    <div
+      className="checkbox"
+    >
+      <label
+        htmlFor="checkbox-0-item"
+      >
+        <input
+          checked={true}
+          id="checkbox-0-item"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="tc-listview-item-label"
+        >
+          toto
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -80,6 +80,7 @@ import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Enumeration from './Enumeration';
+import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -110,6 +111,7 @@ export {
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
+	ListView,
 	ConfirmDialog,
 	Drawer,
 	TreeView,

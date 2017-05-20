@@ -25,7 +25,7 @@ function WithDrawer({ drawers, children }) {
 			{children}
 			<Drawer.Animation className={theme['tc-with-drawer-container']}>
 				{drawers && drawers.map((drawer, key) => (
-					<div drawer key={key} className="tc-with-drawer-wrapper">
+					<div key={key} className="tc-with-drawer-wrapper">
 						{drawer}
 					</div>
 				))}
