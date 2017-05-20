@@ -23,6 +23,17 @@ if [ -n "$GH_TOKEN" ]; then
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
+		git add packages/cmf/package.json
+		git add packages/components/package.json
+		git add packages/containers/package.json
+		git add packages/forms/package.json
+		git add packages/generator/package.json
+		git add packages/icons/package.json
+		git add packages/logging/package.json
+		git add packages/theme/package.json
+		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update dependencies"
+		echo "✓ Commit updated deps to $TRAVIS_BRANCH"
+
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_BRANCH
 		echo "✓ Push to $TRAVIS_BRANCH"
 	fi
