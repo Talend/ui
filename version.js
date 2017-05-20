@@ -11,7 +11,7 @@ program
 	.option('-q, --quiet', 'display nothing')
 	.parse(process.argv);
 
-const REACT_VERSION = '15.5.0';
+const REACT_VERSION = '15.5.4';
 const JEST_VERSION = '20.0.3';
 
 const VERSIONS = {
@@ -21,7 +21,7 @@ const VERSIONS = {
     immutable: '3.8.1',
     invariant: '2.2.2',
 	react: REACT_VERSION,
-    'react-addons-test-utils': REACT_VERSION,
+    'react-addons-test-utils': '15.5.1',
     'react-dom': REACT_VERSION,
     'react-redux': '5.0.5',
     'react-router': '3.0.5',
