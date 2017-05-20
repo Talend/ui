@@ -328,6 +328,7 @@ exports[`List should render 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -360,6 +361,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -385,6 +387,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -410,6 +413,7 @@ exports[`List should render 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -492,6 +496,7 @@ exports[`List should render 1`] = `
                   Name
                 </a>
               </li>
+              ;
             </ul>
           </li>
           <li
@@ -620,15 +625,20 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -638,11 +648,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play fa-rotate-180"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -681,11 +696,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -699,11 +719,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
@@ -722,6 +747,7 @@ exports[`List should render 1`] = `
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
+            focusable="false"
             title={null}
           >
             <use
@@ -1068,6 +1094,7 @@ exports[`List should render id if provided 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -1100,6 +1127,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1125,6 +1153,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1150,6 +1179,7 @@ exports[`List should render id if provided 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -1232,6 +1262,7 @@ exports[`List should render id if provided 1`] = `
                   Name
                 </a>
               </li>
+              ;
             </ul>
           </li>
           <li
@@ -1360,15 +1391,20 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1378,11 +1414,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play fa-rotate-180"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1421,11 +1462,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1439,11 +1485,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
+                focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
@@ -1463,6 +1514,7 @@ exports[`List should render id if provided 1`] = `
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
+            focusable="false"
             title={null}
           >
             <use

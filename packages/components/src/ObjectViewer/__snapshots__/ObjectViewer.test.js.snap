@@ -12,6 +12,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -1126,6 +1127,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -2469,6 +2471,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -2521,6 +2524,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -2603,6 +2607,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -2657,6 +2662,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -2759,6 +2765,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -2793,6 +2800,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                                   <svg
                                     aria-hidden="true"
                                     className="tc-svg-icon"
+                                    focusable="false"
                                     title={null}
                                   >
                                     <use
@@ -2854,6 +2862,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -2936,6 +2945,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -2990,6 +3000,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -3024,6 +3035,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                                   <svg
                                     aria-hidden="true"
                                     className="tc-svg-icon"
+                                    focusable="false"
                                     title={null}
                                   >
                                     <use
@@ -3880,6 +3892,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -3933,6 +3946,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -4013,6 +4027,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -4067,6 +4082,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -4169,6 +4185,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -4203,6 +4220,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                                   <svg
                                     aria-hidden="true"
                                     className="tc-svg-icon"
+                                    focusable="false"
                                     title={null}
                                   >
                                     <use
@@ -4265,6 +4283,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                   <svg
                     aria-hidden="true"
                     className="tc-svg-icon"
+                    focusable="false"
                     title={null}
                   >
                     <use
@@ -4347,6 +4366,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -4401,6 +4421,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <svg
                             aria-hidden="true"
                             className="tc-svg-icon"
+                            focusable="false"
                             title={null}
                           >
                             <use
@@ -4435,6 +4456,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                                   <svg
                                     aria-hidden="true"
                                     className="tc-svg-icon"
+                                    focusable="false"
                                     title={null}
                                   >
                                     <use
@@ -5504,6 +5526,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -5625,6 +5648,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -5678,6 +5702,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -5779,6 +5804,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -5813,6 +5839,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -5917,6 +5944,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -5975,6 +6003,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -6009,6 +6038,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -6863,6 +6893,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -6986,6 +7017,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -7040,6 +7072,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -7142,6 +7175,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -7176,6 +7210,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -7284,6 +7319,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -7344,6 +7380,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -7378,6 +7415,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -8445,6 +8483,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -8493,6 +8532,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -8527,6 +8567,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -8609,6 +8650,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -8663,6 +8705,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -8765,6 +8808,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -8799,6 +8843,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                       <svg
                                         aria-hidden="true"
                                         className="tc-svg-icon"
+                                        focusable="false"
                                         title={null}
                                       >
                                         <use
@@ -8861,6 +8906,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -8943,6 +8989,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -8997,6 +9044,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -9031,6 +9079,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                       <svg
                                         aria-hidden="true"
                                         className="tc-svg-icon"
+                                        focusable="false"
                                         title={null}
                                       >
                                         <use
@@ -9862,6 +9911,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
   >
     <div>
       <svg
+        focusable="false"
         style={
           Object {
             "display": "none",
@@ -9911,6 +9961,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
               <svg
                 aria-hidden="true"
                 className="tc-svg-icon"
+                focusable="false"
                 title={null}
               >
                 <use
@@ -9945,6 +9996,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -10025,6 +10077,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -10079,6 +10132,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -10181,6 +10235,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -10215,6 +10270,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                       <svg
                                         aria-hidden="true"
                                         className="tc-svg-icon"
+                                        focusable="false"
                                         title={null}
                                       >
                                         <use
@@ -10277,6 +10333,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <svg
                         aria-hidden="true"
                         className="tc-svg-icon"
+                        focusable="false"
                         title={null}
                       >
                         <use
@@ -10359,6 +10416,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -10413,6 +10471,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               <svg
                                 aria-hidden="true"
                                 className="tc-svg-icon"
+                                focusable="false"
                                 title={null}
                               >
                                 <use
@@ -10447,6 +10506,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                       <svg
                                         aria-hidden="true"
                                         className="tc-svg-icon"
+                                        focusable="false"
                                         title={null}
                                       >
                                         <use

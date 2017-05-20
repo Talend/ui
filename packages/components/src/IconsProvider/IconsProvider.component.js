@@ -19,7 +19,7 @@ function IconsProvider({ defaultIcons, icons }) {
 	const ids = Object.keys(iconset);
 	const style = { display: 'none' };
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" style={style}>
+		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" style={style}>
 			{ids.map((id, index) => (
 				<symbol key={index} id={id}>
 					{iconset[id]}

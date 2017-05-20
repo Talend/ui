@@ -9,6 +9,7 @@ import {
 	getStateAccessors,
 	getStateProps,
 } from './componentState';
+import { mapStateToViewProps } from './settings';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -41,12 +42,14 @@ export function getStateToProps({
 		return state.cmf.collections.get(id);
 	};
 
+	const viewProps = mapStateToViewProps(state, ownProps);
+
 	let userProps = {};
 	if (mapStateToProps) {
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...userProps };
+	return { ...cmfProps, ...viewProps, ...userProps };
 }
 
 export function getDispatchToProps({
@@ -85,7 +88,7 @@ export function getDispatchToProps({
  * this function wrap your component to inject the following:
  * - props.state
  * - props.setState
- * - props.initState (call it un didMount)
+ * - props.initState (you should never have to call it your self)
  * - props.getCollection
  * - dispatch(action)
  * - dispatchActionCreator(id, event, data, [context])
@@ -96,6 +99,8 @@ export function getDispatchToProps({
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
+ * - didMountActionCreator (string called as action creator in didMount)
+ * - view (string to inject the settings as props with ref support)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -159,10 +164,11 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign({
-					state: defaultState,
-					dispatchActionCreator: this.dispatchActionCreator,
-				}, this.props);
+				const props = Object.assign(
+					{ state: defaultState },
+					this.props,
+					{ dispatchActionCreator: this.dispatchActionCreator },
+				);
 				return createElement(
 					WrappedComponent,
 					props,

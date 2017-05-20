@@ -3,13 +3,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
+import TabBar from '../TabBar';
 
 import theme from './Drawer.scss';
 
 function DrawerAnimation({ children }) {
 	return (
 		<ReactCSSTransitionGroup
-			transitionName="tc-drawer"
+			transitionName="tc-with-drawer-wrapper"
+			transitionAppear
 			transitionAppearTimeout={230}
 			transitionEnterTimeout={230}
 			transitionLeaveTimeout={230}
@@ -23,11 +25,15 @@ DrawerAnimation.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContainer({ stacked, className, children, ...rest }) {
+function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
+		{
+			[theme['tc-drawer-transition']]: withTransition,
+			'tc-drawer-transition': withTransition,
+		},
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
@@ -43,6 +49,7 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
+	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -127,14 +134,22 @@ function Drawer({
 	children,
 	footerActions,
 	onCancelAction,
+	tabs,
+	withTransition = true,
 }) {
 	if (!children) {
 		return null;
 	}
 	return (
-		<DrawerContainer stacked={stacked} className={className} style={style}>
+		<DrawerContainer
+			stacked={stacked}
+			className={className}
+			style={style}
+			withTransition={withTransition}
+		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
+			{tabs && (<TabBar {...tabs} />)}
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>
@@ -153,6 +168,8 @@ Drawer.propTypes = {
 	// footer action, see action bar for api
 	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
 	onCancelAction: PropTypes.shape(Action.propTypes),
+	tabs: PropTypes.shape(TabBar.propTypes),
+	withTransition: PropTypes.bool,
 };
 
 Drawer.Animation = DrawerAnimation;
