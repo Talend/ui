@@ -7,7 +7,7 @@
     "surge": "^0.18.0"
   },
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && ./copylibs.js",
+    "postinstall": "./version.js && lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && ./copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
