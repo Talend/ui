@@ -105,6 +105,7 @@ class DatalistWidget extends React.Component {
 		required: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			title: PropTypes.string.isRequired,
 			enum: PropTypes.arrayOf(PropTypes.string),
 		}).isRequired,
 		formContext: PropTypes.shape({
@@ -130,7 +131,7 @@ class DatalistWidget extends React.Component {
 			required: props.required,
 			onBlur: () => this.onBlur(),
 			onFocus: () => this.initSuggestions(this.state.value),
-			onChange: event => this.initSuggestions(event.target.value),
+			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
 
@@ -167,7 +168,8 @@ class DatalistWidget extends React.Component {
 			event.preventDefault();
 			break;
 		case keycode.codes.enter:
-			if (focusedItemIndex != null) { // could be null in case of no match
+			// could be null in case of no match
+			if (focusedItemIndex != null) {
 				this.selectItem(focusedItemIndex);
 			}
 			event.preventDefault();
@@ -194,21 +196,25 @@ class DatalistWidget extends React.Component {
 	initSuggestions(value) {
 		let items;
 		if (this.props.schema.enum) {
-			items = getMatchingSuggestions(this.props.schema.enum, value);
+			items = this.props.schema.enum;
 		} else if (this.props.formContext && this.props.formContext.fetchItems) {
-			items = getMatchingSuggestions(this.props.formContext.fetchItems(), value);
+			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
+		const suggestions = getMatchingSuggestions(items, value);
 		this.setState({
 			value,
 			initalItems: items,
-			items,
+			items: suggestions,
 			itemIndex: null,
 			noMatch: value && !items.length,
 		});
 	}
 
 	updateSuggestions(value) {
-		const suggestions = getMatchingSuggestions(this.state.initalItems, value);
+		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
+		if (!value && suggestions.length === 0) {
+			suggestions = this.state.initalItems;
+		}
 		this.setState({
 			value,
 			items: suggestions,

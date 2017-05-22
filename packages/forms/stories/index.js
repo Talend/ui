@@ -115,7 +115,8 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 decoratedStories.add('Datalist', () => {
-	function fetchItems() {
+	function fetchItems(title) {
+		console.log('fetchItems', title);
 		return [
 			'Apple',
 			'Pine[apple]',
