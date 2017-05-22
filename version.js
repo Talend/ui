@@ -129,7 +129,6 @@ files.forEach((ppath) => {
 		delete packageJSON.modified;
 		save(ppath, JSON.stringify(packageJSON, null, 2));
 		console.log(path.join(path.dirname(ppath), 'yarn.lock'));
-		// TODO: remove yarn.lock using fs.unlink();
 		fs.unlink(path.join(path.dirname(ppath), 'yarn.lock'));
 	}
 });
