@@ -17,10 +17,7 @@ export function escapeRegexCharacters(str) {
  * @param suggestions
  * @param value
  */
-export function getMatchingSuggestions(suggestions, value) {
-	if (!suggestions) {
-		return [];
-	}
+export function getMatchingSuggestions(suggestions = [], value) {
 	if (!value) {
 		return suggestions;
 	}
@@ -68,9 +65,7 @@ function renderDatalistItem(item, { value }) {
 		for (let i = 0; i < restValues.length; i++) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
-				emphasisedText.push(
-					<em className={theme['highlight-match']}>{matchedValues[i]}</em>,
-				);
+				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
 			}
 		}
 	}
@@ -115,7 +110,7 @@ class DatalistWidget extends React.Component {
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
-	}
+	};
 
 	constructor(props) {
 		super(props);

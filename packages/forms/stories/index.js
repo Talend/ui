@@ -118,12 +118,12 @@ decoratedStories.add('Datalist', () => {
 	function fetchItems(title) {
 		console.log('fetchItems', title);
 		return [
-			'Apple',
-			'Pine[apple]',
-			'Banana',
-			'Cher[ry',
-			'Lemo}n',
-			'Grapefruit',
+			'Auklet',
+			'Cormorant',
+			'Falcon',
+			'Goldfinch',
+			'Magpie',
+			'Pewee',
 		];
 	}
 	const schema = {
