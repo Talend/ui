@@ -624,7 +624,6 @@ exports[`Toolbar should render sort selector 1`] = `
                 Name
               </a>
             </li>
-            ;
           </ul>
         </li>
         <li
