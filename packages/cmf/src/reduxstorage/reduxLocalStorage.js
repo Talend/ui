@@ -1,11 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unresolved */
-
 import * as storage from 'redux-storage';
 import createEngine from 'redux-storage-engine-localstorage';
 import filter from 'redux-storage-decorator-filter';
 import immutablejs from './redux-storage-decorator-immutablejs';
-// import { save as actionSave } from './actions';
+
 const CMF_IMMUTABLE_PATHS = [
 	['cmf', 'components'],
 	['cmf', 'collections'],

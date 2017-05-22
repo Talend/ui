@@ -38,12 +38,16 @@ describe('reduxLocalStorage', () => {
 				['cmf', 'components', 'Container(Form)'],
 			],
 		}).then((storage) => {
-			expect(storage.initialState.cmf.components.getIn(['SidePanel', 'default', 'toggle'])).toBe(true);
+			expect(
+				storage.initialState
+					.cmf
+					.components
+					.getIn(['SidePanel', 'default', 'toggle'])
+			).toBe(true);
 			done();
 			window.localStorage = origin;
 		}, (error) => {
-			expect(error).toBe();
-			done();
+			throw new Error(error);
 		});
 	});
 });

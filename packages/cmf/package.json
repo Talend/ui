@@ -94,6 +94,10 @@
     "react-router-redux": "4",
     "redux": "3",
     "redux-batched-actions": "0",
+    "redux-storage": "^4.1.2",
+    "redux-storage-decorator-filter": "^1.1.8",
+    "redux-storage-decorator-immutablejs": "^1.0.4",
+    "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2"
   },
   "version": "0.74.2",
