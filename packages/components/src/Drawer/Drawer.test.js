@@ -58,4 +58,23 @@ describe('Drawer', () => {
 	it('should not render cancelActionComponent', () => {
 		expect(cancelActionComponent()).toBe(null);
 	});
+	it('should render with tabs', () => {
+		const tabs = {
+			items: [{
+				key: '1',
+				label: 'Tab 1',
+			}, {
+				key: '2',
+				label: 'Tab 2',
+			}],
+			onSelect: jest.fn(),
+			selected: '2',
+		};
+		const wrapper = renderer.create(
+			<Drawer tabs={tabs} >
+				<h1>Hello world</h1>
+			</Drawer>
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });

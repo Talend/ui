@@ -30,32 +30,54 @@ const actions = [
 	},
 ];
 
+const items = [{
+	key: 'preparations',
+	label: 'Preparations',
+	icon: 'talend-dataprep',
+}, {
+	key: 'datasets',
+	label: 'Datasets',
+	icon: 'talend-download',
+}, {
+	key: 'favorites',
+	label: 'Favorites',
+	icon: 'talend-star',
+}];
+
 storiesOf('SidePanel', module)
-	.addWithInfo('default', () => {
-		return (
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				<SidePanel
-					id="context"
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					docked={false}
-					tooltipPlacement="top"
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('docked', () =>
-		(
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				<SidePanel
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					docked
-					tooltipPlacement="top"
-				/>
-			</div>
-		)
-	);
+	.addWithInfo('default', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				id="context"
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked={false}
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('docked', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('with onSelect function', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				actions={items}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				selected={items[1]}
+				tooltipPlacement="top"
+			/>
+		</div>
+	));
 
