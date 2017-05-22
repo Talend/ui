@@ -160,6 +160,7 @@ Object {
           "Developer",
           "Project Manager",
         ],
+        "title": "roles",
         "type": "string",
       },
     },

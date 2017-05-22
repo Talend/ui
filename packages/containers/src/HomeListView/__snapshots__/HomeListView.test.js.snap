@@ -16,40 +16,19 @@ exports[`Component HomeListView should render with element props 1`] = `
     ]
   }
   header={
-    <Connect(AppHeaderBar)
-      $$typeof={Symbol(react.element)}
-      _owner={null}
-      _store={Object {}}
-      props={
-        Object {
-          "children": "hello app",
-        }
-      }
-      type="div" />
+    <div>
+      hello app
+    </div>
   }
   mode="TwoColumns"
   one={
-    <Connect(CMF(undefined))
-      $$typeof={Symbol(react.element)}
-      _owner={null}
-      _store={Object {}}
-      props={
-        Object {
-          "children": "hello sidepanel",
-        }
-      }
-      type="div" />
+    <div>
+      hello sidepanel
+    </div>
   }>
-  <Connect(CMF(Container(List)))
-    $$typeof={Symbol(react.element)}
-    _owner={null}
-    _store={Object {}}
-    props={
-      Object {
-        "children": "hello list",
-      }
-    }
-    type="div" />
+  <div>
+    hello list
+  </div>
 </Layout>
 `;
 

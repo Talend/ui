@@ -6,164 +6,199 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 
-function Logo({ id, isFull, onClick }) {
+
+function getRenderers(renderers) {
+	return Object.assign(
+		{
+			Action,
+			ActionDropdown,
+			Typeahead,
+		},
+		renderers || {},
+	);
+}
+
+function Logo({ isFull, renderers, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
+	const Components = getRenderers(renderers);
 	const itemClassName = classNames(['tc-header-bar-action', !isFull && 'separated']);
 	const actionClassName = classNames(['tc-header-bar-logo', isFull && 'full']);
 	return (
 		<li className={itemClassName}>
-			<Action
+			<Components.Action
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
-				id={id}
 				label="Go to Portal"
 				icon={icon}
-				onClick={onClick}
 				tooltipPlacement="bottom"
+				{...props}
 			/>
 		</li>
 	);
 }
 
 Logo.propTypes = {
-	id: React.PropTypes.string,
 	isFull: React.PropTypes.bool,
-	onClick: React.PropTypes.func.isRequired,
+	renderers: React.PropTypes.shape({
+		Action: React.PropTypes.func,
+	}),
 };
 
-function Brand({ id, isSeparated, name, onClick }) {
+function Brand({ name, isSeparated, renderers, ...props }) {
 	const className = classNames(['tc-header-bar-action', isSeparated && 'separated']);
+	const Components = getRenderers(renderers);
 	return (
 		<li className={className}>
-			<Action
+			<Components.Action
 				bsStyle="link"
 				className="tc-header-bar-brand"
-				id={id}
-				label={name}
-				onClick={onClick}
 				tooltipPlacement="bottom"
+				label={name}
+				{...props}
 			/>
 		</li>
 	);
 }
 
 Brand.propTypes = {
-	id: React.PropTypes.string,
 	isSeparated: React.PropTypes.bool,
-	name: React.PropTypes.string.isRequired,
-	onClick: React.PropTypes.func.isRequired,
+	renderers: React.PropTypes.shape({
+		Action: React.PropTypes.func,
+	}),
 };
 
-function Environment(props) {
+function Environment({ renderers, ...props }) {
+	const Components = getRenderers(renderers);
 	return (
 		<li className="tc-header-bar-action">
-			<ActionDropdown
+			<Components.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
-				id={props.id}
-				items={props.items}
-				label={props.label}
 				tooltipPlacement="bottom"
+				{...props}
 			/>
 		</li>
 	);
 }
 
 Environment.propTypes = {
-	id: React.PropTypes.string,
-	items: ActionDropdown.propTypes.items,
-	label: ActionDropdown.propTypes.label,
+	renderers: React.PropTypes.shape({
+		ActionDropdown: React.PropTypes.func,
+	}),
 };
 
-function Search(props) {
+function Search({ renderers, ...props }) {
+	const Components = getRenderers(renderers);
 	return (
 		<li className="tc-header-bar-action separated flex">
-			<Typeahead {...props} />
+			<Components.Typeahead {...props} />
 		</li>
 	);
 }
 
 Search.propTypes = Typeahead.propTypes;
+Search.propTypes.renderers = React.PropTypes.shape({
+	Typeahead: React.PropTypes.func,
+});
 
-function Help({ id, onClick }) {
+function Help({ renderers, ...props }) {
+	const Components = getRenderers(renderers);
 	return (
 		<li className="tc-header-bar-action">
-			<Action
+			<Components.Action
 				bsStyle="link"
 				icon="talend-question-circle"
-				id={id}
 				label="Help"
-				onClick={onClick}
 				tooltipPlacement="bottom"
+				{...props}
 			/>
 		</li>
 	);
 }
 
 Help.propTypes = {
-	id: React.PropTypes.string,
-	onClick: React.PropTypes.func.isRequired,
+	renderers: React.PropTypes.shape({
+		Action: React.PropTypes.func,
+	}),
 };
 
-function User({ id, items, name }) {
+function User({ name, renderers, ...props }) {
+	const Components = getRenderers(renderers);
 	return (
 		<li className="tc-header-bar-action separated">
-			<ActionDropdown
+			<Components.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
-				id={id}
-				items={items}
-				label={name}
 				noCaret
 				tooltipPlacement="bottom"
+				label={name}
+				{...props}
 			/>
 		</li>
 	);
 }
 
 User.propTypes = {
-	id: React.PropTypes.string,
-	items: ActionDropdown.propTypes.items,
-	name: ActionDropdown.propTypes.label,
+	renderers: React.PropTypes.shape({
+		ActionDropdown: React.PropTypes.func,
+	}),
 };
 
-function Products({ id, items }) {
+function Products({ renderers, ...props }) {
+	const Components = getRenderers(renderers);
 	return (
 		<li className="tc-header-bar-action">
-			<ActionDropdown
+			<Components.ActionDropdown
 				bsStyle="link"
 				className="tc-header-bar-products"
-				id={id}
 				icon="talend-launcher"
-				items={items}
 				label="Apps"
 				noCaret
 				pullRight
 				tooltipPlacement="bottom"
+				{...props}
 			/>
 		</li>
 	);
 }
 
 Products.propTypes = {
-	id: React.PropTypes.string,
-	items: ActionDropdown.propTypes.items,
+	renderers: React.PropTypes.shape({
+		ActionDropdown: React.PropTypes.func,
+	}),
 };
 
 function HeaderBar(props) {
+	const Components = Object.assign({
+		Logo,
+		Brand,
+		Environment,
+		Search,
+		User,
+		Help,
+		Products,
+	}, props.renderers || {});
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className="tc-header-bar-actions">
-				<Logo {...props.logo} />
-				<Brand {...props.brand} isSeparated={!!props.env} />
-				{props.env && (<Environment {...props.env} />)}
+				<Components.Logo renderers={props.renderers} {...props.logo} />
+				<Components.Brand renderers={props.renderers} {...props.brand} isSeparated={!!props.env} />
+				{props.env && (<Components.Environment renderers={props.renderers} {...props.env} />)}
 			</ul>
 			<ul className="tc-header-bar-actions right">
-				{props.search && (<Search {...props.search} />)}
-				{props.help && (<Help {...props.help} />)}
-				{props.user && (<User {...props.user} />)}
-				{props.products && (<Products {...props.products} />)}
+				{props.search && (
+					<Components.Search renderers={props.renderers} {...props.search} />
+				)}
+				{props.help && (
+					<Components.Help renderers={props.renderers} {...props.help} />
+				)}
+				{props.user && (
+					<Components.User renderers={props.renderers} {...props.user} />
+				)}
+				{props.products && (
+					<Components.Products renderers={props.renderers} {...props.products} />
+				)}
 			</ul>
 		</nav>
 	);
@@ -185,6 +220,14 @@ HeaderBar.propTypes = {
 	help: React.PropTypes.shape(Help.propTypes),
 	user: React.PropTypes.shape(User.propTypes),
 	products: React.PropTypes.shape(Products.propTypes),
+	renderers: React.PropTypes.shape({
+		Logo: React.PropTypes.func,
+		Brand: React.PropTypes.func,
+		Environment: React.PropTypes.func,
+		Search: React.PropTypes.func,
+		User: React.PropTypes.func,
+		Products: React.PropTypes.func,
+	}),
 };
 
 export default HeaderBar;
