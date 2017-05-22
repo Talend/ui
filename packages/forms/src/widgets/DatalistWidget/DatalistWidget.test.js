@@ -27,7 +27,7 @@ describe('getMatchingSuggestions', () => {
 			'banane',
 			'bananAze',
 			'   AzErTy   ',
-			'Toto'
+			'Toto',
 		];
 
 		// when
@@ -69,7 +69,7 @@ describe('DatalistWidget', () => {
 			'banane',
 			'bananAze',
 			'   AzErTy   ',
-			'Toto'
+			'Toto',
 		],
 	};
 
@@ -78,7 +78,7 @@ describe('DatalistWidget', () => {
 		const wrapper = renderer.create(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={{}}
 				onChange={jest.fn()}
 			/>
@@ -93,14 +93,14 @@ describe('DatalistWidget', () => {
 		const wrapper = mount(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={schema}
 				onChange={jest.fn()}
 			/>
 		);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', {  target: { value: 'noMatchingValue' } });
+		wrapper.find('input').at(0).simulate('change', { target: { value: 'noMatchingValue' } });
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -111,7 +111,7 @@ describe('DatalistWidget', () => {
 		const wrapper = mount(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={schema}
 				onChange={jest.fn()}
 			/>
@@ -129,14 +129,14 @@ describe('DatalistWidget', () => {
 		const wrapper = mount(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={schema}
 				onChange={jest.fn()}
 			/>
 		);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', {  target: { value: 'aze' } });
+		wrapper.find('input').at(0).simulate('change', { target: { value: 'aze' } });
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -148,7 +148,7 @@ describe('DatalistWidget', () => {
 		const wrapper = mount(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={schema}
 				onChange={onChange}
 			/>
@@ -169,9 +169,10 @@ describe('DatalistWidget', () => {
 		const wrapper = mount(
 			<DatalistWidget
 				id="myWidget"
-				required={true}
+				required
 				schema={schema}
 				onChange={onChange}
+				options={{ restricted: true }}
 			/>
 		);
 		const input = wrapper.find('input').at(0);
