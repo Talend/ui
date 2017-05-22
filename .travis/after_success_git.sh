@@ -4,6 +4,16 @@ echo "GIT"
 echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
 echo "TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR"
 echo "TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH"
+packages=(
+	"packages/cmf/",
+	"packages/components/",
+	"packages/containers/",
+	"packages/forms/",
+	"packages/generator/",
+	"packages/icons/",
+	"packages/logging/",
+	"packages/theme/"
+)
 
 if [ -n "$GH_TOKEN" ]; then
 	echo "✓ GH Token is here"
@@ -23,22 +33,11 @@ if [ -n "$GH_TOKEN" ]; then
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_BRANCH"
 
-		git add packages/cmf/package.json
-		git add packages/components/package.json
-		git add packages/containers/package.json
-		git add packages/forms/package.json
-		git add packages/generator/package.json
-		git add packages/icons/package.json
-		git add packages/logging/package.json
-		git add packages/theme/package.json
-		git add packages/cmf/yarn.lock
-		git add packages/components/yarn.lock
-		git add packages/containers/yarn.lock
-		git add packages/forms/yarn.lock
-		git add packages/generator/yarn.lock
-		git add packages/icons/yarn.lock
-		git add packages/logging/yarn.lock
-		git add packages/theme/yarn.lock
+		for folder in "${packages[@]}"
+		do:
+			git add $folder/package.json
+			git add $folder/yarn.lock
+		done
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update dependencies"
 		echo "✓ Commit updated deps to $TRAVIS_BRANCH"
 
