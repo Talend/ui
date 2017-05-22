@@ -108,7 +108,10 @@ SidePanel.propTypes = {
 	onSelect: React.PropTypes.func,
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
-	selected: React.PropTypes.string,
+	selected: React.PropTypes.shape({
+		label: React.PropTypes.string,
+		icon: React.PropTypes.string,
+	}),
 	tooltipPlacement: React.PropTypes.string,
 };
 
