@@ -36,6 +36,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 	const containerClass = classNames(
 		theme['tc-typeahead-container'],
 		(position === 'right') && theme.right,
+		'form-control',
 	);
 
 	const autowhateverProps = {
@@ -43,22 +44,26 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		inputProps: {
 			value: rest.value,
 			placeholder: rest.placeholder,
+			onFocus: rest.onFocus,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onKeyDown: rest.onKeyDown,
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
+			autoFocus: rest.autoFocus,
 			icon,
 		},
 		itemProps: {
-			onClick: rest.onSelect,
+			onMouseEnter: rest.onMouseEnter,
+			onMouseLeave: rest.onMouseLeave,
+			onMouseDown: rest.onSelect,
 		},
 		renderInputComponent,
 		renderItemsContainer: renderItemsContainerFactory(
 			rest.items, rest.noResultText, rest.searching, rest.searchingText),
 		renderSectionTitle,
 		renderItem,
-		multiSection: true,
+		multiSection: rest.multiSection,
 		getSectionItems: section => section.suggestions,
 		theme: {
 			...rest.theme,
@@ -88,6 +93,7 @@ Typeahead.defaultProps = {
 	items: null,
 	noResultText: 'No result.',
 	searching: false,
+	multiSection: true,
 	searchingText: 'Searching for matches…',
 };
 
