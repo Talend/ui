@@ -13,7 +13,7 @@ import ToggleWidget from './widgets/ToggleWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
-import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
+import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
@@ -135,6 +135,7 @@ class Form extends React.Component {
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
 			handleAction: this.props.handleAction,
+			...this.props.formContext,
 		};
 		return (
 			<RJSForm
@@ -187,6 +188,7 @@ Form.propTypes = {
 	buttonBlockClass: PropTypes.string,
 	handleAction: PropTypes.func,
 	widgets: PropTypes.object,
+	formContext: PropTypes.func,
 };
 
 Form.defaultProps = {

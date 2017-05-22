@@ -1563,6 +1563,20 @@ exports[`Storyshots HeaderBar default 1`] = `
                   </tr>
                   <tr>
                     <td>
+                      renderers
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       search
                     </td>
                     <td>
@@ -3430,6 +3444,20 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   <tr>
                     <td>
                       products
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      renderers
                     </td>
                     <td>
                       other
@@ -5569,6 +5597,20 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   </tr>
                   <tr>
                     <td>
+                      renderers
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       search
                     </td>
                     <td>
@@ -7496,6 +7538,20 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   </tr>
                   <tr>
                     <td>
+                      renderers
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       search
                     </td>
                     <td>
@@ -9357,6 +9413,20 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   </tr>
                   <tr>
                     <td>
+                      renderers
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       search
                     </td>
                     <td>
@@ -11196,6 +11266,20 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   <tr>
                     <td>
                       products
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      renderers
                     </td>
                     <td>
                       other
@@ -14125,6 +14209,20 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   <tr>
                     <td>
                       products
+                    </td>
+                    <td>
+                      other
+                    </td>
+                    <td>
+                      no
+                    </td>
+                    <td>
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      renderers
                     </td>
                     <td>
                       other

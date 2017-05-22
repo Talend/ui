@@ -51,7 +51,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 						option,
 						index,
 						id,
-					}))};
+					}))}
 				</NavDropdown>)
 			}
 			{selected && (

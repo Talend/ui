@@ -18,6 +18,7 @@ exports[`Component HomeListView should render with element props 1`] = `
     ]
   }
   header={
+<<<<<<< HEAD
     <Connect(AppHeaderBar)
       $$typeof={Symbol(react.element)}
       _owner={null}
@@ -56,6 +57,21 @@ exports[`Component HomeListView should render with element props 1`] = `
     }
     type="div"
   />
+=======
+    <div>
+      hello app
+    </div>
+  }
+  mode="TwoColumns"
+  one={
+    <div>
+      hello sidepanel
+    </div>
+  }>
+  <div>
+    hello list
+  </div>
+>>>>>>> master
 </Layout>
 `;
 

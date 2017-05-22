@@ -6,10 +6,10 @@ import List from '../List';
 import SidePanel from '../SidePanel';
 
 function getContent(Component, props) {
-	if (typeof props === 'object') {
-		return (<Component {...props} />);
+	if (React.isValidElement(props)) {
+		return props;
 	}
-	return props;
+	return (<Component {...props} />);
 }
 
 function HomeListView({ sidepanel, list, header, children }) {
