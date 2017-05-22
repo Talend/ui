@@ -44,6 +44,7 @@
     "react-addons-css-transition-group": "^15.4.1",
     "react-addons-test-utils": "^15.4.0",
     "react-bootstrap": "^0.30.3",
+    "react-css-transition": "^0.7.4",
     "react-dom": "^15.4.0",
     "react-talend-components": "^0.74.2",
     "react-test-renderer": "15.4.0",
