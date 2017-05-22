@@ -93,6 +93,7 @@ $tc-list-table-header-height: 36px !default;
 		.tc-list-display-table-td {
 			display: flex;
 			position: relative;
+			max-width: 300px;
 
 			.cell {
 				display: flex;
@@ -119,7 +120,7 @@ $tc-list-table-header-height: 36px !default;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
-			display: inline-block;
+			display: inherit;
 		}
 	}
 }
