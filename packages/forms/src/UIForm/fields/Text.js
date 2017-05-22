@@ -12,7 +12,7 @@ function convertValue(type, value) {
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, placeholder, readOnly, title, type } = schema;
+	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
 
 	const groupsClassNames = classNames(
 		'form-group',
@@ -24,6 +24,7 @@ export default function Text(props) {
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
+				disabled={disabled}
 				label={title}
 				placeholder={placeholder}
 				onChange={event => onChange(event, schema, convertValue(type, event.target.value))}
@@ -50,6 +51,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
+			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,

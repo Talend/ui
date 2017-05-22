@@ -15,7 +15,10 @@
       "age": {
         "type": "number"
       },
-      "nochange": {
+      "readonlyField": {
+        "type": "string"
+      },
+      "disabledField": {
         "type": "string"
       },
       "email": {
@@ -61,9 +64,14 @@
       "validationMessage": "Please enter a valid email address, e.g. user@email.com"
     },
     {
-      "key": "nochange",
+      "key": "readonlyField",
       "title": "Field (read only mode)",
       "readOnly": true
+    },
+    {
+      "key": "disabledField",
+      "title": "Field (disabled mode)",
+      "disabled": true
     },
     {
       "key": "comment",
@@ -75,7 +83,8 @@
   ],
   "properties": {
     "name": "Chuck Norris",
-    "nochange": "You can't change that",
+    "readonlyField": "You can't change that",
+    "disabledField": "You can't change that",
     "email": "ChuckyFTW@gmail.com",
     "comment": "lol"
   }
