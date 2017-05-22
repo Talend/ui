@@ -10,6 +10,7 @@ program
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'display nothing')
 	.option('-p, --path [value]', 'path of the package.json to update')
+	.option('-s, --stack [value]', 'stack version used in combination with -p')
 	.option('-f, --force')
 	.parse(process.argv);
 
@@ -108,8 +109,24 @@ let files = [
 ];
 
 if (program.path) {
-	files = [program.path]
-	// TODO: read the current latest stack version and update to it
+	files = [program.path];
+	const stack_version = program.stack || require('./lerna.json').version;
+	if (program.debug) {
+		console.log(`use stack version ${stack_version}`);
+	}
+	const STACK_VERSION = {
+		'bootstrap-talend-theme': stack_version,
+		'react-cmf': stack_version,
+		'react-talend-components': stack_version,
+		'react-talend-containers': stack_version,
+		'react-talend-forms': stack_version,
+		'talend-icons': stack_version,
+		'talend-log': stack_version,
+	};
+	Object.assign(
+		VERSIONS,
+		STACK_VERSION
+	);
 }
 
 if (program.debug) {
