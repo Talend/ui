@@ -71,6 +71,7 @@ import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
 import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -79,6 +80,7 @@ import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Enumeration from './Enumeration';
+import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
@@ -102,12 +104,14 @@ export {
 	Actions,
 	AppHeaderBar,
 	HeaderBar,
+	HttpError,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
+	ListView,
 	ConfirmDialog,
 	Drawer,
 	TreeView,

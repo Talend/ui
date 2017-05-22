@@ -17,12 +17,15 @@ import theme from './SidePanel.scss';
  ];
  <SidePanel
 	 actions={ actions }
-	 onToggleDock={ action('Toggle dock clicked') }
 	 docked={ isDocked }
+	 selected= { selectedItem }
+	 onToggleDock={ action('Toggle dock clicked') }
+	 onSelect={ action('onItemSelect') }
  />
  *
  */
 function SidePanel(props) {
+	const { selected, onSelect } = props;
 	const actions = props.actions || [];
 
 	const dockedCSS = { [theme.docked]: props.docked };
@@ -36,6 +39,12 @@ function SidePanel(props) {
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
+	const isActionSelected = (action) => {
+		if (selected) {
+			return action === selected;
+		}
+		return action.active;
+	};
 
 	return (
 		<nav className={navCSS}>
@@ -54,10 +63,10 @@ function SidePanel(props) {
 				</li>
 				{actions.map(action => (
 					<li
-						key={action.label}
+						key={action.key || action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
-							{ active: !!action.active },
+							{ active: isActionSelected(action) },
 						)}
 					>
 						<Action
@@ -65,7 +74,14 @@ function SidePanel(props) {
 							bsStyle="link"
 							role="link"
 							className={theme.link}
-							onClick={action.onClick}
+							onClick={(event) => {
+								if (onSelect) {
+									onSelect(event, action);
+								}
+								if (action.onClick) {
+									action.onClick(event);
+								}
+							}}
 							label={action.label}
 							icon={action.icon}
 							hideLabel={props.docked}
@@ -82,13 +98,17 @@ SidePanel.propTypes = {
 	id: React.PropTypes.string,
 	actions: React.PropTypes.arrayOf(
 		React.PropTypes.shape({
-			label: React.PropTypes.string,
+			active: React.PropTypes.bool,
 			icon: React.PropTypes.string,
+			key: React.PropTypes.string,
+			label: React.PropTypes.string,
 			onClick: React.PropTypes.func,
 		}),
 	),
+	onSelect: React.PropTypes.func,
 	onToggleDock: React.PropTypes.func,
 	docked: React.PropTypes.bool,
+	selected: React.PropTypes.string,
 	tooltipPlacement: React.PropTypes.string,
 };
 

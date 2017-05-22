@@ -118,21 +118,19 @@ const props = {
 				icon: 'talend-logo-dp',
 				key: 'tdp',
 				label: 'Data Preparation',
-				onClick: action('onTDPClick'),
 			},
 			{
 				icon: 'talend-logo-ic',
 				key: 'tic',
 				label: 'Integration Cloud',
-				onClick: action('onTICClick'),
 			},
 			{
 				icon: 'talend-logo-mc',
 				key: 'tmc',
 				label: 'Management Console',
-				onClick: action('onTMCClick'),
 			},
 		],
+		onSelect: action('onProductClick'),
 	},
 };
 
