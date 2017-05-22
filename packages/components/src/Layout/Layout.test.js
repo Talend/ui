@@ -9,6 +9,27 @@ const header = (<h1>Header</h1>);
 const footer = (<h3>Footer</h3>);
 const one = (<h1>Column one</h1>);
 const two = (<h1>Column two</h1>);
+const tabs = {
+	items: [
+		{
+			id: 'tab-bar-action-1',
+			key: '1',
+			label: 'Tab1',
+		},
+		{
+			id: 'tab-bar-action-2',
+			key: '2',
+			label: 'Tab2',
+		},
+		{
+			id: 'tab-bar-action-3',
+			key: '3',
+			label: 'Tab3',
+		},
+	],
+	onSelect: jest.fn(),
+	selected: '2',
+};
 const drawers = [
 	(<div style={{ width: 500 }}>
 		<h1>Hello drawers</h1>
@@ -65,6 +86,16 @@ describe('Layout', () => {
 		const wrapper = renderer.create(
 			<Layout mode="OneColumn">
 				{one}
+			</Layout>
+		).toJSON();
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render layout with TabBar component', () => {
+		const wrapper = renderer.create(
+			<Layout mode="TwoColumns" one={one} header={header} tabs={tabs}>
+				{two}
 			</Layout>
 		).toJSON();
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
+import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 import theme from './TwoColumns.scss';
 
@@ -9,7 +10,7 @@ import theme from './TwoColumns.scss';
  * @example
 <TwoColumns name="Hello world"></TwoColumns>
  */
-function TwoColumns({ one, drawers, children, ...props }) {
+function TwoColumns({ one, drawers, children, tabs, ...props }) {
 	const containerCSS = classnames(
 		'tc-layout-two-columns',
 		theme.container,
@@ -22,13 +23,20 @@ function TwoColumns({ one, drawers, children, ...props }) {
 		'tc-layout-two-columns-main',
 		theme.main,
 	);
+	const style = {
+		overflow: 'auto',
+		height: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+	};
 
 	return (
 		<div className={containerCSS} {...props}>
 			<div className={sidemenuCSS}>{one}</div>
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
-					<div style={{ overflow: 'auto', height: '100%', display: 'flex', flexDirection: 'column' }}>
+					{tabs && <TabBar {...tabs} />}
+					<div style={style}>
 						{children}
 					</div>
 				</WithDrawer>
@@ -41,6 +49,7 @@ TwoColumns.propTypes = {
 	one: React.PropTypes.element,
 	children: React.PropTypes.node,
 	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
+	tabs: React.PropTypes.shape(TabBar.propTypes),
 };
 
 export default TwoColumns;
