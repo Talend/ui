@@ -496,7 +496,6 @@ exports[`List should render 1`] = `
                   Name
                 </a>
               </li>
-              ;
             </ul>
           </li>
           <li
@@ -1262,7 +1261,6 @@ exports[`List should render id if provided 1`] = `
                   Name
                 </a>
               </li>
-              ;
             </ul>
           </li>
           <li
