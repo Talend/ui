@@ -62,7 +62,6 @@ exports[`SelectSortBy should render 1`] = `
           Name
         </a>
       </li>
-      ;
     </ul>
   </li>
   <li
@@ -144,7 +143,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
           Name
         </a>
       </li>
-      ;
     </ul>
   </li>
   <li
@@ -257,7 +255,6 @@ exports[`SelectSortBy should render without field selected 1`] = `
           Name
         </a>
       </li>
-      ;
     </ul>
   </li>
 </ul>
