@@ -10,6 +10,7 @@ exports[`Header should render header input with error 1`] = `
     onKeyDown={[Function]}
     placeholder="New entry"
     type="text"
+    value={undefined}
   />
   <div
     className="undefined tc-enumeration-header-error"
@@ -75,6 +76,7 @@ exports[`Header should render header input with two buttons 1`] = `
     onKeyDown={[Function]}
     placeholder="New entry"
     type="text"
+    value={undefined}
   />
   <button
     aria-describedby={42}

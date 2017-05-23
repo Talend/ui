@@ -34,6 +34,13 @@ class EnumerationWidget extends React.Component {
 
 		this.addInputs = [{
 			disabled: true,
+			label: 'Validate and Add',
+			icon: 'talend-check',
+			id: 'validate-and-add',
+			key: 'validateAdd',
+			onClick: this.onValidateAndAddHandler.bind(this),
+		}, {
+			disabled: true,
 			label: 'Validate',
 			icon: 'talend-check',
 			id: 'validate',
@@ -348,7 +355,7 @@ class EnumerationWidget extends React.Component {
 			event.stopPropagation();
 			event.preventDefault();
 			if (this.state.displayMode === DISPLAY_MODE_ADD) {
-				this.onAddHandler(event, value);
+				this.onValidateAndAddHandler(event, value);
 			}
 		}
 		if (event.keyCode === keycode('escape')) {
@@ -416,6 +423,37 @@ class EnumerationWidget extends React.Component {
 			displayMode: DISPLAY_MODE_DEFAULT,
 			headerSelected: this.selectedHeaderActions,
 		});
+	}
+
+	onValidateAndAddHandler(event, value) {
+		if (!value.value) {
+			this.setState({
+				displayMode: DISPLAY_MODE_DEFAULT,
+			});
+			return;
+		}
+
+		if (this.callActionHandler(
+				ENUMERATION_ADD_ACTION,
+				this.parseStringValueToArray(value.value),
+				this.validateAndAddSuccessHandler.bind(this),
+				this.addFailHandler.bind(this))
+		) {
+			this.setState({
+				headerInput: this.loadingInputsActions,
+			});
+		} else if (!this.valueAlreadyExist(value.value)) {
+			this.setState(
+				{
+					items: this.state.items.concat([{
+						values: this.parseStringValueToArray(value.value),
+						inputValue: '',
+					}]),
+				},
+				this.setFormData.bind(this)
+			);
+			this.updateHeaderInputDisabled('');
+		}
 	}
 
 	onAddHandler(event, value) {
@@ -492,6 +530,13 @@ class EnumerationWidget extends React.Component {
 		});
 	}
 
+	validateAndAddSuccessHandler() {
+		this.setState({
+			inputValue: '',
+			headerInput: this.addInputs,
+		});
+	}
+
 	addFailHandler() {
 		this.setState({
 			headerInput: this.addInputs,
@@ -531,11 +576,11 @@ class EnumerationWidget extends React.Component {
 	 */
 	importFile(event) {
 		if (this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_ACTION,
-			event.target.files[0],
-			this.importFileHandler.bind(this),
-			this.importFileHandler.bind(this)
-		)) {
+				ENUMERATION_IMPORT_FILE_ACTION,
+				event.target.files[0],
+				this.importFileHandler.bind(this),
+				this.importFileHandler.bind(this)
+			)) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
@@ -602,12 +647,14 @@ class EnumerationWidget extends React.Component {
 		this.setState((prevState) => {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value);
-			const [validateAction, abortAction] = prevState.headerInput;
+			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
 
 			return {
-				headerInput: [validateAction, abortAction],
+				headerInput: [validateAndAddAction, validateAction, abortAction],
 				headerError: valueExist ? DUPLICATION_ERROR : '',
+				inputValue: value,
 			};
 		});
 	}
@@ -626,8 +673,12 @@ class EnumerationWidget extends React.Component {
 		return (
 			<input
 				type="file"
-				ref={(element) => { this.inputFile = element; }}
-				onChange={(event) => { this.importFile(event); }}
+				ref={(element) => {
+					this.inputFile = element;
+				}}
+				onChange={(event) => {
+					this.importFile(event);
+				}}
 				className={classNames('hidden')}
 			/>
 		);

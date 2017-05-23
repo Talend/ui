@@ -13,6 +13,7 @@ exports[`Enumeration should render with header in add state and list in default 
       onKeyDown={[Function]}
       placeholder="New entry"
       type="text"
+      value={undefined}
     />
     <button
       aria-describedby={42}
@@ -1045,6 +1046,7 @@ exports[`Enumeration should render with header in search state and list in defau
       onKeyDown={[Function]}
       placeholder="Search"
       type="text"
+      value={undefined}
     />
     <button
       aria-describedby={42}

@@ -45,7 +45,7 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown, value }) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -68,6 +68,7 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 				}}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
+				value={value}
 				autoFocus
 			/>
 			{ headerError &&
@@ -83,6 +84,7 @@ HeaderInput.propTypes = {
 	onInputChange: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
+	value: PropTypes.string,
 };
 
 export default HeaderInput;
