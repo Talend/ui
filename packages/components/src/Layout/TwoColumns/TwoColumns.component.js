@@ -28,6 +28,7 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 		height: '100%',
 		display: 'flex',
 		flexDirection: 'column',
+		flexGrow: '1',
 	};
 
 	return (
