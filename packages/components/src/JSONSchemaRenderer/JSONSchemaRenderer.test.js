@@ -54,6 +54,31 @@ describe('JSONSchemaRenderer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should handle nested objects', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					a: {
+						type: 'object',
+						properties: {
+							b: {
+								type: 'string',
+							},
+						},
+					},
+
+				},
+			},
+			properties: {
+				a: {
+					b: 'test',
+				},
+			},
+		};
+		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should throw an execption in case of invalid schema', () => {
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={{}} />).toJSON();
 		expect(wrapper).toThrow(InvalidSchemaException);
@@ -74,5 +99,9 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toThrow(UnkownTypeException);
+	});
+
+	it('should handle $ref', () => {
+
 	});
 });

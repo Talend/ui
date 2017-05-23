@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import entries from 'lodash/entries';
 
 import css from './JSONSchemaRenderer.scss';
 
@@ -16,6 +17,11 @@ function UnkownTypeException(type) {
 	this.message = `Unkown type: ${type}`;
 }
 
+/**
+ * InvalidSchemaException
+ *
+ * @returns {undefined}
+ */
 function InvalidSchemaException() {
 	this.name = 'InvalidSchemaException';
 	this.message = 'Invalid Schema';
@@ -38,6 +44,14 @@ function textRenderer(key, title, text) {
 	);
 }
 
+/**
+ * arrayRenderer
+ *
+ * @param key
+ * @param title
+ * @param items
+ * @returns {string} - HTML markup for an array component
+ */
 function arrayRenderer(key, title, items) {
 	return (
 		<div className={css.array} key={key}>
@@ -47,10 +61,20 @@ function arrayRenderer(key, title, items) {
 	);
 }
 
+function objectRenderer(key, title, properties) {
+	return (
+		<div className={css.object} key={key}>
+			<dt>{title || key}</dt>
+			<dl>OBJECT</dl>
+		</div>
+	);
+}
+
 const registry = {
 	string: textRenderer,
 	integer: textRenderer,
 	array: arrayRenderer,
+	object: objectRenderer,
 };
 
 /**
@@ -76,13 +100,16 @@ function typeResolver(schema) {
 
 /**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
+ *
+ * @throws {InvalidSchemaException} schema must contain a jsonSchema and
+ * properties
  * @returns {string} - HTML markup for the component
  */
 function JSONSchemaRenderer(props) {
 	if (!props.schema.jsonSchema || !props.schema.properties) {
 		throw new InvalidSchemaException();
 	}
-	const properties = Object.entries(props.schema.properties);
+	const properties = entries(props.schema.properties);
 	const elements = properties.map(typeResolver(props.schema.jsonSchema.properties));
 	return (
 		<dl className={classNames(css[className])}>

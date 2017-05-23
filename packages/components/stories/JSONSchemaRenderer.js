@@ -35,22 +35,17 @@ const schema = {
 			tags: {
 				type: 'array',
 				items: {
-					enum: [
-						'a',
-						'b',
-						'c',
-						'd',
-						'e',
-						'f',
-					],
-					enumNames: [
-						'A',
-						'B',
-						'C',
-						'D',
-						'E',
-						'F',
-					],
+					enum: ['a', 'b', 'c', 'd', 'e', 'f'],
+					enumNames: ['A', 'B', 'D', 'E', 'F'],
+				},
+			},
+			nested: {
+				type: 'object',
+				title: 'Nested Elements',
+				properties: {
+					nestedElement: {
+						type: 'string',
+					},
 				},
 			},
 		},
@@ -80,6 +75,9 @@ const schema = {
 		bio: 'Roundhouse kicking asses since 1940',
 		password: 'noneed',
 		tags: ['b', 'd', 'f'],
+		nested: {
+			nestedElement: 'nestedElement',
+		},
 	},
 };
 

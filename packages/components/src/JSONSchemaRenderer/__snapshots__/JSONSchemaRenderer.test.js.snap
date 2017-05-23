@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`JSONSchemaRenderer should handle nested objects 1`] = `
+<dl
+  className=""
+/>
+`;
+
 exports[`JSONSchemaRenderer should render 1`] = `
 <dl
   className=""
