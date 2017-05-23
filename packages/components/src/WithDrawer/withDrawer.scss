@@ -2,11 +2,14 @@
 	height: 100%;
 	position: initial;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
 
 .tc-with-drawer-container {
 	height: 100%;
 	width: 100%;
+	position: absolute;
 	top: 0;
 	right: 0;
 }
