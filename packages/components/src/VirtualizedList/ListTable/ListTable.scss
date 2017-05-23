@@ -42,4 +42,8 @@ $tc-list-table-header-color: $black !default;
 			padding: $tc-list-table-cell-padding;
 		}
 	}
+
+	[class*="tc-list-cell-"] {
+		flex: 1 1 100%;
+	}
 }

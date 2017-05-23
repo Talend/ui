@@ -40,15 +40,18 @@ export function insertSelectionConfiguration({ children, isSelected, selectionTo
 export function toColumns(id, theme, children) {
 	return React.Children.toArray(children)
 		.map((field, index) => {
+			const colClassName = `tc-list-cell-${field.props.dataKey}`;
 			const colProps = {
 				...field.props,
 				headerClassName: classNames(
 					field.props.headerClassName,
 					theme.header,
+					colClassName
 				),
 				className: classNames(
 					field.props.className,
 					theme.cell,
+					colClassName
 				),
 				columnData: {
 					...field.props.columnData,
