@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONSchemaRenderer should render 1`] = `
+<dl
+  className=""
+/>
+`;
+
+exports[`JSONSchemaRenderer should render arrays 1`] = `
+<dl
+  className=""
+>
+  <div
+    className={undefined}
+  >
+    <dt>
+      test string
+    </dt>
+    <dd>
+      b
+    </dd>
+    <dd>
+      d
+    </dd>
+    <dd>
+      f
+    </dd>
+  </div>
+</dl>
+`;
+
+exports[`JSONSchemaRenderer should render strings and integers 1`] = `
+<dl
+  className=""
+>
+  <div
+    className={undefined}
+  >
+    <dt>
+      test string
+    </dt>
+    <dd>
+      A big a
+    </dd>
+  </div>
+  <div
+    className={undefined}
+  >
+    <dt>
+      test integer
+    </dt>
+    <dd>
+      42
+    </dd>
+  </div>
+</dl>
+`;
