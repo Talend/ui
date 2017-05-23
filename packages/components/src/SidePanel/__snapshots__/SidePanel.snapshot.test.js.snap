@@ -1238,7 +1238,7 @@ exports[`Storyshots SidePanel default 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
@@ -2472,7 +2472,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
@@ -3815,7 +3815,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
