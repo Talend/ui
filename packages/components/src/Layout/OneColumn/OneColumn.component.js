@@ -15,11 +15,17 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		'tc-layout-one-column',
 		theme.main,
 	);
+	const style = {
+		overflow: 'auto',
+		height: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+	};
 	return (
 		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
-				<div style={{ overflow: 'auto', height: '100%', display: 'flex', flexDirection: 'column' }}>
+				<div style={style}>
 					{children}
 				</div>
 			</WithDrawer>
