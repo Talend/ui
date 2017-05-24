@@ -7,7 +7,6 @@
 }
 
 .tc-with-drawer-container {
-	height: 100%;
 	width: 100%;
 	position: absolute;
 	top: 0;
@@ -15,11 +14,11 @@
 }
 
 .tc-with-drawer-container > div {
-	height: 100%;
+	height: calc(100vh - 48px);
+	width: 100%;
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
 	pointer-events: none;
 }
 
