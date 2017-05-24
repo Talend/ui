@@ -1,3 +1,4 @@
+sudo: false
 language: node_js
 cache:
   directories:
@@ -16,7 +17,6 @@ before_install:
 before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge
-sudo: required
 script:
   - yarn test
 after_success:
