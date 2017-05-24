@@ -22,7 +22,6 @@ exports[`Layout should render Layout OneColumn 1`] = `
           Object {
             "display": "flex",
             "flexDirection": "column",
-            "flexGrow": "1",
             "height": "100%",
             "overflow": "auto",
           }
@@ -72,7 +71,6 @@ exports[`Layout should render Layout TwoColumns 1`] = `
             Object {
               "display": "flex",
               "flexDirection": "column",
-              "flexGrow": "1",
               "height": "100%",
               "overflow": "auto",
             }
@@ -123,7 +121,6 @@ exports[`Layout should render layout with Drawer component 1`] = `
             Object {
               "display": "flex",
               "flexDirection": "column",
-              "flexGrow": "1",
               "height": "100%",
               "overflow": "auto",
             }
@@ -295,7 +292,6 @@ exports[`Layout should render layout with TabBar component 1`] = `
             Object {
               "display": "flex",
               "flexDirection": "column",
-              "flexGrow": "1",
               "height": "100%",
               "overflow": "auto",
             }
@@ -336,7 +332,6 @@ exports[`Layout should render layout with footer component 1`] = `
           Object {
             "display": "flex",
             "flexDirection": "column",
-            "flexGrow": "1",
             "height": "100%",
             "overflow": "auto",
           }
@@ -377,7 +372,6 @@ exports[`Layout should render layout without header 1`] = `
           Object {
             "display": "flex",
             "flexDirection": "column",
-            "flexGrow": "1",
             "height": "100%",
             "overflow": "auto",
           }

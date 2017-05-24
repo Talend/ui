@@ -12,7 +12,6 @@ exports[`OneColumn should render 1`] = `
         Object {
           "display": "flex",
           "flexDirection": "column",
-          "flexGrow": "1",
           "height": "100%",
           "overflow": "auto",
         }
