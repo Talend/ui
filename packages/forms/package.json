@@ -89,7 +89,7 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
-    "testPathDirs": [
+    "roots": [
       "src",
       "__mocks__"
     ],

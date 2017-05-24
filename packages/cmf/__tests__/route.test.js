@@ -16,7 +16,7 @@ describe('CMF route', () => {
 });
 
 describe('loadComponent behavior', () => {
-	xit('should inject dispatch into component properties from context.store', () => {
+	it('should inject dispatch into component properties from context.store', () => {
 		const mockItem = {
 			component: 'component',
 			view: 'something',
