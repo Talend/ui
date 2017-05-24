@@ -54,7 +54,6 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
   id="my-progress"
 >
   <div
-    aria-describedby={42}
     className="undefined"
     onBlur={[Function]}
     onClick={null}
@@ -108,7 +107,6 @@ exports[`Progress should render progress with tooltip 1`] = `
   id="my-progress"
 >
   <div
-    aria-describedby={42}
     className=""
     onBlur={[Function]}
     onClick={null}

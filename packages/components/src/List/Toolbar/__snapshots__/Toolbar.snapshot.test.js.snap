@@ -242,7 +242,6 @@ exports[`Toolbar should render filter form 1`] = `
       className="container-fluid"
     >
       <button
-        aria-describedby={42}
         className="navbar-right btn btn-link"
         disabled={false}
         id="my-toolbar-filter"

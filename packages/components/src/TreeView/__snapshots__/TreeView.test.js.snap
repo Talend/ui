@@ -11,7 +11,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       some elements
     </span>
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       id="id-add"
@@ -57,7 +56,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             data-toggled={true}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="id-0-toggle"
@@ -111,7 +109,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               </span>
             </div>
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="id-0-talend-trash"
@@ -155,7 +152,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 data-toggled={true}
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   id="id-0-0-toggle"
@@ -287,7 +283,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 data-toggled={false}
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   id="id-0-1-toggle"

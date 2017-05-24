@@ -83,7 +83,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             onBlur={[Function]}
@@ -106,7 +105,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -121,7 +119,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -132,7 +129,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
             onBlur={[Function]}
             onClick={null}
@@ -286,7 +282,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             onBlur={[Function]}
@@ -309,7 +304,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -324,7 +318,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -335,7 +328,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
             onBlur={[Function]}
             onClick={null}
@@ -489,7 +481,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
             onBlur={[Function]}
@@ -512,7 +503,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -527,7 +517,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -538,7 +527,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
             onBlur={[Function]}
             onClick={null}
@@ -579,7 +567,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -590,7 +577,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             Version 1 Version 1
           </span>
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -605,7 +591,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -657,7 +642,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             className={undefined}
           >
             <span
-              aria-describedby={42}
               className={undefined}
               onBlur={[Function]}
               onClick={null}
@@ -668,7 +652,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
               21 step
             </span>
             <span
-              aria-describedby={42}
               className="text-right"
               onBlur={[Function]}
               onClick={null}
@@ -719,7 +702,6 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -730,7 +712,6 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
             Version 1 Version 1
           </span>
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}
@@ -745,7 +726,6 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
             onBlur={[Function]}
             onClick={null}

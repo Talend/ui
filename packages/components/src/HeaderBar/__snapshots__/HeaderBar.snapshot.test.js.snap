@@ -21,7 +21,6 @@ exports[`Storyshots HeaderBar default 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -69,7 +68,6 @@ exports[`Storyshots HeaderBar default 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               onBlur={[Function]}
@@ -321,7 +319,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -357,7 +355,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -380,7 +378,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -391,14 +389,15 @@ exports[`Storyshots HeaderBar default 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -408,7 +407,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -424,7 +423,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -553,7 +552,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -631,7 +630,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -802,7 +801,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onSearchClick()
                               </span>
                               }
                             </span>
@@ -880,7 +879,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -1034,7 +1033,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -1416,7 +1415,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -1446,7 +1445,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -1939,7 +1938,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -2283,7 +2281,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -2319,7 +2317,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -2342,7 +2340,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -2353,14 +2351,15 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -2370,7 +2369,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -2386,7 +2385,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -2515,7 +2514,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -2593,7 +2592,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -2774,7 +2773,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -2928,7 +2927,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -3310,7 +3309,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -3340,7 +3339,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -3833,7 +3832,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -3942,7 +3940,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               onBlur={[Function]}
@@ -4194,7 +4191,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -4230,7 +4227,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -4253,7 +4250,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -4264,14 +4261,15 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -4281,7 +4279,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -4297,7 +4295,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -4426,7 +4424,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -4504,7 +4502,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -4675,7 +4673,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onSearchClick()
                               </span>
                               }
                             </span>
@@ -4753,7 +4751,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -4907,7 +4905,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -5289,7 +5287,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -5420,7 +5418,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onEnvClick()
                                       </span>
                                       }
                                     </span>
@@ -5481,7 +5479,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -5974,7 +5972,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             className="tc-header-bar-action"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo full btn btn-link"
               disabled={false}
               id="header-logo"
@@ -6022,7 +6019,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               onBlur={[Function]}
@@ -6274,7 +6270,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -6310,7 +6306,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -6333,7 +6329,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -6344,14 +6340,15 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -6361,7 +6358,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -6377,7 +6374,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -6506,7 +6503,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -6584,7 +6581,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -6779,7 +6776,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onSearchClick()
                               </span>
                               }
                             </span>
@@ -6857,7 +6854,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -7011,7 +7008,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -7393,7 +7390,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -7423,7 +7420,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -7916,7 +7913,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -8240,7 +8236,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -8276,7 +8272,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -8299,7 +8295,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -8310,14 +8306,15 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -8327,7 +8324,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -8343,7 +8340,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -8472,7 +8469,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -8550,7 +8547,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -8732,7 +8729,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -8886,7 +8883,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -9268,7 +9265,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -9298,7 +9295,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -9791,7 +9788,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -10108,7 +10104,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -10144,7 +10140,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -10167,7 +10163,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -10178,14 +10174,15 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -10195,7 +10192,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -10211,7 +10208,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -10340,7 +10337,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -10418,7 +10415,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -10496,7 +10493,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onSearchBlur()
                               </span>
                               }
                             </span>
@@ -10520,7 +10517,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onSearchChange()
                               </span>
                               }
                             </span>
@@ -10598,7 +10595,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -10752,7 +10749,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -11134,7 +11131,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -11164,7 +11161,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -11657,7 +11654,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
@@ -12297,7 +12293,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -12333,7 +12329,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": 12,
+            "fontSize": "12px",
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -12356,7 +12352,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": 15,
+              "fontSize": "15px",
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -12367,14 +12363,15 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": 35,
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
                   "padding": 0,
                 }
               }
@@ -12384,7 +12381,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": 22,
+                  "fontSize": "22px",
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -12400,7 +12397,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -12529,7 +12526,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onApplicationNameClick()
                               </span>
                               }
                             </span>
@@ -12607,7 +12604,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onLogoClick()
                               </span>
                               }
                             </span>
@@ -13541,7 +13538,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onHelpClick()
                               </span>
                               }
                             </span>
@@ -13695,7 +13692,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                           }
                                         }
                                       >
-                                        anonymous()
+                                        onSettingsClick()
                                       </span>
                                       }
                                     </span>
@@ -14077,7 +14074,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                                   }
                                 }
                               >
-                                anonymous()
+                                onProductClick()
                               </span>
                               }
                             </span>
@@ -14107,7 +14104,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": 25,
+                  "fontSize": "25px",
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }

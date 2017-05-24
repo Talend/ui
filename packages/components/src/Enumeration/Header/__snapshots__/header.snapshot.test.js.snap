@@ -11,7 +11,6 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       onBlur={[Function]}
@@ -49,7 +48,6 @@ exports[`Header should render header with one button and indicate the component 
     className="actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       onBlur={[Function]}
