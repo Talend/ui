@@ -27,7 +27,6 @@ exports[`TwoColumns should render two columns 1`] = `
           Object {
             "display": "flex",
             "flexDirection": "column",
-            "flexGrow": "1",
             "height": "100%",
             "overflow": "auto",
           }
