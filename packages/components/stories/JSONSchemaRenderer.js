@@ -46,6 +46,18 @@ const schema = {
 					nestedElement: {
 						type: 'string',
 					},
+					nestedInteger: {
+						type: 'integer',
+					},
+					extraLevel: {
+						type: 'object',
+						title: 'Extra Level',
+						properties: {
+							extraLevelStr: {
+								type: 'string',
+							},
+						},
+					},
 				},
 			},
 		},
@@ -77,6 +89,10 @@ const schema = {
 		tags: ['b', 'd', 'f'],
 		nested: {
 			nestedElement: 'nestedElement',
+			nestedInteger: 42,
+			extraLevel: {
+				extraLevelStr: 'ExtraLevel',
+			},
 		},
 	},
 };

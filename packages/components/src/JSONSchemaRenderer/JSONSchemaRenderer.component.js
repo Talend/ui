@@ -10,7 +10,7 @@ const className = 'json-schema-renderer';
  * UnkownTypeException
  *
  * @param type - The unkown type
- * @returns {undefined}
+ * @returns {Object} An UnkownTypeException
  */
 function UnkownTypeException(type) {
 	this.name = 'UnkownTypeException';
@@ -20,7 +20,7 @@ function UnkownTypeException(type) {
 /**
  * InvalidSchemaException
  *
- * @returns {undefined}
+ * @returns {Object} An InvalidSchemaException
  */
 function InvalidSchemaException() {
 	this.name = 'InvalidSchemaException';
@@ -37,8 +37,8 @@ function InvalidSchemaException() {
  */
 function textRenderer(key, title, text) {
 	return (
-		<div className={css.text} key={key}>
-			<dt>{title}</dt>
+		<div key={key}>
+			<dt>{title || key}</dt>
 			<dd>{text}</dd>
 		</div>
 	);
@@ -61,10 +61,18 @@ function arrayRenderer(key, title, items) {
 	);
 }
 
+/**
+ * objectRenderer
+ *
+ * @param key
+ * @param title
+ * @param properties
+ * @param schema
+ * @returns {string} - HTML markup for an object component
+ */
 function objectRenderer(key, title, properties, schema) {
-	const props = entries(properties);
-	const elements = props.map(typeResolver(schema[key]));
-	console.log('Object', elements);
+	const flattenProperties = entries(properties);
+	const elements = flattenProperties.map(typeResolver(schema[key].properties));
 	return (
 		<div className={css.object} key={key}>
 			<h2>{title || key}</h2>
@@ -91,7 +99,6 @@ const registry = {
  */
 function typeResolver(schema) {
 	return function resolver(e) {
-		console.log('Resolve', e);
 		if (!schema[e[0]]) {
 			return null;
 		}
