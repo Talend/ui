@@ -38,4 +38,10 @@ describe('CMF settinsActions', () => {
 		expect(action.error.message).toBe(error.message);
 		expect(action.error.stack).toBe(error.stack);
 	});
+
+	it('should fetchSettings return action', () => {
+		const action = settings.fetchSettings();
+		expect(action.type).toBe('GET');
+		expect(action.url).toBe('settings.json');
+	});
 });
