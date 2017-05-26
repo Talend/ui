@@ -66,11 +66,7 @@ $tc-toggle-color: #555964 !default;
 		padding-left: 1px;
 	}
 
-	:global(.toggle) {
-		display: flex;
-	}
-
-	svg {
+	.toggle svg {
 		transform-origin: center;
 	}
 
