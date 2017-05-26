@@ -10,9 +10,9 @@ export const DEFAULT_STATE = new Map({
 	docked: false,
 });
 
-export function getActions(actionIds, context, model) {
+export function getActions(actionIds, context) {
 	return actionIds.map((id) => {
-		const info = getActionsProps(context, id, model);
+		const info = getActionsProps(context, id);
 		let route = get(info, 'payload.cmf.routerReplace');
 		if (!route) {
 			route = get(info, 'payload.cmf.routerPush');
