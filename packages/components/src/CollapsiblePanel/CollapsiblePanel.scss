@@ -92,13 +92,11 @@ $tc-toggle-color: #555964 !default;
 		}
 
 		.panel-title {
-			display: flex;
 			flex-basis: 100%;
+			justify-content: space-between;
 			overflow: hidden;
 			text-decoration: none;
-			align-items: center;
 			font-size: 1.4rem;
-			justify-content: space-between;
 			padding-left: 5px;
 			padding-right: 5px;
 
@@ -108,6 +106,8 @@ $tc-toggle-color: #555964 !default;
 			
 			&,
 			> * {
+				display: flex;
+				align-items: center;
 				min-height: 4rem;
 			}
 		}
