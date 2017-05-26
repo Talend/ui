@@ -61,11 +61,16 @@ function arrayRenderer(key, title, items) {
 	);
 }
 
-function objectRenderer(key, title, properties) {
+function objectRenderer(key, title, properties, schema) {
+	const props = entries(properties);
+	const elements = props.map(typeResolver(schema[key]));
+	console.log('Object', elements);
 	return (
 		<div className={css.object} key={key}>
-			<dt>{title || key}</dt>
-			<dl>OBJECT</dl>
+			<h2>{title || key}</h2>
+			<div>
+				{elements}
+			</div>
 		</div>
 	);
 }
@@ -86,6 +91,10 @@ const registry = {
  */
 function typeResolver(schema) {
 	return function resolver(e) {
+		console.log('Resolve', e);
+		if (!schema[e[0]]) {
+			return null;
+		}
 		const type = schema[e[0]].type;
 		const title = schema[e[0]].title;
 
@@ -94,7 +103,7 @@ function typeResolver(schema) {
 			throw new UnkownTypeException(type);
 		}
 
-		return renderer(e[0], title, e[1]);
+		return renderer(e[0], title, e[1], schema);
 	};
 }
 
