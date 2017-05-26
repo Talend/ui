@@ -4,9 +4,3 @@ Scoping to packages that match 'react-talend-components'
 > react-talend-components@0.75.1 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
-
-src/CollapsiblePanel/CollapsiblePanel.scss
-  109:1  warning  Space expected between blocks  empty-line-between-blocks
-
-✖ 1 problem (0 errors, 1 warning)
-
