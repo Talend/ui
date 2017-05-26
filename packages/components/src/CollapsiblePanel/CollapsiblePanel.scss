@@ -106,7 +106,7 @@ $tc-toggle-color: #555964 !default;
 				@include col-style;
 				display: flex;
 				align-items: center;
-				min-height: 4rem;
+				height: 4rem;
 			}
 		}
 	}
