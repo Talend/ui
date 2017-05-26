@@ -99,12 +99,16 @@ $tc-toggle-color: #555964 !default;
 			align-items: center;
 			font-size: 1.4rem;
 			justify-content: space-between;
-			min-height: 4rem;
 			padding-left: 5px;
 			padding-right: 5px;
 
 			> * {
 				@include col-style;
+			}
+			
+			&,
+			> * {
+				min-height: 4rem;
 			}
 		}
 	}
