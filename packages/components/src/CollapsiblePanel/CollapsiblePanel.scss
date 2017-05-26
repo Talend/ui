@@ -92,8 +92,10 @@ $tc-toggle-color: #555964 !default;
 		}
 
 		.panel-title {
-			flex-basis: 100%;
+			display: flex;
+			align-items: center;
 			justify-content: space-between;
+			flex-basis: 100%;
 			overflow: hidden;
 			text-decoration: none;
 			font-size: 1.4rem;
@@ -102,10 +104,6 @@ $tc-toggle-color: #555964 !default;
 
 			> * {
 				@include col-style;
-			}
-
-			&,
-			> * {
 				display: flex;
 				align-items: center;
 				min-height: 4rem;
