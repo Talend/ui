@@ -119,7 +119,7 @@ function typeResolver(schema) {
  *
  * @param order
  * @param properties
- * @returns {undefined}
+ * @returns {Array}
  */
 function orderProperties(order, properties) {
 	if (!order) {
