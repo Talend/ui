@@ -11,6 +11,8 @@ function getTooltipClass() {
 	return classNames({ [theme['tooltip-container']]: true, 'tooltip-container': true });
 }
 
+function noop() {}
+
 /**
  * @param {object} props react props
  * @example
@@ -62,6 +64,10 @@ class TooltipTrigger extends React.Component {
 			const triggerProps = Object.assign({
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onMouseOver,
+				'aria-describedby': this.state.id,
+				onBlur: noop,
+				onMouseOut: noop,
+				onClick: null,
 			}, childProps);
 			return cloneElement(child, triggerProps);
 		}
