@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { cloneElement, PropTypes } from 'react';
 import {
 	OverlayTrigger,
 	Tooltip,
@@ -22,17 +22,71 @@ const props = {
 	<Icon name="my-icon" />
 </TooltipTrigger>
  */
-function TooltipTrigger(props) {
-	const tooltip = (<Tooltip className={getTooltipClass()} id={uuid.v4()}>{props.label}</Tooltip>);
-	return (
-		<OverlayTrigger
-			placement={props.tooltipPlacement}
-			overlay={tooltip}
-			delayShow={400}
-		>
-			{props.children}
-		</OverlayTrigger>
-	);
+class TooltipTrigger extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.onMouseOver = this.onMouseOver.bind(this);
+		this.onMouseOut = this.onMouseOut.bind(this);
+		this.state = {
+			hovered: false,
+			id: uuid.v4(),
+		};
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		if (nextState.hovered !== this.state.hovered) {
+			return true;
+		}
+		if (this.props.children !== nextProps.children) {
+			return true;
+		}
+		if (this.props.label !== nextProps.label) {
+			return true;
+		}
+		return false;
+	}
+
+	onMouseOver() {
+		this.setState({ hovered: true });
+	}
+
+	onMouseOut() {
+		this.setState({ hovered: false });
+	}
+
+	render() {
+		if (!this.state.hovered) {
+			const child = React.Children.only(this.props.children);
+			const childProps = child.props;
+			const triggerProps = Object.assign({
+				onMouseOver: this.onMouseOver,
+				onFocus: this.onMouseOver,
+			}, childProps);
+			return cloneElement(child, triggerProps);
+		}
+		const props = this.props;
+		const tooltip = (
+			<Tooltip
+				className={getTooltipClass()}
+				id={this.state.id}
+			>
+				{props.label}
+			</Tooltip>
+		);
+		// TODO: render the Tooltip in a provider so use context
+		// for that.
+		return (
+			<OverlayTrigger
+				placement={props.tooltipPlacement}
+				overlay={tooltip}
+				delayShow={400}
+				onExited={this.onMouseOut}
+			>
+				{props.children}
+			</OverlayTrigger>
+		);
+	}
 }
 
 TooltipTrigger.propTypes = {
