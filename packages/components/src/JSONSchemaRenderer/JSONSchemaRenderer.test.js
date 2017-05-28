@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
 
@@ -66,7 +67,6 @@ describe('JSONSchemaRenderer', () => {
 							},
 						},
 					},
-
 				},
 			},
 			properties: {
@@ -78,6 +78,31 @@ describe('JSONSchemaRenderer', () => {
 		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should handle order', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					b: { type: 'string' },
+					c: { type: 'string' },
+					a: { type: 'string' },
+				},
+			},
+			uiSchema: {
+				'ui:order': ['a', 'b', 'c'],
+			},
+			properties: {
+				a: 'test a',
+				b: 'test b',
+				c: 'test c',
+			},
+		};
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt').first().text()).toEqual('a');
+		expect(wrapper.find('dt').last().text()).toEqual('c');
+	});
+
+	xit('should handle $ref', () => {});
 
 	it('should throw an execption in case of invalid schema', () => {
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={{}} />).toJSON();
@@ -99,9 +124,5 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toThrow(UnkownTypeException);
-	});
-
-	it('should handle $ref', () => {
-
 	});
 });

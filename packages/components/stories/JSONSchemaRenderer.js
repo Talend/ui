@@ -81,11 +81,11 @@ const schema = {
 		},
 	},
 	properties: {
-		firstName: 'Chuck',
-		lastName: 'Norris',
 		age: 75,
 		bio: 'Roundhouse kicking asses since 1940',
 		password: 'noneed',
+		firstName: 'Chuck',
+		lastName: 'Norris',
 		tags: ['b', 'd', 'f'],
 		nested: {
 			nestedElement: 'nestedElement',

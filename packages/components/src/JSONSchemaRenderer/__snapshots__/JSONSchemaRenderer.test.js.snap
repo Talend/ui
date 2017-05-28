@@ -3,7 +3,25 @@
 exports[`JSONSchemaRenderer should handle nested objects 1`] = `
 <dl
   className=""
-/>
+>
+  <div
+    className={undefined}
+  >
+    <h2>
+      a
+    </h2>
+    <div>
+      <div>
+        <dt>
+          b
+        </dt>
+        <dd>
+          test
+        </dd>
+      </div>
+    </div>
+  </div>
+</dl>
 `;
 
 exports[`JSONSchemaRenderer should render 1`] = `
@@ -39,9 +57,7 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 <dl
   className=""
 >
-  <div
-    className={undefined}
-  >
+  <div>
     <dt>
       test string
     </dt>
@@ -49,9 +65,7 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
       A big a
     </dd>
   </div>
-  <div
-    className={undefined}
-  >
+  <div>
     <dt>
       test integer
     </dt>

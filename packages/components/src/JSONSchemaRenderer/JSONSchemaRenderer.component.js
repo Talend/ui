@@ -115,6 +115,27 @@ function typeResolver(schema) {
 }
 
 /**
+ * orderProperties sorts properties based on uiSchema ui:order array
+ *
+ * @param order
+ * @param properties
+ * @returns {undefined}
+ */
+function orderProperties(order, properties) {
+	if (!order) {
+		return properties;
+	}
+	return properties.sort((a, b) => {
+		const aIndex = order.indexOf(a[0]);
+		const bIndex = order.indexOf(b[0]);
+		if (aIndex < 0 || bIndex < 0) {
+			return 0;
+		}
+		return aIndex - bIndex;
+	});
+}
+
+/**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
  *
  * @throws {InvalidSchemaException} schema must contain a jsonSchema and
@@ -125,7 +146,10 @@ function JSONSchemaRenderer(props) {
 	if (!props.schema.jsonSchema || !props.schema.properties) {
 		throw new InvalidSchemaException();
 	}
-	const properties = entries(props.schema.properties);
+	let properties = entries(props.schema.properties);
+	if (props.schema.uiSchema) {
+		properties = orderProperties(props.schema.uiSchema['ui:order'], properties);
+	}
 	const elements = properties.map(typeResolver(props.schema.jsonSchema.properties));
 	return (
 		<dl className={classNames(css[className])}>
@@ -137,6 +161,9 @@ function JSONSchemaRenderer(props) {
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({
 		jsonSchema: PropTypes.object.isRequired,
+		uiSchema: PropTypes.shape({
+			'ui:order': PropTypes.array,
+		}),
 		properties: PropTypes.object.isRequired,
 	}).isRequired,
 };
