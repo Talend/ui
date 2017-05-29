@@ -1,4 +1,4 @@
-import { AppHeaderBar as PureAppHeaderBar } from 'react-talend-components';
+import { AppHeaderBar as PureAppHeaderBar } from '@talend/react-components';
 
 import AppHeaderBar, {
 	mapStateToProps,

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
-import { store, Provider } from 'react-cmf/lib/mock';
+import { store, Provider } from '@talend/react-cmf/lib/mock';
 
 import Container from './ConfirmDialog.container';
 import Connected from './ConfirmDialog.connect';

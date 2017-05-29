@@ -1,4 +1,4 @@
-import { store } from 'react-cmf/lib/mock';
+import { store } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
 import {
 	mapStateToProps,

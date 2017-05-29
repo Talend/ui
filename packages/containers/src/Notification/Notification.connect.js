@@ -1,4 +1,4 @@
-import { cmfConnect } from 'react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import invariant from 'invariant';
 
 import Container, { DEFAULT_STATE } from './Notification.container';

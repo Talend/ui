@@ -1,4 +1,4 @@
-import { api } from 'react-cmf';
+import { api } from '@talend/react-cmf';
 
 export function getActionsProps(context, ids, model) {
 	if (!ids) {

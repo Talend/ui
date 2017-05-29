@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Action as PureAction } from 'react-talend-components';
-import { api } from 'react-cmf';
+import { Action as PureAction } from '@talend/react-components';
+import { api } from '@talend/react-cmf';
 
 /**
  * @param {Object} props react props

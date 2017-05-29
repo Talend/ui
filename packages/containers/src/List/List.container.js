@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-import { List as Component } from 'react-talend-components';
+import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
-import { componentState } from 'react-cmf';
+import { componentState } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 

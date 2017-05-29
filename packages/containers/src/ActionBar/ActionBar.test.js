@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from 'react-cmf/lib/mock';
+import mock from '@talend/react-cmf/lib/mock';
 
 import Container from './ActionBar.container';
 

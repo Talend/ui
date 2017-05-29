@@ -1,4 +1,4 @@
-import { cmfConnect } from 'react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 
 export default cmfConnect({

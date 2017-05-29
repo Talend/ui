@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { store, Provider } from 'react-cmf/lib/mock';
+import { store, Provider } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
 import Container from './Notification.container';
 import Connected, {

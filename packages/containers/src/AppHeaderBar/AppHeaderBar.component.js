@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { AppHeaderBar } from 'react-talend-components';
+import { AppHeaderBar } from '@talend/react-components';
 
 /**
  * bind the onClick to dispatch the router action
