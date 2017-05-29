@@ -53,7 +53,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			break;
 		}
 		case LAST: {
-			from = (pagesLength * (itemsPerPage - 1)) + 1;
+			from = ((pagesLength - 1) * itemsPerPage) + 1;
 			break;
 		}
 		default:
