@@ -43,6 +43,14 @@ exports[`EnumerationWidget delete all 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -68,6 +76,7 @@ exports[`EnumerationWidget delete all 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -139,6 +148,14 @@ exports[`EnumerationWidget delete all 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -164,6 +181,7 @@ exports[`EnumerationWidget delete all 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -405,6 +423,14 @@ exports[`EnumerationWidget delete all 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -430,6 +456,7 @@ exports[`EnumerationWidget delete all 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -508,6 +535,14 @@ exports[`EnumerationWidget should be in add mode 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -533,6 +568,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -604,6 +640,14 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -629,6 +673,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -680,6 +725,14 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               Array [
                 Object {
                   "disabled": true,
+                  "icon": "talend-check-plus",
+                  "id": "validate-and-add",
+                  "key": "validateAdd",
+                  "label": "Validate and Add",
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": true,
                   "icon": "talend-check",
                   "id": "validate",
                   "key": "validate",
@@ -696,6 +749,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               ]
             }
             inputPlaceholder="New entry"
+            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
@@ -706,6 +760,76 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 onKeyDown={[Function]}
                 placeholder="New entry"
                 type="text" />
+              <Action
+                bsStyle="default"
+                disabled={true}
+                hideLabel={true}
+                icon="talend-check-plus"
+                inProgress={false}
+                label="Validate and Add"
+                link={true}
+                onClick={[Function]}
+                tooltipPlacement="bottom">
+                <TooltipTrigger
+                  label="Validate and Add"
+                  tooltipPlacement="bottom">
+                  <OverlayTrigger
+                    defaultOverlayShown={false}
+                    delayShow={400}
+                    overlay={
+                      <Tooltip
+                        bsClass="tooltip"
+                        className="undefined tooltip-container"
+                        id={42}
+                        placement="right">
+                        Validate and Add
+                      </Tooltip>
+                    }
+                    placement="bottom"
+                    trigger={
+                      Array [
+                        "hover",
+                        "focus",
+                      ]
+                    }>
+                    <Button
+                      active={false}
+                      block={false}
+                      bsClass="btn"
+                      bsStyle="link"
+                      disabled={true}
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
+                      role="link">
+                      <button
+                        className="btn btn-link"
+                        disabled={true}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseOut={[Function]}
+                        onMouseOver={[Function]}
+                        role="link"
+                        type="button">
+                        <Icon
+                          name="talend-check-plus">
+                          <svg
+                            aria-hidden="true"
+                            className="tc-svg-icon"
+                            focusable="false"
+                            title={null}>
+                            <use
+                              xlinkHref="#talend-check-plus" />
+                          </svg>
+                        </Icon>
+                      </button>
+                    </Button>
+                  </OverlayTrigger>
+                </TooltipTrigger>
+              </Action>
               <Action
                 bsStyle="default"
                 disabled={true}
@@ -872,6 +996,14 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -897,6 +1029,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -975,6 +1108,14 @@ exports[`EnumerationWidget should be in default mode 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -1000,6 +1141,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -1071,6 +1213,14 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -1096,6 +1246,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -1337,6 +1488,14 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -1362,6 +1521,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -1445,6 +1605,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -1470,6 +1638,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -1541,6 +1710,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -1566,6 +1743,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -1808,6 +1986,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -1833,6 +2019,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -1930,6 +2117,14 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -1955,6 +2150,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -2046,6 +2242,14 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -2071,6 +2275,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -2332,6 +2537,14 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -2357,6 +2570,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -2896,6 +3110,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -2984,6 +3199,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -3043,6 +3259,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               ]
             }
             inputPlaceholder="Search"
+            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
@@ -3166,6 +3383,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -3256,6 +3474,14 @@ exports[`EnumerationWidget should delete an item 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -3281,6 +3507,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -3352,6 +3579,14 @@ exports[`EnumerationWidget should delete an item 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -3377,6 +3612,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -3618,6 +3854,14 @@ exports[`EnumerationWidget should delete an item 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -3643,6 +3887,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -3740,6 +3985,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -3765,6 +4018,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -3839,6 +4093,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -3864,6 +4126,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -4108,6 +4371,14 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -4133,6 +4404,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -4608,6 +4880,14 @@ exports[`EnumerationWidget should select an item 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -4633,6 +4913,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -4716,6 +4997,14 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -4741,6 +5030,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -4912,6 +5202,14 @@ exports[`EnumerationWidget should select an item 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -4937,6 +5235,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -5533,6 +5832,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -5558,6 +5865,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -5650,6 +5958,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -5675,6 +5991,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -5855,6 +6172,14 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -5880,6 +6205,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -6784,6 +7110,14 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -6809,6 +7143,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
           },
         ]
       }
+      inputRef={[Function]}
       items={Array []}
       itemsProp={
         Object {
@@ -6886,6 +7221,14 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -6911,6 +7254,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -7235,6 +7579,14 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -7260,6 +7612,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
               },
             ]
           }
+          inputRef={[Function]}
           items={Array []}
           itemsProp={
             Object {
@@ -7366,6 +7719,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -7391,6 +7752,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -7472,6 +7834,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -7497,6 +7867,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -7678,6 +8049,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -7703,6 +8082,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -8613,6 +8993,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         Array [
           Object {
             "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
             "icon": "talend-check",
             "id": "validate",
             "key": "validate",
@@ -8638,6 +9026,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           },
         ]
       }
+      inputRef={[Function]}
       items={
         Array [
           Object {
@@ -8732,6 +9121,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -8757,6 +9154,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
@@ -9098,6 +9496,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Array [
               Object {
                 "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
                 "icon": "talend-check",
                 "id": "validate",
                 "key": "validate",
@@ -9123,6 +9529,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               },
             ]
           }
+          inputRef={[Function]}
           items={
             Array [
               Object {
