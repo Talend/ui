@@ -35,7 +35,7 @@ class EnumerationWidget extends React.Component {
 		this.addInputs = [{
 			disabled: true,
 			label: 'Validate and Add',
-			icon: 'talend-check',
+			icon: 'talend-check-plus',
 			id: 'validate-and-add',
 			key: 'validateAdd',
 			onClick: this.onValidateAndAddHandler.bind(this),
@@ -128,6 +128,7 @@ class EnumerationWidget extends React.Component {
 		}
 
 		this.state = {
+			inputRef: this.setInputRef.bind(this),
 			displayMode: defaultDisplayMode,
 			required: (props.schema && props.schema.required) || false,
 			headerDefault: this.defaultHeaderActions,
@@ -155,6 +156,10 @@ class EnumerationWidget extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
+	}
+
+	setInputRef(input) {
+		this.input = input;
 	}
 
 	// default mode
@@ -442,6 +447,7 @@ class EnumerationWidget extends React.Component {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
+			this.input.focus();
 		} else if (!this.valueAlreadyExist(value.value)) {
 			this.setState(
 				{
@@ -453,6 +459,7 @@ class EnumerationWidget extends React.Component {
 				this.setFormData.bind(this)
 			);
 			this.updateHeaderInputDisabled('');
+			this.input.focus();
 		}
 	}
 
@@ -535,6 +542,7 @@ class EnumerationWidget extends React.Component {
 			inputValue: '',
 			headerInput: this.addInputs,
 		});
+		this.input.focus();
 	}
 
 	addFailHandler() {

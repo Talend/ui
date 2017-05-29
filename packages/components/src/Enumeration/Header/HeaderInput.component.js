@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-let inputRef;
+let internalInputRef;
 
 function headerClasses(headerError) {
 	return classNames({
@@ -25,7 +25,7 @@ function getAction(action, index) {
 	function onClick(event) {
 		if (action.onClick) {
 			action.onClick(event, {
-				value: inputRef.value,
+				value: internalInputRef.value,
 			});
 		}
 	}
@@ -45,7 +45,7 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown, value }) {
+function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown, value, inputRef }) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -64,7 +64,10 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 				type="text"
 				placeholder={inputPlaceholder}
 				ref={(input) => {
-					inputRef = input;
+					internalInputRef = input;
+					if (inputRef) {
+						inputRef(input);
+					}
 				}}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
@@ -83,6 +86,7 @@ HeaderInput.propTypes = {
 	headerError: PropTypes.string,
 	onInputChange: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
+	inputRef: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
 	value: PropTypes.string,
 };
