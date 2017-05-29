@@ -32,7 +32,7 @@ find $1/src -iregex '.*\.scss' | xargs sed -i 's/bootstrap-talend-theme/@talend\
 REPLACE_THEME_SCHEMA='s/bootstrap-talend-theme/@talend\/bootstrap-theme/g'
 REPLACE_ICON_SCHEMA='s/talend-icons/@talend\/icons/g'
 REPLACE_LOG_SCHEMA='s/talend-log/@talend\/log/g'
-REPLACE_CMF_SCHEMA='s/react-cmf/@talend\/cmf/g'
+REPLACE_CMF_SCHEMA='s/react-cmf/@talend\/react-cmf/g'
 REPLACE_COMPONENTS_SCHEMA='s/react-talend-components/@talend\/react-components/g'
 REPLACE_CONTAINERS_SCHEMA='s/react-talend-containers/@talend\/react-containers/g'
 REPLACE_FORMS_SCHEMA='s/react-talend-forms/@talend\/react-forms/g'
