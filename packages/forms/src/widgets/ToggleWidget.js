@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Toggle from 'react-talend-components/lib/Toggle';
+import Toggle from '@talend/react-components/lib/Toggle';
 
 /**
  * Render Switch widget for on/off field

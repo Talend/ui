@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import keycode from 'keycode';
-import Enumeration from 'react-talend-components/lib/Enumeration';
+import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
-import { Action } from 'react-talend-components';
+import { Action } from '@talend/react-components';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
