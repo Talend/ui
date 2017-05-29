@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { action } from '@kadira/storybook';
 import { Actions } from '../src';
 

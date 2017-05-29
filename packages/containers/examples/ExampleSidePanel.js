@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { SidePanel } from '../src';
 
 export default function ExampleSidePanel() {
