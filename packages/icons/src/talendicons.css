@@ -17,3 +17,8 @@
 .ti-googlecloudplatform{
 	fill: #4586F8;
 }
+
+/* MOST_TRUSTED */
+.ti-hand-like, .ti-oversleeve, .ti-check-valid-value {
+	fill: #FFF;
+}

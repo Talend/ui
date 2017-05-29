@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.74.2 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.76.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -114,19 +114,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
-   30:10  error  Missing trailing comma                        comma-dangle
-   72:10  error  Missing trailing comma                        comma-dangle
-   81:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-   96:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-  103:53  error  Multiple spaces found before 'target'         no-multi-spaces
-  114:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-  132:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-  139:53  error  Multiple spaces found before 'target'         no-multi-spaces
-  151:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-  172:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-
-✖ 110 problems (110 errors, 0 warnings)
+✖ 100 problems (100 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

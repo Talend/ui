@@ -453,13 +453,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         "onMouseLeave": [Function],
       }
     }
-    items={
-      Array [
-        "aze",
-        "bananAze",
-        "   AzErTy   ",
-      ]
-    }
+    items={Array []}
     multiSection={false}
     renderInputComponent={[Function]}
     renderItem={[Function]}
@@ -488,8 +482,8 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={true}
-          aria-haspopup={true}
+          aria-expanded={false}
+          aria-haspopup={false}
           aria-owns="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
@@ -506,8 +500,8 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={true}
-            aria-haspopup={true}
+            aria-expanded={false}
+            aria-haspopup={false}
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
@@ -527,145 +521,10 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         </div>
       </div>
       <div
-        id="react-autowhatever-myWidget"
-        style={Object {}}>
-        <ItemsList
-          focusedItemIndex={null}
-          getItemId={[Function]}
-          itemProps={
-            Object {
-              "onMouseDown": [Function],
-              "onMouseEnter": [Function],
-              "onMouseLeave": [Function],
-            }
-          }
-          items={
-            Array [
-              "aze",
-              "bananAze",
-              "   AzErTy   ",
-            ]
-          }
-          keyPrefix="react-autowhatever-myWidget-"
-          onFocusedItemChange={[Function]}
-          renderItem={[Function]}
-          renderItemData={
-            Object {
-              "value": "aze",
-            }
-          }
-          sectionIndex={null}
-          theme={[Function]}>
-          <ul
-            role="listbox"
-            style={Object {}}>
-            <Item
-              id="react-autowhatever-myWidget--item-0"
-              item="aze"
-              itemIndex={0}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "aze",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}>
-              <li
-                id="react-autowhatever-myWidget--item-0"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}>
-                <div>
-                  <span />
-                  <span>
-                    <em>
-                      aze
-                    </em>
-                  </span>
-                  <span />
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-1"
-              item="bananAze"
-              itemIndex={1}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "aze",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}>
-              <li
-                id="react-autowhatever-myWidget--item-1"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}>
-                <div>
-                  <span>
-                    banan
-                  </span>
-                  <span>
-                    <em>
-                      Aze
-                    </em>
-                  </span>
-                  <span />
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-2"
-              item="   AzErTy   "
-              itemIndex={2}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "aze",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}>
-              <li
-                id="react-autowhatever-myWidget--item-2"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}>
-                <div>
-                  <span>
-                       
-                  </span>
-                  <span>
-                    <em>
-                      AzE
-                    </em>
-                  </span>
-                  <span>
-                    rTy   
-                  </span>
-                </div>
-              </li>
-            </Item>
-          </ul>
-        </ItemsList>
+        className="undefined undefined">
+        <span>
+          No match.
+        </span>
       </div>
     </div>
   </Autowhatever>
@@ -711,6 +570,11 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 <DatalistWidget
   id="myWidget"
   onChange={[Function]}
+  options={
+    Object {
+      "restricted": true,
+    }
+  }
   required={true}
   schema={
     Object {

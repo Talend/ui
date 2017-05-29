@@ -16,6 +16,7 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 .tc-drawer {
+	pointer-events: all;
 	background-color: $tc-drawer-bgcolor;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	position: absolute;
@@ -47,15 +48,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 
 .drawer-stacked {
 	width: 100%;
-}
-
-:global(.tc-with-drawer-wrapper) {
-	@for $i from 1 through 10 {
-		&:nth-child(#{$i}) > .drawer-stacked {
-			$width: 100% - (($i * 2) - 2);
-			width: $width;
-		}
-	}
 }
 
 .tc-drawer-header {
@@ -108,33 +100,15 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	}
 }
 
-// :global(.tc-with-drawer-wrapper) > .tc-drawer {
-// 	transform: translateX(0%);
-// }
-
-:global(.tc-with-drawer-wrapper-enter) > .tc-drawer-transition {
-	transform: translateX(100%);
+:global(.tc-with-drawer-wrapper) > :global(.tc-drawer.stacked)::after {
+	background: rgba(0, 0, 0, 0.4);
+	content: ' ';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
 
-:global(.tc-with-drawer-wrapper-enter.tc-with-drawer-wrapper-enter-active) > .tc-drawer-transition {
-	transition: transform $tc-drawer-transition-duration ease-in;
-	transform: translateX(0%);
-}
-
-:global(.tc-with-drawer-wrapper-appear) > .tc-drawer-transition {
-	transform: translateX(100%);
-}
-
-:global(.tc-with-drawer-wrapper-appear.tc-with-drawer-wrapper-appear-active) > .tc-drawer-transition {
-	transition: transform $tc-drawer-transition-duration ease-in;
-	transform: translateX(0%);
-}
-
-:global(.tc-with-drawer-wrapper-leave) > .tc-drawer-transition {
-	transform: translateX(0%);
-}
-
-:global(.tc-with-drawer-wrapper-leave.tc-with-drawer-wrapper-leave-active) > .tc-drawer-transition {
-	transition: transform $tc-drawer-transition-duration ease-in;
-	transform: translateX(100%);
+:global(.tc-with-drawer-wrapper:last-child) > :global(.tc-drawer.stacked)::after {
+	content: none;
 }
