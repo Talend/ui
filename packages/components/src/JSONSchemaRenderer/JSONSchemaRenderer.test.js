@@ -102,6 +102,8 @@ describe('JSONSchemaRenderer', () => {
 		expect(wrapper.find('dt').last().text()).toEqual('c');
 	});
 
+	// TODO: Add $ref handling
+	// Not required for a first implementation
 	xit('should handle $ref', () => {});
 
 	it('should throw an execption in case of invalid schema', () => {

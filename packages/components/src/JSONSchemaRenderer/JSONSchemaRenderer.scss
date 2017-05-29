@@ -1,6 +1,7 @@
 .json-schema-renderer {
 
-	margin: 20px 0 0 20px;
+	margin-top: $padding-large;
+	margin-left: $padding-large;
 
 	div {
 		padding-bottom: 10px;
@@ -12,7 +13,7 @@
 		}
 
 		dd {
-			font-size: 14px;
+			font-size: 1.4rem;
 		}
 
 		&.array {
