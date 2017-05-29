@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import ConfirmDialog from './ConfirmDialog.component';
 
@@ -145,14 +145,15 @@ describe('ConfirmDialog', () => {
 			show: true,
 			validateAction,
 			cancelAction,
+			bodyOverflow: false,
 		};
 		const noOp = () => {};
 		// when
-		const wrapper = shallow(
-			<ConfirmDialog onHide={noOp} animation={false} {...properties}><p>Content</p></ConfirmDialog>
+		const wrapper = mount(
+			<ConfirmDialog ref="modal" onHide={noOp} animation={false} {...properties}><p>Content</p></ConfirmDialog>
 		);
 
 		// then
-		expect(wrapper.html()).toBe(1);
+		expect(wrapper.ref('modal').root.node.props.bodyOverflow).toBe(false);
 	});
 });
