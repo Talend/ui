@@ -37,7 +37,7 @@ function InvalidSchemaException() {
  */
 function textRenderer(key, title, text) {
 	return (
-		<div key={key}>
+		<div className={classNames('text-renderer', `text-renderer-${key}`)} key={key}>
 			<dt>{title || key}</dt>
 			<dd>{text}</dd>
 		</div>
@@ -54,7 +54,7 @@ function textRenderer(key, title, text) {
  */
 function arrayRenderer(key, title, items) {
 	return (
-		<div className={css.array} key={key}>
+		<div className={classNames(css.array, `array-renderer-${key}`)} key={key}>
 			<dt>{title || key}</dt>
 			{items.map((val, i) => <dd key={`key-${i}`}>{val}</dd>)}
 		</div>
@@ -105,7 +105,7 @@ function objectRenderer(key, title, properties, schema) {
 	const flattenProperties = entries(properties);
 	const elements = flattenProperties.map(typeResolver(schema[key].properties));
 	return (
-		<div className={css.object} key={key}>
+		<div className={classNames(css.object, `object-renderer-${key}`)} key={key}>
 			<h2>{title || key}</h2>
 			<div>
 				{elements}
