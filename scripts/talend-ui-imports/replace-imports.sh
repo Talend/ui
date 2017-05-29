@@ -28,8 +28,11 @@ REPLACE_CMF_SCHEMA='s/react-cmf/@talend\/cmf/g'
 REPLACE_COMPONENTS_SCHEMA='s/react-talend-components/@talend\/react-components/g'
 REPLACE_CONTAINERS_SCHEMA='s/react-talend-containers/@talend\/react-containers/g'
 REPLACE_FORMS_SCHEMA='s/react-talend-forms/@talend\/react-forms/g'
-sed -i "$REPLACE_THEME_SCHEMA; $REPLACE_ICON_SCHEMA; $REPLACE_LOG_SCHEMA; $REPLACE_CMF_SCHEMA; $REPLACE_COMPONENTS_SCHEMA; $REPLACE_CONTAINERS_SCHEMA; $REPLACE_FORMS_SCHEMA" $1/package.json
+ALL_REPLACE="$REPLACE_THEME_SCHEMA; $REPLACE_ICON_SCHEMA; $REPLACE_LOG_SCHEMA; $REPLACE_CMF_SCHEMA; $REPLACE_COMPONENTS_SCHEMA; $REPLACE_CONTAINERS_SCHEMA; $REPLACE_FORMS_SCHEMA"
+sed -i "$ALL_REPLACE" $1/package.json
 
 # replace webpack sass data config
-sed -i "$REPLACE_THEME_SCHEMA" $1/*.js
-sed -i "$REPLACE_THEME_SCHEMA" $1/config/*.js
+REPLACE_TALEND_MODULES='s/react-talend-/@talend\\\//g'
+ALL_REPLACE_WITH_WILDCARD="$ALL_REPLACE; $REPLACE_TALEND_MODULES"
+sed -i "$ALL_REPLACE_WITH_WILDCARD" $1/*.js
+sed -i "$ALL_REPLACE_WITH_WILDCARD" $1/config/*.js
