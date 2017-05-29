@@ -84,6 +84,7 @@ import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
 import ObjectViewer from './ObjectViewer';
@@ -156,6 +157,7 @@ export {
 	HelpBlock,
 	Image,
 	InputGroup,
+	JSONSchemaRenderer,
 	Jumbotron,
 	Label,
 	ListGroup,
