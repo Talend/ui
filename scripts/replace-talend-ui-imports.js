@@ -4,7 +4,8 @@
 
 function replaceTalendUiLibs(value) {
 	return value &&
-		value.replace('talend-icons', '@talend/icons')
+		value.replace('bootstrap-talend-theme', '@talend/bootstrap-theme')
+			.replace('talend-icons', '@talend/icons')
 			.replace('talend-log', '@talend/log')
 			.replace('react-cmf', '@talend/react-cmf')
 			.replace('react-talend-components', '@talend/react-components')
