@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 
 /**
  * If you want to use Icon with SVG you have to load this
