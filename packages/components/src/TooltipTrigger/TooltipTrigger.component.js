@@ -37,24 +37,23 @@ class TooltipTrigger extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		if (nextState.hovered !== this.state.hovered) {
-			return true;
-		}
-		if (this.props.children !== nextProps.children) {
-			return true;
-		}
-		if (this.props.label !== nextProps.label) {
-			return true;
-		}
-		return false;
+		return (
+			this.state.hovered !== nextState.hovered ||
+			this.props.children !== nextProps.children ||
+			this.props.label !== nextProps.label
+		);
 	}
 
 	onMouseOver() {
-		this.setState({ hovered: true });
+		if (!this.state.hovered) {
+			this.setState({ hovered: true });
+		}
 	}
 
 	onMouseOut() {
-		this.setState({ hovered: false });
+		if (this.state.hovered) {
+			this.setState({ hovered: false });
+		}
 	}
 
 	render() {
@@ -65,6 +64,8 @@ class TooltipTrigger extends React.Component {
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onMouseOver,
 				'aria-describedby': this.state.id,
+				// TODO: don't forget to remove this when the PR is ok
+				// this is to keep (lots of) snapshots the same
 				onBlur: noop,
 				onMouseOut: noop,
 				onClick: null,
