@@ -7,7 +7,7 @@ $tc-dialog-body-padding: 30px !default;
 .tc-confirm-dialog {
 
 	&.modal-body-overflow {
-		:global(.modal-body){
+		:global(.modal-body) {
 			overflow: auto;
 		}
 	}
