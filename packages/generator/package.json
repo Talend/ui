@@ -1,5 +1,5 @@
 {
-  "name": "@talend/generator",
+  "name": "generator-talend",
   "description": "Talend's JavaScript generator",
   "main": "generators/app/index.js",
   "license": "Apache-2.0",
