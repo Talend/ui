@@ -1,4 +1,4 @@
-import { actions } from 'react-cmf';
+import { actions } from '@talend/react-cmf';
 import { GETTING_DATASETS, ERROR_GETTING_DATASETS, MY_EXAMPLE_ACTION } from '../constants';
 
 /**

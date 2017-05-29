@@ -1,5 +1,5 @@
-import { api } from 'react-cmf';
-import { Redirect, HomeListView } from 'react-talend-containers';
+import { api } from '@talend/react-cmf';
+import { Redirect, HomeListView } from '@talend/react-containers';
 import redirect from './actions/redirect';
 import { fetchDataSets } from './actions/dataset';
 import { fetchDataStores } from './actions/datastore';

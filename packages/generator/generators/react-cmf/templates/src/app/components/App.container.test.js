@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store } from 'react-cmf/lib/mock';
+import { Provider, store } from '@talend/react-cmf/lib/mock';
 import { Map } from 'immutable';
 
 import App from './App.container';
