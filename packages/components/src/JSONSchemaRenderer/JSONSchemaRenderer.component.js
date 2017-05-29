@@ -9,7 +9,7 @@ const className = 'json-schema-renderer';
 /**
  * UnkownTypeException
  *
- * @param type - The unkown type
+ * @param {string} type - The unkown type
  * @returns {Object} An UnkownTypeException
  */
 function UnkownTypeException(type) {
@@ -61,33 +61,11 @@ function arrayRenderer(key, title, items) {
 	);
 }
 
-/**
- * objectRenderer
- *
- * @param key
- * @param title
- * @param properties
- * @param schema
- * @returns {string} - HTML markup for an object component
- */
-function objectRenderer(key, title, properties, schema) {
-	const flattenProperties = entries(properties);
-	const elements = flattenProperties.map(typeResolver(schema[key].properties));
-	return (
-		<div className={css.object} key={key}>
-			<h2>{title || key}</h2>
-			<div>
-				{elements}
-			</div>
-		</div>
-	);
-}
-
 const registry = {
 	string: textRenderer,
 	integer: textRenderer,
 	array: arrayRenderer,
-	object: objectRenderer,
+	object: objectRenderer, // eslint-disable-line no-use-before-define
 };
 
 /**
@@ -112,6 +90,28 @@ function typeResolver(schema) {
 
 		return renderer(e[0], title, e[1], schema);
 	};
+}
+
+/**
+ * objectRenderer
+ *
+ * @param key
+ * @param title
+ * @param properties
+ * @param schema
+ * @returns {string} - HTML markup for an object component
+ */
+function objectRenderer(key, title, properties, schema) {
+	const flattenProperties = entries(properties);
+	const elements = flattenProperties.map(typeResolver(schema[key].properties));
+	return (
+		<div className={css.object} key={key}>
+			<h2>{title || key}</h2>
+			<div>
+				{elements}
+			</div>
+		</div>
+	);
 }
 
 /**
