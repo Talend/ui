@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# install jscodeshift if needed
+if ! type jscodeshift > /dev/null
+then
+    echo "You will need jscodeshift to run this script, but it is not installed."
+    echo "Let's install it : sudo npm install -g jscodeshift"
+    sudo npm install -g jscodeshift
+fi
+
 # ensure that a project directory is provided
 if [ -z $1 ]
 then
