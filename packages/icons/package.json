@@ -1,23 +1,9 @@
 {
-  "name": "talend-icons",
+  "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
-  "homepage": "https://talend.github.com/icons",
-  "author": "Talend inc",
-  "license": "(OFL-1.1 OR MIT)",
-  "style": "build/octicons.css",
   "main": "index.js",
-  "files": [
-    "index.js",
-    "dist",
-    "src"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/talend/icons.git"
-  },
-  "bugs": {
-    "url": "https://github.com/talend/icons/issues"
-  },
+  "style": "build/octicons.css",
+  "license": "(OFL-1.1 OR MIT)",
   "scripts": {
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack --progress",
@@ -26,6 +12,25 @@
     "test": "echo no test",
     "start": "echo nothing to start",
     "svgo": "svgo -f src/svg --config=.svgo.yml"
+  },
+  "files": [
+    "index.js",
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "Talend",
+    "icons",
+    "svg"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/icons#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -45,10 +50,5 @@
     "svgo": "0.7.1",
     "webpack": "^1.14.0"
   },
-  "keywords": [
-    "Talend",
-    "icons",
-    "svg"
-  ],
   "version": "0.77.0"
 }

@@ -1,12 +1,8 @@
 {
-  "name": "react-talend-components",
+  "name": "@talend/react-components",
   "description": "Set of react widgets.",
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "author": "jsomsanith <jsomsanith@talend.com>",
-  "bugs": {
-    "url": "https://github.com/Talend/react-talend-components/issues"
-  },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -36,9 +32,14 @@
     "components",
     "bootstrap"
   ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/components#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/react-talend-components"
+    "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
     "lodash": "^4.17.4",
@@ -98,6 +99,19 @@
     "uuid": "^2.0.3",
     "webpack": "1.13.1"
   },
+  "peerDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "bootstrap-talend-theme": "^0.77.0",
+    "classnames": "^2.2.5",
+    "invariant": "^2.2.1",
+    "keycode": "^2.1.8",
+    "react": "^15.4.0",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-css-transition": "^0.7.4",
+    "react-bootstrap": "0",
+    "talend-icons": "^0.77.0",
+    "uuid": "^2.0.3"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
@@ -115,19 +129,6 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
-  },
-  "peerDependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "bootstrap-talend-theme": "^0.77.0",
-    "classnames": "^2.2.5",
-    "invariant": "^2.2.1",
-    "keycode": "^2.1.8",
-    "react": "^15.4.0",
-    "react-addons-css-transition-group": "^15.4.1",
-    "react-css-transition": "^0.7.4",
-    "react-bootstrap": "0",
-    "talend-icons": "^0.77.0",
-    "uuid": "^2.0.3"
   },
   "version": "0.77.0"
 }

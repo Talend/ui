@@ -1,7 +1,8 @@
 {
-  "name": "react-talend-containers",
-  "description": "Provide connected components aka containers for react-cmf based on react-talend-components.",
+  "name": "@talend/react-containers",
+  "description": "Provide connected components aka containers for react-cmf based on @talend/react-components.",
   "main": "lib/index.js",
+  "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
     "start": "start-storybook -p 6007",
@@ -17,20 +18,21 @@
   "watch": {
     "prepublish": "src/*"
   },
+  "keywords": [
+    "react",
+    "talend",
+    "containers",
+    "bootstrap"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/containers#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "keywords": [
-    "react",
-    "bootstrap"
-  ],
-  "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Talend/react-talend-containers/issues"
-  },
-  "homepage": "https://github.com/Talend/react-talend-containers#readme",
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.35.0",
@@ -90,6 +92,17 @@
     "uuid": "^3.0.1",
     "webpack": "^1.14.0"
   },
+  "peerDependencies": {
+    "immutable": "3",
+    "invariant": "^2.2.2",
+    "lodash": "4.17.2",
+    "react": "^15.4.2",
+    "react-bootstrap": "0",
+    "react-cmf": "^0.77.0",
+    "react-redux": "^4.4.6",
+    "react-talend-components": "^0.77.0",
+    "reselect": "^2.5.4"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
@@ -104,17 +117,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
   },
-  "peerDependencies": {
-    "immutable": "3",
-    "invariant": "^2.2.2",
-    "lodash": "4.17.2",
-    "react": "^15.4.2",
-    "react-bootstrap": "0",
-    "react-cmf": "^0.77.0",
-    "react-redux": "^4.4.6",
-    "react-talend-components": "^0.77.0",
-    "reselect": "^2.5.4"
-  },
-  "dependencies": {},
   "version": "0.77.0"
 }

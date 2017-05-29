@@ -1,12 +1,41 @@
 {
-  "name": "react-talend-forms",
-  "description": "react-talend-forms library.",
-  "license": "Apache-2.0",
-  "author": "Geoffroy Lorieux glorieux@talend.com",
+  "name": "@talend/react-forms",
+  "description": "React forms library based on json schema form.",
   "main": "lib/Form.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "lint:es": "eslint --config .eslintrc src",
+    "lint:style": "sass-lint -v -q",
+    "lint": "npm run lint:es",
+    "storybook": "start-storybook -p 6008",
+    "start": "start-storybook -p 6008",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "forms",
+    "json",
+    "schema"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/forms#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/react-talend-forms"
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "keycode": "^2.1.8",
+    "react-autowhatever": "^7.0.0",
+    "react-jsonschema-form": "^0.42.0"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.2",
@@ -56,29 +85,11 @@
     "uuid": "^2.0.3",
     "webpack": "^1.13.1"
   },
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "keycode": "^2.1.8",
-    "react-autowhatever": "^7.0.0",
-    "react-jsonschema-form": "^0.42.0"
-  },
   "peerDependencies": {
     "react": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
     "react-talend-components": "^0.77.0"
-  },
-  "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "lint:es": "eslint --config .eslintrc src",
-    "lint:style": "sass-lint -v -q",
-    "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6008",
-    "start": "start-storybook -p 6008",
-    "build-storybook": "build-storybook"
   },
   "jest": {
     "collectCoverageFrom": [
