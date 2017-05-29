@@ -152,7 +152,7 @@ function JSONSchemaRenderer(props) {
 	}
 	const elements = properties.map(typeResolver(props.schema.jsonSchema.properties));
 	return (
-		<dl className={classNames(css[className])}>
+		<dl className={classNames(css[className], 'json-schema-renderer')}>
 			{elements}
 		</dl>
 	);
