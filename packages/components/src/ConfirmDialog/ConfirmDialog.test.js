@@ -1,6 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
+import { shallow } from 'enzyme';
+
 import ConfirmDialog from './ConfirmDialog.component';
 
 
@@ -134,5 +136,23 @@ describe('ConfirmDialog', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
+		// given
+		const properties = {
+			header: 'Hello world',
+			show: true,
+			validateAction,
+			cancelAction,
+		};
+		const noOp = () => {};
+		// when
+		const wrapper = shallow(
+			<ConfirmDialog onHide={noOp} animation={false} {...properties}><p>Content</p></ConfirmDialog>
+		);
+
+		// then
+		expect(wrapper.html()).toBe(1);
 	});
 });

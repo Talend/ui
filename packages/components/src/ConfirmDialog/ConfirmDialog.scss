@@ -6,8 +6,17 @@ $tc-dialog-body-padding: 30px !default;
 
 .tc-confirm-dialog {
 
+	&.modal-body-overflow {
+		:global(.modal-body){
+			overflow: auto;
+		}
+	}
+
 	:global(.modal-content) {
 		background-color: tint($tc-dialog-header-color, 90%);
+		max-height: 80vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	:global(.modal-header) {
@@ -23,7 +32,11 @@ $tc-dialog-body-padding: 30px !default;
 	}
 
 	:global(.modal-body) {
+		overflow: hidden;
 		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
 
 		:global(.progress) {
 			position: relative;
@@ -47,6 +60,7 @@ $tc-dialog-body-padding: 30px !default;
 
 	:global(.modal-footer) {
 		padding: 0 $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
+		flex-shrink: 0;
 		display: flex;
 		justify-content: flex-start;
 

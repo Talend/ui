@@ -14,6 +14,8 @@ import Action from '../Actions/Action';
  * @param validateAction object, describe the validate action
  * @param cancelAction object, describe the cancel action
  * @param progressValue number, if set shows progressbar with progress of progressValue
+ * @param bodyOverflow bool, default true,
+ * modal body automaticaly show a scrollbar if content overflow
  *
  const defaultProps = {
 	header: 'Hello world',
@@ -39,16 +41,17 @@ function ConfirmDialog({
 	validateAction,
 	cancelAction,
 	progressValue,
+	bodyOverflow = true,
 }) {
 	return (
 		<Modal
 			bsSize={size}
 			show={show}
 			keyboard
-			className={classNames(theme['tc-confirm-dialog'])}
+			className={classNames(theme['tc-confirm-dialog'], bodyOverflow && theme['modal-body-overflow'])}
 		>
 			{header ? (
-				<Modal.Header closeButton={false} className={classNames(theme['modal-header'])}>
+				<Modal.Header closeButton={false}>
 					<Modal.Title>{header}</Modal.Title>
 				</Modal.Header>
 			) : null}
@@ -56,7 +59,7 @@ function ConfirmDialog({
 				{progressValue ? (<ProgressBar now={progressValue} />) : null}
 				{children}
 			</Modal.Body>
-			<Modal.Footer className={classNames(theme['modal-footer'])}>
+			<Modal.Footer>
 				<Action {...cancelAction} />
 				<Action {...validateAction} />
 			</Modal.Footer>
@@ -72,6 +75,7 @@ ConfirmDialog.propTypes = {
 	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
 	validateAction: PropTypes.shape(Action.propTypes).isRequired,
 	progressValue: PropTypes.number,
+	bodyOverflow: PropTypes.bool,
 };
 
 export default ConfirmDialog;

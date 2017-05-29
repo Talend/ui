@@ -1,5 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ConfirmDialog should render the body with overflow hidden if bodyOverflow is set to false 1`] = `
+<div
+  bsSize="large"
+  className="Modal"
+  keyboard={true}
+  show={true}
+>
+  <div
+    className="Header"
+    closeButton={false}
+  >
+    <div
+      className="Title"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body"
+  >
+    <div
+      className="ProgressBar"
+      now={25}
+    />
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer"
+  >
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        CANCEL
+      </span>
+    </button>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   bsSize="large"
