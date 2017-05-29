@@ -2,7 +2,7 @@
 
 exports[`JSONSchemaRenderer should handle nested objects 1`] = `
 <dl
-  className=""
+  className="json-schema-renderer"
 >
   <div
     className={undefined}
@@ -26,13 +26,13 @@ exports[`JSONSchemaRenderer should handle nested objects 1`] = `
 
 exports[`JSONSchemaRenderer should render 1`] = `
 <dl
-  className=""
+  className="json-schema-renderer"
 />
 `;
 
 exports[`JSONSchemaRenderer should render arrays 1`] = `
 <dl
-  className=""
+  className="json-schema-renderer"
 >
   <div
     className={undefined}
@@ -55,7 +55,7 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
 
 exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 <dl
-  className=""
+  className="json-schema-renderer"
 >
   <div>
     <dt>
