@@ -4,10 +4,30 @@ Scoping to packages that match 'react-cmf'
 > react-cmf@0.77.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint-config-airbnb-base/rules/style.js:
+	Configuration for rule "eol-last" is invalid:
+	Value "always" must be an enum value.
 
-/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  36:3  warning  Unexpected console statement  no-console
+Referenced from: /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint-config-airbnb-base/index.js
+Referenced from: airbnb
+Referenced from: /home/travis/build/Talend/ui/packages/cmf/.eslintrc
+Error: /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint-config-airbnb-base/rules/style.js:
+	Configuration for rule "eol-last" is invalid:
+	Value "always" must be an enum value.
 
-✖ 1 problem (0 errors, 1 warning)
-
+Referenced from: /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint-config-airbnb-base/index.js
+Referenced from: airbnb
+Referenced from: /home/travis/build/Talend/ui/packages/cmf/.eslintrc
+    at validateRuleOptions (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:115:15)
+    at /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:162:13
+    at Array.forEach (native)
+    at Object.validate (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:161:35)
+    at load (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:522:19)
+    at /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:391:36
+    at Array.reduceRight (native)
+    at applyExtends (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:362:28)
+    at load (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:529:22)
+    at /home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:391:36
+Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
+Errored while running ExecCommand.execute
+Command exited with status 1: npm run lint:es
