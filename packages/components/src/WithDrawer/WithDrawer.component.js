@@ -27,7 +27,10 @@ function WithDrawer({ drawers, children }) {
 			{children}
 			<CSSTransitionGroup transitionAppear className={theme['tc-with-drawer-container']}>
 				{drawers && drawers.map((drawer, key) => (
-					<Drawer.Animation key={key} className="tc-with-drawer-wrapper">
+					<Drawer.Animation
+						key={(drawer.props.route && drawer.props.route.path) || key}
+						className="tc-with-drawer-wrapper"
+					>
 						{drawer}
 					</Drawer.Animation>
 				))}
