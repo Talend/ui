@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from "react";
+import React, { Component, PropTypes } from "react";
 
 import {
 	orderProperties,
@@ -31,15 +31,12 @@ class ObjectField extends Component {
 		  schema.required.indexOf(name) !== -1;
 	}
 
-	onPropertyChange = (id, name) => {
-		return (value, options) => {
-			const newFormData = { ...this.props.formData, [name]: value };
-
-			if (this.props.registry.formContext.handleSchemaChange) {
-				this.props.registry.formContext.handleSchemaChange(newFormData, id, name, value, options);
-			}
-			this.props.onChange(newFormData, options);
-		};
+	onPropertyChange = (id, name) => (value, options) => {
+		const newFormData = { ...this.props.formData, [name]: value };
+		if (this.props.registry.formContext.handleSchemaChange) {
+			this.props.registry.formContext.handleSchemaChange(newFormData, id, name, value, options);
+		}
+		this.props.onChange(newFormData, options);
 	};
 
 	render() {
@@ -87,7 +84,7 @@ class ObjectField extends Component {
 		} catch (err) {
 			return (
 				<div>
-				  <p className="config-error" style={{color: "red"}}>
+				  <p className="config-error" style={{ color: 'red' }}>
 					Invalid {name || 'root'} object field configuration:
 					<em>{err.message}</em>.
 				  </p>
@@ -98,35 +95,35 @@ class ObjectField extends Component {
 		return (
 			<fieldset>
 				{title ? <TitleField
-						   id={`${idSchema.$id}__title`}
-						   title={title}
-						   required={required}
-						   formContext={formContext}/> : null}
+					id={`${idSchema.$id}__title`}
+					title={title}
+					required={required}
+					formContext={formContext}
+				/> : null}
 				{schema.description ?
-				  <DescriptionField
-					id={`${idSchema.$id}__description`}
-					description={schema.description}
-					formContext={formContext}/> : null}
+					<DescriptionField
+						id={`${idSchema.$id}__description`}
+						description={schema.description}
+						formContext={formContext}
+					/> : null}
 				{
-					orderedProperties.map((name, index) => {
-						return (
-							<SchemaField key={index}
-							  name={name}
-							  required={this.isRequired(name)}
-							  schema={schema.properties[name]}
-							  uiSchema={uiSchema[name]}
-							  errorSchema={errorSchema[name]}
-							  idSchema={idSchema[name]}
-							  formData={formData[name]}
-							  onChange={this.onPropertyChange(schema.id, name)}
-							  onBlur={onBlur}
-							  registry={this.props.registry}
-							  disabled={disabled}
-							  readonly={readonly}/>
-						);
-					})
-				}
-			</fieldset>
+					orderedProperties.map((name, index) => (
+						<SchemaField key={index}
+							name={name}
+							required={this.isRequired(name)}
+							schema={schema.properties[name]}
+							uiSchema={uiSchema[name]}
+							errorSchema={errorSchema[name]}
+							idSchema={idSchema[name]}
+							formData={formData[name]}
+							onChange={this.onPropertyChange(schema.id, name)}
+							onBlur={onBlur}
+							registry={this.props.registry}
+							disabled={disabled}
+							readonly={readonly}
+						/>
+					))
+				}</fieldset>
 		);
 	}
 }
