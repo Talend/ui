@@ -48,7 +48,8 @@ class ObjectField extends Component {
       required,
       disabled,
       readonly,
-      onBlur
+      onChange,
+      onBlur,
     } = this.props;
     const {definitions, fields, formContext, widgets} = this.props.registry;
     const {SchemaField, TitleField, DescriptionField} = fields;
