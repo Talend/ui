@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Actions should render 1`] = `
 <div
-  className="mock-provider">
+  className="mock-provider"
+>
   <div
     actions={
       Array [
@@ -8,6 +11,7 @@ exports[`Actions should render 1`] = `
       ]
     }
     className="tc-actions"
-    onClick={[Function]} />
+    onClick={[Function]}
+  />
 </div>
 `;

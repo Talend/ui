@@ -37,12 +37,12 @@
     "babel-preset-react": "6.11.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
-    "enzyme": "2.7.1",
-    "eslint": "3.4.0",
-    "eslint-config-airbnb": "11.0.0",
-    "eslint-plugin-import": "1.14.0",
-    "eslint-plugin-jsx-a11y": "2.2.1",
-    "eslint-plugin-react": "6.2.0",
+    "enzyme": "^2.7.1",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^11.0.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
     "immutable": "3.8.1",
     "ink-docstrap": "^1.3.0",
     "invariant": "2.2.2",
@@ -67,7 +67,7 @@
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0",
-    "rimraf": "2.6.1"
+    "rimraf": "^2.6.1"
   },
   "jest": {
     "collectCoverageFrom": [

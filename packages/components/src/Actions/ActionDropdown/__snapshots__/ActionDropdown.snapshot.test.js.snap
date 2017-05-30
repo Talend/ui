@@ -131,7 +131,6 @@ exports[`ActionDropdown should render a button with icon 1`] = `
   className="dropdown btn-group btn-group-default"
 >
   <button
-    aria-describedby={42}
     aria-expanded={false}
     aria-haspopup={true}
     className="dropdown-toggle btn btn-default"

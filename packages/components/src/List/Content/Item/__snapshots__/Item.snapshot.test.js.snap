@@ -89,7 +89,6 @@ exports[`Item should render with actions 1`] = `
     }
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       onBlur={[Function]}
@@ -117,7 +116,6 @@ exports[`Item should render with actions 1`] = `
     }
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       onBlur={[Function]}
