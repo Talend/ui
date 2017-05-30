@@ -83,23 +83,25 @@ describe('JSONSchemaRenderer', () => {
 		const schema = {
 			jsonSchema: {
 				properties: {
+					d: { type: 'string' },
 					b: { type: 'string' },
 					c: { type: 'string' },
 					a: { type: 'string' },
 				},
 			},
 			uiSchema: {
-				'ui:order': ['a', 'b', 'c'],
+				'ui:order': ['a', 'e', 'b', 'c'],
 			},
 			properties: {
-				a: 'test a',
-				b: 'test b',
 				c: 'test c',
+				d: 'test d',
+				b: 'test b',
+				a: 'test a',
 			},
 		};
 		const wrapper = shallow(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt').first().text()).toEqual('a');
-		expect(wrapper.find('dt').last().text()).toEqual('c');
+		expect(wrapper.find('dt').last().text()).toEqual('d');
 	});
 
 	// TODO: Add $ref handling
