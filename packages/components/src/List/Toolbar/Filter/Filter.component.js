@@ -11,18 +11,18 @@ import theme from './Filter.scss';
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
-	case keycode.codes.enter:
-		if (enterAction) {
-			enterAction(event);
-		}
-		break;
-	case keycode.codes.esc:
-		if (escAction) {
-			escAction(event);
-		}
-		break;
-	default:
-		break;
+		case keycode.codes.enter:
+			if (enterAction) {
+				enterAction(event);
+			}
+			break;
+		case keycode.codes.esc:
+			if (escAction) {
+				escAction(event);
+			}
+			break;
+		default:
+			break;
 	}
 }
 
@@ -36,12 +36,14 @@ function FilterInput(props) {
 		onFilter,
 		onToggle,
 		placeholder,
+		value,
 	} = props;
 
 	const inputProps = {
 		id,
 		name: 'search',
 		type: 'search',
+		value: value,
 		placeholder,
 		className: theme.search,
 		'aria-label': 'Filter',
@@ -72,6 +74,7 @@ FilterInput.propTypes = {
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
+	value: PropTypes.string,
 };
 
 /**
@@ -91,6 +94,7 @@ function Filter(props) {
 		onFilter,
 		onToggle,
 		placeholder,
+		value,
 	} = props;
 	if (docked) {
 		return (
@@ -135,6 +139,7 @@ function Filter(props) {
 					onFilter={onFilter}
 					onToggle={onToggle}
 					placeholder={placeholder}
+					value={value}
 				/>
 				<Action
 					id={id && `${id}-cross-icon`}
@@ -160,6 +165,7 @@ Filter.propTypes = {
 	onToggle: PropTypes.func.isRequired,
 	highlight: PropTypes.bool,
 	placeholder: PropTypes.string,
+	value: PropTypes.string,
 };
 
 Filter.defaultProps = {
