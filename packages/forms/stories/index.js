@@ -6,7 +6,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
-import IconsProvider from 'react-talend-components/lib/IconsProvider';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import Form from '../src/Form';
 

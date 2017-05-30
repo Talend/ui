@@ -23,6 +23,8 @@ fi
 
 # replace js imports
 BASEDIR=$(dirname "$0")
+jscodeshift -t "${BASEDIR}/codemod.js" $1/examples
+jscodeshift -t "${BASEDIR}/codemod.js" $1/stories
 jscodeshift -t "${BASEDIR}/codemod.js" $1/src
 
 # replace bootstrap-talend-theme in all scss

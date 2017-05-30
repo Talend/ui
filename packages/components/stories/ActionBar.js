@@ -1,5 +1,5 @@
 import React from 'react';
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 import { storiesOf, action } from '@kadira/storybook';
 
 import { Action, Icon, ActionBar, IconsProvider } from '../src/index';
