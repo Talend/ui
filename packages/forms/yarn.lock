@@ -5246,9 +5246,9 @@ react-inspector@^1.1.0:
     babel-runtime "^6.9.2"
     is-dom "^1.0.5"
 
-react-jsonschema-form@^0.43.0:
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/react-jsonschema-form/-/react-jsonschema-form-0.43.0.tgz#586b69de7bda6d3a9cd9f74c1bee9b7fa353d1e5"
+react-jsonschema-form@^0.42.0:
+  version "0.42.0"
+  resolved "https://registry.yarnpkg.com/react-jsonschema-form/-/react-jsonschema-form-0.42.0.tgz#61999e94523fb316cc9f8171de2351e3c6938485"
   dependencies:
     jsonschema "^1.0.2"
     lodash.topath "^4.5.2"
