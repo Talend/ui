@@ -50,5 +50,8 @@
     "svgo": "0.7.1",
     "webpack": "^1.14.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.77.0"
 }

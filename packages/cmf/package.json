@@ -105,5 +105,8 @@
       "./env__tests.js"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.77.0"
 }

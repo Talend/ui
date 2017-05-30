@@ -130,5 +130,8 @@
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.77.0"
 }

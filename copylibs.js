@@ -15,39 +15,39 @@ program
 const deps = [
 	{
 		src: 'components/lib',
-		dest: 'containers/node_modules/react-talend-components/lib',
+		dest: 'containers/node_modules/@talend/react-components/lib',
 	},
 	{
 		src: 'components/lib',
-		dest: 'forms/node_modules/react-talend-components/lib',
+		dest: 'forms/node_modules/@talend/react-components/lib',
 	},
 	{
 		src: 'icons/dist',
-		dest: 'containers/node_modules/talend-icons/dist',
+		dest: 'containers/node_modules/@talend/icons/dist',
 	},
 	{
 		src: 'icons/dist',
-		dest: 'components/node_modules/talend-icons/dist',
+		dest: 'components/node_modules/@talend/icons/dist',
 	},
 	{
 		src: 'icons/dist',
-		dest: 'forms/node_modules/talend-icons/dist',
+		dest: 'forms/node_modules/@talend/icons/dist',
 	},
 	{
 		src: 'cmf/lib',
-		dest: 'containers/node_modules/react-cmf/lib',
+		dest: 'containers/node_modules/@talend/react-cmf/lib',
 	},
 	{
 		src: 'theme/src',
-		dest: 'components/node_modules/bootstrap-talend-theme/src',
+		dest: 'components/node_modules/@talend/bootstrap-theme/src',
 	},
 	{
 		src: 'theme/src',
-		dest: 'containers/node_modules/bootstrap-talend-theme/src',
+		dest: 'containers/node_modules/@talend/bootstrap-theme/src',
 	},
 	{
 		src: 'theme/src',
-		dest: 'forms/node_modules/bootstrap-talend-theme/src',
+		dest: 'forms/node_modules/@talend/bootstrap-theme/src',
 	},
 ];
 

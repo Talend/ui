@@ -5,8 +5,8 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-
-const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
+const path = require('path');
+const SASS_DATA = `@import '~@talend/bootstrap-theme/src/theme/guidelines';`;
 
 module.exports = {
 	plugins: [
@@ -36,5 +36,10 @@ module.exports = {
 	],
 	sassLoader: {
 		data: SASS_DATA,
+	},
+	resolve: {
+		alias: {
+			'react-cmf': path.join(__dirname, '../node_modules/@talend/react-cmf'),
+		},
 	},
 };

@@ -107,6 +107,31 @@
     webpack-dev-middleware "^1.6.0"
     webpack-hot-middleware "^2.13.2"
 
+"@talend/bootstrap-theme@^0.77.0":
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.77.0.tgz#358734135b37d60713924db5723ec423b651070b"
+  dependencies:
+    bootstrap-sass "^3.3.7"
+
+"@talend/icons@^0.77.0":
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.77.0.tgz#9f5d8a0a7981a4411a82de9c8f96dcda7eacecc9"
+
+"@talend/react-cmf@^0.77.0":
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.77.0.tgz#fa32b6aa5d5e55ebc8675766e7ddb103a8afe0a9"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+
+"@talend/react-components@^0.77.0":
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.77.0.tgz#b370fded83b94a71271e7795adfa407ea8540d4c"
+  dependencies:
+    lodash "^4.17.4"
+    react-autowhatever "^7.0.0"
+    react-debounce-input "^2.4.2"
+    react-virtualized "^9.1.0"
+
 abab@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.3.tgz#b81de5f7274ec4e756d797cd834f303642724e5d"
@@ -1247,12 +1272,6 @@ boom@2.x.x:
 bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
-
-bootstrap-talend-theme@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.74.2.tgz#33dc36934523bedd75d69f9ed1ac339ecebe7c13"
-  dependencies:
-    bootstrap-sass "^3.3.7"
 
 brace-expansion@^1.0.0:
   version "1.1.6"
@@ -4010,17 +4029,17 @@ lodash.uniq@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.17.2, lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+lodash@4.17.2:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
+
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@^3.10.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
-
-lodash@^4.17.4:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@~4.16.4:
   version "4.16.6"
@@ -5113,9 +5132,9 @@ react-bootstrap@^0.30.7:
     uncontrollable "^4.0.1"
     warning "^3.0.0"
 
-react-cmf@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.74.2.tgz#641b34cd203c271e80ed2a980ae00da804ddb218"
+react-cmf@^0.77.0:
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.77.0.tgz#46399f1e123a52214677c80fe3faf0571ba3370d"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
@@ -5261,15 +5280,6 @@ react-stubber@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-stubber/-/react-stubber-1.0.0.tgz#41ee2cac72d4d4fd70a63896da98e13739b84628"
   dependencies:
     babel-runtime "^6.5.0"
-
-react-talend-components@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.74.2.tgz#f5c29c8fc73bf571a90ea0609bc2ff037c9955de"
-  dependencies:
-    lodash "^4.17.4"
-    react-autowhatever "^7.0.0"
-    react-debounce-input "^2.4.2"
-    react-virtualized "^9.1.0"
 
 react-test-renderer@^15.4.2:
   version "15.4.2"
@@ -6003,10 +6013,6 @@ table@^3.7.8:
 taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
-
-talend-icons@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.74.2.tgz#42ee59ee43163f200f3f024276f872891af647ab"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

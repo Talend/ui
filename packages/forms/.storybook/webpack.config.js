@@ -8,7 +8,7 @@
 // similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
+const SASS_DATA = `@import '~@talend/bootstrap-theme/src/theme/guidelines';`;
 
 module.exports = {
 	plugins: [],
