@@ -4,8 +4,10 @@ import { Provider } from '@talend/react-cmf/lib/mock';
 
 import Action from './Action.component';
 
-jest.mock('react-talend-components');
-jest.mock('react-dom');
+jest.mock(
+	'@talend/react-components',
+	() => ({ Action: props => (<button className="tc-action" {...props} />) })
+);
 
 describe('Action', () => {
 	it('should render its name', () => {

@@ -4,6 +4,11 @@ import { Provider } from '@talend/react-cmf/lib/mock';
 
 import Actions from './Actions.component';
 
+jest.mock(
+	'@talend/react-components',
+	() => ({ Actions: props => (<div className="tc-actions" {...props} />) })
+);
+
 describe('Actions', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
