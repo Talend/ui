@@ -15,13 +15,9 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-0-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Hello world
@@ -31,13 +27,10 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -50,13 +43,10 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -142,13 +132,9 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-1-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Foo
@@ -230,13 +216,9 @@ exports[`DisplayLarge shoudl render selected list element with custom selectedCl
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-2-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Bar
@@ -325,13 +307,9 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-0-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Hello world
@@ -341,13 +319,10 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -360,13 +335,10 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -452,13 +424,9 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-1-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Foo
@@ -540,13 +508,9 @@ exports[`DisplayLarge shoudl render selected list element with defaut 'active' c
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-2-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Bar
@@ -635,13 +599,9 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id={undefined}
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Hello world
@@ -651,13 +611,10 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -670,13 +627,10 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -762,13 +716,9 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id={undefined}
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Foo
@@ -850,13 +800,9 @@ exports[`DisplayLarge should render with default title property (name) 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id={undefined}
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Bar
@@ -965,13 +911,10 @@ exports[`DisplayLarge should render with defined title property 1`] = `
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -984,13 +927,10 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -1261,13 +1201,9 @@ exports[`DisplayLarge should render with id if provided 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-0-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Hello world
@@ -1277,13 +1213,10 @@ exports[`DisplayLarge should render with id if provided 1`] = `
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -1296,13 +1229,10 @@ exports[`DisplayLarge should render with id if provided 1`] = `
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -1388,13 +1318,9 @@ exports[`DisplayLarge should render with id if provided 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-1-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Foo
@@ -1476,13 +1402,9 @@ exports[`DisplayLarge should render with id if provided 1`] = `
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-2-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Bar
@@ -1571,13 +1493,9 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-0-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Hello world
@@ -1587,13 +1505,10 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
         className="tc-actions btn-group"
       >
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -1606,13 +1521,10 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
           />
         </button>
         <button
-          aria-describedby={42}
           className="btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role="link"
           type="button"
@@ -1698,13 +1610,9 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-1-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Foo
@@ -1786,13 +1694,9 @@ exports[`DisplayLarge should render with item custom className if provided 1`] =
         className={undefined}
       >
         <span
-          aria-describedby={42}
           className={undefined}
           id="large-list-2-title"
-          onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
         >
           Bar

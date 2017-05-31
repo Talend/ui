@@ -11,8 +11,6 @@ function getTooltipClass() {
 	return classNames({ [theme['tooltip-container']]: true, 'tooltip-container': true });
 }
 
-function noop() {}
-
 /**
  * @param {object} props react props
  * @example
@@ -63,34 +61,26 @@ class TooltipTrigger extends React.Component {
 			const triggerProps = Object.assign({
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onMouseOver,
-				'aria-describedby': this.state.id,
-				// TODO: don't forget to remove this when the PR is ok
-				// this is to keep (lots of) snapshots the same
-				onBlur: noop,
-				onMouseOut: noop,
-				onClick: null,
 			}, childProps);
 			return cloneElement(child, triggerProps);
 		}
-		const props = this.props;
 		const tooltip = (
 			<Tooltip
 				className={getTooltipClass()}
 				id={this.state.id}
 			>
-				{props.label}
+				{this.props.label}
 			</Tooltip>
 		);
-		// TODO: render the Tooltip in a provider so use context
-		// for that.
+		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
 		return (
 			<OverlayTrigger
-				placement={props.tooltipPlacement}
+				placement={this.props.tooltipPlacement}
 				overlay={tooltip}
 				delayShow={400}
 				onExited={this.onMouseOut}
 			>
-				{props.children}
+				{this.props.children}
 			</OverlayTrigger>
 		);
 	}
