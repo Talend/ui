@@ -19,6 +19,9 @@ const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
+const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
+const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
+const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
 class EnumerationWidget extends React.Component {
 	constructor(props) {
@@ -97,7 +100,17 @@ class EnumerationWidget extends React.Component {
 				label: 'Import values from a file',
 				icon: 'talend-download',
 				id: 'upload',
-				onClick: this.simulateClickInputFile.bind(this),
+				onClick: this.onImportButtonClick.bind(this),
+				displayMode: 'dropdown',
+				items: [{
+					label: 'Add values from a file',
+					id: 'append-uploding',
+					onClick: this.onImportAppendClick.bind(this),
+				}, {
+					label: 'Overwrite existing values',
+					id: 'append-uploding',
+					onClick: this.onImportOverwriteClick.bind(this),
+				}],
 			});
 		}
 
@@ -148,6 +161,24 @@ class EnumerationWidget extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
+	}
+
+	onImportAppendClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_APPEND_MODE,
+			null,
+			this.importFileHandler.bind(this),
+			this.importFileHandler.bind(this)
+		);
+	}
+
+	onImportOverwriteClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
+			null,
+			this.importFileHandler.bind(this),
+			this.importFileHandler.bind(this)
+		);
 	}
 
 	// default mode
@@ -463,6 +494,18 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
+
+	onImportButtonClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_CLICK,
+			{
+				simulateClickInputFile: this.simulateClickInputFile.bind(this),
+			},
+			this.importFileHandler.bind(this),
+			this.importFileHandler.bind(this)
+		);
+	}
+
 	getItemHeight(/* isInEdit */) {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
@@ -509,7 +552,6 @@ class EnumerationWidget extends React.Component {
 		}
 		return false;
 	}
-
 
 	/**
 	 * simulateClickInputFile - simulate the click on the hidden input
@@ -627,7 +669,7 @@ class EnumerationWidget extends React.Component {
 			<input
 				type="file"
 				ref={(element) => { this.inputFile = element; }}
-				onChange={(event) => { this.importFile(event); }}
+				onChange={event => this.importFile(event)}
 				className={classNames('hidden')}
 			/>
 		);

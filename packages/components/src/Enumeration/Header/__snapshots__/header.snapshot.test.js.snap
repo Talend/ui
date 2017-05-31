@@ -74,3 +74,92 @@ exports[`Header should render header with one button and indicate the component 
   </div>
 </header>
 `;
+
+exports[`Header should render header with one dropdown and two items 1`] = `
+<header
+  className="undefined tc-enumeration-header"
+>
+  <span>
+    Values
+  </span>
+  <div
+    className="actions"
+  >
+    <div
+      className="dropdown btn-group btn-group-link"
+    >
+      <button
+        aria-describedby={42}
+        aria-expanded={false}
+        aria-haspopup={true}
+        btooltipPlacement="bottom"
+        className="dropdown-toggle btn btn-link"
+        disabled={false}
+        id={undefined}
+        inProgress={undefined}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="button"
+        type="button"
+      >
+        <span>
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-plus"
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu dropdown-menu-right"
+        role="menu"
+      >
+        <li
+          className=""
+          role="presentation"
+          style={undefined}
+        >
+          <a
+            href="#"
+            id="append-uploding"
+            label="Add values from a file"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+          >
+            Add values from a file
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}
+        >
+          <a
+            href="#"
+            id="append-uploding"
+            label="Overwrite existing values"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+          >
+            Overwrite existing values
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+`;

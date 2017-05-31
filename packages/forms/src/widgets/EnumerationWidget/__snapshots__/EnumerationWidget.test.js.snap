@@ -6767,8 +6767,21 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
             "onClick": [Function],
           },
           Object {
+            "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
+            "items": Array [
+              Object {
+                "id": "append-uploding",
+                "label": "Add values from a file",
+                "onClick": [Function],
+              },
+              Object {
+                "id": "append-uploding",
+                "label": "Overwrite existing values",
+                "onClick": [Function],
+              },
+            ],
             "label": "Import values from a file",
             "onClick": [Function],
           },
@@ -6869,8 +6882,21 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
+                "items": Array [
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Add values from a file",
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Overwrite existing values",
+                    "onClick": [Function],
+                  },
+                ],
                 "label": "Import values from a file",
                 "onClick": [Function],
               },
@@ -6968,8 +6994,21 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
+                  "items": Array [
+                    Object {
+                      "id": "append-uploding",
+                      "label": "Add values from a file",
+                      "onClick": [Function],
+                    },
+                    Object {
+                      "id": "append-uploding",
+                      "label": "Overwrite existing values",
+                      "onClick": [Function],
+                    },
+                  ],
                   "label": "Import values from a file",
                   "onClick": [Function],
                 },
@@ -7060,16 +7099,30 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                     </OverlayTrigger>
                   </TooltipTrigger>
                 </Action>
-                <Action
+                <ActionDropdown
                   bsStyle="default"
                   btooltipPlacement="bottom"
-                  disabled={false}
                   hideLabel={true}
                   icon="talend-download"
-                  inProgress={false}
+                  items={
+                    Array [
+                      Object {
+                        "id": "append-uploding",
+                        "label": "Add values from a file",
+                        "onClick": [Function],
+                      },
+                      Object {
+                        "id": "append-uploding",
+                        "label": "Overwrite existing values",
+                        "onClick": [Function],
+                      },
+                    ]
+                  }
                   label="Import values from a file"
                   link={true}
+                  noCaret={true}
                   onClick={[Function]}
+                  pullRight={true}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Import values from a file"
@@ -7093,44 +7146,214 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                           "focus",
                         ]
                       }>
-                      <Button
-                        active={false}
-                        block={false}
-                        bsClass="btn"
+                      <DropdownButton
                         bsStyle="link"
-                        disabled={false}
+                        btooltipPlacement="bottom"
+                        noCaret={true}
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
                         onMouseOut={[Function]}
                         onMouseOver={[Function]}
-                        role="link">
-                        <button
-                          className="btn btn-link"
-                          disabled={false}
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseOut={[Function]}
-                          onMouseOver={[Function]}
-                          role="link"
-                          type="button">
-                          <Icon
-                            name="talend-download">
-                            <svg
-                              aria-hidden="true"
-                              className="tc-svg-icon"
-                              focusable="false"
-                              title={null}>
-                              <use
-                                xlinkHref="#talend-download" />
-                            </svg>
-                          </Icon>
-                        </button>
-                      </Button>
+                        onSelect={[Function]}
+                        pullRight={true}
+                        role="button"
+                        title={
+                          <span>
+                            <Icon
+                              name="talend-download" />
+                          </span>
+                        }>
+                        <Uncontrolled(Dropdown)
+                          bsStyle="link"
+                          onSelect={[Function]}
+                          pullRight={true}
+                          role="button">
+                          <Dropdown
+                            bsClass="dropdown"
+                            bsStyle="link"
+                            componentClass={[Function]}
+                            onSelect={[Function]}
+                            onToggle={[Function]}
+                            pullRight={true}
+                            role="button">
+                            <ButtonGroup
+                              block={false}
+                              bsClass="btn-group"
+                              bsStyle="link"
+                              className="dropdown"
+                              justified={false}
+                              vertical={false}>
+                              <div
+                                className="dropdown btn-group btn-group-link">
+                                <DropdownToggle
+                                  bsClass="dropdown-toggle"
+                                  bsRole="toggle"
+                                  bsStyle="link"
+                                  btooltipPlacement="bottom"
+                                  noCaret={true}
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onMouseOut={[Function]}
+                                  onMouseOver={[Function]}
+                                  open={false}
+                                  role="button"
+                                  useAnchor={false}>
+                                  <Button
+                                    active={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsStyle="link"
+                                    btooltipPlacement="bottom"
+                                    className="dropdown-toggle"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
+                                    role="button">
+                                    <button
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      btooltipPlacement="bottom"
+                                      className="dropdown-toggle btn btn-link"
+                                      disabled={false}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyDown={[Function]}
+                                      onMouseOut={[Function]}
+                                      onMouseOver={[Function]}
+                                      role="button"
+                                      type="button">
+                                      <span>
+                                        <Icon
+                                          name="talend-download">
+                                          <svg
+                                            aria-hidden="true"
+                                            className="tc-svg-icon"
+                                            focusable="false"
+                                            title={null}>
+                                            <use
+                                              xlinkHref="#talend-download" />
+                                          </svg>
+                                        </Icon>
+                                      </span>
+                                    </button>
+                                  </Button>
+                                </DropdownToggle>
+                                <DropdownMenu
+                                  bsClass="dropdown-menu"
+                                  bsRole="menu"
+                                  onClose={[Function]}
+                                  onSelect={[Function]}
+                                  pullRight={true}>
+                                  <RootCloseWrapper
+                                    disabled={true}
+                                    event="click"
+                                    onRootClose={[Function]}>
+                                    <ul
+                                      className="dropdown-menu dropdown-menu-right"
+                                      role="menu">
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={
+                                          Object {
+                                            "id": "append-uploding",
+                                            "label": "Add values from a file",
+                                            "onClick": [Function],
+                                          }
+                                        }
+                                        header={false}
+                                        id="append-uploding"
+                                        label="Add values from a file"
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}>
+                                        <li
+                                          className=""
+                                          role="presentation">
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            id="append-uploding"
+                                            label="Add values from a file"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1">
+                                            <a
+                                              href="#"
+                                              id="append-uploding"
+                                              label="Add values from a file"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1">
+                                              Add values from a file
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={
+                                          Object {
+                                            "id": "append-uploding",
+                                            "label": "Overwrite existing values",
+                                            "onClick": [Function],
+                                          }
+                                        }
+                                        header={false}
+                                        id="append-uploding"
+                                        label="Overwrite existing values"
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}>
+                                        <li
+                                          className=""
+                                          role="presentation">
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            id="append-uploding"
+                                            label="Overwrite existing values"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1">
+                                            <a
+                                              href="#"
+                                              id="append-uploding"
+                                              label="Overwrite existing values"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1">
+                                              Overwrite existing values
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                    </ul>
+                                  </RootCloseWrapper>
+                                </DropdownMenu>
+                              </div>
+                            </ButtonGroup>
+                          </Dropdown>
+                        </Uncontrolled(Dropdown)>
+                      </DropdownButton>
                     </OverlayTrigger>
                   </TooltipTrigger>
-                </Action>
+                </ActionDropdown>
                 <Action
                   bsStyle="default"
                   btooltipPlacement="bottom"
@@ -7218,8 +7441,21 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
+                "items": Array [
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Add values from a file",
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Overwrite existing values",
+                    "onClick": [Function],
+                  },
+                ],
                 "label": "Import values from a file",
                 "onClick": [Function],
               },
@@ -8596,8 +8832,21 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             "onClick": [Function],
           },
           Object {
+            "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
+            "items": Array [
+              Object {
+                "id": "append-uploding",
+                "label": "Add values from a file",
+                "onClick": [Function],
+              },
+              Object {
+                "id": "append-uploding",
+                "label": "Overwrite existing values",
+                "onClick": [Function],
+              },
+            ],
             "label": "Import values from a file",
             "onClick": [Function],
           },
@@ -8715,8 +8964,21 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 "onClick": [Function],
               },
               Object {
+                "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
+                "items": Array [
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Add values from a file",
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Overwrite existing values",
+                    "onClick": [Function],
+                  },
+                ],
                 "label": "Import values from a file",
                 "onClick": [Function],
               },
@@ -8831,8 +9093,21 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onClick": [Function],
                 },
                 Object {
+                  "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
+                  "items": Array [
+                    Object {
+                      "id": "append-uploding",
+                      "label": "Add values from a file",
+                      "onClick": [Function],
+                    },
+                    Object {
+                      "id": "append-uploding",
+                      "label": "Overwrite existing values",
+                      "onClick": [Function],
+                    },
+                  ],
                   "label": "Import values from a file",
                   "onClick": [Function],
                 },
@@ -8923,16 +9198,30 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     </OverlayTrigger>
                   </TooltipTrigger>
                 </Action>
-                <Action
+                <ActionDropdown
                   bsStyle="default"
                   btooltipPlacement="bottom"
-                  disabled={false}
                   hideLabel={true}
                   icon="talend-download"
-                  inProgress={false}
+                  items={
+                    Array [
+                      Object {
+                        "id": "append-uploding",
+                        "label": "Add values from a file",
+                        "onClick": [Function],
+                      },
+                      Object {
+                        "id": "append-uploding",
+                        "label": "Overwrite existing values",
+                        "onClick": [Function],
+                      },
+                    ]
+                  }
                   label="Import values from a file"
                   link={true}
+                  noCaret={true}
                   onClick={[Function]}
+                  pullRight={true}
                   tooltipPlacement="top">
                   <TooltipTrigger
                     label="Import values from a file"
@@ -8956,44 +9245,214 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           "focus",
                         ]
                       }>
-                      <Button
-                        active={false}
-                        block={false}
-                        bsClass="btn"
+                      <DropdownButton
                         bsStyle="link"
-                        disabled={false}
+                        btooltipPlacement="bottom"
+                        noCaret={true}
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
                         onMouseOut={[Function]}
                         onMouseOver={[Function]}
-                        role="link">
-                        <button
-                          className="btn btn-link"
-                          disabled={false}
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseOut={[Function]}
-                          onMouseOver={[Function]}
-                          role="link"
-                          type="button">
-                          <Icon
-                            name="talend-download">
-                            <svg
-                              aria-hidden="true"
-                              className="tc-svg-icon"
-                              focusable="false"
-                              title={null}>
-                              <use
-                                xlinkHref="#talend-download" />
-                            </svg>
-                          </Icon>
-                        </button>
-                      </Button>
+                        onSelect={[Function]}
+                        pullRight={true}
+                        role="button"
+                        title={
+                          <span>
+                            <Icon
+                              name="talend-download" />
+                          </span>
+                        }>
+                        <Uncontrolled(Dropdown)
+                          bsStyle="link"
+                          onSelect={[Function]}
+                          pullRight={true}
+                          role="button">
+                          <Dropdown
+                            bsClass="dropdown"
+                            bsStyle="link"
+                            componentClass={[Function]}
+                            onSelect={[Function]}
+                            onToggle={[Function]}
+                            pullRight={true}
+                            role="button">
+                            <ButtonGroup
+                              block={false}
+                              bsClass="btn-group"
+                              bsStyle="link"
+                              className="dropdown"
+                              justified={false}
+                              vertical={false}>
+                              <div
+                                className="dropdown btn-group btn-group-link">
+                                <DropdownToggle
+                                  bsClass="dropdown-toggle"
+                                  bsRole="toggle"
+                                  bsStyle="link"
+                                  btooltipPlacement="bottom"
+                                  noCaret={true}
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onMouseOut={[Function]}
+                                  onMouseOver={[Function]}
+                                  open={false}
+                                  role="button"
+                                  useAnchor={false}>
+                                  <Button
+                                    active={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsStyle="link"
+                                    btooltipPlacement="bottom"
+                                    className="dropdown-toggle"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
+                                    role="button">
+                                    <button
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      btooltipPlacement="bottom"
+                                      className="dropdown-toggle btn btn-link"
+                                      disabled={false}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyDown={[Function]}
+                                      onMouseOut={[Function]}
+                                      onMouseOver={[Function]}
+                                      role="button"
+                                      type="button">
+                                      <span>
+                                        <Icon
+                                          name="talend-download">
+                                          <svg
+                                            aria-hidden="true"
+                                            className="tc-svg-icon"
+                                            focusable="false"
+                                            title={null}>
+                                            <use
+                                              xlinkHref="#talend-download" />
+                                          </svg>
+                                        </Icon>
+                                      </span>
+                                    </button>
+                                  </Button>
+                                </DropdownToggle>
+                                <DropdownMenu
+                                  bsClass="dropdown-menu"
+                                  bsRole="menu"
+                                  onClose={[Function]}
+                                  onSelect={[Function]}
+                                  pullRight={true}>
+                                  <RootCloseWrapper
+                                    disabled={true}
+                                    event="click"
+                                    onRootClose={[Function]}>
+                                    <ul
+                                      className="dropdown-menu dropdown-menu-right"
+                                      role="menu">
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={
+                                          Object {
+                                            "id": "append-uploding",
+                                            "label": "Add values from a file",
+                                            "onClick": [Function],
+                                          }
+                                        }
+                                        header={false}
+                                        id="append-uploding"
+                                        label="Add values from a file"
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}>
+                                        <li
+                                          className=""
+                                          role="presentation">
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            id="append-uploding"
+                                            label="Add values from a file"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1">
+                                            <a
+                                              href="#"
+                                              id="append-uploding"
+                                              label="Add values from a file"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1">
+                                              Add values from a file
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={
+                                          Object {
+                                            "id": "append-uploding",
+                                            "label": "Overwrite existing values",
+                                            "onClick": [Function],
+                                          }
+                                        }
+                                        header={false}
+                                        id="append-uploding"
+                                        label="Overwrite existing values"
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}>
+                                        <li
+                                          className=""
+                                          role="presentation">
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            id="append-uploding"
+                                            label="Overwrite existing values"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1">
+                                            <a
+                                              href="#"
+                                              id="append-uploding"
+                                              label="Overwrite existing values"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1">
+                                              Overwrite existing values
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                    </ul>
+                                  </RootCloseWrapper>
+                                </DropdownMenu>
+                              </div>
+                            </ButtonGroup>
+                          </Dropdown>
+                        </Uncontrolled(Dropdown)>
+                      </DropdownButton>
                     </OverlayTrigger>
                   </TooltipTrigger>
-                </Action>
+                </ActionDropdown>
                 <Action
                   bsStyle="default"
                   btooltipPlacement="bottom"
@@ -9081,8 +9540,21 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 "onClick": [Function],
               },
               Object {
+                "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
+                "items": Array [
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Add values from a file",
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "id": "append-uploding",
+                    "label": "Overwrite existing values",
+                    "onClick": [Function],
+                  },
+                ],
                 "label": "Import values from a file",
                 "onClick": [Function],
               },

@@ -208,6 +208,166 @@ describe('EnumerationWidget', () => {
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
 
+
+		it('should send a event with a method to simulate the click on the input file', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_CLICK',
+				{
+					simulateClickInputFile: jasmine.any(Function),
+				},
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event with a method to simulate the click on the input file', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link button').at(0)
+				.simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_CLICK',
+				{
+					simulateClickInputFile: jasmine.any(Function),
+				},
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event with the choice done by the user', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link li a').at(0)
+				.simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_APPEND_MODE',
+				null,
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event with the choice done by the user', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link li a').at(1)
+				.simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE',
+				null,
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		// it('should send a event with the choice done by the user', () => {
+		// 	// given
+		// 	const registry = {
+		// 		formContext: {
+		// 			handleAction: jest.fn(),
+		// 		},
+		// 	};
+		//
+		// 	const wrapper = mount(
+		// 		<EnumerationWidget
+		// 			registry={registry}
+		// 			schema={{
+		// 				allowImport: true,
+		// 			}}
+		// 		/>);
+		//
+		// 	// when
+		// 	wrapper
+		// 		.find('.tc-enumeration-header div.btn-group-link button + ul li').at(1)
+		// 		.simulate('click');
+		//
+		// 	// then
+		// 	expect(registry.formContext.handleAction).toBeCalledWith(
+		// 		undefined,
+		// 		'ENUMERATION_IMPORT_FILE_CLICK',
+		// 		{
+		// 			simulateClickInputFile: jasmine.any(Function),
+		// 		},
+		// 		jasmine.any(Function),
+		// 		jasmine.any(Function),
+		// 	);
+		// });
+
 		it('should simulate click on the input', () => {
 			// given
 			const wrapper = mount(
@@ -220,7 +380,7 @@ describe('EnumerationWidget', () => {
 			spyOn(document.activeElement, 'blur').and.callThrough();
 
 			// when
-			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+			wrapper.instance().simulateClickInputFile();
 
 			// then
 			expect(wrapper.instance().inputFile.click).toBeCalled();
