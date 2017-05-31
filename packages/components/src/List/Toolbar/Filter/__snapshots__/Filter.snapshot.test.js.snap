@@ -2,13 +2,10 @@
 
 exports[`Filter should render 1`] = `
 <button
-  aria-describedby={42}
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -59,13 +56,10 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       type="search"
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role={null}
       type="button"
@@ -118,13 +112,10 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       type="search"
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role={null}
       type="button"
@@ -146,13 +137,10 @@ exports[`Filter should render filter input with given placeholder 1`] = `
 
 exports[`Filter should render highlighted filter 1`] = `
 <button
-  aria-describedby={42}
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -172,14 +160,11 @@ exports[`Filter should render highlighted filter 1`] = `
 
 exports[`Filter should render id if provided 1`] = `
 <button
-  aria-describedby={42}
   className="navbar-right btn btn-link"
   disabled={false}
   id="toolbar-filter"
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -199,13 +184,10 @@ exports[`Filter should render id if provided 1`] = `
 
 exports[`Filter should render only toggle icon 1`] = `
 <button
-  aria-describedby={42}
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"

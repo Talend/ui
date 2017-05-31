@@ -81,14 +81,11 @@ exports[`Storyshots SidePanel default 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="context-toggle-dock"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1363,13 +1360,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1390,13 +1384,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item active"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1417,13 +1408,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1444,13 +1432,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -2597,13 +2582,10 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"

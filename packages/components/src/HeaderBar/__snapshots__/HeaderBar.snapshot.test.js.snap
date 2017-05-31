@@ -21,14 +21,11 @@ exports[`Storyshots HeaderBar default 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -69,13 +66,10 @@ exports[`Storyshots HeaderBar default 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1939,14 +1933,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -3833,14 +3824,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -3942,13 +3930,10 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -5974,14 +5959,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             className="tc-header-bar-action"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo full btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -6022,13 +6004,10 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             className="tc-header-bar-action separated flex"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -7916,14 +7895,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -9791,14 +9767,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -11657,14 +11630,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             className="tc-header-bar-action separated"
           >
             <button
-              aria-describedby={42}
               className="tc-header-bar-logo btn btn-link"
               disabled={false}
               id="header-logo"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
