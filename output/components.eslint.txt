@@ -13,6 +13,22 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
+   94:2   error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
+   95:2   error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
+   96:2   error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
+   96:36  error  Missing trailing comma                      comma-dangle
+   97:2   error  Mixed spaces and tabs                       no-mixed-spaces-and-tabs
+   99:3   error  Expected indentation of 1 tab but found 2   indent
+  110:3   error  Expected indentation of 1 tab but found 2   indent
+  123:3   error  Expected indentation of 1 tab but found 2   indent
+  132:3   error  Expected indentation of 1 tab but found 2   indent
+  140:3   error  Expected indentation of 1 tab but found 2   indent
+  141:4   error  Expected indentation of 2 tabs but found 3  indent
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
+  48:1  error  Line 48 exceeds the maximum line length of 100  max-len
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -34,7 +50,7 @@ Scoping to packages that match 'react-talend-components'
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 15 problems (15 errors, 0 warnings)
+✖ 27 problems (27 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
