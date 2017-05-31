@@ -1,0 +1,43 @@
+.json-schema-renderer {
+
+	margin-top: $padding-large;
+	margin-left: $padding-large;
+
+	div {
+		padding-bottom: 10px;
+
+		dt {
+			font-weight: 400;
+			font-size: 1.2rem;
+			margin-bottom: 0;
+		}
+
+		dd {
+			font-size: 1.4rem;
+		}
+
+		&.array {
+
+			dd {
+				display: inline;
+			}
+
+			dd:after {
+				content: ', ';
+			}
+
+			dd:last-child:after {
+				content: '';
+			}
+		}
+
+		&.object {
+
+			h2 {
+				font-size: 1.7rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
