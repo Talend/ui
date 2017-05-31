@@ -558,11 +558,14 @@ class EnumerationWidget extends React.Component {
 	 *
 	 */
 	simulateClickInputFile() {
-		this.inputFile.click();
+		// timeout to allow to lost the focus on the dropdown
+		setTimeout(() => {
+			this.inputFile.click();
 
-		// when we close the file dialog focus is still on the import icon. The tooltip still appears.
-		// we force to remove the current focus on the icon
-		document.activeElement.blur();
+			// when we close the file dialog focus is still on the import icon. The tooltip still appears.
+			// we force to remove the current focus on the icon
+			document.activeElement.blur();
+		});
 	}
 
 

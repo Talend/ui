@@ -335,41 +335,9 @@ describe('EnumerationWidget', () => {
 			);
 		});
 
-		// it('should send a event with the choice done by the user', () => {
-		// 	// given
-		// 	const registry = {
-		// 		formContext: {
-		// 			handleAction: jest.fn(),
-		// 		},
-		// 	};
-		//
-		// 	const wrapper = mount(
-		// 		<EnumerationWidget
-		// 			registry={registry}
-		// 			schema={{
-		// 				allowImport: true,
-		// 			}}
-		// 		/>);
-		//
-		// 	// when
-		// 	wrapper
-		// 		.find('.tc-enumeration-header div.btn-group-link button + ul li').at(1)
-		// 		.simulate('click');
-		//
-		// 	// then
-		// 	expect(registry.formContext.handleAction).toBeCalledWith(
-		// 		undefined,
-		// 		'ENUMERATION_IMPORT_FILE_CLICK',
-		// 		{
-		// 			simulateClickInputFile: jasmine.any(Function),
-		// 		},
-		// 		jasmine.any(Function),
-		// 		jasmine.any(Function),
-		// 	);
-		// });
-
 		it('should simulate click on the input', () => {
 			// given
+			jest.useFakeTimers();
 			const wrapper = mount(
 				<EnumerationWidget
 					schema={{
@@ -381,6 +349,7 @@ describe('EnumerationWidget', () => {
 
 			// when
 			wrapper.instance().simulateClickInputFile();
+			jest.runAllTimers();
 
 			// then
 			expect(wrapper.instance().inputFile.click).toBeCalled();
