@@ -4,3 +4,10 @@ Scoping to packages that match 'react-talend-components'
 > react-talend-components@0.77.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
+
+src/ConfirmDialog/ConfirmDialog.scss
+  14:1   warning  Space expected between blocks  empty-line-between-blocks
+  14:26  warning  Whitespace required before {   space-before-brace
+
+✖ 2 problems (0 errors, 2 warnings)
+
