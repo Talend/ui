@@ -54,6 +54,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       onKeyDown={[Function]}
       placeholder="Filter"
       type="search"
+      value={undefined}
     />
     <button
       className="btn btn-link"
@@ -110,6 +111,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       onKeyDown={[Function]}
       placeholder="find something"
       type="search"
+      value={undefined}
     />
     <button
       className="btn btn-link"
