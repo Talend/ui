@@ -60,14 +60,11 @@ exports[`Storyshots AppHeaderBar default 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -91,14 +88,11 @@ exports[`Storyshots AppHeaderBar default 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -1347,14 +1341,11 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -1378,14 +1369,11 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -2798,14 +2786,11 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -2829,14 +2814,11 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -4230,14 +4212,11 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -4261,14 +4240,11 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -4339,13 +4315,10 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
               role="search"
             >
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -5644,14 +5617,11 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -5675,14 +5645,11 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -7068,14 +7035,11 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -7099,14 +7063,11 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -9556,14 +9517,11 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -9587,14 +9545,11 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -11241,14 +11196,11 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="hello"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
@@ -11272,14 +11224,11 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
             >
               <li>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   name="world"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role={null}
                   type="button"
