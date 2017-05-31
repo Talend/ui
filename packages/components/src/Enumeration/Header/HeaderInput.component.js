@@ -45,7 +45,10 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown, value, inputRef }) {
+function HeaderInput({
+	headerInput, headerError, onInputChange, inputPlaceholder,
+	onAddKeyDown, value, inputRef,
+}) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
