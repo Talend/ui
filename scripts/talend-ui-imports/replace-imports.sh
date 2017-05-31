@@ -1,7 +1,6 @@
 #!/bin/bash
 
 BASEDIR=$(dirname "$0")
-source "${BASEDIR}/../utils.sh"
 
 # From version 0.77.0, the packages are published in the @talend organisation.
 # This scripts :
@@ -10,6 +9,12 @@ source "${BASEDIR}/../utils.sh"
 #   * replace bootstrap-talend-theme imports in scss
 #   * replace imports in src/**/*js
 #   * replace references in configurations /*.js and /config/*.js
+
+print_title () {
+  echo "----------------------------------------------------------------------"
+  echo $1
+  echo "----------------------------------------------------------------------"
+}
 
 # install jscodeshift if needed
 if ! type jscodeshift > /dev/null
