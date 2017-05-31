@@ -21,6 +21,15 @@ const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
 
 class EnumerationWidget extends React.Component {
+
+	static getItemHeight() {
+		return ITEMS_DEFAULT_HEIGHT;
+	}
+
+	static parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
+	}
+
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
@@ -140,7 +149,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.getItemHeight.bind(this),
+				getItemHeight: this.constructor.getItemHeight,
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -156,10 +165,6 @@ class EnumerationWidget extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
-	}
-
-	setInputRef(input) {
-		this.input = input;
 	}
 
 	// default mode
@@ -508,8 +513,8 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	getItemHeight(/* isInEdit */) {
-		return ITEMS_DEFAULT_HEIGHT;
+	setInputRef(input) {
+		this.input = input;
 	}
 
 	setFormData() {
@@ -517,10 +522,6 @@ class EnumerationWidget extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
-	}
-
-	parseStringValueToArray(values) {
-		return values.split(',').map(value => value.trim());
 	}
 
 	itemSubmitHandler() {

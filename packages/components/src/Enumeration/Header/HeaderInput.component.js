@@ -4,8 +4,6 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-let internalInputRef;
-
 function headerClasses(headerError) {
 	return classNames({
 		[theme['tc-enumeration-header']]: true,
@@ -25,7 +23,7 @@ function getAction(action, index) {
 	function onClick(event) {
 		if (action.onClick) {
 			action.onClick(event, {
-				value: internalInputRef.value,
+				value: this.internalInputRef.value,
 			});
 		}
 	}
@@ -46,9 +44,9 @@ function getAction(action, index) {
 }
 
 function HeaderInput({
-	headerInput, headerError, onInputChange, inputPlaceholder,
-	onAddKeyDown, value, inputRef,
-}) {
+		headerInput, headerError, onInputChange, inputPlaceholder,
+		onAddKeyDown, value, inputRef,
+	}) {
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -67,7 +65,7 @@ function HeaderInput({
 				type="text"
 				placeholder={inputPlaceholder}
 				ref={(input) => {
-					internalInputRef = input;
+					this.internalInputRef = input;
 					if (inputRef) {
 						inputRef(input);
 					}
