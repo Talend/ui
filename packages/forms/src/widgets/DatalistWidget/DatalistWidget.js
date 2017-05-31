@@ -137,7 +137,11 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.style = {
-			container: classnames('form-control', theme['tf-typeahead-container']),
+			container: classnames(
+				'form-control',
+				theme['tf-typeahead-container'],
+				'tf-typeahead-container'
+			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
