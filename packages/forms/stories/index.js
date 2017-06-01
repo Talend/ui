@@ -162,6 +162,7 @@ decoratedStories.add('Datalist', () => {
 		uiSchema: {
 			remoteDataList: {
 				'ui:widget': 'datalist',
+				'ui:placeholder': 'Please select',
 			},
 			fullDatalist: {
 				'ui:widget': 'datalist',
