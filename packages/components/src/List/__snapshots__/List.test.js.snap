@@ -77,12 +77,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -98,12 +94,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -148,12 +140,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -169,12 +157,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -219,12 +203,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -240,12 +220,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -732,13 +708,10 @@ exports[`List should render 1`] = `
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"
@@ -830,12 +803,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -851,12 +820,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -901,12 +866,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -922,12 +883,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -972,12 +929,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -993,12 +946,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -1497,14 +1446,11 @@ exports[`List should render id if provided 1`] = `
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
           id="context-filter"
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"
@@ -1596,12 +1542,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -1617,12 +1559,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -1667,12 +1605,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -1688,12 +1622,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -1738,12 +1668,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -1759,12 +1685,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar

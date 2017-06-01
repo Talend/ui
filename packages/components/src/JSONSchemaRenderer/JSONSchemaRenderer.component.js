@@ -44,6 +44,15 @@ function textRenderer(key, title, text) {
 	);
 }
 
+function booleanRenderer(key, title, value) {
+	return (
+		<div className={classNames('boolean-renderer', `boolean-renderer-${key}`)} key={key}>
+			<dt>{title || key}</dt>
+			<dd>{value.toString()}</dd>
+		</div>
+	);
+}
+
 /**
  * arrayRenderer
  *
@@ -64,6 +73,7 @@ function arrayRenderer(key, title, items) {
 const registry = {
 	string: textRenderer,
 	integer: textRenderer,
+	boolean: booleanRenderer,
 	array: arrayRenderer,
 	object: objectRenderer, // eslint-disable-line no-use-before-define
 };
@@ -128,8 +138,11 @@ function orderProperties(order, properties) {
 	return properties.sort((a, b) => {
 		const aIndex = order.indexOf(a[0]);
 		const bIndex = order.indexOf(b[0]);
-		if (aIndex < 0 || bIndex < 0) {
-			return 0;
+		if (aIndex < 0) {
+			return 1;
+		}
+		if (bIndex < 0) {
+			return -1;
 		}
 		return aIndex - bIndex;
 	});
