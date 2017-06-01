@@ -91,10 +91,8 @@ exports[`Item should render with actions 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -118,10 +116,8 @@ exports[`Item should render with actions 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"

@@ -17,10 +17,8 @@ exports[`Enumeration should render with header in add state and list in default 
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -39,10 +37,8 @@ exports[`Enumeration should render with header in add state and list in default 
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -120,10 +116,8 @@ exports[`Enumeration should render with header in add state and list in default 
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -138,10 +132,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -160,10 +152,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -201,10 +191,8 @@ exports[`Enumeration should render with header in add state and list in default 
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -219,10 +207,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -241,10 +227,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -282,10 +266,8 @@ exports[`Enumeration should render with header in add state and list in default 
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -300,10 +282,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -322,10 +302,8 @@ exports[`Enumeration should render with header in add state and list in default 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -367,10 +345,8 @@ exports[`Enumeration should render with header in default state and first item i
       <button
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -459,10 +435,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={true}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -481,10 +455,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -522,10 +494,8 @@ exports[`Enumeration should render with header in default state and first item i
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -540,10 +510,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -562,10 +530,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -603,10 +569,8 @@ exports[`Enumeration should render with header in default state and first item i
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -621,10 +585,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -643,10 +605,8 @@ exports[`Enumeration should render with header in default state and first item i
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -689,10 +649,8 @@ exports[`Enumeration should render with header in default state, list in default
       <button
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -771,10 +729,8 @@ exports[`Enumeration should render with header in default state, list in default
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -789,10 +745,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -811,10 +765,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -852,10 +804,8 @@ exports[`Enumeration should render with header in default state, list in default
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -870,10 +820,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -892,10 +840,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -933,10 +879,8 @@ exports[`Enumeration should render with header in default state, list in default
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -951,10 +895,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -973,10 +915,8 @@ exports[`Enumeration should render with header in default state, list in default
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1019,10 +959,8 @@ exports[`Enumeration should render with header in search state and list in defau
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1041,10 +979,8 @@ exports[`Enumeration should render with header in search state and list in defau
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1138,10 +1074,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1160,10 +1094,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1217,10 +1149,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1239,10 +1169,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1296,10 +1224,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1318,10 +1244,8 @@ exports[`Enumeration should render with header in search state and list in defau
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1360,10 +1284,8 @@ exports[`Enumeration should render with header in selected state with trash icon
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1430,10 +1352,8 @@ exports[`Enumeration should render with header in selected state with trash icon
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1448,10 +1368,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1470,10 +1388,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1511,10 +1427,8 @@ exports[`Enumeration should render with header in selected state with trash icon
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1529,10 +1443,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1551,10 +1463,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1592,10 +1502,8 @@ exports[`Enumeration should render with header in selected state with trash icon
               <button
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1610,10 +1518,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1632,10 +1538,8 @@ exports[`Enumeration should render with header in selected state with trash icon
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1677,10 +1581,8 @@ exports[`Enumeration should render with header without items 1`] = `
       <button
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"

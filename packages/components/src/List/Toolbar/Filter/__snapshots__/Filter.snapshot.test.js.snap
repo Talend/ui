@@ -4,10 +4,8 @@ exports[`Filter should render 1`] = `
 <button
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -56,14 +54,13 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       onKeyDown={[Function]}
       placeholder="Filter"
       type="search"
+      value={undefined}
     />
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role={null}
       type="button"
@@ -114,14 +111,13 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       onKeyDown={[Function]}
       placeholder="find something"
       type="search"
+      value={undefined}
     />
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role={null}
       type="button"
@@ -145,10 +141,8 @@ exports[`Filter should render highlighted filter 1`] = `
 <button
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -171,10 +165,8 @@ exports[`Filter should render id if provided 1`] = `
   className="navbar-right btn btn-link"
   disabled={false}
   id="toolbar-filter"
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -196,10 +188,8 @@ exports[`Filter should render only toggle icon 1`] = `
 <button
   className="navbar-right btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
