@@ -164,8 +164,8 @@ class EnumerationWidget extends React.Component {
 		if (displayMode === DISPLAY_MODE_SELECTED) {
 			displayMode = DISPLAY_MODE_DEFAULT;
 		}
-		this.setState({ items, displayMode });
 		this.updateItemValidateDisabled(item.values[0]);
+		this.setState({ items, displayMode });
 	}
 
 	onSearchEditModeItem(event, value) {
@@ -174,8 +174,8 @@ class EnumerationWidget extends React.Component {
 		item.displayMode = DISPLAY_MODE_EDIT;
 		// reset selection
 		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-		this.setState({ items, displayMode: DISPLAY_MODE_EDIT });
 		this.updateItemValidateDisabled(item.values[0]);
+		this.setState({ items, displayMode: DISPLAY_MODE_EDIT });
 	}
 
 	onDeleteItem(event, value) {
@@ -231,8 +231,8 @@ class EnumerationWidget extends React.Component {
 		const valueExist = this.valueAlreadyExist(value.value);
 		const items = [...this.state.items];
 		items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
-		this.setState({ items });
 		this.updateItemValidateDisabled(value, valueExist);
+		this.setState({ items });
 	}
 
 	onSubmitItem(event, value) {
