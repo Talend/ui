@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BASEDIR=$(dirname "$0")
+APP_DIR=$1
 
 # From version 0.77.0, the packages are published in the @talend organisation.
 # This scripts :
@@ -9,6 +10,7 @@ BASEDIR=$(dirname "$0")
 #   * replace bootstrap-talend-theme imports in scss
 #   * replace imports in src/**/*js
 #   * replace references in configurations /*.js and /config/*.js
+#   * replace references in package.json
 
 print_title () {
   echo "----------------------------------------------------------------------"
@@ -25,31 +27,38 @@ then
 fi
 
 # ensure that a project directory is provided
-if [ -z $1 ]
+if [ -z $APP_DIR ]
 then
     echo "Please provide the path of your project local directory"
     exit 1
 fi
 
 # ensure that the project directory exists
-if [ ! -d $1 ]
+if [ ! -d $APP_DIR ]
 then
-    echo "$1 is not a directory"
+    echo "$APP_DIR is not a directory"
+    exit 1
 fi
 
 # replace js imports
-print_title "Execute codemod on $1/examples"
-jscodeshift -t "${BASEDIR}/codemod.js" $1/examples
+print_title "Execute codemod on $APP_DIR/examples"
+jscodeshift -t "${BASEDIR}/codemod.js" $APP_DIR/examples
 
-print_title "Execute codemod on $1/stories"
-jscodeshift -t "${BASEDIR}/codemod.js" $1/stories
+print_title "Execute codemod on $APP_DIR/stories"
+jscodeshift -t "${BASEDIR}/codemod.js" $APP_DIR/stories
 
-print_title "Execute codemod on $1/src"
-jscodeshift -t "${BASEDIR}/codemod.js" $1/src
+print_title "Execute codemod on $APP_DIR/src"
+jscodeshift -t "${BASEDIR}/codemod.js" $APP_DIR/src
+
+print_title "Execute codemod on $APP_DIR/config (for webpack config)"
+jscodeshift -t "${BASEDIR}/codemod.js" $APP_DIR/config
+
+print_title "Execute codemod on $APP_DIR/*.js (for webpack config)"
+jscodeshift -t "${BASEDIR}/codemod.js" $APP_DIR/*.js
 
 # replace bootstrap-talend-theme in all scss
 print_title "Replace bootstrap-talend-theme in all scss"
-find $1/src -iregex '.*\.scss' | xargs sed -i 's/bootstrap-talend-theme/@talend\/bootstrap-theme/g'
+find $APP_DIR/src -iregex '.*\.scss' | xargs sed -i '' 's/bootstrap-talend-theme/@talend\/bootstrap-theme/g'
 
 # replace modules in package.json
 print_title "Replace dependencies in package.json"
@@ -61,11 +70,4 @@ REPLACE_COMPONENTS_SCHEMA='s/react-talend-components/@talend\/react-components/g
 REPLACE_CONTAINERS_SCHEMA='s/react-talend-containers/@talend\/react-containers/g'
 REPLACE_FORMS_SCHEMA='s/react-talend-forms/@talend\/react-forms/g'
 ALL_REPLACE="$REPLACE_THEME_SCHEMA; $REPLACE_ICON_SCHEMA; $REPLACE_LOG_SCHEMA; $REPLACE_CMF_SCHEMA; $REPLACE_COMPONENTS_SCHEMA; $REPLACE_CONTAINERS_SCHEMA; $REPLACE_FORMS_SCHEMA"
-sed -i "$ALL_REPLACE" $1/package.json
-
-# replace webpack sass data config
-print_title "Replace references in configurations (webpack)"
-REPLACE_TALEND_MODULES='s/react-talend-/@talend\\\//g'
-ALL_REPLACE_WITH_WILDCARD="$ALL_REPLACE; $REPLACE_TALEND_MODULES"
-sed -i "$ALL_REPLACE_WITH_WILDCARD" $1/*.js
-sed -i "$ALL_REPLACE_WITH_WILDCARD" $1/config/*.js
+sed -i '' "$ALL_REPLACE" $APP_DIR/package.json
