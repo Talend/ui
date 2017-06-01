@@ -83,7 +83,6 @@ exports[`Header should render header with one dropdown and two items 1`] = `
       className="dropdown btn-group btn-group-link"
     >
       <button
-        aria-describedby={42}
         aria-expanded={false}
         aria-haspopup={true}
         btooltipPlacement="bottom"
@@ -91,11 +90,9 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         disabled={false}
         id={undefined}
         inProgress={undefined}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="button"
         type="button"
