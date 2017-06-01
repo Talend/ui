@@ -102,7 +102,8 @@
     "testRegex": "src/.*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "__mocks__/mockTestEnv.js"
   },
   "peerDependencies": {
     "immutable": "3",

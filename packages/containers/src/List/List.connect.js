@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { Map } from 'immutable';
 import { cmfConnect } from 'react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
@@ -28,13 +29,22 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 
 	props.items = getItems(state, config);
 	const cmfState = get(cmfProps, 'state');
+
+	if (cmfState && ownProps.localStorageKey) {
+		const itemStored = JSON.parse(localStorage.getItem(ownProps.localStorageKey));
+		let storedState = {};
+		if (itemStored !== null && typeof itemStored === 'object') {
+			storedState = itemStored;
+		}
+		props.state = new Map({ ...cmfProps.state.toJS(), ...storedState });
+	}
+
 	if (cmfState && cmfState.has('toolbar')) {
 		props.state = cmfState.mergeIn(
 			['toolbar', 'pagination'],
 			configureGetPagination(state, config)
 		);
 	}
-
 	return props;
 }
 

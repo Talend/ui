@@ -42,6 +42,7 @@ const props = {
 	list,
 	actions,
 	toolbar,
+	localStorageKey: 'localEntry',
 };
 
 const items = Immutable.fromJS([

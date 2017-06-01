@@ -53,6 +53,7 @@ class List extends React.Component {
 		}),
 		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
+		localStorageKey: PropTypes.string,
 		...componentState.propTypes,
 	};
 
@@ -71,26 +72,51 @@ class List extends React.Component {
 	}
 
 	onSelectSortBy(event, payload) {
-		this.props.setState({
+		this.storeInformationAndSetState({
 			sortOn: payload.field,
 			sortAsc: !payload.isDescending,
 		});
 	}
 
 	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload });
+		this.storeInformationAndSetState({ searchQuery: payload });
 	}
 
 	onToggle() {
 		// clearing filter when toggle
-		this.props.setState({
+		this.storeInformationAndSetState({
 			filterDocked: !this.props.state.get('filterDocked'),
 			searchQuery: '',
 		});
 	}
 
 	onSelectDisplayMode(event, payload) {
-		this.props.setState({ displayMode: payload });
+		this.storeInformationAndSetState({ displayMode: payload });
+	}
+
+	getStoredInformations() {
+		if (this.props.localStorageKey) {
+			const itemStored = localStorage.getItem(this.props.localStorageKey);
+			if (itemStored) {
+				return JSON.parse(itemStored);
+			}
+			return {};
+		}
+		return {};
+	}
+
+	storeInformations(newState) {
+		if (this.props.localStorageKey) {
+			localStorage.setItem(
+				this.props.localStorageKey,
+				JSON.stringify({ ...this.getStoredInformations(), ...newState })
+			);
+		}
+	}
+
+	storeInformationAndSetState(newState) {
+		this.storeInformations(newState);
+		this.props.setState(newState);
 	}
 
 	render() {
