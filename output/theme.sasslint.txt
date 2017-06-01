@@ -23,7 +23,19 @@ src/theme/_forms.scss
   311:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   447:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-✖ 12 problems (11 errors, 1 warning)
+src/theme/_tables.scss
+  21:2   warning  Vendor prefixes should not be used     no-vendor-prefixes
+  23:29  error    !important not allowed                 no-important
+  24:19  warning  No unit allowed for values of 0        zero-unit
+  26:1   warning  Space expected between blocks          empty-line-between-blocks
+  26:26  warning  Selectors must be placed on new lines  single-line-per-selector
+  27:26  error    !important not allowed                 no-important
+  29:1   warning  Space expected between blocks          empty-line-between-blocks
+  29:23  warning  Selectors must be placed on new lines  single-line-per-selector
+  30:25  error    !important not allowed                 no-important
+  32:1   warning  Files must end with a new line         final-newline
+
+✖ 22 problems (14 errors, 8 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
