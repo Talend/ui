@@ -337,4 +337,28 @@ describe('cmfConnect', () => {
 		expect(context.store.dispatch.mock.calls[0][0]).toEqual(firstCall);
 		expect(context.store.dispatch.mock.calls[1][0]).toEqual(secondCall);
 	});
+	it('should remove internal props', () => {
+		const iProps = {
+			didMountActionCreator: 'myactionCreator',
+		};
+		// given
+		const TestComponent = () => (<div />);
+		TestComponent.displayName = 'TestComponent';
+		const CMFConnected = cmfConnect({})(TestComponent);
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+
+		const wrapper = mount(
+			<CMFConnected {...iProps} />,
+			{
+				context,
+				childContextTypes: {
+					registry: React.PropTypes.object,
+				},
+			},
+		);
+		const props = wrapper.find(TestComponent).props();
+		// then
+		expect(props.didMountActionCreator).toBe();
+	})
 });

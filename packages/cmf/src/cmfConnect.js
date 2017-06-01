@@ -169,7 +169,7 @@ export default function cmfConnect({
 					this.props,
 					{ dispatchActionCreator: this.dispatchActionCreator },
 				);
-				// remove all specific props already used by the container
+				// remove all internal props already used by the container
 				props.view = undefined;
 				props.didMountActionCreator = undefined;
 				props.willUnMountActionCreator = undefined;
