@@ -169,6 +169,11 @@ export default function cmfConnect({
 					this.props,
 					{ dispatchActionCreator: this.dispatchActionCreator },
 				);
+				// remove all specific props already used by the container
+				props.view = undefined;
+				props.didMountActionCreator = undefined;
+				props.willUnMountActionCreator = undefined;
+				props.keepComponentState = undefined;
 				return createElement(
 					WrappedComponent,
 					props,
