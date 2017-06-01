@@ -139,6 +139,7 @@ class List extends React.Component {
 					this.onFilter(event, data);
 				};
 				props.toolbar.filter.docked = state.filterDocked;
+				props.toolbar.filter.value = state.searchQuery;
 			}
 
 			props.toolbar.actionBar = { actions: {} };
