@@ -78,7 +78,6 @@ class TooltipTrigger extends React.Component {
 				placement={this.props.tooltipPlacement}
 				overlay={tooltip}
 				delayShow={400}
-				onExited={this.onMouseOut}
 			>
 				{this.props.children}
 			</OverlayTrigger>
