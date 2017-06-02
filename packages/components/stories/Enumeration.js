@@ -87,6 +87,24 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
+const dropDownActions = {
+	...props,
+};
+
+dropDownActions.headerDefault[0] = {
+	...dropDownActions.headerDefault[0],
+	displayMode: 'dropdown',
+	items: [{
+		label: 'Add values from a file',
+		id: 'append-uploding',
+		onClick: action('add values'),
+	}, {
+		label: 'Overwrite existing values',
+		id: 'append-uploding',
+		onClick: action('overwrite'),
+	}],
+};
+
 const addProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_ADD',
@@ -152,6 +170,15 @@ editItemPropsWithError.items[0] = {
 
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...props}
+			/>
+		</div>
+	))
+	.addWithInfo('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
