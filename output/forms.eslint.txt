@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.74.2 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.75.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -114,14 +114,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/actions/form.actions.test.js
+  16:38  error  Block must not be padded by blank lines  padded-blocks
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/actions/model.actions.js
   3:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  16:3   warning  Unexpected console statement  no-console
-  16:39  error    Missing semicolon             semi
-
-✖ 103 problems (102 errors, 1 warning)
+✖ 102 problems (102 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
