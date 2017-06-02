@@ -277,7 +277,7 @@ class EnumerationWidget extends React.Component {
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
 				items[value.index].values =
-					this.parseStringValueToArray(value.value);
+					this.constructor.parseStringValueToArray(value.value);
 			}
 			if (valueExist) {
 				items[value.index].error = DUPLICATION_ERROR;
@@ -446,7 +446,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				this.parseStringValueToArray(value.value),
+				this.constructor.parseStringValueToArray(value.value),
 				this.validateAndAddSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -458,7 +458,7 @@ class EnumerationWidget extends React.Component {
 			this.setState(
 				{
 					items: this.state.items.concat([{
-						values: this.parseStringValueToArray(value.value),
+						values: this.constructor.parseStringValueToArray(value.value),
 						inputValue: '',
 					}]),
 				}
@@ -478,7 +478,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				this.parseStringValueToArray(value.value),
+				this.constructor.parseStringValueToArray(value.value),
 				this.addSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -490,7 +490,7 @@ class EnumerationWidget extends React.Component {
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
 					items: this.state.items.concat([{
-						values: this.parseStringValueToArray(value.value),
+						values: this.constructor.parseStringValueToArray(value.value),
 					}]),
 				}
 			);
