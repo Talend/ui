@@ -15,6 +15,7 @@ function ListToVirtualizedList(props) {
 		<VirtualizedList
 			id={id}
 			collection={items}
+			type={(props.displayMode || 'TABLE').toUpperCase()}
 		>
 			{columns.map((column) => {
 				const cProps = {

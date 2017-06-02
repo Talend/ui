@@ -562,4 +562,12 @@ storiesOf('List', module)
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} virtualized />
 		</div>
+	))
+	.add('virtualized large', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>Display the list in tile mode</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} displayMode="large" virtualized />
+		</div>
 	));

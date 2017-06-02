@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListToVirtualizedList should render 1`] = `
+<VirtualizedList
+  collection={
+    Array [
+      Object {
+        "id": 3,
+      },
+    ]
+  }
+  id="mylistid"
+>
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+  />
+</VirtualizedList>
+`;
