@@ -14,7 +14,6 @@ const errors = ['errors'];
 describe('Form actions', () => {
 	describe('#createForm action', () => {
 		it('should test the action', () => {
-			// given
 
 			// when
 			const resultAction = createForm(formName, jsonSchema, uiSchema, properties, errors);

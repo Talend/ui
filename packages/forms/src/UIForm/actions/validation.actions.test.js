@@ -1,7 +1,7 @@
-import { TF_VALIDATE_ALL, TF_VALIDATE_PARTIAL } from './constants';
+import { TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from './constants';
 import {
-	validate,
-	validateAll,
+	setError,
+	setErrors,
 } from './validation.actions';
 
 const formName = 'formName';
@@ -14,12 +14,12 @@ describe('Validation actions', () => {
 			// given
 
 			// when
-			const resultAction = validate(formName, error);
+			const resultAction = setError(formName, error);
 
 			// then
 			expect(resultAction).toEqual(
 				{
-					type: TF_VALIDATE_PARTIAL,
+					type: TF_SET_PARTIAL_ERROR,
 					errors: 'error',
 					formName: 'formName',
 				}
@@ -32,12 +32,12 @@ describe('Validation actions', () => {
 			// given
 
 			// when
-			const resultAction = validateAll(formName, errors);
+			const resultAction = setErrors(formName, errors);
 
 			// then
 			expect(resultAction).toEqual(
 				{
-					type: TF_VALIDATE_ALL,
+					type: TF_SET_ALL_ERRORS,
 					errors: ['errors'],
 					formName: 'formName',
 				}
