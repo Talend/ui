@@ -272,7 +272,7 @@ describe('EnumerationWidget', () => {
 			);
 		});
 
-		it('should send a event with the choice done by the user', () => {
+		it('should send a event with the choice APPEND', () => {
 			// given
 			const registry = {
 				formContext: {
@@ -303,7 +303,7 @@ describe('EnumerationWidget', () => {
 			);
 		});
 
-		it('should send a event with the choice done by the user', () => {
+		it('should send a event with the choice OVERWRITE', () => {
 			// given
 			const registry = {
 				formContext: {
