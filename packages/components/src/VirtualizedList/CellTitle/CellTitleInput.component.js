@@ -29,16 +29,22 @@ export default class CellTitleInput extends React.Component {
 	}
 
 	onSubmit(event) {
+		event.preventDefault();
 		this.props.onEditSubmit(event, {
 			value: this.titleInput.value,
 			model: this.props.rowData,
 		});
-		event.preventDefault();
 	}
 
 	render() {
 		return (
 			<form onSubmit={this.onSubmit}>
+				<label
+					aria-hidden="true"
+					hidden
+					className="sr-only"
+					htmlFor={this.props.id}
+				>{this.props.label || 'title'}</label>
 				<input
 					id={this.props.id}
 					ref={(input) => { this.titleInput = input; }}

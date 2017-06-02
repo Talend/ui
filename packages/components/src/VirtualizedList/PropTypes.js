@@ -1,30 +1,30 @@
 import { PropTypes } from 'react';
-import { listTypes } from './utils/constants';
+import { SORT_BY, listTypes } from './utils/constants';
 
 const { TABLE, LARGE } = listTypes;
 
 export default {
-	/** <VirtualizedList.Content> elements to configure the content fields */
+	// <VirtualizedList.Content> elements to configure the content fields
 	children: PropTypes.arrayOf(PropTypes.element),
-	/** The collection items */
+	// The collection items
 	collection: PropTypes.arrayOf(PropTypes.object),
-	/** The id. The sub-ids will be based on the ids as prefix */
+	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
-	/** Function : (collectionItem) => Boolean.
+	/** Function : (collectionItem) => Boolean
 	 *  This is called to determine if the element is selected.
 	 *  Note that this is not used/displayed if the selectionToggle props is not passed */
 	isSelected: PropTypes.func,
-	/** The row height in ListGrid rendering */
+	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
-	/** Function to call on element selection.
+	/** Function to call on element selection
 	 *  This determines the display of the selection checkboxes. */
 	selectionToggle: PropTypes.func,
-	/** Function to call on sort change in ListTable rendering (header click) */
+	// Function to call on sort change in ListTable rendering (header click)
 	sort: PropTypes.func,
-	/** Content field of the current sort */
+	// Content field of the current sort
 	sortBy: PropTypes.string,
-	/** Current sort direction ('ASC' | 'DESC') */
-	sortDirection: PropTypes.string,
-	/** List type ('TABLE' | 'LARGE' | ...) */
+	// Current sort direction ('ASC' | 'DESC')
+	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
+	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.oneOf([TABLE, LARGE]),
 };

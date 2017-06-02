@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
-import RowSelectionRenderer from '../RowSelection';
+import getRowSelectionRenderer from '../RowSelection';
 import { getRowData } from '../utils/gridrow';
 
 import theme from './ListGrid.scss';
@@ -21,7 +21,7 @@ function getRowDataFromParent({ parent, index }) {
  * List renderer that accepts a custom row renderer.
  * The row renderer will create a row element for each collection item.
  */
-function ListGrid(props) {
+export default function ListGrid(props) {
 	const {
 		children,
 		collection,
@@ -34,14 +34,16 @@ function ListGrid(props) {
 		width,
 	} = props;
 
-	const enhancedRowRenderer = selectionToggle ?
-		RowSelectionRenderer( // eslint-disable-line new-cap
+	let enhancedRowRenderer = rowRenderer;
+	if (selectionToggle) {
+		enhancedRowRenderer = getRowSelectionRenderer(
 			rowRenderer,
 			{
 				isSelected,
 				getRowData: getRowDataFromParent,
-			}) :
-		rowRenderer;
+			}
+		);
+	}
 
 	return (
 		<VirtualizedList
@@ -60,6 +62,7 @@ function ListGrid(props) {
 		</VirtualizedList>
 	);
 }
+
 ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
@@ -72,8 +75,8 @@ ListGrid.propTypes = {
 	selectionToggle: PropTypes.func,
 	width: PropTypes.number,
 };
+
+
 ListGrid.defaultProps = {
 	rowHeight: 135,
 };
-
-export default ListGrid;

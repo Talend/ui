@@ -3,23 +3,9 @@ import { shallow } from 'enzyme';
 
 import VirtualizedList from '../VirtualizedList.component';
 import ListTable from './ListTable.component';
+import collection from '../collection';
 
 describe('ListGrid', () => {
-	const collection = [
-		{
-			id: 0,
-			name: 'Title with icon and actions',
-			description: 'Simple row with icon and actions',
-			author: 'Jean-Pierre DUPONT',
-		},
-		{
-			id: 1,
-			name: 'Title without actions',
-			description: 'Simple row without actions',
-			author: 'Jean-Pierre DUPONT',
-		},
-	];
-
 	it('should render react-virtualized table', () => {
 		// when
 		const wrapper = shallow(

@@ -5,14 +5,14 @@ exports[`RendererSelector should render grid list 1`] = `
   collection={
     Array [
       Object {
-        "description": "This comes from first element in collection",
+        "description": "Simple row with icon and actions",
         "id": 0,
-        "name": "Title from first item",
+        "name": "Title with icon and actions",
       },
       Object {
-        "description": "This comes from second element in collection",
+        "description": "Simple row without actions",
         "id": 1,
-        "name": "Title from second item",
+        "name": "Title without actions",
       },
     ]
   }
@@ -65,14 +65,14 @@ exports[`RendererSelector should render table list by default 1`] = `
   collection={
     Array [
       Object {
-        "description": "This comes from first element in collection",
+        "description": "Simple row with icon and actions",
         "id": 0,
-        "name": "Title from first item",
+        "name": "Title with icon and actions",
       },
       Object {
-        "description": "This comes from second element in collection",
+        "description": "Simple row without actions",
         "id": 1,
-        "name": "Title from second item",
+        "name": "Title without actions",
       },
     ]
   }
@@ -126,14 +126,14 @@ exports[`RendererSelector should render table list when requested 1`] = `
   collection={
     Array [
       Object {
-        "description": "This comes from first element in collection",
+        "description": "Simple row with icon and actions",
         "id": 0,
-        "name": "Title from first item",
+        "name": "Title with icon and actions",
       },
       Object {
-        "description": "This comes from second element in collection",
+        "description": "Simple row without actions",
         "id": 1,
-        "name": "Title from second item",
+        "name": "Title without actions",
       },
     ]
   }

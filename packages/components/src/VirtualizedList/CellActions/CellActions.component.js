@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import { Actions } from '../../Actions';
 
 import theme from './CellActions.scss';
@@ -8,7 +9,12 @@ import theme from './CellActions.scss';
  */
 function CellActions({ cellData }) {
 	return (
-		<div className={`tc-list-actions ${theme['tc-list-actions']}`}>
+		<div
+			className={classnames(
+				'tc-list-actions',
+				theme['tc-list-actions'],
+			)}
+		>
 			<Actions
 				actions={cellData}
 				hideLabel
@@ -20,7 +26,6 @@ function CellActions({ cellData }) {
 
 CellActions.displayName = 'VirtualizedList(CellActions)';
 CellActions.propTypes = {
-	/** The cell value */
 	cellData: PropTypes.arrayOf(PropTypes.shape(Actions.propTypes)),
 };
 

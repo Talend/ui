@@ -3,21 +3,9 @@ import { shallow } from 'enzyme';
 
 import VirtualizedList from './VirtualizedList.component';
 import { listTypes } from './utils/constants';
+import collection from './collection';
 
 const { TABLE } = listTypes;
-
-const collection = [
-	{
-		id: 0,
-		name: 'Title from first item',
-		description: 'This comes from first element in collection',
-	},
-	{
-		id: 1,
-		name: 'Title from second item',
-		description: 'This comes from second element in collection',
-	},
-];
 
 const contentFields = [
 	<VirtualizedList.Content

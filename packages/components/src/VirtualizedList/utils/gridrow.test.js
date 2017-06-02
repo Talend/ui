@@ -13,19 +13,7 @@ import {
 	renderCell,
 } from './gridrow';
 import { internalIds } from './constants';
-
-const collection = [
-	{
-		id: 0,
-		name: 'Title with icon and actions',
-		description: 'Simple row with icon and actions',
-	},
-	{
-		id: 1,
-		name: 'Title without actions',
-		description: 'Simple row without actions',
-	},
-];
+import collection from '../collection';
 
 describe('gridrow', () => {
 	describe('#getCellRenderer', () => {

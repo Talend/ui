@@ -1,26 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import ListGrid, { NoRow } from './ListGrid.component';
 import VirtualizedList from '../VirtualizedList.component';
 import RowLarge from '../RowLarge';
-import ListGrid, { NoRow } from './ListGrid.component';
+import collection from '../collection';
 
 describe('ListGrid', () => {
-	const collection = [
-		{
-			id: 0,
-			name: 'Title with icon and actions',
-			description: 'Simple row with icon and actions',
-			author: 'Jean-Pierre DUPONT',
-		},
-		{
-			id: 1,
-			name: 'Title without actions',
-			description: 'Simple row without actions',
-			author: 'Jean-Pierre DUPONT',
-		},
-	];
-
 	it('should render react-virtualized list', () => {
 		// when
 		const wrapper = shallow(

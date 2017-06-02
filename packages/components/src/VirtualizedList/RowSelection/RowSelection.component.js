@@ -7,7 +7,7 @@ import theme from './RowSelection.scss';
  * Higher order row-renderer that wrap the provided row renderer.
  * It manages row selection classname and inject it to the row renderer props.
  */
-function RowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
+function getRowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
 	function RowSelection(props) {
 		const rowData = getRowData(props);
 
@@ -27,4 +27,4 @@ function RowSelectionRenderer(WrappedComponent, { isSelected, getRowData }) {
 	return RowSelection;
 }
 
-export default RowSelectionRenderer;
+export default getRowSelectionRenderer;

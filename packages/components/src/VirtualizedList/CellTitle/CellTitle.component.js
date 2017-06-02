@@ -69,28 +69,28 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 
 CellTitle.displayName = 'VirtualizedList(CellTitle)';
 CellTitle.propTypes = {
-	/** The cell value : props.rowData[props.dataKey] */
+	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.string,
-	/** The custom props passed to <VirtualizedList.Content columnData={}>. */
+	// The custom props passed to <VirtualizedList.Content columnData={}>.
 	columnData: PropTypes.shape({
-		/** The List id. This is used as the title parts ids prefix. */
+		// The List id. This is used as the title parts ids prefix.
 		id: PropTypes.string,
-		/** The onClick callback triggered on title main button click. */
+		// The onClick callback triggered on title main button click.
 		onClick: PropTypes.func,
-		/** The actions property key. Actions = props.rowData[props.actionsKey] */
+		// The actions property key. Actions = props.rowData[props.actionsKey]
 		actionsKey: PropTypes.string,
-		/** The display mode property key. DisplayMode = props.rowData[props.displayModeKey] */
+		// The display mode property key. DisplayMode = props.rowData[props.displayModeKey]
 		displayModeKey: PropTypes.string,
-		/** The icon property key. Icon = props.rowData[props.iconKey] */
+		// The icon property key. Icon = props.rowData[props.iconKey]
 		iconKey: PropTypes.string,
-		/** Input mode : the cancel callback on ESC keydown. */
+		// Input mode : the cancel callback on ESC keydown.
 		onEditCancel: PropTypes.func,
-		/** Input mode : the submit callback on ENTER keydown or blur. */
+		// Input mode : the submit callback on ENTER keydown or blur.
 		onEditSubmit: PropTypes.func,
 	}),
-	/** The collection item. */
+	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
-	/** The collection item index. */
+	// The collection item index.
 	rowIndex: PropTypes.number,
 };
 

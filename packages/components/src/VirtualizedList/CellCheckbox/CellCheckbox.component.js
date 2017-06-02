@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-
+import classnames from 'classnames';
 import theme from './CellCheckbox.scss';
 
 /**
@@ -8,7 +8,7 @@ import theme from './CellCheckbox.scss';
 function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 	const { id, label, onChange } = columnData;
 	return (
-		<form className={`tc-list-checkbox ${theme['tc-list-checkbox']}`} >
+		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])} >
 			<div className="checkbox">
 				<label htmlFor={id && `${id}-${rowIndex}-check`}>
 					<input
@@ -26,20 +26,20 @@ function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 
 CellCheckbox.displayName = 'VirtualizedList(CellCheckbox)';
 CellCheckbox.propTypes = {
-	/** The cell value : props.rowData[props.dataKey] */
+	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.string,
-	/** The custom props passed to <VirtualizedList.Content columnData={}>. */
+	// The custom props passed to <VirtualizedList.Content columnData={}>.
 	columnData: PropTypes.shape({
-		/** The List id. This is used as the checkbox id prefix. */
+		// The List id. This is used as the checkbox id prefix.
 		id: PropTypes.string,
-		/** The checkbox label. */
+		// The checkbox label.
 		label: PropTypes.string,
-		/** The onChange callback triggered on checkbox toggle. */
+		// The onChange callback triggered on checkbox toggle.
 		onChange: PropTypes.func.isRequired,
 	}),
-	/** The collection item. */
+	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
-	/** The collection item index. */
+	// The collection item index.
 	rowIndex: PropTypes.number,
 };
 

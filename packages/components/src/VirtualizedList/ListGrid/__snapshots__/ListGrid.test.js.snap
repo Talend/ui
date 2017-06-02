@@ -14,13 +14,11 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   collection={
     Array [
       Object {
-        "author": "Jean-Pierre DUPONT",
         "description": "Simple row with icon and actions",
         "id": 0,
         "name": "Title with icon and actions",
       },
       Object {
-        "author": "Jean-Pierre DUPONT",
         "description": "Simple row without actions",
         "id": 1,
         "name": "Title without actions",
@@ -33,6 +31,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   noRowsRenderer={[Function]}
   onRowsRendered={[Function]}
   onScroll={[Function]}
+  overscanIndicesGetter={[Function]}
   overscanRowCount={10}
   rowCount={2}
   rowHeight={130}

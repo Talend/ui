@@ -5,14 +5,14 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   collection={
     Array [
       Object {
-        "description": "This comes from first element in collection",
+        "description": "Simple row with icon and actions",
         "id": 0,
-        "name": "Title from first item",
+        "name": "Title with icon and actions",
       },
       Object {
-        "description": "This comes from second element in collection",
+        "description": "Simple row without actions",
         "id": 1,
-        "name": "Title from second item",
+        "name": "Title without actions",
       },
     ]
   }
