@@ -19,10 +19,8 @@ exports[`Header should render header input with error 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -41,10 +39,8 @@ exports[`Header should render header input with error 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -77,10 +73,8 @@ exports[`Header should render header input with two buttons 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -99,10 +93,8 @@ exports[`Header should render header input with two buttons 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"

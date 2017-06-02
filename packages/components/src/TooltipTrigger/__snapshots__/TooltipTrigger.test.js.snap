@@ -2,10 +2,7 @@
 
 exports[`ActionTooltip should render tooltip 1`] = `
 <div
-  onBlur={[Function]}
-  onClick={null}
   onFocus={[Function]}
-  onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
   Action

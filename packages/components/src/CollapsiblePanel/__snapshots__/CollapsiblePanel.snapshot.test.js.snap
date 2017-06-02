@@ -85,10 +85,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           <button
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -106,10 +104,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -120,20 +115,14 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -284,10 +273,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           <button
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -305,10 +292,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -319,20 +303,14 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -483,10 +461,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           <button
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -504,10 +480,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -518,20 +491,14 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -568,20 +535,14 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             (Read Only)
@@ -592,10 +553,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             03/02/2017 14:44:55
@@ -643,20 +601,14 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           >
             <span
               className={undefined}
-              onBlur={[Function]}
-              onClick={null}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
               21 step
             </span>
             <span
               className="text-right"
-              onBlur={[Function]}
-              onClick={null}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
               by Abdelaziz Maalej test 1 test 2 test 1 test 2
@@ -703,20 +655,14 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             (Read Only)
@@ -727,10 +673,7 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
         >
           <span
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             03/02/2017 14:44:55

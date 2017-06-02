@@ -18,10 +18,8 @@ exports[`Item should display input value with error 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -29,10 +27,8 @@ exports[`Item should display input value with error 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -64,10 +60,8 @@ exports[`Item should display input value with two buttons 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -75,10 +69,8 @@ exports[`Item should display input value with two buttons 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -105,10 +97,8 @@ exports[`Item should display input value with two buttons. The validate button i
     <button
       className="btn btn-link"
       disabled={true}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -116,10 +106,8 @@ exports[`Item should display input value with two buttons. The validate button i
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"

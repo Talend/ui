@@ -8,10 +8,8 @@ exports[`Item should display a selected item 1`] = `
   <button
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
     type="button"
@@ -34,10 +32,8 @@ exports[`Item should display value with three buttons 1`] = `
   <button
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role={null}
     type="button"
@@ -52,10 +48,8 @@ exports[`Item should display value with three buttons 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -63,10 +57,8 @@ exports[`Item should display value with three buttons 1`] = `
     <button
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
