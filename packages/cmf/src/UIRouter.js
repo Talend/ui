@@ -8,31 +8,24 @@ import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
 import api from './api';
 
+function getComponent(view, componentName, context) {
+	const component = api.route.getComponentFromRegistry(context, componentName);
+	if (view && !component.CMFContainer) {
+		return api.route.connectView(context, component, view);
+	}
+	return component;
+}
+
 function CMFRoute(props, context) {
-	let Component = api.route.getComponentFromRegistry(context, props.component);
-	if (props.view && !Component.CMFContainer) {
-		Component = api.route.connectView(context, Component, props.view);
-	}
-	if (props.path === '/') {
-		let IndexComponent = api.route.getComponentFromRegistry(context, props.indexRoute);
-		if (props.indexRoute.view) {
-			IndexComponent = api.route.connectView(context, IndexComponent, props.indexRoute.view);
-		}
-		return (
-			<Component view={props.view}>
-				<Route exact path="/" component={IndexComponent} />
-				{props.childRoutes ? props.childRoutes.map((route, index) => (
-					<CMFRoute key={index} {...route} />
-				)) : null}
-			</Component>
-		);
-	}
+	const { path, view, childRoutes, component } = props;
+	const Component = getComponent(view, component, context);
+
 	// Warning: You should not use <Route component> and <Route children>
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
 		return (
-			<Component view={props.view} {...subprops}>
-				{props.childRoutes ? props.childRoutes.map((route, index) => (
+			<Component view={view} {...subprops}>
+				{childRoutes ? childRoutes.map((route, index) => (
 					<CMFRoute key={index} {...route} />
 				)) : null}
 			</Component>
@@ -40,7 +33,7 @@ function CMFRoute(props, context) {
 	}
 	return (
 		<Route
-			path={props.path}
+			path={path}
 			exact
 			component={SubComponent}
 		/>
@@ -52,10 +45,6 @@ CMFRoute.propTypes = {
 	component: PropTypes.string,
 	view: PropTypes.string,
 	childRoutes: PropTypes.arrayOf(PropTypes.object),  // recursive
-	indexRoute: PropTypes.shape({
-		component: PropTypes.string,
-		view: PropTypes.string,
-	}),
 };
 CMFRoute.contextTypes = {
 	registry: PropTypes.object,
@@ -90,20 +79,22 @@ CMFRoute.displayName = 'CMFRoute';
     ]
   }
  * @param  {object} props   The waited props (history and routes)
+ * * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
-function CMFRouter(props) {
+function CMFRouter(props, context) {
 	const routes = props.routes;
 	if (routes.path === '/' && !!routes.component) {
+		const Component = getComponent(routes.view, routes.component, context);
+		const IndexComponent = getComponent(routes.indexRoute.view, routes.indexRoute.component, context);
 		return (
 			<ConnectedRouter history={props.history}>
-				<CMFRoute
-					match="/"
-					component={routes.component}
-					view={routes.view}
-					indexRoute={routes.indexRoute}
-					childRoutes={routes.childRoutes}
-				/>
+				<Component view={routes.view}>
+					<Route exact path="/" component={IndexComponent} />
+					{routes.childRoutes ? routes.childRoutes.map((route, index) => (
+						<CMFRoute key={index} {...route} />
+					)) : null}
+				</Component>
 			</ConnectedRouter>
 		);
 	}
@@ -113,11 +104,15 @@ function CMFRouter(props) {
 }
 CMFRouter.displayName = 'CMFRouter';
 
-CMFRouter.propTypes = {
-	history: React.PropTypes.object,
-	routes: React.PropTypes.object,
+CMFRouter.contextTypes = {
+	registry: PropTypes.object,
+	router: PropTypes.object,
 };
-const mapStateToProps = (state) => ({ routes: state.cmf.settings.routes });
+CMFRouter.propTypes = {
+	history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	routes: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
+};
+const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
 export default connect(
 	mapStateToProps
 )(CMFRouter);
