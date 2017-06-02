@@ -1,4 +1,3 @@
-import { TF_CREATE_FORM, TF_CHANGE_FORM, TF_REMOVE_FORM } from './constants';
 import {
 	changeForm,
 	createForm,
@@ -7,63 +6,42 @@ import {
 
 const formName = 'formName';
 const jsonSchema = { jsonSchema: 'json' };
-const uiSchema = { uiSchema: 'json' };
+const uiSchema = [{ uiSchema: 'json' }];
 const properties = { props: 'json' };
-const errors = ['errors'];
+const errors = { field: 'errors' };
 
 describe('Form actions', () => {
 	describe('#createForm action', () => {
-		it('should test the action', () => {
-
+		it('should create the action payload', () => {
 			// when
 			const resultAction = createForm(formName, jsonSchema, uiSchema, properties, errors);
 
 			// then
-			expect(resultAction).toEqual(
-				{
-					type: TF_CREATE_FORM,
-					errors: ['errors'],
-					formName: 'formName',
-					jsonSchema: { jsonSchema: 'json' },
-					properties: { props: 'json' },
-					uiSchema: { uiSchema: 'json' },
-				}
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 
 	describe('#changeForm action', () => {
-		it('should test the action', () => {
+		it('should create the action payload', () => {
 			// given
 
 			// when
 			const resultAction = changeForm(formName, jsonSchema, uiSchema, properties, errors);
 
 			// then
-			expect(resultAction).toEqual(
-				{
-					type: TF_CHANGE_FORM,
-					errors: ['errors'],
-					formName: 'formName',
-					jsonSchema: { jsonSchema: 'json' },
-					properties: { props: 'json' },
-					uiSchema: { uiSchema: 'json' },
-				}
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 
 	describe('#removeForm action', () => {
-		it('should test the action', () => {
+		it('should create the action payload', () => {
 			// given
 
 			// when
 			const resultAction = removeForm(formName, jsonSchema, uiSchema, properties, errors);
 
 			// then
-			expect(resultAction).toEqual(
-				{ formName: 'formName', type: TF_REMOVE_FORM }
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 });

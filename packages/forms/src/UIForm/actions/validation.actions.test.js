@@ -1,4 +1,3 @@
-import { TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from './constants';
 import {
 	setError,
 	setErrors,
@@ -10,38 +9,22 @@ const errors = ['errors'];
 
 describe('Validation actions', () => {
 	describe('#validate action', () => {
-		it('should test the action', () => {
-			// given
-
+		it('should create the action payload', () => {
 			// when
 			const resultAction = setError(formName, error);
 
 			// then
-			expect(resultAction).toEqual(
-				{
-					type: TF_SET_PARTIAL_ERROR,
-					errors: 'error',
-					formName: 'formName',
-				}
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 
 	describe('#validateAll action', () => {
-		it('should test the action', () => {
-			// given
-
+		it('should create the action payload', () => {
 			// when
 			const resultAction = setErrors(formName, errors);
 
 			// then
-			expect(resultAction).toEqual(
-				{
-					type: TF_SET_ALL_ERRORS,
-					errors: ['errors'],
-					formName: 'formName',
-				}
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 });

@@ -1,0 +1,13 @@
+exports[`Model actions #mutateValue action should create the action payload 1`] = `
+Object {
+  "error": "error",
+  "formName": "formName",
+  "schema": Object {
+    "jsonSchema": "json",
+  },
+  "type": "TF_MUTATE_VALUE",
+  "value": Object {
+    "props": "json",
+  },
+}
+`;

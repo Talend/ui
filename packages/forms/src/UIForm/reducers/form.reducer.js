@@ -68,6 +68,7 @@ export default function formReducer(state = {}, action) {
 		return {
 			...state,
 			[action.formName]: {
+				...form,
 				properties: modelReducer(form.properties, action),
 				errors: validationsReducer(form.errors, action),
 			},

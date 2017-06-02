@@ -1,4 +1,3 @@
-import { TF_MUTATE_VALUE } from './constants';
 import {
 	mutateValue,
 } from './model.actions';
@@ -10,22 +9,12 @@ const error = 'error';
 
 describe('Model actions', () => {
 	describe('#mutateValue action', () => {
-		it('should test the action', () => {
-			// given
-
+		it('should create the action payload', () => {
 			// when
 			const resultAction = mutateValue(formName, jsonSchema, value, error);
 
 			// then
-			expect(resultAction).toEqual(
-				{
-					type: TF_MUTATE_VALUE,
-					error: 'error',
-					formName: 'formName',
-					schema: { jsonSchema: 'json' },
-					value: { props: 'json' },
-				}
-			);
+			expect(resultAction).toMatchSnapshot();
 		});
 	});
 });
