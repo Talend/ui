@@ -13,6 +13,7 @@ import './Checkbox';
 import './Dialog';
 import './Drawer';
 import './Enumeration';
+import './JSONSchemaRenderer';
 import './ListView';
 import './HeaderBar';
 import './HttpError';

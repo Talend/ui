@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import theme from './SelectSortBy.scss';
+
+function SortByItem({ option, index, id }) {
+	return (
+		<MenuItem
+			id={id && `${id}-by-item-${option.id}`}
+			key={index}
+			eventKey={option}
+		>
+			{option.name || option.id}
+		</MenuItem>
+	);
+}
+SortByItem.propTypes = {
+	option: PropTypes.shape({
+		id: PropTypes.string,
+		name: PropTypes.string,
+	}),
+	index: PropTypes.number,
+	id: PropTypes.string,
+};
 
 function SelectSortBy({ field, id, isDescending, onChange, options }) {
 	const order = isDescending || false;
@@ -16,18 +36,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 		return onChange(event, { field: selected.id, isDescending: !order });
 	}
 
-	function getMenuItem(option, index) {
-		return (
-			<MenuItem
-				id={id && `${id}-by-item-${option.id}`}
-				key={index}
-				eventKey={option}
-			>
-				{option.name || option.id}
-			</MenuItem>
-		);
-	}
-
+	const getMenuItem = SortByItem;
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			{options.length === 1 ?
@@ -36,8 +45,13 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 					id={id ? `${id}-by` : uuid.v4()}
 					title={selected ? (selected.name || selected.id) : 'N.C'}
 					onSelect={onChangeField}
+					className={theme['sort-by-items']}
 				>
-					{options.map((option, index) => getMenuItem(option, index, id))}
+					{options.map((option, index) => getMenuItem({
+						option,
+						index,
+						id,
+					}))}
 				</NavDropdown>)
 			}
 			{selected && (
@@ -53,14 +67,14 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 }
 
 SelectSortBy.propTypes = {
-	field: React.PropTypes.string,
-	id: React.PropTypes.string,
-	isDescending: React.PropTypes.bool,
-	onChange: React.PropTypes.func.isRequired,
-	options: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			id: React.PropTypes.string.isRequired,
-			name: React.PropTypes.string,
+	field: PropTypes.string,
+	id: PropTypes.string,
+	isDescending: PropTypes.bool,
+	onChange: PropTypes.func.isRequired,
+	options: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string.isRequired,
+			name: PropTypes.string,
 		}),
 	).isRequired,
 };

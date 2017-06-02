@@ -17,7 +17,7 @@ export function escapeRegexCharacters(str) {
  * @param suggestions
  * @param value
  */
-export function getMatchingSuggestions(suggestions, value) {
+export function getMatchingSuggestions(suggestions = [], value) {
 	if (!value) {
 		return suggestions;
 	}
@@ -65,9 +65,7 @@ function renderDatalistItem(item, { value }) {
 		for (let i = 0; i < restValues.length; i++) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
-				emphasisedText.push(
-					<em className={theme['highlight-match']}>{matchedValues[i]}</em>
-				);
+				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
 			}
 		}
 	}
@@ -95,10 +93,30 @@ function renderNoMatch() {
  * @param props
  */
 class DatalistWidget extends React.Component {
+
+	static propTypes = {
+		id: PropTypes.string,
+		value: PropTypes.string,
+		required: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+		schema: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			enum: PropTypes.arrayOf(PropTypes.string),
+		}).isRequired,
+		formContext: PropTypes.shape({
+			fetchItems: PropTypes.func,
+		}),
+		options: PropTypes.shape({
+			// Is the field value restricted to the suggestion list
+			restricted: PropTypes.bool,
+		}),
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			value: props.value || '',
+			initalItems: [],
 			items: [],
 			itemIndex: null,
 			noMatch: false,
@@ -108,7 +126,7 @@ class DatalistWidget extends React.Component {
 			required: props.required,
 			onBlur: () => this.onBlur(),
 			onFocus: () => this.initSuggestions(this.state.value),
-			onChange: event => this.initSuggestions(event.target.value),
+			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
 
@@ -119,7 +137,11 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.style = {
-			container: classnames('form-control', theme['tf-typeahead-container']),
+			container: classnames(
+				'form-control',
+				theme['tf-typeahead-container'],
+				'tf-typeahead-container'
+			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
@@ -130,7 +152,8 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur() {
-		if (this.props.schema.enum.indexOf(this.state.value) === -1) {
+		if (this.props.options &&
+			this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
 			this.resetValue();
 		} else {
 			this.resetSuggestions();
@@ -144,13 +167,15 @@ class DatalistWidget extends React.Component {
 			event.preventDefault();
 			break;
 		case keycode.codes.enter:
-			if (focusedItemIndex != null) { // could be null in case of no match
+			// could be null in case of no match
+			if (focusedItemIndex != null) {
 				this.selectItem(focusedItemIndex);
 			}
 			event.preventDefault();
 			break;
 		case keycode.codes.up:
 		case keycode.codes.down:
+			event.preventDefault();
 			this.focusOnItem(newFocusedItemIndex);
 			break;
 		default:
@@ -168,7 +193,27 @@ class DatalistWidget extends React.Component {
 	}
 
 	initSuggestions(value) {
-		const suggestions = getMatchingSuggestions(this.props.schema.enum, value);
+		let items;
+		if (this.props.schema.enum) {
+			items = this.props.schema.enum;
+		} else if (this.props.formContext && this.props.formContext.fetchItems) {
+			items = this.props.formContext.fetchItems(this.props.schema.title);
+		}
+		const suggestions = getMatchingSuggestions(items, value);
+		this.setState({
+			value,
+			initalItems: items,
+			items: suggestions,
+			itemIndex: null,
+			noMatch: value && !items.length,
+		});
+	}
+
+	updateSuggestions(value) {
+		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
+		if (!value && suggestions.length === 0) {
+			suggestions = this.state.initalItems;
+		}
 		this.setState({
 			value,
 			items: suggestions,
@@ -214,18 +259,6 @@ class DatalistWidget extends React.Component {
 			/>
 		);
 	}
-}
-
-if (process.env.NODE_ENV !== 'production') {
-	DatalistWidget.propTypes = {
-		id: PropTypes.string,
-		value: PropTypes.string,
-		required: PropTypes.bool,
-		onChange: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			enum: PropTypes.arrayOf(PropTypes.string),
-		}).isRequired,
-	};
 }
 
 export default DatalistWidget;

@@ -81,6 +81,13 @@ const settings = {
 				},
 			},
 		},
+		'menu:href': {
+			id: 'href',
+			name: 'Menu',
+			icon: 'fa-bars',
+			actionCreator: 'redirect:conditional',
+			href: '/href',
+		},
 	},
 	views: {
 		appmenu: {
