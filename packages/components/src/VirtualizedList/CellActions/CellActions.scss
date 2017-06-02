@@ -1,0 +1,17 @@
+.tc-list-actions {
+	button {
+		height: 20px;
+		line-height: inherit;
+		opacity: 0;
+		padding-left: 0;
+	}
+}
+
+// manage actions display on row hover
+
+:global(.tc-list-large-row) .tc-list-actions :global(.tc-actions) > button,
+:global(.ReactVirtualized__Table__row) .tc-list-actions :global(.tc-actions) > button:focus,
+:global(.ReactVirtualized__Table__row):hover .tc-list-actions :global(.tc-actions) > button {
+	opacity: 1;
+	transition: opacity 0.15s ease-in;
+}

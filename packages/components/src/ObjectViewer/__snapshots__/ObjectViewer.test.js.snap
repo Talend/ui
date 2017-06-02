@@ -329,7 +329,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -365,7 +365,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -388,7 +388,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -399,14 +399,15 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -416,7 +417,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -432,7 +433,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -877,7 +878,7 @@ exports[`Storyshots ObjectViewer flat default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -1460,7 +1461,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -1496,7 +1497,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -1519,7 +1520,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -1530,14 +1531,15 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -1547,7 +1549,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -1563,7 +1565,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -2082,7 +2084,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onClick()
                           </span>
                           }
                         </span>
@@ -2113,7 +2115,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onSubmit()
                           </span>
                           }
                         </span>
@@ -2144,7 +2146,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onChange()
                           </span>
                           }
                         </span>
@@ -2221,7 +2223,7 @@ exports[`Storyshots ObjectViewer flat with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -3094,7 +3096,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -3130,7 +3132,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -3153,7 +3155,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -3164,14 +3166,15 @@ exports[`Storyshots ObjectViewer list default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -3181,7 +3184,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -3197,7 +3200,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -3642,7 +3645,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -4515,7 +4518,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -4551,7 +4554,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -4574,7 +4577,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -4585,14 +4588,15 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -4602,7 +4606,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -4618,7 +4622,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -5167,7 +5171,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onClick()
                           </span>
                           }
                         </span>
@@ -5198,7 +5202,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onSubmit()
                           </span>
                           }
                         </span>
@@ -5229,7 +5233,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onChange()
                           </span>
                           }
                         </span>
@@ -5276,7 +5280,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -6095,7 +6099,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -6131,7 +6135,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -6154,7 +6158,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -6165,14 +6169,15 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -6182,7 +6187,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -6198,7 +6203,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -6643,7 +6648,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -7472,7 +7477,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -7508,7 +7513,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -7531,7 +7536,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -7542,14 +7547,15 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -7559,7 +7565,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -7575,7 +7581,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -8094,7 +8100,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onClick()
                           </span>
                           }
                         </span>
@@ -8125,7 +8131,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onSubmit()
                           </span>
                           }
                         </span>
@@ -8156,7 +8162,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onChange()
                           </span>
                           }
                         </span>
@@ -8233,7 +8239,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -9140,7 +9146,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -9176,7 +9182,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -9199,7 +9205,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -9210,14 +9216,15 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -9227,7 +9234,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -9243,7 +9250,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -9661,7 +9668,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -10567,7 +10574,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -10603,7 +10610,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -10626,7 +10633,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -10637,14 +10644,15 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -10654,7 +10662,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -10670,7 +10678,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -11189,7 +11197,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onClick()
                           </span>
                           }
                         </span>
@@ -11220,7 +11228,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onSubmit()
                           </span>
                           }
                         </span>
@@ -11251,7 +11259,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onChange()
                           </span>
                           }
                         </span>
@@ -11298,7 +11306,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
