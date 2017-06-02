@@ -27,7 +27,6 @@ class TooltipTrigger extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
-		this.onMouseOut = this.onMouseOut.bind(this);
 		this.state = {
 			hovered: false,
 			id: uuid.v4(),
@@ -45,12 +44,6 @@ class TooltipTrigger extends React.Component {
 	onMouseOver() {
 		if (!this.state.hovered) {
 			this.setState({ hovered: true });
-		}
-	}
-
-	onMouseOut() {
-		if (this.state.hovered) {
-			this.setState({ hovered: false });
 		}
 	}
 
