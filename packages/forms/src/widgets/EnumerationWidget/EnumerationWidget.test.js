@@ -240,7 +240,7 @@ describe('EnumerationWidget', () => {
 			);
 		});
 
-		it('should send a event with a method to simulate the click on the input file', () => {
+		it('should send a event when we click on the icon of the dropdown', () => {
 			// given
 			const registry = {
 				formContext: {
