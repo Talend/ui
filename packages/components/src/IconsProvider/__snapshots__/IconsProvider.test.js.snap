@@ -1045,6 +1045,42 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     </svg>
   </symbol>
   <symbol
+    id="talend-flow-source-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63636,2H1A.97939.97939,0,0,0,0,3V13a.97939.97939,0,0,0,1,1H11.63636L16,8ZM11,13H2a.97939.97939,0,0,1-1-1V4A.97939.97939,0,0,1,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-step-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63635,2H0L5,8,0,14H11.63635L16,8ZM11,13H2L6,8,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-target-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15,2H0L5,8,0,14H15a.97939.97939,0,0,0,1-1V3A.97939.97939,0,0,0,15,2Zm0,10a.97939.97939,0,0,1-1,1H2L6,8,2,3H14a.97939.97939,0,0,1,1,1Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
     id="talend-flow-under-plan"
   >
     <svg
@@ -3145,6 +3181,42 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     >
       <path
         d="M8,2H1A.97939.97939,0,0,0,0,3V13a.97939.97939,0,0,0,1,1H8l3-6ZM7,13H2a.97939.97939,0,0,1-1-1V4A.97939.97939,0,0,1,2,3H7l3,5ZM15,2H10l3,6-3,6h5a.97939.97939,0,0,0,1-1V3A.97939.97939,0,0,0,15,2Zm0,10a.97939.97939,0,0,1-1,1H12l2-5L12,3h2a.97939.97939,0,0,1,1,1Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-source-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63636,2H1A.97939.97939,0,0,0,0,3V13a.97939.97939,0,0,0,1,1H11.63636L16,8ZM11,13H2a.97939.97939,0,0,1-1-1V4A.97939.97939,0,0,1,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-step-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63635,2H0L5,8,0,14H11.63635L16,8ZM11,13H2L6,8,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-target-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15,2H0L5,8,0,14H15a.97939.97939,0,0,0,1-1V3A.97939.97939,0,0,0,15,2Zm0,10a.97939.97939,0,0,1-1,1H2L6,8,2,3H14a.97939.97939,0,0,1,1,1Z"
       />
     </svg>
   </symbol>

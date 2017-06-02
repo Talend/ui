@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "actions": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitle actions should render the actions 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <Actions
+    actions={
+      Array [
+        Object {
+          "icon": "talend-pencil",
+          "label": "edit",
+          "onClick": [Function],
+        },
+        Object {
+          "icon": "talend-trash",
+          "label": "delete",
+          "onClick": [Function],
+        },
+      ]
+    }
+    hideLabel={true}
+    link={true}
+  />
+</div>
+`;
+
+exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitle icon should render the icon 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <Icon
+    className={undefined}
+    name="talend-file-o"
+  />
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitle should render title selector component 1`] = `
+<div
+  className="tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className={undefined}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={[Function]}
+    onEditCancel={[Function]}
+    onEditSubmit={[Function]}
+    rowData={
+      Object {
+        "displayMode": "text",
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+</div>
+`;
