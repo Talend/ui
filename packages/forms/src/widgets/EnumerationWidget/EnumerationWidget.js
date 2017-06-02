@@ -21,6 +21,15 @@ const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
 
 class EnumerationWidget extends React.Component {
+
+	static getItemHeight() {
+		return ITEMS_DEFAULT_HEIGHT;
+	}
+
+	static parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
+	}
+
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
@@ -140,7 +149,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.getItemHeight.bind(this),
+				getItemHeight: this.constructor.getItemHeight.bind(this),
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -151,15 +160,12 @@ class EnumerationWidget extends React.Component {
 			},
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
+			setFormData: this.setFormData.bind(this),
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
-	}
-
-	setInputRef(input) {
-		this.input = input;
 	}
 
 	// default mode
@@ -214,7 +220,7 @@ class EnumerationWidget extends React.Component {
 			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
 				displayMode = DISPLAY_MODE_DEFAULT;
 			}
-			this.setState({ items, displayMode }, this.setFormData.bind(this));
+			this.setState({ items, displayMode });
 		}
 	}
 
@@ -254,7 +260,7 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
 					index: value.index,
-					value: this.parseStringValueToArray(value.value),
+					value: this.constructor.parseStringValueToArray(value.value),
 				},
 				this.itemSubmitHandler.bind(this),
 				this.itemSubmitHandler.bind(this)
@@ -278,7 +284,7 @@ class EnumerationWidget extends React.Component {
 			}
 			this.setState({
 				items,
-			}, this.setFormData.bind(this));
+			});
 		}
 	}
 
@@ -419,7 +425,7 @@ class EnumerationWidget extends React.Component {
 			this.setState({
 				displayMode: DISPLAY_MODE_DEFAULT,
 				items: result,
-			}, this.setFormData.bind(this));
+			});
 		}
 	}
 
@@ -455,8 +461,7 @@ class EnumerationWidget extends React.Component {
 						values: this.parseStringValueToArray(value.value),
 						inputValue: '',
 					}]),
-				},
-				this.setFormData.bind(this)
+				}
 			);
 			this.updateHeaderInputDisabled('');
 			this.input.focus();
@@ -487,8 +492,7 @@ class EnumerationWidget extends React.Component {
 					items: this.state.items.concat([{
 						values: this.parseStringValueToArray(value.value),
 					}]),
-				},
-				this.setFormData.bind(this)
+				}
 			);
 			this.updateHeaderInputDisabled('');
 		}
@@ -508,8 +512,8 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	getItemHeight(/* isInEdit */) {
-		return ITEMS_DEFAULT_HEIGHT;
+	setInputRef(input) {
+		this.input = input;
 	}
 
 	setFormData() {
@@ -517,10 +521,6 @@ class EnumerationWidget extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
-	}
-
-	parseStringValueToArray(values) {
-		return values.split(',').map(value => value.trim());
 	}
 
 	itemSubmitHandler() {
