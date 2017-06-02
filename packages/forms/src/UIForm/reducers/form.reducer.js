@@ -11,9 +11,9 @@ import modelReducer from './model.reducer';
 import validationsReducer from './validations.reducer';
 
 /**
- * Form reducer, that manage multiple form state.
+ * Form reducer, that manage multiple form state, identified by their formName
  * Format : {
- *      [form_name]: {
+ *      [formName]: {
  *          properties: {},
  *          errors: {},
  *      },
