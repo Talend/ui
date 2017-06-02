@@ -497,7 +497,6 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 
 exports[`Typeahead with toggle should render button 1`] = `
 <button
-  aria-describedby={42}
   className="btn btn-link"
   disabled={false}
   onBlur={[Function]}

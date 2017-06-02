@@ -10,7 +10,6 @@ exports[`Badge should render Badge with icon in outline style 1`] = `
     Label 1
   </span>
   <button
-    aria-describedby={42}
     className="undefined tc-badge-delete-icon btn btn-default"
     disabled={false}
     onBlur={[Function]}
@@ -45,7 +44,6 @@ exports[`Badge should render Badge with icon in solid style 1`] = `
     Label 1
   </span>
   <button
-    aria-describedby={42}
     className="undefined tc-badge-delete-icon btn btn-default"
     disabled={false}
     onBlur={[Function]}
