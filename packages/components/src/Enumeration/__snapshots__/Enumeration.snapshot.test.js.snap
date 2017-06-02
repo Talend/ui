@@ -16,13 +16,10 @@ exports[`Enumeration should render with header in add state and list in default 
       value={undefined}
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -39,13 +36,10 @@ exports[`Enumeration should render with header in add state and list in default 
       </svg>
     </button>
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -121,13 +115,10 @@ exports[`Enumeration should render with header in add state and list in default 
               id="0-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -140,13 +131,10 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -163,13 +151,10 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -205,13 +190,10 @@ exports[`Enumeration should render with header in add state and list in default 
               id="1-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -224,13 +206,10 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -247,13 +226,10 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -289,13 +265,10 @@ exports[`Enumeration should render with header in add state and list in default 
               id="2-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -308,13 +281,10 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -331,13 +301,10 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -377,13 +344,10 @@ exports[`Enumeration should render with header in default state and first item i
       className="actions"
     >
       <button
-        aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -470,13 +434,10 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={true}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -493,13 +454,10 @@ exports[`Enumeration should render with header in default state and first item i
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -535,13 +493,10 @@ exports[`Enumeration should render with header in default state and first item i
               id="1-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -554,13 +509,10 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -577,13 +529,10 @@ exports[`Enumeration should render with header in default state and first item i
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -619,13 +568,10 @@ exports[`Enumeration should render with header in default state and first item i
               id="2-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -638,13 +584,10 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -661,13 +604,10 @@ exports[`Enumeration should render with header in default state and first item i
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -708,13 +648,10 @@ exports[`Enumeration should render with header in default state, list in default
       className="actions"
     >
       <button
-        aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -791,13 +728,10 @@ exports[`Enumeration should render with header in default state, list in default
               id="0-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -810,13 +744,10 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -833,13 +764,10 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -875,13 +803,10 @@ exports[`Enumeration should render with header in default state, list in default
               id="1-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -894,13 +819,10 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -917,13 +839,10 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -959,13 +878,10 @@ exports[`Enumeration should render with header in default state, list in default
               id="2-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -978,13 +894,10 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1001,13 +914,10 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1049,13 +959,10 @@ exports[`Enumeration should render with header in search state and list in defau
       value={undefined}
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1072,13 +979,10 @@ exports[`Enumeration should render with header in search state and list in defau
       </svg>
     </button>
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1170,13 +1074,10 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1193,13 +1094,10 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1251,13 +1149,10 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1274,13 +1169,10 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1332,13 +1224,10 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1355,13 +1244,10 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1398,13 +1284,10 @@ exports[`Enumeration should render with header in selected state with trash icon
       2 selected values
     </span>
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1469,13 +1352,10 @@ exports[`Enumeration should render with header in selected state with trash icon
               id="0-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1488,13 +1368,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1511,13 +1388,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1553,13 +1427,10 @@ exports[`Enumeration should render with header in selected state with trash icon
               id="1-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1572,13 +1443,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1595,13 +1463,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1637,13 +1502,10 @@ exports[`Enumeration should render with header in selected state with trash icon
               id="2-item"
             >
               <button
-                aria-describedby={42}
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1656,13 +1518,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-actions"
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1679,13 +1538,10 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1725,13 +1581,10 @@ exports[`Enumeration should render with header without items 1`] = `
       className="actions"
     >
       <button
-        aria-describedby={42}
         className="btn btn-link"
         disabled={false}
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
