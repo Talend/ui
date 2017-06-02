@@ -90,15 +90,13 @@ CMFRoute.displayName = 'CMFRoute';
     ]
   }
  * @param  {object} props   The waited props (history and routes)
- * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
 function CMFRouter(props) {
 	const routes = props.routes;
-	const history = props.history || createHashHistory();
 	if (routes.path === '/' && !!routes.component) {
 		return (
-			<ConnectedRouter history={history}>
+			<ConnectedRouter history={props.history}>
 				<CMFRoute
 					match="/"
 					component={routes.component}
