@@ -172,7 +172,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -208,7 +208,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -231,7 +231,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -242,15 +242,14 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -260,7 +259,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -276,7 +275,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -383,7 +382,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                   }
                                 }
                               >
-                                brandonClick()
+                                anonymous()
                               </span>
                               }
                             </span>
@@ -964,7 +963,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -1068,7 +1067,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -1130,7 +1129,7 @@ exports[`Storyshots AppHeaderBar default 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -1536,7 +1535,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -1572,7 +1571,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -1595,7 +1594,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -1606,15 +1605,14 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -1624,7 +1622,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -1640,7 +1638,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -2276,7 +2274,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -2380,7 +2378,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -2576,7 +2574,7 @@ exports[`Storyshots AppHeaderBar while searching 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -2962,7 +2960,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -2998,7 +2996,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -3021,7 +3019,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -3032,15 +3030,14 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -3050,7 +3047,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -3066,7 +3063,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -3702,7 +3699,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -3806,7 +3803,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -4003,7 +4000,7 @@ exports[`Storyshots AppHeaderBar with no search result 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -4348,7 +4345,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -4384,7 +4381,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -4407,7 +4404,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -4418,15 +4415,14 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -4436,7 +4432,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -4452,7 +4448,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -5088,7 +5084,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -5192,7 +5188,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -5371,7 +5367,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
                                           }
                                         }
                                       >
-                                        icon_clicked()
+                                        anonymous()
                                       </span>
                                       }
                                     </span>
@@ -5409,7 +5405,7 @@ exports[`Storyshots AppHeaderBar with search button 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -5788,7 +5784,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -5824,7 +5820,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -5847,7 +5843,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -5858,15 +5854,14 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -5876,7 +5871,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -5892,7 +5887,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -6528,7 +6523,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -6632,7 +6627,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -6788,7 +6783,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
                                           }
                                         }
                                       >
-                                        onBlur()
+                                        anonymous()
                                       </span>
                                       }
                                     </span>
@@ -6828,7 +6823,7 @@ exports[`Storyshots AppHeaderBar with search input 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -7518,7 +7513,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -7554,7 +7549,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -7577,7 +7572,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -7588,15 +7583,14 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -7606,7 +7600,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -7622,7 +7616,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -8258,7 +8252,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -8362,7 +8356,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -9311,7 +9305,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -9662,7 +9656,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -9698,7 +9692,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -9721,7 +9715,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -9732,15 +9726,14 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -9750,7 +9743,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -9766,7 +9759,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -10402,7 +10395,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -10506,7 +10499,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -10646,7 +10639,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                   }
                                                 }
                                               >
-                                                onSubmit()
+                                                anonymous()
                                               </span>
                                               }
                                             </span>
@@ -10864,7 +10857,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                           }
                                                         }
                                                       >
-                                                        onChange_in_search()
+                                                        anonymous()
                                                       </span>
                                                       }
                                                     </span>
@@ -10920,7 +10913,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
                                                   }
                                                 }
                                               >
-                                                onClick_form()
+                                                anonymous()
                                               </span>
                                               }
                                             </span>
@@ -10991,7 +10984,7 @@ exports[`Storyshots AppHeaderBar with simple form 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -11315,7 +11308,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -11351,7 +11344,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
             "cursor": "pointer",
             "display": "block",
             "fontFamily": "sans-serif",
-            "fontSize": "12px",
+            "fontSize": 12,
             "padding": "5px 15px",
             "position": "fixed",
             "right": 0,
@@ -11374,7 +11367,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                 -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
                 \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
               ",
-              "fontSize": "15px",
+              "fontSize": 15,
               "fontWeight": 300,
               "lineHeight": 1.45,
             }
@@ -11385,15 +11378,14 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
               Object {
                 "borderBottom": "1px solid #eee",
                 "marginBottom": 10,
-                "paddingTop": 10,
               }
             }
           >
             <h1
               style={
                 Object {
-                  "fontSize": "35px",
-                  "margin": 0,
+                  "fontSize": 35,
+                  "margin": "20px 0 0 0",
                   "padding": 0,
                 }
               }
@@ -11403,7 +11395,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
             <h2
               style={
                 Object {
-                  "fontSize": "22px",
+                  "fontSize": 22,
                   "fontWeight": 400,
                   "margin": "0 0 10px 0",
                   "padding": 0,
@@ -11419,7 +11411,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
@@ -12055,7 +12047,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            dropdown_onSelect()
+                                                            anonymous()
                                                           </span>
                                                           }
                                                         </span>
@@ -12159,7 +12151,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
                                                                   }
                                                                 }
                                                               >
-                                                                onClick_settings()
+                                                                anonymous()
                                                               </span>
                                                               }
                                                             </span>
@@ -12221,7 +12213,7 @@ exports[`Storyshots AppHeaderBar without brand link 1`] = `
               style={
                 Object {
                   "borderBottom": "1px solid #EEE",
-                  "fontSize": "25px",
+                  "fontSize": 25,
                   "margin": "20px 0 0 0",
                   "padding": "0 0 5px 0",
                 }
