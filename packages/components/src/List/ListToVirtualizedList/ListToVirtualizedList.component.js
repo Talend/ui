@@ -11,6 +11,16 @@ function ListToVirtualizedList(props) {
 	if (!titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
+	// Backward compatibility: find array in object attr:
+	const supposedActions = {};
+	if (props.items.length > 0) {
+		const item = props.items[0];
+		Object.keys(item).forEach((key) => {
+			if (Array.isArray(item[key])) {
+				supposedActions[key] = true;
+			}
+		});
+	}
 	return (
 		<VirtualizedList
 			id={id}
@@ -27,7 +37,7 @@ function ListToVirtualizedList(props) {
 						columnData: titleProps,
 					});
 				}
-				if (column.key === 'actions') {
+				if (supposedActions[column.key]) {
 					Object.assign(cProps, CellActions);
 				}
 				return (
@@ -39,7 +49,15 @@ function ListToVirtualizedList(props) {
 }
 
 ListToVirtualizedList.propTypes = {
-
+	id: PropTypes.string,
+	displayMode: PropTypes.oneOf('LARGE', 'TABLE'),
+	titleProps: PropTypes.shape({
+		actionsKey: PropTypes.string,
+		key: PropTypes.string,
+	}),
+	items: PropTypes.arrayOf(PropTypes.object),
+	display: PropTypes.string,
+	columns: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ListToVirtualizedList;
