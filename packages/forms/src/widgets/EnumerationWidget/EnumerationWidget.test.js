@@ -257,8 +257,7 @@ describe('EnumerationWidget', () => {
 				/>);
 
 			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link button').at(0)
+			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0)
 				.simulate('click');
 
 			// then

@@ -29,6 +29,7 @@ class EnumerationWidget extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
+		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
@@ -167,8 +168,8 @@ class EnumerationWidget extends React.Component {
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_APPEND_MODE,
 			null,
-			this.importFileHandler.bind(this),
-			this.importFileHandler.bind(this)
+			this.importFileHandler,
+			this.importFileHandler
 		);
 	}
 
@@ -176,8 +177,8 @@ class EnumerationWidget extends React.Component {
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
 			null,
-			this.importFileHandler.bind(this),
-			this.importFileHandler.bind(this)
+			this.importFileHandler,
+			this.importFileHandler
 		);
 	}
 
@@ -501,8 +502,8 @@ class EnumerationWidget extends React.Component {
 			{
 				simulateClickInputFile: this.simulateClickInputFile.bind(this),
 			},
-			this.importFileHandler.bind(this),
-			this.importFileHandler.bind(this)
+			this.importFileHandler,
+			this.importFileHandler
 		);
 	}
 
@@ -578,8 +579,8 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_ACTION,
 			event.target.files[0],
-			this.importFileHandler.bind(this),
-			this.importFileHandler.bind(this)
+			this.importFileHandler,
+			this.importFileHandler
 		)) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
