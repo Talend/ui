@@ -1,4 +1,4 @@
-import { TF_MUTATE_VALUE, TF_VALIDATE_ALL, TF_VALIDATE_PARTIAL } from '../actions';
+import { TF_MUTATE_VALUE, TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from '../actions';
 import { omit } from '../utils/properties';
 
 /**
@@ -18,7 +18,7 @@ export default function validations(state = {}, action) {
 		}
 		return omit(state, schema.key.toString());
 	}
-	case TF_VALIDATE_PARTIAL: {
+	case TF_SET_PARTIAL_ERROR: {
 		if (Object.keys(action.errors).length === 0) {
 			return state;
 		}
@@ -27,7 +27,7 @@ export default function validations(state = {}, action) {
 			...action.errors,
 		};
 	}
-	case TF_VALIDATE_ALL: {
+	case TF_SET_ALL_ERRORS: {
 		return action.errors;
 	}
 	default:

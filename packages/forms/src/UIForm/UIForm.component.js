@@ -65,7 +65,7 @@ export default class UIForm extends React.Component {
 	 * @param value The field value
 	 */
 	onTrigger(event, type, schema, value) {
-		const { formName, onFormChange, onTrigger, onValidate, properties } = this.props;
+		const { formName, onFormChange, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return;
 		}
@@ -83,7 +83,7 @@ export default class UIForm extends React.Component {
 				newForm.properties,
 				newForm.errors)
 			)
-			.catch(({ errors }) => onValidate(formName, errors));
+			.catch(({ errors }) => setError(formName, errors));
 	}
 
 	/**
@@ -95,7 +95,7 @@ export default class UIForm extends React.Component {
 		const { mergedSchema } = this.state;
 		const { formName, properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
-		this.props.onValidateAll(formName, errors);
+		this.props.setErrors(formName, errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (isValid) {
@@ -174,9 +174,9 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: The form change callback */
 		onFormChange: PropTypes.func.isRequired,
-		/** State management impl: Partial fields validation callback */
-		onValidate: PropTypes.func,
-		/** State management impl: All fields validation callback */
-		onValidateAll: PropTypes.func,
+		/** State management impl: Set Partial fields validation error */
+		setError: PropTypes.func,
+		/** State management impl: Set All fields validations errors */
+		setErrors: PropTypes.func,
 	};
 }

@@ -3,8 +3,8 @@ import {
 	TF_CHANGE_FORM,
 	TF_REMOVE_FORM,
 	TF_MUTATE_VALUE,
-	TF_VALIDATE_ALL,
-	TF_VALIDATE_PARTIAL,
+	TF_SET_ALL_ERRORS,
+	TF_SET_PARTIAL_ERROR,
 } from '../actions';
 import { omit } from '../utils/properties';
 import modelReducer from './model.reducer';
@@ -59,8 +59,8 @@ export default function formReducer(state = {}, action) {
 	case TF_REMOVE_FORM:
 		return omit(state, action.formName);
 	case TF_MUTATE_VALUE:
-	case TF_VALIDATE_PARTIAL:
-	case TF_VALIDATE_ALL: {
+	case TF_SET_ALL_ERRORS:
+	case TF_SET_PARTIAL_ERROR: {
 		const form = state[action.formName];
 		if (!form) {
 			return state;

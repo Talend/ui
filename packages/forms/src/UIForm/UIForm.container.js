@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import UIFormComponent from './UIForm.component';
 
 import { formReducer, modelReducer, validationReducer } from './reducers';
-import { createForm, changeForm, mutateValue, validate, validateAll } from './actions';
+import { createForm, changeForm, mutateValue, setError, setErrors } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -18,8 +18,8 @@ export default class UIForm extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onFormChange = this.onFormChange.bind(this);
-		this.onValidate = this.onValidate.bind(this);
-		this.onValidateAll = this.onValidateAll.bind(this);
+		this.setError = this.setError.bind(this);
+		this.setErrors = this.setErrors.bind(this);
 	}
 
 	/**
@@ -31,7 +31,7 @@ export default class UIForm extends React.Component {
 	 * @param error The validation error
 	 */
 	onChange(formName, schema, value, error) {
-		const action = mutateValue(this.props.formName, schema, value, error);
+		const action = mutateValue(formName, schema, value, error);
 		this.setState(
 			{
 				properties: modelReducer(this.state.properties, action),
@@ -71,8 +71,8 @@ export default class UIForm extends React.Component {
 	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	onValidate(formName, errors) {
-		const action = validate(formName, errors);
+	setError(formName, errors) {
+		const action = setError(formName, errors);
 		this.setState({ errors: validationReducer(this.state.errors, action) });
 	}
 
@@ -81,8 +81,8 @@ export default class UIForm extends React.Component {
 	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	onValidateAll(formName, errors) {
-		const action = validateAll(formName, errors);
+	setErrors(formName, errors) {
+		const action = setErrors(formName, errors);
 		this.setState({ errors: validationReducer(this.state.errors, action) });
 	}
 
@@ -105,8 +105,8 @@ export default class UIForm extends React.Component {
 
 				onChange={this.onChange}
 				onFormChange={this.onFormChange}
-				onValidate={this.onValidate}
-				onValidateAll={this.onValidateAll}
+				setError={this.setError}
+				setErrors={this.setErrors}
 			/>
 		);
 	}

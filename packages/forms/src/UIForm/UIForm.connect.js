@@ -8,8 +8,8 @@ import {
 	changeForm,
 	removeForm,
 	mutateValue,
-	validate,
-	validateAll,
+	setError,
+	setErrors,
 } from './actions';
 
 class UIForm extends React.Component {
@@ -80,8 +80,8 @@ class UIForm extends React.Component {
 
 				onChange={this.onChange}
 				onFormChange={this.props.onFormChange}
-				onValidate={this.props.onValidate}
-				onValidateAll={this.props.onValidateAll}
+				setError={this.props.setError}
+				setErrors={this.props.setErrors}
 			/>
 		);
 	}
@@ -166,12 +166,12 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Partial form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
-		onValidate: PropTypes.func,
+		setError: PropTypes.func,
 		/**
 		 * Form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
-		onValidateAll: PropTypes.func,
+		setErrors: PropTypes.func,
 	};
 }
 
@@ -194,8 +194,8 @@ function mapDispatchToProps(dispatch) {
 		removeForm: bindActionCreators(removeForm, dispatch),
 		mutateValue: bindActionCreators(mutateValue, dispatch),
 		onFormChange: bindActionCreators(changeForm, dispatch),
-		onValidate: bindActionCreators(validate, dispatch),
-		onValidateAll: bindActionCreators(validateAll, dispatch),
+		setError: bindActionCreators(setError, dispatch),
+		setErrors: bindActionCreators(setErrors, dispatch),
 	};
 }
 
