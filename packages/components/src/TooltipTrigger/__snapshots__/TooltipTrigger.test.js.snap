@@ -1,10 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionTooltip should render tooltip 1`] = `
+exports[`ActionTooltip should render only the children 1`] = `
 <div
   onFocus={[Function]}
   onMouseOver={[Function]}
 >
   Action
 </div>
+`;
+
+exports[`ActionTooltip should render tooltip when focus the children 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": null,
+  "nodes": Array [
+    null,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": null,
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <TooltipTrigger
+    label="toto"
+    tooltipPlacement="right"
+>
+    <div>
+        Action
+    </div>
+</TooltipTrigger>,
+}
+`;
+
+exports[`ActionTooltip should render tooltip when hover the children 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": null,
+  "nodes": Array [
+    null,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": null,
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <TooltipTrigger
+    label="toto"
+    tooltipPlacement="right"
+>
+    <div>
+        Action
+    </div>
+</TooltipTrigger>,
+}
 `;
