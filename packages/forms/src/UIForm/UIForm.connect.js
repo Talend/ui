@@ -67,6 +67,7 @@ class UIForm extends React.Component {
 		return (
 			<UIFormComponent
 				formName={this.props.formName}
+				id={this.props.id}
 				jsonSchema={form.jsonSchema}
 				uiSchema={form.uiSchema}
 				properties={form.properties}
@@ -109,6 +110,8 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/** The form name that will be used to create ids */
 		formName: PropTypes.string.isRequired,
+		/** The form id */
+		id: PropTypes.string,
 		/**
 		 * The change callback.
 		 * Prototype: function onChange(schema, value, properties)

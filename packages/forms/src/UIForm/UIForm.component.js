@@ -13,7 +13,6 @@ export default class UIForm extends React.Component {
 		this.state = {
 			mergedSchema: merge(jsonSchema, uiSchema),
 		};
-		console.log(this.state.mergedSchema)
 
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
@@ -96,22 +95,26 @@ export default class UIForm extends React.Component {
 		const { mergedSchema } = this.state;
 		const { formName, properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
+		this.props.onValidateAll(formName, errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (isValid) {
 			this.props.onSubmit(event, properties);
-		} else {
-			this.props.onValidateAll(formName, errors);
 		}
 	}
 
 	render() {
-		const { autoComplete, errors, formName, properties, widgets } = this.props;
+		const { autoComplete, errors, formName, id, properties, widgets } = this.props;
 		return (
-			<form onSubmit={this.submit} autoComplete={autoComplete}>
+			<form
+				onSubmit={this.submit}
+				autoComplete={autoComplete}
+				noValidate
+			>
 				{
 					this.state.mergedSchema.map((nextSchema, index) => (
 						<Widget
+							id={id}
 							key={index}
 							formName={formName}
 							onChange={this.onChange}
@@ -135,6 +138,8 @@ if (process.env.NODE_ENV !== 'production') {
 		autoComplete: PropTypes.bool,
 		/** Form definition: The form name that will be used to create ids */
 		formName: PropTypes.string,
+		/** The form id */
+		id: PropTypes.string,
 		/** Form definition: Json schema that specify the data model */
 		jsonSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		/**
