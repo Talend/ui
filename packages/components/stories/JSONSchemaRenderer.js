@@ -53,6 +53,9 @@ const schema = {
 					nestedInteger: {
 						type: 'integer',
 					},
+					nestedHidden: {
+						type: 'string',
+					},
 					extraLevel: {
 						type: 'object',
 						title: 'Extra Level',
@@ -74,6 +77,11 @@ const schema = {
 			'bio',
 			'password',
 		],
+		nested: {
+			nestedHidden: {
+				'ui:widget': 'hidden',
+			},
+		},
 		age: {
 			'ui:widget': 'updown',
 		},
@@ -97,6 +105,7 @@ const schema = {
 		nested: {
 			nestedElement: 'nestedElement',
 			nestedInteger: 42,
+			nestedHidden: 'nestedHidden',
 			extraLevel: {
 				extraLevelStr: 'ExtraLevel',
 			},
