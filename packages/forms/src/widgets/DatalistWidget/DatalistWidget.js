@@ -38,7 +38,8 @@ function renderDatalistInput(props) {
 			<div className={theme['dropdown-toggle']}>
 				<span className="caret" />
 			</div>
-		</div>);
+		</div>
+	);
 }
 
 /**
@@ -46,7 +47,7 @@ function renderDatalistInput(props) {
  * @param props
  */
 function renderDatalistItemContainer(props) {
-	return (<div {...props} />);
+	return <div {...props} />;
 }
 
 /**
@@ -65,7 +66,11 @@ function renderDatalistItem(item, { value }) {
 		for (let i = 0; i < restValues.length; i++) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
-				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
+				emphasisedText.push(
+					<em className={theme['highlight-match']}>
+						{matchedValues[i]}
+					</em>,
+				);
 			}
 		}
 	}
@@ -93,7 +98,6 @@ function renderNoMatch() {
  * @param props
  */
 class DatalistWidget extends React.Component {
-
 	static propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.string,
@@ -140,7 +144,7 @@ class DatalistWidget extends React.Component {
 			container: classnames(
 				'form-control',
 				theme['tf-typeahead-container'],
-				'tf-typeahead-container'
+				'tf-typeahead-container',
 			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
@@ -152,8 +156,11 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur() {
-		if (this.props.options &&
-			this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
+		if (
+			this.props.options &&
+			this.props.options.restricted &&
+			this.state.initalItems.indexOf(this.state.value) === -1
+		) {
 			this.resetValue();
 		} else {
 			this.resetSuggestions();
@@ -167,7 +174,7 @@ class DatalistWidget extends React.Component {
 			event.preventDefault();
 			break;
 		case keycode.codes.enter:
-			// could be null in case of no match
+				// could be null in case of no match
 			if (focusedItemIndex != null) {
 				this.selectItem(focusedItemIndex);
 			}
@@ -196,7 +203,9 @@ class DatalistWidget extends React.Component {
 		let items;
 		if (this.props.schema.enum) {
 			items = this.props.schema.enum;
-		} else if (this.props.formContext && this.props.formContext.fetchItems) {
+		} else if (
+			this.props.formContext && this.props.formContext.fetchItems
+		) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
 		const suggestions = getMatchingSuggestions(items, value);
@@ -210,15 +219,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
-		if (!value && suggestions && suggestions.length === 0) {
-			suggestions = this.state.initalItems;
-		}
-		this.setState({
-			value,
-			items: suggestions,
-			itemIndex: null,
-			noMatch: value && suggestions && !suggestions.length,
+		this.setState(prevState => {
+			let suggestions = getMatchingSuggestions(
+				prevState.initalItems,
+				value,
+			);
+			if (!value && suggestions && suggestions.length === 0) {
+				suggestions = prevState.initalItems;
+			}
+			return {
+				value,
+				items: suggestions,
+				itemIndex: null,
+				noMatch: value && suggestions && !suggestions.length,
+			};
 		});
 	}
 
@@ -253,7 +267,11 @@ class DatalistWidget extends React.Component {
 				theme={this.style}
 				renderItemData={renderItemData}
 				renderInputComponent={renderDatalistInput}
-				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderDatalistItemContainer}
+				renderItemsContainer={
+					this.state.noMatch
+						? renderNoMatch
+						: renderDatalistItemContainer
+				}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
