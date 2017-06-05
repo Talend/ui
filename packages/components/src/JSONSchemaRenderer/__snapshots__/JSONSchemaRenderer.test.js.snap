@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONSchemaRenderer should handle nested objects 1`] = `
+<dl
+  className="json-schema-renderer"
+>
+  <div
+    className="object-renderer-a"
+  >
+    <h2>
+      a
+    </h2>
+    <div>
+      <div
+        className="text-renderer text-renderer-b"
+      >
+        <dt>
+          b
+        </dt>
+        <dd>
+          test
+        </dd>
+      </div>
+    </div>
+  </div>
+</dl>
+`;
+
+exports[`JSONSchemaRenderer should render 1`] = `
+<dl
+  className="json-schema-renderer"
+/>
+`;
+
+exports[`JSONSchemaRenderer should render arrays 1`] = `
+<dl
+  className="json-schema-renderer"
+>
+  <div
+    className="array-renderer-a"
+  >
+    <dt>
+      test string
+    </dt>
+    <dd>
+      b
+    </dd>
+    <dd>
+      d
+    </dd>
+    <dd>
+      f
+    </dd>
+  </div>
+</dl>
+`;
+
+exports[`JSONSchemaRenderer should render strings and integers 1`] = `
+<dl
+  className="json-schema-renderer"
+>
+  <div
+    className="text-renderer text-renderer-a"
+  >
+    <dt>
+      test string
+    </dt>
+    <dd>
+      A big a
+    </dd>
+  </div>
+  <div
+    className="text-renderer text-renderer-b"
+  >
+    <dt>
+      test integer
+    </dt>
+    <dd>
+      42
+    </dd>
+  </div>
+</dl>
+`;

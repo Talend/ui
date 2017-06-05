@@ -1,0 +1,25 @@
+/**
+	TODO
+		* change the classname to apply
+ */
+// TODO remove next line
+// sass-lint:disable-all
+.tc-list-model {
+
+}
+
+/**
+	TODO
+		* you can customize some parts for a specific row renderer
+		* ReactVirtualized__Table__row --> the table list row
+		* .tc-list-large-row --> the large list row
+ */
+:global(.tc-list-large-row) .tc-list-model {
+
+}
+:global(.ReactVirtualized__Table__row) .tc-list-model {
+
+}
+
+// TODO remove next line
+// sass-lint:enable-all
