@@ -1,14 +1,18 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.78.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.79.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
+
+src/ConfirmDialog/ConfirmDialog.scss
+  14:1   warning  Space expected between blocks  empty-line-between-blocks
+  14:26  warning  Whitespace required before {   space-before-brace
 
 src/VirtualizedList/ListTable/ListTable.scss
   46:10  error  Strings must use single quotes  quotes
 
-✖ 1 problem (1 error, 0 warnings)
+✖ 3 problems (1 error, 2 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
