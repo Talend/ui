@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.78.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.79.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -114,10 +114,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  161:2  error  setInputRef should be placed after onLoadData  react/sort-comp
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
+   83:2  error  Mixed spaces and tabs                            no-mixed-spaces-and-tabs
+  415:1  error  Line 415 exceeds the maximum line length of 100  max-len
 
-✖ 101 problems (101 errors, 0 warnings)
+✖ 102 problems (102 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
