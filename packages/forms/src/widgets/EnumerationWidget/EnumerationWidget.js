@@ -540,10 +540,6 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	setInputRef(input) {
-		this.input = input;
-	}
-
 	onImportButtonClick() {
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_CLICK,
@@ -553,6 +549,10 @@ class EnumerationWidget extends React.Component {
 			this.importFileHandler,
 			this.importFileHandler
 		);
+	}
+
+	setInputRef(input) {
+		this.input = input;
 	}
 
 	setFormData() {

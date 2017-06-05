@@ -62,8 +62,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
@@ -81,7 +80,7 @@ describe('EnumerationWidget', () => {
 
 		// when
 		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-			.simulate('click');
+					 .simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -166,8 +165,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(registry.formContext.handleAction).toBeCalled();
@@ -186,8 +184,7 @@ describe('EnumerationWidget', () => {
 			/>);
 
 		// edit item
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
 		// when select another item
 		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
@@ -257,8 +254,7 @@ describe('EnumerationWidget', () => {
 				/>);
 
 			// when
-			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0)
-				.simulate('click');
+			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0).simulate('click');
 
 			// then
 			expect(registry.formContext.handleAction).toBeCalledWith(
@@ -356,7 +352,7 @@ describe('EnumerationWidget', () => {
 		});
 
 		it('should trigger a event when the user clicks on the upload action'
-				+ ', shows a loading and return to initial state when we call the success callback', () => {
+			+ ', shows a loading and return to initial state when we call the success callback', () => {
 			// given
 			let successUploadHandler;
 			const registry = {
@@ -416,7 +412,7 @@ describe('EnumerationWidget', () => {
 			// given
 			const enumerationWidget = new EnumerationWidget({});
 			// when
-			const resultArray = enumerationWidget.parseStringValueToArray('toto ,  to , tata ');
+			const resultArray = enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});

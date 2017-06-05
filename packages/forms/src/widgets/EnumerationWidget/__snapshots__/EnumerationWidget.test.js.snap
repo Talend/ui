@@ -122,7 +122,8 @@ exports[`EnumerationWidget delete all 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -227,7 +228,8 @@ exports[`EnumerationWidget delete all 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -454,7 +456,8 @@ exports[`EnumerationWidget delete all 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -566,7 +569,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -671,7 +675,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <HeaderInput
             headerInput={
               Array [
@@ -725,61 +730,37 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 <TooltipTrigger
                   label="Validate and Add"
                   tooltipPlacement="bottom">
-                  <OverlayTrigger
-                    defaultOverlayShown={false}
-                    delayShow={400}
-                    overlay={
-                      <Tooltip
-                        bsClass="tooltip"
-                        className="undefined tooltip-container"
-                        id={42}
-                        placement="right">
-                        Validate and Add
-                      </Tooltip>
-                    }
-                    placement="bottom"
-                    trigger={
-                      Array [
-                        "hover",
-                        "focus",
-                      ]
-                    }>
-                    <Button
-                      active={false}
-                      block={false}
-                      bsClass="btn"
-                      bsStyle="link"
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="link"
+                    disabled={true}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseOver={[Function]}
+                    role="link">
+                    <button
+                      className="btn btn-link"
                       disabled={true}
-                      onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
-                      onMouseOut={[Function]}
                       onMouseOver={[Function]}
-                      role="link">
-                      <button
-                        className="btn btn-link"
-                        disabled={true}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onMouseOut={[Function]}
-                        onMouseOver={[Function]}
-                        role="link"
-                        type="button">
-                        <Icon
-                          name="talend-check-plus">
-                          <svg
-                            aria-hidden="true"
-                            className="tc-svg-icon"
-                            focusable="false"
-                            title={null}>
-                            <use
-                              xlinkHref="#talend-check-plus" />
-                          </svg>
-                        </Icon>
-                      </button>
-                    </Button>
-                  </OverlayTrigger>
+                      role="link"
+                      type="button">
+                      <Icon
+                        name="talend-check-plus">
+                        <svg
+                          aria-hidden="true"
+                          className="tc-svg-icon"
+                          focusable="false"
+                          title={null}>
+                          <use
+                            xlinkHref="#talend-check-plus" />
+                        </svg>
+                      </Icon>
+                    </button>
+                  </Button>
                 </TooltipTrigger>
               </Action>
               <Action
@@ -979,7 +960,8 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -1091,7 +1073,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1196,7 +1179,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -1423,7 +1407,8 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -1540,7 +1525,8 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={true}>
+      required={true}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -1645,7 +1631,8 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={true}>
+          required={true}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -1873,7 +1860,8 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={true} />
+          required={true}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -2017,7 +2005,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2142,7 +2131,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -2389,7 +2379,8 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             currentEdit={
               Object {
@@ -2868,7 +2859,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -2957,7 +2949,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <HeaderInput
             headerInput={
               Array [
@@ -3117,7 +3110,8 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -3241,7 +3235,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3346,7 +3341,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -3573,7 +3569,8 @@ exports[`EnumerationWidget should delete an item 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -3707,7 +3704,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -3815,7 +3813,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -4045,7 +4044,8 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             items={
               Array [
@@ -4515,7 +4515,8 @@ exports[`EnumerationWidget should select an item 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -4632,7 +4633,8 @@ exports[`EnumerationWidget should select an item 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -4813,7 +4815,8 @@ exports[`EnumerationWidget should select an item 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             items={
               Array [
@@ -5380,7 +5383,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -5506,7 +5510,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <HeaderSelected
             headerSelected={
               Array [
@@ -5696,7 +5701,8 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             items={
               Array [
@@ -6482,7 +6488,8 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -6606,7 +6613,8 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -7098,7 +7106,8 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false} />
+          required={false}
+          setFormData={[Function]} />
       </div>
     </Enumeration>
   </div>
@@ -7255,7 +7264,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -7370,7 +7380,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -7561,7 +7572,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             items={
               Array [
@@ -8374,7 +8386,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={false}>
+      required={false}
+      setFormData={[Function]}>
       <div
         className="undefined tc-enumeration">
         <HeaderEnumeration
@@ -8515,7 +8528,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Header
             headerDefault={
               Array [
@@ -9024,7 +9038,8 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           }
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
-          required={false}>
+          required={false}
+          setFormData={[Function]}>
           <Items
             items={
               Array [
