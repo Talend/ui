@@ -1045,6 +1045,42 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     </svg>
   </symbol>
   <symbol
+    id="talend-flow-source-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63636,2H1A.97939.97939,0,0,0,0,3V13a.97939.97939,0,0,0,1,1H11.63636L16,8ZM11,13H2a.97939.97939,0,0,1-1-1V4A.97939.97939,0,0,1,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-step-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63635,2H0L5,8,0,14H11.63635L16,8ZM11,13H2L6,8,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-target-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15,2H0L5,8,0,14H15a.97939.97939,0,0,0,1-1V3A.97939.97939,0,0,0,15,2Zm0,10a.97939.97939,0,0,1-1,1H2L6,8,2,3H14a.97939.97939,0,0,1,1,1Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
     id="talend-flow-under-plan"
   >
     <svg
@@ -1737,6 +1773,26 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     >
       <path
         d="M8,0C6,2,0,2,0,2A34.47638,34.47638,0,0,0,1.07813,8C2.13361,11.79962,4.16534,16,8,16s5.86639-4.20038,6.92188-8A34.47638,34.47638,0,0,0,16,2S10,2,8,0ZM9,2c1.25,1.25,5,1.25,5,1.25A21.54664,21.54664,0,0,1,13.32617,7H9ZM8,13.77875c-2.77,0-4.23755-3.03412-5-5.77875H8Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-show_unassigned_tasks"
+  >
+    <svg
+      viewBox="0 0 16 12.59"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.67,5.2A4.68,4.68,0,0,0,0,9.87v2.72H9.34V9.87A4.68,4.68,0,0,0,4.67,5.2Z"
+      />
+      <circle
+        cx="4.65"
+        cy="2.42"
+        r="2.42"
+      />
+      <path
+        d="M9.49,6.18l0,0,0,0v0h0V5.9s0,0,0,0,0,0,0,0V5.61l0,0,0,0,0,0,0,0,0,0,2.71-2.71a.58.58,0,1,1,.82.82L11.36,5.28h4.06a.58.58,0,1,1,0,1.16H11.36l1.72,1.72a.58.58,0,0,1-.82.82L9.56,6.27l0,0,0,0Z"
       />
     </svg>
   </symbol>
@@ -3129,6 +3185,42 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     </svg>
   </symbol>
   <symbol
+    id="talend-flow-source-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63636,2H1A.97939.97939,0,0,0,0,3V13a.97939.97939,0,0,0,1,1H11.63636L16,8ZM11,13H2a.97939.97939,0,0,1-1-1V4A.97939.97939,0,0,1,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-step-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.63635,2H0L5,8,0,14H11.63635L16,8ZM11,13H2L6,8,2,3h9l4,5Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-flow-target-o"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15,2H0L5,8,0,14H15a.97939.97939,0,0,0,1-1V3A.97939.97939,0,0,0,15,2Zm0,10a.97939.97939,0,0,1-1,1H2L6,8,2,3H14a.97939.97939,0,0,1,1,1Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
     id="talend-flow-under-plan"
   >
     <svg
@@ -3821,6 +3913,26 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     >
       <path
         d="M8,0C6,2,0,2,0,2A34.47638,34.47638,0,0,0,1.07813,8C2.13361,11.79962,4.16534,16,8,16s5.86639-4.20038,6.92188-8A34.47638,34.47638,0,0,0,16,2S10,2,8,0ZM9,2c1.25,1.25,5,1.25,5,1.25A21.54664,21.54664,0,0,1,13.32617,7H9ZM8,13.77875c-2.77,0-4.23755-3.03412-5-5.77875H8Z"
+      />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-show_unassigned_tasks"
+  >
+    <svg
+      viewBox="0 0 16 12.59"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.67,5.2A4.68,4.68,0,0,0,0,9.87v2.72H9.34V9.87A4.68,4.68,0,0,0,4.67,5.2Z"
+      />
+      <circle
+        cx="4.65"
+        cy="2.42"
+        r="2.42"
+      />
+      <path
+        d="M9.49,6.18l0,0,0,0v0h0V5.9s0,0,0,0,0,0,0,0V5.61l0,0,0,0,0,0,0,0,0,0,2.71-2.71a.58.58,0,1,1,.82.82L11.36,5.28h4.06a.58.58,0,1,1,0,1.16H11.36l1.72,1.72a.58.58,0,0,1-.82.82L9.56,6.27l0,0,0,0Z"
       />
     </svg>
   </symbol>
