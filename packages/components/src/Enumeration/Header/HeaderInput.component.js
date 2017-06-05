@@ -19,8 +19,9 @@ function headerErrorClasses() {
 	});
 }
 
-function getAction(action, index, internalInputRef) {
+function getAction(action, index, getInternalInputRef) {
 	function onClick(event) {
+		const internalInputRef = getInternalInputRef();
 		if (action.onClick) {
 			action.onClick(event, {
 				value: internalInputRef.value,
@@ -44,10 +45,10 @@ function getAction(action, index, internalInputRef) {
 }
 
 function HeaderInput({
-	headerInput, headerError, onInputChange, inputPlaceholder,
-	onAddKeyDown, value, inputRef,
-}) {
-	let internalInputRef;
+		headerInput, headerError, onInputChange, inputPlaceholder,
+		onAddKeyDown, value, inputRef,
+	}) {
+	let internalInputRef = null;
 
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
@@ -59,6 +60,10 @@ function HeaderInput({
 		onAddKeyDown(event, {
 			value: event.target.value,
 		});
+	}
+
+	function getInternalInputRef() {
+		return internalInputRef;
 	}
 
 	return (
@@ -77,9 +82,8 @@ function HeaderInput({
 				value={value}
 				autoFocus
 			/>
-			{ headerError &&
-			<div className={headerErrorClasses()}>{headerError}</div> }
-			{headerInput.map((action, index) => getAction(action, index, internalInputRef))}
+			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
+			{ headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this))) }
 		</header>
 	);
 }

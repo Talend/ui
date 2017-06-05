@@ -543,10 +543,10 @@ class EnumerationWidget extends React.Component {
 			});
 		}
 	}
-  
+
 	setInputRef(input) {
 		this.input = input;
-  }
+	}
 
 	onImportButtonClick() {
 		this.callActionHandler(
@@ -629,11 +629,11 @@ class EnumerationWidget extends React.Component {
 	 */
 	importFile(event) {
 		if (this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_ACTION,
-			event.target.files[0],
-			this.importFileHandler,
-			this.importFileHandler
-		)) {
+				ENUMERATION_IMPORT_FILE_ACTION,
+				event.target.files[0],
+				this.importFileHandler,
+				this.importFileHandler
+			)) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
