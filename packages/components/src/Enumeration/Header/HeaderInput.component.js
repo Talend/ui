@@ -83,7 +83,8 @@ function HeaderInput({
 				autoFocus
 			/>
 			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
-			{ headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this))) }
+			{ headerInput.map((action, index) =>
+				getAction(action, index, getInternalInputRef.bind(this))) }
 		</header>
 	);
 }

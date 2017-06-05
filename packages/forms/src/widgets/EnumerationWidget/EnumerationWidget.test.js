@@ -79,8 +79,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-					 .simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
