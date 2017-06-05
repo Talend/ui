@@ -4,7 +4,7 @@ exports[`UIForm component should render form 1`] = `
   noValidate={true}
   onSubmit={[Function]}>
   <Widget
-    errors={undefined}
+    errors={Object {}}
     formName="myForm"
     id={undefined}
     onChange={[Function]}
@@ -17,8 +17,10 @@ exports[`UIForm component should render form 1`] = `
         "key": Array [
           "lastname",
         ],
+        "minlength": 10,
         "ngModelOptions": Object {},
         "schema": Object {
+          "minLength": 10,
           "type": "string",
         },
         "title": "Last Name (with description)",
@@ -27,7 +29,7 @@ exports[`UIForm component should render form 1`] = `
     }
     widgets={Array []} />
   <Widget
-    errors={undefined}
+    errors={Object {}}
     formName="myForm"
     id={undefined}
     onChange={[Function]}
@@ -45,7 +47,30 @@ exports[`UIForm component should render form 1`] = `
           "type": "string",
         },
         "title": "First Name (with placeholder)",
+        "triggers": Array [
+          "after",
+        ],
         "type": "text",
+      }
+    }
+    widgets={Array []} />
+  <Widget
+    errors={Object {}}
+    formName="myForm"
+    id={undefined}
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "key": Array [
+          "check",
+        ],
+        "title": "Check the thing",
+        "triggers": Array [
+          "after",
+        ],
+        "type": "button",
       }
     }
     widgets={Array []} />
