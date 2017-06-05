@@ -65,7 +65,7 @@ export default class UIForm extends React.Component {
 	 * @param value The field value
 	 */
 	onTrigger(event, type, schema, value) {
-		const { formName, onFormChange, onTrigger, setError, properties } = this.props;
+		const { formName, updateForm, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return;
 		}
@@ -76,7 +76,7 @@ export default class UIForm extends React.Component {
 			value,          // field value
 			properties,     // current properties values
 		)
-			.then(newForm => onFormChange(
+			.then(newForm => updateForm(
 				formName,
 				newForm.jsonSchema,
 				newForm.uiSchema,
@@ -172,11 +172,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
-		/** State management impl: The form change callback */
-		onFormChange: PropTypes.func.isRequired,
 		/** State management impl: Set Partial fields validation error */
 		setError: PropTypes.func,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		/** State management impl: The form update callback */
+		updateForm: PropTypes.func.isRequired,
 	};
 }

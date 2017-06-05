@@ -1,24 +1,3 @@
-exports[`Form actions #changeForm action should create the action payload 1`] = `
-Object {
-  "errors": Object {
-    "field": "errors",
-  },
-  "formName": "formName",
-  "jsonSchema": Object {
-    "jsonSchema": "json",
-  },
-  "properties": Object {
-    "props": "json",
-  },
-  "type": "TF_CHANGE_FORM",
-  "uiSchema": Array [
-    Object {
-      "uiSchema": "json",
-    },
-  ],
-}
-`;
-
 exports[`Form actions #createForm action should create the action payload 1`] = `
 Object {
   "errors": Object {
@@ -44,5 +23,26 @@ exports[`Form actions #removeForm action should create the action payload 1`] = 
 Object {
   "formName": "formName",
   "type": "TF_REMOVE_FORM",
+}
+`;
+
+exports[`Form actions #updateForm action should create the action payload 1`] = `
+Object {
+  "errors": Object {
+    "field": "errors",
+  },
+  "formName": "formName",
+  "jsonSchema": Object {
+    "jsonSchema": "json",
+  },
+  "properties": Object {
+    "props": "json",
+  },
+  "type": "TF_UPDATE_FORM",
+  "uiSchema": Array [
+    Object {
+      "uiSchema": "json",
+    },
+  ],
 }
 `;

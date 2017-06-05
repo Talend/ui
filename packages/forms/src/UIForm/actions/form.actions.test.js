@@ -1,7 +1,7 @@
 import {
-	changeForm,
 	createForm,
 	removeForm,
+	updateForm,
 } from './form.actions';
 
 const formName = 'formName';
@@ -21,12 +21,12 @@ describe('Form actions', () => {
 		});
 	});
 
-	describe('#changeForm action', () => {
+	describe('#updateForm action', () => {
 		it('should create the action payload', () => {
 			// given
 
 			// when
-			const resultAction = changeForm(formName, jsonSchema, uiSchema, properties, errors);
+			const resultAction = updateForm(formName, jsonSchema, uiSchema, properties, errors);
 
 			// then
 			expect(resultAction).toMatchSnapshot();

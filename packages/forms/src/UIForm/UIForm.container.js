@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import UIFormComponent from './UIForm.component';
 
 import { formReducer, modelReducer, validationReducer } from './reducers';
-import { createForm, changeForm, mutateValue, setError, setErrors } from './actions';
+import { createForm, updateForm, mutateValue, setError, setErrors } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -17,7 +17,7 @@ export default class UIForm extends React.Component {
 		this.state = formReducer(undefined, action)[this.props.formName];
 
 		this.onChange = this.onChange.bind(this);
-		this.onFormChange = this.onFormChange.bind(this);
+		this.updateForm = this.updateForm.bind(this);
 		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
@@ -56,8 +56,8 @@ export default class UIForm extends React.Component {
 	 * @param values The values
 	 * @param errors The validation errors
 	 */
-	onFormChange(formName, schema, values, errors) {
-		const action = changeForm(formName, schema, values, errors);
+	updateForm(formName, schema, values, errors) {
+		const action = updateForm(formName, schema, values, errors);
 		const nextState = formReducer(
 			{ [formName]: this.state },
 			action
@@ -104,9 +104,9 @@ export default class UIForm extends React.Component {
 				widgets={this.props.widgets}
 
 				onChange={this.onChange}
-				onFormChange={this.onFormChange}
 				setError={this.setError}
 				setErrors={this.setErrors}
+				updateForm={this.updateForm}
 			/>
 		);
 	}

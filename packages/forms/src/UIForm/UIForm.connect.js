@@ -5,8 +5,8 @@ import UIFormComponent from './UIForm.component';
 
 import {
 	createForm,
-	changeForm,
 	removeForm,
+	updateForm,
 	mutateValue,
 	setError,
 	setErrors,
@@ -79,9 +79,9 @@ class UIForm extends React.Component {
 				widgets={this.props.widgets}
 
 				onChange={this.onChange}
-				onFormChange={this.props.onFormChange}
 				setError={this.props.setError}
 				setErrors={this.props.setErrors}
+				updateForm={this.props.updateForm}
 			/>
 		);
 	}
@@ -158,10 +158,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		mutateValue: PropTypes.func,
 		/**
-		 * Form change action.
+		 * Form update action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
-		onFormChange: PropTypes.func,
+		updateForm: PropTypes.func,
 		/**
 		 * Partial form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
@@ -192,8 +192,8 @@ function mapDispatchToProps(dispatch) {
 	return {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
-		mutateValue: bindActionCreators(mutateValue, dispatch),
-		onFormChange: bindActionCreators(changeForm, dispatch),
+		mutateValue: bindActionCreators(mutateValue, dispatch), // TODO updateFormData
+		updateForm: bindActionCreators(updateForm, dispatch), // TODO updateForm
 		setError: bindActionCreators(setError, dispatch),
 		setErrors: bindActionCreators(setErrors, dispatch),
 	};

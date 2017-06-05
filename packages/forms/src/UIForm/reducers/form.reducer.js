@@ -14,6 +14,8 @@ import validationsReducer from './validations.reducer';
  * Form reducer, that manage multiple form state, identified by their formName
  * Format : {
  *      [formName]: {
+ *          jsonSchema: {},
+ *          uiSchema: [],
  *          properties: {},
  *          errors: {},
  *      },
