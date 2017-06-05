@@ -19,11 +19,11 @@ function headerErrorClasses() {
 	});
 }
 
-function getAction(action, index) {
+function getAction(action, index, internalInputRef) {
 	function onClick(event) {
 		if (action.onClick) {
 			action.onClick(event, {
-				value: this.internalInputRef.value,
+				value: internalInputRef.value,
 			});
 		}
 	}
@@ -44,9 +44,11 @@ function getAction(action, index) {
 }
 
 function HeaderInput({
-		headerInput, headerError, onInputChange, inputPlaceholder,
-		onAddKeyDown, value, inputRef,
-	}) {
+	headerInput, headerError, onInputChange, inputPlaceholder,
+	onAddKeyDown, value, inputRef,
+}) {
+	let internalInputRef;
+
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -65,7 +67,7 @@ function HeaderInput({
 				type="text"
 				placeholder={inputPlaceholder}
 				ref={(input) => {
-					this.internalInputRef = input;
+					internalInputRef = input;
 					if (inputRef) {
 						inputRef(input);
 					}
@@ -77,7 +79,7 @@ function HeaderInput({
 			/>
 			{ headerError &&
 			<div className={headerErrorClasses()}>{headerError}</div> }
-			{headerInput.map((action, index) => getAction(action, index))}
+			{headerInput.map((action, index) => getAction(action, index, internalInputRef))}
 		</header>
 	);
 }

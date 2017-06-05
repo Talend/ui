@@ -19,6 +19,9 @@ const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
 const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
+const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
+const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
+const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
 class EnumerationWidget extends React.Component {
 
@@ -35,6 +38,7 @@ class EnumerationWidget extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
+		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
@@ -113,7 +117,17 @@ class EnumerationWidget extends React.Component {
 				label: 'Import values from a file',
 				icon: 'talend-download',
 				id: 'upload',
-				onClick: this.simulateClickInputFile.bind(this),
+				onClick: this.onImportButtonClick.bind(this),
+				displayMode: 'dropdown',
+				items: [{
+					label: 'Add values from a file',
+					id: 'append-uploding',
+					onClick: this.onImportAppendClick.bind(this),
+				}, {
+					label: 'Overwrite existing values',
+					id: 'append-uploding',
+					onClick: this.onImportOverwriteClick.bind(this),
+				}],
 			});
 		}
 
@@ -149,7 +163,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.constructor.getItemHeight,
+				getItemHeight: this.constructor.getItemHeight.bind(this),
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -160,11 +174,30 @@ class EnumerationWidget extends React.Component {
 			},
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
+			setFormData: this.setFormData.bind(this),
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ ...this.state, items: nextProps.formData });
+	}
+
+	onImportAppendClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_APPEND_MODE,
+			null,
+			this.importFileHandler,
+			this.importFileHandler
+		);
+	}
+
+	onImportOverwriteClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
+			null,
+			this.importFileHandler,
+			this.importFileHandler
+		);
 	}
 
 	// default mode
@@ -219,7 +252,7 @@ class EnumerationWidget extends React.Component {
 			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
 				displayMode = DISPLAY_MODE_DEFAULT;
 			}
-			this.setState({ items, displayMode }, this.setFormData.bind(this));
+			this.setState({ items, displayMode });
 		}
 	}
 
@@ -259,7 +292,7 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
 					index: value.index,
-					value: this.parseStringValueToArray(value.value),
+					value: this.constructor.parseStringValueToArray(value.value),
 				},
 				this.itemSubmitHandler.bind(this),
 				this.itemSubmitHandler.bind(this)
@@ -276,14 +309,14 @@ class EnumerationWidget extends React.Component {
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
 				items[value.index].values =
-					this.parseStringValueToArray(value.value);
+					this.constructor.parseStringValueToArray(value.value);
 			}
 			if (valueExist) {
 				items[value.index].error = DUPLICATION_ERROR;
 			}
 			this.setState({
 				items,
-			}, this.setFormData.bind(this));
+			});
 		}
 	}
 
@@ -424,7 +457,7 @@ class EnumerationWidget extends React.Component {
 			this.setState({
 				displayMode: DISPLAY_MODE_DEFAULT,
 				items: result,
-			}, this.setFormData.bind(this));
+			});
 		}
 	}
 
@@ -445,7 +478,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				this.parseStringValueToArray(value.value),
+				this.constructor.parseStringValueToArray(value.value),
 				this.validateAndAddSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -457,11 +490,10 @@ class EnumerationWidget extends React.Component {
 			this.setState(
 				{
 					items: this.state.items.concat([{
-						values: this.parseStringValueToArray(value.value),
+						values: this.constructor.parseStringValueToArray(value.value),
 						inputValue: '',
 					}]),
-				},
-				this.setFormData.bind(this)
+				}
 			);
 			this.updateHeaderInputDisabled('');
 			this.input.focus();
@@ -478,7 +510,7 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				this.parseStringValueToArray(value.value),
+				this.constructor.parseStringValueToArray(value.value),
 				this.addSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
@@ -490,10 +522,9 @@ class EnumerationWidget extends React.Component {
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
 					items: this.state.items.concat([{
-						values: this.parseStringValueToArray(value.value),
+						values: this.constructor.parseStringValueToArray(value.value),
 					}]),
-				},
-				this.setFormData.bind(this)
+				}
 			);
 			this.updateHeaderInputDisabled('');
 		}
@@ -512,9 +543,20 @@ class EnumerationWidget extends React.Component {
 			});
 		}
 	}
-
+  
 	setInputRef(input) {
 		this.input = input;
+  }
+
+	onImportButtonClick() {
+		this.callActionHandler(
+			ENUMERATION_IMPORT_FILE_CLICK,
+			{
+				simulateClickInputFile: this.simulateClickInputFile.bind(this),
+			},
+			this.importFileHandler,
+			this.importFileHandler
+		);
 	}
 
 	setFormData() {
@@ -564,17 +606,19 @@ class EnumerationWidget extends React.Component {
 		return false;
 	}
 
-
 	/**
 	 * simulateClickInputFile - simulate the click on the hidden input
 	 *
 	 */
 	simulateClickInputFile() {
-		this.inputFile.click();
+		// timeout to allow to lost the focus on the dropdown
+		setTimeout(() => {
+			this.inputFile.click();
 
-		// when we close the file dialog focus is still on the import icon. The tooltip still appears.
-		// we force to remove the current focus on the icon
-		document.activeElement.blur();
+			// when we close the file dialog focus is still on the import icon. The tooltip still appears.
+			// we force to remove the current focus on the icon
+			document.activeElement.blur();
+		});
 	}
 
 
@@ -585,11 +629,11 @@ class EnumerationWidget extends React.Component {
 	 */
 	importFile(event) {
 		if (this.callActionHandler(
-				ENUMERATION_IMPORT_FILE_ACTION,
-				event.target.files[0],
-				this.importFileHandler.bind(this),
-				this.importFileHandler.bind(this)
-			)) {
+			ENUMERATION_IMPORT_FILE_ACTION,
+			event.target.files[0],
+			this.importFileHandler,
+			this.importFileHandler
+		)) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});

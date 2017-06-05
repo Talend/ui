@@ -18,13 +18,10 @@ exports[`Header should render header input with error 1`] = `
     duplicate value
   </div>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -41,13 +38,10 @@ exports[`Header should render header input with error 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -79,13 +73,10 @@ exports[`Header should render header input with two buttons 1`] = `
     value={undefined}
   />
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -102,13 +93,10 @@ exports[`Header should render header input with two buttons 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
