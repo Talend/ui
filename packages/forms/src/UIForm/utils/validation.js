@@ -54,7 +54,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
  * @param errors The errors
  * @returns {boolean} true if it is invalid, false otherwise
  */
-export default function isValid(schema, errors) {
+export function isValid(schema, errors) {
 	const { key, items } = schema;
 	if (key && errors[key]) {
 		return false;
