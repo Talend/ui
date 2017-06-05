@@ -9,6 +9,7 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
     className=""
     style={
       Object {
+        "animationDuration": "5s",
         "width": "0%",
       }
     }
@@ -25,6 +26,7 @@ exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
     className=""
     style={
       Object {
+        "animationDuration": "5s",
         "width": "100%",
       }
     }
@@ -41,6 +43,7 @@ exports[`Progress should render a contained progress 1`] = `
     className=""
     style={
       Object {
+        "animationDuration": "5s",
         "width": "60%",
       }
     }
@@ -59,6 +62,7 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
     onMouseOver={[Function]}
     style={
       Object {
+        "animationDuration": "5s",
         "width": "100%",
       }
     }
@@ -75,6 +79,7 @@ exports[`Progress should render hidden progress at 0% 1`] = `
     className=""
     style={
       Object {
+        "animationDuration": "5s",
         "width": "0%",
       }
     }
@@ -91,6 +96,7 @@ exports[`Progress should render progress with given percentage 1`] = `
     className=""
     style={
       Object {
+        "animationDuration": "5s",
         "width": "60%",
       }
     }
@@ -109,6 +115,7 @@ exports[`Progress should render progress with tooltip 1`] = `
     onMouseOver={[Function]}
     style={
       Object {
+        "animationDuration": "5s",
         "width": "60%",
       }
     }

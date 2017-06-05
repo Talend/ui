@@ -37,7 +37,7 @@ storiesOf('Progress', module)
 			<Progress id="my-progress" percent={75} tooltip="Hey ! Already 75% !" />
 		</div>
 	))
-	.addWithInfo('Infinite', () => (
+	.addWithInfo('Infinite without speed', () => (
 		<div>
 			<h1>Action</h1>
 			<h2>Definition</h2>
@@ -48,6 +48,19 @@ storiesOf('Progress', module)
 			<h2>Examples</h2>
 			Look above and put the mouse on it
 			<Progress id="my-progress" infinite tooltip="Hey !" />
+		</div>
+	))
+	.addWithInfo('Infinite with speed', () => (
+		<div>
+			<h1>Action</h1>
+			<h2>Definition</h2>
+			<p>
+				The component displays an infinite progress bar at the top of the window.<br />
+				<a href="http://guidelines.talend.com/document/92132#/messaging-communication/progress-bar-circle">Spec</a>
+			</p>
+			<h2>Examples</h2>
+			Look above and put the mouse on it
+			<Progress id="my-progress" infinite tooltip="Hey !" timeToComplete={7} />
 		</div>
 	))
 	.addWithInfo('Contained', () => (

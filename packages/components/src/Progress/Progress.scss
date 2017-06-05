@@ -40,7 +40,7 @@ $gradient-part-width: 100% / 6;
 		&.infinite {
 			background: transparent;
 			width: 100%;
-			animation: infinite-progression-keyframes 2s infinite;
+			animation: infinite-progression-keyframes infinite;
 			animation-timing-function: linear;
 			animation-fill-mode: forwards;
 			background-size: 300%;
