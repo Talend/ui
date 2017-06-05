@@ -124,6 +124,7 @@ const props = {
 			iconKey: 'icon',
 			displayModeKey: 'display',
 			onClick: action('onClick'),
+			onMouseDown: action('onMouseDown'),
 			onEditCancel: action('onEditCancel'),
 			onEditSubmit: action('onEditSubmit'),
 		},

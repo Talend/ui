@@ -12,14 +12,19 @@ const TITLE_MODE_INPUT = 'input';
 const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
-export function RenderButton({ id, value, className, item, onClick }) {
+export function RenderButton({ id, value, className, item, onClick, onMouseDown }) {
 	function click(event) {
 		event.stopPropagation();
 		onClick(event, item);
 	}
 
+	function mouseDown(event) {
+		event.stopPropagation();
+		onMouseDown(event, item);
+	}
+
 	return (
-		<Button id={id} className={className} onClick={click} role="link" bsStyle="link">
+		<Button id={id} className={className} onMouseDown={mouseDown} onClick={click} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);
@@ -123,6 +128,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 		iconKey,
 		displayModeKey,
 		onClick,
+		onMouseDown,
 		onEditSubmit,
 		onEditCancel,
 	} = titleProps;
@@ -140,6 +146,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 				className={className}
 				item={item}
 				onClick={onClick}
+			    onMouseDown={onMouseDown}
 			/>);
 		} else {
 			titleElement = renderText({ id, value, className });
@@ -171,6 +178,7 @@ ItemTitle.propTypes = {
 		iconKey: PropTypes.string,
 		displayModeKey: PropTypes.string,
 		onClick: PropTypes.func,
+		onMouseDown: PropTypes.func,
 		onEditSubmit: PropTypes.func,
 		onEditCancel: PropTypes.func,
 	}).isRequired,
