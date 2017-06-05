@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.77.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.78.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 
@@ -36,6 +36,9 @@ Scoping to packages that match 'react-talend-components'
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
+  47:18  error  'label' is missing in props validation  react/prop-types
 
 ✖ 16 problems (16 errors, 0 warnings)
 

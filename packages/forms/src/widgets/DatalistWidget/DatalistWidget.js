@@ -137,7 +137,11 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.style = {
-			container: classnames('form-control', theme['tf-typeahead-container']),
+			container: classnames(
+				'form-control',
+				theme['tf-typeahead-container'],
+				'tf-typeahead-container'
+			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
@@ -207,14 +211,14 @@ class DatalistWidget extends React.Component {
 
 	updateSuggestions(value) {
 		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
-		if (!value && suggestions.length === 0) {
+		if (!value && suggestions && suggestions.length === 0) {
 			suggestions = this.state.initalItems;
 		}
 		this.setState({
 			value,
 			items: suggestions,
 			itemIndex: null,
-			noMatch: value && !suggestions.length,
+			noMatch: value && suggestions && !suggestions.length,
 		});
 	}
 
