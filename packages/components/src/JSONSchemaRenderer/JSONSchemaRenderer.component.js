@@ -149,6 +149,23 @@ function orderProperties(order, properties) {
 }
 
 /**
+ * removeHiddenProperties removes the properties marked as hidden by the
+ * uiSchema
+ *
+ * @param uiSchema
+ * @param properties
+ * @returns {Array}
+ */
+function removeHiddenProperties(uiSchema, properties) {
+	return properties.reduce((acc, e) => {
+		if (!uiSchema[e[0]] || uiSchema[e[0]]['ui:widget'] !== 'hidden') {
+			acc.push(e);
+		}
+		return acc;
+	}, []);
+}
+
+/**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
  *
  * @throws {InvalidSchemaException} schema must contain a jsonSchema and
@@ -162,6 +179,7 @@ function JSONSchemaRenderer(props) {
 	let properties = entries(props.schema.properties);
 	if (props.schema.uiSchema) {
 		properties = orderProperties(props.schema.uiSchema['ui:order'], properties);
+		properties = removeHiddenProperties(props.schema.uiSchema, properties);
 	}
 	const elements = properties.map(typeResolver(props.schema.jsonSchema.properties));
 	return (
