@@ -487,14 +487,10 @@ class EnumerationWidget extends React.Component {
 			});
 			this.input.focus();
 		} else if (!this.valueAlreadyExist(value.value)) {
-			this.setState(
-				{
-					items: this.state.items.concat([{
-						values: this.constructor.parseStringValueToArray(value.value),
-						inputValue: '',
-					}]),
-				}
-			);
+			const items = this.state.items.concat([{
+				values: this.constructor.parseStringValueToArray(value.value),
+			}]);
+			this.setState({ items, inputValue: '' });
 			this.updateHeaderInputDisabled('');
 			this.input.focus();
 		}
