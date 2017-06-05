@@ -11,7 +11,8 @@ $tc-dialog-body-padding: 30px !default;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		>:global(.modal-content){
+
+		>:global(.modal-content) {
 			flex-basis: 100%;
 			flex-grow: 0;
 			flex-shrink: 0;
