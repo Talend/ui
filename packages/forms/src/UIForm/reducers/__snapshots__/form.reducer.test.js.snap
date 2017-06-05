@@ -2,17 +2,17 @@ exports[`Form reducers #TF_CHANGE_FORM should replace the forms configurations 1
 Object {
   "existingFormName": Object {
     "errors": Object {
-      "field": "errors",
+      "field": "oldError",
     },
     "jsonSchema": Object {
-      "jsonSchema": "json",
+      "jsonSchema": "oldJson",
     },
     "properties": Object {
-      "props": "json",
+      "props": "oldJson",
     },
     "uiSchema": Array [
       Object {
-        "uiSchema": "json",
+        "uiSchema": "oldJson",
       },
     ],
   },
@@ -66,7 +66,7 @@ Object {
       "jsonSchema": "oldJson",
     },
     "properties": Object {
-      "props": "newJson",
+      "props": "oldJson",
     },
     "uiSchema": Array [
       Object {

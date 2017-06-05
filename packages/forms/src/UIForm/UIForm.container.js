@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import UIFormComponent from './UIForm.component';
 
 import { formReducer, modelReducer, validationReducer } from './reducers';
-import { createForm, updateForm, mutateValue, setError, setErrors } from './actions';
+import { createForm, updateForm, updateFormData, setError, setErrors } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -31,7 +31,7 @@ export default class UIForm extends React.Component {
 	 * @param error The validation error
 	 */
 	onChange(formName, schema, value, error) {
-		const action = mutateValue(formName, schema, value, error);
+		const action = updateFormData(formName, schema, value, error);
 		this.setState(
 			{
 				properties: modelReducer(this.state.properties, action),
@@ -47,23 +47,6 @@ export default class UIForm extends React.Component {
 				}
 			}
 		);
-	}
-
-	/**
-	 * Update the form, the model and errors
-	 * @param formName The form name
-	 * @param schema The schema
-	 * @param values The values
-	 * @param errors The validation errors
-	 */
-	updateForm(formName, schema, values, errors) {
-		const action = updateForm(formName, schema, values, errors);
-		const nextState = formReducer(
-			{ [formName]: this.state },
-			action
-		)[formName];
-
-		this.setState(nextState);
 	}
 
 	/**
@@ -84,6 +67,23 @@ export default class UIForm extends React.Component {
 	setErrors(formName, errors) {
 		const action = setErrors(formName, errors);
 		this.setState({ errors: validationReducer(this.state.errors, action) });
+	}
+
+	/**
+	 * Update the form, the model and errors
+	 * @param formName The form name
+	 * @param schema The schema
+	 * @param values The values
+	 * @param errors The validation errors
+	 */
+	updateForm(formName, schema, values, errors) {
+		const action = updateForm(formName, schema, values, errors);
+		const nextState = formReducer(
+			{ [formName]: this.state },
+			action
+		)[formName];
+
+		this.setState(nextState);
 	}
 
 	render() {

@@ -7,7 +7,7 @@ import {
 	createForm,
 	removeForm,
 	updateForm,
-	mutateValue,
+	updateFormData,
 	setError,
 	setErrors,
 } from './actions';
@@ -46,7 +46,7 @@ class UIForm extends React.Component {
 	 * @param error The validation error
 	 */
 	onChange(formName, schema, value, error) {
-		this.props.mutateValue(
+		this.props.updateFormData(
 			formName,
 			schema,
 			value,
@@ -153,15 +153,15 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		removeForm: PropTypes.func,
 		/**
-		 * Value mutation action.
-		 * This is injected by react-redux. See mapDispatchToProps
-		 */
-		mutateValue: PropTypes.func,
-		/**
 		 * Form update action.
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
 		updateForm: PropTypes.func,
+		/**
+		 * Value mutation action.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		updateFormData: PropTypes.func,
 		/**
 		 * Partial form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
@@ -192,8 +192,8 @@ function mapDispatchToProps(dispatch) {
 	return {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
-		mutateValue: bindActionCreators(mutateValue, dispatch), // TODO updateFormData
-		updateForm: bindActionCreators(updateForm, dispatch), // TODO updateForm
+		updateFormData: bindActionCreators(updateFormData, dispatch),
+		updateForm: bindActionCreators(updateForm, dispatch),
 		setError: bindActionCreators(setError, dispatch),
 		setErrors: bindActionCreators(setErrors, dispatch),
 	};

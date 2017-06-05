@@ -1,8 +1,8 @@
 import {
 	TF_CREATE_FORM,
-	TF_CHANGE_FORM,
 	TF_REMOVE_FORM,
-	TF_MUTATE_VALUE,
+	TF_UPDATE_FORM,
+	TF_UPDATE_FORM_DATA,
 	TF_SET_ALL_ERRORS,
 	TF_SET_PARTIAL_ERROR,
 } from '../actions';
@@ -39,7 +39,7 @@ export default function formReducer(state = {}, action) {
 			},
 		};
 	}
-	case TF_CHANGE_FORM: {
+	case TF_UPDATE_FORM: {
 		const form = state[action.formName];
 		const { jsonSchema, uiSchema, properties, errors } = action;
 		if (!form || (!jsonSchema && !uiSchema && !properties && !errors)) {
@@ -60,7 +60,7 @@ export default function formReducer(state = {}, action) {
 	}
 	case TF_REMOVE_FORM:
 		return omit(state, action.formName);
-	case TF_MUTATE_VALUE:
+	case TF_UPDATE_FORM_DATA:
 	case TF_SET_ALL_ERRORS:
 	case TF_SET_PARTIAL_ERROR: {
 		const form = state[action.formName];

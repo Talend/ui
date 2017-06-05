@@ -1,4 +1,4 @@
-import { TF_MUTATE_VALUE, TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from '../actions';
+import { TF_UPDATE_FORM_DATA, TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from '../actions';
 import { omit } from '../utils/properties';
 
 /**
@@ -8,7 +8,7 @@ import { omit } from '../utils/properties';
  */
 export default function validations(state = {}, action) {
 	switch (action.type) {
-	case TF_MUTATE_VALUE: {
+	case TF_UPDATE_FORM_DATA: {
 		const { schema, error } = action;
 		if (error) {
 			return {

@@ -1,4 +1,4 @@
-import { TF_MUTATE_VALUE } from '../actions';
+import { TF_UPDATE_FORM_DATA } from '../actions';
 
 /**
  * Mutate the properties, setting the value in the path identified by key
@@ -27,7 +27,7 @@ function mutateValue(properties, key, value) {
  */
 export default function modelReducer(state = {}, action) {
 	switch (action.type) {
-	case TF_MUTATE_VALUE:
+	case TF_UPDATE_FORM_DATA:
 		return mutateValue(state, action.schema.key, action.value);
 	default:
 		return state;
