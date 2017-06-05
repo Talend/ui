@@ -141,7 +141,7 @@ storiesOf('ConfirmDialog', module)
 		return (
 			<div>
 				<h1>Dialog</h1>
-				<ConfirmDialog {...defaultProps}>
+				<ConfirmDialog {...withProgressBarProps}>
 					{rows}
 				</ConfirmDialog>
 			</div>

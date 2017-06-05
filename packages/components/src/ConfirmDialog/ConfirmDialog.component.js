@@ -48,15 +48,18 @@ function ConfirmDialog({
 			bsSize={size}
 			show={show}
 			keyboard
-			className={classNames(theme['tc-confirm-dialog'], bodyOverflow && theme['modal-body-overflow'])}
+			className={classNames(
+				theme['tc-confirm-dialog'],
+				bodyOverflow && theme['modal-body-overflow'],
+			)}
 		>
-			{header ? (
-				<Modal.Header closeButton={false}>
+			{header
+				? <Modal.Header closeButton={false}>
 					<Modal.Title>{header}</Modal.Title>
 				</Modal.Header>
-			) : null}
+				: null}
+			{progressValue ? <ProgressBar now={progressValue} /> : null}
 			<Modal.Body>
-				{progressValue ? (<ProgressBar now={progressValue} />) : null}
 				{children}
 			</Modal.Body>
 			<Modal.Footer>

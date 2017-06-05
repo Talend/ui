@@ -48,32 +48,30 @@ $tc-dialog-body-padding: 30px !default;
 		}
 	}
 
+	:global(.progress) {
+		flex-grow: 0;
+		flex-shrink: 0;
+		position: relative;
+		margin-top: -1px;
+		margin-bottom: 0;
+		border-radius: 0;
+		box-shadow: none;
+		height: 5px;
+		background-color: transparent;
+
+		:global(.progress-bar) {
+			background-color: $tc-dialog-progress-bg;
+			box-shadow: none;
+		}
+	}
+
 	:global(.modal-body) {
 		overflow: hidden;
 		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 		flex-basis: auto;
 		flex-grow: 1;
 		flex-shrink: 1;
-		display: flex;
-		flex-direction: column;
 
-		:global(.progress) {
-			position: relative;
-			top: -$tc-dialog-body-padding;
-			margin-top: -1px;
-			margin-bottom: 0;
-			margin-left: -$tc-dialog-body-padding;
-			margin-right: -$tc-dialog-body-padding;
-			border-radius: 0;
-			box-shadow: none;
-			height: 5px;
-			background-color: transparent;
-
-			:global(.progress-bar) {
-				background-color: $tc-dialog-progress-bg;
-				box-shadow: none;
-			}
-		}
 	}
 
 
