@@ -5,7 +5,7 @@ import TooltipTrigger from '../TooltipTrigger';
 
 import theme from './Progress.scss';
 
-// value can be parametrized to inscrease rapidity of the progress bar
+// value can be specified to inscrease rapidity of the progress bar
 const DEFAULT_TIME_TO_COMPLETE = '5s';
 
 function normalize(percent) {
