@@ -5,8 +5,8 @@ exports[`UIForm component should render form 1`] = `
   onSubmit={[Function]}>
   <Widget
     errors={Object {}}
-    formName="myForm"
-    id={undefined}
+    formName="myFormName"
+    id="myFormId"
     onChange={[Function]}
     onTrigger={[Function]}
     properties={Object {}}
@@ -27,11 +27,15 @@ exports[`UIForm component should render form 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []} />
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
   <Widget
     errors={Object {}}
-    formName="myForm"
-    id={undefined}
+    formName="myFormName"
+    id="myFormId"
     onChange={[Function]}
     onTrigger={[Function]}
     properties={Object {}}
@@ -53,11 +57,15 @@ exports[`UIForm component should render form 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []} />
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
   <Widget
     errors={Object {}}
-    formName="myForm"
-    id={undefined}
+    formName="myFormName"
+    id="myFormId"
     onChange={[Function]}
     onTrigger={[Function]}
     properties={Object {}}
@@ -73,7 +81,11 @@ exports[`UIForm component should render form 1`] = `
         "type": "button",
       }
     }
-    widgets={Array []} />
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
   <button
     className="btn btn-primary"
     type="submit">

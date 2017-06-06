@@ -1,96 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { data, mergedSchema, initProps } from '../../__mocks__/data';
 
 import UIForm from './UIForm.component';
 
-let props;
-function initProps() {
-	props = {
-		autoComplete: 'off',
-		customValidation: jest.fn(),
-		formName: 'myForm',
-		onChange: jest.fn(),
-		onTrigger: jest.fn(),
-		onSubmit: jest.fn(),
-		setError: jest.fn(),
-		setErrors: jest.fn(),
-		updateForm: jest.fn(),
-	};
-}
-
-const data = {
-	jsonSchema: {
-		type: 'object',
-		title: 'Comment',
-		properties: {
-			lastname: {
-				type: 'string',
-				minLength: 10,
-			},
-			firstname: {
-				type: 'string',
-			},
-			check: {},
-		},
-		required: [
-			'firstname',
-		],
-	},
-	uiSchema: [
-		{
-			key: 'lastname',
-			title: 'Last Name (with description)',
-			description: 'Hint: this is the last name',
-			autoFocus: true,
-		},
-		{
-			key: 'firstname',
-			title: 'First Name (with placeholder)',
-			placeholder: 'Enter your firstname here',
-			triggers: ['after'],
-		},
-		{
-			key: 'check',
-			type: 'button',
-			title: 'Check the thing',
-			triggers: ['after'],
-		},
-	],
-	properties: {},
-	errors: {},
-};
-
-const mergedSchema = [
-	{
-		autoFocus: true,
-		description: 'Hint: this is the last name',
-		key: ['lastname'],
-		minlength: 10,
-		ngModelOptions: {},
-		schema: { minLength: 10, type: 'string' },
-		title: 'Last Name (with description)',
-		type: 'text',
-	},
-	{
-		key: ['firstname'],
-		ngModelOptions: {},
-		placeholder: 'Enter your firstname here',
-		required: true,
-		schema: { type: 'string' },
-		title: 'First Name (with placeholder)',
-		triggers: ['after'],
-		type: 'text',
-	},
-	{
-		key: ['check'],
-		title: 'Check the thing',
-		triggers: ['after'],
-		type: 'button',
-	},
-];
-
 describe('UIForm component', () => {
-	beforeEach(() => initProps());
+	let props;
+	beforeEach(() => {
+		props = {
+			...initProps(),
+			setError: jest.fn(),
+			setErrors: jest.fn(),
+			updateForm: jest.fn(),
+		};
+	});
 
 	it('should render form', () => {
 		// when
@@ -177,10 +100,8 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve(nextData));
 
 			// when
-			const trigger = wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
+			const trigger = wrapper
+				.instance()
 				.onTrigger(null, 'after', mergedSchema[2], null);
 
 			// then
@@ -204,10 +125,8 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.reject(triggerErrors));
 
 			// when
-			const trigger = wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
+			const trigger = wrapper
+				.instance()
 				.onTrigger(null, 'after', mergedSchema[2], null);
 
 			// then
@@ -229,11 +148,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
-				.submit(event);
+			wrapper.instance().submit(event);
 
 			// then
 			expect(event.preventDefault).toBeCalled();
@@ -245,15 +160,11 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
-				.submit(event);
+			wrapper.instance().submit(event);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(
-				'myForm',
+				props.formName,
 				{ firstname: 'Missing required property: firstname' }
 			);
 		});
@@ -264,11 +175,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
-				.submit(event);
+			wrapper.instance().submit(event);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -285,11 +192,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper // eslint-disable-line no-underscore-dangle
-				.renderer
-				._instance
-				._instance
-				.submit(event);
+			wrapper.instance().submit(event);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
