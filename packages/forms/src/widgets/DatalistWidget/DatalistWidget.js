@@ -71,7 +71,7 @@ function renderDatalistItem(item, { value }) {
 	}
 
 	return (
-		<div className={theme.item}>
+		<div className={classnames(theme.item, 'datalist-item')}>
 			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
 		</div>
 	);
