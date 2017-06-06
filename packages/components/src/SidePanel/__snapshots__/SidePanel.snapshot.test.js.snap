@@ -194,7 +194,7 @@ exports[`Storyshots SidePanel default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": "12px",
+        "fontSize": 12,
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -230,7 +230,7 @@ exports[`Storyshots SidePanel default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -253,7 +253,7 @@ exports[`Storyshots SidePanel default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": "15px",
+            "fontSize": 15,
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -264,15 +264,14 @@ exports[`Storyshots SidePanel default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
-              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": "35px",
-                "margin": 0,
+                "fontSize": 35,
+                "margin": "20px 0 0 0",
                 "padding": 0,
               }
             }
@@ -282,7 +281,7 @@ exports[`Storyshots SidePanel default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": "22px",
+                "fontSize": 22,
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -298,7 +297,7 @@ exports[`Storyshots SidePanel default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -630,7 +629,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    Preparations_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -716,7 +715,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    Datasets_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -800,7 +799,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    Favorites_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -839,7 +838,7 @@ exports[`Storyshots SidePanel default 1`] = `
                               }
                             }
                           >
-                            Toggle_dock_clicked()
+                            anonymous()
                           </span>
                           }
                         </span>
@@ -947,7 +946,7 @@ exports[`Storyshots SidePanel default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -1467,7 +1466,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": "12px",
+        "fontSize": 12,
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -1503,7 +1502,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -1526,7 +1525,7 @@ exports[`Storyshots SidePanel docked 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": "15px",
+            "fontSize": 15,
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -1537,15 +1536,14 @@ exports[`Storyshots SidePanel docked 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
-              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": "35px",
-                "margin": 0,
+                "fontSize": 35,
+                "margin": "20px 0 0 0",
                 "padding": 0,
               }
             }
@@ -1555,7 +1553,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           <h2
             style={
               Object {
-                "fontSize": "22px",
+                "fontSize": 22,
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -1571,7 +1569,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -1873,7 +1871,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    Preparations_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -1959,7 +1957,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    Datasets_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -2043,7 +2041,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    Favorites_clicked()
+                                    anonymous()
                                   </span>
                                   }
                                 </span>
@@ -2082,7 +2080,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                               }
                             }
                           >
-                            Toggle_dock_clicked()
+                            anonymous()
                           </span>
                           }
                         </span>
@@ -2170,7 +2168,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -2693,7 +2691,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": "12px",
+        "fontSize": 12,
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -2729,7 +2727,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": "12px",
+          "fontSize": 12,
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -2752,7 +2750,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": "15px",
+            "fontSize": 15,
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -2763,15 +2761,14 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
-              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": "35px",
-                "margin": 0,
+                "fontSize": 35,
+                "margin": "20px 0 0 0",
                 "padding": 0,
               }
             }
@@ -2781,7 +2778,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
           <h2
             style={
               Object {
-                "fontSize": "22px",
+                "fontSize": 22,
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -2797,7 +2794,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -3303,7 +3300,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                               }
                             }
                           >
-                            onItemSelect()
+                            anonymous()
                           </span>
                           }
                         </span>
@@ -3334,7 +3331,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                               }
                             }
                           >
-                            onToggleDock()
+                            anonymous()
                           </span>
                           }
                         </span>
@@ -3511,7 +3508,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
+                "fontSize": 25,
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }

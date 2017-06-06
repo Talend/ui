@@ -706,6 +706,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               ]
             }
             inputPlaceholder="New entry"
+            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
@@ -2794,6 +2795,22 @@ exports[`EnumerationWidget should be in search mode 1`] = `
       headerInput={
         Array [
           Object {
+            "disabled": true,
+            "icon": "talend-check-plus",
+            "id": "validate-and-add",
+            "key": "validateAdd",
+            "label": "Validate and Add",
+            "onClick": [Function],
+          },
+          Object {
+            "disabled": true,
+            "icon": "talend-check",
+            "id": "validate",
+            "key": "validate",
+            "label": "Validate",
+            "onClick": [Function],
+          },
+          Object {
             "icon": "talend-cross",
             "id": "abort",
             "key": "abort",
@@ -2884,6 +2901,22 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           headerInput={
             Array [
               Object {
+                "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
+                "icon": "talend-check",
+                "id": "validate",
+                "key": "validate",
+                "label": "Validate",
+                "onClick": [Function],
+              },
+              Object {
                 "icon": "talend-cross",
                 "id": "abort",
                 "key": "abort",
@@ -2954,6 +2987,22 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             headerInput={
               Array [
                 Object {
+                  "disabled": true,
+                  "icon": "talend-check-plus",
+                  "id": "validate-and-add",
+                  "key": "validateAdd",
+                  "label": "Validate and Add",
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check",
+                  "id": "validate",
+                  "key": "validate",
+                  "label": "Validate",
+                  "onClick": [Function],
+                },
+                Object {
                   "icon": "talend-cross",
                   "id": "abort",
                   "key": "abort",
@@ -2963,6 +3012,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               ]
             }
             inputPlaceholder="Search"
+            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
@@ -2973,6 +3023,98 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 onKeyDown={[Function]}
                 placeholder="Search"
                 type="text" />
+              <Action
+                bsStyle="default"
+                disabled={true}
+                hideLabel={true}
+                icon="talend-check-plus"
+                inProgress={false}
+                label="Validate and Add"
+                link={true}
+                onClick={[Function]}
+                tooltipPlacement="bottom">
+                <TooltipTrigger
+                  label="Validate and Add"
+                  tooltipPlacement="bottom">
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="link"
+                    disabled={true}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseOver={[Function]}
+                    role="link">
+                    <button
+                      className="btn btn-link"
+                      disabled={true}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseOver={[Function]}
+                      role="link"
+                      type="button">
+                      <Icon
+                        name="talend-check-plus">
+                        <svg
+                          aria-hidden="true"
+                          className="tc-svg-icon"
+                          focusable="false"
+                          title={null}>
+                          <use
+                            xlinkHref="#talend-check-plus" />
+                        </svg>
+                      </Icon>
+                    </button>
+                  </Button>
+                </TooltipTrigger>
+              </Action>
+              <Action
+                bsStyle="default"
+                disabled={true}
+                hideLabel={true}
+                icon="talend-check"
+                inProgress={false}
+                label="Validate"
+                link={true}
+                onClick={[Function]}
+                tooltipPlacement="bottom">
+                <TooltipTrigger
+                  label="Validate"
+                  tooltipPlacement="bottom">
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="link"
+                    disabled={true}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseOver={[Function]}
+                    role="link">
+                    <button
+                      className="btn btn-link"
+                      disabled={true}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseOver={[Function]}
+                      role="link"
+                      type="button">
+                      <Icon
+                        name="talend-check">
+                        <svg
+                          aria-hidden="true"
+                          className="tc-svg-icon"
+                          focusable="false"
+                          title={null}>
+                          <use
+                            xlinkHref="#talend-check" />
+                        </svg>
+                      </Icon>
+                    </button>
+                  </Button>
+                </TooltipTrigger>
+              </Action>
               <Action
                 bsStyle="default"
                 disabled={false}
@@ -3043,6 +3185,22 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           }
           headerInput={
             Array [
+              Object {
+                "disabled": true,
+                "icon": "talend-check-plus",
+                "id": "validate-and-add",
+                "key": "validateAdd",
+                "label": "Validate and Add",
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": true,
+                "icon": "talend-check",
+                "id": "validate",
+                "key": "validate",
+                "label": "Validate",
+                "onClick": [Function],
+              },
               Object {
                 "icon": "talend-cross",
                 "id": "abort",

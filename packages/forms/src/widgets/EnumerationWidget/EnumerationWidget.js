@@ -33,6 +33,16 @@ class EnumerationWidget extends React.Component {
 		return values.split(',').map(value => value.trim());
 	}
 
+	static updateItemValidateDisabled(value, valueExist) {
+		return {
+			currentEdit: {
+				validate: {
+					disabled: value.value === '' || !!valueExist,
+				},
+			},
+		};
+	}
+
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
@@ -211,11 +221,11 @@ class EnumerationWidget extends React.Component {
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 			// exit from selected mode to not display 0 values selected
-			let displayMode = this.state.displayMode;
+			let displayMode = prevState.displayMode;
 			if (displayMode === DISPLAY_MODE_SELECTED) {
 				displayMode = DISPLAY_MODE_DEFAULT;
 			}
-			const validation = this.updateItemValidateDisabled(item.values[0]);
+			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
 		});
 	}
@@ -227,7 +237,7 @@ class EnumerationWidget extends React.Component {
 			item.displayMode = DISPLAY_MODE_EDIT;
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-			const validation = this.updateItemValidateDisabled(item.values[0]);
+			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode: DISPLAY_MODE_EDIT, ...validation };
 		});
 	}
@@ -284,7 +294,7 @@ class EnumerationWidget extends React.Component {
 			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
 			// resetting error as it was not saved
 			items[value.index].error = '';
-			this.setState({ items, displayMode: 'DISPLAY_MODE_DEFAULT' });
+			return { items, displayMode: 'DISPLAY_MODE_DEFAULT' };
 		});
 	}
 
@@ -294,7 +304,7 @@ class EnumerationWidget extends React.Component {
 			const valueExist = this.valueAlreadyExist(value.value, prevState);
 			const items = [...prevState.items];
 			items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
-			const validation = this.updateItemValidateDisabled(value, valueExist);
+			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
 	}
@@ -423,32 +433,33 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let itemsSelected = resetItems([...this.state.items]);
-		if (event.ctrlKey || event.metaKey) {
-			itemsSelected = manageCtrlKey(item.index, itemsSelected);
-		} else if (event.shiftKey) {
-			itemsSelected = manageShiftKey(item.index, itemsSelected);
-		} else {
-			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
-			itemsSelected[item.index].isSelected = true;
-		}
-		const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
+		this.setState((prevState) => {
+			let itemsSelected = resetItems([...prevState.items]);
+			if (event.ctrlKey || event.metaKey) {
+				itemsSelected = manageCtrlKey(item.index, itemsSelected);
+			} else if (event.shiftKey) {
+				itemsSelected = manageShiftKey(item.index, itemsSelected);
+			} else {
+				itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+				itemsSelected[item.index].isSelected = true;
+			}
+			const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
-		// if unselect all, return to default mode
-		if (countItems === 0) {
-			this.setState({
-				items: itemsSelected,
-				displayMode: DISPLAY_MODE_DEFAULT,
-			});
-		} else {
-			this.setState(prevState => ({
+			// if unselect all, return to default mode
+			if (countItems === 0) {
+				return {
+					items: itemsSelected,
+					displayMode: DISPLAY_MODE_DEFAULT,
+				};
+			}
+			return {
 				items: itemsSelected,
 				displayMode: DISPLAY_MODE_SELECTED,
 				itemsProp: {
 					...prevState.itemsProp, actionsDefault: this.defaultActions,
 				},
-			}));
-		}
+			};
+		});
 	}
 
 	onDeleteItems() {
@@ -467,10 +478,12 @@ class EnumerationWidget extends React.Component {
 				headerSelected: this.loadingInputsActions,
 			});
 		} else {
-			const result = deleteSelectedItems([...this.state.items]);
-			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
-				items: result,
+			this.setState((prevState) => {
+				const result = deleteSelectedItems([...prevState.items]);
+				return {
+					displayMode: DISPLAY_MODE_DEFAULT,
+					items: result,
+				};
 			});
 		}
 	}
@@ -687,23 +700,19 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
-		const items = resetItems([...this.state.items]);
-		this.setState({
-			items,
+		this.setState(prevState => ({
+			items: resetItems([...prevState.items]),
 			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_ADD,
-		});
+		}));
 	}
 
 	changeDisplayToSearchMode() {
-		this.setState((prevState) => {
-			const items = resetItems([...prevState.items]);
-			return {
-				items,
-				headerInput: this.searchInputsActions,
-				displayMode: DISPLAY_MODE_SEARCH,
-			};
-		});
+		this.setState(prevState => ({
+			items: resetItems([...prevState.items]),
+			headerInput: this.addInputs,
+			displayMode: DISPLAY_MODE_SEARCH,
+		}));
 	}
 
 	valueAlreadyExist(value, prevState) {
@@ -727,16 +736,6 @@ class EnumerationWidget extends React.Component {
 				inputValue: value,
 			};
 		});
-	}
-
-	updateItemValidateDisabled(value, valueExist) {
-		return {
-			currentEdit: {
-				validate: {
-					disabled: value.value === '' || !!valueExist,
-				},
-			},
-		};
 	}
 
 	renderImportFile() {
