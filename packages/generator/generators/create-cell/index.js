@@ -44,7 +44,10 @@ module.exports = yeoman.Base.extend({
 		}];
 
 		return this.prompt(prompts).then((props) => {
-			this.props = props;
+			this.props = Object.assign(props, {
+				name: `Cell${props.name}`,
+				cssSelector: `tc-list-${props.cssSelector}`,
+			});
 		});
 	},
 
