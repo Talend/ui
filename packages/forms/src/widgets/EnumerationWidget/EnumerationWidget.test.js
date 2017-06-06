@@ -411,7 +411,8 @@ describe('EnumerationWidget', () => {
 			// given
 			const enumerationWidget = new EnumerationWidget({});
 			// when
-			const resultArray = enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
+			const resultArray =
+				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});
