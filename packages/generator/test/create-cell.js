@@ -8,9 +8,9 @@ describe('talend:create-cell', function () {
 			.run(path.join(__dirname, '../generators/create-cell'))
 			.withOptions({})
 			.withPrompts({
-				name: 'CellTest',
+				name: 'Test',
 				type: 'test',
-				cssSelector: 'tc-list-test',
+				cssSelector: 'test',
 			});
 		this.app.on('end', done);
 	});
