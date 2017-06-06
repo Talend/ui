@@ -114,10 +114,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  160:45  error  Infix operators must be spaced  space-infix-ops
-
-✖ 101 problems (101 errors, 0 warnings)
+✖ 100 problems (100 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
