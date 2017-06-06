@@ -123,7 +123,6 @@ function ItemTitle({ id, className, item, titleProps }) {
 		iconKey,
 		displayModeKey,
 		onClick,
-		onMouseDown,
 		onEditSubmit,
 		onEditCancel,
 	} = titleProps;
@@ -141,7 +140,6 @@ function ItemTitle({ id, className, item, titleProps }) {
 				className={className}
 				item={item}
 				onClick={onClick}
-			    onMouseDown={onMouseDown}
 			/>);
 		} else {
 			titleElement = renderText({ id, value, className });
@@ -173,7 +171,6 @@ ItemTitle.propTypes = {
 		iconKey: PropTypes.string,
 		displayModeKey: PropTypes.string,
 		onClick: PropTypes.func,
-		onMouseDown: PropTypes.func,
 		onEditSubmit: PropTypes.func,
 		onEditCancel: PropTypes.func,
 	}).isRequired,
