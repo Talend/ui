@@ -135,7 +135,7 @@ export default class UIForm extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
 		/** Form auto complete */
-		autoComplete: PropTypes.bool,
+		autoComplete: PropTypes.string,
 		/** Form definition: The form name that will be used to create ids */
 		formName: PropTypes.string,
 		/** The form id */

@@ -1,6 +1,6 @@
 exports[`UIForm component should render form 1`] = `
 <form
-  autoComplete={undefined}
+  autoComplete="off"
   noValidate={true}
   onSubmit={[Function]}>
   <Widget

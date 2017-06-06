@@ -66,6 +66,7 @@ class UIForm extends React.Component {
 
 		return (
 			<UIFormComponent
+				autoComplete={this.props.autoComplete}
 				formName={this.props.formName}
 				id={this.props.id}
 				jsonSchema={form.jsonSchema}
@@ -101,6 +102,8 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
+		/** Form auto complete */
+		autoComplete: PropTypes.string,
 		/**
 		 * Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

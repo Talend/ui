@@ -6,7 +6,7 @@ import UIForm from './UIForm.component';
 let props;
 function initProps() {
 	props = {
-		autocomplete: 'off',
+		autoComplete: 'off',
 		customValidation: jest.fn(),
 		formName: 'myForm',
 		onChange: jest.fn(),
