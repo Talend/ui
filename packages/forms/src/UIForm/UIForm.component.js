@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
+import { TRIGGER_AFTER } from './utils/triggers';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
-
-const TRIGGER_AFTER = 'after';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
