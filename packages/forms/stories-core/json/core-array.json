@@ -1,0 +1,52 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Arrays",
+    "properties": {
+      "simpleChoiceList": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "multipleChoicesList": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "simpleChoiceList",
+      "multipleChoicesList"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "simpleChoiceList",
+      "title": "Simple choice list"
+    },
+    {
+      "key": "multipleChoicesList",
+      "title": "Multiple choices list",
+      "type": "select"
+    }
+  ],
+  "properties": {
+    "simpleChoiceList": "bar",
+    "multipleChoicesList": [
+      "foo",
+      "bar"
+    ]
+  }
+}
