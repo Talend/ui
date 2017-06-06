@@ -115,10 +115,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
-   83:2  error  Mixed spaces and tabs                            no-mixed-spaces-and-tabs
-  415:1  error  Line 415 exceeds the maximum line length of 100  max-len
+  414:1  error  Line 414 exceeds the maximum line length of 100  max-len
 
-✖ 102 problems (102 errors, 0 warnings)
+✖ 101 problems (101 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
