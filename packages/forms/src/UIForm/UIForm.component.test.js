@@ -3,17 +3,20 @@ import { shallow, mount } from 'enzyme';
 
 import UIForm from './UIForm.component';
 
-const props = {
-	autocomplete: 'off',
-	customValidation: jest.fn(),
-	formName: 'myForm',
-	onChange: jest.fn(),
-	onTrigger: jest.fn(),
-	onSubmit: jest.fn(),
-	setError: jest.fn(),
-	setErrors: jest.fn(),
-	updateForm: jest.fn(),
-};
+let props;
+function initProps() {
+	props = {
+		autocomplete: 'off',
+		customValidation: jest.fn(),
+		formName: 'myForm',
+		onChange: jest.fn(),
+		onTrigger: jest.fn(),
+		onSubmit: jest.fn(),
+		setError: jest.fn(),
+		setErrors: jest.fn(),
+		updateForm: jest.fn(),
+	};
+}
 
 const data = {
 	jsonSchema: {
@@ -87,6 +90,8 @@ const mergedSchema = [
 ];
 
 describe('UIForm component', () => {
+	beforeEach(() => initProps());
+
 	it('should render form', () => {
 		// when
 		const wrapper = shallow(<UIForm {...data} {...props} />);
@@ -102,7 +107,6 @@ describe('UIForm component', () => {
 			const newValue = 'toto';
 			const event = { target: { value: newValue } };
 			const inputValidationError = 'String is too short (4 chars), minimum 10';
-			expect(props.onChange).not.toBeCalled();
 
 			// when
 			wrapper.find('input').at(0).simulate('change', event);
@@ -122,14 +126,13 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} />);
 			const newValue = 'toto';
 			const event = { target: { value: newValue } };
-			expect(props.onTrigger).not.toHaveBeenCalled();
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
 			wrapper.find('input').at(1).simulate('change', event);
 
 			// then
-			expect(props.onTrigger).toHaveBeenCalledWith(
+			expect(props.onTrigger).toBeCalledWith(
 				'after',
 				mergedSchema[1],
 				newValue,
@@ -148,7 +151,7 @@ describe('UIForm component', () => {
 			wrapper.find('button').at(0).simulate('click');
 
 			// then
-			expect(props.onTrigger).toHaveBeenCalledWith(
+			expect(props.onTrigger).toBeCalledWith(
 				'after',
 				mergedSchema[2],
 				undefined,
@@ -156,55 +159,140 @@ describe('UIForm component', () => {
 			);
 		});
 
-		it('should updateForm on trigger success', () => {
+		it('should updateForm on trigger success', (done) => {
 			// given
-			// const wrapper = mount(<UIForm {...data} {...props} />);
-			// const nextData = {
-			// 	jsonSchema: {
-			// 		type: 'object',
-			// 		title: 'User',
-			// 		properties: {
-			// 			name: { type: 'string' },
-			// 		},
-			// 	},
-			// 	uiSchema: ['name'],
-			// 	properties: { name: 'toto' },
-			// 	errors: { name: 'This field is required' },
-			// };
-			// props.onTrigger.mockReturnValueOnce(Promise.resolve(nextData).then(done));
-			//
-			// // when
-			// wrapper.find('button').at(0).simulate('click');
-			//
-			// // then
-			// expect(props.updateForm).toHaveBeenCalledWith(
-			// 	'after',
-			// 	mergedSchema[2],
-			// 	undefined,
-			// 	data.properties,
-			// );
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const nextData = {
+				jsonSchema: {
+					type: 'object',
+					title: 'User',
+					properties: {
+						name: { type: 'string' },
+					},
+				},
+				uiSchema: ['name'],
+				properties: { name: 'toto' },
+				errors: { name: 'This field is required' },
+			};
+			props.onTrigger.mockReturnValueOnce(Promise.resolve(nextData));
+
+			// when
+			const trigger = wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.onTrigger(null, 'after', mergedSchema[2], null);
+
+			// then
+			trigger.then(() => {
+				expect(props.updateForm).toBeCalledWith(
+					props.formName,
+					nextData.jsonSchema,
+					nextData.uiSchema,
+					nextData.properties,
+					nextData.errors
+				);
+				expect(props.setError).not.toBeCalled();
+				done();
+			});
 		});
 
-		it('should setError after trigger failure', () => {
+		it('should setError after trigger failure', (done) => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const triggerErrors = { errors: { check: 'Error while triggeringthe trigger' } };
+			props.onTrigger.mockReturnValueOnce(Promise.reject(triggerErrors));
 
+			// when
+			const trigger = wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.onTrigger(null, 'after', mergedSchema[2], null);
+
+			// then
+			trigger.then(() => {
+				expect(props.updateForm).not.toBeCalled();
+				expect(props.setError).toBeCalledWith(
+					props.formName,
+					triggerErrors.errors
+				);
+				done();
+			});
 		});
 	});
 
 	describe('#submit', () => {
-		it('should prevent default submit', () => {
+		it('should prevent event default', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const event = { preventDefault: jest.fn() };
 
+			// when
+			wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.submit(event);
+
+			// then
+			expect(event.preventDefault).toBeCalled();
 		});
 
 		it('should validate all fields', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const event = { preventDefault: jest.fn() };
 
+			// when
+			wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.submit(event);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(
+				'myForm',
+				{ firstname: 'Missing required property: firstname' }
+			);
 		});
 
 		it('should not call submit callback when form is invalid', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const event = { preventDefault: jest.fn() };
 
+			// when
+			wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.submit(event);
+
+			// then
+			expect(props.onSubmit).not.toBeCalled();
 		});
 
 		it('should call submit callback when form is valid', () => {
+			// given
+			const validProperties = {
+				...data.properties,
+				lastname: 'This has at least 10 characters',
+				firstname: 'This is required',
+			};
+			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
+			const event = { preventDefault: jest.fn() };
 
+			// when
+			wrapper // eslint-disable-line no-underscore-dangle
+				.renderer
+				._instance
+				._instance
+				.submit(event);
+
+			// then
+			expect(props.onSubmit).toBeCalled();
 		});
 	});
 });
