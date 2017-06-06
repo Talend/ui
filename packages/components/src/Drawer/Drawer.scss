@@ -59,6 +59,10 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 		margin: 0;
 		color: white;
 		text-transform: uppercase;
+		text-overflow: ellipsis;
+		width: 90%;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 }
 
