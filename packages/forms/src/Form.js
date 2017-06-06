@@ -98,7 +98,7 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return (event, data) => onClick(event, { ...data, ...this.form.state });
+			return (event, data) => onClick(event, { ...data, ...(this.form && this.form.state) });
 		}
 		return () => {};
 	}
