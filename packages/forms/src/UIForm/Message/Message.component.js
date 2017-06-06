@@ -10,12 +10,12 @@ export default function Message(props) {
 	const message = isValid ? description : errorMessage;
 	return message ?
 		(
-			<div
+			<p
 				className="help-block"
 				role="status"
 			>
 				{ message }
-			</div>
+			</p>
 		) :
 		null;
 }

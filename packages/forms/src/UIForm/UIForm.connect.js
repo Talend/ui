@@ -12,7 +12,7 @@ import {
 	setErrors,
 } from './actions';
 
-class UIForm extends React.Component {
+class UIForm extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);

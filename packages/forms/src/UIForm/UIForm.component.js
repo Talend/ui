@@ -33,9 +33,9 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
-	 * Triggers the onTrigger and onChange if needed
-	 * - onChange : at each field change
-	 * - onTrigger : when schema.trigger : ['after']
+	 * Fire callbacks while interacting with form fields
+	 * - onChange: for each field change
+	 * - onTrigger: when trigger is provided and its value is "after"
 	 * @param event The event that triggered the callback
 	 * @param schema The field schema
 	 * @param value The new value
@@ -51,7 +51,7 @@ export default class UIForm extends React.Component {
 		onChange(formName, schema, value, error);
 
 		const { triggers } = schema;
-		if (triggers && triggers.indexOf(TRIGGER_AFTER) !== -1) {
+		if (triggers && triggers.includes(TRIGGER_AFTER)) {
 			this.onTrigger(event, TRIGGER_AFTER, schema, value, properties);
 		}
 	}
@@ -140,16 +140,16 @@ if (process.env.NODE_ENV !== 'production') {
 		/** The form id */
 		id: PropTypes.string,
 		/** Form definition: Json schema that specify the data model */
-		jsonSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		jsonSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/**
 		 * Form definition: Form fields values.
 		 * Note that it should contains @definitionName for triggers.
 		 */
-		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: UI schema that specify how to render the fields */
-		uiSchema: PropTypes.array, // eslint-disable-line react/forbid-prop-types
+		uiSchema: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
-		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 
 		/**
 		 * User callback: Custom validation function.
