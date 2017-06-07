@@ -2,10 +2,7 @@
   "jsonSchema": {
     "type": "object",
     "title": "Comment",
-    "properties": {
-      "check": {},
-      "checkfail": {}
-    }
+    "properties": {}
   },
   "uiSchema": [
     {

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Tabs as RBTabs, Tab as RBTab } from 'react-bootstrap';
+import classNames from 'classnames';
 
 import Fieldset from './Fieldset';
 import { isValid } from '../utils/validation';
@@ -12,15 +13,13 @@ export default function Tabs(props) {
 	return (
 		<RBTabs className={theme['tf-tabs']}>
 			{tabs.map((tabSchema, index) => {
-				const tabClassName = isValid(tabSchema, restProps.errors) ?
-					null :
-					theme['has-error'];
+				const tabIsValid = isValid(tabSchema, restProps.errors);
 				return (
 					<RBTab
 						eventKey={index}
 						key={index}
 						title={tabSchema.title}
-						tabClassName={tabClassName}
+						tabClassName={classNames({ [theme['has-error']]: !tabIsValid })}
 					>
 						<Fieldset {...restProps} schema={tabSchema} />
 					</RBTab>
