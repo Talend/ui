@@ -3,7 +3,7 @@ exports[`Tabs widget should render fieldset 1`] = `
   className={undefined}>
   <Tab
     eventKey={0}
-    tabClassName={null}
+    tabClassName=""
     title="User">
     <Fieldset
       errors={Object {}}
@@ -37,7 +37,7 @@ exports[`Tabs widget should render fieldset 1`] = `
   </Tab>
   <Tab
     eventKey={1}
-    tabClassName={null}
+    tabClassName=""
     title="Other">
     <Fieldset
       errors={Object {}}
@@ -66,7 +66,7 @@ exports[`Tabs widget should render invalid tab 1`] = `
   className={undefined}>
   <Tab
     eventKey={0}
-    tabClassName={undefined}
+    tabClassName="undefined"
     title="User">
     <Fieldset
       errors={
@@ -104,7 +104,7 @@ exports[`Tabs widget should render invalid tab 1`] = `
   </Tab>
   <Tab
     eventKey={1}
-    tabClassName={null}
+    tabClassName=""
     title="Other">
     <Fieldset
       errors={
