@@ -123,6 +123,10 @@ const registry = {
 	object: ObjectRenderer, // eslint-disable-line no-use-before-define
 };
 
+function isHidden(uiSchema, element) {
+	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
+}
+
 /**
  * typeResolver
  *
@@ -136,6 +140,10 @@ function typeResolver(schema, uiSchema) {
 		if (!schema[e[0]]) {
 			return { Renderer: UnkownRenderer };
 		}
+		if (isHidden(uiSchema, e[0])) {
+			return { Renderer: HiddenRenderer };
+		}
+
 		const type = schema[e[0]].type;
 		const title = schema[e[0]].title;
 
@@ -144,9 +152,6 @@ function typeResolver(schema, uiSchema) {
 			throw new UnkownTypeException(type);
 		}
 
-		if (uiSchema && uiSchema[e[0]] && uiSchema[e[0]]['ui:widget'] === 'hidden') {
-			return { Renderer: HiddenRenderer };
-		}
 		return {
 			Renderer: renderer,
 			propertyKey: e[0],
@@ -180,7 +185,7 @@ function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} 
 
 ObjectRenderer.propTypes = {
 	...RendererProptypes,
-	schema: PropTypes.shape(...SchemaProptypes),
+	schema: PropTypes.shape(SchemaProptypes),
 };
 
 /**
