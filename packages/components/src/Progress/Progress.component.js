@@ -5,9 +5,6 @@ import TooltipTrigger from '../TooltipTrigger';
 
 import theme from './Progress.scss';
 
-// value can be specified to inscrease rapidity of the progress bar
-const DEFAULT_TIME_TO_COMPLETE = '5s';
-
 function normalize(percent) {
 	if (percent > 100) {
 		return 100;
@@ -18,12 +15,9 @@ function normalize(percent) {
 	return percent;
 }
 
-function Progress({ id, percent, tooltip, infinite, contained, timeToComplete }) {
+function Progress({ id, percent, tooltip, infinite, contained }) {
 	const normalizedPercent = infinite ? 100 : normalize(percent);
-	const style = {
-		width: `${normalizedPercent}%`,
-		animationDuration: timeToComplete ? `${timeToComplete}s` : DEFAULT_TIME_TO_COMPLETE,
-	};
+	const style = { width: `${normalizedPercent}%` };
 
 	const rootClassNames = classNames(
 		theme.progress,
@@ -56,7 +50,6 @@ Progress.propTypes = {
 	tooltip: PropTypes.string,
 	infinite: PropTypes.bool,
 	contained: PropTypes.bool,
-	timeToComplete: PropTypes.number,
 };
 
 export default Progress;
