@@ -1,39 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
-import { Provider } from 'react-redux';
+
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
-import { Tabs, Tab } from 'react-bootstrap';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 
-import { createStore, combineReducers } from 'redux';
-import { UIForm, ConnectedUIForm, formReducer } from '../src/UIForm';
-
-const reducers = { forms: formReducer };
-
-const reducer = combineReducers(reducers);
-const store = createStore(reducer);
+import Form from '../src/Form';
 
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
-		<Provider store={store}>
-			<div className="container-fluid">
-				<div
-					className="col-md-offset-1 col-md-10"
-					style={{ marginTop: '20px', marginBottom: '20px' }}
-				>
-					<Well>
-						{story()}
-					</Well>
-				</div>
+		<div className="container-fluid">
+			<div
+				className="col-md-offset-1 col-md-10"
+				style={{ marginTop: '20px', marginBottom: '20px' }}
+			>
+				<Well>
+					{story()}
+				</Well>
 			</div>
-		</Provider>
+		</div>
 	));
 
 const capitalizeFirstLetter =
@@ -50,51 +41,16 @@ sampleFilenames
 			const sampleNameMatches = filename.match(sampleFilenameRegex);
 			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
-			const props = {
-				autocomplete: 'off',
-				// onBlur: action('Blur'),
-				customValidation(schema, value, properties) {
-					action('customValidation')(schema, value, properties);
-					return value.length >= 5 &&
-						'Custom validation : The value should be less than 5 chars';
-				},
-				formName: 'my-form',
-				onChange: action('Change'),
-				onTrigger(type, schema, value, properties) {
-					action('Trigger')(type, schema, value, properties);
-					const key = schema.key[schema.key.length - 1];
-					return key.includes('fail') ?
-						Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
-						Promise.resolve({});
-				},
-				onSubmit: action('Submit'),
-			};
 			decoratedStories.add(capitalizedSampleName, () => (
 				<section>
 					<IconsProvider />
-
-					<Tabs>
-						<Tab
-							eventKey={0}
-							key={'without'}
-							title={'State'}
-						>
-							<UIForm
-								{...props}
-								data={object(capitalizedSampleName, sampleFilenames(filename))}
-							/>
-						</Tab>
-						<Tab
-							eventKey={1}
-							key={'with'}
-							title={'Redux'}
-						>
-							<ConnectedUIForm
-								{...props}
-								data={object(capitalizedSampleName, sampleFilenames(filename))}
-							/>
-						</Tab>
-					</Tabs>
+					<Form
+						autocomplete="off"
+						data={object(capitalizedSampleName, sampleFilenames(filename))}
+						onChange={action('Change')}
+						onBlur={action('Blur')}
+						onSubmit={action('Submit')}
+					/>
 				</section>
 			));
 		});
@@ -272,14 +228,17 @@ decoratedStories.add('Custom widget', () => {
 		properties: {
 			list: 'two',
 		},
-		uiSchema: [
-			{
-				key: 'list',
-				type: 'unknown',
+		uiSchema: {
+			list: {
+				'ui:widget': 'unknown',
 			},
-		],
+		},
 	};
 	return (
-		<UIForm widgets={widgets} data={schema} />
+		<Form
+			data={schema}
+			widgets={widgets}
+			onSubmit={action('SUBMIT')}
+		/>
 	);
 });

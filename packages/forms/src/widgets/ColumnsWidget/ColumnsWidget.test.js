@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import ColumnsWidget from './ColumnsWidget';
 
-import testSchema from '../../../stories/old-json/columns.json';
+import testSchema from '../../../stories/json/columns.json';
 
 describe('ColumnsWidget', () => {
 	it('should render', () => {
