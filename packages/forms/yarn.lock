@@ -1256,9 +1256,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.74.2.tgz#33dc36934523bedd75d69f9ed1ac339ecebe7c13"
+bootstrap-talend-theme@^0.79.0:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.79.0.tgz#49413a89f150eaefc9f110f7f0e86e1458d97a36"
   dependencies:
     bootstrap-sass "^3.3.7"
 
@@ -5314,14 +5314,14 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.74.2.tgz#f5c29c8fc73bf571a90ea0609bc2ff037c9955de"
+react-talend-components@^0.79.0:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.79.0.tgz#29e1084986963f6ffdd3b339908cc3676d74f5fc"
   dependencies:
     lodash "^4.17.4"
     react-autowhatever "^7.0.0"
     react-debounce-input "^2.4.2"
-    react-virtualized "^9.1.0"
+    react-virtualized "^9.3.0"
 
 react-test-renderer@15.4.0:
   version "15.4.0"
@@ -5346,7 +5346,7 @@ react-transition-group@^1.0.0:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-virtualized@^9.1.0:
+react-virtualized@^9.1.0, react-virtualized@^9.3.0:
   version "9.7.0"
   resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-9.7.0.tgz#900ec246666796afabc0f9c9f6ae9764327afb30"
   dependencies:
@@ -6044,9 +6044,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.74.2:
-  version "0.74.2"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.74.2.tgz#42ee59ee43163f200f3f024276f872891af647ab"
+talend-icons@^0.79.0:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.79.0.tgz#995ec47807af2de6c9c3bb603093b1e634ffb1b9"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

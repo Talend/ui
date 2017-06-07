@@ -706,7 +706,6 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               ]
             }
             inputPlaceholder="New entry"
-            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
@@ -3012,7 +3011,6 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               ]
             }
             inputPlaceholder="Search"
-            inputRef={[Function]}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}>
             <header
