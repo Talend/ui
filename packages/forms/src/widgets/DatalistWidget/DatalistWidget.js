@@ -205,7 +205,7 @@ class DatalistWidget extends React.Component {
 			initalItems: items,
 			items: suggestions,
 			itemIndex: null,
-			noMatch: value && !items.length,
+			noMatch: value && items && !items.length,
 		});
 	}
 
