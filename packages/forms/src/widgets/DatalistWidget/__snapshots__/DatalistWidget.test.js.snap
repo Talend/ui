@@ -50,7 +50,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": "form-control",
+        "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -60,7 +60,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
       }
     }>
     <div
-      className="form-control">
+      className="form-control tf-typeahead-container">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -174,7 +174,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": "form-control",
+        "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -184,7 +184,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
       }
     }>
     <div
-      className="form-control">
+      className="form-control tf-typeahead-container">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -284,7 +284,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     aze
                   </span>
@@ -313,7 +314,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     banane
                   </span>
@@ -342,7 +344,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     bananAze
                   </span>
@@ -371,7 +374,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                        AzErTy   
                   </span>
@@ -400,7 +404,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     Toto
                   </span>
@@ -467,7 +472,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": "form-control",
+        "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -477,7 +482,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
       }
     }>
     <div
-      className="form-control">
+      className="form-control tf-typeahead-container">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -533,7 +538,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
 
 exports[`DatalistWidget should render input 1`] = `
 <div
-  className="form-control">
+  className="form-control tf-typeahead-container">
   <div
     className={undefined}>
     <input
@@ -623,7 +628,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": "form-control",
+        "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -633,7 +638,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
       }
     }>
     <div
-      className="form-control">
+      className="form-control tf-typeahead-container">
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -736,7 +741,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
     shouldRenderSection={[Function]}
     theme={
       Object {
-        "container": "form-control",
+        "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
@@ -746,7 +751,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
       }
     }>
     <div
-      className="form-control">
+      className="form-control tf-typeahead-container">
       <div>
         <FormControl
           aria-activedescendant={null}

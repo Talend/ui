@@ -175,6 +175,7 @@ Object {
       "onFilter": [Function],
       "onToggle": [Function],
       "placeholder": "find an object",
+      "value": "",
     },
     "pagination": Object {
       "itemsPerPage": 25,

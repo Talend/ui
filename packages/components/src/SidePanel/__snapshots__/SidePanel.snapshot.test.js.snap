@@ -81,14 +81,11 @@ exports[`Storyshots SidePanel default 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="context-toggle-dock"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -197,7 +194,7 @@ exports[`Storyshots SidePanel default 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -233,7 +230,7 @@ exports[`Storyshots SidePanel default 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -256,7 +253,7 @@ exports[`Storyshots SidePanel default 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -267,14 +264,15 @@ exports[`Storyshots SidePanel default 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -284,7 +282,7 @@ exports[`Storyshots SidePanel default 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -300,7 +298,7 @@ exports[`Storyshots SidePanel default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -632,7 +630,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Preparations_clicked()
                                   </span>
                                   }
                                 </span>
@@ -718,7 +716,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Datasets_clicked()
                                   </span>
                                   }
                                 </span>
@@ -802,7 +800,7 @@ exports[`Storyshots SidePanel default 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Favorites_clicked()
                                   </span>
                                   }
                                 </span>
@@ -841,7 +839,7 @@ exports[`Storyshots SidePanel default 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            Toggle_dock_clicked()
                           </span>
                           }
                         </span>
@@ -949,7 +947,7 @@ exports[`Storyshots SidePanel default 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -1238,7 +1236,7 @@ exports[`Storyshots SidePanel default 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
@@ -1363,13 +1361,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1390,13 +1385,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item active"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1417,13 +1409,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1444,13 +1433,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             className="tc-side-panel-list-item"
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1481,7 +1467,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -1517,7 +1503,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -1540,7 +1526,7 @@ exports[`Storyshots SidePanel docked 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -1551,14 +1537,15 @@ exports[`Storyshots SidePanel docked 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -1568,7 +1555,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -1584,7 +1571,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -1886,7 +1873,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Preparations_clicked()
                                   </span>
                                   }
                                 </span>
@@ -1972,7 +1959,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Datasets_clicked()
                                   </span>
                                   }
                                 </span>
@@ -2056,7 +2043,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                                       }
                                     }
                                   >
-                                    anonymous()
+                                    Favorites_clicked()
                                   </span>
                                   }
                                 </span>
@@ -2095,7 +2082,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            Toggle_dock_clicked()
                           </span>
                           }
                         </span>
@@ -2183,7 +2170,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -2472,7 +2459,7 @@ exports[`Storyshots SidePanel docked 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
@@ -2597,13 +2584,10 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             className={undefined}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -2709,7 +2693,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
         "cursor": "pointer",
         "display": "block",
         "fontFamily": "sans-serif",
-        "fontSize": 12,
+        "fontSize": "12px",
         "padding": "5px 15px",
         "position": "fixed",
         "right": 0,
@@ -2745,7 +2729,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
           "cursor": "pointer",
           "display": "block",
           "fontFamily": "sans-serif",
-          "fontSize": 12,
+          "fontSize": "12px",
           "padding": "5px 15px",
           "position": "fixed",
           "right": 0,
@@ -2768,7 +2752,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
               -apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", \\"Roboto\\",
               \\"Segoe UI\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", sans-serif
             ",
-            "fontSize": 15,
+            "fontSize": "15px",
             "fontWeight": 300,
             "lineHeight": 1.45,
           }
@@ -2779,14 +2763,15 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             Object {
               "borderBottom": "1px solid #eee",
               "marginBottom": 10,
+              "paddingTop": 10,
             }
           }
         >
           <h1
             style={
               Object {
-                "fontSize": 35,
-                "margin": "20px 0 0 0",
+                "fontSize": "35px",
+                "margin": 0,
                 "padding": 0,
               }
             }
@@ -2796,7 +2781,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
           <h2
             style={
               Object {
-                "fontSize": 22,
+                "fontSize": "22px",
                 "fontWeight": 400,
                 "margin": "0 0 10px 0",
                 "padding": 0,
@@ -2812,7 +2797,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -3318,7 +3303,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onItemSelect()
                           </span>
                           }
                         </span>
@@ -3349,7 +3334,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                               }
                             }
                           >
-                            anonymous()
+                            onToggleDock()
                           </span>
                           }
                         </span>
@@ -3526,7 +3511,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             style={
               Object {
                 "borderBottom": "1px solid #EEE",
-                "fontSize": 25,
+                "fontSize": "25px",
                 "margin": "20px 0 0 0",
                 "padding": "0 0 5px 0",
               }
@@ -3815,7 +3800,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
                     selected
                   </td>
                   <td>
-                    string
+                    other
                   </td>
                   <td>
                     no
