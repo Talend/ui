@@ -7,26 +7,30 @@ import { getValue } from '../utils/properties';
 export default function Widget(props) {
 	const { errors, formName, onChange, onTrigger, properties, schema, widgets } = props;
 	const { key, type, validationMessage } = schema;
+	const WidgetImpl = widgets[type] || defaultWidgets[type];
+
+	if (!WidgetImpl) {
+		return null;
+	}
+
 	const id = sfPath.name(key, '-', formName);
 	const error = errors[key];
 	const errorMessage = validationMessage || error;
-	const WidgetImpl = widgets[type] || defaultWidgets[type];
-	return WidgetImpl ?
-		(
-			<WidgetImpl
-				id={id}
-				key={id}
-				errorMessage={errorMessage}
-				formName={formName}
-				isValid={!error}
-				onChange={onChange}
-				onTrigger={onTrigger}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-				value={getValue(properties, key)}
-			/>
-		) : null;
+	return (
+		<WidgetImpl
+			id={id}
+			key={id}
+			errorMessage={errorMessage}
+			formName={formName}
+			isValid={!error}
+			onChange={onChange}
+			onTrigger={onTrigger}
+			properties={properties}
+			schema={schema}
+			errors={errors}
+			value={getValue(properties, key)}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {

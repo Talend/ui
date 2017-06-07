@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
 import Message from '../Message';
 
@@ -7,7 +8,7 @@ export default function Button(props) {
 	const { description, title, triggers, type } = schema;
 
 	return (
-		<div className={isValid ? null : 'has-error'}>
+		<div className={classNames({ 'has-error': !isValid })} >
 			<button
 				id={id}
 				className={'btn'}

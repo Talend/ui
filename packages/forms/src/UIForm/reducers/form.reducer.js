@@ -23,9 +23,10 @@ import validationsReducer from './validations.reducer';
  * }
  */
 export default function formReducer(state = {}, action) {
+	const form = state[action.formName];
+
 	switch (action.type) {
 	case TF_CREATE_FORM: {
-		const form = state[action.formName];
 		if (form) {
 			return state;
 		}
@@ -40,7 +41,6 @@ export default function formReducer(state = {}, action) {
 		};
 	}
 	case TF_UPDATE_FORM: {
-		const form = state[action.formName];
 		const { jsonSchema, uiSchema, properties, errors } = action;
 		if (!form || (!jsonSchema && !uiSchema && !properties && !errors)) {
 			return state;
@@ -63,7 +63,6 @@ export default function formReducer(state = {}, action) {
 	case TF_UPDATE_FORM_DATA:
 	case TF_SET_ALL_ERRORS:
 	case TF_SET_PARTIAL_ERROR: {
-		const form = state[action.formName];
 		if (!form) {
 			return state;
 		}

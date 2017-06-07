@@ -1,6 +1,6 @@
 exports[`Button field should render button 1`] = `
 <div
-  className={null}>
+  className="">
   <button
     className="btn"
     id="myForm"

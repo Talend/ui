@@ -15,7 +15,7 @@ export function getValue(properties, key) {
 }
 
 /**
- * Omit a properties from an object
+ * Omit a property from an object
  * @param properties The object
  * @param key The key to omit
  */
