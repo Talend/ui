@@ -6,6 +6,19 @@ import css from './JSONSchemaRenderer.scss';
 
 const className = 'json-schema-renderer';
 
+export const RendererProptypes = {
+	propertyKey: PropTypes.string.isRequired,
+	title: PropTypes.string,
+};
+
+const SchemaProptypes = {
+	jsonSchema: PropTypes.object.isRequired,
+	uiSchema: PropTypes.shape({
+		'ui:order': PropTypes.array,
+	}),
+	properties: PropTypes.object.isRequired,
+};
+
 /**
  * UnkownTypeException
  *
@@ -28,68 +41,109 @@ function InvalidSchemaException() {
 }
 
 /**
- * textRenderer
+ * HiddenRenderer renders nothing to hide specified properties
  *
- * @param key
- * @param title
- * @param text
- * @returns {string} - HTML markup for a text component
+ * @returns null
  */
-function textRenderer(key, title, text) {
-	return (
-		<div className={classNames('text-renderer', `text-renderer-${key}`)} key={key}>
-			<dt>{title || key}</dt>
-			<dd>{text}</dd>
-		</div>
-	);
-}
-
-function booleanRenderer(key, title, value) {
-	return (
-		<div className={classNames('boolean-renderer', `boolean-renderer-${key}`)} key={key}>
-			<dt>{title || key}</dt>
-			<dd>{value.toString()}</dd>
-		</div>
-	);
+function HiddenRenderer() {
+	return null;
 }
 
 /**
- * arrayRenderer
+ * UnkownRenderer renders nothing in case the property doesn't have a
+ * coresponding schema definition
  *
- * @param key
- * @param title
- * @param items
- * @returns {string} - HTML markup for an array component
+ * @returns {undefined}
  */
-function arrayRenderer(key, title, items) {
+function UnkownRenderer() {
+	return null;
+}
+
+/**
+ * TextRenderer renders text based properties (string and numbers)
+ */
+function TextRenderer({ propertyKey, title, properties }) {
 	return (
-		<div className={classNames(css.array, `array-renderer-${key}`)} key={key}>
-			<dt>{title || key}</dt>
-			{items.map((val, i) => <dd key={`key-${i}`}>{val}</dd>)}
+		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
+			<dt>{title || propertyKey}</dt>
+			<dd>{properties}</dd>
 		</div>
 	);
 }
 
-const registry = {
-	string: textRenderer,
-	integer: textRenderer,
-	boolean: booleanRenderer,
-	array: arrayRenderer,
-	object: objectRenderer, // eslint-disable-line no-use-before-define
+TextRenderer.propTypes = {
+	...RendererProptypes,
+	properties: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 };
+
+/**
+ * booleanRenderer renders boolean properties
+ */
+function BooleanRenderer({ propertyKey, title, properties }) {
+	return (
+		<div className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)} key={propertyKey}>
+			<dt>{title || propertyKey}</dt>
+			<dd>{properties.toString()}</dd>
+		</div>
+	);
+}
+
+BooleanRenderer.propTypes = {
+	...RendererProptypes,
+	properties: PropTypes.bool.isRequired,
+};
+
+/**
+ * arrayRenderer renders an array of properties
+ */
+function ArrayRenderer({ propertyKey, title, properties }) {
+	return (
+		<div className={classNames(css.array, `array-renderer-${propertyKey}`)} key={propertyKey}>
+			<dt>{title || propertyKey}</dt>
+			{properties.map((val, i) => <dd key={`propertyKey-${i}`}>{val}</dd>)}
+		</div>
+	);
+}
+
+ArrayRenderer.propTypes = {
+	...RendererProptypes,
+	properties: PropTypes.arrayOf(
+		PropTypes.shape({ ...RendererProptypes })
+	).isRequired,
+};
+
+const registry = {
+	string: TextRenderer,
+	integer: TextRenderer,
+	boolean: BooleanRenderer,
+	array: ArrayRenderer,
+	object: ObjectRenderer, // eslint-disable-line no-use-before-define
+};
+
+function isHidden(uiSchema, element) {
+	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
+}
 
 /**
  * typeResolver
  *
  * @param schema - The JSONSchema of the data being rendered
+ * @param uiSchema
  * @throws {UnkownTypeException} Type must be part of the registry
- * @returns {Function} resolver receiving data from a map operation
+ * @returns {Object} Resolved Renderer and props
  */
-function typeResolver(schema) {
+function typeResolver(schema, uiSchema) {
 	return function resolver(e) {
 		if (!schema[e[0]]) {
-			return null;
+			return { Renderer: UnkownRenderer };
 		}
+		if (isHidden(uiSchema, e[0])) {
+			return { Renderer: HiddenRenderer };
+		}
+
 		const type = schema[e[0]].type;
 		const title = schema[e[0]].title;
 
@@ -98,31 +152,41 @@ function typeResolver(schema) {
 			throw new UnkownTypeException(type);
 		}
 
-		return renderer(e[0], title, e[1], schema);
+		return {
+			Renderer: renderer,
+			propertyKey: e[0],
+			title,
+			properties: e[1],
+			schema,
+			uiSchema,
+		};
 	};
 }
 
 /**
- * objectRenderer
- *
- * @param key
- * @param title
- * @param properties
- * @param schema
- * @returns {string} - HTML markup for an object component
+ * objectRenderer renders nested properties
  */
-function objectRenderer(key, title, properties, schema) {
+function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
 	const flattenProperties = entries(properties);
-	const elements = flattenProperties.map(typeResolver(schema[key].properties));
+	const elements = flattenProperties.map(
+		typeResolver(schema[propertyKey].properties,
+		uiSchema[propertyKey])
+	);
 	return (
-		<div className={classNames(css.object, `object-renderer-${key}`)} key={key}>
-			<h2>{title || key}</h2>
+		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
+			<h2>{title || propertyKey}</h2>
 			<div>
-				{elements}
+				{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
 			</div>
 		</div>
 	);
 }
+
+
+ObjectRenderer.propTypes = {
+	...RendererProptypes,
+	schema: PropTypes.shape(SchemaProptypes),
+};
 
 /**
  * orderProperties sorts properties based on uiSchema ui:order array
@@ -155,30 +219,24 @@ function orderProperties(order, properties) {
  * properties
  * @returns {string} - HTML markup for the component
  */
-function JSONSchemaRenderer(props) {
-	if (!props.schema.jsonSchema || !props.schema.properties) {
+function JSONSchemaRenderer({ schema }) {
+	if (!schema.jsonSchema || !schema.properties) {
 		throw new InvalidSchemaException();
 	}
-	let properties = entries(props.schema.properties);
-	if (props.schema.uiSchema) {
-		properties = orderProperties(props.schema.uiSchema['ui:order'], properties);
+	let properties = entries(schema.properties);
+	if (schema.uiSchema) {
+		properties = orderProperties(schema.uiSchema['ui:order'], properties);
 	}
-	const elements = properties.map(typeResolver(props.schema.jsonSchema.properties));
+	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (
 		<dl className={classNames(css[className], 'json-schema-renderer')}>
-			{elements}
+			{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
 		</dl>
 	);
 }
 
 JSONSchemaRenderer.propTypes = {
-	schema: PropTypes.shape({
-		jsonSchema: PropTypes.object.isRequired,
-		uiSchema: PropTypes.shape({
-			'ui:order': PropTypes.array,
-		}),
-		properties: PropTypes.object.isRequired,
-	}).isRequired,
+	schema: PropTypes.shape({ ...SchemaProptypes }),
 };
 
 JSONSchemaRenderer.InvalidSchemaException = InvalidSchemaException;

@@ -98,7 +98,7 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return (event, data) => onClick(event, { ...data, ...this.form.state });
+			return (event, data) => onClick(event, { ...data, ...(this.form && this.form.state) });
 		}
 		return () => {};
 	}
@@ -153,6 +153,7 @@ class Form extends React.Component {
 					this.form = c;
 				}}
 			>
+				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
 					{renderActions(this.props.actions, this.handleActionClick)}
 				</div>
@@ -189,6 +190,7 @@ Form.propTypes = {
 	handleAction: PropTypes.func,
 	widgets: PropTypes.object,
 	formContext: PropTypes.func,
+	children: PropTypes.element,
 };
 
 Form.defaultProps = {

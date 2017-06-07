@@ -242,3 +242,28 @@ decoratedStories.add('Custom widget', () => {
 		/>
 	);
 });
+
+decoratedStories.add('Form Children', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'Form with children',
+			type: 'object',
+			properties: {
+				test: {
+					title: 'Test title',
+					type: 'string',
+				},
+			},
+		},
+		uiSchema: {},
+		properties: {
+			test: 'test',
+		},
+	};
+	return (
+		<Form data={schema} onSubmit={action('SUBMIT')}>
+			<h1>Child</h1>
+			<p>This is an inner child in the form</p>
+		</Form>
+	);
+});

@@ -12,6 +12,7 @@
   },
   "files": [
     "generators/app",
+    "generators/create-cell",
     "generators/dotfiles",
     "generators/react-cmf",
     "generators/react-component"
