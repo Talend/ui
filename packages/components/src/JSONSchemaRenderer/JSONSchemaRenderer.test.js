@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
 
@@ -99,21 +99,65 @@ describe('JSONSchemaRenderer', () => {
 				a: 'test a',
 			},
 		};
-		const wrapper = shallow(<JSONSchemaRenderer schema={schema} />);
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt').first().text()).toEqual('a');
 		expect(wrapper.find('dt').last().text()).toEqual('d');
+	});
+
+	it("shouldn't render hidden fields", () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					a: { type: 'string' },
+					b: { type: 'string' },
+					c: { type: 'string' },
+					d: { type: 'string' },
+				},
+			},
+			uiSchema: {
+				a: { 'ui:widget': 'hidden' },
+				c: { 'ui:widget': 'hidden' },
+			},
+			properties: {
+				a: 'test a',
+				b: 'test b',
+				c: 'test c',
+				d: 'test d',
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt')).toHaveLength(2);
+		expect(wrapper.find('dt').first().text()).toEqual('b');
+		expect(wrapper.find('dt').last().text()).toEqual('d');
+	});
+
+	it("shouldn't render properties without a schema", () 	=> {
+		const schema = 	{
+			jsonSchema: {
+				properties: {
+					a: { type: 'string' },
+				},
+			},
+			properties: {
+				a: 'test a',
+				b: 'test b',
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt')).toHaveLength(1);
+		expect(wrapper.find('dt').first().text()).toEqual('a');
 	});
 
 	// TODO: Add $ref handling
 	// Not required for a first implementation
 	xit('should handle $ref', () => {});
 
-	it('should throw an execption in case of invalid schema', () => {
+	it('should throw an exception in case of invalid schema', () => {
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={{}} />).toJSON();
 		expect(wrapper).toThrow(InvalidSchemaException);
 	});
 
-	it('should throw an execption in case of unkown type', () => {
+	it('should throw an exception in case of unkown type', () => {
 		const schema = {
 			jsonSchema: {
 				properties: {
