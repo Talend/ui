@@ -35,22 +35,22 @@ function StringField(props) {
 	};
 
 	return (
-		<Widget
-			options={{ ...options, enumOptions }}
-			schema={schema}
-			id={idSchema && idSchema.$id}
-			label={title === undefined ? name : title}
-			value={defaultFieldValue(formData, schema)}
-			onChange={onChangeHandler}
-			onBlur={onBlur}
-			required={required}
-			disabled={disabled}
-			readonly={readonly}
-			formContext={formContext}
-			autofocus={autofocus}
-			registry={registry}
-			placeholder={placeholder}
-		/>
+        <Widget
+            options={{ ...options, enumOptions }}
+            schema={schema}
+            id={idSchema && idSchema.$id}
+            label={title === undefined ? name : title}
+            value={defaultFieldValue(formData, schema)}
+            onChange={onChangeHandler}
+            onBlur={onBlur}
+            required={required}
+            disabled={disabled}
+            readonly={readonly}
+            formContext={formContext}
+            autofocus={autofocus}
+            registry={registry}
+            placeholder={placeholder}
+        />
 	);
 }
 
