@@ -185,4 +185,26 @@ describe('DatalistWidget', () => {
 		expect(onChange).not.toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
+
+	it('should handle arbitrary input if not restricted', () => {
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={{}}
+				onChange={onChange}
+				options={{ restricted: false }}
+			/>
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'unknown' } });
+
+		// when
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toBeCalled();
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });

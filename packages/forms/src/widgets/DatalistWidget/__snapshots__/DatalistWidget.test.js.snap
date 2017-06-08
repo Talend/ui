@@ -1,3 +1,111 @@
+exports[`DatalistWidget should handle arbitrary input if not restricted 1`] = `
+<DatalistWidget
+  id="myWidget"
+  onChange={[Function]}
+  options={
+    Object {
+      "restricted": false,
+    }
+  }
+  required={true}
+  schema={Object {}}>
+  <Autowhatever
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
+    getSectionItems={[Function]}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "required": true,
+        "value": "unknown",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "unknown",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    shouldRenderSection={[Function]}
+    theme={
+      Object {
+        "container": "form-control tf-typeahead-container",
+        "containerOpen": undefined,
+        "highlight": undefined,
+        "input": undefined,
+        "itemFocused": undefined,
+        "itemsContainer": undefined,
+        "itemsList": undefined,
+      }
+    }>
+    <div
+      className="form-control tf-typeahead-container">
+      <div>
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup={false}
+          aria-owns="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          componentClass="input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          role="combobox"
+          style={Object {}}
+          type="text"
+          value="unknown">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            role="combobox"
+            style={Object {}}
+            type="text"
+            value="unknown" />
+        </FormControl>
+        <div>
+          <span
+            className="caret" />
+        </div>
+      </div>
+      <div
+        id="react-autowhatever-myWidget"
+        style={Object {}} />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
 exports[`DatalistWidget should render "no match" message 1`] = `
 <DatalistWidget
   id="myWidget"
