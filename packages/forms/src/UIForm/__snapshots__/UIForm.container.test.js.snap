@@ -44,7 +44,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -94,7 +94,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -144,7 +144,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -215,7 +215,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -275,7 +275,7 @@ exports[`UIForm container should render form 2`] = `
         "triggers": Array [
           "after",
         ],
-        "type": "button",
+        "widget": "button",
       },
     ]
   }
