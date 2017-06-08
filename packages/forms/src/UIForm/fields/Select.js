@@ -1,17 +1,16 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import { convertValue } from '../utils/properties';
 import Message from '../Message';
 
-function getSelectedOptions(select, type, multiple) {
+function getSelectedOptions(select, multiple) {
 	if (multiple) {
 		return Array.from(select.options)
 			.filter(option => option.selected)
-			.map(option => convertValue(type, option.value));
+			.map(option => option.value);
 	}
 
-	return convertValue(type, select.value);
+	return select.value;
 }
 
 export default function Select(props) {
@@ -22,11 +21,7 @@ export default function Select(props) {
 		'form-group',
 		{ 'has-error': !isValid },
 	);
-	const options = schema.titleMap;
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
-	const itemsType = multiple ?
-		schema.schema.items.type :
-		schema.schema.type;
 
 	return (
 		<div className={groupsClassNames}>
@@ -37,14 +32,14 @@ export default function Select(props) {
 				className="form-control"
 				disabled={disabled}
 				onChange={
-					event => onChange(event, schema, getSelectedOptions(event.target, itemsType, multiple))
+					event => onChange(event, schema, getSelectedOptions(event.target, multiple))
 				}
 				readOnly={readOnly}
 				value={value}
 			>
 				<option disabled>{placeholder}</option>
 				{
-					options.map((option, index) => {
+					schema.titleMap && schema.titleMap.map((option, index) => {
 						const optionProps = {
 							key: index,
 							value: option.value,
