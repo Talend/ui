@@ -1,14 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+import { convertValue } from '../utils/properties';
 import Message from '../Message';
-
-function convertValue(type, value) {
-	if (type === 'number') {
-		return parseFloat(value);
-	}
-	return value;
-}
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;

@@ -1,18 +1,22 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+import { convertValue } from '../utils/properties';
 import Message from '../Message';
 
-function convertValue(type, value) {
-	if (type === 'number') {
-		return parseFloat(value);
+function getSelectedOptions(select, type, multiple) {
+	if (multiple) {
+		return Array.from(select.options)
+			.filter(option => option.selected)
+			.map(option => convertValue(type, option.value));
 	}
-	return value;
+
+	return convertValue(type, select.value);
 }
 
 export default function Select(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
+	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
 
 	const groupsClassNames = classNames(
 		'form-group',
@@ -20,6 +24,9 @@ export default function Select(props) {
 	);
 	const options = schema.titleMap;
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
+	const itemsType = multiple ?
+		schema.schema.items.type :
+		schema.schema.type;
 
 	return (
 		<div className={groupsClassNames}>
@@ -29,9 +36,9 @@ export default function Select(props) {
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				onChange={event => {
-					return onChange(event, schema, convertValue(type, event.target.value));
-				}}
+				onChange={
+					event => onChange(event, schema, getSelectedOptions(event.target, itemsType, multiple))
+				}
 				readOnly={readOnly}
 				value={value}
 			>
@@ -40,13 +47,13 @@ export default function Select(props) {
 					options.map((option, index) => {
 						const optionProps = {
 							key: index,
-							value: option.name,
+							value: option.value,
 						};
 						return (
 							<option
 								{...optionProps}
 							>
-								{option.value}
+								{option.name}
 							</option>
 						);
 					})
@@ -77,10 +84,10 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 			type: PropTypes.string,
 		}),
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 }
 Select.defaultProps = {
 	isValid: true,
-	value: [],
+	value: '',
 };

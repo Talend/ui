@@ -31,3 +31,15 @@ export function omit(properties, key) {
 		});
 	return result;
 }
+
+/**
+ * Convert a string value to the wanted type
+ * @param type The string type
+ * @param value The value to convert
+ */
+export function convertValue(type, value) {
+	if (type === 'number') {
+		return parseFloat(value);
+	}
+	return value;
+}
