@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import cloneDeep from 'lodash/cloneDeep';
 import ObjectField from '../../fields/ObjectField';
 
 import theme from './ColumnsWidget.scss';
@@ -10,7 +9,7 @@ function Column({ className, schema, formData, onChange, onBlur, ...props }) {
 			<ObjectField
 				{...props}
 				schema={schema}
-				formData={cloneDeep(formData)}
+				formData={formData}
 				onChange={onChange}
 				onBlur={onBlur}
 			/>
