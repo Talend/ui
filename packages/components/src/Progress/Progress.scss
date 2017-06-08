@@ -1,6 +1,6 @@
 $tc-progress-color: $brand-success !default;
-$solid-gradient-part-width: 22%;
-$empty-gradient-part-width: 11.3%;
+$solid-gradient-part-width: 200%/9;
+$empty-gradient-part-width: 100%/9;
 @keyframes infinite-progression-keyframes {
 	0% {
 		background-position-x: 100%;
