@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import UIFormComponent from './UIForm.component';
+import UIFormComponent  from './UIForm.component';
+import { formPropTypes, extractFormProps } from './utils/propTypes';
 
 import {
 	createForm,
@@ -66,16 +67,14 @@ class UIForm extends React.PureComponent {
 
 		return (
 			<UIFormComponent
-				autoComplete={this.props.autoComplete}
-				formName={this.props.formName}
-				id={this.props.id}
+				{...extractFormProps(this.props)}
+
 				jsonSchema={form.jsonSchema}
 				uiSchema={form.uiSchema}
 				properties={form.properties}
 				errors={form.errors}
 
 				customValidation={this.props.customValidation}
-				onSubmit={this.props.onSubmit}
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
 
@@ -90,6 +89,8 @@ class UIForm extends React.PureComponent {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
+		...formPropTypes,
+
 		/** Form schema initial configuration */
 		data: PropTypes.shape({
 			/** Json schema that specify the data model */
@@ -102,8 +103,6 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
-		/** Form auto complete */
-		autoComplete: PropTypes.string,
 		/**
 		 * Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)
@@ -111,17 +110,11 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
 		customValidation: PropTypes.func,
-		/** The form name that will be used to create ids */
-		formName: PropTypes.string.isRequired,
-		/** The form id */
-		id: PropTypes.string,
 		/**
 		 * The change callback.
 		 * Prototype: function onChange(schema, value, properties)
 		 */
 		onChange: PropTypes.func,
-		/** Form submit callback */
-		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * Tigger callback.
 		 * Prototype: function onTrigger(type, schema, value, properties)
