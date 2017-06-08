@@ -513,7 +513,7 @@ class EnumerationWidget extends React.Component {
 				headerInput: this.loadingInputsActions,
 			});
 			this.input.focus();
-		} else if (!this.valueAlreadyExist(value.value)) {
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
 			this.setState((prevState) => {
 				const items = prevState.items.concat([{
 					values: this.constructor.parseStringValueToArray(value.value),
@@ -542,7 +542,7 @@ class EnumerationWidget extends React.Component {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
-		} else if (!this.valueAlreadyExist(value.value)) {
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
 			this.setState(prevState => (
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
@@ -715,11 +715,8 @@ class EnumerationWidget extends React.Component {
 		}));
 	}
 
-	valueAlreadyExist(value, prevState) {
-		if (prevState) {
-			return !this.allowDuplicate && prevState.items.find(item => item.values[0] === value);
-		}
-		return !this.allowDuplicate && this.state.items.find(item => item.values[0] === value);
+	valueAlreadyExist(value, state) {
+		return !this.allowDuplicate && state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {
