@@ -31,9 +31,23 @@ const HTML_TPL = (icons, style) => `
 			}
 			${style}
 		</style>
+		<script>
+			function setSize(size) {
+				document.querySelectorAll('li svg').forEach(icon => {
+					icon.setAttribute('width', size);
+					icon.setAttribute('height', size);
+				});
+			}
+		</script>
 	</head>
 	<body>
 		<h1>Talend SVG icons demo</h1>
+		<select value="2.4rem" onchange="setSize(this.value)">
+			<option value="0.8rem">xs</option>
+			<option value="1.2rem">sm</option>
+			<option value="1.6rem">md</option>
+			<option value="2.4rem">lg</option>
+		</select>
 		<ul>
 			${icons}
 		</ul>
@@ -41,7 +55,7 @@ const HTML_TPL = (icons, style) => `
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm"><svg width="3em" height="3em">${lib.svgs[key]}</svg><span>${key}</span></li>`);
+const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm"><svg width="2.4rem" height="2.4rem">${lib.svgs[key]}</svg><span>${key}</span></li>`);
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);
