@@ -8,6 +8,7 @@
   },
   "files": [
     "generators/app",
+    "generators/create-cell",
     "generators/dotfiles",
     "generators/react-cmf",
     "generators/react-component"
@@ -49,5 +50,5 @@
     "test": "npm run test:lint && npm run test:unit"
   },
   "license": "Apache-2.0",
-  "version": "0.79.0"
+  "version": "0.80.0"
 }
