@@ -36,21 +36,27 @@ const HTML_TPL = (icons, style) => `
 		</style>
 		<script>
 			function setSize(size) {
-				document.querySelectorAll('li svg').forEach(icon => {
+				var elements = document.querySelectorAll('li svg');
+				for (var i = 0; i < elements.length; i++) {
+					var icon = elements[i];
 					icon.setAttribute('width', size);
 					icon.setAttribute('height', size);
-				});
+				}
 			}
 			function filter(term) {
-				document.querySelectorAll('.hidden').forEach(icon => {
+				var hiddens = document.querySelectorAll('.hidden');
+				for (var i = 0; i < hiddens.length; i++) {
+					var icon = hiddens[i];
 					icon.className = "well well-sm";
-				});
+				}
 				if (term) {
-					document.querySelectorAll('li svg').forEach(icon => {
+					var elements = document.querySelectorAll('li svg');
+					for (var i = 0; i < elements.length; i++) {
+						var icon = elements[i];
 						if (icon.id.indexOf(term) === -1) {
 							icon.parentElement.className += " hidden";
 						}
-					});
+					}
 				}
 			}
 		</script>
