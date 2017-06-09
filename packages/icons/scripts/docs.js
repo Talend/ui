@@ -29,6 +29,9 @@ const HTML_TPL = (icons, style) => `
 			li > span {
 				margin-top: 10px;
 			}
+			form {
+				margin-left: 47px;
+			}
 			${style}
 		</style>
 		<script>
@@ -38,16 +41,37 @@ const HTML_TPL = (icons, style) => `
 					icon.setAttribute('height', size);
 				});
 			}
+			function filter(term) {
+				document.querySelectorAll('.hidden').forEach(icon => {
+					icon.className = "well well-sm";
+				});
+				if (term) {
+					document.querySelectorAll('li svg').forEach(icon => {
+						if (icon.id.indexOf(term) === -1) {
+							icon.parentElement.className += " hidden";
+						}
+					});
+				}
+			}
 		</script>
 	</head>
 	<body>
 		<h1>Talend SVG icons demo</h1>
-		<select value="2.4rem" onchange="setSize(this.value)">
-			<option value="0.8rem">xs</option>
-			<option value="1.2rem">sm</option>
-			<option value="1.6rem">md</option>
-			<option value="2.4rem">lg</option>
-		</select>
+		<form class="form-inline">
+			<div class="form-group">
+				<label class="sr-only">Icon size</label>
+				<select class="form-control" onchange="setSize(this.value)" style="width:135px">
+					<option value="0.8rem">xs</option>
+					<option value="1.2rem">sm</option>
+					<option value="1.6rem">md</option>
+					<option value="2.4rem" selected>lg</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label class="sr-only">search</label>
+				<input type="text" oninput="filter(this.value)" class="form-control" placeholder="search" style="width: 280px; margin-left: 7px" />
+			</div>
+		</form>
 		<ul>
 			${icons}
 		</ul>
@@ -55,7 +79,7 @@ const HTML_TPL = (icons, style) => `
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm"><svg width="2.4rem" height="2.4rem">${lib.svgs[key]}</svg><span>${key}</span></li>`);
+const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm" ><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><span>${key}</span></li>`);
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);
