@@ -40,6 +40,7 @@ Enumeration.propTypes = {
 		DISPLAY_MODE_EDIT,
 		DISPLAY_MODE_SEARCH,
 	]),
+	inputRef: PropTypes.func,
 	required: PropTypes.bool,
 	headerError: PropTypes.string,
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
@@ -66,6 +67,7 @@ Enumeration.propTypes = {
 	onInputChange: PropTypes.func.isRequired,
 	onAddKeyDown: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
+	inputValue: PropTypes.string,
 	...ItemEditPropTypes,
 };
 
@@ -89,9 +91,10 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-	displayMode, headerError, onInputChange, onAddKeyDown,
-	headerInput, headerDefault, headerSelected, items, required,
-}) {
+		displayMode, headerError, onInputChange, onAddKeyDown,
+		headerInput, headerDefault, headerSelected, items, required,
+		inputValue, inputRef,
+	}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
 		const propsInput = {
@@ -99,6 +102,7 @@ function HeaderEnumeration({
 			onInputChange,
 			onAddKeyDown,
 			headerError,
+			inputRef,
 			inputPlaceholder: 'Search',
 		};
 		return <HeaderInput {...propsInput} />;
@@ -110,6 +114,8 @@ function HeaderEnumeration({
 				onInputChange,
 				onAddKeyDown,
 				headerError,
+				inputRef,
+				value: inputValue,
 				inputPlaceholder: 'New entry',
 			};
 		return <HeaderInput {...propsInput} />;
@@ -146,6 +152,8 @@ HeaderEnumeration.propTypes = {
 	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
 	items: Enumeration.propTypes.items,
 	required: Enumeration.propTypes.required,
+	inputValue: Enumeration.propTypes.inputValue,
+	inputRef: Enumeration.propTypes.inputRef,
 };
 
 export default Enumeration;
