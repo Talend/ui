@@ -39,6 +39,10 @@ const schema = {
 					enumNames: ['A', 'B', 'D', 'E', 'F'],
 				},
 			},
+			hidden: {
+				type: 'string',
+				title: 'Hidden',
+			},
 			nested: {
 				type: 'object',
 				title: 'Nested Elements',
@@ -48,6 +52,9 @@ const schema = {
 					},
 					nestedInteger: {
 						type: 'integer',
+					},
+					nestedHidden: {
+						type: 'string',
 					},
 					extraLevel: {
 						type: 'object',
@@ -70,6 +77,11 @@ const schema = {
 			'bio',
 			'password',
 		],
+		nested: {
+			nestedHidden: {
+				'ui:widget': 'hidden',
+			},
+		},
 		age: {
 			'ui:widget': 'updown',
 		},
@@ -78,6 +90,9 @@ const schema = {
 		},
 		password: {
 			'ui:widget': 'password',
+		},
+		hidden: {
+			'ui:widget': 'hidden',
 		},
 	},
 	properties: {
@@ -90,10 +105,12 @@ const schema = {
 		nested: {
 			nestedElement: 'nestedElement',
 			nestedInteger: 42,
+			nestedHidden: 'nestedHidden',
 			extraLevel: {
 				extraLevelStr: 'ExtraLevel',
 			},
 		},
+		hidden: 'hidden',
 	},
 };
 

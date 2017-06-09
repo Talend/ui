@@ -160,16 +160,16 @@ storiesOf('Drawer', module)
 	})
 	.addWithInfo('stacked drawers', () => {
 		const stackedDrawers = [
-			(<Drawer stacked title="Im stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+			(<Drawer stacked title="I'm stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 				<h1>Hello drawer 1</h1>
 				<p>{ "You should not being able to read this because I'm first" }</p>
 			</Drawer>),
-			(<Drawer stacked title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+			(<Drawer stacked title="I'm drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 				<h1>Hello drawer 2</h1>
 				<p>The content dictate the scroll</p>
 				{scrollableContent()}
 			</Drawer>),
-			(<Drawer stacked title="Im drawer 3" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+			(<Drawer stacked title="I'm drawer 3" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 				<h1>Hello drawer 3</h1>
 				<p>The content dictate the scroll</p>
 				{scrollableContent()}
@@ -221,7 +221,7 @@ storiesOf('Drawer', module)
 					defaultActiveKey="info"
 				>
 					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title title="custom with tabs" onCancelAction={onCancelAction}>
+						<Drawer.Title title="Custom drawer with tabs and a super long name that breaks the drawer title" onCancelAction={onCancelAction}>
 							<Nav bsClass="nav nav-tabs">
 								<NavItem componentClass="button" eventKey="info">
 									Info

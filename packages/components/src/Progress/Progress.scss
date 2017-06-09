@@ -1,5 +1,6 @@
 $tc-progress-color: $brand-success !default;
-$gradient-part-width: 100% / 6;
+$solid-gradient-part-width: 200% / 9;
+$empty-gradient-part-width: 100% / 9;
 @keyframes infinite-progression-keyframes {
 	0% {
 		background-position-x: 100%;
@@ -40,18 +41,24 @@ $gradient-part-width: 100% / 6;
 		&.infinite {
 			background: transparent;
 			width: 100%;
-			animation: infinite-progression-keyframes 5s infinite;
+			animation: infinite-progression-keyframes 1s infinite;
 			animation-timing-function: linear;
 			animation-fill-mode: forwards;
 			background-size: 300%;
 
 			background-image: linear-gradient(to right,
-				$tc-progress-color 0%, $tc-progress-color $gradient-part-width,
-				transparent $gradient-part-width, transparent 2 * $gradient-part-width,
-				$tc-progress-color 2 * $gradient-part-width, $tc-progress-color 3 * $gradient-part-width,
-				transparent 3 * $gradient-part-width, transparent 4 * $gradient-part-width,
-				$tc-progress-color 4 * $gradient-part-width, $tc-progress-color 5 * $gradient-part-width,
-				transparent 5 * $gradient-part-width, transparent 100%
+				$tc-progress-color 0%,
+				$tc-progress-color $solid-gradient-part-width,
+				transparent $solid-gradient-part-width,
+				transparent $solid-gradient-part-width + $empty-gradient-part-width,
+				$tc-progress-color $solid-gradient-part-width + $empty-gradient-part-width,
+				$tc-progress-color 2 * $solid-gradient-part-width + $empty-gradient-part-width,
+				transparent 2 * $solid-gradient-part-width + $empty-gradient-part-width,
+				transparent 2 * $solid-gradient-part-width + 2 * $empty-gradient-part-width,
+				$tc-progress-color 2 * $solid-gradient-part-width + 2 * $empty-gradient-part-width,
+				$tc-progress-color 3 * $solid-gradient-part-width + 2 * $empty-gradient-part-width,
+				transparent 3 * $solid-gradient-part-width + 2 * $empty-gradient-part-width,
+				transparent 100%
 			);
 		}
 	}

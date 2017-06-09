@@ -71,7 +71,7 @@ function renderDatalistItem(item, { value }) {
 	}
 
 	return (
-		<div className={theme.item}>
+		<div className={classnames(theme.item, 'datalist-item')}>
 			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
 		</div>
 	);
@@ -205,7 +205,7 @@ class DatalistWidget extends React.Component {
 			initalItems: items,
 			items: suggestions,
 			itemIndex: null,
-			noMatch: value && !items.length,
+			noMatch: value && items && !items.length,
 		});
 	}
 
