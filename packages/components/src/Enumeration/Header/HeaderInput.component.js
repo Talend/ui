@@ -4,8 +4,6 @@ import classNames from 'classnames';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
-let inputRef;
-
 function headerClasses(headerError) {
 	return classNames({
 		[theme['tc-enumeration-header']]: true,
@@ -21,11 +19,12 @@ function headerErrorClasses() {
 	});
 }
 
-function getAction(action, index) {
+function getAction(action, index, getInternalInputRef) {
 	function onClick(event) {
+		const internalInputRef = getInternalInputRef();
 		if (action.onClick) {
 			action.onClick(event, {
-				value: inputRef.value,
+				value: internalInputRef.value,
 			});
 		}
 	}
@@ -45,7 +44,12 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder, onAddKeyDown }) {
+function HeaderInput({
+		headerInput, headerError, onInputChange, inputPlaceholder,
+		onAddKeyDown, value, inputRef,
+	}) {
+	let internalInputRef = null;
+
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -58,21 +62,29 @@ function HeaderInput({ headerInput, headerError, onInputChange, inputPlaceholder
 		});
 	}
 
+	function getInternalInputRef() {
+		return internalInputRef;
+	}
+
 	return (
 		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
 				placeholder={inputPlaceholder}
 				ref={(input) => {
-					inputRef = input;
+					internalInputRef = input;
+					if (inputRef) {
+						inputRef(input);
+					}
 				}}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
+				value={value}
 				autoFocus
 			/>
-			{ headerError &&
-			<div className={headerErrorClasses()}>{headerError}</div> }
-			{headerInput.map((action, index) => getAction(action, index))}
+			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
+			{ headerInput.map((action, index) =>
+				getAction(action, index, getInternalInputRef.bind(this))) }
 		</header>
 	);
 }
@@ -82,7 +94,9 @@ HeaderInput.propTypes = {
 	headerError: PropTypes.string,
 	onInputChange: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
+	inputRef: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
+	value: PropTypes.string,
 };
 
 export default HeaderInput;
