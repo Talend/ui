@@ -199,5 +199,6 @@ Object {
       ],
     },
   },
+  "virtualized": false,
 }
 `;
