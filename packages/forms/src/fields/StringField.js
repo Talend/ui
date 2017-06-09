@@ -35,22 +35,22 @@ function StringField(props) {
 	};
 
 	return (
-        <Widget
-            options={{ ...options, enumOptions }}
-            schema={schema}
-            id={idSchema && idSchema.$id}
-            label={title === undefined ? name : title}
-            value={defaultFieldValue(formData, schema)}
-            onChange={onChangeHandler}
-            onBlur={onBlur}
-            required={required}
-            disabled={disabled}
-            readonly={readonly}
-            formContext={formContext}
-            autofocus={autofocus}
-            registry={registry}
-            placeholder={placeholder}
-        />
+		<Widget
+			options={{ ...options, enumOptions }}
+			schema={schema}
+			id={idSchema && idSchema.$id}
+			label={title === undefined ? name : title}
+			value={defaultFieldValue(formData, schema)}
+			onChange={onChangeHandler}
+			onBlur={onBlur}
+			required={required}
+			disabled={disabled}
+			readonly={readonly}
+			formContext={formContext}
+			autofocus={autofocus}
+			registry={registry}
+			placeholder={placeholder}
+		/>
 	);
 }
 
@@ -68,7 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
 				PropTypes.func,
-				PropTypes.object
+				PropTypes.object,
 			])).isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,

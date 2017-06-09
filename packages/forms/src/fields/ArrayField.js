@@ -12,7 +12,7 @@ import {
 	retrieveSchema,
 	toIdSchema,
 	shouldRender,
-	getDefaultRegistry
+	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
 
 function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
@@ -187,10 +187,10 @@ class ArrayField extends Component {
 		if (Array.isArray(itemSchema.type)) {
 			// While we don't yet support composite/nullable jsonschema types, it's
 			// future-proof to check for requirement against these.
-			return !itemSchema.type.includes("null");
+			return !itemSchema.type.includes('null');
 		}
 		// All non-null array item types are inherently required by design
-		return itemSchema.type !== "null";
+		return itemSchema.type !== 'null';
 	}
 
 	onAddClick = (event) => {
@@ -214,7 +214,7 @@ class ArrayField extends Component {
 			}
 			const { formData, onChange } = this.props;
 			// refs #195: revalidate to ensure properly reindexing errors
-			onChange(formData.filter((_, i) => i !== index), {validate: true});
+			onChange(formData.filter((_, i) => i !== index), { validate: true });
 		};
 	};
 
@@ -224,26 +224,25 @@ class ArrayField extends Component {
 				event.preventDefault();
 				event.target.blur();
 			}
-			const {formData, onChange} = this.props;
+			const { formData, onChange } = this.props;
 			onChange(formData.map((item, i) => {
 				if (i === newIndex) {
 					return formData[index];
 				} else if (i === index) {
 					return formData[newIndex];
-				} else {
-					return item;
 				}
-			}), {validate: true});
+				return item;
+			}), { validate: true });
 		};
 	};
 
 	onChangeForIndex = (index) => {
 		return (value) => {
-			const {formData, onChange} = this.props;
+			const { formData, onChange } = this.props;
 			onChange(formData.map((item, i) => {
 				// We need to treat undefined items as nulls to have validation.
 				// See https://github.com/tdegrunt/jsonschema/issues/206
-				const jsonValue = typeof value === "undefined" ? null : value;
+				const jsonValue = typeof value === 'undefined' ? null : value;
 				return index === i ? jsonValue : item;
 			}), { validate: false });
 		};
@@ -339,7 +338,7 @@ class ArrayField extends Component {
 			schema,
 			title,
 			TitleField,
-			formContext
+			formContext,
 		};
 
 		// Check if a custom render function was passed in
@@ -409,7 +408,7 @@ class ArrayField extends Component {
 			readonly,
 			autofocus,
 			registry,
-			onBlur
+			onBlur,
 		} = this.props;
 		const title = schema.title || name;
 		let items = this.props.formData;

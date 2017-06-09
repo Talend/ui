@@ -6,7 +6,7 @@ import {
 	shouldRender,
 	getUiOptions,
 	getWidget,
-	getDefaultRegistry
+	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
 
 class ObjectField extends Component {
@@ -25,12 +25,6 @@ class ObjectField extends Component {
 		return shouldRender(this, nextProps, nextState);
 	}
 
-	isRequired(name) {
-		const schema = this.props.schema;
-		return Array.isArray(schema.required) &&
-		  schema.required.indexOf(name) !== -1;
-	}
-
 	onPropertyChange = (id, name) => (value, options) => {
 		const newFormData = { ...this.props.formData, [name]: value };
 		if (this.props.registry.formContext.handleSchemaChange) {
@@ -38,6 +32,12 @@ class ObjectField extends Component {
 		}
 		this.props.onChange(newFormData, options);
 	};
+
+	isRequired(name) {
+		const schema = this.props.schema;
+		return Array.isArray(schema.required) &&
+			schema.required.indexOf(name) !== -1;
+	}
 
 	render() {
 		const {
@@ -84,13 +84,13 @@ class ObjectField extends Component {
 		} catch (err) {
 			return (
 				<div>
-				  <p className="config-error" style={{ color: 'red' }}>
-					Invalid {name || 'root'} object field configuration:
-					<em>{err.message}</em>.
-				  </p>
-				  <pre>{JSON.stringify(schema)}</pre>
+					<p className="config-error" style={{ color: 'red' }}>
+						Invalid {name || 'root'} object field configuration:
+						<em>{err.message}</em>.
+					</p>
+					<pre>{JSON.stringify(schema)}</pre>
 				</div>
-		  	);
+			);
 		}
 		return (
 			<fieldset>
@@ -108,7 +108,8 @@ class ObjectField extends Component {
 					/> : null}
 				{
 					orderedProperties.map((name, index) => (
-						<SchemaField key={index}
+						<SchemaField
+							key={index}
 							name={name}
 							required={this.isRequired(name)}
 							schema={schema.properties[name]}
@@ -129,26 +130,26 @@ class ObjectField extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  ObjectField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object,
-    errorSchema: PropTypes.object,
-    idSchema: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    formData: PropTypes.object,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.object,
-      ])).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    })
-  };
+	ObjectField.propTypes = {
+		schema: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object,
+		errorSchema: PropTypes.object,
+		idSchema: PropTypes.object,
+		onChange: PropTypes.func.isRequired,
+		formData: PropTypes.object,
+		required: PropTypes.bool,
+		disabled: PropTypes.bool,
+		readonly: PropTypes.bool,
+		registry: PropTypes.shape({
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([
+				PropTypes.func,
+				PropTypes.object,
+			])).isRequired,
+			fields: PropTypes.objectOf(PropTypes.func).isRequired,
+			definitions: PropTypes.object.isRequired,
+			formContext: PropTypes.object.isRequired,
+		}),
+	};
 }
 
 export default ObjectField;
