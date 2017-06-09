@@ -7,7 +7,6 @@ Scoping to packages that match 'react-talend-forms'
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-   15:20  error  Missing trailing comma                                                                         comma-dangle
    18:28  error  'TitleField' is missing in props validation                                                    react/prop-types
    18:40  error  'idSchema' is missing in props validation                                                      react/prop-types
    18:50  error  'title' is missing in props validation                                                         react/prop-types
@@ -92,93 +91,31 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   159:21  error  'disabled' is missing in props validation                                                      react/prop-types
   159:39  error  'readonly' is missing in props validation                                                      react/prop-types
   181:2   error  itemTitle should be placed after onSelectChange                                                react/sort-comp
-  190:37  error  Strings must use singlequote                                                                   quotes
-  193:30  error  Strings must use singlequote                                                                   quotes
   210:32  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  217:53  error  A space is required after '{'                                                                  object-curly-spacing
-  217:68  error  A space is required before '}'                                                                 object-curly-spacing
   221:40  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  227:10  error  A space is required after '{'                                                                  object-curly-spacing
-  227:29  error  A space is required before '}'                                                                 object-curly-spacing
-  233:12  error  Unnecessary 'else' after 'return'                                                              no-else-return
-  236:8   error  A space is required after '{'                                                                  object-curly-spacing
-  236:23  error  A space is required before '}'                                                                 object-curly-spacing
-  240:32  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  242:10  error  A space is required after '{'                                                                  object-curly-spacing
-  242:29  error  A space is required before '}'                                                                 object-curly-spacing
-  246:40  error  Strings must use singlequote                                                                   quotes
-  256:2   error  render should be placed after renderArrayFieldItem                                             react/sort-comp
-  277:4   error  'name' is missing in props validation                                                          react/prop-types
-  283:4   error  'formContext' is missing in props validation                                                   react/prop-types
-  342:15  error  Missing trailing comma                                                                         comma-dangle
-  376:39  error  'name' is missing in props validation                                                          react/prop-types
-  406:4   error  'name' is missing in props validation                                                          react/prop-types
-  412:10  error  Missing trailing comma                                                                         comma-dangle
-  443:26  error  Do not nest ternary expressions                                                                no-nested-ternary
-  534:22  error  'onClick' is missing in props validation                                                       react/prop-types
-  534:31  error  'disabled' is missing in props validation                                                      react/prop-types
+  239:32  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
+  255:2   error  render should be placed after renderArrayFieldItem                                             react/sort-comp
+  276:4   error  'name' is missing in props validation                                                          react/prop-types
+  282:4   error  'formContext' is missing in props validation                                                   react/prop-types
+  375:39  error  'name' is missing in props validation                                                          react/prop-types
+  405:4   error  'name' is missing in props validation                                                          react/prop-types
+  442:26  error  Do not nest ternary expressions                                                                no-nested-ternary
+  533:22  error  'onClick' is missing in props validation                                                       react/prop-types
+  533:31  error  'disabled' is missing in props validation                                                      react/prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   25:3  error  'name' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
-    9:20  error  Missing trailing comma                                comma-dangle
-   28:2   error  isRequired should be placed after onPropertyChange    react/sort-comp
-   31:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   48:4   error  'name' is missing in props validation                 react/prop-types
-   53:4   error  'onBlur' is missing in props validation               react/prop-types
-   87:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   87:7   error  Expected indentation of 5 tab characters but found 4  react/jsx-indent
-   90:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   91:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-   91:7   error  Expected indentation of 5 tab characters but found 4  react/jsx-indent
-   93:2   error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-  110:29  error  'name' is already declared in the upper scope         no-shadow
-  111:20  error  Property should be placed on a new line               react/jsx-first-prop-new-line
-  132:3   error  Expected indentation of 1 tab but found 2 spaces      indent
-  133:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  134:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  135:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  136:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  137:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  138:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  139:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  140:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  141:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  142:5   error  Expected indentation of 1 tab but found 4 spaces      indent
-  143:7   error  Expected indentation of 1 tab but found 6 spaces      indent
-  144:9   error  Expected indentation of 1 tab but found 8 spaces      indent
-  145:9   error  Expected indentation of 1 tab but found 8 spaces      indent
-  146:7   error  Expected indentation of 0 tabs but found 6 spaces     indent
-  147:7   error  Expected indentation of 1 tab but found 6 spaces      indent
-  148:7   error  Expected indentation of 1 tab but found 6 spaces      indent
-  149:7   error  Expected indentation of 1 tab but found 6 spaces      indent
-  150:5   error  Expected indentation of 0 tabs but found 4 spaces     indent
-  150:7   error  Missing trailing comma                                comma-dangle
-  151:3   error  Expected indentation of 0 tabs but found 2 spaces     indent
-  154:28  error  Newline required at end of file but not found         eol-last
+   48:4   error  'name' is missing in props validation          react/prop-types
+   53:4   error  'onBlur' is missing in props validation        react/prop-types
+  110:29  error  'name' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
   14:3   error  'name' is missing in props validation                     react/prop-types
-  38:9   error  Expected indentation of 2 tab characters but found 0      react/jsx-indent
-  39:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  40:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  41:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  42:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  43:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  44:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  45:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  46:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  47:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  48:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  49:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  50:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  51:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  52:13  error  Expected indentation of 1 tab character but found 0       react/jsx-indent-props
-  71:21  error  Missing trailing comma                                    comma-dangle
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
-✖ 164 problems (164 errors, 0 warnings)
+✖ 101 problems (101 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
