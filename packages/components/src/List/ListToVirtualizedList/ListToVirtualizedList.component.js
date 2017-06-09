@@ -53,7 +53,6 @@ ListToVirtualizedList.propTypes = {
 		key: PropTypes.string,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
-	display: PropTypes.string,
 	columns: PropTypes.arrayOf(PropTypes.object),
 };
 
