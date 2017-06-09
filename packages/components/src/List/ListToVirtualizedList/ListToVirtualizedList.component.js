@@ -4,9 +4,6 @@ import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
 function ListToVirtualizedList(props) {
-	debugger;
-	// props.columns == [{key, label}]
-	// props.itemProps
 	const { id, items, columns, titleProps } = props;
 	if (!titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
