@@ -65,8 +65,8 @@ const HTML_TPL = (icons, style) => `
 		<h1>Talend SVG icons demo</h1>
 		<form class="form-inline">
 			<div class="form-group">
-				<label class="sr-only">Icon size</label>
-				<select class="form-control" onchange="setSize(this.value)" style="width:135px">
+				<label for="select-size" class="sr-only">Icon size</label>
+				<select id="select-size" class="form-control" onchange="setSize(this.value)" style="width:135px">
 					<option value="0.8rem">xs</option>
 					<option value="1.2rem">sm</option>
 					<option value="1.6rem">md</option>
@@ -74,8 +74,8 @@ const HTML_TPL = (icons, style) => `
 				</select>
 			</div>
 			<div class="form-group">
-				<label class="sr-only">search</label>
-				<input type="text" oninput="filter(this.value)" class="form-control" placeholder="search" style="width: 280px; margin-left: 7px" />
+				<label for="search-icon" class="sr-only">search</label>
+				<input id="search-icon" type="text" oninput="filter(this.value)" class="form-control" placeholder="search" style="width: 280px; margin-left: 7px" />
 			</div>
 		</form>
 		<ul>
