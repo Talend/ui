@@ -85,7 +85,7 @@ const HTML_TPL = (icons, style) => `
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm" ><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><span>${key}</span></li>`);
+const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><span>${key}</span></li>`);
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);
