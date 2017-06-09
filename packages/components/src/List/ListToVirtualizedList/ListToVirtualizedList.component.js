@@ -24,7 +24,7 @@ function ListToVirtualizedList(props) {
 			collection={items}
 			type={(props.displayMode || 'TABLE').toUpperCase()}
 		>
-			{columns.map((column) => {
+			{columns.map((column, index) => {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,
@@ -38,7 +38,7 @@ function ListToVirtualizedList(props) {
 					Object.assign(cProps, CellActions);
 				}
 				return (
-					<VirtualizedList.Content {...cProps} />
+					<VirtualizedList.Content key={index} {...cProps} />
 				);
 			})}
 		</VirtualizedList>
@@ -47,7 +47,7 @@ function ListToVirtualizedList(props) {
 
 ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
-	displayMode: PropTypes.oneOf('LARGE', 'TABLE'),
+	displayMode: PropTypes.oneOf(['LARGE', 'TABLE']),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
