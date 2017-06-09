@@ -205,6 +205,6 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).toBeCalled();
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('Autowhatever').props().inputProps.value).toBe('unknown');
 	});
 });
