@@ -183,14 +183,8 @@ class ArrayField extends Component {
 		return schema.items.title || schema.items.description || 'Item';
 	}
 
-	isItemRequired(itemSchema) {
-		if (Array.isArray(itemSchema.type)) {
-			// While we don't yet support composite/nullable jsonschema types, it's
-			// future-proof to check for requirement against these.
-			return !itemSchema.type.includes('null');
-		}
-		// All non-null array item types are inherently required by design
-		return itemSchema.type !== 'null';
+	isItemRequired(itemsSchema) {
+		return itemsSchema.type === 'string' && itemsSchema.minLength > 0;
 	}
 
 	onAddClick = (event) => {
@@ -212,9 +206,10 @@ class ArrayField extends Component {
 			if (event) {
 				event.preventDefault();
 			}
-			const { formData, onChange } = this.props;
-			// refs #195: revalidate to ensure properly reindexing errors
-			onChange(formData.filter((_, i) => i !== index), { validate: true });
+			this.props.onChange(
+				this.props.formData.filter((_, i) => i !== index),
+				{ validate: true } // refs #195
+			);
 		};
 	};
 
