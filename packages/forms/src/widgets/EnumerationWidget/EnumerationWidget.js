@@ -24,6 +24,25 @@ const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRIT
 const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
 class EnumerationWidget extends React.Component {
+
+	static getItemHeight() {
+		return ITEMS_DEFAULT_HEIGHT;
+	}
+
+	static parseStringValueToArray(values) {
+		return values.split(',').map(value => value.trim());
+	}
+
+	static updateItemValidateDisabled(value, valueExist) {
+		return {
+			currentEdit: {
+				validate: {
+					disabled: value.value === '' || !!valueExist,
+				},
+			},
+		};
+	}
+
 	constructor(props) {
 		super(props);
 		this.timerSearch = null;
@@ -37,6 +56,13 @@ class EnumerationWidget extends React.Component {
 		}
 
 		this.addInputs = [{
+			disabled: true,
+			label: 'Validate and Add',
+			icon: 'talend-check-plus',
+			id: 'validate-and-add',
+			key: 'validateAdd',
+			onClick: this.onValidateAndAddHandler.bind(this),
+		}, {
 			disabled: true,
 			label: 'Validate',
 			icon: 'talend-check',
@@ -135,6 +161,7 @@ class EnumerationWidget extends React.Component {
 		}
 
 		this.state = {
+			inputRef: this.setInputRef.bind(this),
 			displayMode: defaultDisplayMode,
 			required: (props.schema && props.schema.required) || false,
 			headerDefault: this.defaultHeaderActions,
@@ -146,7 +173,7 @@ class EnumerationWidget extends React.Component {
 			})),
 			itemsProp: {
 				key: 'values',
-				getItemHeight: this.getItemHeight.bind(this),
+				getItemHeight: this.constructor.getItemHeight.bind(this),
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
@@ -157,11 +184,12 @@ class EnumerationWidget extends React.Component {
 			},
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
+			setFormData: this.setFormData.bind(this),
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ ...this.state, items: nextProps.formData });
+		this.setState({ items: nextProps.formData });
 	}
 
 	onImportAppendClick() {
@@ -184,30 +212,34 @@ class EnumerationWidget extends React.Component {
 
 	// default mode
 	onEnterEditModeItem(event, value) {
-		let items = resetItems([...this.state.items]);
-		const item = items[value.index];
-		item.displayMode = DISPLAY_MODE_EDIT;
-		// resetting errors
-		items[value.index].error = '';
-		// reset selection
-		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-		// exit from selected mode to not display 0 values selected
-		let displayMode = this.state.displayMode;
-		if (displayMode === DISPLAY_MODE_SELECTED) {
-			displayMode = DISPLAY_MODE_DEFAULT;
-		}
-		this.setState({ items, displayMode });
-		this.updateItemValidateDisabled(item.values[0]);
+		this.setState((prevState) => {
+			let items = resetItems([...prevState.items]);
+			const item = items[value.index];
+			item.displayMode = DISPLAY_MODE_EDIT;
+			// resetting errors
+			items[value.index].error = '';
+			// reset selection
+			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
+			// exit from selected mode to not display 0 values selected
+			let displayMode = prevState.displayMode;
+			if (displayMode === DISPLAY_MODE_SELECTED) {
+				displayMode = DISPLAY_MODE_DEFAULT;
+			}
+			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			return { items, displayMode, ...validation };
+		});
 	}
 
 	onSearchEditModeItem(event, value) {
-		let items = resetItems([...this.state.items]);
-		const item = items[value.index];
-		item.displayMode = DISPLAY_MODE_EDIT;
-		// reset selection
-		items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
-		this.setState({ items, displayMode: DISPLAY_MODE_EDIT });
-		this.updateItemValidateDisabled(item.values[0]);
+		this.setState((prevState) => {
+			let items = resetItems([...prevState.items]);
+			const item = items[value.index];
+			item.displayMode = DISPLAY_MODE_EDIT;
+			// reset selection
+			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
+			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			return { items, displayMode: DISPLAY_MODE_EDIT, ...validation };
+		});
 	}
 
 	onDeleteItem(event, value) {
@@ -219,52 +251,62 @@ class EnumerationWidget extends React.Component {
 				this.onDeleteItemHandler.bind(this),
 				this.onDeleteItemHandler.bind(this),
 			)) {
-			this.setState({
-				itemsProp: {
-					...this.state.itemsProp, actionsDefault: this.loadingInputsActions,
-				},
-			});
+			this.setState(prevState => (
+				{
+					itemsProp: {
+						...prevState.itemsProp, actionsDefault: this.loadingInputsActions,
+					},
+				}
+			));
 		} else {
-			const items = resetItems([...this.state.items]);
-			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-			items.splice(value.index, 1);
-			const countItems = items.filter(item => item.isSelected).length;
+			this.setState((prevState) => {
+				const items = resetItems([...prevState.items]);
+				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+				items.splice(value.index, 1);
+				const countItems = items.filter(item => item.isSelected).length;
 
-			let displayMode = this.state.displayMode;
-			if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
-				displayMode = DISPLAY_MODE_DEFAULT;
-			}
-			this.setState({ items, displayMode }, this.setFormData.bind(this));
+				let displayMode = prevState.displayMode;
+				if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
+					displayMode = DISPLAY_MODE_DEFAULT;
+				}
+				return { items, displayMode };
+			});
 		}
 	}
 
 	onDeleteItemHandler() {
-		const newState = {
-			itemsProp: {
-				...this.state.itemsProp, actionsDefault: this.defaultActions,
-			},
-		};
-		if (this.state.displayMode !== DISPLAY_MODE_SEARCH) {
-			newState.displayMode = DISPLAY_MODE_DEFAULT;
-		}
-		this.setState(newState);
+		this.setState((prevState) => {
+			const newState = {
+				itemsProp: {
+					...prevState.itemsProp, actionsDefault: this.defaultActions,
+				},
+			};
+			if (prevState.displayMode !== DISPLAY_MODE_SEARCH) {
+				newState.displayMode = DISPLAY_MODE_DEFAULT;
+			}
+			return newState;
+		});
 	}
 
 	onAbortItem(event, value) {
-		const items = [...this.state.items];
-		items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-		// resetting error as it was not saved
-		items[value.index].error = '';
-		this.setState({ items, displayMode: 'DISPLAY_MODE_DEFAULT' });
+		this.setState((prevState) => {
+			const items = [...prevState.items];
+			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			// resetting error as it was not saved
+			items[value.index].error = '';
+			return { items, displayMode: 'DISPLAY_MODE_DEFAULT' };
+		});
 	}
 
 	onChangeItem(event, value) {
 		// if the value exist add an error
-		const valueExist = this.valueAlreadyExist(value.value);
-		const items = [...this.state.items];
-		items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
-		this.setState({ items });
-		this.updateItemValidateDisabled(value, valueExist);
+		this.setState((prevState) => {
+			const valueExist = this.valueAlreadyExist(value.value, prevState);
+			const items = [...prevState.items];
+			items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
+			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
+			return { items, ...validation };
+		});
 	}
 
 	onSubmitItem(event, value) {
@@ -274,31 +316,31 @@ class EnumerationWidget extends React.Component {
 		if (this.callActionHandler(
 				ENUMERATION_RENAME_ACTION, {
 					index: value.index,
-					value: this.parseStringValueToArray(value.value),
+					value: this.constructor.parseStringValueToArray(value.value),
 				},
 				this.itemSubmitHandler.bind(this),
 				this.itemSubmitHandler.bind(this)
 			)) {
-			this.setState({
+			this.setState(prevState => ({
 				itemsProp: {
-					...this.state.itemsProp, actionsEdit: this.loadingInputsActions,
+					...prevState.itemsProp, actionsEdit: this.loadingInputsActions,
 				},
-			});
+			}));
 		} else {
-			const items = [...this.state.items];
-			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-			const valueExist = this.valueAlreadyExist(value.value);
-			// if the value is empty, no value update is done
-			if (value.value && !valueExist) {
-				items[value.index].values =
-					this.parseStringValueToArray(value.value);
-			}
-			if (valueExist) {
-				items[value.index].error = DUPLICATION_ERROR;
-			}
-			this.setState({
-				items,
-			}, this.setFormData.bind(this));
+			this.setState((prevState) => {
+				const items = [...prevState.items];
+				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+				const valueExist = this.valueAlreadyExist(value.value, prevState);
+				// if the value is empty, no value update is done
+				if (value.value && !valueExist) {
+					items[value.index].values =
+						this.constructor.parseStringValueToArray(value.value);
+				}
+				if (valueExist) {
+					items[value.index].error = DUPLICATION_ERROR;
+				}
+				return { items };
+			});
 		}
 	}
 
@@ -346,11 +388,11 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSearchHandler() {
-		this.setState({
+		this.setState(prevState => ({
 			headerInput: this.searchInputsActions,
-			searchCriteria: this.state.loadingSearchCriteria,
+			searchCriteria: prevState.loadingSearchCriteria,
 			loadingSearchCriteria: '',
-		});
+		}));
 	}
 
 	onAbortHandler() {
@@ -380,7 +422,7 @@ class EnumerationWidget extends React.Component {
 			event.stopPropagation();
 			event.preventDefault();
 			if (this.state.displayMode === DISPLAY_MODE_ADD) {
-				this.onAddHandler(event, value);
+				this.onValidateAndAddHandler(event, value);
 			}
 		}
 		if (event.keyCode === keycode('escape')) {
@@ -391,32 +433,39 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
-		let itemsSelected = resetItems([...this.state.items]);
-		if (event.ctrlKey || event.metaKey) {
-			itemsSelected = manageCtrlKey(item.index, itemsSelected);
-		} else if (event.shiftKey) {
-			itemsSelected = manageShiftKey(item.index, itemsSelected);
-		} else {
-			itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
-			itemsSelected[item.index].isSelected = true;
-		}
-		const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
+		// needed to access to the original event in a asynchronous way
+		// https://fb.me/react-event-pooling
+		event.persist();
+		this.setState((prevState) => {
+			let itemsSelected = resetItems([...prevState.items]);
+			if (event.ctrlKey || event.metaKey) {
+				itemsSelected = manageCtrlKey(item.index, itemsSelected);
+			} else if (event.shiftKey) {
+				itemsSelected = manageShiftKey(item.index, itemsSelected);
+			} else if (!itemsSelected[item.index].isSelected) {
+				itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+				itemsSelected[item.index].isSelected = true;
+			} else {
+				// deselect the given items
+				itemsSelected[item.index].isSelected = !itemsSelected[item.index].isSelected;
+			}
+			const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
-		// if unselect all, return to default mode
-		if (countItems === 0) {
-			this.setState({
-				items: itemsSelected,
-				displayMode: DISPLAY_MODE_DEFAULT,
-			});
-		} else {
-			this.setState({
+			// if unselect all, return to default mode
+			if (countItems === 0) {
+				return {
+					items: itemsSelected,
+					displayMode: DISPLAY_MODE_DEFAULT,
+				};
+			}
+			return {
 				items: itemsSelected,
 				displayMode: DISPLAY_MODE_SELECTED,
 				itemsProp: {
-					...this.state.itemsProp, actionsDefault: this.defaultActions,
+					...prevState.itemsProp, actionsDefault: this.defaultActions,
 				},
-			});
-		}
+			};
+		});
 	}
 
 	onDeleteItems() {
@@ -435,11 +484,13 @@ class EnumerationWidget extends React.Component {
 				headerSelected: this.loadingInputsActions,
 			});
 		} else {
-			const result = deleteSelectedItems([...this.state.items]);
-			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
-				items: result,
-			}, this.setFormData.bind(this));
+			this.setState((prevState) => {
+				const result = deleteSelectedItems([...prevState.items]);
+				return {
+					displayMode: DISPLAY_MODE_DEFAULT,
+					items: result,
+				};
+			});
 		}
 	}
 
@@ -448,6 +499,36 @@ class EnumerationWidget extends React.Component {
 			displayMode: DISPLAY_MODE_DEFAULT,
 			headerSelected: this.selectedHeaderActions,
 		});
+	}
+
+	onValidateAndAddHandler(event, value) {
+		if (!value.value) {
+			this.setState({
+				displayMode: DISPLAY_MODE_DEFAULT,
+			});
+			return;
+		}
+
+		if (this.callActionHandler(
+				ENUMERATION_ADD_ACTION,
+				this.constructor.parseStringValueToArray(value.value),
+				this.validateAndAddSuccessHandler.bind(this),
+				this.addFailHandler.bind(this))
+		) {
+			this.setState({
+				headerInput: this.loadingInputsActions,
+			});
+			this.input.focus();
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
+			this.setState((prevState) => {
+				const items = prevState.items.concat([{
+					values: this.constructor.parseStringValueToArray(value.value),
+				}]);
+				return { items, inputValue: '' };
+			});
+			this.updateHeaderInputDisabled('');
+			this.input.focus();
+		}
 	}
 
 	onAddHandler(event, value) {
@@ -460,22 +541,21 @@ class EnumerationWidget extends React.Component {
 
 		if (this.callActionHandler(
 				ENUMERATION_ADD_ACTION,
-				this.parseStringValueToArray(value.value),
+				this.constructor.parseStringValueToArray(value.value),
 				this.addSuccessHandler.bind(this),
 				this.addFailHandler.bind(this))
 		) {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
-		} else if (!this.valueAlreadyExist(value.value)) {
-			this.setState(
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
+			this.setState(prevState => (
 				{
 					displayMode: 'DISPLAY_MODE_DEFAULT',
-					items: this.state.items.concat([{
-						values: this.parseStringValueToArray(value.value),
+					items: prevState.items.concat([{
+						values: this.constructor.parseStringValueToArray(value.value),
 					}]),
-				},
-				this.setFormData.bind(this)
+				})
 			);
 			this.updateHeaderInputDisabled('');
 		}
@@ -495,7 +575,6 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-
 	onImportButtonClick() {
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_CLICK,
@@ -507,8 +586,8 @@ class EnumerationWidget extends React.Component {
 		);
 	}
 
-	getItemHeight(/* isInEdit */) {
-		return ITEMS_DEFAULT_HEIGHT;
+	setInputRef(input) {
+		this.input = input;
 	}
 
 	setFormData() {
@@ -518,22 +597,26 @@ class EnumerationWidget extends React.Component {
 		}
 	}
 
-	parseStringValueToArray(values) {
-		return values.split(',').map(value => value.trim());
-	}
-
 	itemSubmitHandler() {
-		this.setState({
+		this.setState(prevState => ({
 			itemsProp: {
-				...this.state.itemsProp, actionsEdit: this.itemEditActions,
+				...prevState.itemsProp, actionsEdit: this.itemEditActions,
 			},
-		});
+		}));
 	}
 
 	addSuccessHandler() {
 		this.setState({
 			displayMode: DISPLAY_MODE_DEFAULT,
 		});
+	}
+
+	validateAndAddSuccessHandler() {
+		this.setState({
+			inputValue: '',
+			headerInput: this.addInputs,
+		});
+		this.input.focus();
 	}
 
 	addFailHandler() {
@@ -577,11 +660,11 @@ class EnumerationWidget extends React.Component {
 	 */
 	importFile(event) {
 		if (this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_ACTION,
-			event.target.files[0],
-			this.importFileHandler,
-			this.importFileHandler
-		)) {
+				ENUMERATION_IMPORT_FILE_ACTION,
+				event.target.files[0],
+				this.importFileHandler,
+				this.importFileHandler
+			)) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
@@ -623,57 +706,51 @@ class EnumerationWidget extends React.Component {
 	}
 
 	changeDisplayToAddMode() {
-		const items = resetItems([...this.state.items]);
-		this.setState({
-			items,
+		this.setState(prevState => ({
+			items: resetItems([...prevState.items]),
 			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_ADD,
-		});
+		}));
 	}
 
 	changeDisplayToSearchMode() {
-		const items = resetItems([...this.state.items]);
-		this.setState({
-			items,
-			headerInput: this.searchInputsActions,
+		this.setState(prevState => ({
+			items: resetItems([...prevState.items]),
+			headerInput: this.addInputs,
 			displayMode: DISPLAY_MODE_SEARCH,
-		});
+		}));
 	}
 
-	valueAlreadyExist(value) {
-		return !this.allowDuplicate && this.state.items.find(item => item.values[0] === value);
+	valueAlreadyExist(value, state) {
+		return !this.allowDuplicate && state.items.find(item => item.values[0] === value);
 	}
 
 	updateHeaderInputDisabled(value) {
 		this.setState((prevState) => {
 			// checking if the value already exist
-			const valueExist = this.valueAlreadyExist(value);
-			const [validateAction, abortAction] = prevState.headerInput;
+			const valueExist = this.valueAlreadyExist(value, prevState);
+			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
 
 			return {
-				headerInput: [validateAction, abortAction],
+				headerInput: [validateAndAddAction, validateAction, abortAction],
 				headerError: valueExist ? DUPLICATION_ERROR : '',
+				inputValue: value,
 			};
 		});
-	}
-
-	updateItemValidateDisabled(value, valueExist) {
-		this.setState(() => ({
-			currentEdit: {
-				validate: {
-					disabled: value.value === '' || !!valueExist,
-				},
-			},
-		}));
 	}
 
 	renderImportFile() {
 		return (
 			<input
 				type="file"
-				ref={(element) => { this.inputFile = element; }}
-				onChange={event => this.importFile(event)}
+				ref={(element) => {
+					this.inputFile = element;
+				}}
+				onChange={(event) => {
+					this.importFile(event);
+				}}
 				className={classNames('hidden')}
 			/>
 		);

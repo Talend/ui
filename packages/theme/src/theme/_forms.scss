@@ -73,6 +73,11 @@ form {
 				font-size: $font-size-large;
 			}
 		}
+
+		&::placeholder {
+			color: $silver;
+			font-style: oblique;
+		}
 	}
 
 	select,
@@ -329,6 +334,7 @@ form {
 			position: absolute;
 			top: 2.2rem;
 			left: 0;
+			color: $dove-gray;
 			font-size: $font-size-base;
 			transition: opacity 0.1s linear, font-size 0.1s linear, top 0.1s linear;
 			pointer-events: none;
@@ -353,14 +359,18 @@ form {
 	input[type='date'],
 	input[type='datetime-local'] {
 		+ label {
-			top: 0;
+			color: $silver;
 			font-size: $font-size-small;
+			top: 0;
 		}
 	}
 
-	&-control:disabled {
+	&-control:disabled,
+	&-control[value]:not([value='']):disabled  {
+		color: $silver-chalice;
+
 		+ label {
-			opacity: 0.4;
+			color: $silver-chalice;
 		}
 	}
 }
