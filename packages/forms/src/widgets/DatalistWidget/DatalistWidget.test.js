@@ -205,6 +205,7 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).toBeCalled();
+		expect(onChange.mock.calls[0][0]).toBe('unknown');
 		expect(wrapper.find('Autowhatever').props().inputProps.value).toBe('unknown');
 	});
 });
