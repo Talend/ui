@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form reducers #TF_CHANGE_FORM should replace the forms configurations 1`] = `
+Object {
+  "existingFormName": Object {
+    "errors": Object {
+      "field": "oldError",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "oldJson",
+    },
+    "properties": Object {
+      "props": "oldJson",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "oldJson",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form reducers #TF_CREATE_FORM should not create new form 1`] = `
+Object {
+  "existingFormName": Object {
+    "errors": Object {
+      "field": "oldError",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "oldJson",
+    },
+    "properties": Object {
+      "props": "oldJson",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "oldJson",
+      },
+    ],
+  },
+  "formName": Object {
+    "errors": Object {
+      "field": "errors",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "json",
+    },
+    "properties": Object {
+      "props": "json",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "json",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form reducers #TF_MUTATE_VALUE should mutate value 1`] = `
+Object {
+  "existingFormName": Object {
+    "errors": Object {
+      "field": "oldError",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "oldJson",
+    },
+    "properties": Object {
+      "props": "oldJson",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "oldJson",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form reducers #TF_REMOVE_FORM should remove form 1`] = `Object {}`;
+
+exports[`Form reducers #TF_SET_ALL_ERRORS should replace all errors 1`] = `
+Object {
+  "existingFormName": Object {
+    "errors": Object {
+      "field1": "new error 1",
+      "field2": "new error 2",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "oldJson",
+    },
+    "properties": Object {
+      "props": "oldJson",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "oldJson",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form reducers #TF_SET_PARTIAL_ERROR should set errors 1`] = `
+Object {
+  "existingFormName": Object {
+    "errors": Object {
+      "field": "oldError",
+      "field1": "new error 1",
+      "field2": "new error 2",
+    },
+    "jsonSchema": Object {
+      "jsonSchema": "oldJson",
+    },
+    "properties": Object {
+      "props": "oldJson",
+    },
+    "uiSchema": Array [
+      Object {
+        "uiSchema": "oldJson",
+      },
+    ],
+  },
+}
+`;

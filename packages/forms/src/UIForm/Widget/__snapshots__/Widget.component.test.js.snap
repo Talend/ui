@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget component should render custom widget 1`] = `
+<customWidget
+  errorMessage="This is not ok"
+  errors={
+    Object {
+      "user,firstname": "This is not ok",
+    }
+  }
+  formName="myForm"
+  id="myForm-user-firstname"
+  isValid={false}
+  onChange={[Function]}
+  onTrigger={[Function]}
+  properties={
+    Object {
+      "comment": "",
+      "user": Object {
+        "firstname": "my firstname",
+        "lastname": "my lastname",
+      },
+    }
+  }
+  schema={
+    Object {
+      "key": Array [
+        "user",
+        "firstname",
+      ],
+      "type": "customWidget",
+    }
+  }
+  value="my firstname"
+/>
+`;
+
+exports[`Widget component should render nothing if widget does not exist 1`] = `null`;
+
+exports[`Widget component should render widget 1`] = `
+<Text
+  errorMessage="This is not ok"
+  errors={
+    Object {
+      "user,firstname": "This is not ok",
+    }
+  }
+  formName="myForm"
+  id="myForm-user-firstname"
+  isValid={false}
+  onChange={[Function]}
+  onTrigger={[Function]}
+  properties={
+    Object {
+      "comment": "",
+      "user": Object {
+        "firstname": "my firstname",
+        "lastname": "my lastname",
+      },
+    }
+  }
+  schema={
+    Object {
+      "key": Array [
+        "user",
+        "firstname",
+      ],
+      "type": "text",
+    }
+  }
+  value="my firstname"
+/>
+`;

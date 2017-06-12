@@ -256,6 +256,17 @@ describe('<Form/>', () => {
 		});
 	});
 
+	describe('children', () => {
+		it('should render children', () => {
+			wrapper = shallow(
+				<Form data={data} onSubmit={onSubmit}>
+					<h1>test</h1>
+				</Form>
+			);
+			expect(wrapper.find('h1')).toBeDefined();
+		});
+	});
+
 	describe('actions', () => {
 		it('should render default actions when no actions specified', () => {
 			// when

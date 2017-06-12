@@ -62,8 +62,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
@@ -80,8 +79,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -166,8 +164,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(registry.formContext.handleAction).toBeCalled();
@@ -186,8 +183,7 @@ describe('EnumerationWidget', () => {
 			/>);
 
 		// edit item
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
 		// when select another item
 		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
@@ -208,8 +204,134 @@ describe('EnumerationWidget', () => {
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
 
+
+		it('should send a event with a method to simulate the click on the input file', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_CLICK',
+				{
+					simulateClickInputFile: jasmine.any(Function),
+				},
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event when we click on the icon of the dropdown', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0).simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_CLICK',
+				{
+					simulateClickInputFile: jasmine.any(Function),
+				},
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event with the choice APPEND', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link li a').at(0)
+				.simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_APPEND_MODE',
+				null,
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
+		it('should send a event with the choice OVERWRITE', () => {
+			// given
+			const registry = {
+				formContext: {
+					handleAction: jest.fn(),
+				},
+			};
+
+			const wrapper = mount(
+				<EnumerationWidget
+					registry={registry}
+					schema={{
+						allowImport: true,
+					}}
+				/>);
+
+			// when
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link li a').at(1)
+				.simulate('click');
+
+			// then
+			expect(registry.formContext.handleAction).toBeCalledWith(
+				undefined,
+				'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE',
+				null,
+				jasmine.any(Function),
+				jasmine.any(Function),
+			);
+		});
+
 		it('should simulate click on the input', () => {
 			// given
+			jest.useFakeTimers();
 			const wrapper = mount(
 				<EnumerationWidget
 					schema={{
@@ -220,7 +342,8 @@ describe('EnumerationWidget', () => {
 			spyOn(document.activeElement, 'blur').and.callThrough();
 
 			// when
-			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+			wrapper.instance().simulateClickInputFile();
+			jest.runAllTimers();
 
 			// then
 			expect(wrapper.instance().inputFile.click).toBeCalled();
@@ -228,7 +351,7 @@ describe('EnumerationWidget', () => {
 		});
 
 		it('should trigger a event when the user clicks on the upload action'
-				+ ', shows a loading and return to initial state when we call the success callback', () => {
+			+ ', shows a loading and return to initial state when we call the success callback', () => {
 			// given
 			let successUploadHandler;
 			const registry = {
@@ -288,7 +411,8 @@ describe('EnumerationWidget', () => {
 			// given
 			const enumerationWidget = new EnumerationWidget({});
 			// when
-			const resultArray = enumerationWidget.parseStringValueToArray('toto ,  to , tata ');
+			const resultArray =
+				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});

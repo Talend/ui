@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import Action from '../../Actions/Action';
+import { Action, ActionDropdown } from '../../Actions/';
 import theme from './Header.scss';
 
 function headerClasses() {
@@ -18,6 +18,23 @@ function getAction(action, index) {
 		}
 	}
 
+	if (action.displayMode === 'dropdown') {
+		return (
+			<ActionDropdown
+				noCaret
+				key={`${index}-enum-header-action`}
+				label={action.label}
+				icon={action.icon}
+				onClick={onClick}
+				btooltipPlacement="bottom"
+				inProgress={action.inProgress}
+				items={action.items}
+				hideLabel
+				pullRight
+				link
+			/>
+		);
+	}
 	return (
 		<Action
 			key={`${index}-enum-header-action`}

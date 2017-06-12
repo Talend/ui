@@ -7,6 +7,7 @@ setAddon(infoAddon);
 
 function loadStories() {
 	require('../stories');
+	require('../stories-core');
 }
 
 configure(loadStories, module);
