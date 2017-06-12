@@ -19,7 +19,7 @@ class ObjectField extends Component {
 		required: false,
 		disabled: false,
 		readonly: false,
-	}
+	};
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return shouldRender(this, nextProps, nextState);
@@ -107,17 +107,17 @@ class ObjectField extends Component {
 						formContext={formContext}
 					/> : null}
 				{
-					orderedProperties.map((name, index) => (
+					orderedProperties.map((propName, index) => (
 						<SchemaField
 							key={index}
-							name={name}
-							required={this.isRequired(name)}
-							schema={schema.properties[name]}
-							uiSchema={uiSchema[name]}
-							errorSchema={errorSchema[name]}
-							idSchema={idSchema[name]}
-							formData={formData[name]}
-							onChange={this.onPropertyChange(schema.id, name)}
+							name={propName}
+							required={this.isRequired(propName)}
+							schema={schema.properties[propName]}
+							uiSchema={uiSchema[propName]}
+							errorSchema={errorSchema[propName]}
+							idSchema={idSchema[propName]}
+							formData={formData[propName]}
+							onChange={this.onPropertyChange(schema.id, propName)}
 							onBlur={onBlur}
 							registry={this.props.registry}
 							disabled={disabled}
@@ -131,14 +131,16 @@ class ObjectField extends Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	ObjectField.propTypes = {
-		schema: PropTypes.object.isRequired,
-		uiSchema: PropTypes.object,
-		errorSchema: PropTypes.object,
-		idSchema: PropTypes.object,
+		schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		uiSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		errorSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		idSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		onChange: PropTypes.func.isRequired,
-		formData: PropTypes.object,
+		onBlur: PropTypes.func,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
+		name: PropTypes.string,
 		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
