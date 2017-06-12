@@ -433,15 +433,22 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onSelectItem(item, event) {
+		// needed to access to the original event in a asynchronous way
+		// https://fb.me/react-event-pooling
+		event.persist();
+
 		this.setState((prevState) => {
 			let itemsSelected = resetItems([...prevState.items]);
 			if (event.ctrlKey || event.metaKey) {
 				itemsSelected = manageCtrlKey(item.index, itemsSelected);
 			} else if (event.shiftKey) {
 				itemsSelected = manageShiftKey(item.index, itemsSelected);
-			} else {
+			} else if (!itemsSelected[item.index].isSelected) {
 				itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
 				itemsSelected[item.index].isSelected = true;
+			} else {
+				// deselect the given items
+				itemsSelected[item.index].isSelected = !itemsSelected[item.index].isSelected;
 			}
 			const countItems = itemsSelected.filter(currentItem => currentItem.isSelected).length;
 
