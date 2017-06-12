@@ -436,7 +436,6 @@ class EnumerationWidget extends React.Component {
 		// needed to access to the original event in a asynchronous way
 		// https://fb.me/react-event-pooling
 		event.persist();
-
 		this.setState((prevState) => {
 			let itemsSelected = resetItems([...prevState.items]);
 			if (event.ctrlKey || event.metaKey) {
