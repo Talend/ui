@@ -3,10 +3,17 @@
 /// @group Custom widgets
 ////
 
-.tc-breadcrumb {
-	.dots {
-		&:before {
-			content: none;
+:global(.tc-breadcrumb):global(.breadcrumb) {
+	> li {
+		margin: 0;
+
+		& + li {
+			margin: 0;
+
+			&:before {
+				border: none;
+				box-shadow: none;
+			}
 		}
 	}
 }
