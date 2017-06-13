@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import UIFormComponent  from './UIForm.component';
+import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
 
 import {

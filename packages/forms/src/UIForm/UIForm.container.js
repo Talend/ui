@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import UIFormComponent  from './UIForm.component';
+import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
 
 import { formReducer, modelReducer, validationReducer } from './reducers';

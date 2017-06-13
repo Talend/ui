@@ -109,46 +109,31 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const {
-			acceptCharset,
-			action,
-			autoComplete,
-			encType,
-			formName,
-			id,
-			method,
-			noHtml5Validate,
-			target,
-
-			errors,
-			properties,
-			widgets,
-		} = this.props;
 		return (
 			<form
-				acceptCharset={acceptCharset}
-				action={action}
-				autoComplete={autoComplete}
-				encType={encType}
-				id={id}
-				method={method}
-				name={formName}
-				noValidate={noHtml5Validate}
+				acceptCharset={this.props.acceptCharset}
+				action={this.props.action}
+				autoComplete={this.props.autoComplete}
+				encType={this.props.encType}
+				id={this.props.id}
+				method={this.props.method}
+				name={this.props.formName}
+				noValidate={this.props.noHtml5Validate}
 				onSubmit={this.submit}
-				target={target}
+				target={this.props.target}
 			>
 				{
 					this.state.mergedSchema.map((nextSchema, index) => (
 						<Widget
-							id={id}
+							id={this.props.id}
 							key={index}
-							formName={formName}
+							formName={this.props.formName}
 							onChange={this.onChange}
 							onTrigger={this.onTrigger}
 							schema={nextSchema}
-							properties={properties}
-							errors={errors}
-							widgets={widgets}
+							properties={this.props.properties}
+							errors={this.props.errors}
+							widgets={this.props.widgets}
 						/>
 					))
 				}
