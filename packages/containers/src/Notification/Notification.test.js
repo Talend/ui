@@ -3,9 +3,7 @@ import renderer from 'react-test-renderer';
 import { store, Provider } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
 import Container from './Notification.container';
-import Connected, {
-	mergeProps,
-} from './Notification.connect';
+import Connected, { mergeProps, deleteNotification } from './Notification.connect';
 import pushNotification from './pushNotification';
 import clearNotifications from './clearNotifications';
 
@@ -16,11 +14,13 @@ jest.mock(
 
 describe('Container Notification', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Container />
-			</Provider>,
-		).toJSON();
+		const wrapper = renderer
+			.create(
+				<Provider>
+					<Container />
+				</Provider>,
+			)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });
@@ -46,8 +46,14 @@ describe('Connected Notification', () => {
 		expect(typeof props.deleteNotification).toBe('function');
 		props.deleteNotification(message);
 		expect(dispatchProps.setState).toHaveBeenCalledTimes(1);
-		const newState = dispatchProps.setState.mock.calls[0][0];
-		expect(newState.get('notifications').size).toBe(0);
+	});
+
+	it('deleteNotification should delete notification', () => {
+		const message = { message: 'hello world' };
+		const stateProps = {
+			state: fromJS({ notifications: [message] }),
+		};
+		expect(deleteNotification(1)(stateProps).toJS()).toEqual({ notifications: [] });
 	});
 });
 
@@ -64,7 +70,11 @@ describe('Notification.pushNotification', () => {
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn(['Container(Notification)', 'Notification', 'notifications']);
+		const notifications = newState.cmf.components.getIn([
+			'Container(Notification)',
+			'Notification',
+			'notifications',
+		]);
 		expect(notifications.size).toBe(1);
 		expect(notifications.get(0).message).toBe('hello world');
 	});
@@ -74,16 +84,17 @@ describe('Notification.pushNotification', () => {
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
 				Notification: {
-					notifications: [
-						{ message: 'hello world' },
-						{ message: 'hello world2' },
-					],
+					notifications: [{ message: 'hello world' }, { message: 'hello world2' }],
 				},
 			},
 		});
 		const newState = clearNotifications(state);
 		expect(newState).not.toBe(state);
-		const notifications = newState.cmf.components.getIn(['Container(Notification)', 'Notification', 'notifications']);
+		const notifications = newState.cmf.components.getIn([
+			'Container(Notification)',
+			'Notification',
+			'notifications',
+		]);
 		expect(notifications.size).toBe(0);
 	});
 

@@ -7,19 +7,29 @@ export function componentId(ownProps) {
 	return (ownProps && ownProps.id) || 'Notification';
 }
 
+export function deleteNotification(indexNotification) {
+	return function mutator(prevStateProps) {
+		const notifications = prevStateProps.state.get('notifications');
+		const index = notifications.indexOf(indexNotification);
+		if (index === -1) {
+			invariant(true, `notification not found ${JSON.stringify(indexNotification)}`);
+		}
+		const newNotif = notifications.delete(index);
+		return prevStateProps.state.set('notifications', newNotif);
+	};
+}
+
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	return Object.assign({
-		deleteNotification(i) {
-			const notifications = stateProps.state.get('notifications');
-			const index = notifications.indexOf(i);
-			if (index === -1) {
-				invariant(true, `notification not found ${JSON.stringify(i)}`);
-			}
-			const newNotif = notifications.delete(index);
-			const newState = stateProps.state.set('notifications', newNotif);
-			dispatchProps.setState(newState);
+	return Object.assign(
+		{
+			deleteNotification(i) {
+				dispatchProps.setState(deleteNotification(i));
+			},
 		},
-	}, ownProps, stateProps, dispatchProps);
+		ownProps,
+		stateProps,
+		dispatchProps,
+	);
 }
 
 export default cmfConnect({
