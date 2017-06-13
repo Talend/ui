@@ -78,7 +78,6 @@ const VERSIONS = {
 	'file-loader': '^0.10.0',
 	'node-sass': '4.5.3',
 	'postcss-loader': '^1.3.1',
-	'sass-loader': '6.0.5',
 	'style-loader': '^0.13.1',
 	'url-loader': '^0.5.7',
 	'webpack-bundle-analyzer': '^2.8.2',
@@ -87,12 +86,14 @@ const VERSIONS = {
 
 const WEBPACK_2_VERSIONS = {
 	'extract-text-webpack-plugin': '2.1.0',
+	'sass-loader': '6.0.5',
 	webpack: '^2.5.1',
 	'webpack-dev-server': '^2.4.5',
 };
 
 const WEBPACK_1_VERSIONS = {
 	'extract-text-webpack-plugin': '^1.0.1',
+	'sass-loader': '4.1.1',
 	webpack: '^1.14.0',
 	'webpack-dev-server': '^1.16.5',
 };
