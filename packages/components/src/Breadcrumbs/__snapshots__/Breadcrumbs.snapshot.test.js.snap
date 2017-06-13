@@ -22,6 +22,20 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -29,6 +43,20 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     >
       Text B
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className=""
@@ -40,6 +68,20 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -47,6 +89,20 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     >
       Text D
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"
@@ -65,20 +121,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   className="breadcrumb tc-breadcrumb"
   id="42"
 >
-  <li
-    className="sr-only"
-  >
-    <span>
-      Text A
-    </span>
-  </li>
-  <li
-    className="sr-only"
-  >
-    <span>
-      Text B
-    </span>
-  </li>
   <li
     aria-hidden="true"
     className=""
@@ -99,7 +141,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       >
         <span>
           <span>
-            …
+            ...
           </span>
         </span>
       </button>
@@ -166,6 +208,20 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
     </div>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -173,6 +229,20 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
     >
       Text D
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"
@@ -211,7 +281,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       >
         <span>
           <span>
-            …
+            ...
           </span>
         </span>
       </button>
@@ -242,6 +312,20 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </div>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -251,6 +335,20 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -258,6 +356,20 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     >
       Text C
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"
@@ -296,7 +408,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       >
         <span>
           <span>
-            …
+            ...
           </span>
         </span>
       </button>
@@ -327,6 +439,20 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </div>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -336,6 +462,20 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -343,6 +483,20 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     >
       Text C
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"
@@ -371,6 +525,20 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -378,6 +546,20 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     >
       Text B
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className=""
@@ -389,6 +571,20 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -396,6 +592,20 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     >
       Text D
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"
@@ -424,6 +634,20 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
     </span>
   </li>
   <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
+  </li>
+  <li
     className=""
   >
     <span
@@ -431,6 +655,20 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
     >
       Text B
     </span>
+  </li>
+  <li
+    className="separator"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-chevron-left"
+      />
+    </svg>
   </li>
   <li
     className="active"

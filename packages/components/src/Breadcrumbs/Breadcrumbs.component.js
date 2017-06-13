@@ -5,6 +5,7 @@ import uuid from 'uuid';
 
 import theme from './Breadcrumbs.scss';
 import { ActionDropdown } from '../Actions';
+import Icon from '../Icon';
 
 /**
  * Default max items to display without starting by ellipsis
@@ -43,9 +44,16 @@ function Breadcrumbs(props) {
 	 * @returns {*} Breadcrumb item rendering depending of its position
 	 */
 	function renderBreadcrumbItem(item, index) {
+		if (maxItemsReached && index < ellipsisIndex) {
+			return null;
+		}
 		const { text, title, onClick } = item;
 		const isActive = index === (nbItems - 1);
 		const id = `${props.id}-item-${index}`;
+		const separator = index < props.items.length - 1 &&
+			(<li className="separator" key={`${index}-separator`}>
+				<Icon name="talend-chevron-left" transform="rotate-180" />
+			</li>);
 
 		/**
 		 * Wrapper for onClick in order to return item
@@ -57,35 +65,20 @@ function Breadcrumbs(props) {
 			wrappedOnClick = event => onClick(event, item);
 		}
 
-		if (maxItemsReached && index < ellipsisIndex) {
-			return (
-				<li className="sr-only" key={index}>
-					{onClick ?
-						<Button
-							id={id}
-							bsStyle="link"
-							role="link"
-							title={title}
-							onClick={wrappedOnClick}
-						>{text}</Button> : <span>{text}</span>
-					}
-				</li>
-			);
-		}
 		if (maxItemsReached && index === ellipsisIndex) {
-			return (
+			return [(
 				<li className={classNames(theme.dots)} key={index} aria-hidden="true">
 					<ActionDropdown
 						id={`${props.id}-ellipsis`}
 						items={hiddenItems}
-						label="&hellip;"
+						label="..."
 						link
 						noCaret
 					/>
 				</li>
-			);
+			), separator];
 		}
-		return (
+		return [(
 			<li className={isActive ? 'active' : ''} key={index}>
 				{(!isActive && onClick) ?
 					<Button
@@ -97,7 +90,7 @@ function Breadcrumbs(props) {
 					>{text}</Button> : <span id={id}>{text}</span>
 				}
 			</li>
-		);
+		), separator];
 	}
 
 	return (
