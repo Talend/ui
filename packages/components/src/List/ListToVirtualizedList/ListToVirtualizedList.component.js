@@ -12,11 +12,9 @@ function ListToVirtualizedList(props) {
 	const supposedActions = {};
 	if (props.items.length > 0) {
 		const item = props.items[0];
-		Object.keys(item).forEach((key) => {
-			if (Array.isArray(item[key])) {
-				supposedActions[key] = true;
-			}
-		});
+		Object.keys(item)
+			.filter(key => Array.isArray(item[key]))
+			.forEach((key) => { supposedActions[key] = true; });
 	}
 	return (
 		<VirtualizedList
@@ -47,7 +45,7 @@ function ListToVirtualizedList(props) {
 
 ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
-	displayMode: PropTypes.oneOf(['LARGE', 'TABLE']),
+	displayMode: PropTypes.oneOf(['large', 'table']),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,

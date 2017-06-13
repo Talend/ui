@@ -44,11 +44,11 @@ describe('ListToVirtualizedList', () => {
 	});
 	it('should support displayMode', () => {
 		const table = shallow(
-			<ListToVirtualizedList {...props} displayMode="TABLE" />
+			<ListToVirtualizedList {...props} displayMode="table" />
 		).props();
 		expect(table.type).toBe('TABLE');
 		const large = shallow(
-			<ListToVirtualizedList {...props} displayMode="LARGE" />
+			<ListToVirtualizedList {...props} displayMode="large" />
 		).props();
 		expect(large.type).toBe('LARGE');
 	});
