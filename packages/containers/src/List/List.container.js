@@ -102,6 +102,7 @@ class List extends React.Component {
 				items,
 				columns: get(this.props, 'list.columns', []),
 			},
+			virtualized: this.props.virtualized,
 		};
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
