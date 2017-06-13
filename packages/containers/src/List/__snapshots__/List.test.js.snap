@@ -201,5 +201,6 @@ Object {
       ],
     },
   },
+  "virtualized": undefined,
 }
 `;
