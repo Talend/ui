@@ -29,8 +29,8 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 	);
 
 	let progress = (
-		<div style={style} className={theme['progress-percent']}>
-			{ infinite && <div className={theme['infinite-indicator']} /> }
+		<div style={style} className={classNames(theme['progress-percent'])}>
+			{ infinite && <div className={classNames(theme['infinite-indicator'])} /> }
 		</div>
 	);
 

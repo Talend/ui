@@ -2,7 +2,7 @@
 
 exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
 <div
-  className="undefined"
+  className=""
   id="my-progress"
 >
   <div
@@ -18,7 +18,7 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
 
 exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
 <div
-  className="undefined"
+  className=""
   id="my-progress"
 >
   <div
@@ -54,7 +54,7 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
   id="my-progress"
 >
   <div
-    className="undefined"
+    className=""
     onFocus={[Function]}
     onMouseOver={[Function]}
     style={
@@ -62,13 +62,17 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
         "width": "100%",
       }
     }
-  />
+  >
+    <div
+      className=""
+    />
+  </div>
 </div>
 `;
 
 exports[`Progress should render hidden progress at 0% 1`] = `
 <div
-  className="undefined"
+  className=""
   id="my-progress"
 >
   <div
@@ -84,7 +88,7 @@ exports[`Progress should render hidden progress at 0% 1`] = `
 
 exports[`Progress should render progress with given percentage 1`] = `
 <div
-  className="undefined"
+  className=""
   id="my-progress"
 >
   <div
@@ -100,7 +104,7 @@ exports[`Progress should render progress with given percentage 1`] = `
 
 exports[`Progress should render progress with tooltip 1`] = `
 <div
-  className="undefined"
+  className=""
   id="my-progress"
 >
   <div
