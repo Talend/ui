@@ -34,7 +34,7 @@ function RowLarge({ className, index, key, parent, style }) {
 
 	return (
 		<div
-			className={classNames('tc-list-large', rowThemes)}
+			className={classNames(rowThemes)}
 			key={key}
 			style={style}
 		>

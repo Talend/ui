@@ -5,6 +5,8 @@ import { Actions } from '../../Actions';
 import largeTheme from './RowLargeCellActions.scss';
 import tableTheme from './RowTableCellActions.scss';
 
+const LIST_ACTION_CLASS_NAME = 'tc-list-actions';
+
 /**
  * Cell that renders actions
  */
@@ -12,9 +14,9 @@ function CellActions({ cellData }) {
 	return (
 		<div
 			className={classNames(
-				'tc-list-actions',
-				tableTheme['tc-list-actions'],
-				largeTheme['tc-list-actions'],
+				LIST_ACTION_CLASS_NAME,
+				tableTheme[LIST_ACTION_CLASS_NAME],
+				largeTheme[LIST_ACTION_CLASS_NAME],
 			)}
 		>
 			<Actions
