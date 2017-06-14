@@ -5,10 +5,13 @@ Scoping to packages that match 'react-talend-components'
 > sass-lint -v -q
 
 
+src/Progress/Progress.scss
+  40:45  error  Include leading zeros on numbers  leading-zero
+
 src/VirtualizedList/ListTable/ListTable.scss
   46:10  error  Strings must use single quotes  quotes
 
-✖ 1 problem (1 error, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
