@@ -140,7 +140,7 @@ For more complicated inputs, you can pass objects with additional properties
   "user.lastname",
   {
     "key": "user.firstname",
-    "type": "my-widget",
+    "widget": "my-widget",
     "title": "First Name (with placeholder)",
     "placeholder": "Enter your firstname here"
   },
@@ -156,7 +156,7 @@ For more complicated inputs, you can pass objects with additional properties
 | type | The widget name in widget mapping |
 
 The additional values depends on the widget you use. Refers to the widget for that.
-Example for the `type: "text"` type :
+Example for the `widget: "text"` type :
 
 | Additional property | Description | Mandatory |
 |---|---|---|
@@ -173,7 +173,7 @@ What we define as `fieldset` is all the complex widgets that manage fieldsets (f
 Each of those widgets should be defined as an object in the uiSchema array.
 ```json
 [{
-  "type": "tabs",
+  "widget": "tabs",
   "items": [
     {
       "title": "User",
@@ -214,7 +214,7 @@ Each of those widgets should be defined as an object in the uiSchema array.
         },
         {
           "key": "comment",
-          "type": "textarea",
+          "widget": "textarea",
           "title": "Comment",
           "placeholder": "Make a comment",
           "validationMessage": "Don't be greedy!"
@@ -227,7 +227,7 @@ Each of those widgets should be defined as an object in the uiSchema array.
 
 | Mandatory property | Description |
 |---|---|
-| type | The widget name in widget mapping |
+| widget | The widget name in widget mapping |
 | items | The array of contents of this type of fieldset manager. For tab widget, it represents each tab. Each tab content is a fieldset. |
 
 
