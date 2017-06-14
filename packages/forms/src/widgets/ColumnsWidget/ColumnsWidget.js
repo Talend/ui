@@ -26,7 +26,7 @@ Column.propTypes = {
 
 function onColumnChange(key, onChange, formData) {
 	return function handleChange(change) {
-		onChange(Object.assign(formData, { [key]: change }));
+		onChange(Object.assign({}, formData, { [key]: change }));
 	};
 }
 

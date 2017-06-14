@@ -2,7 +2,7 @@
 
 exports[`RowLarge should render large row 1`] = `
 <div
-  className="tc-list-large undefined"
+  className="tc-list-large"
   style={
     Object {
       "background": "red",

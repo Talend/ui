@@ -1,0 +1,102 @@
+exports[`UIForm component should render form 1`] = `
+<form
+  acceptCharset={undefined}
+  action={undefined}
+  autoComplete="off"
+  encType={undefined}
+  id="myFormId"
+  method={undefined}
+  name="myFormName"
+  noValidate={true}
+  onSubmit={[Function]}
+  target={undefined}>
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "autoFocus": true,
+        "description": "Hint: this is the last name",
+        "key": Array [
+          "lastname",
+        ],
+        "minlength": 10,
+        "ngModelOptions": Object {},
+        "schema": Object {
+          "minLength": 10,
+          "type": "string",
+        },
+        "title": "Last Name (with description)",
+        "type": "text",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "key": Array [
+          "firstname",
+        ],
+        "ngModelOptions": Object {},
+        "placeholder": "Enter your firstname here",
+        "required": true,
+        "schema": Object {
+          "type": "string",
+        },
+        "title": "First Name (with placeholder)",
+        "triggers": Array [
+          "after",
+        ],
+        "type": "text",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "key": Array [
+          "check",
+        ],
+        "title": "Check the thing",
+        "triggers": Array [
+          "after",
+        ],
+        "widget": "button",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    } />
+  <button
+    className="btn btn-primary"
+    type="submit">
+    Submit
+  </button>
+</form>
+`;

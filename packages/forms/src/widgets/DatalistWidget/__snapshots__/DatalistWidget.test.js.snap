@@ -284,7 +284,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     aze
                   </span>
@@ -313,7 +314,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     banane
                   </span>
@@ -342,7 +344,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     bananAze
                   </span>
@@ -371,7 +374,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                        AzErTy   
                   </span>
@@ -400,7 +404,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 onMouseLeave={[Function]}
                 role="option"
                 style={Object {}}>
-                <div>
+                <div
+                  className="datalist-item">
                   <span>
                     Toto
                   </span>
