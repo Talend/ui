@@ -1,17 +1,32 @@
 .tc-list-actions {
 	button {
-		height: 20px;
-		line-height: inherit;
 		opacity: 0;
-		padding-left: 0;
 	}
 }
 
 // manage actions display on row hover
-
 :global(.tc-list-large-row) .tc-list-actions :global(.tc-actions) > button,
 :global(.ReactVirtualized__Table__row) .tc-list-actions :global(.tc-actions) > button:focus,
 :global(.ReactVirtualized__Table__row):hover .tc-list-actions :global(.tc-actions) > button {
 	opacity: 1;
 	transition: opacity 0.15s ease-in;
+}
+
+// Large display specificities
+:global(.tc-list-large-row) .tc-list-actions :global(.tc-actions) > button {
+	height: 20px;
+	line-height: inherit;
+	margin-right: $padding-normal;
+	padding: 0;
+	position: relative;
+
+	// Increase click area
+	&:after {
+		content: '';
+		position: absolute;
+		left: -$padding-smaller;
+		right: -$padding-smaller;
+		top: 0;
+		bottom: 0;
+	}
 }
