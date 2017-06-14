@@ -5,7 +5,6 @@ import React, { PropTypes } from 'react';
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
-import { createHashHistory } from 'history';
 import api from './api';
 
 function getComponent(view, componentName, context) {
@@ -86,7 +85,11 @@ function CMFRouter(props, context) {
 	const routes = props.routes;
 	if (routes.path === '/' && !!routes.component) {
 		const Component = getComponent(routes.view, routes.component, context);
-		const IndexComponent = getComponent(routes.indexRoute.view, routes.indexRoute.component, context);
+		const IndexComponent = getComponent(
+			routes.indexRoute.view,
+			routes.indexRoute.component,
+			context
+		);
 		return (
 			<ConnectedRouter history={props.history}>
 				<Component view={routes.view}>
