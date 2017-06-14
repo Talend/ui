@@ -11,6 +11,13 @@ import {
 } from './componentState';
 import { mapStateToViewProps } from './settings';
 
+const CMF_PROPS = [
+	'didMountActionCreator', // componentDidMount action creator id in registry
+	'keepComponentState', // redux state management on unmount
+	'view', // view component id in registry
+	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
+];
+
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
@@ -104,22 +111,21 @@ export function getDispatchToProps({
  * @return {ReactComponent}
  */
 export default function cmfConnect({
-		componentId,
-		defaultState,
-		keepComponentState,
-		mapStateToProps,
-		mapDispatchToProps,
-		mergeProps,
-		...rest,
-	}) {
+	componentId,
+	defaultState,
+	keepComponentState,
+	mapStateToProps,
+	mapDispatchToProps,
+	mergeProps,
+	...rest,
+}) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${WrappedComponent.displayName})`;
-			static propTypes = Object.assign(
-				{},
-				...WrappedComponent.propTypes || {},
-				...statePropTypes
-			);
+			static propTypes = {
+				...WrappedComponent.propTypes,
+				...statePropTypes,
+			};
 			static contextTypes = {
 				store: PropTypes.object,
 				registry: PropTypes.object,
@@ -169,11 +175,10 @@ export default function cmfConnect({
 					this.props,
 					{ dispatchActionCreator: this.dispatchActionCreator },
 				);
+
 				// remove all internal props already used by the container
-				props.view = undefined;
-				props.didMountActionCreator = undefined;
-				props.willUnMountActionCreator = undefined;
-				props.keepComponentState = undefined;
+				CMF_PROPS.forEach((key) => { delete props[key]; });
+
 				return createElement(
 					WrappedComponent,
 					props,
