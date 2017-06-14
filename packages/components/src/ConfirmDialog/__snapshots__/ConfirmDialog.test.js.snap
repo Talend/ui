@@ -71,12 +71,12 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     </div>
   </div>
   <div
+    className="ProgressBar"
+    now={25}
+  />
+  <div
     className="Body"
   >
-    <div
-      className="ProgressBar"
-      now={25}
-    />
     <div>
       BODY
     </div>

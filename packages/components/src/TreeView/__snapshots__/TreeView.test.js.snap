@@ -11,14 +11,11 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       some elements
     </span>
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
       id="id-add"
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -57,14 +54,11 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             data-toggled={true}
           >
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="id-0-toggle"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -111,14 +105,11 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               </span>
             </div>
             <button
-              aria-describedby={42}
               className="btn btn-link"
               disabled={false}
               id="id-0-talend-trash"
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -155,14 +146,11 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 data-toggled={true}
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   id="id-0-0-toggle"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -287,14 +275,11 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 data-toggled={false}
               >
                 <button
-                  aria-describedby={42}
                   className="btn btn-link"
                   disabled={false}
                   id="id-0-1-toggle"
-                  onBlur={[Function]}
                   onClick={[Function]}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
