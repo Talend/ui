@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import {
 	extractSpecialFields,
 	getId,
@@ -6,6 +7,7 @@ import {
 	renderCell,
 } from '../utils/gridrow';
 
+import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
 
 /**
@@ -32,7 +34,7 @@ function RowLarge({ className, index, key, parent, style }) {
 
 	return (
 		<div
-			className={`tc-list-large ${theme['tc-list-large']}`}
+			className={classNames('tc-list-large', rowThemes)}
 			key={key}
 			style={style}
 		>

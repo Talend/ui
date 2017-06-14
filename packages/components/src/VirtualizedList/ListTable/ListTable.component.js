@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
@@ -7,6 +8,7 @@ import RowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
+import rowThemes from './RowThemes';
 
 /**
  * List renderer that renders a react-virtualized Table
@@ -41,7 +43,7 @@ function ListTable(props) {
 			headerHeight={35}
 			height={height}
 			id={id}
-			rowClassName={theme.row}
+			rowClassName={rowThemes}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}

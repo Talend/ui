@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import { Actions } from '../../Actions';
 
-import theme from './CellActions.scss';
+import largeTheme from './RowLargeCellActions.scss';
+import tableTheme from './RowTableCellActions.scss';
 
 /**
  * Cell that renders actions
@@ -10,9 +11,10 @@ import theme from './CellActions.scss';
 function CellActions({ cellData }) {
 	return (
 		<div
-			className={classnames(
+			className={classNames(
 				'tc-list-actions',
-				theme['tc-list-actions'],
+				tableTheme['tc-list-actions'],
+				largeTheme['tc-list-actions'],
 			)}
 		>
 			<Actions
