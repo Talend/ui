@@ -66,7 +66,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -126,7 +126,7 @@ exports[`UIForm connect should render form 1`] = `
           "triggers": Array [
             "after",
           ],
-          "type": "button",
+          "widget": "button",
         },
       ],
     }
@@ -173,7 +173,7 @@ exports[`UIForm connect should render form 1`] = `
           "triggers": Array [
             "after",
           ],
-          "type": "button",
+          "widget": "button",
         },
       ],
     }

@@ -85,7 +85,7 @@ exports[`UIForm component should render form 1`] = `
         "triggers": Array [
           "after",
         ],
-        "type": "button",
+        "widget": "button",
       }
     }
     widgets={
