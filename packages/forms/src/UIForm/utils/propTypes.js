@@ -24,12 +24,12 @@ export const formPropTypes = {
 	/** Form definition: submit callback. This will prevent default submit behavior */
 	onSubmit: PropTypes.func,
 	/** Form definition: prevent html 5 validations */
-	noHtml5Validate: PropTypes.func,
+	noHtml5Validate: PropTypes.bool,
 	/**
 	 *  Form element configuration: submit target.
 	 *  This will be prevented if you provide an onSubmit props
 	 */
-	target: PropTypes.func,
+	target: PropTypes.string,
 };
 
 export function extractFormProps(props) {
