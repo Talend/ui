@@ -6,6 +6,7 @@ import DisplayLarge from './DisplayLarge';
 import DisplayTable from './DisplayTable';
 import DisplayTile from './DisplayTile';
 import Content from './Content';
+import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 
 function ListToolbar({ id, toolbar, displayMode, list }) {
@@ -42,11 +43,13 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
 
-function DisplayModeComponent({ id, useContent, displayMode, list }) {
+function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
 	if (useContent) {
 		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
 	}
-
+	if (virtualized) {
+		return <ListToVirtualizedList id={id} displayMode={displayMode} {...list} />;
+	}
 	switch (displayMode) {
 	case 'tile': return <DisplayTile id={id} {...list} />;
 	case 'large': return <DisplayLarge id={id} {...list} />;
@@ -61,9 +64,10 @@ DisplayModeComponent.propTypes = {
 		PropTypes.shape(Content.propTypes),
 	]),
 	useContent: PropTypes.bool,
+	virtualized: PropTypes.bool,
 };
 
-function ListDisplay({ id, useContent, displayMode, list }) {
+function ListDisplay({ id, useContent, displayMode, list, virtualized }) {
 	if (list.items && list.items.length) {
 		return (
 			<DisplayModeComponent
@@ -71,6 +75,7 @@ function ListDisplay({ id, useContent, displayMode, list }) {
 				useContent={useContent}
 				displayMode={displayMode}
 				list={list}
+				virtualized={virtualized}
 			/>
 		);
 	}
@@ -115,7 +120,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ id, displayMode, toolbar, list, useContent }) {
+function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -133,6 +138,7 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 				useContent={useContent}
 				displayMode={displayMode}
 				list={list}
+				virtualized={virtualized}
 			/>
 		</div>
 	);

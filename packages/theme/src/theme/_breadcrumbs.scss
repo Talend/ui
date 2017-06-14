@@ -3,64 +3,73 @@
 /// @group Breadcrumbs
 ////
 
+/// Breadcrumb item margin right
+/// @type Number
+$breadcrumb-li-margin-right: $padding-normal + 7px;
+
 .breadcrumb {
+	border-radius: 0;
 	display: flex;
 	flex-direction: row;
-	white-space: nowrap;
 	margin: 0;
-	color: $breadcrumb-items-color;
-	text-transform: uppercase;
-	border-radius: 0;
+	padding: 0;
+	white-space: nowrap;
 
 	> li {
-		display: flex;
 		align-items: center;
-		min-width: 0;
+		display: flex;
+		min-width: 46px;
+		position: relative;
+		margin-right: $breadcrumb-li-margin-right;
 
 		& > a,
 		& > span,
 		& > .btn {
+			background-color: $white;
+			color: tint($black, 40);
 			flex: 1;
 			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
-			padding: $breadcrumb-padding-vertical 0;
+			font-size: $font-size-base;
+			letter-spacing: 1px;
+			line-height: 1;
 			max-width: $breadcrumb-items-max-width;
+			padding: $padding-normal;
 			text-overflow: ellipsis;
+			text-transform: capitalize;
 			white-space: nowrap;
 			overflow: hidden;
 		}
 
-		&:not(.sr-only) {
-			position: relative;
-			margin-right: $breadcrumb-separator-padding;
+		& + li {
+			margin: 0 $breadcrumb-li-margin-right 0 $padding-normal;
 
-			+ li {
-				margin: 0 $breadcrumb-separator-padding;
+			&:before {
+				position: absolute;
+				content: '';
 				padding: 0;
-
-				&:before {
-					position: absolute;
-					content: '';
-					padding: 0;
-					top: 47.5%;
-					left: -($breadcrumb-separator-padding + 7px);
-					height: 5px;
-					width: 5px;
-					border: 1px solid $breadcrumb-separator-color;
-					border-bottom-color: transparent;
-					border-left-color: transparent;
-					box-shadow: 1px -1px 0 $breadcrumb-separator-color;
-					transform: rotate(45deg);
-				}
+				top: 47.5%;
+				left: -($breadcrumb-li-margin-right);
+				height: 5px;
+				width: 5px;
+				border: 1px solid tint($black, 50);
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+				box-shadow: 1px -1px 0 tint($black, 50);
+				transform: rotate(45deg);
 			}
+		}
 
-			&:last-child {
-				margin-right: 0;
-			}
+		&:last-child {
+			margin-right: 0;
+		}
 
-			&.active span {
-				box-shadow: 0 1px 0 $breadcrumb-items-color;
-				color: $breadcrumb-active-color;
-			}
+		&.separator {
+			min-width: 0;
+		}
+
+		&.active span {
+			box-shadow: 0 -2px 0 $brand-primary inset;
+			color: tint($black, 25);
 		}
 	}
 
@@ -69,29 +78,26 @@
 		font-size: inherit;
 		text-align: left;
 		border: none;
-		background: none;
 	}
 
 	a,
-	span,
 	.btn {
-		color: $breadcrumb-items-color;
-
 		&:focus,
 		&:hover,
 		&:active,
+		&:active:focus,
 		&.active,
 		&:visited {
-			// list item border on hover replaces this default feature
+			background-color: tint($black, 97);
+			outline: none;
 			text-decoration: none;
 		}
+	}
 
-		&:active,
-		&.active {
-			&:focus,
-			&.focus {
-				outline: 0;
-			}
-		}
+	.tc-svg-icon {
+		color: tint($black, 50);
+		height: $svg-xs-size;
+		margin: $padding-large $padding-normal;
+		width: $svg-xs-size;
 	}
 }

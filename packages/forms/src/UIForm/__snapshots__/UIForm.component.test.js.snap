@@ -1,8 +1,15 @@
 exports[`UIForm component should render form 1`] = `
 <form
+  acceptCharset={undefined}
+  action={undefined}
   autoComplete="off"
+  encType={undefined}
+  id="myFormId"
+  method={undefined}
+  name="myFormName"
   noValidate={true}
-  onSubmit={[Function]}>
+  onSubmit={[Function]}
+  target={undefined}>
   <Widget
     errors={Object {}}
     formName="myFormName"

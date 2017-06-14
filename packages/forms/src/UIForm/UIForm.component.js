@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
 import { TRIGGER_AFTER } from './utils/triggers';
+import { formPropTypes } from './utils/propTypes';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
 
@@ -90,38 +91,49 @@ export default class UIForm extends React.Component {
 	 * @param event the submit event
 	 */
 	submit(event) {
-		event.preventDefault();
+		if (this.props.onSubmit) {
+			event.preventDefault();
+		}
+
 		const { mergedSchema } = this.state;
 		const { formName, properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
 		this.props.setErrors(formName, errors);
 
 		const isValid = !Object.keys(errors).length;
-		if (isValid) {
+		if (this.props.onSubmit && isValid) {
 			this.props.onSubmit(event, properties);
 		}
+
+		return isValid;
 	}
 
 	render() {
-		const { autoComplete, errors, formName, id, properties, widgets } = this.props;
 		return (
 			<form
+				acceptCharset={this.props.acceptCharset}
+				action={this.props.action}
+				autoComplete={this.props.autoComplete}
+				encType={this.props.encType}
+				id={this.props.id}
+				method={this.props.method}
+				name={this.props.formName}
+				noValidate={this.props.noHtml5Validate}
 				onSubmit={this.submit}
-				autoComplete={autoComplete}
-				noValidate
+				target={this.props.target}
 			>
 				{
 					this.state.mergedSchema.map((nextSchema, index) => (
 						<Widget
-							id={id}
+							id={this.props.id}
 							key={index}
-							formName={formName}
+							formName={this.props.formName}
 							onChange={this.onChange}
 							onTrigger={this.onTrigger}
 							schema={nextSchema}
-							properties={properties}
-							errors={errors}
-							widgets={widgets}
+							properties={this.props.properties}
+							errors={this.props.errors}
+							widgets={this.props.widgets}
 						/>
 					))
 				}
@@ -133,21 +145,17 @@ export default class UIForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {
-		/** Form auto complete */
-		autoComplete: PropTypes.string,
-		/** Form definition: The form name that will be used to create ids */
-		formName: PropTypes.string,
-		/** The form id */
-		id: PropTypes.string,
+		...formPropTypes,
+
 		/** Form definition: Json schema that specify the data model */
 		jsonSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-		/**
-		 * Form definition: Form fields values.
-		 * Note that it should contains @definitionName for triggers.
-		 */
-		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: UI schema that specify how to render the fields */
 		uiSchema: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+		/**
+		 *  Form definition: Form fields values.
+		 *  Note that it should contains @definitionName for triggers.
+		 */
+		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 
@@ -158,8 +166,6 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
 		customValidation: PropTypes.func,
-		/** User callback: Form submit callback */
-		onSubmit: PropTypes.func.isRequired,
 		/**
 		 * User callback: Trigger > after callback.
 		 * Prototype: function onTrigger(type, schema, value, properties)
@@ -179,3 +185,7 @@ if (process.env.NODE_ENV !== 'production') {
 		updateForm: PropTypes.func.isRequired,
 	};
 }
+
+UIForm.defaultProps = {
+	noHtml5Validate: true,
+};

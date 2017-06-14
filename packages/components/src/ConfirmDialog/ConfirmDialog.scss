@@ -28,10 +28,10 @@ $tc-dialog-body-padding: 30px !default;
 
 	:global(.modal-content) {
 		background-color: tint($tc-dialog-header-color, 90%);
-		max-height: 80vh;
 		display: flex;
 		flex-wrap: nowrap;
 		flex-direction: column;
+		max-height: 80vh;
 	}
 
 	:global(.modal-header) {
@@ -67,11 +67,12 @@ $tc-dialog-body-padding: 30px !default;
 	}
 
 	:global(.modal-body) {
-		overflow: hidden;
-		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 		flex-basis: auto;
 		flex-grow: 1;
 		flex-shrink: 1;
+		height: 100%;
+		overflow: hidden;
+		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 
 	}
 
