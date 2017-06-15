@@ -140,7 +140,7 @@ export const renderItem = (item, { value }) => {
 		</span>
 	));
 	return (
-		<div className={theme.item}>
+		<div className={theme.item} title={item.title}>
 			<span className={theme['item-title']}>{emphasisedTitle}</span>
 			<p className={theme['item-description']}>{item.description}</p>
 		</div>
