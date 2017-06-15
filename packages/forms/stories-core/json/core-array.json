@@ -58,7 +58,7 @@
     {
       "key": "multipleChoicesList",
       "title": "Multiple choices list",
-      "type": "select"
+      "widget": "select"
     }
   ],
   "properties": {
