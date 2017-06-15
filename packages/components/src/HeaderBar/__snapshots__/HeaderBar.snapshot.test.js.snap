@@ -11777,7 +11777,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <p
                             className=""
                           >
-                            description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                            description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                            <em
+                              className=""
+                            >
+                              le
+                            </em>
+                             tempus ardore.
                           </p>
                         </div>
                       </li>
@@ -11888,7 +11894,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <p
                             className=""
                           >
-                            description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                            description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                            <em
+                              className=""
+                            >
+                              le
+                            </em>
+                            at.
                           </p>
                         </div>
                       </li>

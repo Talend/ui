@@ -131,20 +131,22 @@ export const renderSectionTitle = (section) => {
 	return null;
 };
 
-export const renderItem = (item, { value }) => {
-	const title = item.title.trim();
-	const parts = !value ? [title] : title.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
-	const emphasisedTitle = parts.map((part) => {
+const emphasise = (text, value) => {
+	const parts = !value ? [text] : text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
+	return parts.map((part) => {
 		if (value && part.toUpperCase() === value.toUpperCase()) {
 			return <em className={classNames(theme['highlight-match'])}>{part}</em>;
 		}
 		return part;
 	});
+};
 
+export const renderItem = (item, { value }) => {
+	const title = item.title.trim();
 	return (
 		<div className={theme.item} title={title}>
-			<span className={classNames(theme['item-title'])}>{emphasisedTitle}</span>
-			<p className={classNames(theme['item-description'])}>{item.description}</p>
+			<span className={classNames(theme['item-title'])}>{emphasise(title, value)}</span>
+			<p className={classNames(theme['item-description'])}>{emphasise(item.description, value)}</p>
 		</div>
 	);
 };
