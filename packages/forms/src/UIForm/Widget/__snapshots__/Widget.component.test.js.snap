@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Widget component should render custom widget 1`] = `
 <customWidget
   errorMessage="This is not ok"
@@ -29,7 +31,8 @@ exports[`Widget component should render custom widget 1`] = `
       "type": "customWidget",
     }
   }
-  value="my firstname" />
+  value="my firstname"
+/>
 `;
 
 exports[`Widget component should render nothing if widget does not exist 1`] = `null`;
@@ -65,5 +68,6 @@ exports[`Widget component should render widget 1`] = `
       "type": "text",
     }
   }
-  value="my firstname" />
+  value="my firstname"
+/>
 `;
