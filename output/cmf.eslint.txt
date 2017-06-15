@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.82.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.83.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -11,7 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  113:10  error  Unexpected trailing comma  comma-dangle
+  120:9  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   42:3  warning  Unexpected console statement  no-console
