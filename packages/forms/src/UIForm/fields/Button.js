@@ -13,7 +13,7 @@ export default function Button(props) {
 				id={id}
 				className={'btn'}
 				onClick={event => onTrigger(event, triggers[0], schema)}
-				type={type}
+				type={type || 'button'}
 			>
 				{title}
 			</button>

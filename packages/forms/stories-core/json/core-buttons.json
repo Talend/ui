@@ -8,14 +8,14 @@
     {
       "key": "check",
       "title": "Check me",
-      "type": "button",
+      "widget": "button",
       "triggers": ["after"],
       "description": "This should trigger a successful check"
     },
     {
       "key": "checkfail",
       "title": "Check me",
-      "type": "button",
+      "widget": "button",
       "triggers": ["after"],
       "description": "This should trigger a failing check"
     }
