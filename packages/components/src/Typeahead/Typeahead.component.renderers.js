@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
@@ -121,9 +122,9 @@ export const renderItemsContainerFactory = (items, noResultText, searching, sear
 export const renderSectionTitle = (section) => {
 	if (section) {
 		return (
-			<div className={theme['section-header']}>
+			<div className={classNames(theme['section-header'])}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={theme['section-header-title']}>{section.title}</span>
+				<span className={classNames(theme['section-header-title'])}>{section.title}</span>
 			</div>
 		);
 	}
@@ -131,18 +132,19 @@ export const renderSectionTitle = (section) => {
 };
 
 export const renderItem = (item, { value }) => {
-	const splittedTitle = !value ? [item.title] : item.title.split(value);
-	const emphasisedTitle = splittedTitle.map((title, index) => (
-		<span key={index}>
-			{title}
-			{index !== splittedTitle.length - 1 &&
-			<em className={theme['highlight-match']}>{value}</em>}
-		</span>
-	));
+	const title = item.title.trim();
+	const parts = !value ? [title] : title.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
+	const emphasisedTitle = parts.map((part) => {
+		if (value && part.toUpperCase() === value.toUpperCase()) {
+			return <em className={classNames(theme['highlight-match'])}>{part}</em>;
+		}
+		return part;
+	});
+
 	return (
-		<div className={theme.item} title={item.title}>
-			<span className={theme['item-title']}>{emphasisedTitle}</span>
-			<p className={theme['item-description']}>{item.description}</p>
+		<div className={theme.item} title={title}>
+			<span className={classNames(theme['item-title'])}>{emphasisedTitle}</span>
+			<p className={classNames(theme['item-description'])}>{item.description}</p>
 		</div>
 	);
 };
