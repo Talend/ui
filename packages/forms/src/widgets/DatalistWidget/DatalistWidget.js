@@ -124,7 +124,7 @@ class DatalistWidget extends React.Component {
 
 		this.inputProps = {
 			required: props.required,
-			onBlur: () => this.onBlur(),
+			onBlur: event => this.onBlur(event),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
@@ -151,12 +151,16 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	onBlur() {
+	onBlur(event) {
 		if (this.props.options &&
-			this.props.options.restricted && this.state.initalItems.indexOf(this.state.value) === -1) {
+			this.props.options.restricted &&
+			this.state.initalItems.indexOf(this.state.value) === -1) {
 			this.resetValue();
 		} else {
-			this.props.onChange(this.state.value);
+			const { value } = event.target;
+			if (value !== this.state.value) {
+				this.props.onChange(this.state.value);
+			}
 			this.resetSuggestions();
 		}
 	}
@@ -237,9 +241,11 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		this.setValue(selectedItem);
-		this.resetSuggestions();
-		this.props.onChange(selectedItem);
+		if (selectedItem && selectedItem !== this.state.value) {
+			this.setValue(selectedItem);
+			this.resetSuggestions();
+			this.props.onChange(selectedItem);
+		}
 	}
 
 	render() {

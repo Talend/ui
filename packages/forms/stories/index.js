@@ -115,8 +115,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 decoratedStories.add('Datalist', () => {
-	function fetchItems(title) {
-		console.log('fetchItems', title);
+	function fetchItems() {
 		return [
 			'Auklet',
 			'Cormorant',
@@ -185,6 +184,7 @@ decoratedStories.add('Datalist', () => {
 		<Form
 			data={schema}
 			formContext={{ fetchItems }}
+			onChange={action('CHANGE')}
 			onSubmit={action('SUBMIT')}
 		/>
 	);
