@@ -5,8 +5,9 @@ const mkdirp = require('mkdirp');
 const lib = require('../src');
 
 const buff = Object.keys(lib.svgs).map((key) => {
-	let svg = `${lib.svgs[key]}`;
-	svg = svg.replace(/class/g, 'className');
+	const svg = `${lib.svgs[key]}`
+		.replace(/class/g, 'className')
+		.replace(/fill-rule/g, 'fillRule');
 	return `icons['talend-${key}'] = (${svg});`;
 });
 buff.unshift('');
