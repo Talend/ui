@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1`] = `
 <div
-  className="undefined dropdown open">
+  className="undefined dropdown open"
+>
   <input
     aria-label="Filter"
     className="form-control"
@@ -8,18 +11,23 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
-    value="" />
+    value=""
+  />
   <div
-    className="dropdown-toggle">
+    className="dropdown-toggle"
+  >
     <span
-      className="caret" />
+      className="caret"
+    />
   </div>
   <div
-    className="tags-container">
+    className="tags-container"
+  >
     <Badge
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid" />
+      tcStyle="solid"
+    />
   </div>
   <DropDownOptions
     createIfNoneMatch={false}
@@ -36,13 +44,15 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
         },
       ]
     }
-    selectedIndex={0} />
+    selectedIndex={0}
+  />
 </div>
 `;
 
 exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdown 1`] = `
 <div
-  className="undefined dropdown">
+  className="undefined dropdown"
+>
   <input
     aria-label="Filter"
     className="form-control"
@@ -50,25 +60,31 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
-    value="" />
+    value=""
+  />
   <div
-    className="dropdown-toggle">
+    className="dropdown-toggle"
+  >
     <span
-      className="caret" />
+      className="caret"
+    />
   </div>
   <div
-    className="tags-container">
+    className="tags-container"
+  >
     <Badge
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid" />
+      tcStyle="solid"
+    />
   </div>
 </div>
 `;
 
 exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
 <div
-  className="undefined dropdown open">
+  className="undefined dropdown open"
+>
   <input
     aria-label="Filter"
     className="form-control"
@@ -76,18 +92,23 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
-    value="" />
+    value=""
+  />
   <div
-    className="dropdown-toggle">
+    className="dropdown-toggle"
+  >
     <span
-      className="caret" />
+      className="caret"
+    />
   </div>
   <div
-    className="tags-container">
+    className="tags-container"
+  >
     <Badge
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid" />
+      tcStyle="solid"
+    />
   </div>
   <DropDownOptions
     createIfNoneMatch={false}
@@ -104,6 +125,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
         },
       ]
     }
-    selectedIndex={0} />
+    selectedIndex={0}
+  />
 </div>
 `;

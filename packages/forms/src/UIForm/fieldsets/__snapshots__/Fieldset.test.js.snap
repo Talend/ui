@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Fieldset widget should render fieldset 1`] = `
 <fieldset
-  className="form-group">
+  className="form-group"
+>
   <legend>
     My fieldset
   </legend>
@@ -17,7 +20,8 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []} />
+    widgets={Array []}
+  />
   <Widget
     schema={
       Object {
@@ -31,6 +35,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []} />
+    widgets={Array []}
+  />
 </fieldset>
 `;
