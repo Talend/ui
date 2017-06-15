@@ -36,7 +36,7 @@
   },
   "uiSchema": [
     {
-      "type": "tabs",
+      "widget": "tabs",
       "items": [
         {
           "title": "User",
@@ -77,7 +77,7 @@
             },
             {
               "key": "comment",
-              "type": "textarea",
+              "widget": "textarea",
               "title": "Comment",
               "placeholder": "Make a comment",
               "validationMessage": "Don't be greedy!"
