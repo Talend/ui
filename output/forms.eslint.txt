@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.82.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.83.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -113,7 +113,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select.test.js
   173:2  error  Block must not be padded by blank lines  padded-blocks
 
-✖ 101 problems (101 errors, 0 warnings)
+✖ 99 problems (99 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
