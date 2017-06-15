@@ -8,7 +8,7 @@ describe('Button field', () => {
 		description: 'Click here to trigger a trigger',
 		title: 'Boom !',
 		triggers: ['after'],
-		type: 'button',
+		widget: 'button',
 	};
 
 	it('should render button', () => {
@@ -20,6 +20,28 @@ describe('Button field', () => {
 				errorMessage={'This is wrong'}
 				onTrigger={jest.fn()}
 				schema={schema}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render button with provided type', () => {
+		// given
+		const submitSchema = {
+			...schema,
+			type: 'submit',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Button
+				id={'myForm'}
+				isValid
+				errorMessage={'This is wrong'}
+				onTrigger={jest.fn()}
+				schema={submitSchema}
 			/>
 		);
 

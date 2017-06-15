@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cmfConnect should create a connected component 1`] = `
+exports[`cmfConnect Higher Order Component should create a connected component 1`] = `
 Object {
   "deleteState": [Function],
   "dispatch": [Function],

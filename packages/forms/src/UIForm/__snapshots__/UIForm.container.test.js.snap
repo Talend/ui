@@ -44,7 +44,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -94,7 +94,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -144,7 +144,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -215,7 +215,7 @@ Object {
       "triggers": Array [
         "after",
       ],
-      "type": "button",
+      "widget": "button",
     },
   ],
 }
@@ -223,8 +223,11 @@ Object {
 
 exports[`UIForm container should render form 2`] = `
 <UIForm
+  acceptCharset={undefined}
+  action={undefined}
   autoComplete="off"
   customValidation={[Function]}
+  encType={undefined}
   errors={Object {}}
   formName="myFormName"
   id="myFormId"
@@ -247,12 +250,15 @@ exports[`UIForm container should render form 2`] = `
       "type": "object",
     }
   }
+  method={undefined}
+  noHtml5Validate={true}
   onChange={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
   properties={Object {}}
   setError={[Function]}
   setErrors={[Function]}
+  target={undefined}
   uiSchema={
     Array [
       Object {
@@ -275,7 +281,7 @@ exports[`UIForm container should render form 2`] = `
         "triggers": Array [
           "after",
         ],
-        "type": "button",
+        "widget": "button",
       },
     ]
   }
