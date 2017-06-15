@@ -14,12 +14,23 @@ const ENTER_KEY = 13;
 
 export function RenderButton({ id, value, className, item, onClick }) {
 	function click(event) {
-		event.stopPropagation();
-		onClick(event, item);
+		// only fires onclick when left-click
+		if (event.button === 0) {
+			event.stopPropagation();
+			onClick(event, item);
+		}
+	}
+
+	function mouseDown(event) {
+		// only fires onclick when middle-click
+		if (event.button === 1) {
+			event.stopPropagation();
+			onClick(event, item);
+		}
 	}
 
 	return (
-		<Button id={id} className={className} onMouseDown={click} onClick={click} role="link" bsStyle="link">
+		<Button id={id} className={className} onMouseDown={mouseDown} onClick={click} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);
