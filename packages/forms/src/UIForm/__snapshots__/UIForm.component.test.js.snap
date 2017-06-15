@@ -11,7 +11,8 @@ exports[`UIForm component should render form 1`] = `
   name="myFormName"
   noValidate={true}
   onSubmit={[Function]}
-  target={undefined}>
+  target={undefined}
+>
   <Widget
     errors={Object {}}
     formName="myFormName"

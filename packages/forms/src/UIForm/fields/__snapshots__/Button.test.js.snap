@@ -22,18 +22,21 @@ exports[`Button field should render button 1`] = `
 
 exports[`Button field should render button with provided type 1`] = `
 <div
-  className="">
+  className=""
+>
   <button
     className="btn"
     id="myForm"
     onClick={[Function]}
-    type="submit">
+    type="submit"
+  >
     Boom !
   </button>
   <Message
     description="Click here to trigger a trigger"
     errorMessage="This is wrong"
-    isValid={true} />
+    isValid={true}
+  />
 </div>
 `;
 
