@@ -23,22 +23,13 @@ src/theme/_forms.scss
   316:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   457:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-src/theme/_modals.scss
-  10:3  warning  Expected indentation of 1 tab but found 2   indentation
-  11:3  warning  Expected indentation of 1 tab but found 2   indentation
-  12:3  warning  Expected indentation of 1 tab but found 2   indentation
-  14:3  warning  Expected indentation of 1 tab but found 2   indentation
-  15:4  warning  Expected indentation of 2 tabs but found 3  indentation
-  16:4  warning  Expected indentation of 2 tabs but found 3  indentation
-  17:4  warning  Expected indentation of 2 tabs but found 3  indentation
-
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
   23:29  error    !important not allowed              no-important
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 23 problems (14 errors, 9 warnings)
+✖ 16 problems (14 errors, 2 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'bootstrap-talend-theme'
 Errored while running ExecCommand.execute
