@@ -6,7 +6,7 @@ Scoping to packages that match 'react-talend-components'
 
 
 src/Progress/Progress.scss
-  40:45  error  Include leading zeros on numbers  leading-zero
+  42:45  error  Include leading zeros on numbers  leading-zero
 
 src/VirtualizedList/ListTable/ListTable.scss
   46:10  error  Strings must use single quotes  quotes
