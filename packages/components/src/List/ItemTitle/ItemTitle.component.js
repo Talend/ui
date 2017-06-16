@@ -13,7 +13,6 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 export function RenderButton({ id, value, className, item, onClick }) {
-
 	function executeOnClickAction(event) {
 		event.stopPropagation();
 		onClick(event, item);
