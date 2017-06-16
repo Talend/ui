@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Form reducers #TF_CHANGE_FORM should replace the forms configurations 1`] = `
 Object {
   "existingFormName": Object {

@@ -73,6 +73,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           >
             <div
               className={undefined}
+              title="le title 1"
             >
               <span
                 className={undefined}
@@ -112,6 +113,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           >
             <div
               className={undefined}
+              title="title 2 les elephants elementaires ont des aile "
             >
               <span
                 className={undefined}
@@ -203,6 +205,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           >
             <div
               className={undefined}
+              title="title 3"
             >
               <span
                 className={undefined}
@@ -306,6 +309,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           >
             <div
               className={undefined}
+              title="le title 1"
             >
               <span
                 className={undefined}
@@ -329,6 +333,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           >
             <div
               className={undefined}
+              title="title 2 les elephants elementaires ont des aile "
             >
               <span
                 className={undefined}
@@ -380,6 +385,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           >
             <div
               className={undefined}
+              title="title 3"
             >
               <span
                 className={undefined}

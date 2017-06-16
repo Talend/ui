@@ -34,7 +34,7 @@ export const data = {
 		},
 		{
 			key: 'check',
-			type: 'button',
+			widget: 'button',
 			title: 'Check the thing',
 			triggers: ['after'],
 		},
@@ -68,7 +68,7 @@ export const mergedSchema = [
 		key: ['check'],
 		title: 'Check the thing',
 		triggers: ['after'],
-		type: 'button',
+		widget: 'button',
 	},
 ];
 

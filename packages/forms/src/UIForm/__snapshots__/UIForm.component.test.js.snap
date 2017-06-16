@@ -1,8 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`UIForm component should render form 1`] = `
 <form
+  acceptCharset={undefined}
+  action={undefined}
   autoComplete="off"
+  encType={undefined}
+  id="myFormId"
+  method={undefined}
+  name="myFormName"
   noValidate={true}
-  onSubmit={[Function]}>
+  onSubmit={[Function]}
+  target={undefined}
+>
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -31,7 +41,8 @@ exports[`UIForm component should render form 1`] = `
       Object {
         "custom": [Function],
       }
-    } />
+    }
+  />
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -61,7 +72,8 @@ exports[`UIForm component should render form 1`] = `
       Object {
         "custom": [Function],
       }
-    } />
+    }
+  />
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -78,17 +90,19 @@ exports[`UIForm component should render form 1`] = `
         "triggers": Array [
           "after",
         ],
-        "type": "button",
+        "widget": "button",
       }
     }
     widgets={
       Object {
         "custom": [Function],
       }
-    } />
+    }
+  />
   <button
     className="btn btn-primary"
-    type="submit">
+    type="submit"
+  >
     Submit
   </button>
 </form>

@@ -7224,6 +7224,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="le title 1"
                           >
                             <span
                               className={undefined}
@@ -7263,6 +7264,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="title 2 les elephants elementaires ont des aile "
                           >
                             <span
                               className={undefined}
@@ -7354,6 +7356,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="title 3"
                           >
                             <span
                               className={undefined}
@@ -7413,6 +7416,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="title 4"
                           >
                             <span
                               className={undefined}
@@ -7444,6 +7448,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="title 5"
                           >
                             <span
                               className={undefined}
@@ -7475,6 +7480,7 @@ exports[`Storyshots AppHeaderBar with search results 1`] = `
                         >
                           <div
                             className={undefined}
+                            title="title 6"
                           >
                             <span
                               className={undefined}
