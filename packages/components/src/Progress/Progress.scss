@@ -1,12 +1,14 @@
 $tc-progress-color: $brand-success !default;
-$infinite-indicator-width: 100% / 3;
+$infinite-indicator-ratio: 3;
+$infinite-indicator-width: 100% / $infinite-indicator-ratio;
+
 @keyframes infinite-progression-keyframes {
 	0% {
-		left: -$infinite-indicator-width;
+		transform: translateX(-100%);
 	}
 
 	100% {
-		left: 100%;
+		transform: translateX(100% * $infinite-indicator-ratio);
 	}
 }
 
