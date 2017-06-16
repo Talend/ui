@@ -13,19 +13,23 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 export function RenderButton({ id, value, className, item, onClick }) {
+
+	function executeOnClickAction(event) {
+		event.stopPropagation();
+		onClick(event, item);
+	}
+
 	function click(event) {
 		// only fires onclick when left-click
 		if (event.button === 0) {
-			event.stopPropagation();
-			onClick(event, item);
+			executeOnClickAction(event);
 		}
 	}
 
 	function mouseDown(event) {
 		// only fires onclick when middle-click
 		if (event.button === 1) {
-			event.stopPropagation();
-			onClick(event, item);
+			executeOnClickAction(event);
 		}
 	}
 
