@@ -36,7 +36,7 @@
   },
   "uiSchema": [
     {
-      "type": "fieldset",
+      "widget": "fieldset",
       "title": "My awesome USER form",
       "items": [
         {
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "type": "fieldset",
+      "widget": "fieldset",
       "title": "My awesome OTHER form",
       "items": [
         {
@@ -76,7 +76,7 @@
         },
         {
           "key": "comment",
-          "type": "textarea",
+          "widget": "textarea",
           "title": "Comment",
           "placeholder": "Make a comment",
           "validationMessage": "Don't be greedy!"
