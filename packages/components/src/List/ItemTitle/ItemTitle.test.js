@@ -125,9 +125,7 @@ describe('ItemTitle', () => {
 		wrapper.find(Button).simulate('click', { button: 0, stopPropagation: () => {} });
 
 		// then
-		expect(props.titleProps.onClick).toBeCalled();
-		const callArgs = props.titleProps.onClick.mock.calls[0];
-		expect(callArgs[1]).toBe(item);
+		expect(props.titleProps.onClick).toBeCalledWith(expect.anything(), item);
 	});
 
 	it('should trigger callback on button title mousedown (middle-click)', () => {
@@ -148,9 +146,7 @@ describe('ItemTitle', () => {
 		wrapper.find(Button).simulate('mouseDown', { button: 1, stopPropagation: () => {} });
 
 		// then
-		expect(props.titleProps.onClick).toBeCalled();
-		const callArgs = props.titleProps.onClick.mock.calls[0];
-		expect(callArgs[1]).toBe(item);
+		expect(props.titleProps.onClick).toBeCalledWith(expect.anything(), item);
 	});
 
 	it('should trigger callback on input title blur', () => {
