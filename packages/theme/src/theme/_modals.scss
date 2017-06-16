@@ -7,16 +7,16 @@
 
 /** IE-FIX */
 .modal-dialog {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 
-		>.modal-content {
-			flex-basis: 100%;
-			flex-grow: 0;
-			flex-shrink: 0;
-		}
+	>.modal-content {
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
 	}
+}
 /** END IE-FIX */
 
 .modal {
