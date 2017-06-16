@@ -6,40 +6,13 @@ $tc-dialog-body-padding: 30px !default;
 
 .tc-confirm-dialog {
 
-	/** IE-FIX */
-	:global(.modal-dialog) {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-
-		>:global(.modal-content) {
-			flex-basis: 100%;
-			flex-grow: 0;
-			flex-shrink: 0;
-		}
-	}
-	/** END IE-FIX */
-
-	&.modal-body-overflow {
-		:global(.modal-body) {
-			overflow: auto;
-		}
-	}
-
 	:global(.modal-content) {
 		background-color: tint($tc-dialog-header-color, 90%);
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: column;
-		max-height: 80vh;
 	}
 
 	:global(.modal-header) {
 		padding: $tc-dialog-medium-padding;
 		background-color: $tc-dialog-header-color;
-		flex-basis: auto;
-		flex-grow: 0;
-		flex-shrink: 0;
 
 		:global(.modal-title) {
 			text-transform: uppercase;
@@ -67,11 +40,6 @@ $tc-dialog-body-padding: 30px !default;
 	}
 
 	:global(.modal-body) {
-		flex-basis: auto;
-		flex-grow: 1;
-		flex-shrink: 1;
-		height: 100%;
-		overflow: hidden;
 		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
 
 	}
@@ -79,9 +47,6 @@ $tc-dialog-body-padding: 30px !default;
 
 	:global(.modal-footer) {
 		padding: 0 $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
-		flex-basis: auto;
-		flex-grow: 0;
-		flex-shrink: 0;
 		display: flex;
 		justify-content: flex-start;
 

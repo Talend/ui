@@ -8,23 +8,21 @@ import Action from '../Actions/Action';
  * @example
 <Dialog name="Hello world"></Dialog>
  */
-function Dialog(props) {
-	const modalProps = { bsSize: props.size, show: props.show, ...props.bsDialogProps };
+function Dialog({ size, show, bsDialogProps, header, children, action, bodyOverflow = true }) {
+	const modalProps = { bsSize: size, show, ...bsDialogProps };
 	return (
-		<Modal {...modalProps} >
-			{props.header && (
+		<Modal {...modalProps} className={bodyOverflow && 'modal-body-overflow'}>
+			{header &&
 				<Modal.Header closeButton>
-					<Modal.Title>{props.header}</Modal.Title>
-				</Modal.Header>
-			)}
+					<Modal.Title>{header}</Modal.Title>
+				</Modal.Header>}
 			<Modal.Body>
-				{props.children}
+				{children}
 			</Modal.Body>
-			{props.action && (
+			{action &&
 				<Modal.Footer>
-					<Action {...props.action} />
-				</Modal.Footer>
-			)}
+					<Action {...action} />
+				</Modal.Footer>}
 		</Modal>
 	);
 }
@@ -36,6 +34,7 @@ Dialog.propTypes = {
 	show: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
 	bsDialogProps: PropTypes.shape({ ...Modal.propTypes, manager: PropTypes.object }),
+	bodyOverflow: PropTypes.bool,
 };
 
 export default Dialog;

@@ -5,12 +5,42 @@
 	flex-direction: column;
 }
 
+/** IE-FIX */
+.modal-dialog {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		>.modal-content {
+			flex-basis: 100%;
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+/** END IE-FIX */
+
 .modal {
+
+	&.modal-body-overflow {
+		.modal-body {
+			overflow: auto;
+		}
+	}
+
+	.modal-content {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		max-height: 80vh;
+	}
 
 	&-header {
 		border-top-left-radius: $border-radius-base;
 		border-top-right-radius: $border-radius-base;
 		background-color: $modal-header-bg;
+		flex-basis: auto;
+		flex-grow: 0;
+		flex-shrink: 0;
 
 		.modal-title {
 			font-weight: bold;
@@ -25,10 +55,14 @@
 	}
 
 	&-body {
+		flex-basis: auto;
 		flex-grow: 1;
+		flex-shrink: 1;
+		overflow: hidden;
 	}
 
 	&-footer {
+		flex-grow: 0;
 		flex-shrink: 0;
 		border-top: none;
 	}
