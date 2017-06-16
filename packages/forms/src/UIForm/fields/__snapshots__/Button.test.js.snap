@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button field should render button 1`] = `
-<div
-  className=""
+<FieldTemplate
+  description="Click here to trigger a trigger"
+  errorMessage="This is wrong"
+  id="myForm"
+  isValid={true}
 >
   <button
     className="btn"
@@ -12,17 +15,15 @@ exports[`Button field should render button 1`] = `
   >
     Boom !
   </button>
-  <Message
-    description="Click here to trigger a trigger"
-    errorMessage="This is wrong"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Button field should render button with provided type 1`] = `
-<div
-  className=""
+<FieldTemplate
+  description="Click here to trigger a trigger"
+  errorMessage="This is wrong"
+  id="myForm"
+  isValid={true}
 >
   <button
     className="btn"
@@ -32,30 +33,5 @@ exports[`Button field should render button with provided type 1`] = `
   >
     Boom !
   </button>
-  <Message
-    description="Click here to trigger a trigger"
-    errorMessage="This is wrong"
-    isValid={true}
-  />
-</div>
-`;
-
-exports[`Button field should render error button if it is not valid 1`] = `
-<div
-  className="has-error"
->
-  <button
-    className="btn"
-    id="myForm"
-    onClick={[Function]}
-    type="button"
-  >
-    Boom !
-  </button>
-  <Message
-    description="Click here to trigger a trigger"
-    errorMessage="This is wrong"
-    isValid={false}
-  />
-</div>
+</FieldTemplate>
 `;
