@@ -58,7 +58,10 @@
 		flex-basis: auto;
 		flex-grow: 1;
 		flex-shrink: 1;
+		display: flex;
+		flex-direction: column;
 		overflow: hidden;
+		max-height: 100%;
 	}
 
 	&-footer {

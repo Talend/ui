@@ -50,7 +50,7 @@ function ConfirmDialog({
 			keyboard
 			className={classNames(
 				theme['tc-confirm-dialog'],
-				bodyOverflow && theme['modal-body-overflow'],
+				bodyOverflow && 'modal-body-overflow',
 			)}
 		>
 			{header
