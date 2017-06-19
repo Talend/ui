@@ -201,7 +201,9 @@ describe('cmfConnect', () => {
 			// given
 			const TestComponent = () => (<div />);
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({})(TestComponent);
+			const CMFConnected = cmfConnect({
+				defaultState: new Map(),
+			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.context();
@@ -241,7 +243,10 @@ describe('cmfConnect', () => {
 			// given
 			const TestComponent = () => (<div />);
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({ keepComponentState: true })(TestComponent);
+			const CMFConnected = cmfConnect({
+				defaultState: new Map(),
+				keepComponentState: true,
+			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.context();
@@ -275,7 +280,9 @@ describe('cmfConnect', () => {
 			// given
 			const TestComponent = () => (<div />);
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({})(TestComponent);
+			const CMFConnected = cmfConnect({
+				defaultState: new Map(),
+			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.context();
@@ -309,7 +316,9 @@ describe('cmfConnect', () => {
 			// given
 			const TestComponent = () => (<div />);
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({})(TestComponent);
+			const CMFConnected = cmfConnect({
+				defaultState: new Map(),
+			})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.context();
