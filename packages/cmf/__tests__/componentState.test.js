@@ -20,7 +20,7 @@ describe('state', () => {
 
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
 		const dispatch = jest.fn();
-		const props = getStateAccessors(dispatch, 'name', 'id');
+		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
 		expect(typeof props.setState).toBe('function');
 		props.setState();
 		const call = dispatch.mock.calls[0][0];

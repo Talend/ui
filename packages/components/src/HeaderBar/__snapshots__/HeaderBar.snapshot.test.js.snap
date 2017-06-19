@@ -11750,7 +11750,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-0-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11790,7 +11790,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-0-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11886,7 +11886,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-1-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11950,7 +11950,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-2-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11982,7 +11982,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -12014,7 +12014,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-2"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
