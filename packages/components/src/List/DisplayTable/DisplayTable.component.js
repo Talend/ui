@@ -304,6 +304,11 @@ function DisplayTable(props) {
 		'tc-list-display-table',
 		theme.table,
 	);
+	let message = null;
+	if (!items || items.length === 0) {
+		message = (<span className={theme['no-result']}>No result found</span>);
+	}
+
 	return (
 		<div className={containerClassName}>
 			<div>
@@ -333,6 +338,7 @@ function DisplayTable(props) {
 						)}
 					</tbody>
 				</table>
+				{message}
 			</div>
 		</div>
 	);
