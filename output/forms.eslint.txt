@@ -129,6 +129,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   82:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox.js
+  17:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   32:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
   33:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
@@ -163,7 +166,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 131 problems (131 errors, 0 warnings)
+✖ 132 problems (132 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
