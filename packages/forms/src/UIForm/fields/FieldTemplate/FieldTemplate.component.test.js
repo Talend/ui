@@ -12,7 +12,7 @@ describe('FieldTemplate', () => {
 				description={'My awesome description'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
-				labelBefore={'My awesome label'}
+				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
 			</FieldTemplate>
@@ -30,7 +30,8 @@ describe('FieldTemplate', () => {
 				description={'My awesome description'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
-				labelAfter={'My awesome label'}
+				label={'My awesome label'}
+				labelAfter
 			>
 				<input id={'myAwesomeField'} />
 			</FieldTemplate>
@@ -48,7 +49,7 @@ describe('FieldTemplate', () => {
 				description={'My awesome description'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
-				labelAfter={'My awesome label'}
+				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
 			</FieldTemplate>

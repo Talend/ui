@@ -21,9 +21,9 @@ function FieldTemplate(props) {
 
 	return (
 		<div className={groupsClassNames}>
-			{props.labelBefore && <Label id={props.id} label={props.labelBefore} />}
+			{props.label && !props.labelAfter && <Label id={props.id} label={props.label} />}
 			{props.children}
-			{props.labelAfter && <Label id={props.id} label={props.labelAfter} />}
+			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
 			<Message
 				errorMessage={props.errorMessage}
 				description={props.description}
@@ -40,8 +40,8 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
-		labelAfter: PropTypes.string,
-		labelBefore: PropTypes.string,
+		label: PropTypes.string,
+		labelAfter: PropTypes.bool,
 	};
 }
 

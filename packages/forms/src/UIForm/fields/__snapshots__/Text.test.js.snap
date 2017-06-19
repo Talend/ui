@@ -6,7 +6,8 @@ exports[`Text field should render disabled input 1`] = `
   errorMessage="My error message"
   id="myForm"
   isValid={true}
-  labelAfter="My input title"
+  label="My input title"
+  labelAfter={true}
 >
   <input
     autoFocus={true}
@@ -29,7 +30,8 @@ exports[`Text field should render input 1`] = `
   errorMessage="My error message"
   id="myForm"
   isValid={true}
-  labelAfter="My input title"
+  label="My input title"
+  labelAfter={true}
 >
   <input
     autoFocus={true}
@@ -52,7 +54,8 @@ exports[`Text field should render readonly input 1`] = `
   errorMessage="My error message"
   id="myForm"
   isValid={true}
-  labelAfter="My input title"
+  label="My input title"
+  labelAfter={true}
 >
   <input
     autoFocus={true}

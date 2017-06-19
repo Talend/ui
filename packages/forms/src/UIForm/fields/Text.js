@@ -18,7 +18,8 @@ export default function Text(props) {
 			errorMessage={errorMessage}
 			id={id}
 			isValid={isValid}
-			labelAfter={title}
+			label={title}
+			labelAfter
 		>
 			<input
 				id={id}

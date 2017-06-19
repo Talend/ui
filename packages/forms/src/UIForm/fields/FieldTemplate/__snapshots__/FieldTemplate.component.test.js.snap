@@ -4,12 +4,12 @@ exports[`FieldTemplate should render invalid className 1`] = `
 <div
   className="form-group has-error"
 >
-  <input
-    id="myAwesomeField"
-  />
   <Label
     id="myAwesomeField"
     label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
   />
   <Message
     description="My awesome description"
