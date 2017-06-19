@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text field should render disabled input 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
 >
   <textarea
     autoFocus={true}
@@ -16,23 +21,17 @@ exports[`Text field should render disabled input 1`] = `
     type="text"
     value="toto"
   />
-  <label
-    className="control-label"
-    htmlFor="myForm"
-  >
-    My input title
-  </label>
-  <Message
-    description="my text input hint"
-    errorMessage="My error message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Text field should render input 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
 >
   <textarea
     autoFocus={true}
@@ -46,23 +45,17 @@ exports[`Text field should render input 1`] = `
     type="text"
     value="toto"
   />
-  <label
-    className="control-label"
-    htmlFor="myForm"
-  >
-    My input title
-  </label>
-  <Message
-    description="my text input hint"
-    errorMessage="My error message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Text field should render readonly input 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
 >
   <textarea
     autoFocus={true}
@@ -76,16 +69,5 @@ exports[`Text field should render readonly input 1`] = `
     type="text"
     value="toto"
   />
-  <label
-    className="control-label"
-    htmlFor="myForm"
-  >
-    My input title
-  </label>
-  <Message
-    description="my text input hint"
-    errorMessage="My error message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
