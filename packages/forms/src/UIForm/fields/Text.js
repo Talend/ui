@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import FieldTemplate from './FieldTemplate';
-import Message from '../Message';
+
 import { convertValue } from '../utils/properties';
 
 export default function Text(props) {

@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select field should render disabled input 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
 >
   <select
     autoFocus={true}
@@ -35,23 +40,17 @@ exports[`Select field should render disabled input 1`] = `
       My lol title
     </option>
   </select>
-  <label
-    className="control-label"
-    htmlFor="mySelect"
-  >
-    My Select title
-  </label>
-  <Message
-    description="Select me"
-    errorMessage="My Error Message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Select field should render readOnly input 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
 >
   <select
     autoFocus={true}
@@ -84,23 +83,17 @@ exports[`Select field should render readOnly input 1`] = `
       My lol title
     </option>
   </select>
-  <label
-    className="control-label"
-    htmlFor="mySelect"
-  >
-    My Select title
-  </label>
-  <Message
-    description="Select me"
-    errorMessage="My Error Message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Select field should render select multiple 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
 >
   <select
     autoFocus={true}
@@ -138,23 +131,17 @@ exports[`Select field should render select multiple 1`] = `
       My lol title
     </option>
   </select>
-  <label
-    className="control-label"
-    htmlFor="mySelect"
-  >
-    My Select title
-  </label>
-  <Message
-    description="Select me"
-    errorMessage="My Error Message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;
 
 exports[`Select field should render simple select 1`] = `
-<div
-  className="form-group"
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
 >
   <select
     autoFocus={true}
@@ -187,16 +174,5 @@ exports[`Select field should render simple select 1`] = `
       My lol title
     </option>
   </select>
-  <label
-    className="control-label"
-    htmlFor="mySelect"
-  >
-    My Select title
-  </label>
-  <Message
-    description="Select me"
-    errorMessage="My Error Message"
-    isValid={true}
-  />
-</div>
+</FieldTemplate>
 `;

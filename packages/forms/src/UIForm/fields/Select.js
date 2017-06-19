@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-
-import Message from '../Message';
+import FieldTemplate from './FieldTemplate';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -17,14 +15,17 @@ export default function Select(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
 	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
 
-	const groupsClassNames = classNames(
-		'form-group',
-		{ 'has-error': !isValid },
-	);
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
 
 	return (
-		<div className={groupsClassNames}>
+		<FieldTemplate
+			description={description}
+			errorMessage={errorMessage}
+			id={id}
+			isValid={isValid}
+			label={title}
+			labelAfter
+		>
 			<select
 				id={id}
 				multiple={multiple}
@@ -54,13 +55,7 @@ export default function Select(props) {
 					})
 				}
 			</select>
-			<label htmlFor={id} className="control-label">{title}</label>
-			<Message
-				errorMessage={errorMessage}
-				description={description}
-				isValid={isValid}
-			/>
-		</div>
+		</FieldTemplate>
 	);
 }
 
