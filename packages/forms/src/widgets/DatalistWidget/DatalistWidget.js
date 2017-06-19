@@ -36,7 +36,7 @@ function renderDatalistInput(props) {
 		<div className={theme['typeahead-input-icon']}>
 			<FormControl {...props} />
 			<div className={theme['dropdown-toggle']}>
-				<span className="caret"/>
+				<span className="caret" />
 			</div>
 		</div>);
 }

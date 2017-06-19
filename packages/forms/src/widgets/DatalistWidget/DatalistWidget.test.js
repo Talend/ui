@@ -163,7 +163,6 @@ describe('DatalistWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-
 	it('should not change the value if it is the same', () => {
 		// given
 		const onChange = jest.fn();
@@ -185,6 +184,7 @@ describe('DatalistWidget', () => {
 		// then
 		expect(onChange).not.toBeCalled();
 	});
+
 	it('should reset value on unknown value input blur', () => {
 		// given
 		const onChange = jest.fn();
