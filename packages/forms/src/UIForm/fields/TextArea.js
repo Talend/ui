@@ -23,9 +23,8 @@ export default function TextArea(props) {
 				onChange={event => onChange(event, schema, event.target.value)}
 				readOnly={readOnly}
 				type={type}
-			>
-				{value}
-			</textarea>
+				value={value}
+			/>
 			<label htmlFor={id} className="control-label">{title}</label>
 			<Message
 				errorMessage={errorMessage}

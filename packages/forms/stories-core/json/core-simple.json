@@ -77,7 +77,6 @@
       "key": "comment",
       "widget": "textarea",
       "title": "Comment",
-      "placeholder": "Make a comment",
       "validationMessage": "Don't be greedy!"
     }
   ],
