@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
