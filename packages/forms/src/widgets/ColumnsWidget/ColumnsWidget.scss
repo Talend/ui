@@ -1,11 +1,17 @@
 .columns {
 	display: flex;
+	flex-wrap: wrap;
 
 	.column {
 		flex: 1;
 
 		fieldset {
 			margin-right: auto;
+
+		}
+
+		input {
+			min-width: 20rem;
 		}
 	}
 }
