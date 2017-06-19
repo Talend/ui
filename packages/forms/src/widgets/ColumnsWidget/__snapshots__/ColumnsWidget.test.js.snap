@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ColumnsWidget should render 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
@@ -7,10 +9,12 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div
-    className="tf-widget-columns undefined">
+    className="tf-widget-columns undefined"
+>
     <TitleField
         id="undefined__title"
-        title="A list of tasks" />
+        title="A list of tasks"
+    />
     <Column
         className="tf-column-columns"
         formData={undefined}
@@ -58,7 +62,8 @@ ShallowWrapper {
                 },
                 "type": "object",
               }
-        } />
+        }
+    />
     <Column
         className="tf-column-fieldsColumns"
         formData={undefined}
@@ -79,14 +84,17 @@ ShallowWrapper {
                 "title": "Column Fields",
                 "type": "object",
               }
-        } />
+        }
+    />
 </div>,
   "nodes": Array [
     <div
-      className="tf-widget-columns undefined">
+      className="tf-widget-columns undefined"
+>
       <TitleField
             id="undefined__title"
-            title="A list of tasks" />
+            title="A list of tasks"
+      />
       <Column
             className="tf-column-columns"
             formData={undefined}
@@ -134,7 +142,8 @@ ShallowWrapper {
                         },
                         "type": "object",
                       }
-            } />
+            }
+      />
       <Column
             className="tf-column-fieldsColumns"
             formData={undefined}
@@ -155,7 +164,8 @@ ShallowWrapper {
                         "title": "Column Fields",
                         "type": "object",
                       }
-            } />
+            }
+      />
 </div>,
   ],
   "options": Object {},
@@ -233,7 +243,8 @@ ShallowWrapper {
                         "title": "A list of tasks",
                         "type": "object",
                       }
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -330,10 +341,12 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
-          className="tf-widget-columns undefined">
+          className="tf-widget-columns undefined"
+>
           <TitleField
                     id="undefined__title"
-                    title="A list of tasks" />
+                    title="A list of tasks"
+          />
           <Column
                     className="tf-column-columns"
                     formData={undefined}
@@ -381,7 +394,8 @@ ShallowWrapper {
                                         },
                                         "type": "object",
                                       }
-                    } />
+                    }
+          />
           <Column
                     className="tf-column-fieldsColumns"
                     formData={undefined}
@@ -402,14 +416,17 @@ ShallowWrapper {
                                         "title": "Column Fields",
                                         "type": "object",
                                       }
-                    } />
+                    }
+          />
 </div>,
         "_debugID": 2,
         "_renderedOutput": <div
-          className="tf-widget-columns undefined">
+          className="tf-widget-columns undefined"
+>
           <TitleField
                     id="undefined__title"
-                    title="A list of tasks" />
+                    title="A list of tasks"
+          />
           <Column
                     className="tf-column-columns"
                     formData={undefined}
@@ -457,7 +474,8 @@ ShallowWrapper {
                                         },
                                         "type": "object",
                                       }
-                    } />
+                    }
+          />
           <Column
                     className="tf-column-fieldsColumns"
                     formData={undefined}
@@ -478,7 +496,8 @@ ShallowWrapper {
                                         "title": "Column Fields",
                                         "type": "object",
                                       }
-                    } />
+                    }
+          />
 </div>,
       },
       "_renderedNodeType": 0,
@@ -560,6 +579,7 @@ ShallowWrapper {
             "title": "A list of tasks",
             "type": "object",
           }
-    } />,
+    }
+/>,
 }
 `;
