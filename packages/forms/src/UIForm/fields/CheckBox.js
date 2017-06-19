@@ -5,7 +5,7 @@ import Message from '../Message';
 
 export default function CheckBox(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
+	const { autoFocus, description, disabled, title } = schema;
 
 	const groupsClassNames = classNames(
 		'form-group',
@@ -20,9 +20,7 @@ export default function CheckBox(props) {
 					autoFocus={autoFocus}
 					disabled={disabled}
 					label={title}
-					placeholder={placeholder}
 					onChange={event => onChange(event, schema, event.target.checked)}
-					readOnly={readOnly}
 					type="checkbox"
 					checked={value}
 				/>
@@ -47,8 +45,6 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
 		}),
