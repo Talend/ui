@@ -46,7 +46,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           style={Object {}}
         >
           <div
-            className=""
+            className={undefined}
           >
             <i
               aria-hidden="true"
@@ -55,7 +55,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               title="icon"
             />
             <span
-              className=""
+              className={undefined}
             >
               category 1
             </span>
@@ -76,27 +76,27 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               title="le title 1"
             >
               <span
-                className=""
+                className={undefined}
               >
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                  tit
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                  1
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
@@ -115,41 +115,41 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               title="title 2 les elephants elementaires ont des aile"
             >
               <span
-                className=""
+                className={undefined}
               >
                 tit
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                  2 
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                 s e
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                 phants e
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                 mentaires ont des ai
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
               </p>
@@ -164,7 +164,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           style={Object {}}
         >
           <div
-            className=""
+            className={undefined}
           >
             <i
               aria-hidden="true"
@@ -173,7 +173,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               title="icon"
             />
             <span
-              className=""
+              className={undefined}
             >
               category 2
             </span>
@@ -194,22 +194,22 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               title="title 3"
             >
               <span
-                className=""
+                className={undefined}
               >
                 tit
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
                  3
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
                 <em
-                  className=""
+                  className={undefined}
                 >
                   le
                 </em>
@@ -270,7 +270,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           style={Object {}}
         >
           <div
-            className=""
+            className={undefined}
           >
             <i
               aria-hidden="true"
@@ -279,7 +279,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               title="icon"
             />
             <span
-              className=""
+              className={undefined}
             >
               category 1
             </span>
@@ -300,12 +300,12 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               title="le title 1"
             >
               <span
-                className=""
+                className={undefined}
               >
                 le title 1
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
               </p>
@@ -322,12 +322,12 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               title="title 2 les elephants elementaires ont des aile"
             >
               <span
-                className=""
+                className={undefined}
               >
                 title 2 les elephants elementaires ont des aile
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
               </p>
@@ -342,7 +342,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           style={Object {}}
         >
           <div
-            className=""
+            className={undefined}
           >
             <i
               aria-hidden="true"
@@ -351,7 +351,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               title="icon"
             />
             <span
-              className=""
+              className={undefined}
             >
               category 2
             </span>
@@ -372,12 +372,12 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               title="title 3"
             >
               <span
-                className=""
+                className={undefined}
               >
                 title 3
               </span>
               <p
-                className=""
+                className={undefined}
               >
                 description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
               </p>

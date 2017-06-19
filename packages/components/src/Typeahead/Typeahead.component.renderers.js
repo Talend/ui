@@ -122,37 +122,37 @@ export const renderItemsContainerFactory = (items, noResultText, searching, sear
 export const renderSectionTitle = (section) => {
 	if (section) {
 		return (
-			<div className={classNames(theme['section-header'])}>
+			<div className={theme['section-header']}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={classNames(theme['section-header-title'])}>{section.title}</span>
+				<span className={theme['section-header-title']}>{section.title}</span>
 			</div>
 		);
 	}
 	return null;
 };
 
-const emphasise = (text, value) => {
-	let parts = [text];
-	if (value) {
-		parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
+function emphasise(text, value) {
+	if (!value) {
+		return [text];
 	}
 
+	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
 	return parts.map((part) => {
 		if (value && part.toUpperCase() === value.toUpperCase()) {
-			return <em className={classNames(theme['highlight-match'])}>{part}</em>;
+			return <em className={theme['highlight-match']}>{part}</em>;
 		}
 		return part;
 	});
-};
+}
 
 export const renderItem = (item, { value }) => {
 	const title = item.title.trim();
 	return (
 		<div className={theme.item} title={title}>
-			<span className={classNames(theme['item-title'])}>
+			<span className={theme['item-title']}>
 				{ emphasise(title, value) }
 			</span>
-			<p className={classNames(theme['item-description'])}>
+			<p className={theme['item-description']}>
 				{ emphasise(item.description, value) }
 			</p>
 		</div>

@@ -11725,7 +11725,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className=""
+                        className={undefined}
                       >
                         <svg
                           aria-hidden="true"
@@ -11738,7 +11738,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           />
                         </svg>
                         <span
-                          className=""
+                          className={undefined}
                         >
                           category 1
                         </span>
@@ -11759,27 +11759,27 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="le title 1"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              1
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
@@ -11798,41 +11798,41 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="title 2 les elephants elementaires ont des aile"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              2 
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                             s e
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                             phants e
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                             mentaires ont des ai
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
                           </p>
@@ -11847,7 +11847,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className=""
+                        className={undefined}
                       >
                         <svg
                           aria-hidden="true"
@@ -11860,7 +11860,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           />
                         </svg>
                         <span
-                          className=""
+                          className={undefined}
                         >
                           category 2
                         </span>
@@ -11881,22 +11881,22 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="title 3"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              3
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
@@ -11913,7 +11913,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className=""
+                        className={undefined}
                       >
                         <svg
                           aria-hidden="true"
@@ -11926,7 +11926,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           />
                         </svg>
                         <span
-                          className=""
+                          className={undefined}
                         >
                           category 3
                         </span>
@@ -11947,18 +11947,18 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="title 4"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              4
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
                           </p>
@@ -11975,18 +11975,18 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="title 5"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              5
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
                           </p>
@@ -12003,18 +12003,18 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           title="title 6"
                         >
                           <span
-                            className=""
+                            className={undefined}
                           >
                             tit
                             <em
-                              className=""
+                              className={undefined}
                             >
                               le
                             </em>
                              6
                           </span>
                           <p
-                            className=""
+                            className={undefined}
                           >
                             description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
                           </p>
