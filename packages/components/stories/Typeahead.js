@@ -16,7 +16,7 @@ const items = [
 				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
-				title: 'title 2 les elephants elementaires ont des aile ',
+				title: 'title 2 Les elephants elementaires ont des aile ',
 				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
 		],

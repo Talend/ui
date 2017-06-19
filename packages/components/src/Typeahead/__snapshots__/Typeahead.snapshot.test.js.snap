@@ -78,30 +78,29 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               <span
                 className={undefined}
               >
-                <span>
-                  
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                   tit
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                   1
-                </span>
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                 tit
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                 1
               </span>
               <p
                 className={undefined}
               >
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                 tempus ardore.
               </p>
             </div>
           </li>
@@ -113,54 +112,41 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           >
             <div
               className={undefined}
-              title="title 2 les elephants elementaires ont des aile "
+              title="title 2 les elephants elementaires ont des aile"
             >
               <span
                 className={undefined}
               >
-                <span>
-                  tit
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                   2 
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                  s e
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                  phants e
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                  mentaires ont des ai
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                   
-                </span>
+                tit
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                 2 
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                s e
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                phants e
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                mentaires ont des ai
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
               </span>
               <p
                 className={undefined}
@@ -210,22 +196,24 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               <span
                 className={undefined}
               >
-                <span>
-                  tit
-                  <em
-                    className={undefined}
-                  >
-                    le
-                  </em>
-                </span>
-                <span>
-                   3
-                </span>
+                tit
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                 3
               </span>
               <p
                 className={undefined}
               >
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                <em
+                  className={undefined}
+                >
+                  le
+                </em>
+                at.
               </p>
             </div>
           </li>
@@ -314,9 +302,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <span
                 className={undefined}
               >
-                <span>
-                  le title 1
-                </span>
+                le title 1
               </span>
               <p
                 className={undefined}
@@ -333,14 +319,12 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           >
             <div
               className={undefined}
-              title="title 2 les elephants elementaires ont des aile "
+              title="title 2 les elephants elementaires ont des aile"
             >
               <span
                 className={undefined}
               >
-                <span>
-                  title 2 les elephants elementaires ont des aile 
-                </span>
+                title 2 les elephants elementaires ont des aile
               </span>
               <p
                 className={undefined}
@@ -390,9 +374,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <span
                 className={undefined}
               >
-                <span>
-                  title 3
-                </span>
+                title 3
               </span>
               <p
                 className={undefined}
