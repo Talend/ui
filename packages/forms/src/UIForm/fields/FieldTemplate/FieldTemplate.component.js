@@ -3,6 +3,16 @@ import classNames from 'classnames';
 
 import Message from '../../Message';
 
+function Label(props) {
+	return (
+		<label htmlFor={props.id} className="control-label">{props.label}</label>
+	);
+}
+Label.propTypes = {
+	id: PropTypes.string,
+	label: PropTypes.string,
+};
+
 function FieldTemplate(props) {
 	const groupsClassNames = classNames(
 		'form-group',
@@ -11,15 +21,9 @@ function FieldTemplate(props) {
 
 	return (
 		<div className={groupsClassNames}>
-			{
-				props.labelBefore &&
-				<label htmlFor={props.id} className="control-label">{props.labelBefore}</label>
-			}
+			{props.labelBefore && <Label id={props.id} label={props.labelBefore} />}
 			{props.children}
-			{
-				props.labelAfter &&
-				<label htmlFor={props.id} className="control-label">{props.labelAfter}</label>
-			}
+			{props.labelAfter && <Label id={props.id} label={props.labelAfter} />}
 			<Message
 				errorMessage={props.errorMessage}
 				description={props.description}

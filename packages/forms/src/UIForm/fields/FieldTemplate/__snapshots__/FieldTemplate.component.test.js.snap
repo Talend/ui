@@ -7,12 +7,10 @@ exports[`FieldTemplate should render invalid className 1`] = `
   <input
     id="myAwesomeField"
   />
-  <label
-    className="control-label"
-    htmlFor="myAwesomeField"
-  >
-    My awesome label
-  </label>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <Message
     description="My awesome description"
     errorMessage="This is wrong o_o"
@@ -28,12 +26,10 @@ exports[`FieldTemplate should render with label after 1`] = `
   <input
     id="myAwesomeField"
   />
-  <label
-    className="control-label"
-    htmlFor="myAwesomeField"
-  >
-    My awesome label
-  </label>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <Message
     description="My awesome description"
     errorMessage="This is wrong o_o"
@@ -46,12 +42,10 @@ exports[`FieldTemplate should render with label before 1`] = `
 <div
   className="form-group"
 >
-  <label
-    className="control-label"
-    htmlFor="myAwesomeField"
-  >
-    My awesome label
-  </label>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
   <input
     id="myAwesomeField"
   />
