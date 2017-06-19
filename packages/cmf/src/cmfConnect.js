@@ -188,6 +188,7 @@ export default function cmfConnect({
 		const Connected = connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
+				defaultState,
 				ownProps,
 				state,
 				mapStateToProps,

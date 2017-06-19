@@ -67,7 +67,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -106,7 +106,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
           </li>
           <li
             id="react-autowhatever-my-search-section-0-item-1"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -185,7 +185,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -291,7 +291,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -313,7 +313,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
           </li>
           <li
             id="react-autowhatever-my-search-section-0-item-1"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -363,7 +363,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
