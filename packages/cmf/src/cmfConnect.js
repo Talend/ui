@@ -35,7 +35,6 @@ export function getComponentId(componentId, props) {
 
 export function getStateToProps({
 	componentId,
-	defaultState,
 	ownProps,
 	state,
 	mapStateToProps,
