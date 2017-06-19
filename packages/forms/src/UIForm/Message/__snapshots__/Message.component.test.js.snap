@@ -1,9 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Message component should render nothing when field is valid and no description is provided 1`] = `null`;
 
 exports[`Message component should render provided description if the field is valid 1`] = `
 <p
   className="help-block"
-  role="status">
+  role="status"
+>
   My description
 </p>
 `;
@@ -11,7 +14,8 @@ exports[`Message component should render provided description if the field is va
 exports[`Message component should render provided error message if the field is invalid 1`] = `
 <p
   className="help-block"
-  role="status">
+  role="status"
+>
   My error message
 </p>
 `;

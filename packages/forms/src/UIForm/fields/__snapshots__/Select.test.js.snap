@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Select field should render disabled input 1`] = `
 <div
-  className="form-group">
+  className="form-group"
+>
   <select
     autoFocus={true}
     className="form-control"
@@ -9,39 +12,47 @@ exports[`Select field should render disabled input 1`] = `
     multiple={false}
     onChange={[Function]}
     readOnly={undefined}
-    value="lol">
+    value="lol"
+  >
     <option
-      disabled={true}>
+      disabled={true}
+    >
       Please select a value
     </option>
     <option
-      value="foo">
+      value="foo"
+    >
       My foo title
     </option>
     <option
-      value="bar">
+      value="bar"
+    >
       My bar title
     </option>
     <option
-      value="lol">
+      value="lol"
+    >
       My lol title
     </option>
   </select>
   <label
     className="control-label"
-    htmlFor="mySelect">
+    htmlFor="mySelect"
+  >
     My Select title
   </label>
   <Message
     description="Select me"
     errorMessage="My Error Message"
-    isValid={true} />
+    isValid={true}
+  />
 </div>
 `;
 
 exports[`Select field should render readOnly input 1`] = `
 <div
-  className="form-group">
+  className="form-group"
+>
   <select
     autoFocus={true}
     className="form-control"
@@ -50,39 +61,47 @@ exports[`Select field should render readOnly input 1`] = `
     multiple={false}
     onChange={[Function]}
     readOnly={true}
-    value="lol">
+    value="lol"
+  >
     <option
-      disabled={true}>
+      disabled={true}
+    >
       Please select a value
     </option>
     <option
-      value="foo">
+      value="foo"
+    >
       My foo title
     </option>
     <option
-      value="bar">
+      value="bar"
+    >
       My bar title
     </option>
     <option
-      value="lol">
+      value="lol"
+    >
       My lol title
     </option>
   </select>
   <label
     className="control-label"
-    htmlFor="mySelect">
+    htmlFor="mySelect"
+  >
     My Select title
   </label>
   <Message
     description="Select me"
     errorMessage="My Error Message"
-    isValid={true} />
+    isValid={true}
+  />
 </div>
 `;
 
 exports[`Select field should render select multiple 1`] = `
 <div
-  className="form-group">
+  className="form-group"
+>
   <select
     autoFocus={true}
     className="form-control"
@@ -96,39 +115,47 @@ exports[`Select field should render select multiple 1`] = `
         "foo",
         "lol",
       ]
-    }>
+    }
+  >
     <option
-      disabled={true}>
+      disabled={true}
+    >
       Please select a value
     </option>
     <option
-      value="foo">
+      value="foo"
+    >
       My foo title
     </option>
     <option
-      value="bar">
+      value="bar"
+    >
       My bar title
     </option>
     <option
-      value="lol">
+      value="lol"
+    >
       My lol title
     </option>
   </select>
   <label
     className="control-label"
-    htmlFor="mySelect">
+    htmlFor="mySelect"
+  >
     My Select title
   </label>
   <Message
     description="Select me"
     errorMessage="My Error Message"
-    isValid={true} />
+    isValid={true}
+  />
 </div>
 `;
 
 exports[`Select field should render simple select 1`] = `
 <div
-  className="form-group">
+  className="form-group"
+>
   <select
     autoFocus={true}
     className="form-control"
@@ -137,32 +164,39 @@ exports[`Select field should render simple select 1`] = `
     multiple={false}
     onChange={[Function]}
     readOnly={undefined}
-    value="lol">
+    value="lol"
+  >
     <option
-      disabled={true}>
+      disabled={true}
+    >
       Please select a value
     </option>
     <option
-      value="foo">
+      value="foo"
+    >
       My foo title
     </option>
     <option
-      value="bar">
+      value="bar"
+    >
       My bar title
     </option>
     <option
-      value="lol">
+      value="lol"
+    >
       My lol title
     </option>
   </select>
   <label
     className="control-label"
-    htmlFor="mySelect">
+    htmlFor="mySelect"
+  >
     My Select title
   </label>
   <Message
     description="Select me"
     errorMessage="My Error Message"
-    isValid={true} />
+    isValid={true}
+  />
 </div>
 `;

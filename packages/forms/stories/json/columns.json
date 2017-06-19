@@ -46,11 +46,28 @@
             }
           }
         }
+      },
+      "fieldsColumns": {
+        "type": "object",
+        "title": "Column Fields",
+        "properties": {
+          "fieldLeft": {
+            "type": "string",
+            "title": "Field Left"
+          },
+          "fieldRight": {
+            "type": "string",
+            "title": "Field Right"
+          }
+        }
       }
     }
   },
   "uiSchema": {
     "columns": {
+      "ui:widget": "columns"
+    },
+    "fieldsColumns": {
       "ui:widget": "columns"
     }
   },
