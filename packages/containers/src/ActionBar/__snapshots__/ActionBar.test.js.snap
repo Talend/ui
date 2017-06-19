@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Container ActionBar should compute props using CMF with array of string 1`] = `
 Object {
   "actions": Object {
