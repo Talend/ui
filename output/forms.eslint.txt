@@ -130,11 +130,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   83:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  21:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  22:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  37:5  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-  53:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  54:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
+  32:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
+  33:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
+  50:5  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
+  68:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
+  69:2  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
   65:42  error  Unary operator '++' used  no-plusplus
