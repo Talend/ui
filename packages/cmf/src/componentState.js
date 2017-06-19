@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import { Map } from 'immutable';
+import invariant from 'invariant';
 import actions from './actions';
 
 export function getStateProps(state, name, id) {
@@ -21,9 +21,12 @@ export function applyCallback(callback, name, id) {
 	};
 }
 
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 	const accessors = {
 		setState(state) {
+			if (!DEFAULT_STATE) {
+				invariant(false, 'you must provide a defaultState to use setState');
+			}
 			if (typeof state === 'function') {
 				dispatch(applyCallback(state, name, id));
 			} else {
@@ -31,11 +34,15 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map())
 			}
 		},
 		initState(initialState) {
-			const state = DEFAULT_STATE.merge(initialState);
-			dispatch(actions.componentsActions.addComponentState(name, id, state));
+			if (DEFAULT_STATE) {
+				const state = DEFAULT_STATE.merge(initialState);
+				dispatch(actions.componentsActions.addComponentState(name, id, state));
+			}
 		},
 		deleteState() {
-			dispatch(actions.componentsActions.removeComponentState(name, id));
+			if (DEFAULT_STATE) {
+				dispatch(actions.componentsActions.removeComponentState(name, id));
+			}
 		},
 	};
 	accessors.updateState = function updateState(state) {
