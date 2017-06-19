@@ -1,0 +1,27 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Booleans",
+    "properties": {
+      "happy": {
+        "type": "boolean"
+      },
+      "sad": {
+        "type": "boolean"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "happy",
+      "title": "Check if you are happy"
+    },
+    {
+      "key": "sad",
+      "title": "Check if you are sad"
+    }
+  ],
+  "properties": {
+    "happy": true
+  }
+}
