@@ -36,7 +36,7 @@ function renderDatalistInput(props) {
 		<div className={theme['typeahead-input-icon']}>
 			<FormControl {...props} />
 			<div className={theme['dropdown-toggle']}>
-				<span className="caret" />
+				<span className="caret"/>
 			</div>
 		</div>);
 }
@@ -152,14 +152,14 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur(event) {
-		if (this.props.options &&
-			this.props.options.restricted &&
-			this.state.initalItems.indexOf(this.state.value) === -1) {
+		const { options } = this.props;
+		if (options && options.restricted &&
+			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
 		} else {
 			const { value } = event.target;
 			if (value !== this.state.value) {
-				this.props.onChange(this.state.value);
+				this.props.onChange(value);
 			}
 			this.resetSuggestions();
 		}
