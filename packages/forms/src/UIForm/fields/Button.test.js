@@ -49,22 +49,6 @@ describe('Button field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render error button if it is not valid', () => {
-		// when
-		const wrapper = shallow(
-			<Button
-				id={'myForm'}
-				isValid={false}
-				errorMessage={'This is wrong'}
-				onTrigger={jest.fn()}
-				schema={schema}
-			/>
-		);
-
-		// then
-		expect(wrapper.node).toMatchSnapshot();
-	});
-
 	it('should call trigger on button click', () => {
 		// given
 		const onTrigger = jest.fn();
