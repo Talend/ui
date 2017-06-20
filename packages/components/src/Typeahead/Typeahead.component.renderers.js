@@ -131,11 +131,11 @@ export const renderSectionTitle = (section) => {
 };
 
 function emphasise(text, value) {
-	if (!value) {
-		return [text];
-	}
 	if (!text) {
 		return '';
+	}
+	if (!value) {
+		return [text];
 	}
 
 	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
