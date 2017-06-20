@@ -16,10 +16,12 @@ const Label = (props) => {
 	);
 };
 
-Label.propTypes = {
-	label: PropTypes.string,
-	required: PropTypes.bool,
-	id: PropTypes.string,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Label.propTypes = {
+		label: PropTypes.string,
+		required: PropTypes.bool,
+		id: PropTypes.string,
+	};
+}
 
 export default Label;
