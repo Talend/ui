@@ -7,8 +7,6 @@ import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 
-const NUMBER_ELEMENTS_HUGE_DATASET = 100;
-
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
@@ -81,7 +79,7 @@ const actions = [
 	},
 ];
 
-let collection = [
+const collection = [
 	{
 		id: 0,
 		name: 'Title with icon and actions',
@@ -172,23 +170,21 @@ let collection = [
 	},
 ];
 
-let hugeDataSet = Array.from(new Array(NUMBER_ELEMENTS_HUGE_DATASET));
-
-hugeDataSet = hugeDataSet.map((item, index) => ({
-	id: index + collection.length,
-	name: 'Title with icon and actions',
-	created: '2016-09-22',
-	modified: '2016-09-22',
-	description: 'Simple row with icon and actions',
-	author: 'Jean-Pierre DUPONT',
-	icon: 'talend-file-xls-o',
-	display: 'text',
-	className: 'item-0-class',
-	actions,
-	titleActions,
-}));
-
-collection = collection.concat(hugeDataSet);
+for (let i = collection.length; i < 100; i += 1) {
+	collection.push({
+		id: i,
+		name: 'Title with icon and actions',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row with icon and actions',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
+		display: 'text',
+		className: 'item-0-class',
+		actions,
+		titleActions,
+	});
+}
 
 storiesOf('Virtualized List', module)
 	.add('List > Table', () => (
