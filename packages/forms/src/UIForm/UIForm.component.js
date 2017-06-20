@@ -5,6 +5,7 @@ import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
+import FormActions from './FormActions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -137,7 +138,11 @@ export default class UIForm extends React.Component {
 						/>
 					))
 				}
-				<button type="submit" className="btn btn-primary">Submit</button>
+
+				<FormActions
+					actions={this.props.actions}
+					className={this.props.buttonBlockClass}
+				/>
 			</form>
 		);
 	}
