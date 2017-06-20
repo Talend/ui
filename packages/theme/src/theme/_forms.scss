@@ -181,6 +181,7 @@ form {
 			background-color: $gray-light;
 		}
 
+		&:focus + span:after,
 		&:checked:after,
 		&:checked + *:after {
 			border-color: $brand-primary;

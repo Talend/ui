@@ -1,10 +1,15 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import FieldTemplate from './FieldTemplate';
 
 export default function Radios(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, title } = schema;
+	const { autoFocus, description, disabled, inline, title } = schema;
 
+	const radioClassNames = classNames({
+		radio: !inline,
+		'radio-inline': inline,
+	});
 	return (
 		<FieldTemplate
 			description={description}
@@ -12,29 +17,26 @@ export default function Radios(props) {
 			isValid={isValid}
 			label={title}
 		>
-			<div>
 			{
-				schema.schema.enum.map(enumValue => (
-					<div className="radio">
+				schema.titleMap && schema.titleMap.map((option, index) => (
+					<div className={radioClassNames}>
 						<label>
 							<input
 								id={id}
 								autoFocus={autoFocus}
-								checked={enumValue === value}
-								className="form-control"
+								checked={option.value === value}
 								disabled={disabled}
-								key={id}
+								key={index}
 								name={id}
-								onChange={event => onChange(event, schema, enumValue)}
+								onChange={event => onChange(event, schema, option.value)}
 								type={'radio'}
-								value={enumValue}
+								value={option.value}
 							/>
-							<span>{enumValue}</span>
+							<span>{option.name}</span>
 						</label>
 					</div>
 				))
 			}
-			</div>
 		</FieldTemplate>
 	);
 }
@@ -49,6 +51,7 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			inline: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
 		}),

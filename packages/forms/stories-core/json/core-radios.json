@@ -29,6 +29,24 @@
           "fuzz",
           "qux"
         ]
+      },
+      "withTitleMap": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "inline": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
       }
     },
     "required": ["radios"]
@@ -49,6 +67,23 @@
       "key": "disabled",
       "title": "Type of things (disabled)",
       "disabled": true,
+      "widget": "radios"
+    },
+    {
+      "key": "withTitleMap",
+      "title": "Type of things (custom title map)",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      },
+      "widget": "radios"
+    },
+    {
+      "key": "inline",
+      "title": "Type of things (inline)",
+      "inline": true,
       "widget": "radios"
     }
   ],
