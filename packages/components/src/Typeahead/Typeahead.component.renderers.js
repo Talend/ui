@@ -134,6 +134,9 @@ function emphasise(text, value) {
 	if (!value) {
 		return [text];
 	}
+	if (!text) {
+		return '';
+	}
 
 	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
 	return parts.map((part) => {
