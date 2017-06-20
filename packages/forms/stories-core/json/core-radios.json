@@ -1,0 +1,56 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Choice",
+    "properties": {
+      "radios": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "autofocus": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "disabled": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      }
+    },
+    "required": ["radios"]
+  },
+  "uiSchema": [
+    {
+      "key": "radios",
+      "title": "Type of things",
+      "widget": "radios"
+    },
+    {
+      "key": "autofocus",
+      "title": "Type of things (autofocus)",
+      "autoFocus": true,
+      "widget": "radios"
+    },
+    {
+      "key": "disabled",
+      "title": "Type of things (disabled)",
+      "disabled": true,
+      "widget": "radios"
+    }
+  ],
+  "properties": {}
+}
