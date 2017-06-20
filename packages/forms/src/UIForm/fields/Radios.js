@@ -19,14 +19,13 @@ export default function Radios(props) {
 		>
 			{
 				schema.titleMap && schema.titleMap.map((option, index) => (
-					<div className={radioClassNames}>
+					<div className={radioClassNames} key={index}>
 						<label>
 							<input
 								id={id}
 								autoFocus={autoFocus}
 								checked={option.value === value}
 								disabled={disabled}
-								key={index}
 								name={id}
 								onChange={event => onChange(event, schema, option.value)}
 								type={'radio'}
@@ -53,7 +52,6 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
 			title: PropTypes.string,
-			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
