@@ -130,8 +130,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios.js
-  16:4  error  Expected indentation of 4 tab characters but found 3                                                             react/jsx-indent
-  19:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+  23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   34:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
@@ -167,7 +166,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 133 problems (133 errors, 0 warnings)
+✖ 132 problems (132 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
