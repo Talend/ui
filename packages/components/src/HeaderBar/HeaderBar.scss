@@ -22,7 +22,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			height: 100%;
 			list-style: none;
 
-			&.separated:after {
+			&:not(:last-child).separated:after {
 				content: '|';
 				color: $white;
 			}
