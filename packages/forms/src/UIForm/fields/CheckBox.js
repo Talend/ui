@@ -1,19 +1,17 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-
-import Message from '../Message';
+import FieldTemplate from './FieldTemplate';
 
 export default function CheckBox(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, title } = schema;
+	const { autoFocus, description, disabled, title, type } = schema;
 
-	const groupsClassNames = classNames(
-		'form-group',
-		'checkbox',
-		{ 'has-error': !isValid },
-	);
 	return (
-		<div className={groupsClassNames}>
+		<FieldTemplate
+			description={description}
+			errorMessage={errorMessage}
+			isValid={isValid}
+			type={type}
+		>
 			<label>
 				<input
 					id={id}
@@ -26,12 +24,7 @@ export default function CheckBox(props) {
 				/>
 				<span className="control-label" htmlFor={id}>{title}</span>
 			</label>
-			<Message
-				errorMessage={errorMessage}
-				description={description}
-				isValid={isValid}
-			/>
-		</div>
+		</FieldTemplate>
 	);
 }
 
