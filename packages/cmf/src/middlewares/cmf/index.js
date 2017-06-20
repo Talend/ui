@@ -17,14 +17,19 @@ const cmfMiddleware = store => next => (action) => {
 		if (typeof route === 'function') {
 			route = route(action);
 		}
-		store.dispatch({
-			type: '@@router/CALL_HISTORY_METHOD',
-			payload: {
-				method: config.routerPush ? 'push' : 'replace',
-				args: [route],
-			},
-		});
-	}
+
+		if(action.openInNewTab){
+			window.open([route], '_blank');
+		}
+		else{
+			store.dispatch({
+				type: '@@router/CALL_HISTORY_METHOD',
+				payload: {
+					method: config.routerPush ? 'push' : 'replace',
+					args: [route],
+				},
+			});
+		}
 	return next(action);
 };
 
