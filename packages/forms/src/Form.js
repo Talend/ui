@@ -180,18 +180,20 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	title: PropTypes.string,
 }));
 
-Form.propTypes = {
-	data: DataPropTypes.isRequired,
-	onChange: PropTypes.func,
-	onTrigger: PropTypes.func,
-	onSubmit: PropTypes.func,
-	actions: ActionsPropTypes,
-	buttonBlockClass: PropTypes.string,
-	handleAction: PropTypes.func,
-	widgets: PropTypes.object,
-	formContext: PropTypes.func,
-	children: PropTypes.element,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Form.propTypes = {
+		data: DataPropTypes.isRequired,
+		onChange: PropTypes.func,
+		onTrigger: PropTypes.func,
+		onSubmit: PropTypes.func,
+		actions: ActionsPropTypes,
+		buttonBlockClass: PropTypes.string,
+		handleAction: PropTypes.func,
+		widgets: PropTypes.object,
+		formContext: PropTypes.func,
+		children: PropTypes.element,
+	};
+}
 
 Form.defaultProps = {
 	buttonBlockClass: 'form-actions',

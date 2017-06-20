@@ -20,10 +20,12 @@ function RadioOrSelectWidget(props) {
 	return <Select {...props} />;
 }
 
-RadioOrSelectWidget.propTypes = {
-	options: React.PropTypes.shape({
-		enumOptions: React.PropTypes.array,
-	}),
-};
+if (process.env.NODE_ENV !== 'production') {
+	RadioOrSelectWidget.propTypes = {
+		options: React.PropTypes.shape({
+			enumOptions: React.PropTypes.array,
+		}),
+	};
+}
 
 export default RadioOrSelectWidget;
