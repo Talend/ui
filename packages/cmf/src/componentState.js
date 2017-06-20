@@ -25,7 +25,10 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 	const accessors = {
 		setState(state) {
 			if (!DEFAULT_STATE) {
-				invariant(false, 'you must provide a defaultState to use setState');
+				invariant(
+					process.env.NODE_ENV === 'production',
+					'you must provide a defaultState to use setState',
+				);
 			}
 			if (typeof state === 'function') {
 				dispatch(applyCallback(state, name, id));
