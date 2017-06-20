@@ -109,13 +109,16 @@ function Search({ renderers, ...props }) {
 	const Components = getRenderers(renderers);
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-search'],
 		theme.separated,
 		theme.flex,
 	);
 
 	return (
 		<li className={className}>
-			<Components.Typeahead {...props} />
+			<form className="navbar-form navbar-right" role="search">
+				<Components.Typeahead {...props} />
+			</form>
 		</li>
 	);
 }

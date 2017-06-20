@@ -1,4 +1,8 @@
 $background-color-on-hover: shade($brand-primary, 30);
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
 
 .tc-header-bar {
 	background-color: $brand-primary-darker;
@@ -88,10 +92,25 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 	}
 
-	:global(.form-control) {
-		border-radius: 0;
-		color: $white;
-		font-style: italic;
-		height: 48px;
+	.tc-header-bar-search {
+		form {
+			height: 48px;
+		}
+
+		[role='search'] > div > div:first-child {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			padding-left: $padding-small;
+			padding-right: $padding-large;
+			height: $navbar-height;
+			background: $white;
+
+			:global(.form-control) {
+				font-style: italic;
+				animation: fadeIn 0.2s;
+				width: 400px;
+			}
+		}
 	}
 }
