@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
+import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 
@@ -12,6 +13,7 @@ function getRenderers(renderers) {
 		{
 			Action,
 			ActionDropdown,
+			ActionSplitDropdown,
 			Typeahead,
 		},
 		renderers || {},
@@ -129,10 +131,12 @@ Search.propTypes.renderers = React.PropTypes.shape({
 });
 
 function Help({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
+	const components = getRenderers(renderers);
+	const Component = props.items ? components.ActionSplitDropdown : Action;
+
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			<Components.Action
+			<Component
 				bsStyle="link"
 				icon="talend-question-circle"
 				label="Help"
@@ -145,6 +149,7 @@ function Help({ renderers, ...props }) {
 
 Help.propTypes = {
 	renderers: React.PropTypes.shape({
+		ActionSplitDropdown: React.PropTypes.func,
 		Action: React.PropTypes.func,
 	}),
 };
