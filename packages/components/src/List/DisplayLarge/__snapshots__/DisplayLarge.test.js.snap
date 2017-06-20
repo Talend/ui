@@ -901,6 +901,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           disabled={false}
           id={undefined}
           onClick={[Function]}
+          onMouseDown={[Function]}
           role="link"
           type="button"
         >
@@ -1026,6 +1027,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           disabled={false}
           id={undefined}
           onClick={[Function]}
+          onMouseDown={[Function]}
           role="link"
           type="button"
         >
@@ -1112,6 +1114,7 @@ exports[`DisplayLarge should render with defined title property 1`] = `
           disabled={false}
           id={undefined}
           onClick={[Function]}
+          onMouseDown={[Function]}
           role="link"
           type="button"
         >

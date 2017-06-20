@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
-import Message from '../Message';
+import FieldTemplate from './FieldTemplate';
 
 export default function Button(props) {
 	const { id, errorMessage, isValid, onTrigger, schema } = props;
 	const { description, title, triggers, type } = schema;
 
 	return (
-		<div className={classNames({ 'has-error': !isValid })} >
+		<FieldTemplate
+			description={description}
+			errorMessage={errorMessage}
+			id={id}
+			isValid={isValid}
+		>
 			<button
 				id={id}
 				className={'btn'}
@@ -17,12 +21,7 @@ export default function Button(props) {
 			>
 				{title}
 			</button>
-			<Message
-				errorMessage={errorMessage}
-				description={description}
-				isValid={isValid}
-			/>
-		</div>
+		</FieldTemplate>
 	);
 }
 

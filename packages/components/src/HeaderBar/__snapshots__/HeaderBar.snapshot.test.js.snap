@@ -11750,7 +11750,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-0-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11761,89 +11761,75 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <span
                             className={undefined}
                           >
-                            <span>
-                              
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               1
-                            </span>
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             1
                           </span>
                           <p
                             className={undefined}
                           >
-                            description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                            description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             tempus ardore.
                           </p>
                         </div>
                       </li>
                       <li
                         id="react-autowhatever-42-section-0-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
                         <div
                           className={undefined}
-                          title="title 2 les elephants elementaires ont des aile "
+                          title="title 2 les elephants elementaires ont des aile"
                         >
                           <span
                             className={undefined}
                           >
-                            <span>
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               2 
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                              s e
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                              phants e
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                              mentaires ont des ai
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               
-                            </span>
+                            tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             2 
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                            s e
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                            phants e
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                            mentaires ont des ai
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
                           </span>
                           <p
                             className={undefined}
@@ -11886,7 +11872,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-1-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11897,22 +11883,24 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <span
                             className={undefined}
                           >
-                            <span>
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               3
-                            </span>
+                            tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             3
                           </span>
                           <p
                             className={undefined}
                           >
-                            description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                            description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                            at.
                           </p>
                         </div>
                       </li>
@@ -11950,7 +11938,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <li
                         id="react-autowhatever-42-section-2-item-0"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11961,17 +11949,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <span
                             className={undefined}
                           >
-                            <span>
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               4
-                            </span>
+                            tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             4
                           </span>
                           <p
                             className={undefined}
@@ -11982,7 +11966,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-1"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -11993,17 +11977,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <span
                             className={undefined}
                           >
-                            <span>
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               5
-                            </span>
+                            tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             5
                           </span>
                           <p
                             className={undefined}
@@ -12014,7 +11994,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </li>
                       <li
                         id="react-autowhatever-42-section-2-item-2"
-                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         role="option"
                         style={Object {}}
                       >
@@ -12025,17 +12005,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           <span
                             className={undefined}
                           >
-                            <span>
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                            </span>
-                            <span>
-                               6
-                            </span>
+                            tit
+                            <em
+                              className={undefined}
+                            >
+                              le
+                            </em>
+                             6
                           </span>
                           <p
                             className={undefined}
