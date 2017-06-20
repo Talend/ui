@@ -35,7 +35,7 @@ $infinite-indicator-width: 100% / $infinite-indicator-ratio;
 
 		.infinite-indicator {
 			height: 100%;
-			background: white;
+			background: $white;
 			position: relative;
 			width: $infinite-indicator-width;
 			animation-fill-mode: forwards;
