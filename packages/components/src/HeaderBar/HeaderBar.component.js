@@ -19,10 +19,21 @@ function getRenderers(renderers) {
 }
 
 function Logo({ isFull, renderers, ...props }) {
-	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const Components = getRenderers(renderers);
-	const itemClassName = classNames(['tc-header-bar-action', !isFull && 'separated']);
-	const actionClassName = classNames(['tc-header-bar-logo', isFull && 'full']);
+	const itemClassName = classNames(
+		theme['tc-header-bar-action'],
+		{
+			[theme.separated]: !isFull,
+		},
+	);
+	const actionClassName = classNames(
+		theme['tc-header-bar-logo'],
+		{
+			[theme.full]: isFull,
+		}
+	);
+	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
+
 	return (
 		<li className={itemClassName}>
 			<Components.Action
@@ -46,13 +57,19 @@ Logo.propTypes = {
 };
 
 function Brand({ name, isSeparated, renderers, ...props }) {
-	const className = classNames(['tc-header-bar-action', isSeparated && 'separated']);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		{
+			[theme.separated]: isSeparated,
+		}
+	);
+
 	const Components = getRenderers(renderers);
 	return (
 		<li className={className}>
 			<Components.Action
 				bsStyle="link"
-				className="tc-header-bar-brand"
+				className={theme['tc-header-bar-brand']}
 				tooltipPlacement="bottom"
 				label={name}
 				{...props}
@@ -71,7 +88,7 @@ Brand.propTypes = {
 function Environment({ renderers, ...props }) {
 	const Components = getRenderers(renderers);
 	return (
-		<li className="tc-header-bar-action">
+		<li className={theme['tc-header-bar-action']}>
 			<Components.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
@@ -90,8 +107,14 @@ Environment.propTypes = {
 
 function Search({ renderers, ...props }) {
 	const Components = getRenderers(renderers);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		theme.separated,
+		theme.flex,
+	);
+
 	return (
-		<li className="tc-header-bar-action separated flex">
+		<li className={className}>
 			<Components.Typeahead {...props} />
 		</li>
 	);
@@ -105,7 +128,7 @@ Search.propTypes.renderers = React.PropTypes.shape({
 function Help({ renderers, ...props }) {
 	const Components = getRenderers(renderers);
 	return (
-		<li className="tc-header-bar-action">
+		<li className={theme['tc-header-bar-action']}>
 			<Components.Action
 				bsStyle="link"
 				icon="talend-question-circle"
@@ -125,8 +148,13 @@ Help.propTypes = {
 
 function User({ name, renderers, ...props }) {
 	const Components = getRenderers(renderers);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		theme.separated,
+	);
+
 	return (
-		<li className="tc-header-bar-action separated">
+		<li className={className}>
 			<Components.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
@@ -148,10 +176,10 @@ User.propTypes = {
 function Products({ renderers, ...props }) {
 	const Components = getRenderers(renderers);
 	return (
-		<li className="tc-header-bar-action">
+		<li className={theme['tc-header-bar-action']}>
 			<Components.ActionDropdown
 				bsStyle="link"
-				className="tc-header-bar-products"
+				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
 				label="Apps"
 				noCaret
@@ -179,14 +207,15 @@ function HeaderBar(props) {
 		Help,
 		Products,
 	}, props.renderers || {});
+
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
-			<ul className="tc-header-bar-actions">
+			<ul className={theme['tc-header-bar-actions']}>
 				<Components.Logo renderers={props.renderers} {...props.logo} />
 				<Components.Brand renderers={props.renderers} {...props.brand} isSeparated={!!props.env} />
 				{props.env && (<Components.Environment renderers={props.renderers} {...props.env} />)}
 			</ul>
-			<ul className="tc-header-bar-actions right">
+			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && (
 					<Components.Search renderers={props.renderers} {...props.search} />
 				)}
