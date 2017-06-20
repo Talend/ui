@@ -306,7 +306,7 @@ function DisplayTable(props) {
 	);
 	let message = null;
 	if (!items || items.length === 0) {
-		message = (<span className={theme['no-result']}>No result found</span>);
+		message = <span className={theme['no-result']}>No result found</span>;
 	}
 
 	return (
