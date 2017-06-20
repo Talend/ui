@@ -107,7 +107,7 @@ describe('ItemTitle', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should trigger callback on button title click', () => {
+	it('should trigger callback on button title click (left click)', () => {
 		// given
 		const props = {
 			className: 'my-title',
@@ -122,12 +122,31 @@ describe('ItemTitle', () => {
 
 		// when
 		const wrapper = mount(titleInstance);
-		wrapper.find(Button).simulate('click', { stopPropagation: () => {} });
+		wrapper.find(Button).simulate('click', { button: 0, stopPropagation: () => {} });
 
 		// then
-		expect(props.titleProps.onClick).toBeCalled();
-		const callArgs = props.titleProps.onClick.mock.calls[0];
-		expect(callArgs[1]).toBe(item);
+		expect(props.titleProps.onClick).toBeCalledWith(expect.anything(), item);
+	});
+
+	it('should trigger callback on button title mousedown (middle-click)', () => {
+		// given
+		const props = {
+			className: 'my-title',
+			item,
+			titleProps: {
+				key: 'name',
+				displayModeKey: undefined, // no display mode in item, default 'text'
+				onClick: jest.fn(), // provided click callback
+			},
+		};
+		const titleInstance = <ItemTitle {...props} />;
+
+		// when
+		const wrapper = mount(titleInstance);
+		wrapper.find(Button).simulate('mouseDown', { button: 1, stopPropagation: () => {} });
+
+		// then
+		expect(props.titleProps.onClick).toBeCalledWith(expect.anything(), item);
 	});
 
 	it('should trigger callback on input title blur', () => {

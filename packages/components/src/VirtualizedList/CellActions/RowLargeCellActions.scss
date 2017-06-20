@@ -1,0 +1,7 @@
+// Large display specificities
+.row {
+	.tc-list-actions :global(.tc-actions) > button {
+		line-height: inherit;
+		padding: 0 $padding-small;
+	}
+}
