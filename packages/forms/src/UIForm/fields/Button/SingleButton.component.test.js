@@ -82,6 +82,9 @@ describe('SingleButton field', () => {
 		wrapper.find('button').simulate('click', { button: 1 });
 
 		// then
-		expect(onTrigger).toHaveBeenCalledWith(expect.anything(), triggerSchema.triggers[0], triggerSchema);
+		expect(onTrigger).toHaveBeenCalledWith(
+			expect.anything(),
+			triggerSchema.triggers[0], triggerSchema
+		);
 	});
 });
