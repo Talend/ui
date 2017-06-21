@@ -21,7 +21,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		const wrapper = mount(actionBar);
-		wrapper.find(Action).at(0).simulate('click');
+		wrapper.find(Action).at(0).simulate('click', { button: 0 });
 
 		// then
 		expect(onClickMock).toHaveBeenCalled();

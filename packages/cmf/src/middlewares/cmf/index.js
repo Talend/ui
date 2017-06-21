@@ -18,10 +18,10 @@ const cmfMiddleware = store => next => (action) => {
 			route = route(action);
 		}
 
-		if(action.openInNewTab){
+		if (action.ctrlKey || action.event.button === 1) {
 			window.open([route], '_blank');
 		}
-		else{
+		else {
 			store.dispatch({
 				type: '@@router/CALL_HISTORY_METHOD',
 				payload: {
@@ -30,6 +30,7 @@ const cmfMiddleware = store => next => (action) => {
 				},
 			});
 		}
+	}
 	return next(action);
 };
 

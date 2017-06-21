@@ -79,7 +79,6 @@ function Action(props) {
 		link,
 		model,
 		onClick,
-		onMouseDown,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -88,22 +87,30 @@ function Action(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick = event => onClick(event, {
-		action: { label, ...rest },
-		model,
-	});
+	const leftClick = (event) => {
+		if (event.button === 0) {
+			onClick(event, {
+				action: { label, ...rest },
+				model,
+			});
+		}
+	};
 
-	const mdClick = event => onMouseDown(event, {
-		action: { label, ...rest },
-		model,
-	});
+	const middleClick = (event) => {
+		if (event.button === 1) {
+			onClick(event, {
+				action: { label, ...rest },
+				model,
+			});
+		}
+	};
 
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
-			onClick={rClick}
-			onMouseDown={mdClick}
+			onClick={leftClick}
+			onMouseDown={middleClick}
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}

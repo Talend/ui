@@ -15,6 +15,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
         disabled={false}
         id="my-toolbar-actions-add"
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
@@ -58,6 +59,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         disabled={false}
         id="my-toolbar-actions-delete"
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
@@ -247,6 +249,7 @@ exports[`Toolbar should render filter form 1`] = `
         id="my-toolbar-filter"
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseOver={[Function]}
         role={null}
         type="button"

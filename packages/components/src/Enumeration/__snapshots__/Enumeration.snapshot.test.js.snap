@@ -20,6 +20,7 @@ exports[`Enumeration should render with header in add state and list in default 
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -40,6 +41,7 @@ exports[`Enumeration should render with header in add state and list in default 
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -119,6 +121,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -135,6 +138,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -155,6 +159,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -194,6 +199,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -210,6 +216,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -230,6 +237,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -269,6 +277,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -285,6 +294,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -305,6 +315,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -348,6 +359,7 @@ exports[`Enumeration should render with header in default state and first item i
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -438,6 +450,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={true}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -458,6 +471,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -497,6 +511,7 @@ exports[`Enumeration should render with header in default state and first item i
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -513,6 +528,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -533,6 +549,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -572,6 +589,7 @@ exports[`Enumeration should render with header in default state and first item i
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -588,6 +606,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -608,6 +627,7 @@ exports[`Enumeration should render with header in default state and first item i
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -652,6 +672,7 @@ exports[`Enumeration should render with header in default state, list in default
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"
@@ -732,6 +753,7 @@ exports[`Enumeration should render with header in default state, list in default
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -748,6 +770,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -768,6 +791,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -807,6 +831,7 @@ exports[`Enumeration should render with header in default state, list in default
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -823,6 +848,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -843,6 +869,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -882,6 +909,7 @@ exports[`Enumeration should render with header in default state, list in default
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -898,6 +926,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -918,6 +947,7 @@ exports[`Enumeration should render with header in default state, list in default
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -963,6 +993,7 @@ exports[`Enumeration should render with header in search state and list in defau
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -983,6 +1014,7 @@ exports[`Enumeration should render with header in search state and list in defau
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1078,6 +1110,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1098,6 +1131,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1153,6 +1187,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1173,6 +1208,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1228,6 +1264,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1248,6 +1285,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1288,6 +1326,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -1356,6 +1395,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1372,6 +1412,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1392,6 +1433,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1431,6 +1473,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1447,6 +1490,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1467,6 +1511,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1506,6 +1551,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -1522,6 +1568,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1542,6 +1589,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -1585,6 +1633,7 @@ exports[`Enumeration should render with header without items 1`] = `
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseOver={[Function]}
         role="link"
         type="button"

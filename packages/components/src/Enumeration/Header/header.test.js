@@ -21,7 +21,7 @@ describe('Header', () => {
 		const wrapper = mount(headerInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		buttons.at(0).simulate('click', { button: 0 });
 
 		// then
 		expect(buttons.length).toBe(1);

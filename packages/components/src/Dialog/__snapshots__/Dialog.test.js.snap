@@ -46,6 +46,7 @@ exports[`Dialog should render action 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -117,6 +118,7 @@ exports[`Dialog should render large 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -162,6 +164,7 @@ exports[`Dialog should render small 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >

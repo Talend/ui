@@ -31,6 +31,7 @@ exports[`Storyshots TabBar default 1`] = `
                 disabled={false}
                 id="tab-bar-action-1"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 role={null}
                 type="button"
               >
@@ -47,6 +48,7 @@ exports[`Storyshots TabBar default 1`] = `
                 disabled={false}
                 id="tab-bar-action-2"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 role={null}
                 type="button"
               >
@@ -63,6 +65,7 @@ exports[`Storyshots TabBar default 1`] = `
                 disabled={false}
                 id="tab-bar-action-3"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 role={null}
                 type="button"
               >

@@ -74,6 +74,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -113,6 +114,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               disabled={false}
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -129,6 +131,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -149,6 +152,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -188,6 +192,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               disabled={false}
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -204,6 +209,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -224,6 +230,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"

@@ -5,6 +5,7 @@ exports[`Action should apply transformation on icon 1`] = `
   className="btn btn-default"
   disabled={false}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -29,6 +30,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
   className="navbar-btn btn btn-default"
   disabled={true}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -62,6 +64,7 @@ exports[`Action should display a disabled Icon 1`] = `
   className="navbar-btn btn btn-default"
   disabled={true}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -86,6 +89,7 @@ exports[`Action should pass all props to the Button 1`] = `
   className="navbar-btn btn btn-default"
   disabled={false}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -110,6 +114,7 @@ exports[`Action should render a button 1`] = `
   className="btn btn-default"
   disabled={false}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -135,6 +140,7 @@ exports[`Action should render action with html property name = props.name if set
   disabled={false}
   name="custom_name"
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >
@@ -159,6 +165,7 @@ exports[`Action should reverse icon/label 1`] = `
   className="btn btn-default"
   disabled={false}
   onClick={[Function]}
+  onMouseDown={[Function]}
   role={null}
   type="button"
 >

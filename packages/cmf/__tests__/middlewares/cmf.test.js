@@ -36,6 +36,9 @@ describe('CMF middleware', () => {
 				routerPush: '/route',
 			},
 			response: { id: 28 },
+			event: {
+				button: 0,
+			},
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -52,6 +55,9 @@ describe('CMF middleware', () => {
 				},
 			},
 			response: { id: 28 },
+			event: {
+				button: 0,
+			},
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -66,6 +72,9 @@ describe('CMF middleware', () => {
 				routerReplace: '/route',
 			},
 			response: { id: 28 },
+			event: {
+				button: 0,
+			},
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -82,6 +91,9 @@ describe('CMF middleware', () => {
 				},
 			},
 			response: { id: 28 },
+			event: {
+				button: 0,
+			},
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -89,5 +101,37 @@ describe('CMF middleware', () => {
 		expect(arg.type).toBe('@@router/CALL_HISTORY_METHOD');
 		expect(arg.payload.method).toBe('replace');
 		expect(arg.payload.args[0]).toBe('/route/28');
+	});
+	it('should open route in new tab when ctrl-click', () => {
+		global.open = jest.fn();
+		const action = {
+			cmf: {
+				routerReplace(data) {
+					return `/route/${data.response.id}`;
+				},
+			},
+			response: { id: 28 },
+			ctrlKey: true,
+		};
+		middleware(action);
+		expect(global.open).toHaveBeenCalled();
+
+	});
+	it('should open route in new tab when middle-click (mousewheel)', () => {
+		global.open = jest.fn();
+		const action = {
+			cmf: {
+				routerReplace(data) {
+					return `/route/${data.response.id}`;
+				},
+			},
+			response: { id: 28 },
+			event: {
+				button: 1,
+			},
+		};
+		const res = middleware(action);
+		console.log(res)
+		expect(global.open).toHaveBeenCalled();
 	});
 });

@@ -31,6 +31,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -42,6 +43,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -88,6 +90,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -99,6 +102,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -141,6 +145,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -152,6 +157,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -194,6 +200,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -205,6 +212,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -237,6 +245,7 @@ exports[`ConfirmDialog should render without header 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >
@@ -248,6 +257,7 @@ exports[`ConfirmDialog should render without header 1`] = `
       className="btn btn-default"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="button"
     >

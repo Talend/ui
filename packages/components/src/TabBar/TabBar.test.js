@@ -32,7 +32,7 @@ describe('TabBar', () => {
 		const wrapper = mount(tabBar);
 
 		// when
-		wrapper.find('button').at(1).simulate('click');
+		wrapper.find('button').at(1).simulate('click', { button: 0 });
 
 		// then
 		expect(onClick).toBeCalledWith(expect.anything(), props.items[1]);

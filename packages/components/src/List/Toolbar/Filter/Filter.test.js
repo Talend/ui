@@ -26,7 +26,7 @@ describe('Filter', () => {
 		const filterInstance = mount(<Filter {...props} />);
 
 		// when
-		filterInstance.find('button').simulate('click');
+		filterInstance.find('button').simulate('click', { button: 0 });
 
 		// then
 		expect(props.onToggle).toBeCalled();
@@ -40,7 +40,7 @@ describe('Filter', () => {
 		const filterInstance = mount(<Filter {...props} />);
 
 		// when
-		filterInstance.find('button').simulate('click');
+		filterInstance.find('button').simulate('click', { button: 0 });
 
 		// then
 		expect(props.onToggle).toBeCalled();

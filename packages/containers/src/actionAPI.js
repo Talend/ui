@@ -20,8 +20,8 @@ export function getActionsProps(context, ids, model) {
 				);
 			} else {
 				context.store.dispatch(Object.assign({
-					model
-				}, info.payload, { openInNewTab: event.ctrlKey || event.button === 1 }));
+					model,
+				}, info.payload, { event: { ctrlKey: event.ctrlKey, button: event.button } }));
 			}
 		},
 	}, info));
