@@ -169,6 +169,5 @@ describe('Select field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(event, multipleSchema, ['foo', 'lol']);
-
 	});
 });
