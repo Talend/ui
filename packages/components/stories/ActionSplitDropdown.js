@@ -1,7 +1,14 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import talendIcons from 'talend-icons/dist/react';
 
-import { ActionSplitDropdown } from '../src/index';
+import { ActionSplitDropdown, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-logo-dp': talendIcons['talend-logo-dp'],
+	'talend-logo-ic': talendIcons['talend-logo-ic'],
+};
+
 
 const myAction = {
 	label: 'Add File',
@@ -11,16 +18,28 @@ const myAction = {
 		{
 			label: 'From Local',
 			onClick: action('From Local click'),
+			icon: 'talend-logo-ic',
 		},
 		{
 			label: 'From Remote',
 			onClick: action('From Remote click'),
+			icon: 'talend-logo-dp',
 		},
 	],
 	emptyDropdownLabel: 'No option',
 };
 
-storiesOf('ActionSplitDropdown', module)
+
+const decoratedStories = storiesOf('ActionSplitDropdown', module)
+	.addDecorator(story => (
+		<div>
+			{story()}
+			<div className="container" style={{ paddingTop: 40 }} />
+			<IconsProvider defaultIcons={icons} />
+		</div>
+	));
+
+decoratedStories
 	.addWithInfo('default', () => (
 		<div>
 			<p>By default :</p>

@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import {
 	SplitButton,
 	MenuItem,
 } from 'react-bootstrap';
 import uuid from 'uuid';
 import Icon from '../../Icon';
+import theme from './ActionSplitDropdown.scss';
+
 
 /**
  * @param {object} props react props
@@ -54,13 +57,15 @@ function ActionSplitDropdown(props) {
 			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
 			id={uuid.v4()}
+			className={classNames('dropdown')}
 			{...rest}
 		>
 			{
 				items.length ?
 					items.map((item, index) => (
 						<MenuItem {...item} key={index}>
-							{item.label}
+							{ item.icon && <Icon name={item.icon} /> }
+							{ item.label }
 						</MenuItem>
 					)) : <MenuItem disabled>{emptyDropdownLabel}</MenuItem>
 			}
@@ -71,6 +76,7 @@ function ActionSplitDropdown(props) {
 ActionSplitDropdown.propTypes = {
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
+		icon: PropTypes.string,
 		label: PropTypes.string,
 		...MenuItem.propTypes,
 	})).isRequired,
