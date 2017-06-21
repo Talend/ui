@@ -21,7 +21,7 @@ function getRenderers(renderers) {
 }
 
 function Logo({ isFull, renderers, ...props }) {
-	const Components = getRenderers(renderers);
+	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const itemClassName = classNames(
 		theme['tc-header-bar-action'],
 		{
@@ -34,11 +34,10 @@ function Logo({ isFull, renderers, ...props }) {
 			[theme.full]: isFull,
 		}
 	);
-	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 
 	return (
 		<li className={itemClassName}>
-			<Components.Action
+			<renderers.Action
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
@@ -66,10 +65,9 @@ function Brand({ name, isSeparated, renderers, ...props }) {
 		}
 	);
 
-	const Components = getRenderers(renderers);
 	return (
 		<li className={className}>
-			<Components.Action
+			<renderers.Action
 				bsStyle="link"
 				className={theme['tc-header-bar-brand']}
 				tooltipPlacement="bottom"
@@ -88,10 +86,9 @@ Brand.propTypes = {
 };
 
 function Environment({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			<Components.ActionDropdown
+			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
 				tooltipPlacement="bottom"
@@ -108,7 +105,6 @@ Environment.propTypes = {
 };
 
 function Search({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-search'],
@@ -119,7 +115,7 @@ function Search({ renderers, ...props }) {
 	return (
 		<li className={className}>
 			<form className="navbar-form navbar-right" role="search">
-				<Components.Typeahead {...props} />
+				<renderers.Typeahead {...props} />
 			</form>
 		</li>
 	);
@@ -131,8 +127,7 @@ Search.propTypes.renderers = React.PropTypes.shape({
 });
 
 function Help({ renderers, ...props }) {
-	const components = getRenderers(renderers);
-	const Component = props.items ? components.ActionSplitDropdown : Action;
+	const Component = props.items ? renderers.ActionSplitDropdown : renderers.Action;
 
 	return (
 		<li className={theme['tc-header-bar-action']}>
@@ -155,7 +150,6 @@ Help.propTypes = {
 };
 
 function User({ name, renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme.separated,
@@ -163,7 +157,7 @@ function User({ name, renderers, ...props }) {
 
 	return (
 		<li className={className}>
-			<Components.ActionDropdown
+			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
 				noCaret
@@ -182,10 +176,9 @@ User.propTypes = {
 };
 
 function Products({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			<Components.ActionDropdown
+			<renderers.ActionDropdown
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
@@ -206,6 +199,7 @@ Products.propTypes = {
 };
 
 function HeaderBar(props) {
+	const renderers = getRenderers(props.renderers);
 	const Components = Object.assign({
 		Logo,
 		Brand,
@@ -219,23 +213,15 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				<Components.Logo renderers={props.renderers} {...props.logo} />
-				<Components.Brand renderers={props.renderers} {...props.brand} isSeparated={!!props.env} />
-				{props.env && (<Components.Environment renderers={props.renderers} {...props.env} />)}
+				<Components.Logo renderers={renderers} {...props.logo} />
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
-				{props.search && (
-					<Components.Search renderers={props.renderers} {...props.search} />
-				)}
-				{props.help && (
-					<Components.Help renderers={props.renderers} {...props.help} />
-				)}
-				{props.user && (
-					<Components.User renderers={props.renderers} {...props.user} />
-				)}
-				{props.products && (
-					<Components.Products renderers={props.renderers} {...props.products} />
-				)}
+				{ props.search && <Components.Search renderers={renderers} {...props.search} /> }
+				{ props.help && <Components.Help renderers={renderers} {...props.help} /> }
+				{ props.user && <Components.User renderers={renderers} {...props.user} /> }
+				{ props.products && <Components.Products renderers={renderers} {...props.products} /> }
 			</ul>
 		</nav>
 	);
