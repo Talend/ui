@@ -170,6 +170,22 @@ const collection = [
 	},
 ];
 
+for (let i = collection.length; i < 100; i += 1) {
+	collection.push({
+		id: i,
+		name: 'Title with icon and actions',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row with icon and actions',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
+		display: 'text',
+		className: 'item-0-class',
+		actions,
+		titleActions,
+	});
+}
+
 storiesOf('Virtualized List', module)
 	.add('List > Table', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">

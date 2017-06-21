@@ -52,7 +52,10 @@ export function componentsReducers(state = defaultState, action) {
 		);
 	case ACTIONS.componentsActions.COMPONENT_MERGE_STATE:
 		if (!state.getIn([action.componentName, action.key])) {
-			invariant(false, componentDoesntExists(action));
+			invariant(
+				process.env.NODE_ENV === 'production',
+				componentDoesntExists(action)
+			);
 		}
 
 		return state.mergeIn(
@@ -61,7 +64,10 @@ export function componentsReducers(state = defaultState, action) {
 		);
 	case ACTIONS.componentsActions.COMPONENT_REMOVE_STATE:
 		if (!state.getIn([action.componentName, action.key])) {
-			invariant(false, componentDoesntExists(action));
+			invariant(
+				process.env.NODE_ENV === 'production',
+				componentDoesntExists(action)
+			);
 		}
 
 		return state.deleteIn([action.componentName, action.key]);
