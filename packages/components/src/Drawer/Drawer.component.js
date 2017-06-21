@@ -40,7 +40,10 @@ class DrawerAnimation extends React.Component {
 
 DrawerAnimation.propTypes = {
 	children: PropTypes.node,
-	onTransitionComplete: PropTypes.func.isRequired,
+	onTransitionComplete: PropTypes.func,
+};
+DrawerAnimation.defaultProps = {
+	onTransitionComplete: () => {},
 };
 
 function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {

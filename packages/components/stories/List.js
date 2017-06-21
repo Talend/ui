@@ -291,8 +291,36 @@ function getPropsFor(displayMode) {
 	};
 }
 
+function getActionsProps() {
+	const columnActionsProps = Immutable.fromJS(props).toJS();
+	const actionsColumn = {
+		key: 'columnActions',
+		label: 'Actions',	// label should be set for screen readers
+		hideHeader: true,	// header will created with a sr-only class, so it will be hidden
+	};
+
+	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
+	columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
+		columnActions: [
+			{
+				label: 'favorite',
+				icon: 'talend-star',
+				className: 'favorite',
+				onClick: action('onFavorite'),
+			}, {
+				label: 'certify',
+				icon: 'talend-badge',
+				className: 'certify',
+				onClick: action('onCertify'),
+			},
+		],
+		...item,
+	}));
+	return columnActionsProps;
+}
+
 storiesOf('List', module)
-	.addDecorator((story) => (
+	.addDecorator(story => (
 		<form>
 			{story()}
 		</form>
@@ -415,30 +443,7 @@ storiesOf('List', module)
 		</div>);
 	})
 	.add('Table with column actions', () => {
-		const columnActionsProps = Immutable.fromJS(props).toJS();
-		const actionsColumn = {
-			key: 'columnActions',
-			label: 'Actions',	// label should be set for screen readers
-			hideHeader: true,	// header will created with a sr-only class, so it will be hidden
-		};
-
-		columnActionsProps.list.columns.splice(2, 0, actionsColumn);
-		columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
-			columnActions: [
-				{
-					label: 'favorite',
-					icon: 'talend-star',
-					className: 'favorite',
-					onClick: action('onFavorite'),
-				}, {
-					label: 'certify',
-					icon: 'talend-badge',
-					className: 'certify',
-					onClick: action('onCertify'),
-				},
-			],
-			...item,
-		}));
+		const columnActionsProps = getActionsProps();
 		return (<div>
 			<h1>List</h1>
 			<p>Display a list with columns containing actions.</p>
@@ -554,4 +559,45 @@ storiesOf('List', module)
 			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
 		</div>
-	));
+	))
+	.add('Virtualized', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>Display the list in tile mode</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} virtualized />
+		</div>
+	))
+	.add('Virtualized large', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>Display the list in tile mode</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} displayMode="large" virtualized />
+		</div>
+	))
+	.add('Virtualized with column actions', () => {
+		const columnActionsProps = getActionsProps();
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display a list with columns containing actions.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...columnActionsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized with sort', () => {
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.toolbar = undefined;
+		tprops.list.sort = sort;
+		tprops.virtualized = true;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Table with sort header click</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	});

@@ -29,7 +29,8 @@ const store = {
 };
 
 const registry = {
-	'_.route.component:component': (<div>mock</div>),
+	'_.route.component:component': () => (<div>mock</div>),
+	'actionCreator:myactionCreator': () => {},
 };
 
 const context = {

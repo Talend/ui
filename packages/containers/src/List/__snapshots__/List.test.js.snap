@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Connected List should map items to props from collection List 1`] = `
 Object {
   "items": Array [
@@ -199,5 +201,6 @@ Object {
       ],
     },
   },
+  "virtualized": undefined,
 }
 `;
