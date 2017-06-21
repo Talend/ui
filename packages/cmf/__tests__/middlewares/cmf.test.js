@@ -111,7 +111,9 @@ describe('CMF middleware', () => {
 				},
 			},
 			response: { id: 28 },
-			ctrlKey: true,
+			event: {
+				ctrlKey: true,
+			},
 		};
 		middleware(action);
 		expect(global.open).toHaveBeenCalled();

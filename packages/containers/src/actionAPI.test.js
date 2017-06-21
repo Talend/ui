@@ -14,7 +14,7 @@ describe('actionAPI.getActionsProps', () => {
 		const props = action.getProps(context, 'menu:demo', model);
 		expect(props.id).toBe('menu');
 		expect(typeof props.onClick).toBe('function');
-		props.onClick();
+		props.onClick({ button: 0 });
 
 		const calls = context.store.dispatch.mock.calls;
 		expect(calls[0][0].model).toBe(props.model);
@@ -52,8 +52,8 @@ describe('actionAPI.getActionsProps', () => {
 		expect(typeof a1.onClick).toBe('function');
 		expect(typeof a2.onClick).toBe('function');
 
-		a1.onClick();
-		a2.onClick();
+		a1.onClick({ button: 0 });
+		a2.onClick({ button: 0 });
 		const calls = context.store.dispatch.mock.calls;
 		expect(calls[0][0].model).toBe(a1.model);
 		expect(calls[0][0].type).toBe('TEST_MENU');

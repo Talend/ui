@@ -74,18 +74,11 @@ function SidePanel(props) {
 							bsStyle="link"
 							role="link"
 							className={theme.link}
-							onMouseDown={(event) => {
-								// fire onClick when middle-click
-								if (event.button === 1) {
-									action.onClick(event);
-								}
-							}}
 							onClick={(event) => {
-								// fire onClick when left click
-								if (onSelect && event.button === 0) {
+								if (onSelect) {
 									onSelect(event, action);
 								}
-								if (action.onClick && event.button === 0) {
+								if (action.onClick) {
 									action.onClick(event);
 								}
 							}}
