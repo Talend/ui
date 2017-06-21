@@ -5,10 +5,14 @@ Scoping to packages that match 'react-talend-components'
 > sass-lint -v -q
 
 
+src/Actions/ActionSplitDropdown/ActionSplitDropdown.scss
+  2:8  warning  Commas should be followed by a space   space-after-comma
+  2:9  warning  Selectors must be placed on new lines  single-line-per-selector
+
 src/VirtualizedList/ListTable/ListTable.scss
   46:10  error  Strings must use single quotes  quotes
 
-✖ 1 problem (1 error, 0 warnings)
+✖ 3 problems (1 error, 2 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:style' in 'react-talend-components'
 Errored while running ExecCommand.execute
