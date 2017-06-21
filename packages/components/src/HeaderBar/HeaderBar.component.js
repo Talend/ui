@@ -215,7 +215,7 @@ function HeaderBar(props) {
 			<ul className={theme['tc-header-bar-actions']}>
 				<Components.Logo renderers={renderers} {...props.logo} />
 				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
-				{props.env && <Components.Environment renderers={renderers} {...props.env} /> }
+				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{ props.search && <Components.Search renderers={renderers} {...props.search} /> }
