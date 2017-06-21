@@ -90,6 +90,8 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
+		actions,
+		titleActions,
 	},
 	{
 		id: 1,
@@ -101,6 +103,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
+		actions,
 	},
 	{
 		id: 2,
@@ -111,6 +114,8 @@ const collection = [
 		author: 'Jean-Pierre DUPONT',
 		display: 'text',
 		className: 'item-0-class',
+		actions,
+		titleActions,
 	},
 	{
 		id: 3,
@@ -122,6 +127,8 @@ const collection = [
 		icon: 'talend-file-json-o',
 		display: 'input',
 		className: 'item-1-class',
+		actions,
+		titleActions,
 	},
 	{
 		id: 4,
@@ -132,6 +139,8 @@ const collection = [
 		author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 		icon: 'talend-file-json-o',
 		className: 'item-2-class',
+		actions,
+		titleActions,
 	},
 	{
 		id: 5,
@@ -143,6 +152,8 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
+		actions,
+		titleActions,
 	},
 	{
 		id: 6,
@@ -154,6 +165,8 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
+		actions,
+		titleActions,
 	},
 ];
 
@@ -168,6 +181,8 @@ for (let i = collection.length; i < 100; i += 1) {
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
+		actions,
+		titleActions,
 	});
 }
 

@@ -87,4 +87,21 @@ describe('RowLarge', () => {
 		// then
 		expect(wrapper.node).toMatchSnapshot();
 	});
+
+	it('should render large skeketon row during the scroll', () => {
+		// when
+		const wrapper = shallow(
+			<RowLarge
+				className={'my-class-names'}
+				index={1}
+				key={18}
+				parent={parent}
+				style={{ background: 'red' }}
+				isScrolling
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
 });

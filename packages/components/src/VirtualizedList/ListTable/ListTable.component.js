@@ -2,9 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import {
 	Table as VirtualizedTable,
-	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import RowSelectionRenderer from '../RowSelection';
 import RowRenderer from '../Row';
 import { toColumns } from '../utils/tablerow';
 
@@ -28,14 +26,10 @@ function ListTable(props) {
 		width,
 	} = props;
 
-	const RowTableRenderer = selectionToggle ?
-		RowSelectionRenderer( // eslint-disable-line new-cap
-			DefaultTableRowRenderer,
-			{
-				isSelected,
-				getRowData: rowProps => rowProps.rowData,
-			}) :
-		RowRenderer(DefaultTableRowRenderer); // eslint-disable-line new-cap
+	const RowTableRenderer = RowRenderer({ // eslint-disable-line new-cap
+		selectionToggle,
+		isSelected,
+	});
 
 	return (
 		<VirtualizedTable
