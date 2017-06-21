@@ -152,7 +152,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -2140,7 +2140,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -4074,7 +4074,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -6177,7 +6177,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -8138,7 +8138,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               </button>
               <ul
                 aria-labelledby="header-help"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -8213,7 +8213,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -10373,7 +10373,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -12267,7 +12267,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li
@@ -14464,7 +14464,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               </button>
               <ul
                 aria-labelledby="header-user"
-                className="dropdown-menu"
+                className="dropdown-menu dropdown-menu-right"
                 role="menu"
               >
                 <li

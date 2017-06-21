@@ -127,17 +127,21 @@ Search.propTypes.renderers = React.PropTypes.shape({
 });
 
 function Help({ renderers, ...props }) {
-	const Component = props.items ? renderers.ActionSplitDropdown : renderers.Action;
+	const global = {
+		bsStyle: 'link',
+		icon: 'talend-question-circle',
+		label: 'Help',
+		tooltipPlacement: 'bottom',
+		...props
+	};
 
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			<Component
-				bsStyle="link"
-				icon="talend-question-circle"
-				label="Help"
-				tooltipPlacement="bottom"
-				{...props}
-			/>
+			{ props.items ? (
+				<renderers.ActionSplitDropdown pullRight {...global} />
+			) : (
+				<renderers.Action {...global} />
+			)}
 		</li>
 	);
 }
@@ -161,6 +165,7 @@ function User({ name, renderers, ...props }) {
 				bsStyle="link"
 				icon="talend-user-circle"
 				noCaret
+				pullRight
 				tooltipPlacement="bottom"
 				label={name}
 				{...props}
