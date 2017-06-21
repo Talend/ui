@@ -113,7 +113,8 @@
     ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js",
+      "lodash/random": "<rootDir>/__mocks__/lodash/random"
     }
   },
   "peerDependencies": {

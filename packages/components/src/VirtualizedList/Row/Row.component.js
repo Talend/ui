@@ -1,8 +1,10 @@
 import React from 'react';
+import random from 'lodash/random';
 import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
 import RowSelectionRenderer from '../RowSelection';
+import theme from './RowPlaceholder.scss';
 
 /**
  * Higher order row-renderer that wrap the provided row renderer.
@@ -26,7 +28,17 @@ function getRowRenderer({ selectionToggle, isSelected }) {
 			// improve the performance on the browsers
 			// waiting guidelines from UX
 			return (
-				<div {...props} />);
+				<div
+					{...props}
+				>
+					<div
+						className={theme['row-placeholder']}
+						style={{
+							width: `${random(15, 50)}%`,
+						}}
+					/>
+				</div>
+			);
 		}
 		return <RowTableRender {...props} />;
 	}

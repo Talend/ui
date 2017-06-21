@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
 import RowRenderer from './Row.component';
 
 describe('RowRenderer', () => {

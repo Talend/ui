@@ -37,5 +37,14 @@ exports[`RowRenderer should show a skeleton during the scroll 1`] = `
       "background": "red",
     }
   }
-/>
+>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "42%",
+      }
+    }
+  />
+</div>
 `;
