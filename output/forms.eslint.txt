@@ -129,9 +129,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select.test.js
-  173:2  error  Block must not be padded by blank lines  padded-blocks
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   34:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
   35:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
@@ -166,7 +163,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 132 problems (132 errors, 0 warnings)
+✖ 131 problems (131 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
