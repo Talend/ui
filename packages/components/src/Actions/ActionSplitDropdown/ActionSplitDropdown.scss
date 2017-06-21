@@ -2,9 +2,9 @@
 	li>a {
 		i,
 		svg {
-			margin-right: 5px;
-			width: 1.6rem;
-			height: 1.6rem;
+			margin-right: $padding-smaller;
+			width: $svg-md-size;
+			height: $svg-md-size;
 		}
 	}
 }

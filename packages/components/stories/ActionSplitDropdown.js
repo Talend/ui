@@ -58,7 +58,7 @@ decoratedStories
 				<ActionSplitDropdown {...myAction} />
 			</div>
 			<p>Options with icons</p>
-			<div id="noicon">
+			<div id="icon">
 				<ActionSplitDropdown
 					{...myAction}
 					items={itemsWithIcons}

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import {
 	SplitButton,
 	MenuItem,
@@ -57,7 +56,7 @@ function ActionSplitDropdown(props) {
 			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
 			id={uuid.v4()}
-			className={classNames(theme['tc-split-dropdown'])}
+			className={theme['tc-split-dropdown']}
 			{...rest}
 		>
 			{
