@@ -320,7 +320,7 @@ function getActionsProps() {
 }
 
 storiesOf('List', module)
-	.addDecorator((story) => (
+	.addDecorator(story => (
 		<form>
 			{story()}
 		</form>
@@ -584,6 +584,20 @@ storiesOf('List', module)
 				<p>Display a list with columns containing actions.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...columnActionsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized with sort', () => {
+		const tprops = Immutable.fromJS(props).toJS();
+		tprops.toolbar = undefined;
+		tprops.list.sort = sort;
+		tprops.virtualized = true;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Table with sort header click</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
 			</div>
 		);
 	});
