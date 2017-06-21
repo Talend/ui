@@ -5,6 +5,7 @@ import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
 import RowSelectionRenderer from '../RowSelection';
+import RowRenderer from '../Row';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -34,7 +35,7 @@ function ListTable(props) {
 				isSelected,
 				getRowData: rowProps => rowProps.rowData,
 			}) :
-		DefaultTableRowRenderer;
+		RowRenderer(DefaultTableRowRenderer); // eslint-disable-line new-cap
 
 	return (
 		<VirtualizedTable
