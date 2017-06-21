@@ -119,6 +119,7 @@ export default class UIForm extends React.Component {
 				properties={properties}
 				errors={errors}
 
+				actions={this.props.actions}
 				customValidation={this.props.customValidation}
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
@@ -149,6 +150,11 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
+		/**
+		 * Actions buttons to display at the bottom of the form.
+		 * If not provided, a single submit button is displayed.
+		 */
+		actions: PropTypes.arrayOf(PropTypes.shape(UIFormComponent.propTypes.actions)),
 		/**
 		 * Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

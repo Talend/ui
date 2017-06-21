@@ -5,6 +5,7 @@ import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
+import Buttons from './fields/Button/Buttons.component';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -109,6 +110,14 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
+		const actions = this.props.actions || [{
+			bsStyle: 'primary',
+			title: 'Submit',
+			type: 'submit',
+			widget: 'button',
+		}];
+		const actionsSchema = { items: actions };
+
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
@@ -138,6 +147,11 @@ export default class UIForm extends React.Component {
 						/>
 					))
 				}
+				<Buttons
+					id={`${this.props.id}-${this.props.formName}-actions`}
+					onTrigger={this.onTrigger}
+					schema={actionsSchema}
+				/>
 			</form>
 		);
 	}
@@ -159,6 +173,11 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 
+		/**
+		 * Actions buttons to display at the bottom of the form.
+		 * If not provided, a single submit button is displayed.
+		 */
+		actions: PropTypes.arrayOf(PropTypes.shape(Buttons.propTypes.schema)),
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

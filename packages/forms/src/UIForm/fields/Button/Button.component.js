@@ -26,6 +26,6 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onTrigger: PropTypes.func,
-		schema: SingleButton.propTypes,
+		schema: SingleButton.propTypes.schema,
 	};
 }

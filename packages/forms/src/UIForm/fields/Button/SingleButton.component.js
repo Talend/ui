@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export default function SingleButton(props) {
 	const { className, id, onTrigger, schema } = props;
-	const { bsStyle, title, triggers, type = 'button' } = schema;
+	const { bsStyle, disabled, inProgress, title, triggers, type = 'button' } = schema;
 
 	const onClick = type === 'button' && triggers ?
 		event => onTrigger(event, triggers[0], schema) :
@@ -15,6 +15,8 @@ export default function SingleButton(props) {
 			id={id}
 			bsStyle={bsStyle}
 			className={classNames('btn', className)}
+			disabled={disabled}
+			inProgress={inProgress}
 			label={title}
 			onClick={onClick}
 			type={type}
@@ -29,6 +31,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
 			bsStyle: PropTypes.string,
+			disabled: PropTypes.bool,
+			inProgress: PropTypes.bool,
 			title: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.string),
 			type: PropTypes.string,

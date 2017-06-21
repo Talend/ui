@@ -27,12 +27,6 @@
       "key": "firstname",
       "title": "First Name",
       "description": "This field has no trigger"
-    },
-    {
-      "bsStyle": "primary",
-      "title": "Submit",
-      "type": "submit",
-      "widget": "button"
     }
   ],
   "properties": {}
