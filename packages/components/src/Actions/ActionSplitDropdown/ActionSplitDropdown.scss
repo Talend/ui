@@ -1,7 +1,10 @@
 .tc-split-dropdown {
-	li>a i,svg {
-		margin-right: 5px;
-		width: 1.6rem;
-		height: 1.6rem;
+	li>a {
+		i,
+		svg {
+			margin-right: 5px;
+			width: 1.6rem;
+			height: 1.6rem;
+		}
 	}
 }
