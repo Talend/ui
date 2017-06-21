@@ -1,7 +1,8 @@
 import Fieldset from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
-import Button from '../fields/Button';
+import Button from '../fields/Button/Button.component';
+import Buttons from '../fields/Button/Buttons.component';
 import Text from '../fields/Text';
 
 const widgets = {
@@ -11,7 +12,10 @@ const widgets = {
 
 	// fields
 	button: Button,
+	buttons: Buttons,
 	number: Text,
+	reset: Button,
+	submit: Button,
 	text: Text,
 };
 

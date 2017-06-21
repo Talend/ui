@@ -26,6 +26,12 @@
       "key": "firstname",
       "title": "First Name",
       "description": "This field has no custom validation"
+    },
+    {
+      "bsStyle": "primary",
+      "title": "Submit",
+      "type": "submit",
+      "widget": "button"
     }
   ],
   "properties": {}

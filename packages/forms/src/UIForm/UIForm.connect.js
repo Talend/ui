@@ -17,6 +17,7 @@ class UIForm extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
+		this.onReset = this.onReset.bind(this);
 	}
 
 	/**
@@ -62,6 +63,24 @@ class UIForm extends React.PureComponent {
 		}
 	}
 
+	/**
+	 * Reset the forms data and errors. Triggers the onReset callback
+	 * @param event The reset event
+	 */
+	onReset(event) {
+		this.props.updateForm(
+			this.props.formName,
+			this.props.data.jsonSchema,
+			this.props.data.uiSchema,
+			this.props.data.properties
+		);
+		this.props.setErrors(this.props.formName, {});
+
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
+	}
+
 	render() {
 		const { form } = this.props;
 
@@ -79,6 +98,7 @@ class UIForm extends React.PureComponent {
 				widgets={this.props.widgets}
 
 				onChange={this.onChange}
+				onReset={this.onReset}
 				setError={this.props.setError}
 				setErrors={this.props.setErrors}
 				updateForm={this.props.updateForm}

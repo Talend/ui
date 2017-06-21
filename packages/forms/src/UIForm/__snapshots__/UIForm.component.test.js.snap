@@ -10,6 +10,7 @@ exports[`UIForm component should render form 1`] = `
   method={undefined}
   name="myFormName"
   noValidate={true}
+  onReset={undefined}
   onSubmit={[Function]}
   target={undefined}
 >
@@ -99,11 +100,5 @@ exports[`UIForm component should render form 1`] = `
       }
     }
   />
-  <button
-    className="btn btn-primary"
-    type="submit"
-  >
-    Submit
-  </button>
 </form>
 `;

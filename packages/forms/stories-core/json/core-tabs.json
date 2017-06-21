@@ -85,6 +85,12 @@
           ]
         }
       ]
+    },
+    {
+      "bsStyle": "primary",
+      "title": "Submit",
+      "type": "submit",
+      "widget": "button"
     }
   ],
   "properties": {

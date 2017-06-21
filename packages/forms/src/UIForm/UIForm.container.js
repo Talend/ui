@@ -18,6 +18,7 @@ export default class UIForm extends React.Component {
 		this.state = formReducer(undefined, action)[this.props.formName];
 
 		this.onChange = this.onChange.bind(this);
+		this.onReset = this.onReset.bind(this);
 		this.updateForm = this.updateForm.bind(this);
 		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
@@ -48,6 +49,24 @@ export default class UIForm extends React.Component {
 				}
 			}
 		);
+	}
+
+	/**
+	 * Reset the forms data and errors. Triggers the onReset callback
+	 * @param event The reset event
+	 */
+	onReset(event) {
+		this.updateForm(
+			this.props.formName,
+			this.props.data.jsonSchema,
+			this.props.data.uiSchema,
+			this.props.data.properties
+		);
+		this.setErrors(this.props.formName, {});
+
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
 	}
 
 	/**
@@ -104,6 +123,7 @@ export default class UIForm extends React.Component {
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
 
+				onReset={this.onReset}
 				onChange={this.onChange}
 				setError={this.setError}
 				setErrors={this.setErrors}

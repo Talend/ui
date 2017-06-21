@@ -82,6 +82,12 @@
           "validationMessage": "Don't be greedy!"
         }
       ]
+    },
+    {
+      "bsStyle": "primary",
+      "title": "Submit",
+      "type": "submit",
+      "widget": "button"
     }
   ],
   "properties": {

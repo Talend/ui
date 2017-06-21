@@ -5,7 +5,6 @@ import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
-import FormActions from './FormActions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -120,6 +119,7 @@ export default class UIForm extends React.Component {
 				method={this.props.method}
 				name={this.props.formName}
 				noValidate={this.props.noHtml5Validate}
+				onReset={this.props.onReset}
 				onSubmit={this.submit}
 				target={this.props.target}
 			>
@@ -138,11 +138,6 @@ export default class UIForm extends React.Component {
 						/>
 					))
 				}
-
-				<FormActions
-					actions={this.props.actions}
-					className={this.props.buttonBlockClass}
-				/>
 			</form>
 		);
 	}
