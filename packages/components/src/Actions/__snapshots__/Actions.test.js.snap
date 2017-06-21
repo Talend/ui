@@ -128,7 +128,7 @@ exports[`Actions should render actions 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="dropdown btn btn-default"
+      className="btn btn-default"
       disabled={false}
       hideLabel={false}
       link={false}
@@ -335,7 +335,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="dropdown btn btn-default"
+      className="btn btn-default"
       disabled={false}
       hideLabel={false}
       link={true}
@@ -538,7 +538,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="dropdown btn btn-default"
+      className="btn btn-default"
       disabled={false}
       hideLabel={true}
       link={true}
@@ -741,7 +741,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="dropdown btn btn-default"
+      className="btn btn-default"
       disabled={false}
       hideLabel={true}
       link={false}

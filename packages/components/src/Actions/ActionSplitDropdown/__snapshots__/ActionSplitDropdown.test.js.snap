@@ -5,7 +5,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
   className="dropdown btn-group"
 >
   <button
-    className="dropdown btn btn-default"
+    className="btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -74,7 +74,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
   className="dropdown btn-group"
 >
   <button
-    className="dropdown btn btn-default"
+    className="btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -160,7 +160,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
   className="dropdown btn-group"
 >
   <button
-    className="dropdown btn btn-default"
+    className="btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -240,7 +240,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
   className="dropdown btn-group"
 >
   <button
-    className="dropdown btn btn-default"
+    className="btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"

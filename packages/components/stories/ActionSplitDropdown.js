@@ -5,30 +5,41 @@ import talendIcons from 'talend-icons/dist/react';
 import { ActionSplitDropdown, IconsProvider } from '../src/index';
 
 const icons = {
+	'talend-environment': talendIcons['talend-environment'],
 	'talend-logo-dp': talendIcons['talend-logo-dp'],
 	'talend-logo-ic': talendIcons['talend-logo-ic'],
 };
 
 
+const items = [
+	{
+		label: 'From Local',
+		onClick: action('From Local click'),
+	},
+	{
+		label: 'From Remote',
+		onClick: action('From Remote click'),
+	},
+];
+
+const itemsWithIcons = [
+	{
+		...items[0],
+		icon: 'talend-logo-ic',
+	},
+	{
+		...items[1],
+		icon: 'talend-logo-dp',
+	},
+];
+
 const myAction = {
 	label: 'Add File',
-	icon: 'talend-plus-circle',
+	icon: 'talend-environment',
 	onClick: action('onAdd'),
-	items: [
-		{
-			label: 'From Local',
-			onClick: action('From Local click'),
-			icon: 'talend-logo-ic',
-		},
-		{
-			label: 'From Remote',
-			onClick: action('From Remote click'),
-			icon: 'talend-logo-dp',
-		},
-	],
+	items,
 	emptyDropdownLabel: 'No option',
 };
-
 
 const decoratedStories = storiesOf('ActionSplitDropdown', module)
 	.addDecorator(story => (
@@ -45,6 +56,13 @@ decoratedStories
 			<p>By default :</p>
 			<div id="default">
 				<ActionSplitDropdown {...myAction} />
+			</div>
+			<p>Options with icons</p>
+			<div id="noicon">
+				<ActionSplitDropdown
+					{...myAction}
+					items={itemsWithIcons}
+				/>
 			</div>
 			<p>Without icon</p>
 			<div id="noicon">

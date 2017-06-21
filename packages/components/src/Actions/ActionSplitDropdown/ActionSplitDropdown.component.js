@@ -57,7 +57,7 @@ function ActionSplitDropdown(props) {
 			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
 			id={uuid.v4()}
-			className={classNames('dropdown')}
+			className={classNames(theme['tc-split-dropdown'])}
 			{...rest}
 		>
 			{
