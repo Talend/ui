@@ -130,19 +130,33 @@ export const renderSectionTitle = (section) => {
 	return null;
 };
 
+function emphasise(text, value) {
+	if (!text) {
+		return '';
+	}
+	if (!value) {
+		return [text];
+	}
+
+	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
+	return parts.map((part) => {
+		if (value && part.toUpperCase() === value.toUpperCase()) {
+			return <em className={theme['highlight-match']}>{part}</em>;
+		}
+		return part;
+	});
+}
+
 export const renderItem = (item, { value }) => {
-	const splittedTitle = !value ? [item.title] : item.title.split(value);
-	const emphasisedTitle = splittedTitle.map((title, index) => (
-		<span key={index}>
-			{title}
-			{index !== splittedTitle.length - 1 &&
-			<em className={theme['highlight-match']}>{value}</em>}
-		</span>
-	));
+	const title = item.title ? item.title.trim() : '';
 	return (
-		<div className={theme.item}>
-			<span className={theme['item-title']}>{emphasisedTitle}</span>
-			<p className={theme['item-description']}>{item.description}</p>
+		<div className={theme.item} title={title}>
+			<span className={theme['item-title']}>
+				{ emphasise(title, value) }
+			</span>
+			<p className={theme['item-description']}>
+				{ emphasise(item.description, value) }
+			</p>
 		</div>
 	);
 };

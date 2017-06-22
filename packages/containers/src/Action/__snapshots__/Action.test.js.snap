@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Action should render its name 1`] = `
 <div
-  className="mock-provider">
+  className="mock-provider"
+>
   <button
     available="model.actions.delete"
     className="tc-action"
@@ -16,6 +19,7 @@ exports[`Action should render its name 1`] = `
         "method": "push",
         "type": "@@router/CALL_HISTORY_METHOD",
       }
-    } />
+    }
+  />
 </div>
 `;

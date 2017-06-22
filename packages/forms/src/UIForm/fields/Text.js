@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-
-import Message from '../Message';
+import FieldTemplate from './FieldTemplate';
 
 function convertValue(type, value) {
 	if (type === 'number') {
@@ -14,12 +12,15 @@ export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
 	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
 
-	const groupsClassNames = classNames(
-		'form-group',
-		{ 'has-error': !isValid },
-	);
 	return (
-		<div className={groupsClassNames}>
+		<FieldTemplate
+			description={description}
+			errorMessage={errorMessage}
+			id={id}
+			isValid={isValid}
+			label={title}
+			labelAfter
+		>
 			<input
 				id={id}
 				autoFocus={autoFocus}
@@ -32,13 +33,7 @@ export default function Text(props) {
 				type={type}
 				value={value}
 			/>
-			<label htmlFor={id} className="control-label">{title}</label>
-			<Message
-				errorMessage={errorMessage}
-				description={description}
-				isValid={isValid}
-			/>
-		</div>
+		</FieldTemplate>
 	);
 }
 
