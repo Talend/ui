@@ -45,10 +45,22 @@ ListToolbar.propTypes = {
 
 function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
 	if (useContent) {
-		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+		return (
+			<Content
+				id={id && `${id}-content`}
+				displayMode={displayMode}
+				{...list}
+			/>
+		);
 	}
 	if (virtualized) {
-		return <ListToVirtualizedList id={id} displayMode={displayMode} {...list} />;
+		return (
+			<ListToVirtualizedList
+				id={id}
+				displayMode={displayMode}
+				{...list}
+			/>
+		);
 	}
 	switch (displayMode) {
 	case 'tile': return <DisplayTile id={id} {...list} />;
@@ -68,19 +80,15 @@ DisplayModeComponent.propTypes = {
 };
 
 function ListDisplay({ id, useContent, displayMode, list, virtualized }) {
-	if (list.items && list.items.length) {
-		return (
-			<DisplayModeComponent
-				id={id}
-				useContent={useContent}
-				displayMode={displayMode}
-				list={list}
-				virtualized={virtualized}
-			/>
-		);
-	}
-
-	return (<span className={theme['no-result']}>No result found</span>);
+	return (
+		<DisplayModeComponent
+			id={id}
+			useContent={useContent}
+			displayMode={displayMode}
+			list={list}
+			virtualized={virtualized}
+		/>
+	);
 }
 ListDisplay.propTypes = DisplayModeComponent.propTypes;
 

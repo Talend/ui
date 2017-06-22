@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import VirtualizedList from '../../VirtualizedList';
+import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import ListToVirtualizedList from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 
@@ -42,16 +42,19 @@ describe('ListToVirtualizedList', () => {
 			}
 		});
 	});
+
 	it('should support displayMode', () => {
 		const table = shallow(
 			<ListToVirtualizedList {...props} displayMode="table" />
 		).props();
 		expect(table.type).toBe('TABLE');
+
 		const large = shallow(
 			<ListToVirtualizedList {...props} displayMode="large" />
 		).props();
 		expect(large.type).toBe('LARGE');
 	});
+
 	it('should add actionsKey to titleProps', () => {
 		const wrapper = shallow(
 			<ListToVirtualizedList {...props} />
@@ -63,7 +66,8 @@ describe('ListToVirtualizedList', () => {
 			}
 		});
 	});
-	it('should find suposedActions based on items', () => {
+
+	it('should find supposedActions based on items', () => {
 		const wrapper = shallow(
 			<ListToVirtualizedList {...props} />
 		);
@@ -73,5 +77,43 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.cellRenderer).toBe(CellActions.cellRenderer);
 			}
 		});
+	});
+
+	it('should adapt sort info', () => {
+		// when
+		const ascVirtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				sort={{ field: 'name', isDescending: false }}
+			/>
+		).props();
+		const descVirtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				sort={{ field: 'name', isDescending: true }}
+			/>
+		).props();
+
+		// then
+		expect(ascVirtualizedProps.sortBy).toBe('name');
+		expect(ascVirtualizedProps.sortDirection).toBe(SORT_BY.ASC);
+		expect(descVirtualizedProps.sortDirection).toBe(SORT_BY.DESC);
+	});
+
+	it('should adapt sort onChange', () => {
+		// given
+		const onChange = jest.fn();
+		const virtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				sort={{ field: 'name', isDescending: false, onChange }}
+			/>
+		).props();
+
+		// when
+		virtualizedProps.sort({ sortBy: 'name', sortDirection: SORT_BY.DESC });
+
+		// then
+		expect(onChange).toBeCalledWith(null, { field: 'name', isDescending: true });
 	});
 });

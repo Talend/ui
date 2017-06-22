@@ -8,10 +8,13 @@ function Label(props) {
 		<label htmlFor={props.id} className="control-label">{props.label}</label>
 	);
 }
-Label.propTypes = {
-	id: PropTypes.string,
-	label: PropTypes.string,
-};
+
+if (process.env.NODE_ENV !== 'production') {
+	Label.propTypes = {
+		id: PropTypes.string,
+		label: PropTypes.string,
+	};
+}
 
 function FieldTemplate(props) {
 	const groupsClassNames = classNames(
