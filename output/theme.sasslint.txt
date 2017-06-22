@@ -16,12 +16,12 @@ src/theme/_forms.scss
    24:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    41:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    42:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   85:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  269:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  282:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  295:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  318:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  462:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   86:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  270:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  283:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  296:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  319:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  463:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
