@@ -53,6 +53,12 @@ const items = [
 				title: 'title 6',
 				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
+			{
+				title: 'without description',
+			},
+			{
+				description: 'without title',
+			},
 		],
 	},
 ];
