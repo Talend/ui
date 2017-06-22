@@ -18,7 +18,13 @@ function ListView(props) {
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
-			<ItemsListView {...props} />
+			{
+				props.items && props.items.length ? (
+					<ItemsListView {...props} />
+				) : (
+					<span className={theme['no-result']}>No result found</span>
+				)
+			}
 		</div>
 	);
 }
