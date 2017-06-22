@@ -227,6 +227,7 @@ exports[`UIForm container should render form 2`] = `
 <UIForm
   acceptCharset={undefined}
   action={undefined}
+  actions={undefined}
   autoComplete="off"
   customValidation={[Function]}
   encType={undefined}

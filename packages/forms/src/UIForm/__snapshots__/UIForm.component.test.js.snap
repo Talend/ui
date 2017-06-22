@@ -100,5 +100,21 @@ exports[`UIForm component should render form 1`] = `
       }
     }
   />
+  <Buttons
+    id="myFormId-myFormName-actions"
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "items": Array [
+          Object {
+            "bsStyle": "primary",
+            "title": "Submit",
+            "type": "submit",
+            "widget": "button",
+          },
+        ],
+      }
+    }
+  />
 </form>
 `;

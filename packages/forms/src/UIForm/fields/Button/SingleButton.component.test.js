@@ -14,7 +14,6 @@ describe('SingleButton field', () => {
 		const wrapper = shallow(
 			<SingleButton
 				id={'myForm'}
-				onTrigger={jest.fn()}
 				schema={schema}
 			/>
 		);
@@ -34,7 +33,6 @@ describe('SingleButton field', () => {
 		const wrapper = shallow(
 			<SingleButton
 				id={'myForm'}
-				onTrigger={jest.fn()}
 				schema={submitSchema}
 			/>
 		);
@@ -54,8 +52,45 @@ describe('SingleButton field', () => {
 		const wrapper = shallow(
 			<SingleButton
 				id={'myForm'}
-				onTrigger={jest.fn()}
 				schema={resetSchema}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render disabled button', () => {
+		// given
+		const disabledSchema = {
+			...schema,
+			disabled: true,
+		};
+
+		// when
+		const wrapper = shallow(
+			<SingleButton
+				id={'myForm'}
+				schema={disabledSchema}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render inProgress button', () => {
+		// given
+		const inProgressSchema = {
+			...schema,
+			disabled: true,
+		};
+
+		// when
+		const wrapper = shallow(
+			<SingleButton
+				id={'myForm'}
+				schema={inProgressSchema}
 			/>
 		);
 
