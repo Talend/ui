@@ -33,6 +33,7 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		column-count: 3;
 		flex-grow: 1;
 		padding: 0 $padding-large;
+		min-height: 0;
 
 		> li {
 			list-style: none;
