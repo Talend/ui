@@ -14,6 +14,7 @@ export default function Buttons(props) {
 					schema.items.map((itemSchema, index) => (
 						<SingleButton
 							className={theme[itemSchema.position]}
+							key={index}
 							id={`${id}-${index}`}
 							onTrigger={onTrigger}
 							schema={itemSchema}
@@ -29,11 +30,6 @@ if (process.env.NODE_ENV !== 'production') {
 	Buttons.propTypes = {
 		id: PropTypes.string,
 		onTrigger: PropTypes.func,
-		schema: {
-			items: PropTypes.arrayOf(PropTypes.shape({
-				...SingleButton.propTypes.schema,
-				position: PropTypes.oneOf(['left', 'right']),
-			})),
-		},
+		schema: SingleButton.propTypes.schema,
 	};
 }

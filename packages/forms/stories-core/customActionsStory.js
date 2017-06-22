@@ -51,6 +51,7 @@ function story() {
 		<UIForm
 			actions={actions}
 			data={schema}
+			onReset={action('onReset')}
 			onSubmit={action('onSubmit')}
 			onTrigger={action('onTrigger')}
 		/>

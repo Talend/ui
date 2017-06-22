@@ -49,7 +49,7 @@ function createStory(filename) {
 				<section>
 					<IconsProvider />
 
-					<Tabs>
+					<Tabs id={'store-tabs'}>
 						<Tab
 							eventKey={0}
 							key={'without'}

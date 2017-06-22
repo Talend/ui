@@ -177,7 +177,7 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Actions buttons to display at the bottom of the form.
 		 * If not provided, a single submit button is displayed.
 		 */
-		actions: PropTypes.arrayOf(PropTypes.shape(Buttons.propTypes.schema)),
+		actions: PropTypes.arrayOf(Buttons.propTypes.schema),
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

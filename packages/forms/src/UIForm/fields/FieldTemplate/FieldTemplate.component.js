@@ -39,7 +39,7 @@ function FieldTemplate(props) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		children: PropTypes.element,
-		description: PropTypes.element,
+		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
