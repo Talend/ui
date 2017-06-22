@@ -2,7 +2,8 @@ import Fieldset from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
 import Button from '../fields/Button';
-import CheckBox from '../fields/CheckBox';
+import CheckBox from '../fields/CheckBox/CheckBox.component';
+import CheckBoxes from '../fields/CheckBox/CheckBoxes.component';
 import Text from '../fields/Text';
 
 const widgets = {
@@ -13,6 +14,7 @@ const widgets = {
 	// fields
 	button: Button,
 	checkbox: CheckBox,
+	checkboxes: CheckBoxes,
 	number: Text,
 	text: Text,
 };

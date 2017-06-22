@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import CheckBox from './CheckBox';
+import CheckBox from './CheckBox.component';
 
 describe('CheckBox field', () => {
 	const schema = {
@@ -54,7 +54,7 @@ describe('CheckBox field', () => {
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<CheckBox
 				id={'myForm'}
 				isValid
@@ -70,6 +70,6 @@ describe('CheckBox field', () => {
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, false);
+		expect(onChange).toBeCalledWith(expect.anything(), schema, false);
 	});
 });

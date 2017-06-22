@@ -11,9 +11,36 @@
       },
       "disabled": {
         "type": "boolean"
+      },
+      "multipleChoices": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        }
+      },
+      "customMultipleChoices": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        }
       }
     },
-    "required": ["autofocused"]
+    "required": [
+      "autofocused",
+      "multipleChoices"
+    ]
   },
   "uiSchema": [
     {
@@ -29,6 +56,22 @@
       "key": "disabled",
       "title": "Check if you are handicapped (you can't, disabled)",
       "disabled": true
+    },
+    {
+      "key": "multipleChoices",
+      "title": "Select multiple values",
+      "errorMessage": "Please select at least an option"
+    },
+    {
+      "key": "customMultipleChoices",
+      "description": "This multi select checkbox has custom labels",
+      "title": "Select multiple values",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      }
     }
   ],
   "properties": {
