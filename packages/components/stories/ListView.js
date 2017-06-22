@@ -48,6 +48,12 @@ const searchProps = {
 	searchCriteria: 'ore',
 };
 
+const noResultsSearch = {
+	...searchProps,
+	items: [],
+	searchCriteria: 'nopnopnop',
+	emptyLabel: 'No results found',
+};
 
 storiesOf('ListView', module)
 	.addDecorator((story) => (
@@ -85,6 +91,11 @@ storiesOf('ListView', module)
 	.addWithInfo('search mode', () => (
 		<ListView
 			{...searchProps}
+		/>
+	))
+	.addWithInfo('search mode without results', () => (
+		<ListView
+			{...noResultsSearch}
 		/>
 	))
 	.addWithInfo('selected values', () => {

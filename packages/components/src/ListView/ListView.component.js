@@ -22,7 +22,7 @@ function ListView(props) {
 				props.items && props.items.length ? (
 					<ItemsListView {...props} />
 				) : (
-					<span className={theme['no-result']}>No result found</span>
+					<span className={theme['empty-message']}>{ props.emptyLabel }</span>
 				)
 			}
 		</div>
@@ -71,7 +71,6 @@ function ItemsListView(props) {
 			toggleAllChecked={props.toggleAllChecked}
 			toggleAllLabel={props.toggleAllLabel}
 			onToggleAll={props.onToggleAll}
-			emptyLabel={props.emptyLabel}
 			getItemHeight={props.getItemHeight}
 		/>
 	);
@@ -79,7 +78,6 @@ function ItemsListView(props) {
 
 ItemsListView.propTypes = {
 	items: ListView.propTypes.items,
-	emptyLabel: ListView.propTypes.emptyLabel,
 	searchCriteria: ListView.propTypes.searchCriteria,
 	toggleAllChecked: ListView.propTypes.toggleAllChecked,
 	toggleAllLabel: ListView.propTypes.toggleAllLabel,
