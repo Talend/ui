@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Button from './Button.component';
 
 describe('Button field', () => {
-	it('should render button', () => {
+	it('should render button wrapped with field template', () => {
 		// given
 		const schema = {
 			description: 'Click here to trigger a trigger',

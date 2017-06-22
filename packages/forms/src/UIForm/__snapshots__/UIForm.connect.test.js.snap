@@ -24,6 +24,83 @@ Object {
 }
 `;
 
+exports[`UIForm connect #onReset should reset form with initial schema and data 1`] = `
+Object {
+  "errors": undefined,
+  "formName": "myFormName",
+  "jsonSchema": Object {
+    "properties": Object {
+      "check": Object {},
+      "firstname": Object {
+        "type": "string",
+      },
+      "lastname": Object {
+        "minLength": 10,
+        "type": "string",
+      },
+    },
+    "required": Array [
+      "firstname",
+    ],
+    "title": "Comment",
+    "type": "object",
+  },
+  "properties": Object {},
+  "type": "TF_UPDATE_FORM",
+  "uiSchema": Array [
+    Object {
+      "autoFocus": true,
+      "description": "Hint: this is the last name",
+      "key": Array [
+        "lastname",
+      ],
+      "minlength": 10,
+      "ngModelOptions": Object {},
+      "schema": Object {
+        "minLength": 10,
+        "type": "string",
+      },
+      "title": "Last Name (with description)",
+      "type": "text",
+    },
+    Object {
+      "key": Array [
+        "firstname",
+      ],
+      "ngModelOptions": Object {},
+      "placeholder": "Enter your firstname here",
+      "required": true,
+      "schema": Object {
+        "type": "string",
+      },
+      "title": "First Name (with placeholder)",
+      "triggers": Array [
+        "after",
+      ],
+      "type": "text",
+    },
+    Object {
+      "key": Array [
+        "check",
+      ],
+      "title": "Check the thing",
+      "triggers": Array [
+        "after",
+      ],
+      "widget": "button",
+    },
+  ],
+}
+`;
+
+exports[`UIForm connect #onReset should reset form with initial schema and data 2`] = `
+Object {
+  "errors": Object {},
+  "formName": "myFormName",
+  "type": "TF_SET_ALL_ERRORS",
+}
+`;
+
 exports[`UIForm connect should create form state on mount 1`] = `
 Object {
   "errors": undefined,

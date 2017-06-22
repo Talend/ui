@@ -43,6 +43,38 @@ export const data = {
 	errors: {},
 };
 
+export const actions = [
+	{
+		title: 'Reset',
+		type: 'reset',
+		widget: 'button',
+	},
+	{
+		disabled: true,
+		title: 'Disabled',
+		type: 'button',
+		widget: 'button',
+	},
+	{
+		inProgress: true,
+		title: 'In progress',
+		type: 'button',
+		widget: 'button',
+	},
+	{
+		title: 'Trigger',
+		triggers: ['test'],
+		type: 'button',
+		widget: 'button',
+	},
+	{
+		bsStyle: 'primary',
+		title: 'Submit',
+		type: 'submit',
+		widget: 'button',
+	},
+];
+
 export const mergedSchema = [
 	{
 		autoFocus: true,

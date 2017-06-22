@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { data, mergedSchema, initProps } from '../../__mocks__/data';
+import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 
 import UIForm from './UIForm.component';
 
@@ -18,6 +18,20 @@ describe('UIForm component', () => {
 	it('should render form', () => {
 		// when
 		const wrapper = shallow(<UIForm {...data} {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render provided actions', () => {
+		// when
+		const wrapper = shallow(
+			<UIForm
+				{...data}
+				{...props}
+				actions={actions}
+			/>
+		);
 
 		// then
 		expect(wrapper.node).toMatchSnapshot();
@@ -141,7 +155,7 @@ describe('UIForm component', () => {
 		});
 	});
 
-	describe('#submit', () => {
+	describe('#onSubmit', () => {
 		it('should prevent event default', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);

@@ -113,4 +113,33 @@ describe('UIForm container', () => {
 			expect(instance.state).toMatchSnapshot();
 		});
 	});
+
+	describe('#onReset', () => {
+		it('should reset form with initial schema and data', () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+			const instance = wrapper.instance();
+			const event = { target: {} };
+
+			// when
+			instance.onReset(event);
+
+			// then
+			expect(instance.state).toMatchSnapshot();
+		});
+
+		it('should call onReset from props', () => {
+			// given
+			const onReset = jest.fn();
+			const wrapper = shallow(<UIForm data={data} {...props} onReset={onReset} />);
+			const instance = wrapper.instance();
+			const event = { target: {} };
+
+			// when
+			instance.onReset(event);
+
+			// then
+			expect(onReset).toBeCalledWith(event);
+		});
+	});
 });
