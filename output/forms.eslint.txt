@@ -154,16 +154,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
   119:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
-  27:21  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   66:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 131 problems (131 errors, 0 warnings)
+✖ 130 problems (130 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
