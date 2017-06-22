@@ -39,6 +39,4 @@ describe('Table.getAbsolutePath', () => {
 		const path = getAbsolutePath(0, keys[0], true);
 		expect(path).toBe('$[0][\'attr\'][0]');
 	});
-
 });
-
