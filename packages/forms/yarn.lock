@@ -1238,9 +1238,9 @@ bootstrap-sass@3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.85.1:
-  version "0.85.1"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.85.1.tgz#8e134ddac59a6b7ac59daad05c2aa1474d0da000"
+bootstrap-talend-theme@^0.86.0:
+  version "0.86.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.86.0.tgz#407030323d570dc9085759d10b40a0757ae25022"
   dependencies:
     bootstrap-sass "3.3.7"
 
@@ -5030,9 +5030,9 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-talend-components@^0.85.1:
-  version "0.85.1"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.85.1.tgz#118982ec58e224957ef233c8b6ec4d9d9599c504"
+react-talend-components@^0.86.0:
+  version "0.86.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.86.0.tgz#9f1f3f57e7b61891b3c6bdd3e08caa4de6cb183e"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "^7.0.0"
@@ -5768,9 +5768,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.85.1:
-  version "0.85.1"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.85.1.tgz#f16179366d24d9c68679c8bbb5dfc30fa6df03d2"
+talend-icons@^0.86.0:
+  version "0.86.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.86.0.tgz#3377ef2065bf8b764fe1466229333aaa1fec8a13"
 
 talend-json-schema-form-core@1.0.2-alpha.2:
   version "1.0.2-alpha.2"
