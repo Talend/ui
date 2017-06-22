@@ -149,6 +149,10 @@ exports[`Storyshots HeaderBar default 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -217,6 +221,10 @@ exports[`Storyshots HeaderBar default 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -2137,6 +2145,10 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -2205,6 +2217,10 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -4071,6 +4087,10 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -4139,6 +4159,10 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -6174,6 +6198,10 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -6242,6 +6270,10 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -8155,6 +8187,16 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     role="menuitem"
                     tabIndex="-1"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-board"
+                      />
+                    </svg>
                     Onboarding
                   </a>
                 </li>
@@ -8172,6 +8214,16 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     role="menuitem"
                     tabIndex="-1"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
                     About
                   </a>
                 </li>
@@ -8210,6 +8262,10 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -8278,6 +8334,10 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -10370,6 +10430,10 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -10438,6 +10502,10 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -12264,6 +12332,10 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -12332,6 +12404,10 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -14461,6 +14537,10 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     User NAME
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-user"
@@ -14529,6 +14609,10 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     Apps
                   </span>
                 </span>
+                 
+                <span
+                  className="caret"
+                />
               </button>
               <ul
                 aria-labelledby="header-products"

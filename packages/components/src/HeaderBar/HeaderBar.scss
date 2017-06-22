@@ -100,7 +100,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 	.tc-header-bar-search {
 		form {
-			height: 48px;
+			height: $navbar-height;
 		}
 
 		[role='search'] > div > div:first-child {

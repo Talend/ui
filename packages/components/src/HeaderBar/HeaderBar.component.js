@@ -137,7 +137,7 @@ function Help({ renderers, ...props }) {
 
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			{ props.items ? (
+			{ props.items && props.items.length ? (
 				<renderers.ActionSplitDropdown pullRight {...global} />
 			) : (
 				<renderers.Action {...global} />
