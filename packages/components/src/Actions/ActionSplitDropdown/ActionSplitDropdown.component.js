@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import {
 	SplitButton,
 	MenuItem,
@@ -41,6 +42,7 @@ function ActionSplitDropdown(props) {
 		model,
 		onClick,
 		emptyDropdownLabel,
+		className,
 		...rest
 	} = props;
 
@@ -56,7 +58,7 @@ function ActionSplitDropdown(props) {
 			onClick={event => rClick(event, onClick, { label, ...rest }, model)}
 			title={Title}
 			id={uuid.v4()}
-			className={theme['tc-split-dropdown']}
+			className={classNames(className, theme['tc-split-dropdown'])}
 			{...rest}
 		>
 			{
@@ -83,6 +85,7 @@ ActionSplitDropdown.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
 	emptyDropdownLabel: PropTypes.string,
+	className: PropTypes.string,
 };
 
 export default ActionSplitDropdown;
