@@ -189,7 +189,7 @@ if (process.env.NODE_ENV !== 'production') {
 		actions: ActionsPropTypes,
 		buttonBlockClass: PropTypes.string,
 		handleAction: PropTypes.func,
-		widgets: PropTypes.object,
+		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formContext: PropTypes.func,
 		children: PropTypes.element,
 	};
