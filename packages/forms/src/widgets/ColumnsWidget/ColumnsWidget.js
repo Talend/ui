@@ -50,7 +50,7 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 		<div className={`tf-widget-columns ${theme.columns}`}>
 			<TitleField id={`${name}__title`} title={schema.title || name} />
 			{schema.properties ? Object.keys(schema.properties).map(
-				(key) => (
+				key => (
 					<Column
 						{...props}
 						key={key}

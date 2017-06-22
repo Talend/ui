@@ -62,7 +62,7 @@ function renderDatalistItem(item, { value }) {
 		const matchedValues = item.match(regex);
 		const restValues = item.split(regex);
 
-		for (let i = 0; i < restValues.length; i++) {
+		for (let i = 0; i < restValues.length; i += 1) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
 				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);

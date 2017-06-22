@@ -24,7 +24,7 @@ function generateProps(values, selected) {
 }
 
 function simulateSearch(wrp, value) {
-	return new Promise(res => {
+	return new Promise((res) => {
 		wrp.find('HeaderListView > input').simulate('change', { target: { value } });
 		setTimeout(res, 401); // because there is a debounce timer
 	});

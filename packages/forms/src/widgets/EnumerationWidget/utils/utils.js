@@ -52,7 +52,7 @@ export function manageShiftKey(indexSelected, items) {
 }
 
 export function deleteSelectedItems(items) {
-	return items.filter((item) => !item.isSelected);
+	return items.filter(item => !item.isSelected);
 }
 
 /**
@@ -60,6 +60,5 @@ export function deleteSelectedItems(items) {
  * @param items
  */
 export function resetItems(items) {
-	return items.map((currentItem) =>
-	({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
+	return items.map(currentItem => ({ ...currentItem, displayMode: 'DISPLAY_MODE_DEFAULT' }));
 }

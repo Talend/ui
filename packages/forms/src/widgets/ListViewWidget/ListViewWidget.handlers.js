@@ -46,7 +46,7 @@ export function onToggleAll() {
 	const checked = !this.state.toggleAllChecked;
 	const items = this.state.items;
 	const displayedItems = this.state.displayedItems;
-	const newItems = items.map(item => {
+	const newItems = items.map((item) => {
 		const displayedItem = displayedItems.find(i => i.index === item.index);
 		if (displayedItem) {
 			return {
@@ -56,7 +56,7 @@ export function onToggleAll() {
 		}
 		return item;
 	});
-	const newDisplayedItems = this.state.displayedItems.map((displayedItem) => (
+	const newDisplayedItems = this.state.displayedItems.map(displayedItem => (
 		{
 			...displayedItem,
 			checked,
