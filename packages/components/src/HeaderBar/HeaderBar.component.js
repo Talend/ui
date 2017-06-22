@@ -132,7 +132,7 @@ function Help({ renderers, ...props }) {
 		icon: 'talend-question-circle',
 		label: 'Help',
 		tooltipPlacement: 'bottom',
-		...props
+		...props,
 	};
 
 	return (
@@ -164,7 +164,6 @@ function User({ name, renderers, ...props }) {
 			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
-				noCaret
 				pullRight
 				tooltipPlacement="bottom"
 				label={name}
@@ -188,7 +187,6 @@ function Products({ renderers, ...props }) {
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
 				label="Apps"
-				noCaret
 				pullRight
 				tooltipPlacement="bottom"
 				{...props}
