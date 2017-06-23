@@ -40,6 +40,15 @@ describe('CMF http middleware', () => {
 		action.type = 'HTTP/POST';
 		expect(isHTTPRequest(action)).toBe(false);
 	});
+	it('should isHTTPRequest check action.cmf.http', () => {
+		const action = {
+			type: 'WHAT_EVER_YOU_WANT',
+			cmf: {
+				http: {},
+			},
+		};
+		expect(isHTTPRequest(action)).toBe(true);
+	});
 	it('should getMethod find HTTP method in action type', () => {
 		expect(getMethod({ type: HTTP_METHODS.POST })).toBe('POST');
 		expect(getMethod({ type: HTTP_METHODS.OPTIONS })).toBe('OPTIONS');

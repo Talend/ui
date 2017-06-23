@@ -12,7 +12,7 @@ export const DEFAULT_HTTP_HEADERS = {
 };
 
 export function isHTTPRequest(action) {
-	return action.type in HTTP_METHODS;
+	return action.type in HTTP_METHODS || !!get(action, 'cmf.http');
 }
 
 /**
@@ -122,37 +122,46 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 	if (!isHTTPRequest(action)) {
 		return next(action);
 	}
-	const config = mergeOptions(action);
-	dispatch(httpRequest(action.url, config));
-	if (action.onSend) {
+	const httpAction = get(action, 'cmf.http', action);
+	const config = mergeOptions(httpAction);
+	dispatch(httpRequest(httpAction.url, config));
+	if (httpAction.onSend) {
 		dispatch({
-			type: action.onSend,
-			action,
+			type: httpAction.onSend,
+			httpAction,
 		});
 	}
 	const onHTTPError = (error) => {
-		const newAction = Object.assign({
-			error: {
-				name: error.name,
-				message: error.description || error.message,
-				number: error.number,
-				stack: error.stack,
-			},
-		}, action);
+		const errorObject = {
+			name: error.name,
+			message: error.description || error.message,
+			number: error.number,
+			stack: error.stack,
+		};
+		const clone = get(error, 'stack.response.clone');
+		if (!clone) {
+			dispatch({
+				type: 'HTTP_REDUCE_ERROR',
+				error: errorObject,
+				action: httpAction,
+			});
+			return next(action);
+		}
 
 		// clone the response object else the next call to text or json
 		// triggers an exception Already use
-		newAction.error.stack.response.clone().text().then((response) => {
+		return clone().text().then((response) => {
 			try {
-				newAction.error.stack.response = response;
-				newAction.error.stack.messageObject = JSON.parse(response);
+				errorObject.stack.response = response;
+				errorObject.stack.messageObject = JSON.parse(response);
 			} finally {
-				if (newAction.onError) {
-					dispatch(onError(newAction, newAction.error));
+				if (httpAction.onError) {
+					dispatch(onError(httpAction, errorObject));
 				} else {
-					dispatch(httpError(newAction.error));
+					dispatch(httpError(errorObject));
 				}
 			}
+			return next(action);
 		});
 	};
 	return fetch(action.url, config)
