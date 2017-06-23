@@ -25,6 +25,9 @@ const cmfMiddleware = store => next => (action) => {
 			},
 		});
 	}
+	if (config.componentState) {
+		store.dispatch(config.componentState);
+	}
 	return next(action);
 };
 

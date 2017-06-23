@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import Immutable, { Map } from 'immutable';
+import Immutable, { fromJS, Map } from 'immutable';
 import actions from '../src/actions/';
 
 import state, {
@@ -24,10 +24,7 @@ describe('state', () => {
 		expect(typeof props.setState).toBe('function');
 		props.setState();
 		const call = dispatch.mock.calls[0][0];
-		expect(call.type).toBe('REACT_CMF.COMPONENT_MERGE_STATE');
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
-		expect(call.componentState).toBe();
+		expect(call).toMatchSnapshot();
 	});
 	it('should getStateAccessors return accessors', () => {
 		const dispatch = jest.fn();
@@ -40,26 +37,15 @@ describe('state', () => {
 		props.initState();
 		let call = dispatch.mock.calls[0][0];
 		const addComp = actions.componentsActions.addComponentState('name', 'id', DEFAULT_STATE);
-		expect(call.type).toBe(addComp.type);
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
+		expect(call).toMatchSnapshot();
 
 		props.setState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
-		const mergeComp = actions.componentsActions.mergeComponentState(
-			'name',
-			'id',
-			DEFAULT_STATE.set('foo', 'baz'),
-		);
-		expect(call.type).toBe(mergeComp.type);
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
-		expect(call.componentState.foo).toBe('baz');
+		expect(call).toMatchSnapshot();
 
 		props.deleteState();
 		call = dispatch.mock.calls[2][0];
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
+		expect(call).toMatchSnapshot();
 	});
 
 	it(`should call state if state is a function,
@@ -80,26 +66,20 @@ describe('state', () => {
 		const getState = jest.fn(() => ({
 			cmf: {
 				components: new Map({
-					name: new Map({
+					MySuperComponent: new Map({
 						id: { compState: true },
 					}),
 				}),
 			},
 		}));
-		applyCallback(callback, 'name', 'id')(dispatch, getState);
+		applyCallback(callback, 'MySuperComponent', 'id')(dispatch, getState);
 		expect(callback.mock.calls[0][0]).toEqual({
 			state: {
 				compState: true,
 			},
 		});
-		expect(dispatch.mock.calls[0][0]).toEqual({
-			type: 'REACT_CMF.COMPONENT_MERGE_STATE',
-			componentName: 'name',
-			key: 'id',
-			componentState: {
-				compState: false,
-			},
-		});
+		const action = dispatch.mock.calls[0][0];
+		expect(action).toMatchSnapshot();
 	});
 
 	it('should getStateProps return state', () => {

@@ -17,7 +17,12 @@ export function initState(props) {
 export function applyCallback(callback, name, id) {
 	return (dispatch, getState) => {
 		const newState = callback(getStateProps(getState(), name, id));
-		dispatch(actions.componentsActions.mergeComponentState(name, id, newState));
+		const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+		dispatch({
+			id,
+			type: `${name}.setState`,
+			cmf: { componentState },
+		});
 	};
 }
 
@@ -33,18 +38,33 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 			if (typeof state === 'function') {
 				dispatch(applyCallback(state, name, id));
 			} else {
-				dispatch(actions.componentsActions.mergeComponentState(name, id, state));
+				const componentState = actions.componentsActions.mergeComponentState(name, id, state);
+				dispatch({
+					id,
+					type: `${name}.setState`,
+					cmf: { componentState },
+				});
 			}
 		},
 		initState(initialState) {
 			if (DEFAULT_STATE) {
 				const state = DEFAULT_STATE.merge(initialState);
-				dispatch(actions.componentsActions.addComponentState(name, id, state));
+				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				dispatch({
+					id,
+					type: `${name}.initState`,
+					cmf: { componentState },
+				});
 			}
 		},
 		deleteState() {
 			if (DEFAULT_STATE) {
-				dispatch(actions.componentsActions.removeComponentState(name, id));
+				const componentState = actions.componentsActions.removeComponentState(name, id);
+				dispatch({
+					id,
+					type: `${name}.deleteState`,
+					cmf: { componentState },
+				});
 			}
 		},
 	};
