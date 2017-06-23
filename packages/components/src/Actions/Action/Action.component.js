@@ -88,6 +88,7 @@ function Action(props) {
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
 	const leftClick = (event) => {
+		// to prevent odd bug with FF
 		if (event.button === 0) {
 			onClick(event, {
 				action: { label, ...rest },
@@ -97,6 +98,7 @@ function Action(props) {
 	};
 
 	const middleClick = (event) => {
+		// to not call onClick twice when left click
 		if (event.button === 1) {
 			onClick(event, {
 				action: { label, ...rest },
