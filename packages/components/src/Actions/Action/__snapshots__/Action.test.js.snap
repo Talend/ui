@@ -1,186 +1,1126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should apply transformation on icon 1`] = `
-<button
-  className="btn btn-default"
-  disabled={false}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <Icon
+        name="talend-caret-down"
+        transform="rotate-180"
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <Icon
+            name="talend-caret-down"
+            transform="rotate-180"
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        disabled={false}
+        icon="talend-caret-down"
+        iconTransform="rotate-180"
+        inProgress={false}
+        label="Click me"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 13,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "iconTransform": "rotate-180",
+          "inProgress": false,
+          "label": "Click me",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 7,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform="rotate-180"
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 14,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform="rotate-180"
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    disabled={false}
+    icon="talend-caret-down"
+    iconTransform="rotate-180"
+    inProgress={false}
+    label="Click me"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should display a Progress indicator if set 1`] = `
-<button
-  className="navbar-btn btn btn-default"
-  disabled={true}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={true}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
-  >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
-        }
-      }
+    <CircularProgress
+        size="small"
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="navbar-btn"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <CircularProgress
+            size="small"
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        className="navbar-btn"
+        disabled={false}
+        icon="talend-caret-down"
+        inProgress={true}
+        label="Click me"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 7,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "className": "navbar-btn",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "inProgress": true,
+          "label": "Click me",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 4,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={true}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <CircularProgress
+                    size="small"
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 8,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={true}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <CircularProgress
+                    size="small"
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={false}
+    icon="talend-caret-down"
+    inProgress={true}
+    label="Click me"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should display a disabled Icon 1`] = `
-<button
-  className="navbar-btn btn btn-default"
-  disabled={true}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={true}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <Icon
+        name="talend-caret-down"
+        transform={undefined}
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="navbar-btn"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <Icon
+            name="talend-caret-down"
+            transform={undefined}
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        className="navbar-btn"
+        disabled={true}
+        icon="talend-caret-down"
+        inProgress={false}
+        label="Click me"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 9,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "className": "navbar-btn",
+          "disabled": true,
+          "icon": "talend-caret-down",
+          "inProgress": false,
+          "label": "Click me",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 5,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={true}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 10,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={true}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={true}
+    icon="talend-caret-down"
+    inProgress={false}
+    label="Click me"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should pass all props to the Button 1`] = `
-<button
-  className="navbar-btn btn btn-default"
-  disabled={false}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <Icon
+        name="talend-caret-down"
+        transform={undefined}
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="navbar-btn"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <Icon
+            name="talend-caret-down"
+            transform={undefined}
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        className="navbar-btn"
+        disabled={false}
+        icon="talend-caret-down"
+        inProgress={false}
+        label="Click me"
+        notExisting={true}
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 5,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "className": "navbar-btn",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "inProgress": false,
+          "label": "Click me",
+          "notExisting": true,
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 3,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 6,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          className="navbar-btn"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    className="navbar-btn"
+    disabled={false}
+    icon="talend-caret-down"
+    inProgress={false}
+    label="Click me"
+    notExisting={true}
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should render a button 1`] = `
-<button
-  className="btn btn-default"
-  disabled={false}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <Icon
+        name="talend-caret-down"
+        transform={undefined}
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <Icon
+            name="talend-caret-down"
+            transform={undefined}
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        disabled={false}
+        icon="talend-caret-down"
+        inProgress={false}
+        label="Click me"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "inProgress": false,
+          "label": "Click me",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 2,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    disabled={false}
+    icon="talend-caret-down"
+    inProgress={false}
+    label="Click me"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should render action with html property name = props.name if set 1`] = `
-<button
-  className="btn btn-default"
-  disabled={false}
-  name="custom_name"
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    name="custom_name"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <Icon
+        name="talend-caret-down"
+        transform={undefined}
     />
-  </svg>
-  <span>
-    Click me
-  </span>
-</button>
+    <span>
+        Click me
+    </span>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+      name="custom_name"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <Icon
+            name="talend-caret-down"
+            transform={undefined}
+      />
+      <span>
+            Click me
+      </span>
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        disabled={false}
+        icon="talend-caret-down"
+        inProgress={false}
+        label="Click me"
+        name="custom_name"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 15,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "inProgress": false,
+          "label": "Click me",
+          "name": "custom_name",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 8,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          name="custom_name"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+        "_debugID": 16,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          name="custom_name"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+          <span>
+                    Click me
+          </span>
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    disabled={false}
+    icon="talend-caret-down"
+    inProgress={false}
+    label="Click me"
+    name="custom_name"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
 
 exports[`Action should reverse icon/label 1`] = `
-<button
-  className="btn btn-default"
-  disabled={false}
-  onClick={[Function]}
-  onMouseDown={[Function]}
-  role={null}
-  type="button"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
 >
-  <span>
-    Click me
-  </span>
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
+    <span>
+        Click me
+    </span>
+    <Icon
+        name="talend-caret-down"
+        transform={undefined}
     />
-  </svg>
-</button>
+</Button>,
+  "nodes": Array [
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+>
+      <span>
+            Click me
+      </span>
+      <Icon
+            name="talend-caret-down"
+            transform={undefined}
+      />
+</Button>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Action
+        bsStyle="default"
+        disabled={false}
+        icon="talend-caret-down"
+        iconPosition="right"
+        inProgress={false}
+        label="Click me"
+        onClick={[Function]}
+        tooltipPlacement="top"
+/>,
+      "_debugID": 11,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "bsStyle": "default",
+          "disabled": false,
+          "icon": "talend-caret-down",
+          "iconPosition": "right",
+          "inProgress": false,
+          "label": "Click me",
+          "onClick": [Function],
+          "tooltipPlacement": "top",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 6,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <span>
+                    Click me
+          </span>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+</Button>,
+        "_debugID": 12,
+        "_renderedOutput": <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+>
+          <span>
+                    Click me
+          </span>
+          <Icon
+                    name="talend-caret-down"
+                    transform={undefined}
+          />
+</Button>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Action
+    bsStyle="default"
+    disabled={false}
+    icon="talend-caret-down"
+    iconPosition="right"
+    inProgress={false}
+    label="Click me"
+    onClick={[Function]}
+    tooltipPlacement="top"
+/>,
+}
 `;
