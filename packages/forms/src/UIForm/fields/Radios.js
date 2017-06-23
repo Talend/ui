@@ -21,7 +21,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, schema, va
 					<div className={radioClassNames} key={index}>
 						<label>
 							<input
-								id={id}
+								id={`${id}-${index}`}
 								autoFocus={autoFocus}
 								checked={option.value === value}
 								disabled={disabled}
