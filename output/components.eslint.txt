@@ -6,6 +6,16 @@ Scoping to packages that match 'react-talend-components'
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
+  28:24  error  There should be no spaces inside this paren  space-in-parens
+  28:26  error  A space is required after '{'                object-curly-spacing
+  28:36  error  A space is required before '}'               object-curly-spacing
+  28:38  error  There should be no spaces inside this paren  space-in-parens
+  35:26  error  There should be no spaces inside this paren  space-in-parens
+  35:28  error  A space is required after '{'                object-curly-spacing
+  35:38  error  A space is required before '}'               object-curly-spacing
+  35:40  error  There should be no spaces inside this paren  space-in-parens
+
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
   7:27  error  'name' is missing in props validation  react/prop-types
 
@@ -38,7 +48,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
   47:18  error  'label' is missing in props validation  react/prop-types
 
-✖ 16 problems (16 errors, 0 warnings)
+✖ 24 problems (24 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
