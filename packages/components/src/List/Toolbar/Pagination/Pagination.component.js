@@ -62,6 +62,49 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		}
 		onChange(from, itemsPerPage);
 	}
+	function getNavigationItems() {
+		return [(
+			<NavItem
+				eventKey={FIRST}
+				id={id && `${id}-nav-to-first`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...first} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={PREV}
+				id={id && `${id}-nav-to-prev`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...prev} />
+			</NavItem>
+		), (
+			<NavItem disabled>
+				<span className="btn-link">{currentPage}/{pagesLength}</span>
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={NEXT}
+				id={id && `${id}-nav-to-next`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...next} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={LAST}
+				id={id && `${id}-nav-to-last`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...last} />
+			</NavItem>
+		)];
+	}
 	return (
 		<Nav
 			className={theme['tc-pagination']}
@@ -74,51 +117,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			>
 				{itemsPerPageOptions.map((option, index) => getMenuItem(option, index))}
 			</NavDropdown>
-			{isNavigationShown && (
-				<NavItem
-					eventKey={FIRST}
-					id={id && `${id}-nav-to-first`}
-					className={'btn-link'}
-					disabled={startIndex <= 1}
-				>
-					<Icon {...first} />
-				</NavItem>
-			)}
-			{isNavigationShown && (
-				<NavItem
-					eventKey={PREV}
-					id={id && `${id}-nav-to-prev`}
-					className={'btn-link'}
-					disabled={startIndex <= 1}
-				>
-					<Icon {...prev} />
-				</NavItem>
-			)}
-			{isNavigationShown && (
-				<NavItem disabled>
-					<span className="btn-link">{currentPage}/{pagesLength}</span>
-				</NavItem>
-			)}
-			{isNavigationShown && (
-				<NavItem
-					eventKey={NEXT}
-					id={id && `${id}-nav-to-next`}
-					className={'btn-link'}
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...next} />
-				</NavItem>
-			)}
-			{isNavigationShown && (
-				<NavItem
-					eventKey={LAST}
-					id={id && `${id}-nav-to-last`}
-					className={'btn-link'}
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...last} />
-				</NavItem>
-			)}
+			{isNavigationShown && getNavigationItems()}
 		</Nav>
 	);
 }
