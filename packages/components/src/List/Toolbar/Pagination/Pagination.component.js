@@ -34,6 +34,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
+	const isNavigationShown = itemsPerPage > 0 && pagesLength > 1;
 	function onChangeItemsPerPage(value) {
 		return onChange(1, value);
 	}
@@ -73,32 +74,32 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			>
 				{itemsPerPageOptions.map((option, index) => getMenuItem(option, index))}
 			</NavDropdown>
-			{itemsPerPage > 0 && (
+			{isNavigationShown && (
 				<NavItem
 					eventKey={FIRST}
 					id={id && `${id}-nav-to-first`}
 					className={'btn-link'}
-					disabled={startIndex === 1}
+					disabled={startIndex <= 1}
 				>
 					<Icon {...first} />
 				</NavItem>
 			)}
-			{itemsPerPage > 0 && (
+			{isNavigationShown && (
 				<NavItem
 					eventKey={PREV}
 					id={id && `${id}-nav-to-prev`}
 					className={'btn-link'}
-					disabled={startIndex === 1}
+					disabled={startIndex <= 1}
 				>
 					<Icon {...prev} />
 				</NavItem>
 			)}
-			{itemsPerPage > 0 && (
+			{isNavigationShown && (
 				<NavItem disabled>
 					<span className="btn-link">{currentPage}/{pagesLength}</span>
 				</NavItem>
 			)}
-			{itemsPerPage > 0 && (
+			{isNavigationShown && (
 				<NavItem
 					eventKey={NEXT}
 					id={id && `${id}-nav-to-next`}
@@ -108,7 +109,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 					<Icon {...next} />
 				</NavItem>
 			)}
-			{itemsPerPage > 0 && (
+			{isNavigationShown && (
 				<NavItem
 					eventKey={LAST}
 					id={id && `${id}-nav-to-last`}
