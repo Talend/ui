@@ -17,7 +17,8 @@ export default class UIForm extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.submit = this.submit.bind(this);
+		this.onReset = this.onReset.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	/**
@@ -88,10 +89,29 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
+	 * Set the original data and schema
+	 * Triggers reset callback if form is valid
+	 * @param event the reset event
+	 */
+	onReset(event) {
+		this.props.updateForm(
+			this.props.formName,
+			this.props.initialData.jsonSchema,
+			this.props.initialData.uiSchema,
+			this.props.initialData.properties
+		);
+		this.props.setErrors(this.props.formName, {});
+
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
+	}
+
+	/**
 	 * Triggers submit callback if form is valid
 	 * @param event the submit event
 	 */
-	submit(event) {
+	onSubmit(event) {
 		if (this.props.onSubmit) {
 			event.preventDefault();
 		}
@@ -116,7 +136,6 @@ export default class UIForm extends React.Component {
 			type: 'submit',
 			widget: 'button',
 		}];
-		const actionsSchema = { items: actions };
 
 		return (
 			<form
@@ -128,8 +147,8 @@ export default class UIForm extends React.Component {
 				method={this.props.method}
 				name={this.props.formName}
 				noValidate={this.props.noHtml5Validate}
-				onReset={this.props.onReset}
-				onSubmit={this.submit}
+				onReset={this.onReset}
+				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
 				{
@@ -150,7 +169,7 @@ export default class UIForm extends React.Component {
 				<Buttons
 					id={`${this.props.id}-${this.props.formName}-actions`}
 					onTrigger={this.onTrigger}
-					schema={actionsSchema}
+					schema={{ items: actions }}
 				/>
 			</form>
 		);
@@ -172,6 +191,12 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		/** Form definition: The forms initial data */
+		initialData: PropTypes.shape({
+			jsonSchema: PropTypes.object,
+			uiSchema: PropTypes.array,
+			properties: PropTypes.object,
+		}),
 
 		/**
 		 * Actions buttons to display at the bottom of the form.

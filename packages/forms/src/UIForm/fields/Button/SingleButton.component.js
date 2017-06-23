@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 import { Action } from 'react-talend-components';
 import classNames from 'classnames';
 
-export default function SingleButton(props) {
-	const { className, id, onTrigger, schema } = props;
+export default function SingleButton({ className, id, onTrigger, schema }) {
 	const { bsStyle, disabled, inProgress, title, triggers, type = 'button' } = schema;
 
-	const onClick = type === 'button' && triggers ?
-		event => onTrigger(event, triggers[0], schema) :
-		undefined;
+	let onClick;
+	if (type === 'button' && triggers) {
+		onClick = event => onTrigger(event, triggers[0], schema);
+	}
 
 	return (
 		<Action

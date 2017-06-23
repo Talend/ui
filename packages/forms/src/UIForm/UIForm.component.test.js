@@ -162,7 +162,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(event);
 
 			// then
 			expect(event.preventDefault).toBeCalled();
@@ -174,7 +174,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(event);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(
@@ -189,7 +189,7 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(event);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -206,10 +206,61 @@ describe('UIForm component', () => {
 			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(event);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
+		});
+	});
+
+	describe('#onReset', () => {
+		it('should reset form with initial schema and data', () => {
+			// given
+			const initialData = {
+				...data,
+				properties: {
+					...data.properties,
+					changedField: 'lol',
+				},
+			};
+			const wrapper = mount(
+				<UIForm
+					{...data}
+					initialData={initialData}
+					{...props}
+				/>
+			);
+			const event = { target: {} };
+
+			// when
+			wrapper.find('form').at(0).simulate('reset', event);
+
+			// then
+			expect(props.updateForm).toBeCalledWith(
+				props.formName,
+				initialData.jsonSchema,
+				initialData.uiSchema,
+				initialData.properties
+			);
+			expect(props.setErrors).toBeCalledWith(props.formName, {});
+		});
+
+		it('should call onReset from props', () => {
+			// given
+			const wrapper = mount(
+				<UIForm
+					{...data}
+					initialData={data}
+					{...props}
+				/>
+			);
+			const event = { target: {} };
+
+			// when
+			wrapper.find('form').at(0).simulate('reset', event);
+
+			// then
+			expect(props.onReset).toBeCalled();
 		});
 	});
 });

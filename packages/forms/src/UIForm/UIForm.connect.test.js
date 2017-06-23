@@ -105,49 +105,4 @@ describe('UIForm connect', () => {
 			expect(props.onChange).toBeCalledWith(mergedSchema[0], 'toto', data.properties);
 		});
 	});
-
-	describe('#onReset', () => {
-		it('should reset form with initial schema and data', () => {
-			// given
-			const store = initStore(props.formName, data);
-			const wrapper = mount(
-				<UIForm
-					store={store}
-					data={data}
-					{...props}
-				/>
-			);
-			const event = { target: {} };
-			expect(store.getActions().length).toBe(1);
-
-			// when
-			wrapper.find('form').at(0).simulate('reset', event);
-
-			// then
-			expect(store.getActions().length).toBe(3);
-			expect(store.getActions()[1]).toMatchSnapshot();
-			expect(store.getActions()[2]).toMatchSnapshot();
-		});
-
-		it('should call onReset from props', () => {
-			// given
-			const store = initStore(props.formName, data);
-			const onReset = jest.fn();
-			const wrapper = mount(
-				<UIForm
-					store={store}
-					data={data}
-					{...props}
-					onReset={onReset}
-				/>
-			);
-			const event = { target: {} };
-
-			// when
-			wrapper.find('form').at(0).simulate('reset', event);
-
-			// then
-			expect(onReset).toBeCalled();
-		});
-	});
 });

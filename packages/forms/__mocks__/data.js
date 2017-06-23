@@ -112,6 +112,7 @@ export function initProps() {
 		id: 'myFormId',
 		onChange: jest.fn(),
 		onSubmit: jest.fn(),
+		onReset: jest.fn(),
 		onTrigger: jest.fn(),
 		widgets: {
 			custom: () => (<div>Custom</div>),

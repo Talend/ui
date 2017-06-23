@@ -4,23 +4,26 @@ import SingleButton from './SingleButton.component';
 
 import theme from './Buttons.scss';
 
-export default function Buttons(props) {
-	const { id, onTrigger, schema } = props;
+function getButtonsList(id, buttons, onTrigger) {
+	if (!buttons) {
+		return null;
+	}
+	return buttons.map((itemSchema, index) => (
+		<SingleButton
+			className={theme[itemSchema.position]}
+			key={index}
+			id={`${id}-${index}`}
+			onTrigger={onTrigger}
+			schema={itemSchema}
+		/>
+	));
+}
+
+export default function Buttons({ id, onTrigger, schema }) {
 	return (
 		<FieldTemplate description={schema.description}>
 			<div className={theme.buttons}>
-				{
-					schema.items &&
-					schema.items.map((itemSchema, index) => (
-						<SingleButton
-							className={theme[itemSchema.position]}
-							key={index}
-							id={`${id}-${index}`}
-							onTrigger={onTrigger}
-							schema={itemSchema}
-						/>
-					))
-				}
+				{getButtonsList(id, schema.items, onTrigger)}
 			</div>
 		</FieldTemplate>
 	);
