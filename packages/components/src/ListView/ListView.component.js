@@ -14,6 +14,7 @@ function listviewClasses() {
 }
 
 function ListView(props) {
+	const label = props.displayMode === DISPLAY_MODE_SEARCH ? props.noResultLabel : props.emptyLabel;
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
@@ -21,7 +22,7 @@ function ListView(props) {
 				props.items && props.items.length ? (
 					<ItemsListView {...props} />
 				) : (
-					<span className={theme['empty-message']}>{ props.emptyLabel }</span>
+					<span className={theme['empty-message']}>{label}</span>
 				)
 			}
 		</div>
@@ -30,13 +31,14 @@ function ListView(props) {
 
 ListView.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
-	emptyLabel: PropTypes.string,
+	noResultLabel: PropTypes.string,
 };
 
 ListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
 	headerLabel: 'Values',
 	emptyLabel: 'This list is empty.',
+	noResultLabel: 'No result found.',
 	toggleAllLabel: 'All',
 	searchPlaceholder: 'Search',
 	items: [],
@@ -51,6 +53,7 @@ function ItemsListView(props) {
 			toggleAllLabel={props.toggleAllLabel}
 			onToggleAll={props.onToggleAll}
 			getItemHeight={props.getItemHeight}
+			emptyLabel={props.emptyLabel}
 		/>
 	);
 }
@@ -62,6 +65,7 @@ ItemsListView.propTypes = {
 	toggleAllLabel: ListView.propTypes.toggleAllLabel,
 	onToggleAll: ListView.propTypes.onToggleAll,
 	getItemHeight: ListView.propTypes.getItemHeight,
+	emptyLabel: PropTypes.string,
 };
 
 function HeaderListView(props) {

@@ -10,6 +10,7 @@ jest.mock(
 );
 
 const EMPTY_LIST_MESSAGE = 'This list is empty.';
+const NO_RESULT_MESSAGE = 'No result found.';
 
 function generateProps(values, selected) {
 	return {
@@ -191,7 +192,7 @@ describe('ListViewWidget', () => {
 				.then(() => {
 					// then
 					expect(wrapper.find('Item').length).toBe(0);
-					expect(wrapper.find('span').at(0).text()).toBe(EMPTY_LIST_MESSAGE);
+					expect(wrapper.find('span').at(0).text()).toBe(NO_RESULT_MESSAGE);
 					cb();
 				});
 		});

@@ -30,7 +30,6 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 	searchPlaceholder: 'Search',
 	headerLabel: 'Choose wisely',
-	emptyLabel: 'Nothing here yet',
 	toggleAllChecked: false,
 	toggleAllLabel: 'All values',
 	onToggleAll: action('onToggleAll'),
@@ -52,7 +51,6 @@ const noResultsSearch = {
 	...searchProps,
 	items: [],
 	searchCriteria: 'nopnopnop',
-	emptyLabel: 'No results found',
 };
 
 storiesOf('ListView', module)
