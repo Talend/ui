@@ -13,7 +13,7 @@ describe('Actions', () => {
 	it('should render', () => {
 		const wrapper = renderer.create(
 			<Provider>
-				<Actions actions={['menu:demo']}/>
+				<Actions actions={['menu:demo']} />
 			</Provider>).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
