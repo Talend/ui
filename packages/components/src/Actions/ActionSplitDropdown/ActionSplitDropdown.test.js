@@ -1,11 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
-jest.mock('../../Icon', () => (
-	props => (<i name={props.name} />)
-));
 
 const items = [
 	{
@@ -28,10 +25,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -44,10 +41,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 
@@ -72,10 +69,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render "no option" item when items array is empty', () => {
@@ -89,9 +86,9 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });
