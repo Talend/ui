@@ -122,6 +122,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:3   error  Prop type `object` is forbidden                           react/forbid-prop-types
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/Form.js
+  192:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -163,7 +166,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 131 problems (131 errors, 0 warnings)
+✖ 132 problems (132 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
