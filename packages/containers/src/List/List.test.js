@@ -178,7 +178,7 @@ describe('Container List', () => {
 		props.toolbar.pagination.onChange(event, data);
 
 		// then
-		expect(dispatchActionCreator).toBeCalledWith("pagination:change", event, data, context);
+		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
 	});
 });
 
