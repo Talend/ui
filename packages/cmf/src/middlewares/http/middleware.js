@@ -145,24 +145,22 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 				error: errorObject,
 				action: httpAction,
 			});
-			return next(action);
-		}
-
-		// clone the response object else the next call to text or json
-		// triggers an exception Already use
-		return clone().text().then((response) => {
-			try {
-				errorObject.stack.response = response;
-				errorObject.stack.messageObject = JSON.parse(response);
-			} finally {
-				if (httpAction.onError) {
-					dispatch(onError(httpAction, errorObject));
-				} else {
-					dispatch(httpError(errorObject));
+		} else {
+			// clone the response object else the next call to text or json
+			// triggers an exception Already use
+			clone().text().then((response) => {
+				try {
+					errorObject.stack.response = response;
+					errorObject.stack.messageObject = JSON.parse(response);
+				} finally {
+					if (httpAction.onError) {
+						dispatch(onError(httpAction, errorObject));
+					} else {
+						dispatch(httpError(errorObject));
+					}
 				}
-			}
-			return next(action);
-		});
+			});
+		}
 	};
 	return fetch(action.url, config)
 		.then(status)

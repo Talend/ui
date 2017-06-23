@@ -329,7 +329,7 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
 			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
 			done();
-		});
+		}).catch(error => console.error(error));
 	});
 
 	it('should httpMiddleware handle callback onError', (done) => {
