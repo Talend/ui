@@ -44,10 +44,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       >
         <div
           className={undefined}
-          data-depth={0}
           data-selected={undefined}
           id="id-0"
           onClick={[Function]}
+          style={
+            Object {
+              "paddingLeft": "20px",
+            }
+          }
         >
           <div
             className={undefined}
@@ -136,10 +140,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
           >
             <div
               className={undefined}
-              data-depth={1}
               data-selected={undefined}
               id="id-0-0"
               onClick={[Function]}
+              style={
+                Object {
+                  "paddingLeft": "35px",
+                }
+              }
             >
               <div
                 className={undefined}
@@ -197,10 +205,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               >
                 <div
                   className={undefined}
-                  data-depth={2}
                   data-selected={true}
                   id="id-0-0-0"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "paddingLeft": "50px",
+                    }
+                  }
                 >
                   <span
                     className={undefined}
@@ -230,10 +242,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               >
                 <div
                   className={undefined}
-                  data-depth={2}
                   data-selected={undefined}
                   id="id-0-0-1"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "paddingLeft": "50px",
+                    }
+                  }
                 >
                   <span
                     className={undefined}
@@ -265,10 +281,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
           >
             <div
               className={undefined}
-              data-depth={1}
               data-selected={undefined}
               id="id-0-1"
               onClick={[Function]}
+              style={
+                Object {
+                  "paddingLeft": "35px",
+                }
+              }
             >
               <div
                 className={undefined}

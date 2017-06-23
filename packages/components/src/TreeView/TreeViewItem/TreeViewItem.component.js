@@ -4,6 +4,8 @@ import { Action, Icon, Badge } from '../../';
 
 import css from './TreeViewItem.scss';
 
+const PADDING_NORMAL = 15;
+const PADDING_LARGE = 20;
 function getActionHandler(func, item) {
 	return function actionHandler(event) {
 		event.stopPropagation();
@@ -75,15 +77,16 @@ function TreeViewItem({
 			link
 		/>);
 	}
+	const paddingLeft = `${(depth * PADDING_NORMAL) + PADDING_LARGE}px`;
 
 	return (
 		<li className={css['tc-treeview-li']} data-hidden={hidden}>
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				className={css['tc-treeview-item']}
-				data-depth={depth}
 				data-selected={selected}
 				onClick={selectHandler}
 				id={id}
+				style={{ paddingLeft }}
 			>
 				{!children.length ||
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
