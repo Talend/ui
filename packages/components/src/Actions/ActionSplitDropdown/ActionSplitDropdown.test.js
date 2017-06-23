@@ -50,6 +50,34 @@ describe('ActionSplitDropdown', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+
+	it('should render items with icons', () => {
+		// given
+		const props = {
+			label: 'Add File',
+			icon: 'fa fa-plus',
+			onClick: jest.fn(),
+			items: [
+				{
+					label: 'From Local',
+					onClick: jest.fn(),
+					icon: 'fa fa-plus',
+				},
+				{
+					label: 'From Remote',
+					onClick: jest.fn(),
+					icon: 'fa fa-plus',
+				},
+			],
+		};
+
+		// when
+		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render "no option" item when items array is empty', () => {
 		// given
 		const props = {
