@@ -131,6 +131,9 @@ export const renderSectionTitle = (section) => {
 };
 
 function emphasise(text, value) {
+	if (!text) {
+		return '';
+	}
 	if (!value) {
 		return [text];
 	}
@@ -145,7 +148,7 @@ function emphasise(text, value) {
 }
 
 export const renderItem = (item, { value }) => {
-	const title = item.title.trim();
+	const title = item.title ? item.title.trim() : '';
 	return (
 		<div className={theme.item} title={title}>
 			<span className={theme['item-title']}>
