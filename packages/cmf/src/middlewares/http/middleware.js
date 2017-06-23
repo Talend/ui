@@ -162,7 +162,7 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 			});
 		}
 	};
-	return fetch(action.url, config)
+	return fetch(httpAction.url, config)
 		.then(status)
 		.then(handleResponse)
 		.then((response) => {
