@@ -118,7 +118,7 @@ describe('EnumerationWidget', () => {
 
 		// when
 		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click', { button: 0 });
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { button: 0 , ctrlKey: true });
+		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { button: 0, ctrlKey: true });
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -339,7 +339,7 @@ describe('EnumerationWidget', () => {
 					}}
 				/>);
 			wrapper.instance().inputFile.click = jest.fn();
-			spyOn(document.activeElement, 'blur').and.callThrough();
+			spyOn(document.activeElement, 'blur');
 
 			// when
 			wrapper.instance().simulateClickInputFile();
