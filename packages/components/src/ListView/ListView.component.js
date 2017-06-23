@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import Action from '../Actions/Action';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
@@ -30,28 +29,8 @@ function ListView(props) {
 }
 
 ListView.propTypes = {
-	displayMode: PropTypes.oneOf([
-		DISPLAY_MODE_DEFAULT,
-		DISPLAY_MODE_SEARCH,
-	]),
-	required: PropTypes.bool,
-	headerError: PropTypes.string,
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	items: PropTypes.arrayOf(PropTypes.object),
-	headerLabel: PropTypes.string,
-	toggleAllChecked: PropTypes.bool,
-	toggleAllLabel: PropTypes.string,
 	emptyLabel: PropTypes.string,
-	onToggleAll: PropTypes.func,
-	searchCriteria: PropTypes.string,
-	searchPlaceholder: PropTypes.string,
-	onInputChange: PropTypes.func.isRequired,
-	onAddKeyDown: PropTypes.func,
-	getItemHeight: React.PropTypes.oneOfType([
-		React.PropTypes.func,
-		React.PropTypes.number,
-	]),
 };
 
 ListView.defaultProps = {
