@@ -2,18 +2,20 @@ import React, { PropTypes } from 'react';
 
 export default function SimpleCheckBox({ id, label, onChange, schema, value }) {
 	return (
-		<label>
-			<input
-				id={id}
-				autoFocus={schema.autoFocus}
-				disabled={schema.disabled}
-				label={label}
-				onChange={event => onChange(event, schema, event.target.checked)}
-				type="checkbox"
-				checked={value}
-			/>
-			<span className="control-label" htmlFor={id}>{label}</span>
-		</label>
+		<div className="checkbox">
+			<label>
+				<input
+					id={id}
+					autoFocus={schema.autoFocus}
+					disabled={schema.disabled}
+					label={label}
+					onChange={event => onChange(event, schema, event.target.checked)}
+					type="checkbox"
+					checked={value}
+				/>
+				<span className="control-label" htmlFor={id}>{label}</span>
+			</label>
+		</div>
 	);
 }
 

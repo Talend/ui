@@ -14,7 +14,7 @@ function getValues(value = [], itemValue, checked) {
 
 export default function CheckBoxes(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { description, title, titleMap, type } = schema;
+	const { description, title, titleMap } = schema;
 
 	return (
 		<FieldTemplate
@@ -22,25 +22,23 @@ export default function CheckBoxes(props) {
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
-			type={type}
 		>
 			{
 				titleMap.map((item, index) => (
-					<div className="checkbox" key={index}>
-						<SimpleCheckBox
-							id={id}
-							label={item.name}
-							onChange={
-								(event, _, checked) => onChange(
-									event,
-									schema,
-									getValues(value, item.value, checked)
-								)
-							}
-							schema={schema}
-							value={value && value.includes(item.value)}
-						/>
-					</div>
+					<SimpleCheckBox
+						id={id}
+						key={index}
+						label={item.name}
+						onChange={
+							(event, _, checked) => onChange(
+								event,
+								schema,
+								getValues(value, item.value, checked)
+							)
+						}
+						schema={schema}
+						value={value && value.includes(item.value)}
+					/>
 				))
 			}
 
@@ -61,7 +59,6 @@ if (process.env.NODE_ENV !== 'production') {
 				name: PropTypes.string,
 				value: PropTypes.string,
 			}),
-			type: PropTypes.string,
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};

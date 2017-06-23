@@ -20,7 +20,6 @@ export default function Text(props) {
 			isValid={isValid}
 			label={title}
 			labelAfter
-			type={type}
 		>
 			<input
 				id={id}

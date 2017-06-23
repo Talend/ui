@@ -8,7 +8,6 @@ exports[`Text field should render disabled input 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  type="text"
 >
   <input
     autoFocus={true}
@@ -33,7 +32,6 @@ exports[`Text field should render input 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  type="text"
 >
   <input
     autoFocus={true}
@@ -58,7 +56,6 @@ exports[`Text field should render readonly input 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  type="text"
 >
   <input
     autoFocus={true}
