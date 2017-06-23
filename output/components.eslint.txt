@@ -1,10 +1,23 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.87.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.86.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
+  28:24  error  There should be no spaces inside this paren  space-in-parens
+  28:26  error  A space is required after '{'                object-curly-spacing
+  28:36  error  A space is required before '}'               object-curly-spacing
+  28:38  error  There should be no spaces inside this paren  space-in-parens
+  35:26  error  There should be no spaces inside this paren  space-in-parens
+  35:28  error  A space is required after '{'                object-curly-spacing
+  35:38  error  A space is required before '}'               object-curly-spacing
+  35:40  error  There should be no spaces inside this paren  space-in-parens
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
+  7:27  error  'name' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
@@ -21,12 +34,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/index.js
+  1:8  error  Using exported name 'JSONLike' as identifier for default export  import/no-named-as-default
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Table/Table.test.js
+  43:1  error  Block must not be padded by blank lines  padded-blocks
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 12 problems (12 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
+  47:18  error  'label' is missing in props validation  react/prop-types
+
+✖ 24 problems (24 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
