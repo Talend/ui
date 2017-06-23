@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import {
 	Table as VirtualizedTable,
+	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+import RowSelectionRenderer from '../RowSelection';
 import RowRenderer from '../Row';
 import { toColumns } from '../utils/tablerow';
 
@@ -26,10 +28,17 @@ function ListTable(props) {
 		width,
 	} = props;
 
-	const RowTableRenderer = RowRenderer({ // eslint-disable-line new-cap
-		selectionToggle,
-		isSelected,
-	});
+	const RowTableRenderer = 	selectionToggle ?
+			RowSelectionRenderer( // eslint-disable-line new-cap
+				DefaultTableRowRenderer,
+				{
+					isSelected,
+					getRowData: rowProps => rowProps.rowData,
+				}) :
+			DefaultTableRowRenderer;
+
+	const rowTableRenderFn = propsFn => <RowRenderer {...propsFn} rowRenderer={RowTableRenderer} />;
+
 
 	return (
 		<VirtualizedTable
@@ -42,7 +51,7 @@ function ListTable(props) {
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}
-			rowRenderer={RowTableRenderer}
+			rowRenderer={rowTableRenderFn}
 			sort={sort}
 			sortBy={sortBy}
 			sortDirection={sortDirection}

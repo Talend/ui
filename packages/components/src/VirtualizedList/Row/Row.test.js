@@ -4,13 +4,9 @@ import RowRenderer from './Row.component';
 
 describe('RowRenderer', () => {
 	it('should show a skeleton during the scroll', () => {
-		const Row = new RowRenderer({
-			selectionToggle: null,
-		});
-
 		// when
 		const wrapper = shallow(
-			<Row
+			<RowRenderer
 				className={'my-class-names'}
 				index={1}
 				key={18}
@@ -24,20 +20,15 @@ describe('RowRenderer', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should show a RowSelectionRenderer if the row is selected', () => {
-		// given
-		const Row = new RowRenderer({
-			selectionToggle: () => {},
-			isSelected: () => {},
-		});
-
+	it('should show the rowRenderer', () => {
 		// when
 		const wrapper = shallow(
-			<Row
+			<RowRenderer
 				className={'my-class-names'}
 				index={1}
 				key={18}
 				parent={{}}
+				rowRenderer={<div />}
 				style={{ background: 'red' }}
 			/>
 		);
@@ -46,23 +37,33 @@ describe('RowRenderer', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should show a DefaultTableRowRenderer by default', () => {
-		const Row = new RowRenderer({
-			selectionToggle: null,
-		});
+	it('should not update the component when is scrolling', () => {
+		const DefaultRowRenderer = () => (<div />);
+		const rowRenderer = new RowRenderer();
+		rowRenderer.props = {
+			isScrolling: false,
+			rowRenderer: DefaultRowRenderer,
+		};
 
 		// when
-		const wrapper = shallow(
-			<Row
-				className={'my-class-names'}
-				index={1}
-				key={18}
-				parent={{}}
-				style={{ background: 'red' }}
-			/>
-		);
+		const shouldUpdate = rowRenderer.shouldComponentUpdate({ isScrolling: true });
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(shouldUpdate).toBeFalsy();
+	});
+
+	it('should update the component when is scrolling', () => {
+		const DefaultRowRenderer = () => (<div />);
+		const rowRenderer = new RowRenderer();
+		rowRenderer.props = {
+			isScrolling: true,
+			rowRenderer: DefaultRowRenderer,
+		};
+
+		// when
+		const shouldUpdate = rowRenderer.shouldComponentUpdate({ isScrolling: false });
+
+		// then
+		expect(shouldUpdate).toBeTruthy();
 	});
 });

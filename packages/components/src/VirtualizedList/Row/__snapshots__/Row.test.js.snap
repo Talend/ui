@@ -1,31 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RowRenderer should show a DefaultTableRowRenderer by default 1`] = `
-<defaultRowRenderer
-  className="my-class-names"
-  index={1}
-  parent={Object {}}
-  style={
-    Object {
-      "background": "red",
-    }
-  }
-/>
-`;
-
-exports[`RowRenderer should show a RowSelectionRenderer if the row is selected 1`] = `
-<RowSelection(undefined)
-  className="my-class-names"
-  index={1}
-  parent={Object {}}
-  style={
-    Object {
-      "background": "red",
-    }
-  }
-/>
-`;
-
 exports[`RowRenderer should show a skeleton during the scroll 1`] = `
 <div
   className="my-class-names"
@@ -47,4 +21,18 @@ exports[`RowRenderer should show a skeleton during the scroll 1`] = `
     }
   />
 </div>
+`;
+
+exports[`RowRenderer should show the rowRenderer 1`] = `
+<Unknown
+  className="my-class-names"
+  index={1}
+  parent={Object {}}
+  rowRenderer={<div />}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
 `;

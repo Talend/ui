@@ -1,35 +1,29 @@
-import React from 'react';
-import random from 'lodash/random';
+import React, { PropTypes } from 'react';
 import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import RowSelectionRenderer from '../RowSelection';
+import random from 'lodash/random';
 import theme from './RowPlaceholder.scss';
 
-/**
- * Higher order row-renderer that wrap the provided row renderer.
- * It manages row selection classname and inject it to the row renderer props.
- */
-function getRowRenderer({ selectionToggle, isSelected }) {
-	const RowTableRender = selectionToggle ?
-		RowSelectionRenderer( // eslint-disable-line new-cap
-			DefaultTableRowRenderer,
-			{
-				isSelected,
-				getRowData: rowProps => rowProps.rowData,
-			}) :
-		DefaultTableRowRenderer;
+class RowRenderer extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		// don't update the compnent if already mounted
+		if (!this.props.isScrolling && nextProps.isScrolling) {
+			return false;
+		}
+		return true;
+	}
 
-	function Row(props) {
-		const { isScrolling } = props;
+	render() {
+		const DefaultRowRenderer = this.props.rowRenderer;
 
-		if (isScrolling) {
+		if (this.props.isScrolling) {
 			// create a skeleton to avoid many paint during the scroll
 			// improve the performance on the browsers
 			// waiting guidelines from UX
 			return (
 				<div
-					{...props}
+					{...this.props}
 				>
 					<div
 						className={theme['row-placeholder']}
@@ -40,12 +34,15 @@ function getRowRenderer({ selectionToggle, isSelected }) {
 				</div>
 			);
 		}
-		return <RowTableRender {...props} />;
-	}
-	Row.propTypes = DefaultTableRowRenderer.propTypes;
-	Row.displayName = 'VirtualizedList(RowRender)';
 
-	return Row;
+		return <DefaultRowRenderer {...this.props} />;
+	}
 }
 
-export default getRowRenderer;
+RowRenderer.propTypes = {
+	...DefaultTableRowRenderer.propTypes,
+	rowRenderer: PropTypes.func.isRequired,
+};
+RowRenderer.displayName = 'VirtualizedList(RowRender)';
+
+export default RowRenderer;

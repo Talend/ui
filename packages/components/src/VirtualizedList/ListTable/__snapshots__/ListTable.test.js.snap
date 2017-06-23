@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListGrid should enhance the default rowRenderer with selection Higher Order renderer 1`] = `
+<VirtualizedList(RowRender)
+  rowRenderer={[Function]}
+/>
+`;
+
 exports[`ListGrid should render react-virtualized table 1`] = `
 <Table
   className="tc-list-table undefined"
