@@ -25,14 +25,14 @@ describe('Action', () => {
 		const wrapper = renderer.create(<Action extra="extra" {...myAction} />).toJSON();
 
 		// when
-		wrapper.props.onClick( {button: 0} );
+		wrapper.props.onClick({ button: 0 });
 
 		// then
 		expect(myAction.onClick).toHaveBeenCalled();
 		expect(myAction.onClick.mock.calls.length).toBe(1);
 		const args = myAction.onClick.mock.calls[0];
 		expect(args.length).toBe(2);
-		expect(args[0]).toEqual( {button: 0} );
+		expect(args[0]).toEqual({ button: 0 });
 		expect(args[1].action.extra).toBe('extra');
 	});
 
