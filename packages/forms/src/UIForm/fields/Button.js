@@ -4,7 +4,7 @@ import FieldTemplate from './FieldTemplate';
 
 export default function Button(props) {
 	const { id, errorMessage, isValid, onTrigger, schema } = props;
-	const { description, title, triggers, type } = schema;
+	const { description, title, triggers = [], type } = schema;
 
 	return (
 		<FieldTemplate
@@ -34,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,
+			triggers: PropTypes.arrayOf(PropTypes.string),
 			type: PropTypes.string,
 		}),
 	};

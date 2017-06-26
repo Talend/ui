@@ -127,6 +127,7 @@ form {
 	.checkbox,
 	.checkbox-inline {
 		label {
+			cursor: pointer;
 			position: relative;
 			padding-left: 25px;
 		}
@@ -184,6 +185,7 @@ form {
 			background-color: $gray-light;
 		}
 
+		&:focus + span:after,
 		&:checked:after,
 		&:checked + *:after {
 			border-color: $brand-primary;
