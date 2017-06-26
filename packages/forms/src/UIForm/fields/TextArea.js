@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import FieldTemplate from './FieldTemplate';
 
-export default function TextArea(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
+export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
+	const { autoFocus, description, disabled, key, placeholder, readOnly, title } = schema;
 
 	return (
 		<FieldTemplate
@@ -19,11 +18,10 @@ export default function TextArea(props) {
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				label={title}
+				name={key[key.length - 1]}
 				placeholder={placeholder}
 				onChange={event => onChange(event, schema, event.target.value)}
 				readOnly={readOnly}
-				type={type}
 				value={value}
 			/>
 		</FieldTemplate>
@@ -40,10 +38,10 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			key: PropTypes.arrayOf(PropTypes.string),
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
-			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};

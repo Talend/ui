@@ -3,16 +3,17 @@ import { shallow } from 'enzyme';
 
 import TextArea from './TextArea';
 
-describe('Text field', () => {
+describe('TextArea field', () => {
 	const schema = {
 		autoFocus: true,
 		description: 'my text input hint',
+		key: ['user', 'comment'],
 		placeholder: 'Type something here',
 		title: 'My input title',
 		type: 'text',
 	};
 
-	it('should render input', () => {
+	it('should render textarea', () => {
 		// when
 		const wrapper = shallow(
 			<TextArea
@@ -88,12 +89,13 @@ describe('Text field', () => {
 				value={'toto'}
 			/>
 		);
-		const event = { target: { value: 'totoa' } };
+		const value = 'totoa';
+		const event = { target: { value } };
 
 		// when
 		wrapper.find('textarea').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, 'totoa');
+		expect(onChange).toBeCalledWith(event, schema, value);
 	});
 });
