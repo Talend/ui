@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea field should render disabled textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+>
+  <textarea
+    autoFocus={true}
+    className="form-control"
+    disabled={true}
+    id="myForm"
+    name="comment"
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={undefined}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render provided rows 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+>
+  <textarea
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="myForm"
+    name="comment"
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={undefined}
+    rows={10}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render readonly textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+>
+  <textarea
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="myForm"
+    name="comment"
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={true}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+>
+  <textarea
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="myForm"
+    name="comment"
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={undefined}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;

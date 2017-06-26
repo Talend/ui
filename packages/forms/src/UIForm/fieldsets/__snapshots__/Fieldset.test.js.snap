@@ -20,7 +20,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []}
+    widgets={Object {}}
   />
   <Widget
     schema={
@@ -35,7 +35,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Array []}
+    widgets={Object {}}
   />
 </fieldset>
 `;
