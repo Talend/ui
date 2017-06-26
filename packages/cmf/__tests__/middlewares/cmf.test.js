@@ -5,6 +5,18 @@ describe('CMF middleware', () => {
 	let store;
 	let next;
 	let middleware;
+	const leftClickEvent = {
+		button: 0,
+	};
+	const genericRouteReplaceAction = {
+		cmf: {
+			routerReplace(data) {
+				return `/route/${data.response.id}`;
+			},
+		},
+		response: { id: 28 },
+		event: leftClickEvent,
+	};
 	beforeEach(() => {
 		store = {
 			dispatch: jest.fn(),
@@ -36,9 +48,7 @@ describe('CMF middleware', () => {
 				routerPush: '/route',
 			},
 			response: { id: 28 },
-			event: {
-				button: 0,
-			},
+			event: leftClickEvent,
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -55,9 +65,7 @@ describe('CMF middleware', () => {
 				},
 			},
 			response: { id: 28 },
-			event: {
-				button: 0,
-			},
+			event: leftClickEvent,
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -72,9 +80,7 @@ describe('CMF middleware', () => {
 				routerReplace: '/route',
 			},
 			response: { id: 28 },
-			event: {
-				button: 0,
-			},
+			event: leftClickEvent,
 		};
 		middleware(action);
 		expect(store.dispatch).toHaveBeenCalled();
@@ -84,56 +90,45 @@ describe('CMF middleware', () => {
 		expect(arg.payload.args[0]).toBe('/route');
 	});
 	it('should dispatch router replace if cmf.routerReplace is a function', () => {
-		const action = {
-			cmf: {
-				routerReplace(data) {
-					return `/route/${data.response.id}`;
-				},
-			},
-			response: { id: 28 },
-			event: {
-				button: 0,
-			},
-		};
-		middleware(action);
+
+		middleware(genericRouteReplaceAction);
 		expect(store.dispatch).toHaveBeenCalled();
 		const arg = store.dispatch.mock.calls[0][0];
 		expect(arg.type).toBe('@@router/CALL_HISTORY_METHOD');
 		expect(arg.payload.method).toBe('replace');
 		expect(arg.payload.args[0]).toBe('/route/28');
 	});
-	it('should open route in new tab when ctrl-click', () => {
-		global.open = jest.fn();
-		const action = {
-			cmf: {
-				routerReplace(data) {
-					return `/route/${data.response.id}`;
-				},
-			},
-			response: { id: 28 },
-			event: {
-				ctrlKey: true,
-			},
-		};
-		middleware(action);
-		expect(global.open).toHaveBeenCalled();
 
-	});
-	it('should open route in new tab when middle-click (mousewheel)', () => {
-		global.open = jest.fn();
-		const action = {
-			cmf: {
-				routerReplace(data) {
-					return `/route/${data.response.id}`;
+	describe('open route in new tab', () => {
+		beforeEach(() => {
+			global.open = jest.fn();
+		});
+		it('should open route in new tab when ctrl-click', () => {
+			middleware({ ...genericRouteReplaceAction,
+				event: {
+					button: 0,
+					ctrlKey: true,
 				},
-			},
-			response: { id: 28 },
-			event: {
-				button: 1,
-			},
-		};
-		const res = middleware(action);
-		console.log(res)
-		expect(global.open).toHaveBeenCalled();
+			});
+			expect(global.open).toHaveBeenCalled();
+		});
+
+		it('should open route in new tab when middle-click (mousewheel)', () => {
+			middleware({ ...genericRouteReplaceAction,
+				event: {
+					button: 1,
+				},
+			});
+			expect(global.open).toHaveBeenCalled();
+		});
+
+		it('should not open route in new tab when normal click', () => {
+			middleware({ ...genericRouteReplaceAction,
+				event: {
+					button: 0,
+				},
+			});
+			expect(global.open).not.toHaveBeenCalled();
+		});
 	});
 });

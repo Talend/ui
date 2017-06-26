@@ -18,7 +18,8 @@ const cmfMiddleware = store => next => (action) => {
 			route = route(action);
 		}
 
-		if (action.event && (action.event.ctrlKey || action.event.button === 1)) {
+		const { event } = action;
+		if (event && ((event.button === 0 && (event.ctrlKey || event.metaKey)) || event.button === 1)) {
 			window.open([route], '_blank');
 		} else {
 			store.dispatch({

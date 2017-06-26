@@ -97,7 +97,7 @@ function Action(props) {
 		}
 	});
 
-	const middleClick = (event) => {
+	const middleClick = onClick && ((event) => {
 		// to not call onClick twice when left click
 		if (event.button === 1) {
 			onClick(event, {
@@ -105,7 +105,7 @@ function Action(props) {
 				model,
 			});
 		}
-	};
+	});
 
 	const buttonContent = getContent(props);
 
