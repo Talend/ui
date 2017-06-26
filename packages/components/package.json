@@ -16,8 +16,8 @@
     "lint:es": "eslint --config .eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx \"./src/**/*.scss\" lib",
-    "start": "start-storybook -p 6006",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006 -s .",
+    "storybook": "start-storybook -p 6006 -s .",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
     "cpx": "cpx './src/**/*.scss' ./lib"
@@ -41,9 +41,12 @@
     "url": "https://github.com/Talend/react-talend-components"
   },
   "dependencies": {
+    "i18next": "^8.4.2",
+    "i18next-xhr-backend": "^1.4.2",
     "lodash": "4.17.4",
     "react-autowhatever": "^7.0.0",
     "react-debounce-input": "^2.4.2",
+    "react-i18next": "^4.3.0",
     "react-virtualized": "^9.3.0"
   },
   "devDependencies": {
@@ -64,6 +67,7 @@
     "bootstrap-talend-theme": "^0.87.0",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
+    "copy-webpack-plugin": "^4.0.1",
     "cpx": "1.5.0",
     "css-loader": "0.28.2",
     "enzyme": "^2.7.1",
@@ -82,9 +86,9 @@
     "react": "15.5.4",
     "react-a11y": "^0.3.3",
     "react-addons-css-transition-group": "15.5.2",
-    "react-css-transition": "^0.7.4",
     "react-addons-test-utils": "15.5.1",
     "react-bootstrap": "0.31.0",
+    "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "15.5.4",
@@ -124,8 +128,8 @@
     "keycode": "2.1.9",
     "react": "15.5.4",
     "react-addons-css-transition-group": "15.5.2",
-    "react-css-transition": "^0.7.4",
     "react-bootstrap": "0.31.0",
+    "react-css-transition": "^0.7.4",
     "talend-icons": "^0.87.0",
     "uuid": "3.0.1"
   },

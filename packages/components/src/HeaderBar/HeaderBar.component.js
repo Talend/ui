@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
 import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
-
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -20,7 +20,7 @@ function getRenderers(renderers) {
 	);
 }
 
-function Logo({ isFull, renderers, ...props }) {
+function PureLogo({ isFull, renderers, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const itemClassName = classNames(
 		theme['tc-header-bar-action'],
@@ -41,7 +41,7 @@ function Logo({ isFull, renderers, ...props }) {
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
-				label="Go to Portal"
+				label={t('GO_PORTAL')}
 				icon={icon}
 				tooltipPlacement="bottom"
 				{...props}
@@ -49,13 +49,14 @@ function Logo({ isFull, renderers, ...props }) {
 		</li>
 	);
 }
-
-Logo.propTypes = {
+PureLogo.propTypes = {
 	isFull: React.PropTypes.bool,
 	renderers: React.PropTypes.shape({
 		Action: React.PropTypes.func,
 	}),
+	t: React.PropTypes.func.isRequired,
 };
+const Logo = translate('tui-components-headerBar')(PureLogo);
 
 function Brand({ name, isSeparated, renderers, ...props }) {
 	const className = classNames(
@@ -126,11 +127,11 @@ Search.propTypes.renderers = React.PropTypes.shape({
 	Typeahead: React.PropTypes.func,
 });
 
-function Help({ renderers, ...props }) {
+function PureHelp({ renderers, t, ...props }) {
 	const global = {
 		bsStyle: 'link',
 		icon: 'talend-question-circle',
-		label: 'Help',
+		label: t('HELP'),
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -145,13 +146,15 @@ function Help({ renderers, ...props }) {
 		</li>
 	);
 }
-
-Help.propTypes = {
+PureHelp.propTypes = {
+	items: React.PropTypes.arrayOf(React.PropTypes.object),
 	renderers: React.PropTypes.shape({
 		ActionSplitDropdown: React.PropTypes.func,
 		Action: React.PropTypes.func,
 	}),
+	t: React.PropTypes.func.isRequired,
 };
+const Help = translate('tui-components-headerBar')(PureHelp);
 
 function User({ name, renderers, ...props }) {
 	const className = classNames(
@@ -179,14 +182,14 @@ User.propTypes = {
 	}),
 };
 
-function Products({ renderers, ...props }) {
+function PureProducts({ renderers, t, ...props }) {
 	return (
 		<li className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
-				label="Apps"
+				label={t('APPS')}
 				pullRight
 				tooltipPlacement="bottom"
 				{...props}
@@ -194,12 +197,13 @@ function Products({ renderers, ...props }) {
 		</li>
 	);
 }
-
-Products.propTypes = {
+PureProducts.propTypes = {
 	renderers: React.PropTypes.shape({
 		ActionDropdown: React.PropTypes.func,
 	}),
+	t: React.PropTypes.func.isRequired,
 };
+const Products = translate('tui-components-headerBar')(PureProducts);
 
 function HeaderBar(props) {
 	const renderers = getRenderers(props.renderers);
