@@ -8,15 +8,18 @@ function Label(props) {
 		<label htmlFor={props.id} className="control-label">{props.label}</label>
 	);
 }
-Label.propTypes = {
-	id: PropTypes.string,
-	label: PropTypes.string,
-};
+
+if (process.env.NODE_ENV !== 'production') {
+	Label.propTypes = {
+		id: PropTypes.string,
+		label: PropTypes.string,
+	};
+}
 
 function FieldTemplate(props) {
 	const groupsClassNames = classNames(
 		'form-group',
-		{ 'has-error': !props.isValid },
+		{ 'has-error': !props.isValid }
 	);
 
 	return (
@@ -35,8 +38,11 @@ function FieldTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
-		children: PropTypes.element,
-		description: PropTypes.element,
+		children: PropTypes.oneOf(
+			PropTypes.element,
+			PropTypes.arrayOf(PropTypes.element)
+		),
+		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

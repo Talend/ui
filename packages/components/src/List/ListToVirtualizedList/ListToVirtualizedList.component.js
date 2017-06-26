@@ -1,10 +1,23 @@
 import React, { PropTypes } from 'react';
-import VirtualizedList from '../../VirtualizedList';
+import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
+function adaptOnSort(onChange) {
+	if (!onChange) {
+		return null;
+	}
+	return function onSortChange({ sortBy, sortDirection }) {
+		return onChange(
+			null,
+			{ field: sortBy, isDescending: sortDirection === SORT_BY.DESC }
+		);
+	};
+}
+
 function ListToVirtualizedList(props) {
 	const { id, items, columns, titleProps } = props;
+
 	if (!titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
@@ -21,6 +34,9 @@ function ListToVirtualizedList(props) {
 			id={id}
 			collection={items}
 			type={(props.displayMode || 'TABLE').toUpperCase()}
+			sort={adaptOnSort(props.sort && props.sort.onChange)}
+			sortBy={props.sort && props.sort.field}
+			sortDirection={props.sort && props.sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 		>
 			{columns.map((column, index) => {
 				const cProps = {
@@ -52,6 +68,11 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	columns: PropTypes.arrayOf(PropTypes.object),
+	sort: PropTypes.shape({
+		onChange: PropTypes.func,
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+	}),
 };
 
 export default ListToVirtualizedList;
