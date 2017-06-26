@@ -185,7 +185,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 
 			simulateSearch(wrapper, 'E')
 				.then(() => {

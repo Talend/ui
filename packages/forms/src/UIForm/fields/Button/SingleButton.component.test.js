@@ -115,7 +115,7 @@ describe('SingleButton field', () => {
 		);
 
 		// when
-		wrapper.find('button').simulate('click', { button: 1 });
+		wrapper.find('button').simulate('click', { button: 0 });
 
 		// then
 		expect(onTrigger).toHaveBeenCalledWith(
