@@ -3,7 +3,7 @@ import FieldTemplate from './FieldTemplate';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
-		return Array.from(select.options)
+		return Array.prototype.slice.call(select.options)
 			.filter(option => option.selected)
 			.map(option => option.value);
 	}
