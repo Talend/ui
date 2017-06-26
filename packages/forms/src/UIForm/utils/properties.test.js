@@ -57,12 +57,12 @@ describe('Properties utils', () => {
 	});
 
 	describe('#convertValue', () => {
-		it('should return the string value', () => {
+		it('should return the original value', () => {
 			// given
 			const value = '3';
 
 			// when
-			const convertedValue = convertValue('string', value);
+			const convertedValue = convertValue('unknown', value);
 
 			// then
 			expect(convertedValue).toBe(value);
