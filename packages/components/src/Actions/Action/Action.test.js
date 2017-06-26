@@ -18,7 +18,7 @@ describe('Action', () => {
 		const wrapper = shallow(<Action {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should trigger the onclick props when left-click on the button ', () => {
