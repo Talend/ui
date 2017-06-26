@@ -30,7 +30,6 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 	searchPlaceholder: 'Search',
 	headerLabel: 'Choose wisely',
-	emptyLabel: 'Nothing here yet',
 	toggleAllChecked: false,
 	toggleAllLabel: 'All values',
 	onToggleAll: action('onToggleAll'),
@@ -48,6 +47,11 @@ const searchProps = {
 	searchCriteria: 'ore',
 };
 
+const noResultsSearch = {
+	...searchProps,
+	items: [],
+	searchCriteria: 'nopnopnop',
+};
 
 storiesOf('ListView', module)
 	.addDecorator((story) => (
@@ -85,6 +89,11 @@ storiesOf('ListView', module)
 	.addWithInfo('search mode', () => (
 		<ListView
 			{...searchProps}
+		/>
+	))
+	.addWithInfo('search mode without results', () => (
+		<ListView
+			{...noResultsSearch}
 		/>
 	))
 	.addWithInfo('selected values', () => {
