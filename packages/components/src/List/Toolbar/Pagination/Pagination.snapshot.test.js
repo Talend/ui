@@ -68,7 +68,37 @@ describe('Pagination', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should disable navigation when there is only one page', () => {
+	it('should disable first and previous buttons for first page', () => {
+		// given
+		const props = {
+			startIndex: 1,
+			totalResults: 6,
+			onChange: jest.fn(),
+		};
+		// when
+		const wrapper = renderer.create(
+			<Pagination {...props} />
+		).toJSON();
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should disable next and last buttons for last page', () => {
+		// given
+		const props = {
+			startIndex: 6,
+			totalResults: 10,
+			onChange: jest.fn(),
+		};
+		// when
+		const wrapper = renderer.create(
+			<Pagination {...props} />
+		).toJSON();
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should not show navigation when there is only one page', () => {
 		// given
 		const props = {
 			startIndex: 1,
@@ -83,7 +113,7 @@ describe('Pagination', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should disable all navigation when there is no items', () => {
+	it('should not show navigation when there is no items', () => {
 		// given
 		const props = {
 			startItems: 1,
