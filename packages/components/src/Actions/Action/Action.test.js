@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import Action from './Action.component';
 
@@ -10,12 +11,6 @@ const myAction = {
 	icon: 'talend-caret-down',
 	onClick: onClickFn,
 };
-
-// const myActionWithoutOnClick = {
-// 	label: 'Click me',
-// 	icon: 'talend-caret-down',
-// };
-
 
 describe('Action', () => {
 	it('should render a button', () => {
@@ -37,32 +32,34 @@ describe('Action', () => {
 		// then
 		expect(onClickFn).toHaveBeenCalledWith(
 			{ button: 0 },
-			{action: {extra: 'extra', icon: 'talend-caret-down', label: 'Click me' }, model: undefined});
-
-
-		// expect(instance.leftClick.mock.calls.length).toBe(1);
-		// const args = instance.leftClick.mock.calls[0];
-		// expect(args.length).toBe(2);
-		// expect(args[0]).toEqual({ button: 0 });
-		// expect(args[1].action.extra).toBe('extra');
+			{ action: {
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+			},
+				model: undefined,
+			});
 	});
 
-	// it('should trigger the onclick props when middle-click on the button ', () => {
-	// 	// given
-	// 	const wrapper = shallow(<Action {...myActionWithoutMockOnClick} />);
-	// 	const buttonWrapper = wrapper.find('button').at(0);
-	// 	const instance = wrapper.instance();
-	//
-	// 	// when
-	// 	buttonWrapper.simulate('click');
-	//
-	// 	// then
-	// 	expect(instance.onClick).toHaveBeenCalled();
-	// 	expect(myAction.onClick.mock.calls.length).toBe(1);
-	// 	const args = myAction.onClick.mock.calls[0];
-	// 	expect(args.length).toBe(2);
-	// 	expect(args[0]).toEqual({ button: 1 });
-	// });
+	it('should trigger the onclick props when middle-click on the button', () => {
+		// given
+		const wrapper = shallow(<Action extra="extra" {...myAction} />);
+		const buttonWrapper = wrapper.find('Button').at(0);
+
+		// when
+		buttonWrapper.simulate('mouseDown', { button: 1 });
+
+		// then
+		expect(onClickFn).toHaveBeenCalledWith(
+			{ button: 1 },
+			{ action: {
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+			},
+				model: undefined,
+			});
+	});
 
 	it('should pass all props to the Button', () => {
 		// when
@@ -74,7 +71,7 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should display a Progress indicator if set', () => {
@@ -87,7 +84,7 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should display a disabled Icon', () => {
@@ -100,7 +97,7 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should reverse icon/label', () => {
@@ -112,7 +109,7 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should apply transformation on icon', () => {
@@ -124,7 +121,7 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render action with html property name = props.name if set', () => {
@@ -136,6 +133,6 @@ describe('Action', () => {
 			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });
