@@ -30,7 +30,7 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render disabled input', () => {
+	it('should render disabled textarea', () => {
 		// given
 		const disabledSchema = {
 			...schema,
@@ -53,7 +53,7 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render readonly input', () => {
+	it('should render readonly textarea', () => {
 		// given
 		const readOnlySchema = {
 			...schema,
@@ -68,6 +68,29 @@ describe('TextArea field', () => {
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
 				schema={readOnlySchema}
+				value={'toto'}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render provided rows', () => {
+		// given
+		const schemaWithRows = {
+			...schema,
+			rows: 10,
+		};
+
+		// when
+		const wrapper = shallow(
+			<TextArea
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				schema={schemaWithRows}
 				value={'toto'}
 			/>
 		);
