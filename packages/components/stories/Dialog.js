@@ -54,8 +54,7 @@ const bsProps = {
 	},
 };
 
-const children = (<div>BODY content. You can put what ever you want here</div>);
-
+const children = <div>BODY content. You can put what ever you want here</div>;
 
 storiesOf('Dialog', module)
 	.addWithInfo('default', () => (
@@ -93,5 +92,16 @@ storiesOf('Dialog', module)
 			<h1>Dialog</h1>
 			<Dialog {...bsProps}>{children}</Dialog>
 		</div>
-	));
-
+	))
+	.addWithInfo('passing large content to trigger a scroll on body', () => {
+		const rows = [];
+		for (let index = 0; index < 50; index++) {
+			rows.push(<p key={index}>The content dictate the height</p>);
+		}
+		return (
+			<div>
+				<h1>Dialog</h1>
+				<Dialog {...bsProps}>{rows}</Dialog>
+			</div>
+		);
+	});
