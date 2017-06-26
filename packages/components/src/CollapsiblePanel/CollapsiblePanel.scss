@@ -116,6 +116,9 @@ $tc-toggle-color: #555964 !default;
 	.panel-heading {
 		.panel-title {
 			flex-basis: calc(100% - 35px);
+			:global(.label) {
+				padding: 0.3em 0.6em;
+			}
 		}
 	}
 
@@ -123,7 +126,6 @@ $tc-toggle-color: #555964 !default;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		padding: 0.3em 0.6em;
 	}
 
 	.group {
