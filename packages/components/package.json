@@ -112,7 +112,7 @@
       "src",
       "__mocks__"
     ],
-    "testRegex": "&*\\Action.test\\.js$",
+    "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     }
