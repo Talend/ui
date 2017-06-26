@@ -87,7 +87,7 @@ function Action(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const leftClick = (event) => {
+	const leftClick = onClick && ((event) => {
 		// to prevent odd bug with FF
 		if (event.button === 0) {
 			onClick(event, {
@@ -95,7 +95,7 @@ function Action(props) {
 				model,
 			});
 		}
-	};
+	});
 
 	const middleClick = (event) => {
 		// to not call onClick twice when left click
@@ -143,7 +143,7 @@ Action.propTypes = {
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

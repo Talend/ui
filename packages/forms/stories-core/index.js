@@ -12,6 +12,7 @@ import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
 import customWidgetStory from './customWidgetStory';
+import customActionsStory from './customActionsStory';
 
 const reducers = { forms: formReducer };
 const reducer = combineReducers(reducers);
@@ -40,3 +41,5 @@ jsonStories.forEach(({ name, story }) => {
 	decoratedStories.add(name, story);
 });
 decoratedStories.add(customWidgetStory.name, customWidgetStory.story);
+decoratedStories.add(customWidgetStory.name, customWidgetStory.story);
+decoratedStories.add(customActionsStory.name, customActionsStory.story);
