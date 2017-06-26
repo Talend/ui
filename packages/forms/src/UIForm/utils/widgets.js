@@ -6,6 +6,7 @@ import CheckBox from '../fields/CheckBox/CheckBox.component';
 import CheckBoxes from '../fields/CheckBox/CheckBoxes.component';
 import Radios from '../fields/Radios';
 import Text from '../fields/Text';
+import TextArea from '../fields/TextArea';
 
 const widgets = {
 	// fieldsets
@@ -19,6 +20,7 @@ const widgets = {
 	number: Text,
 	radios: Radios,
 	text: Text,
+	textarea: TextArea,
 };
 
 export default widgets;
