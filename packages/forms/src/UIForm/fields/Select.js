@@ -11,8 +11,7 @@ function getSelectedOptions(select, multiple) {
 	return select.value;
 }
 
-export default function Select(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+export default function Select({ id, isValid, errorMessage, onChange, schema, value }) {
 	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
