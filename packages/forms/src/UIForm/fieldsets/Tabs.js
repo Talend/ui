@@ -11,7 +11,10 @@ export default function Tabs(props) {
 	const tabs = schema.items;
 
 	return (
-		<RBTabs className={theme['tf-tabs']} id={`${restProps.id}-tabs`}>
+		<RBTabs
+			className={classNames(theme['tf-tabs'], 'tf-tabs')}
+			id={`${restProps.id}-tabs`}
+		>
 			{tabs.map((tabSchema, index) => {
 				const tabIsValid = isValid(tabSchema, restProps.errors);
 				return (

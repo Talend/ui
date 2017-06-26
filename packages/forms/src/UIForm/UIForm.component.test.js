@@ -156,25 +156,25 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onSubmit', () => {
+		const submitEvent = { preventDefault: jest.fn() };
+
 		it('should prevent event default', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().onSubmit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(event.preventDefault).toBeCalled();
+			expect(submitEvent.preventDefault).toBeCalled();
 		});
 
 		it('should validate all fields', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().onSubmit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(
@@ -186,10 +186,9 @@ describe('UIForm component', () => {
 		it('should not call submit callback when form is invalid', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().onSubmit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -203,10 +202,9 @@ describe('UIForm component', () => {
 				firstname: 'This is required',
 			};
 			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().onSubmit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
@@ -214,6 +212,8 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onReset', () => {
+		const resetEvent = { target: {} };
+
 		it('should reset form with initial schema and data', () => {
 			// given
 			const initialData = {
@@ -230,10 +230,9 @@ describe('UIForm component', () => {
 					{...props}
 				/>
 			);
-			const event = { target: {} };
 
 			// when
-			wrapper.find('form').at(0).simulate('reset', event);
+			wrapper.find('form').at(0).simulate('reset', resetEvent);
 
 			// then
 			expect(props.updateForm).toBeCalledWith(
@@ -254,10 +253,9 @@ describe('UIForm component', () => {
 					{...props}
 				/>
 			);
-			const event = { target: {} };
 
 			// when
-			wrapper.find('form').at(0).simulate('reset', event);
+			wrapper.find('form').at(0).simulate('reset', resetEvent);
 
 			// then
 			expect(props.onReset).toBeCalled();

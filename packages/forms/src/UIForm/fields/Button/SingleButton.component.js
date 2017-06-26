@@ -3,7 +3,15 @@ import { Action } from 'react-talend-components';
 import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, schema }) {
-	const { bsStyle, disabled, inProgress, title, triggers, type = 'button' } = schema;
+	const {
+		bsStyle,
+		disabled,
+		inProgress,
+		name,
+		title,
+		triggers,
+		type = 'button',
+	} = schema;
 
 	let onClick;
 	if (type === 'button' && triggers) {
@@ -18,6 +26,7 @@ export default function SingleButton({ className, id, onTrigger, schema }) {
 			disabled={disabled}
 			inProgress={inProgress}
 			label={title}
+			name={name}
 			onClick={onClick}
 			type={type}
 		/>
@@ -33,6 +42,7 @@ if (process.env.NODE_ENV !== 'production') {
 			bsStyle: PropTypes.string,
 			disabled: PropTypes.bool,
 			inProgress: PropTypes.bool,
+			name: PropTypes.string,
 			title: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.string),
 			type: PropTypes.string,

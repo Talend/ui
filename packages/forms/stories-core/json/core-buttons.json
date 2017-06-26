@@ -49,18 +49,21 @@
         {
           "title": "Reset",
           "type": "reset",
+          "name": "reset",
           "widget": "button"
         },
         {
           "position": "right",
           "title": "Test",
           "triggers": ["test"],
+          "name": "test",
           "type": "button",
           "widget": "button"
         },
         {
           "bsStyle": "primary",
           "title": "Submit",
+          "name": "submit",
           "type": "submit",
           "widget": "button"
         }

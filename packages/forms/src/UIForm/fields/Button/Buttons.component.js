@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 import SingleButton from './SingleButton.component';
 
@@ -22,7 +23,7 @@ function getButtonsList(id, buttons, onTrigger) {
 export default function Buttons({ id, onTrigger, schema }) {
 	return (
 		<FieldTemplate description={schema.description}>
-			<div className={theme.buttons}>
+			<div className={classNames(theme['tf-buttons'], 'tf-buttons')}>
 				{getButtonsList(id, schema.items, onTrigger)}
 			</div>
 		</FieldTemplate>

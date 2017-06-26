@@ -6,6 +6,7 @@ import SingleButton from './SingleButton.component';
 describe('SingleButton field', () => {
 	const schema = {
 		bsStyle: 'primary',
+		name: 'my-button',
 		title: 'Boom !',
 	};
 
