@@ -123,7 +123,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
-  192:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
