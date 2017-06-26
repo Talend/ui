@@ -95,7 +95,7 @@ function TreeViewItem({
 				}
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
-				<div className={'tc-treeview-item-ctrl'}>
+				<div className={css['tc-treeview-item-ctrl']}>
 					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
