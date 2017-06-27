@@ -5,9 +5,7 @@ import NoRows from './NoRows.component';
 
 describe('NoRows', () => {
 	it('should show no result', () => {
-		const wrapper = shallow(
-			<NoRows />
-		);
+		const wrapper = shallow(<NoRows />);
 
 		expect(wrapper.node).toMatchSnapshot();
 	});
