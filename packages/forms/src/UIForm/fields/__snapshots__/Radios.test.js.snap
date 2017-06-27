@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radios field should render disabled input 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  errorMessage="My error message"
+  isValid={true}
+  label="My radios title"
+>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={true}
+        id="myForm-0"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={true}
+        id="myForm-1"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={true}
+        disabled={true}
+        id="myForm-2"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;
+
+exports[`Radios field should render inline radios 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  errorMessage="My error message"
+  isValid={true}
+  label="My radios title"
+>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={undefined}
+        id="myForm-0"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={undefined}
+        id="myForm-1"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={true}
+        disabled={undefined}
+        id="myForm-2"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;
+
+exports[`Radios field should render radios 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  errorMessage="My error message"
+  isValid={true}
+  label="My radios title"
+>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={undefined}
+        id="myForm-0"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={false}
+        disabled={undefined}
+        id="myForm-1"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        autoFocus={true}
+        checked={true}
+        disabled={undefined}
+        id="myForm-2"
+        name="myForm"
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;
