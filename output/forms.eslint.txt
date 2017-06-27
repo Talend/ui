@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.87.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.88.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -143,7 +143,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   73:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  65:42  error  Unary operator '++' used  no-plusplus
+   66:42  error  Unary operator '++' used                                                             no-plusplus
+  222:17  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/utils/utils.js
   55:22  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
@@ -154,8 +155,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
-  49:29  error  Expected parentheses around arrow function argument having a body with curly braces        arrow-parens
-  59:58  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
+  33:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  54:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  57:30  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  94:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
   121:3  error  Prop type `any` is forbidden  react/forbid-prop-types
@@ -166,7 +169,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 132 problems (132 errors, 0 warnings)
+✖ 135 problems (135 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
