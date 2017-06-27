@@ -11,7 +11,7 @@ function getSelectedOptions(select, multiple) {
 	return select.value;
 }
 
-export default function Select({ id, isValid, errorMessage, onChange, schema, value }) {
+export default function Select({ id, isValid, errorMessage, onChange, schema = {}, value }) {
 	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
@@ -71,6 +71,10 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
+			titleMap: PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			}),
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
