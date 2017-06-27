@@ -176,7 +176,7 @@ class DatalistWidget extends React.Component {
 			event.preventDefault();
 			break;
 		case keycode.codes.enter:
-				// could be null in case of no match
+			// could be null in case of no match
 			if (focusedItemIndex != null) {
 				this.selectItem(focusedItemIndex);
 			}
@@ -205,9 +205,7 @@ class DatalistWidget extends React.Component {
 		let items;
 		if (this.props.schema.enum) {
 			items = this.props.schema.enum;
-		} else if (
-			this.props.formContext && this.props.formContext.fetchItems
-		) {
+		} else if (this.props.formContext && this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
 		const suggestions = getMatchingSuggestions(items, value);

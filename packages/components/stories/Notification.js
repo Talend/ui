@@ -9,6 +9,14 @@ const icons = {
 	'talend-undo': talendIcons['talend-undo'],
 };
 
+function incrementStateCounter(state) {
+	return { counter: state.counter + 1 };
+}
+
+function decrementStateCounter(state) {
+	return { counter: state.counter - 1 };
+}
+
 class NotificationWrapper extends React.Component {
 	constructor() {
 		super();
@@ -26,7 +34,7 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState(prevState => ({ counter: prevState.counter + 1 }));
+			this.setState(incrementStateCounter);
 		}, 500);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -44,7 +52,7 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState(prevState => ({ counter: prevState.counter + 1 }));
+			this.setState(incrementStateCounter);
 		}, 1000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -57,7 +65,7 @@ class NotificationWrapper extends React.Component {
 					],
 				},
 			]);
-			this.setState(prevState => ({ counter: prevState.counter + 1 }));
+			this.setState(incrementStateCounter);
 		}, 2000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -67,14 +75,14 @@ class NotificationWrapper extends React.Component {
 					message: 'This is a feedback of your operation4',
 				},
 			]);
-			this.setState(prevState => ({ counter: prevState.counter + 1 }));
+			this.setState(incrementStateCounter);
 		}, 2500);
 	}
 	leaveFn(notification) {
 		const index = this.notifications.indexOf(notification);
 		if (index !== -1) {
 			this.notifications.splice(index, 1);
-			this.setState(prevState => ({ counter: prevState.counter - 1 }));
+			this.setState(decrementStateCounter);
 		}
 	}
 	render() {
