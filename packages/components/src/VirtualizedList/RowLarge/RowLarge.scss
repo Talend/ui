@@ -31,9 +31,9 @@ $tc-list-large-field-value-color: $dove-gray !default;
 
 	.content {
 		column-count: 3;
-		flex-grow: 1;
+		flex: 1;
+		min-height: 0; // need on Edge
 		padding: 0 $padding-large;
-		min-height: 0;
 
 		> li {
 			list-style: none;
