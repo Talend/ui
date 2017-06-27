@@ -1,13 +1,11 @@
 import { PropTypes } from 'react';
-import Immutable, { fromJS, Map } from 'immutable';
-import actions from '../src/actions/';
+import Immutable, { Map } from 'immutable';
 
 import state, {
 	getStateAccessors,
 	getStateProps,
 	initState,
 	statePropTypes,
-	applyCallback,
 } from '../src/componentState';
 
 describe('state', () => {
@@ -22,10 +20,15 @@ describe('state', () => {
 		const dispatch = jest.fn();
 		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
 		expect(typeof props.setState).toBe('function');
+
 		props.setState();
-		const call = dispatch.mock.calls[0][0];
+		let call = dispatch.mock.calls[0][0];
+		call(dispatch, () => undefined);
+		call = dispatch.mock.calls[1][0];
+
 		expect(call).toMatchSnapshot();
 	});
+
 	it('should getStateAccessors return accessors', () => {
 		const dispatch = jest.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
@@ -36,15 +39,16 @@ describe('state', () => {
 
 		props.initState();
 		let call = dispatch.mock.calls[0][0];
-		const addComp = actions.componentsActions.addComponentState('name', 'id', DEFAULT_STATE);
 		expect(call).toMatchSnapshot();
 
 		props.setState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
+		call(dispatch, () => ({ foo: 'baz' }));
+		call = dispatch.mock.calls[2][0];
 		expect(call).toMatchSnapshot();
 
 		props.deleteState();
-		call = dispatch.mock.calls[2][0];
+		call = dispatch.mock.calls[3][0];
 		expect(call).toMatchSnapshot();
 	});
 
@@ -58,28 +62,6 @@ describe('state', () => {
 		props.setState(callBack);
 		const call = dispatch.mock.calls[0][0];
 		expect(typeof call === 'function').toEqual(true);
-	});
-
-	it('should applyCallback dispatch mergeComponentState', () => {
-		const callback = jest.fn(() => ({ compState: false }));
-		const dispatch = jest.fn();
-		const getState = jest.fn(() => ({
-			cmf: {
-				components: new Map({
-					MySuperComponent: new Map({
-						id: { compState: true },
-					}),
-				}),
-			},
-		}));
-		applyCallback(callback, 'MySuperComponent', 'id')(dispatch, getState);
-		expect(callback.mock.calls[0][0]).toEqual({
-			state: {
-				compState: true,
-			},
-		});
-		const action = dispatch.mock.calls[0][0];
-		expect(action).toMatchSnapshot();
 	});
 
 	it('should getStateProps return state', () => {
