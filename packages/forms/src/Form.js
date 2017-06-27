@@ -137,6 +137,7 @@ class Form extends React.Component {
 			handleAction: this.props.handleAction,
 			...this.props.formContext,
 		};
+
 		return (
 			<RJSForm
 				{...this.props}
