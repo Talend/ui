@@ -1,6 +1,7 @@
 /**
  * @module react-cmf/lib/reducers/componentsReducers
  */
+import get from 'lodash/get';
 import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import ACTIONS from '../actions';
@@ -31,6 +32,8 @@ export function componentDoesntExists(action) {
  * @return {object}        the new state
  */
 export function componentsReducers(state = defaultState, action) {
+	const subAction = get(action, 'cmf.componentState');
+
 	switch (action.type) {
 	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
 		if (state.getIn([action.componentName, action.key])) {
@@ -72,6 +75,9 @@ export function componentsReducers(state = defaultState, action) {
 
 		return state.deleteIn([action.componentName, action.key]);
 	default:
+		if (subAction) {
+			return componentsReducers(state, subAction);
+		}
 		return state;
 	}
 }
