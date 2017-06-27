@@ -11,13 +11,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  78:3  warning  Unexpected console statement  no-console
+  67:3  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
   55:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   56:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/componentsReducers.js
+  81:3  error  Requires a space before '}'                                                                                    block-spacing
+  81:3  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
 
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   16:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
@@ -26,7 +30,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 10 problems (9 errors, 1 warning)
+✖ 12 problems (11 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
