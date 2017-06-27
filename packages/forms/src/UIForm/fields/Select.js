@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -74,7 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 			titleMap: PropTypes.shape({
 				name: PropTypes.string.isRequired,
 				value: PropTypes.string.isRequired,
-			}),
+			}).isRequired,
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
