@@ -23,7 +23,7 @@ const widgets = {
 	number: Text,
 	radios: Radios,
 	reset: Button,
-  select: Select,
+	select: Select,
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
