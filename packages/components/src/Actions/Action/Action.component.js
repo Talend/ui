@@ -79,6 +79,7 @@ function Action(props) {
 		link,
 		model,
 		onClick,
+		onMouseDown,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -92,11 +93,17 @@ function Action(props) {
 		model,
 	});
 
+	const rMouseDown = event => onMouseDown && onMouseDown(event, {
+		action: { label, ...rest },
+		model,
+	});
+
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
 			onClick={rClick}
+			onMouseDown={rMouseDown}
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
