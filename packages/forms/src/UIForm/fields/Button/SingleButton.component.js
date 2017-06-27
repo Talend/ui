@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Action } from 'react-talend-components';
+import { Action } from '@talend/react-components';
 import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, schema }) {
