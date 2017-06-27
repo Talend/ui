@@ -1,26 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter should render 1`] = `
-<button
-  className="navbar-right btn btn-link"
+<Action
+  bsStyle="link"
+  className="navbar-right"
   disabled={false}
+  hideLabel={true}
+  icon="talend-search"
+  id={undefined}
+  inProgress={false}
+  label="Toggle filter"
   onClick={[Function]}
-  onFocus={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
+  tooltipPlacement="top"
+/>
 `;
 
 exports[`Filter should render filter input with default placeholder 1`] = `
@@ -29,53 +21,35 @@ exports[`Filter should render filter input with default placeholder 1`] = `
   onSubmit={[Function]}
   role="search"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
+  <Icon
+    className={undefined}
+    name="talend-search"
+  />
   <div
     className="form-group"
   >
-    <input
-      aria-label="Filter"
-      autoFocus={true}
-      className="form-control"
+    <FilterInput
+      debounceMinLength={undefined}
+      debounceTimeout={undefined}
       id={undefined}
-      name="search"
       onBlur={undefined}
-      onChange={[Function]}
+      onFilter={undefined}
       onFocus={undefined}
-      onKeyDown={[Function]}
+      onToggle={undefined}
       placeholder="Filter"
-      type="search"
       value={undefined}
     />
-    <button
-      className="btn btn-link"
+    <Action
+      bsStyle="link"
       disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      role={null}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
+      hideLabel={true}
+      icon="talend-cross"
+      id={undefined}
+      inProgress={false}
+      label="Remove filter"
+      onClick={undefined}
+      tooltipPlacement="top"
+    />
   </div>
 </form>
 `;
@@ -86,123 +60,80 @@ exports[`Filter should render filter input with given placeholder 1`] = `
   onSubmit={[Function]}
   role="search"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
+  <Icon
+    className={undefined}
+    name="talend-search"
+  />
   <div
     className="form-group"
   >
-    <input
-      aria-label="Filter"
-      autoFocus={true}
-      className="form-control"
+    <FilterInput
+      debounceMinLength={undefined}
+      debounceTimeout={undefined}
       id={undefined}
-      name="search"
       onBlur={undefined}
-      onChange={[Function]}
+      onFilter={undefined}
       onFocus={undefined}
-      onKeyDown={[Function]}
+      onToggle={undefined}
       placeholder="find something"
-      type="search"
       value={undefined}
     />
-    <button
-      className="btn btn-link"
+    <Action
+      bsStyle="link"
       disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      role={null}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
+      hideLabel={true}
+      icon="talend-cross"
+      id={undefined}
+      inProgress={false}
+      label="Remove filter"
+      onClick={undefined}
+      tooltipPlacement="top"
+    />
   </div>
 </form>
 `;
 
 exports[`Filter should render highlighted filter 1`] = `
-<button
-  className="navbar-right btn btn-link"
+<Action
+  bsStyle="link"
+  className="navbar-right"
   disabled={false}
+  hideLabel={true}
+  icon="talend-search"
+  id={undefined}
+  inProgress={false}
+  label="Toggle filter"
   onClick={[Function]}
-  onFocus={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
+  tooltipPlacement="top"
+/>
 `;
 
 exports[`Filter should render id if provided 1`] = `
-<button
-  className="navbar-right btn btn-link"
+<Action
+  bsStyle="link"
+  className="navbar-right"
   disabled={false}
+  hideLabel={true}
+  icon="talend-search"
   id="toolbar-filter"
+  inProgress={false}
+  label="Toggle filter"
   onClick={[Function]}
-  onFocus={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
+  tooltipPlacement="top"
+/>
 `;
 
 exports[`Filter should render only toggle icon 1`] = `
-<button
-  className="navbar-right btn btn-link"
+<Action
+  bsStyle="link"
+  className="navbar-right"
   disabled={false}
+  hideLabel={true}
+  icon="talend-search"
+  id={undefined}
+  inProgress={false}
+  label="Toggle filter"
   onClick={[Function]}
-  onFocus={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
+  tooltipPlacement="top"
+/>
 `;

@@ -183,6 +183,7 @@ exports[`UIForm connect should render form 1`] = `
   formName="myFormName"
   id="myFormId"
   onChange={[Function]}
+  onReset={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
   removeForm={[Function]}

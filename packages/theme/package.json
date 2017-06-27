@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Talend/bootstrap-theme.git"
+    "url": "git+https://github.com/Talend/ui.git"
   },
   "keywords": [
     "bootstrap",
@@ -25,9 +25,9 @@
   "author": "Talend",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Talend/bootstrap-theme/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
-  "homepage": "https://github.com/Talend/bootstrap-theme#readme",
+  "homepage": "https://github.com/Talend/ui",
   "devDependencies": {
     "autoprefixer": "^6.7.5",
     "babel-cli": "6.24.1",
@@ -50,5 +50,5 @@
   "dependencies": {
     "bootstrap-sass": "3.3.7"
   },
-  "version": "0.87.0"
+  "version": "0.88.0"
 }
