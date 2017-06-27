@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListGrid should render no-rows component 1`] = `
+<span
+  className={undefined}
+>
+  No result found
+</span>
+`;
+
 exports[`ListGrid should render react-virtualized table 1`] = `
 <Table
   className="tc-list-table undefined"

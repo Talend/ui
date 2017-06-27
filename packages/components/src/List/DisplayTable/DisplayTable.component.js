@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
+import NoRows from '../NoRows/';
 import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
@@ -304,10 +305,7 @@ function DisplayTable(props) {
 		'tc-list-display-table',
 		theme.table,
 	);
-	let message = null;
-	if (!items || items.length === 0) {
-		message = <span className={theme['no-result']}>No result found</span>;
-	}
+	const hasItems = items && items.length !== 0;
 
 	return (
 		<div className={containerClassName}>
@@ -338,7 +336,7 @@ function DisplayTable(props) {
 						)}
 					</tbody>
 				</table>
-				{message}
+				{ !hasItems && <NoRows /> }
 			</div>
 		</div>
 	);

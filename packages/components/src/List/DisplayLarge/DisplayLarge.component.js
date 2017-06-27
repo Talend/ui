@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import DisplayPropTypes from '../Display/Display.propTypes';
 import { Actions } from '../../Actions';
 import ItemTitle from '../ItemTitle';
+import NoRows from '../NoRows';
 import theme from './DisplayLarge.scss';
 
 function getColumnsData({ columns, item, titleKey }) {
@@ -170,8 +171,11 @@ function DisplayLarge(props) {
 		theme.container,
 		'tc-list-display',
 	);
+	const hasItems = items && items.length !== 0;
+
 	return (
 		<div className={classnames}>
+			{ !hasItems && <NoRows /> }
 			{items.map((item, index) => rowRenderer({
 				index,
 				id: id && `${id}-${index}`,

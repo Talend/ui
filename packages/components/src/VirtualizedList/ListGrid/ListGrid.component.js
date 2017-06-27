@@ -1,17 +1,10 @@
 import React, { PropTypes } from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
+import NoRows from '../NoRows';
 import { getRowData } from '../utils/gridrow';
 
 import theme from './ListGrid.scss';
-
-export function NoRow() {
-	return (
-		<div className={'tc-list-no-rows'}>
-			No rows
-		</div>
-	);
-}
 
 function getRowDataFromParent({ parent, index }) {
 	return getRowData(parent, index);
@@ -52,7 +45,7 @@ export default function ListGrid(props) {
 			id={id}
 			height={height}
 			overscanRowCount={10}
-			noRowsRenderer={NoRow}
+			noRowsRenderer={NoRows}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}

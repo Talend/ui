@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListGrid should render no-rows component 1`] = `
-<div
-  className="tc-list-no-rows"
+<span
+  className={undefined}
 >
-  No rows
-</div>
+  No result found
+</span>
 `;
 
 exports[`ListGrid should render react-virtualized list 1`] = `

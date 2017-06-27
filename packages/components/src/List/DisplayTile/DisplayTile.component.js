@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import ItemTitle from '../ItemTitle';
 import DisplayPropTypes from '../Display/Display.propTypes';
+import NoRows from '../NoRows';
 import theme from './DisplayTile.scss';
 
 const columnPropType = PropTypes.shape({
@@ -155,9 +156,10 @@ function DisplayTile(props) {
 		titleProps,
 	} = props;
 	const { width } = itemProps || {};
+	const hasItems = items && items.length !== 0;
 	return (
 		<div className="tc-list-display">
-			<ul className={theme.tiles}>
+			{ hasItems && (<ul className={theme.tiles}>
 				{items.map((item, index) => (
 					<li key={index}>
 						<Tile
@@ -170,7 +172,8 @@ function DisplayTile(props) {
 						/>
 					</li>
 				))}
-			</ul>
+			</ul>)}
+			{!hasItems && <NoRows />}
 		</div>
 	);
 }

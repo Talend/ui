@@ -92,4 +92,32 @@ describe('ListGrid', () => {
 		// then
 		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(undefined)');
 	});
+
+	it('should render no-rows component', () => {
+		// when
+		const wrapper = shallow(
+			<ListTable
+				collection={collection}
+				height={600}
+				id={'my-list'}
+				isSelected={jest.fn()}
+				selectionToggle={jest.fn()}
+				width={1024}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+				/>
+			</ListTable>
+		);
+		const NoRows = wrapper.prop('noRowsRenderer');
+		const noRowsWrapper = shallow(<NoRows />);
+
+		// then
+		expect(noRowsWrapper.node).toMatchSnapshot();
+	});
 });

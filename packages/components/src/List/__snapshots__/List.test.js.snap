@@ -963,7 +963,23 @@ exports[`List should render 1`] = `
 </div>
 `;
 
-exports[`List should render empty list 1`] = `
+exports[`List should render empty list in large 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <span
+      className={undefined}
+    >
+      No result found
+    </span>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in table 1`] = `
 <div
   className="tc-list"
 >
@@ -1011,6 +1027,22 @@ exports[`List should render empty list 1`] = `
         No result found
       </span>
     </div>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in tile 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <span
+      className={undefined}
+    >
+      No result found
+    </span>
   </div>
 </div>
 `;
