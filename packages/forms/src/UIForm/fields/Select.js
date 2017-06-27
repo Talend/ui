@@ -74,7 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 			titleMap: PropTypes.shape({
 				name: PropTypes.string.isRequired,
 				value: PropTypes.string.isRequired,
-			}).isRequired,
+			}),
 			type: PropTypes.string,
 		}).isRequired,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
