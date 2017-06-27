@@ -1,11 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
-jest.mock('../../Icon', () => (
-	props => (<i name={props.name} />)
-));
 
 const items = [
 	{
@@ -28,10 +25,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -44,10 +41,38 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+
+	it('should render items with icons', () => {
+		// given
+		const props = {
+			label: 'Add File',
+			icon: 'fa fa-plus',
+			onClick: jest.fn(),
+			items: [
+				{
+					label: 'From Local',
+					onClick: jest.fn(),
+					icon: 'fa fa-plus',
+				},
+				{
+					label: 'From Remote',
+					onClick: jest.fn(),
+					icon: 'fa fa-plus',
+				},
+			],
+		};
+
+		// when
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render "no option" item when items array is empty', () => {
@@ -61,9 +86,9 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionSplitDropdown {...props} />).toJSON();
+		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });

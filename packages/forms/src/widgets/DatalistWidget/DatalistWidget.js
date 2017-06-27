@@ -76,7 +76,7 @@ function renderDatalistItem(item, { value }) {
 	}
 
 	return (
-		<div className={theme.item}>
+		<div className={classnames(theme.item, 'datalist-item')}>
 			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
 		</div>
 	);
@@ -128,7 +128,7 @@ class DatalistWidget extends React.Component {
 
 		this.inputProps = {
 			required: props.required,
-			onBlur: () => this.onBlur(),
+			onBlur: event => this.onBlur(event),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
@@ -155,14 +155,16 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	onBlur() {
-		if (
-			this.props.options &&
-			this.props.options.restricted &&
-			this.state.initalItems.indexOf(this.state.value) === -1
-		) {
+	onBlur(event) {
+		const { options } = this.props;
+		if (options && options.restricted &&
+			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
 		} else {
+			const { value } = event.target;
+			if (value !== this.state.value) {
+				this.props.onChange(value);
+			}
 			this.resetSuggestions();
 		}
 	}
@@ -214,7 +216,7 @@ class DatalistWidget extends React.Component {
 			initalItems: items,
 			items: suggestions,
 			itemIndex: null,
-			noMatch: value && !items.length,
+			noMatch: value && items && !items.length,
 		});
 	}
 
@@ -250,9 +252,11 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		this.setValue(selectedItem);
-		this.resetSuggestions();
-		this.props.onChange(selectedItem);
+		if (selectedItem && selectedItem !== this.state.value) {
+			this.setValue(selectedItem);
+			this.resetSuggestions();
+			this.props.onChange(selectedItem);
+		}
 	}
 
 	render() {

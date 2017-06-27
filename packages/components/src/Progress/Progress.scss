@@ -1,17 +1,20 @@
 $tc-progress-color: $brand-success !default;
-$gradient-part-width: 100% / 6;
+$infinite-indicator-ratio: 3;
+$infinite-indicator-width: 100% / $infinite-indicator-ratio;
+
 @keyframes infinite-progression-keyframes {
 	0% {
-		background-position-x: 100%;
+		transform: translateX(-100%);
 	}
 
 	100% {
-		background-position-x: 0%;
+		transform: translateX(100% * $infinite-indicator-ratio);
 	}
 }
 
 .progress {
 	height: 5px;
+	width: 100%;
 
 	&.fixed {
 		position: fixed;
@@ -28,31 +31,16 @@ $gradient-part-width: 100% / 6;
 		background: $tc-progress-color;
 		height: 100%;
 		transition: width 200ms ease;
+		overflow: hidden;
 
-		&:after {
-			content: ' ';
-			position: absolute;
-			top: 0;
-			height: 200%;
-			width: 100%;
-		}
-
-		&.infinite {
-			background: transparent;
-			width: 100%;
-			animation: infinite-progression-keyframes 5s infinite;
-			animation-timing-function: linear;
+		.infinite-indicator {
+			height: 100%;
+			background: $white;
+			position: relative;
+			width: $infinite-indicator-width;
 			animation-fill-mode: forwards;
-			background-size: 300%;
-
-			background-image: linear-gradient(to right,
-				$tc-progress-color 0%, $tc-progress-color $gradient-part-width,
-				transparent $gradient-part-width, transparent 2 * $gradient-part-width,
-				$tc-progress-color 2 * $gradient-part-width, $tc-progress-color 3 * $gradient-part-width,
-				transparent 3 * $gradient-part-width, transparent 4 * $gradient-part-width,
-				$tc-progress-color 4 * $gradient-part-width, $tc-progress-color 5 * $gradient-part-width,
-				transparent 5 * $gradient-part-width, transparent 100%
-			);
+			animation: infinite-progression-keyframes 0.6s infinite;
+			animation-timing-function: linear;
 		}
 	}
 }

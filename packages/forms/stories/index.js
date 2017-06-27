@@ -115,8 +115,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 decoratedStories.add('Datalist', () => {
-	function fetchItems(title) {
-		console.log('fetchItems', title);
+	function fetchItems() {
 		return [
 			'Auklet',
 			'Cormorant',
@@ -185,6 +184,7 @@ decoratedStories.add('Datalist', () => {
 		<Form
 			data={schema}
 			formContext={{ fetchItems }}
+			onChange={action('CHANGE')}
 			onSubmit={action('SUBMIT')}
 		/>
 	);
@@ -240,5 +240,30 @@ decoratedStories.add('Custom widget', () => {
 			widgets={widgets}
 			onSubmit={action('SUBMIT')}
 		/>
+	);
+});
+
+decoratedStories.add('Form Children', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'Form with children',
+			type: 'object',
+			properties: {
+				test: {
+					title: 'Test title',
+					type: 'string',
+				},
+			},
+		},
+		uiSchema: {},
+		properties: {
+			test: 'test',
+		},
+	};
+	return (
+		<Form data={schema} onSubmit={action('SUBMIT')}>
+			<h1>Child</h1>
+			<p>This is an inner child in the form</p>
+		</Form>
 	);
 });

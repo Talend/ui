@@ -7,6 +7,7 @@ import state, {
 	getStateProps,
 	initState,
 	statePropTypes,
+	applyCallback,
 } from '../src/componentState';
 
 describe('state', () => {
@@ -19,7 +20,7 @@ describe('state', () => {
 
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
 		const dispatch = jest.fn();
-		const props = getStateAccessors(dispatch, 'name', 'id');
+		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
 		expect(typeof props.setState).toBe('function');
 		props.setState();
 		const call = dispatch.mock.calls[0][0];
@@ -46,7 +47,9 @@ describe('state', () => {
 		props.setState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
 		const mergeComp = actions.componentsActions.mergeComponentState(
-			'name', 'id', DEFAULT_STATE.set('foo', 'baz'),
+			'name',
+			'id',
+			DEFAULT_STATE.set('foo', 'baz'),
 		);
 		expect(call.type).toBe(mergeComp.type);
 		expect(call.componentName).toBe('name');
@@ -57,6 +60,46 @@ describe('state', () => {
 		call = dispatch.mock.calls[2][0];
 		expect(call.componentName).toBe('name');
 		expect(call.key).toBe('id');
+	});
+
+	it(`should call state if state is a function,
+		via applyCallback`, () => {
+		const dispatch = jest.fn();
+		const callBack = jest.fn();
+		const DEFAULT_STATE = new Map({ foo: 'bar' });
+		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
+
+		props.setState(callBack);
+		const call = dispatch.mock.calls[0][0];
+		expect(typeof call === 'function').toEqual(true);
+	});
+
+	it('should applyCallback dispatch mergeComponentState', () => {
+		const callback = jest.fn(() => ({ compState: false }));
+		const dispatch = jest.fn();
+		const getState = jest.fn(() => ({
+			cmf: {
+				components: new Map({
+					name: new Map({
+						id: { compState: true },
+					}),
+				}),
+			},
+		}));
+		applyCallback(callback, 'name', 'id')(dispatch, getState);
+		expect(callback.mock.calls[0][0]).toEqual({
+			state: {
+				compState: true,
+			},
+		});
+		expect(dispatch.mock.calls[0][0]).toEqual({
+			type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+			componentName: 'name',
+			key: 'id',
+			componentState: {
+				compState: false,
+			},
+		});
 	});
 
 	it('should getStateProps return state', () => {

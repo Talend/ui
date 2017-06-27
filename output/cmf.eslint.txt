@@ -1,13 +1,33 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.79.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.87.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/cmf/src/App.js
+  28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  36:3  warning  Unexpected console statement  no-console
+  52:3  warning  Unexpected console statement  no-console
 
-✖ 1 problem (0 errors, 1 warning)
+/home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
+  55:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  56:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
+  16:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
+  28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+✖ 10 problems (9 errors, 1 warning)
+
+Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
+Errored while running ExecCommand.execute
+Command exited with status 1: npm run lint:es

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`DatalistWidget should render "no match" message 1`] = `
 <DatalistWidget
   id="myWidget"
@@ -13,7 +15,8 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         "Toto",
       ],
     }
-  }>
+  }
+>
   <Autowhatever
     focusedItemIndex={null}
     focusedSectionIndex={null}
@@ -58,9 +61,11 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
-    }>
+    }
+  >
     <div
-      className="form-control tf-typeahead-container">
+      className="form-control tf-typeahead-container"
+    >
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -79,7 +84,8 @@ exports[`DatalistWidget should render "no match" message 1`] = `
           role="combobox"
           style={Object {}}
           type="text"
-          value="noMatchingValue">
+          value="noMatchingValue"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -96,15 +102,18 @@ exports[`DatalistWidget should render "no match" message 1`] = `
             role="combobox"
             style={Object {}}
             type="text"
-            value="noMatchingValue" />
+            value="noMatchingValue"
+          />
         </FormControl>
         <div>
           <span
-            className="caret" />
+            className="caret"
+          />
         </div>
       </div>
       <div
-        className="undefined undefined">
+        className="undefined undefined"
+      >
         <span>
           No match.
         </span>
@@ -129,7 +138,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "Toto",
       ],
     }
-  }>
+  }
+>
   <Autowhatever
     focusedItemIndex={null}
     focusedSectionIndex={null}
@@ -182,9 +192,11 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
-    }>
+    }
+  >
     <div
-      className="form-control tf-typeahead-container">
+      className="form-control tf-typeahead-container"
+    >
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -203,7 +215,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           role="combobox"
           style={Object {}}
           type="text"
-          value="">
+          value=""
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -220,16 +233,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             role="combobox"
             style={Object {}}
             type="text"
-            value="" />
+            value=""
+          />
         </FormControl>
         <div>
           <span
-            className="caret" />
+            className="caret"
+          />
         </div>
       </div>
       <div
         id="react-autowhatever-myWidget"
-        style={Object {}}>
+        style={Object {}}
+      >
         <ItemsList
           focusedItemIndex={null}
           getItemId={[Function]}
@@ -258,10 +274,12 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             }
           }
           sectionIndex={null}
-          theme={[Function]}>
+          theme={[Function]}
+        >
           <ul
             role="listbox"
-            style={Object {}}>
+            style={Object {}}
+          >
             <Item
               id="react-autowhatever-myWidget--item-0"
               item="aze"
@@ -276,15 +294,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 }
               }
               sectionIndex={null}
-              style={Object {}}>
+              style={Object {}}
+            >
               <li
                 id="react-autowhatever-myWidget--item-0"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 role="option"
-                style={Object {}}>
-                <div>
+                style={Object {}}
+              >
+                <div
+                  className="datalist-item"
+                >
                   <span>
                     aze
                   </span>
@@ -305,15 +327,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 }
               }
               sectionIndex={null}
-              style={Object {}}>
+              style={Object {}}
+            >
               <li
                 id="react-autowhatever-myWidget--item-1"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 role="option"
-                style={Object {}}>
-                <div>
+                style={Object {}}
+              >
+                <div
+                  className="datalist-item"
+                >
                   <span>
                     banane
                   </span>
@@ -334,15 +360,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 }
               }
               sectionIndex={null}
-              style={Object {}}>
+              style={Object {}}
+            >
               <li
                 id="react-autowhatever-myWidget--item-2"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 role="option"
-                style={Object {}}>
-                <div>
+                style={Object {}}
+              >
+                <div
+                  className="datalist-item"
+                >
                   <span>
                     bananAze
                   </span>
@@ -363,15 +393,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 }
               }
               sectionIndex={null}
-              style={Object {}}>
+              style={Object {}}
+            >
               <li
                 id="react-autowhatever-myWidget--item-3"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 role="option"
-                style={Object {}}>
-                <div>
+                style={Object {}}
+              >
+                <div
+                  className="datalist-item"
+                >
                   <span>
                        AzErTy   
                   </span>
@@ -392,15 +426,19 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 }
               }
               sectionIndex={null}
-              style={Object {}}>
+              style={Object {}}
+            >
               <li
                 id="react-autowhatever-myWidget--item-4"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 role="option"
-                style={Object {}}>
-                <div>
+                style={Object {}}
+              >
+                <div
+                  className="datalist-item"
+                >
                   <span>
                     Toto
                   </span>
@@ -430,7 +468,8 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         "Toto",
       ],
     }
-  }>
+  }
+>
   <Autowhatever
     focusedItemIndex={null}
     focusedSectionIndex={null}
@@ -475,9 +514,11 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
-    }>
+    }
+  >
     <div
-      className="form-control tf-typeahead-container">
+      className="form-control tf-typeahead-container"
+    >
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -496,7 +537,8 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           role="combobox"
           style={Object {}}
           type="text"
-          value="aze">
+          value="aze"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -513,15 +555,18 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
             role="combobox"
             style={Object {}}
             type="text"
-            value="aze" />
+            value="aze"
+          />
         </FormControl>
         <div>
           <span
-            className="caret" />
+            className="caret"
+          />
         </div>
       </div>
       <div
-        className="undefined undefined">
+        className="undefined undefined"
+      >
         <span>
           No match.
         </span>
@@ -533,9 +578,11 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
 
 exports[`DatalistWidget should render input 1`] = `
 <div
-  className="form-control tf-typeahead-container">
+  className="form-control tf-typeahead-container"
+>
   <div
-    className={undefined}>
+    className={undefined}
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -553,16 +600,20 @@ exports[`DatalistWidget should render input 1`] = `
       role="combobox"
       style={Object {}}
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className={undefined}>
+      className={undefined}
+    >
       <span
-        className="caret" />
+        className="caret"
+      />
     </div>
   </div>
   <div
     id="react-autowhatever-myWidget"
-    style={Object {}} />
+    style={Object {}}
+  />
 </div>
 `;
 
@@ -586,7 +637,8 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         "Toto",
       ],
     }
-  }>
+  }
+>
   <Autowhatever
     focusedItemIndex={null}
     focusedSectionIndex={null}
@@ -631,9 +683,11 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
-    }>
+    }
+  >
     <div
-      className="form-control tf-typeahead-container">
+      className="form-control tf-typeahead-container"
+    >
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -652,7 +706,8 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
           role="combobox"
           style={Object {}}
           type="text"
-          value="">
+          value=""
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -669,16 +724,19 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
             role="combobox"
             style={Object {}}
             type="text"
-            value="" />
+            value=""
+          />
         </FormControl>
         <div>
           <span
-            className="caret" />
+            className="caret"
+          />
         </div>
       </div>
       <div
         id="react-autowhatever-myWidget"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </Autowhatever>
 </DatalistWidget>
@@ -699,7 +757,8 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         "Toto",
       ],
     }
-  }>
+  }
+>
   <Autowhatever
     focusedItemIndex={null}
     focusedSectionIndex={null}
@@ -744,9 +803,11 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
-    }>
+    }
+  >
     <div
-      className="form-control tf-typeahead-container">
+      className="form-control tf-typeahead-container"
+    >
       <div>
         <FormControl
           aria-activedescendant={null}
@@ -765,7 +826,8 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           role="combobox"
           style={Object {}}
           type="text"
-          value="aze">
+          value="aze"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -782,16 +844,19 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
             role="combobox"
             style={Object {}}
             type="text"
-            value="aze" />
+            value="aze"
+          />
         </FormControl>
         <div>
           <span
-            className="caret" />
+            className="caret"
+          />
         </div>
       </div>
       <div
         id="react-autowhatever-myWidget"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </Autowhatever>
 </DatalistWidget>

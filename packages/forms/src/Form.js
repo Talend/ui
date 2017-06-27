@@ -98,7 +98,7 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return (event, data) => onClick(event, { ...data, ...this.form.state });
+			return (event, data) => onClick(event, { ...data, ...(this.form && this.form.state) });
 		}
 		return () => {};
 	}
@@ -137,6 +137,7 @@ class Form extends React.Component {
 			handleAction: this.props.handleAction,
 			...this.props.formContext,
 		};
+
 		return (
 			<RJSForm
 				{...this.props}
@@ -153,6 +154,7 @@ class Form extends React.Component {
 					this.form = c;
 				}}
 			>
+				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
 					{renderActions(this.props.actions, this.handleActionClick)}
 				</div>
@@ -179,17 +181,20 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	title: PropTypes.string,
 }));
 
-Form.propTypes = {
-	data: DataPropTypes.isRequired,
-	onChange: PropTypes.func,
-	onTrigger: PropTypes.func,
-	onSubmit: PropTypes.func,
-	actions: ActionsPropTypes,
-	buttonBlockClass: PropTypes.string,
-	handleAction: PropTypes.func,
-	widgets: PropTypes.object,
-	formContext: PropTypes.func,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Form.propTypes = {
+		data: DataPropTypes.isRequired,
+		onChange: PropTypes.func,
+		onTrigger: PropTypes.func,
+		onSubmit: PropTypes.func,
+		actions: ActionsPropTypes,
+		buttonBlockClass: PropTypes.string,
+		handleAction: PropTypes.func,
+		widgets: PropTypes.object,
+		formContext: PropTypes.func,
+		children: PropTypes.element,
+	};
+}
 
 Form.defaultProps = {
 	buttonBlockClass: 'form-actions',

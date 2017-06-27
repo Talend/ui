@@ -1,0 +1,90 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "firstname"
+        ]
+      },
+      "nochange": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "pattern": "^\\S+@\\S+$"
+      },
+      "comment": {
+        "type": "string",
+        "maxLength": 20
+      }
+    },
+    "required": [
+      "email",
+      "comment"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "user.name",
+      "title": "Name"
+    },
+    {
+      "key": "user.lastname",
+      "title": "Last Name (with description)",
+      "description": "Hint: this is the last name"
+    },
+    {
+      "key": "user.firstname",
+      "title": "First Name (with placeholder)",
+      "placeholder": "Enter your firstname here"
+    },
+    {
+      "key": "user.age",
+      "title": "Age"
+    },
+    {
+      "key": "email",
+      "title": "Email (with pattern validation and custom validation message)",
+      "description": "Email will be used for evil.",
+      "validationMessage": "Please enter a valid email address, e.g. user@email.com"
+    },
+    {
+      "key": "nochange",
+      "title": "Field (read only mode)",
+      "readOnly": true
+    },
+    {
+      "key": "comment",
+      "widget": "textarea",
+      "title": "Comment",
+      "placeholder": "Make a comment",
+      "validationMessage": "Don't be greedy!"
+    }
+  ],
+  "properties": {
+    "user": {
+      "name": "Chuck Norris"
+    },
+    "nochange": "You can't change that",
+    "email": "ChuckyFTW@gmail.com",
+    "comment": "lol"
+  }
+}

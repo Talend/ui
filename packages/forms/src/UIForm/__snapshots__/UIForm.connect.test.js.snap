@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UIForm connect #onChange should update state properties and errors 1`] = `
+Object {
+  "error": "String is too short (4 chars), minimum 10",
+  "formName": "myFormName",
+  "schema": Object {
+    "autoFocus": true,
+    "description": "Hint: this is the last name",
+    "key": Array [
+      "lastname",
+    ],
+    "minlength": 10,
+    "ngModelOptions": Object {},
+    "schema": Object {
+      "minLength": 10,
+      "type": "string",
+    },
+    "title": "Last Name (with description)",
+    "type": "text",
+  },
+  "type": "TF_UPDATE_FORM_DATA",
+  "value": "toto",
+}
+`;
+
+exports[`UIForm connect should create form state on mount 1`] = `
+Object {
+  "errors": undefined,
+  "formName": "myFormName",
+  "jsonSchema": Object {
+    "properties": Object {
+      "check": Object {},
+      "firstname": Object {
+        "type": "string",
+      },
+      "lastname": Object {
+        "minLength": 10,
+        "type": "string",
+      },
+    },
+    "required": Array [
+      "firstname",
+    ],
+    "title": "Comment",
+    "type": "object",
+  },
+  "properties": Object {},
+  "type": "TF_CREATE_FORM",
+  "uiSchema": Array [
+    Object {
+      "autoFocus": true,
+      "description": "Hint: this is the last name",
+      "key": "lastname",
+      "title": "Last Name (with description)",
+    },
+    Object {
+      "key": "firstname",
+      "placeholder": "Enter your firstname here",
+      "title": "First Name (with placeholder)",
+      "triggers": Array [
+        "after",
+      ],
+    },
+    Object {
+      "key": "check",
+      "title": "Check the thing",
+      "triggers": Array [
+        "after",
+      ],
+      "widget": "button",
+    },
+  ],
+}
+`;
+
+exports[`UIForm connect should remove form state on unmount 1`] = `
+Object {
+  "formName": "myFormName",
+  "type": "TF_REMOVE_FORM",
+}
+`;
+
+exports[`UIForm connect should render form 1`] = `
+<UIForm
+  autoComplete="off"
+  createForm={[Function]}
+  customValidation={[Function]}
+  data={
+    Object {
+      "errors": Object {},
+      "jsonSchema": Object {
+        "properties": Object {
+          "check": Object {},
+          "firstname": Object {
+            "type": "string",
+          },
+          "lastname": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "firstname",
+        ],
+        "title": "Comment",
+        "type": "object",
+      },
+      "properties": Object {},
+      "uiSchema": Array [
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": "lastname",
+          "title": "Last Name (with description)",
+        },
+        Object {
+          "key": "firstname",
+          "placeholder": "Enter your firstname here",
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+        },
+        Object {
+          "key": "check",
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        },
+      ],
+    }
+  }
+  form={
+    Object {
+      "errors": Object {},
+      "jsonSchema": Object {
+        "properties": Object {
+          "check": Object {},
+          "firstname": Object {
+            "type": "string",
+          },
+          "lastname": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "firstname",
+        ],
+        "title": "Comment",
+        "type": "object",
+      },
+      "properties": Object {},
+      "uiSchema": Array [
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": "lastname",
+          "title": "Last Name (with description)",
+        },
+        Object {
+          "key": "firstname",
+          "placeholder": "Enter your firstname here",
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+        },
+        Object {
+          "key": "check",
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        },
+      ],
+    }
+  }
+  formName="myFormName"
+  id="myFormId"
+  onChange={[Function]}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  onTrigger={[Function]}
+  removeForm={[Function]}
+  setError={[Function]}
+  setErrors={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  updateForm={[Function]}
+  updateFormData={[Function]}
+  widgets={
+    Object {
+      "custom": [Function],
+    }
+  }
+/>
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validations reducers #TF_SET_ALL_ERRORS should replace all errors 1`] = `
+Object {
+  "field1": "new error 1",
+  "field2": "new error 2",
+}
+`;
+
+exports[`Validations reducers #TF_SET_PARTIAL_ERROR should set errors 1`] = `
+Object {
+  "field": "oldError",
+  "field1": "new error 1",
+  "field2": "new error 2",
+}
+`;

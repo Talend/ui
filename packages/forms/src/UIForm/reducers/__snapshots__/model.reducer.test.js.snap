@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model reducers #TF_MUTATE_VALUE should mutate nested value 1`] = `
+Object {
+  "props": "oldProps",
+  "user": Object {
+    "firstname": "oldName",
+  },
+}
+`;
+
+exports[`Model reducers #TF_MUTATE_VALUE should mutate simple value 1`] = `
+Object {
+  "props": "oldProps",
+  "user": Object {
+    "firstname": "oldName",
+  },
+}
+`;
