@@ -78,7 +78,8 @@ export function componentsReducers(state = defaultState, action) {
 			return componentsReducers(state, subAction);
 		}
 		return state;
-	}}
+	}
+	}
 }
 
 export default componentsReducers;
