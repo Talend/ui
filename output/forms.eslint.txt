@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.86.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.88.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -123,11 +123,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
-  192:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
+  6:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios.js
+  22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   34:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
@@ -152,10 +158,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   59:58  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  119:3  error  Prop type `any` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
-  27:21  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  121:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -163,7 +166,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 131 problems (131 errors, 0 warnings)
+✖ 132 problems (132 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

@@ -117,7 +117,7 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
-	...rest,
+	...rest
 }) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {

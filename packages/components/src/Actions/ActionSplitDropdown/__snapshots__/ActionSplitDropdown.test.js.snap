@@ -1,330 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
-<div
-  className="dropdown btn-group"
->
-  <button
-    className="btn btn-default"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-  >
+<SplitButton
+  className=""
+  id={42}
+  onClick={[Function]}
+  title={
     <span>
-      <i
+      <Icon
         name="fa fa-plus"
       />
       <span>
         Add File
       </span>
     </span>
-  </button>
-  <button
-    aria-expanded={false}
-    aria-haspopup={true}
-    aria-label={
-      <span>
-        <Unknown
-          name="fa fa-plus"
-        />
-        <span>
-          Add File
-        </span>
-      </span>
-    }
-    className="dropdown-toggle btn btn-default"
-    disabled={false}
-    id={42}
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    type="button"
+  }
+>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={true}
+    divider={false}
+    header={false}
   >
-     
-    <span
-      className="caret"
-    />
-  </button>
-  <ul
-    aria-labelledby={42}
-    className="dropdown-menu"
-    role="menu"
-  >
-    <li
-      className="disabled"
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        No option
-      </a>
-    </li>
-  </ul>
-</div>
+    No option
+  </MenuItem>
+</SplitButton>
 `;
 
 exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
-<div
-  className="dropdown btn-group"
->
-  <button
-    className="btn btn-default"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-  >
+<SplitButton
+  className=""
+  id={42}
+  onClick={[Function]}
+  title={
     <span>
-      <i
+      <Icon
         name="fa fa-plus"
       />
       <span>
         Add File
       </span>
     </span>
-  </button>
-  <button
-    aria-expanded={false}
-    aria-haspopup={true}
-    aria-label={
-      <span>
-        <Unknown
-          name="fa fa-plus"
-        />
-        <span>
-          Add File
-        </span>
-      </span>
-    }
-    className="dropdown-toggle btn btn-default"
+  }
+>
+  <MenuItem
+    bsClass="dropdown"
     disabled={false}
-    id={42}
+    divider={false}
+    header={false}
+    label="From Local"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    type="button"
   >
-     
-    <span
-      className="caret"
-    />
-  </button>
-  <ul
-    aria-labelledby={42}
-    className="dropdown-menu"
-    role="menu"
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Remote"
+    onClick={[Function]}
   >
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        label="From Local"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        From Local
-      </a>
-    </li>
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        label="From Remote"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        From Remote
-      </a>
-    </li>
-  </ul>
-</div>
+    From Remote
+  </MenuItem>
+</SplitButton>
 `;
 
 exports[`ActionSplitDropdown should render a button with label 1`] = `
-<div
-  className="dropdown btn-group"
->
-  <button
-    className="btn btn-default"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-  >
+<SplitButton
+  className=""
+  id={42}
+  onClick={[Function]}
+  title={
     <span>
       <span>
         Add File
       </span>
     </span>
-  </button>
-  <button
-    aria-expanded={false}
-    aria-haspopup={true}
-    aria-label={
-      <span>
-        <span>
-          Add File
-        </span>
-      </span>
-    }
-    className="dropdown-toggle btn btn-default"
+  }
+>
+  <MenuItem
+    bsClass="dropdown"
     disabled={false}
-    id={42}
+    divider={false}
+    header={false}
+    label="From Local"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    type="button"
   >
-     
-    <span
-      className="caret"
-    />
-  </button>
-  <ul
-    aria-labelledby={42}
-    className="dropdown-menu"
-    role="menu"
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Remote"
+    onClick={[Function]}
   >
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        label="From Local"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        From Local
-      </a>
-    </li>
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        label="From Remote"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        From Remote
-      </a>
-    </li>
-  </ul>
-</div>
+    From Remote
+  </MenuItem>
+</SplitButton>
 `;
 
 exports[`ActionSplitDropdown should render items with icons 1`] = `
-<div
-  className="dropdown btn-group"
->
-  <button
-    className="btn btn-default"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-  >
+<SplitButton
+  className=""
+  id={42}
+  onClick={[Function]}
+  title={
     <span>
-      <i
+      <Icon
         name="fa fa-plus"
       />
       <span>
         Add File
       </span>
     </span>
-  </button>
-  <button
-    aria-expanded={false}
-    aria-haspopup={true}
-    aria-label={
-      <span>
-        <Unknown
-          name="fa fa-plus"
-        />
-        <span>
-          Add File
-        </span>
-      </span>
-    }
-    className="dropdown-toggle btn btn-default"
+  }
+>
+  <MenuItem
+    bsClass="dropdown"
     disabled={false}
-    id={42}
+    divider={false}
+    header={false}
+    icon="fa fa-plus"
+    label="From Local"
     onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    type="button"
   >
-     
-    <span
-      className="caret"
+    <Icon
+      name="fa fa-plus"
     />
-  </button>
-  <ul
-    aria-labelledby={42}
-    className="dropdown-menu"
-    role="menu"
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    icon="fa fa-plus"
+    label="From Remote"
+    onClick={[Function]}
   >
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        icon="fa fa-plus"
-        label="From Local"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        <i
-          name="fa fa-plus"
-        />
-        From Local
-      </a>
-    </li>
-    <li
-      className=""
-      role="presentation"
-      style={undefined}
-    >
-      <a
-        href="#"
-        icon="fa fa-plus"
-        label="From Remote"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="menuitem"
-        tabIndex="-1"
-      >
-        <i
-          name="fa fa-plus"
-        />
-        From Remote
-      </a>
-    </li>
-  </ul>
-</div>
+    <Icon
+      name="fa fa-plus"
+    />
+    From Remote
+  </MenuItem>
+</SplitButton>
 `;

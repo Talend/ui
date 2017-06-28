@@ -112,14 +112,6 @@ class Items extends React.PureComponent {
 	}
 
 	render() {
-		if (this.getRowCount() === 0) {
-			return (
-				<div className={itemsClasses()}>
-					<p>{this.props.emptyLabel}</p>
-				</div>
-			);
-		}
-
 		return (
 			<div className={itemsClasses()}>
 				<AutoSizer>
@@ -160,7 +152,6 @@ Items.propTypes = {
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
-	emptyLabel: PropTypes.string,
 };
 
 export default Items;
