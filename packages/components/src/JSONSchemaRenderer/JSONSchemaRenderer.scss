@@ -4,16 +4,19 @@
 	margin-left: $padding-large;
 
 	div {
-		padding-bottom: 10px;
+		margin-bottom: 27px;
 
 		dt {
 			font-weight: 400;
-			font-size: 1.2rem;
-			margin-bottom: 0;
+			font-size: 14px;
+			margin-bottom: 7px;
+			color: $dark-silver;
 		}
 
 		dd {
-			font-size: 1.4rem;
+			font-size: 16px;
+			font-weight: 400;
+			color: $black;
 		}
 
 		&.array {
