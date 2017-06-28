@@ -15,6 +15,7 @@ exports[`Header should render header with one button 1`] = `
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
