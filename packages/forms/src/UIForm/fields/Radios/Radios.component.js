@@ -44,14 +44,18 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
 			title: PropTypes.string,
-		}),
+			titleMap: PropTypes.arrayOf(PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			})),
+		}).isRequired,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }

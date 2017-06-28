@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -53,7 +53,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			rows: PropTypes.number,
 			title: PropTypes.string,
-		}),
+		}).isRequired,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
