@@ -14,7 +14,6 @@ import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
-import expression from './expression';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -36,7 +35,6 @@ export {
 	App,
 	cmfConnect,
 	Dispatcher,
-	expression,
 	history,
 	store,
 	reducers,
