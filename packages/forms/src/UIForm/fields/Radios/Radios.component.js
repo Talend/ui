@@ -59,6 +59,8 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
+
 Radios.defaultProps = {
 	isValid: true,
+	schema: {},
 };

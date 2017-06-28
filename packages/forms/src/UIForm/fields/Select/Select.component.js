@@ -80,7 +80,9 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 }
+
 Select.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: '',
 };

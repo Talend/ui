@@ -66,4 +66,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 CheckBoxes.defaultProps = {
 	isValid: true,
+	schema: {},
 };
