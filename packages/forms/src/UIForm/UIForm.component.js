@@ -5,6 +5,7 @@ import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
 import { validateValue, validateAll } from './utils/validation';
 import Widget from './Widget';
+import Buttons from './fields/Button/Buttons.component';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -16,7 +17,8 @@ export default class UIForm extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.submit = this.submit.bind(this);
+		this.onReset = this.onReset.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	/**
@@ -87,10 +89,29 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
+	 * Set the original data and schema
+	 * Triggers reset callback if form is valid
+	 * @param event the reset event
+	 */
+	onReset(event) {
+		this.props.updateForm(
+			this.props.formName,
+			this.props.initialData.jsonSchema,
+			this.props.initialData.uiSchema,
+			this.props.initialData.properties
+		);
+		this.props.setErrors(this.props.formName, {});
+
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
+	}
+
+	/**
 	 * Triggers submit callback if form is valid
 	 * @param event the submit event
 	 */
-	submit(event) {
+	onSubmit(event) {
 		if (this.props.onSubmit) {
 			event.preventDefault();
 		}
@@ -109,6 +130,13 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
+		const actions = this.props.actions || [{
+			bsStyle: 'primary',
+			title: 'Submit',
+			type: 'submit',
+			widget: 'button',
+		}];
+
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
@@ -119,7 +147,8 @@ export default class UIForm extends React.Component {
 				method={this.props.method}
 				name={this.props.formName}
 				noValidate={this.props.noHtml5Validate}
-				onSubmit={this.submit}
+				onReset={this.onReset}
+				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
 				{
@@ -137,7 +166,11 @@ export default class UIForm extends React.Component {
 						/>
 					))
 				}
-				<button type="submit" className="btn btn-primary">Submit</button>
+				<Buttons
+					id={`${this.props.id}-${this.props.formName}-actions`}
+					onTrigger={this.onTrigger}
+					schema={{ items: actions }}
+				/>
 			</form>
 		);
 	}
@@ -158,7 +191,18 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		/** Form definition: The forms initial data */
+		initialData: PropTypes.shape({
+			jsonSchema: PropTypes.object,
+			uiSchema: PropTypes.array,
+			properties: PropTypes.object,
+		}),
 
+		/**
+		 * Actions buttons to display at the bottom of the form.
+		 * If not provided, a single submit button is displayed.
+		 */
+		actions: PropTypes.arrayOf(Buttons.propTypes.schema),
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

@@ -24,21 +24,31 @@ const structure = [
 	},
 ];
 
-const structureWithActions = [
-	{
-		name: 'hitmonlee',
-		toggled: true,
-		actions: [{
-			action: action('itemRemoveCallback'),
-			icon: 'talend-trash',
-			label: 'remove element',
-		}],
-		children: [{ name: 'raichu', showCounter: true, counter: 111 }],
-		counter: -1,
+const actions = [{
+	action: action('itemRemoveCallback'),
+	icon: 'talend-trash',
+	label: 'remove element',
+}];
+
+const structureWithActions = [{
+	name: 'hitmonlee',
+	toggled: true,
+	children: [{
+		name: 'raichu',
 		showCounter: true,
-	},
-	{ name: 'pikachu', toggled: true, counter: 911, showCounter: true },
-];
+		counter: 111,
+		actions,
+	}],
+	counter: -1,
+	showCounter: true,
+	actions,
+}, {
+	name: 'pikachu',
+	toggled: true,
+	counter: 2911,
+	showCounter: true,
+	actions,
+}];
 
 const defaultProps = {
 	structure,
@@ -94,6 +104,18 @@ const hugeStructure = [{
 										toggled: true,
 										children: [{
 											name: 'Hitmonchen11',
+											toggled: true,
+											children: [{
+												name: 'Hitmonchen12',
+												toggled: true,
+												children: [{
+													name: 'Hitmonchen13',
+													toggled: true,
+													children: [{
+														name: 'Hitmonchen14',
+													}],
+												}],
+											}],
 										}],
 									}],
 								}],

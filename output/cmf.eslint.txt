@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.86.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.88.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -10,14 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  120:9  error  Unexpected trailing comma  comma-dangle
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   52:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
-  85:20  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
   55:2  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -28,20 +22,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   16:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
-/home/travis/build/Talend/ui/packages/cmf/src/route.js
-   69:3   error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-   95:21  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-  118:28  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-
-/home/travis/build/Talend/ui/packages/cmf/src/settings.js
-  33:3  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
-  28:2   error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  29:2   error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  34:25  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
+  28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
+  29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 17 problems (16 errors, 1 warning)
+✖ 10 problems (9 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute

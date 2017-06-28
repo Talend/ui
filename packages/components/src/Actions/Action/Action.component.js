@@ -90,10 +90,10 @@ function Action(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick = event => onClick(event, {
+	const rClick = onClick && (event => onClick(event, {
 		action: { label, ...rest },
 		model,
-	});
+	}));
 
 	const rMouseDown = event => onMouseDown(event, {
 		action: { label, ...rest },

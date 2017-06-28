@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination should disable all navigation when there is no items 1`] = `
+exports[`Pagination should disable first and previous buttons for first page 1`] = `
 <ul
   className="nav"
   role={null}
@@ -171,12 +171,12 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       >
         1
         /
-        0
+        2
       </span>
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -185,12 +185,6 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       id={undefined}
       onClick={[Function]}
       role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
     >
       <svg
         aria-hidden="true"
@@ -205,7 +199,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -214,12 +208,6 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
       id={undefined}
       onClick={[Function]}
       role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
     >
       <svg
         aria-hidden="true"
@@ -236,7 +224,7 @@ exports[`Pagination should disable all navigation when there is no items 1`] = `
 </ul>
 `;
 
-exports[`Pagination should disable navigation when there is only one page 1`] = `
+exports[`Pagination should disable next and last buttons for last page 1`] = `
 <ul
   className="nav"
   role={null}
@@ -329,7 +317,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </ul>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -338,12 +326,6 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       id={undefined}
       onClick={[Function]}
       role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
     >
       <svg
         aria-hidden="true"
@@ -358,7 +340,7 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
     </a>
   </li>
   <li
-    className="btn-link disabled"
+    className="btn-link"
     role="presentation"
     style={undefined}
   >
@@ -367,12 +349,6 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       id={undefined}
       onClick={[Function]}
       role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
     >
       <svg
         aria-hidden="true"
@@ -405,9 +381,9 @@ exports[`Pagination should disable navigation when there is only one page 1`] = 
       <span
         className="btn-link"
       >
-        1
+        2
         /
-        1
+        2
       </span>
     </a>
   </li>
@@ -492,6 +468,196 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       role="button"
     >
       All
+       
+      <span
+        className="caret"
+      />
+    </a>
+    <ul
+      aria-labelledby={42}
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          5
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          10
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          20
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          50
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`Pagination should not show navigation when there is no items 1`] = `
+<ul
+  className="nav"
+  role={null}
+>
+  <li
+    className="dropdown"
+    style={undefined}
+  >
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href="#"
+      id={42}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      5
+       
+      <span
+        className="caret"
+      />
+    </a>
+    <ul
+      aria-labelledby={42}
+      className="dropdown-menu"
+      role="menu"
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          5
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          10
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          20
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          50
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`Pagination should not show navigation when there is only one page 1`] = `
+<ul
+  className="nav"
+  role={null}
+>
+  <li
+    className="dropdown"
+    style={undefined}
+  >
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle"
+      href="#"
+      id={42}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      5
        
       <span
         className="caret"
