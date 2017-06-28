@@ -169,7 +169,7 @@ describe('<Form/>', () => {
 		});
 
 		it('should Render the <DatalistWidget /> component', () => {
-			expect(wrapper.containsMatchingElement(<DatalistWidget />)).toBeTruthy();
+			expect(wrapper.find(DatalistWidget).length).toEqual(1);
 		});
 
 		it('should handle changes', () => {
