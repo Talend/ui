@@ -114,10 +114,6 @@ class DatalistWidget extends React.Component {
 		}),
 	};
 
-	static itemContainerStyle = theme['items-container'];
-	
-	static noResultStyle = theme['no-result'];
-
 	constructor(props) {
 		super(props);
 		this.state = {
