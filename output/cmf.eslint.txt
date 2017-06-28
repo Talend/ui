@@ -19,10 +19,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/cmf/src/reducers/componentsReducers.js
-  81:3  error  Requires a space before '}'                                                                                    block-spacing
-  81:3  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
-
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   16:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
@@ -30,7 +26,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 10 problems (9 errors, 1 warning)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
