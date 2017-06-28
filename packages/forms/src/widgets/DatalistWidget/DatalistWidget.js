@@ -45,7 +45,7 @@ function renderDatalistInput(props) {
  * Render the datalist suggestion items container
  * @param props
  */
-function defaultRenderDatalistItemContainer(props) {
+function renderDatalistItemContainer(props) {
 	return (<div {...props} />);
 }
 
@@ -80,7 +80,7 @@ function renderDatalistItem(item, { value }) {
 /**
  * Render an empty container
  */
-function defaultRenderNoMatch() {
+function renderNoMatch() {
 	return (
 		<div className={`${theme['items-container']} ${theme['no-result']}`}>
 			<span>No match.</span>
@@ -109,8 +109,6 @@ class DatalistWidget extends React.Component {
 		options: PropTypes.shape({
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
-			renderItemsContainer: PropTypes.element,
-			renderNoMatch: PropTypes.element,
 		}),
 	};
 
@@ -155,7 +153,7 @@ class DatalistWidget extends React.Component {
 
 	onBlur(event) {
 		const { options } = this.props;
-		if (options.restricted &&
+		if (options && options.restricted &&
 			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
 		} else {
@@ -203,7 +201,7 @@ class DatalistWidget extends React.Component {
 		let items;
 		if (this.props.schema.enum) {
 			items = this.props.schema.enum;
-		} else if (this.props.formContext.fetchItems) {
+		} else if (this.props.formContext && this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
 		const suggestions = getMatchingSuggestions(items, value);
@@ -253,9 +251,6 @@ class DatalistWidget extends React.Component {
 	render() {
 		const renderItemData = { value: this.state.value };
 		this.inputProps.value = this.state.value;
-		const renderItemsContainer =
-			this.props.options.renderItemsContainer || defaultRenderDatalistItemContainer;
-		const renderNoMatch = this.props.options.renderNoMatch || defaultRenderNoMatch;
 		return (
 			<Autowhatever
 				id={this.props.id}
@@ -265,17 +260,12 @@ class DatalistWidget extends React.Component {
 				theme={this.style}
 				renderItemData={renderItemData}
 				renderInputComponent={renderDatalistInput}
-				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderItemsContainer}
+				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderDatalistItemContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
 		);
 	}
 }
-
-DatalistWidget.defaultProps = {
-	options: {},
-	formContext: {},
-};
 
 export default DatalistWidget;
