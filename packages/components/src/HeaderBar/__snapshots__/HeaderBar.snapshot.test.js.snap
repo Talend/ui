@@ -67,27 +67,16 @@ exports[`Storyshots HeaderBar default 1`] = `
           <li
             className=""
           >
-<<<<<<< HEAD
-            <button
-              className="btn btn-link"
-              disabled={false}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-=======
             <form
               className="navbar-form navbar-right"
               role="search"
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
             >
               <button
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -4023,27 +4012,16 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <li
             className=""
           >
-<<<<<<< HEAD
-            <button
-              className="btn btn-link"
-              disabled={false}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-=======
             <form
               className="navbar-form navbar-right"
               role="search"
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
             >
               <button
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -6149,27 +6127,16 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <li
             className=""
           >
-<<<<<<< HEAD
-            <button
-              className="btn btn-link"
-              disabled={false}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-=======
             <form
               className="navbar-form navbar-right"
               role="search"
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
             >
               <button
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -8146,6 +8113,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -8166,19 +8134,8 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <li
             className={undefined}
           >
-<<<<<<< HEAD
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
-=======
             <div
               className="dropdown btn-group btn-group-link"
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
             >
               <button
                 className="btn btn-link"
@@ -10341,6 +10298,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -10365,6 +10323,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -10441,6 +10400,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >

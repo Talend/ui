@@ -11,28 +11,8 @@ exports[`Filter should render 1`] = `
   inProgress={false}
   label="Toggle filter"
   onClick={[Function]}
-<<<<<<< HEAD
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
-=======
   tooltipPlacement="top"
 />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
 `;
 
 exports[`Filter should render filter input with default placeholder 1`] = `
@@ -62,26 +42,6 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     <Action
       bsStyle="link"
       disabled={false}
-<<<<<<< HEAD
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseOver={[Function]}
-      role={null}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
-=======
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -90,7 +50,6 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       onClick={undefined}
       tooltipPlacement="top"
     />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
   </div>
 </form>
 `;
@@ -122,26 +81,6 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     <Action
       bsStyle="link"
       disabled={false}
-<<<<<<< HEAD
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseOver={[Function]}
-      role={null}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
-=======
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -150,7 +89,6 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       onClick={undefined}
       tooltipPlacement="top"
     />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
   </div>
 </form>
 `;
@@ -166,28 +104,8 @@ exports[`Filter should render highlighted filter 1`] = `
   inProgress={false}
   label="Toggle filter"
   onClick={[Function]}
-<<<<<<< HEAD
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
-=======
   tooltipPlacement="top"
 />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
 `;
 
 exports[`Filter should render id if provided 1`] = `
@@ -201,28 +119,8 @@ exports[`Filter should render id if provided 1`] = `
   inProgress={false}
   label="Toggle filter"
   onClick={[Function]}
-<<<<<<< HEAD
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
-=======
   tooltipPlacement="top"
 />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
 `;
 
 exports[`Filter should render only toggle icon 1`] = `
@@ -236,26 +134,6 @@ exports[`Filter should render only toggle icon 1`] = `
   inProgress={false}
   label="Toggle filter"
   onClick={[Function]}
-<<<<<<< HEAD
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseOver={[Function]}
-  role={null}
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-search"
-    />
-  </svg>
-</button>
-=======
   tooltipPlacement="top"
 />
->>>>>>> 50b1130a3efd5cb00af5e3d33a48cf7c221f71f2
 `;
