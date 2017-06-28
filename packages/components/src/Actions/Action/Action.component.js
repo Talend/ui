@@ -56,6 +56,8 @@ function getContent(props) {
 	);
 }
 
+function noOp() {}
+
 /**
  * @param {object} props react props
  * @example
@@ -78,7 +80,8 @@ function Action(props) {
 		label,
 		link,
 		model,
-		onClick,
+		onMouseDown = noOp,
+		onClick = noOp,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -92,10 +95,16 @@ function Action(props) {
 		model,
 	}));
 
+	const rMouseDown = event => onMouseDown(event, {
+		action: { label, ...rest },
+		model,
+	});
+
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
+			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
 			disabled={inProgress || disabled}

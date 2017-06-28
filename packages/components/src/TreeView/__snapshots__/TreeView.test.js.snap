@@ -16,6 +16,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       id="id-add"
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -63,6 +64,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               id="id-0-toggle"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -114,6 +116,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               id="id-0-talend-trash"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -159,6 +162,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   id="id-0-0-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -300,6 +304,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   id="id-0-1-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
