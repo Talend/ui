@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Widget from '../Widget';
+import Widget from '../../Widget';
 
 export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
