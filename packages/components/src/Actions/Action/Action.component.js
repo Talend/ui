@@ -3,6 +3,7 @@ import {
 	Button,
 	OverlayTrigger,
 } from 'react-bootstrap';
+import classnames from 'classnames';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -82,6 +83,7 @@ function Action(props) {
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
+		available,
 		...rest
 	} = props;
 
@@ -100,6 +102,9 @@ function Action(props) {
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
+			className={classnames({
+				hidden: available === true,
+			})}
 			{...buttonProps}
 		>
 			{buttonContent}
