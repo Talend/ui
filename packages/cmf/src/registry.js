@@ -25,6 +25,16 @@ const Registry = {
 };
 
 /**
+ * @return {object} the registry singleton instance
+ */
+function getRegistry(context) {
+	if (context && context.registry) {
+		return context.registry;
+	}
+	return Registry.getRegistry();
+}
+
+/**
  * Call this one to add anything you want into the registry.
  * It will be added only if not locked.
  * Be warned any existing content will be overridden.
@@ -40,7 +50,7 @@ function addToRegistry(id, item, context) {
 		);
 	}
 
-	const registry = Registry.getRegistry(context);
+	const registry = getRegistry(context);
 	if (registry[id]) {
 		console.warn( // eslint-disable-line no-console
 			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
@@ -54,16 +64,6 @@ function addToRegistry(id, item, context) {
 		);
 	}
 	registry[id] = item;
-}
-
-/**
- * @return {object} the registry singleton instance
- */
-function getRegistry(context) {
-	if (context && context.registry) {
-		return context.registry;
-	}
-	return Registry.getRegistry();
 }
 
 /**
