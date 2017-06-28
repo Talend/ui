@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import registry from './registry';
-
+import expression from './expression';
 /**
  * @module react-cmf/lib/action
  */
@@ -47,18 +47,33 @@ function getActionCreatorFunction(context, id) {
 	return creator;
 }
 
+function evalExpressions(action, model, context) {
+	const copyContext = Object.assign({}, context, { model });
+	const newAction = Object.assign({}, action);
+	const attrs = ['hidden', 'invisible', 'disabled'];
+	attrs.forEach((attr) => {
+		const value = action[attr];
+		if (typeof value === 'string' || typeof value === 'object') {
+			newAction[attr] = expression.call(value, copyContext);
+		}
+	});
+	return newAction;
+}
+
 /**
  * Return information available about this action
  * @param  {object} context
  * @param  {String} id
  * @return {object}
  */
-function getActionInfo(context, id) {
-	const action = getActionsById(context)[id];
+function getActionInfo(context, id, model) {
+	let action = getActionsById(context)[id];
 	if (!action) {
 		throw new Error(`action not found id: ${id}`);
 	}
-	return Object.assign({}, action);
+	action = Object.assign({}, action);
+	action = evalExpressions(action, model, context);
+	return action;
 }
 
 /**
