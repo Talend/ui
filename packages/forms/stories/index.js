@@ -7,6 +7,7 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
+import { Action } from 'react-talend-components';
 
 import Form from '../src/Form';
 
@@ -154,6 +155,9 @@ decoratedStories.add('Datalist', () => {
 				fullDatalist: {
 					$ref: '#/definitions/datalist',
 				},
+				withCustomElement: {
+					$ref: '#/definitions/datalist',
+				},
 				remoteDataList: {
 					type: 'string',
 				},
@@ -169,10 +173,33 @@ decoratedStories.add('Datalist', () => {
 					restricted: true,
 				},
 			},
+			withCustomElement: {
+				'ui:widget': 'datalist',
+				'ui:options': {
+					renderItemsContainer: ({ children, ...containerProps }) => (
+						<div {...containerProps}>
+							{children}
+							{children &&
+								<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
+									<span style={{ fontSize: '0.9em', padding: '0.5em 0', color: 'gray', width: '100%', display: 'inline-block' }}>
+										Other Actions
+									</span>
+									<Action
+										onMouseDown={() => alert('clicked')}
+										bsStyle="primary"
+										id="default"
+										label="do some stuff"
+									/>
+								</div>}
+						</div>
+					),
+				},
+			},
 			'ui:order': [
 				'select1',
 				'fullDatalist',
 				'remoteDataList',
+				'withCustomElement',
 			],
 		},
 		properties: {
