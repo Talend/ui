@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Action as PureAction } from 'react-talend-components';
-import { api } from 'react-cmf';
+import actions from '../actionAPI';
 
 /**
  * @param {Object} props react props
@@ -12,7 +12,7 @@ function Action({ name, ...rest }, context) {
 		context.store.dispatch(payload.action.payload);
 	};
 	if (name) {
-		const action = api.action.getActionInfo(context, name);
+		const action = actions.getProps(context, name, rest.model);
 		return (<PureAction {...action} onClick={onClick} />);
 	}
 	return (<PureAction {...rest} onClick={onClick} />);

@@ -1,5 +1,22 @@
 import { api } from 'react-cmf';
 
+/**
+ * add support for expression in actions.
+ * it change the action props by their expression value
+ */
+function evalExpressions(action, model, context) {
+	const copyContext = Object.assign({}, context, { model });
+	const newAction = Object.assign({}, action);
+	const EXPRESSION_ATTRIBUTES = ['available', 'disabled'];
+	EXPRESSION_ATTRIBUTES.forEach((attr) => {
+		const value = action[attr];
+		if (typeof value === 'string' || typeof value === 'object') {
+			newAction[attr] = api.expression.call(value, copyContext);
+		}
+	});
+	return newAction;
+}
+
 export function getActionsProps(context, ids, model) {
 	if (!ids) {
 		return [];
@@ -24,7 +41,7 @@ export function getActionsProps(context, ids, model) {
 				}, info.payload));
 			}
 		},
-	}, info));
+	}, evalExpressions(info, model, context)));
 
 	if (typeof ids === 'string') {
 		return props[0];
