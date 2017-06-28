@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Select from './Select';
+import Select from './Select.component';
 
 describe('Select field', () => {
 	const schema = {

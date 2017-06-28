@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 export default function Radios({ id, isValid, errorMessage, onChange, schema, value }) {
 	const { autoFocus, description, disabled, inline, title } = schema;
