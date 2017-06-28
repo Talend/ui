@@ -79,7 +79,6 @@ function Action(props) {
 		link,
 		model,
 		onClick,
-		onMouseDown,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -88,22 +87,16 @@ function Action(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick = event => onClick(event, {
+	const rClick = onClick && (event => onClick(event, {
 		action: { label, ...rest },
 		model,
-	});
-
-	const rMouseDown = event => onMouseDown && onMouseDown(event, {
-		action: { label, ...rest },
-		model,
-	});
+	}));
 
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
 			onClick={rClick}
-			onMouseDown={rMouseDown}
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
@@ -134,7 +127,7 @@ Action.propTypes = {
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
