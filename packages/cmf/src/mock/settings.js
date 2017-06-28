@@ -35,7 +35,10 @@ const settings = {
 			id: 'menu:article',
 			name: 'My article',
 			icon: 'icon-article',
-			available: 'model.actions.delete',
+			available: {
+				id: 'hasPermission',
+				args: ['view-my-article'],
+			},
 			payload: {
 				type: '@@router/CALL_HISTORY_METHOD',
 				method: 'push',
@@ -46,6 +49,7 @@ const settings = {
 			id: 'menu',
 			name: 'Menu',
 			icon: 'fa-bars',
+			available: 'isInDevMode',
 			payload: {
 				type: 'TEST_MENU',
 			},

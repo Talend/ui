@@ -31,7 +31,14 @@ function call(expression, context) {
 			'you must provide an expression id'
 		);
 	}
-	return get(id, context)(context, ...args);
+	const check = get(id, context);
+	if (!check) {
+		invariant(
+			process.env.NODE_ENV === 'production',
+			`you must register expression ${id} first`
+		);
+	}
+	return check(context, ...args);
 }
 
 export default {
