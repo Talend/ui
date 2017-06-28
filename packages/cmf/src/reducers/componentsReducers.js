@@ -32,8 +32,6 @@ export function componentDoesntExists(action) {
  * @return {object}        the new state
  */
 export function componentsReducers(state = defaultState, action) {
-	const subAction = get(action, 'cmf.componentState');
-
 	switch (action.type) {
 	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
 		if (state.getIn([action.componentName, action.key])) {
@@ -74,12 +72,13 @@ export function componentsReducers(state = defaultState, action) {
 		}
 
 		return state.deleteIn([action.componentName, action.key]);
-	default:
+	default: {
+		const subAction = get(action, 'cmf.componentState');
 		if (subAction) {
 			return componentsReducers(state, subAction);
 		}
 		return state;
-	}
+	}}
 }
 
 export default componentsReducers;

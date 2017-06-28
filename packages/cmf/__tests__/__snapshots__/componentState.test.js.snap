@@ -1,22 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`state should applyCallback dispatch mergeComponentState 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
-      "componentName": "MySuperComponent",
-      "componentState": Object {
-        "compState": false,
-      },
-      "key": "id",
-      "type": "REACT_CMF.COMPONENT_MERGE_STATE",
-    },
-  },
-  "id": "id",
-  "type": "MySuperComponent.setState",
-}
-`;
-
 exports[`state should getStateAccessors return accessors 1`] = `
 Object {
   "cmf": Object {
