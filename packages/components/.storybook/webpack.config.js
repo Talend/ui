@@ -5,10 +5,8 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-const path = require('path');
 const SASS_DATA = '@import "~bootstrap-talend-theme/src/theme/guidelines";';
 const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	module: {
@@ -33,9 +31,6 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [
-		new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../locales'), to: 'locales' }]),
-	],
 	postcss: [
 		autoprefixer({
 			browsers: ['last 2 versions'],
