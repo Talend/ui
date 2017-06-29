@@ -1,12 +1,7 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
-function convertValue(type, value) {
-	if (type === 'number') {
-		return parseFloat(value);
-	}
-	return value;
-}
+import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;

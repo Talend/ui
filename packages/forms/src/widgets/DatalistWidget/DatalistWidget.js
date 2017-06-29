@@ -110,6 +110,7 @@ class DatalistWidget extends React.Component {
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
+		placeholder: PropTypes.string,
 	};
 
 	constructor(props) {
@@ -123,6 +124,7 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.inputProps = {
+			placeholder: props.placeholder,
 			required: props.required,
 			onBlur: event => this.onBlur(event),
 			onFocus: () => this.initSuggestions(this.state.value),

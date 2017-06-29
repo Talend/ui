@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
+import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 
@@ -12,6 +13,7 @@ function getRenderers(renderers) {
 		{
 			Action,
 			ActionDropdown,
+			ActionSplitDropdown,
 			Typeahead,
 		},
 		renderers || {},
@@ -20,12 +22,22 @@ function getRenderers(renderers) {
 
 function Logo({ isFull, renderers, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
-	const Components = getRenderers(renderers);
-	const itemClassName = classNames(['tc-header-bar-action', !isFull && 'separated']);
-	const actionClassName = classNames(['tc-header-bar-logo', isFull && 'full']);
+	const itemClassName = classNames(
+		theme['tc-header-bar-action'],
+		{
+			[theme.separated]: !isFull,
+		},
+	);
+	const actionClassName = classNames(
+		theme['tc-header-bar-logo'],
+		{
+			[theme.full]: isFull,
+		}
+	);
+
 	return (
 		<li className={itemClassName}>
-			<Components.Action
+			<renderers.Action
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
@@ -46,13 +58,18 @@ Logo.propTypes = {
 };
 
 function Brand({ name, isSeparated, renderers, ...props }) {
-	const className = classNames(['tc-header-bar-action', isSeparated && 'separated']);
-	const Components = getRenderers(renderers);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		{
+			[theme.separated]: isSeparated,
+		}
+	);
+
 	return (
 		<li className={className}>
-			<Components.Action
+			<renderers.Action
 				bsStyle="link"
-				className="tc-header-bar-brand"
+				className={theme['tc-header-bar-brand']}
 				tooltipPlacement="bottom"
 				label={name}
 				{...props}
@@ -69,10 +86,9 @@ Brand.propTypes = {
 };
 
 function Environment({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	return (
-		<li className="tc-header-bar-action">
-			<Components.ActionDropdown
+		<li className={theme['tc-header-bar-action']}>
+			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
 				tooltipPlacement="bottom"
@@ -89,10 +105,18 @@ Environment.propTypes = {
 };
 
 function Search({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		theme['tc-header-bar-search'],
+		theme.separated,
+		theme.flex,
+	);
+
 	return (
-		<li className="tc-header-bar-action separated flex">
-			<Components.Typeahead {...props} />
+		<li className={className}>
+			<form className="navbar-form navbar-right" role="search">
+				<renderers.Typeahead {...props} />
+			</form>
 		</li>
 	);
 }
@@ -103,34 +127,44 @@ Search.propTypes.renderers = React.PropTypes.shape({
 });
 
 function Help({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
+	const global = {
+		bsStyle: 'link',
+		icon: 'talend-question-circle',
+		label: 'Help',
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+
 	return (
-		<li className="tc-header-bar-action">
-			<Components.Action
-				bsStyle="link"
-				icon="talend-question-circle"
-				label="Help"
-				tooltipPlacement="bottom"
-				{...props}
-			/>
+		<li className={theme['tc-header-bar-action']}>
+			{ props.items && props.items.length ? (
+				<renderers.ActionSplitDropdown pullRight {...global} />
+			) : (
+				<renderers.Action {...global} />
+			)}
 		</li>
 	);
 }
 
 Help.propTypes = {
 	renderers: React.PropTypes.shape({
+		ActionSplitDropdown: React.PropTypes.func,
 		Action: React.PropTypes.func,
 	}),
 };
 
 function User({ name, renderers, ...props }) {
-	const Components = getRenderers(renderers);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		theme.separated,
+	);
+
 	return (
-		<li className="tc-header-bar-action separated">
-			<Components.ActionDropdown
+		<li className={className}>
+			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
-				noCaret
+				pullRight
 				tooltipPlacement="bottom"
 				label={name}
 				{...props}
@@ -146,15 +180,13 @@ User.propTypes = {
 };
 
 function Products({ renderers, ...props }) {
-	const Components = getRenderers(renderers);
 	return (
-		<li className="tc-header-bar-action">
-			<Components.ActionDropdown
+		<li className={theme['tc-header-bar-action']}>
+			<renderers.ActionDropdown
 				bsStyle="link"
-				className="tc-header-bar-products"
+				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
 				label="Apps"
-				noCaret
 				pullRight
 				tooltipPlacement="bottom"
 				{...props}
@@ -170,6 +202,7 @@ Products.propTypes = {
 };
 
 function HeaderBar(props) {
+	const renderers = getRenderers(props.renderers);
 	const Components = Object.assign({
 		Logo,
 		Brand,
@@ -179,26 +212,19 @@ function HeaderBar(props) {
 		Help,
 		Products,
 	}, props.renderers || {});
+
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
-			<ul className="tc-header-bar-actions">
-				<Components.Logo renderers={props.renderers} {...props.logo} />
-				<Components.Brand renderers={props.renderers} {...props.brand} isSeparated={!!props.env} />
-				{props.env && (<Components.Environment renderers={props.renderers} {...props.env} />)}
+			<ul className={theme['tc-header-bar-actions']}>
+				<Components.Logo renderers={renderers} {...props.logo} />
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
-			<ul className="tc-header-bar-actions right">
-				{props.search && (
-					<Components.Search renderers={props.renderers} {...props.search} />
-				)}
-				{props.help && (
-					<Components.Help renderers={props.renderers} {...props.help} />
-				)}
-				{props.user && (
-					<Components.User renderers={props.renderers} {...props.user} />
-				)}
-				{props.products && (
-					<Components.Products renderers={props.renderers} {...props.products} />
-				)}
+			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
+				{ props.search && <Components.Search renderers={renderers} {...props.search} /> }
+				{ props.help && <Components.Help renderers={renderers} {...props.help} /> }
+				{ props.user && <Components.User renderers={renderers} {...props.user} /> }
+				{ props.products && <Components.Products renderers={renderers} {...props.products} /> }
 			</ul>
 		</nav>
 	);

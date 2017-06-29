@@ -159,6 +159,7 @@ exports[`Drawer should render with tabs 1`] = `
             className="btn btn-link"
             disabled={false}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role={null}
             type="button"
           >
@@ -174,6 +175,7 @@ exports[`Drawer should render with tabs 1`] = `
             className="btn btn-link"
             disabled={false}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role={null}
             type="button"
           >

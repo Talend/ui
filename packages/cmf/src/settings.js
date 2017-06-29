@@ -30,7 +30,7 @@ export function attachRef(state, obj) {
 export function attachRefs(state, props) {
 	const attachedProps = attachRef(state, props);
 	Object.keys(attachedProps).forEach(
-		key => {
+		(key) => {
 			attachedProps[key] = attachRef(state, attachedProps[key]);
 		}
 	);

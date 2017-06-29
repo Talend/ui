@@ -21,6 +21,7 @@ const icons = {
 	'talend-share-alt': talendIcons['talend-share-alt'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-user-circle': talendIcons['talend-user-circle'],
+	'talend-board': talendIcons['talend-board'],
 };
 
 const typeaheadItems = [
@@ -165,6 +166,22 @@ decoratedStories
 			],
 			label: 'Default',
 		};
+		return <HeaderBar {...headerProps} />;
+	})
+	.addWithInfo('with help split dropdown', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.help.items = [
+			{
+				icon: 'talend-board',
+				label: 'Onboarding',
+				onClick: action('onOnboardingClick'),
+			},
+			{
+				icon: 'talend-cog',
+				label: 'About',
+				onClick: action('onAboutClick'),
+			},
+		];
 		return <HeaderBar {...headerProps} />;
 	})
 	.addWithInfo('with search input', () => {

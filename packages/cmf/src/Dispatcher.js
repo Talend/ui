@@ -82,7 +82,7 @@ export class Dispatcher extends React.Component {
 			(child) => {
 				const props = {};
 				onProps.forEach((name) => {
-					props[name] = (event) => this.onEvent(event, name);
+					props[name] = event => this.onEvent(event, name);
 				});
 				return React.cloneElement(child, props);
 			}

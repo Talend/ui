@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 function FieldTemplate(props) {
 	const groupsClassNames = classNames(
 		'form-group',
-		{ 'has-error': !props.isValid },
+		{ 'has-error': !props.isValid }
 	);
 
 	return (
@@ -38,8 +38,11 @@ function FieldTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
-		children: PropTypes.element,
-		description: PropTypes.element,
+		children: PropTypes.oneOf(
+			PropTypes.element,
+			PropTypes.arrayOf(PropTypes.element)
+		),
+		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
@@ -47,5 +50,9 @@ if (process.env.NODE_ENV !== 'production') {
 		labelAfter: PropTypes.bool,
 	};
 }
+
+FieldTemplate.defaultProps = {
+	isValid: true,
+};
 
 export default FieldTemplate;

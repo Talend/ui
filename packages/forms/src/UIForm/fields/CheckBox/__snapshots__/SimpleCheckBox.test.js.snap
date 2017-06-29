@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleCheckBox field should render disabled input 1`] = `
+<div
+  className="checkbox"
+>
+  <label>
+    <input
+      autoFocus={true}
+      checked={true}
+      disabled={true}
+      id="myForm"
+      label="My checkbox custom label"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="control-label"
+      htmlFor="myForm"
+    >
+      My checkbox custom label
+    </span>
+  </label>
+</div>
+`;
+
+exports[`SimpleCheckBox field should render input 1`] = `
+<div
+  className="checkbox"
+>
+  <label>
+    <input
+      autoFocus={true}
+      checked={true}
+      disabled={false}
+      id="myForm"
+      label="My checkbox custom label"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="control-label"
+      htmlFor="myForm"
+    >
+      My checkbox custom label
+    </span>
+  </label>
+</div>
+`;

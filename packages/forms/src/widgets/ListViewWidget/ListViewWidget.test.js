@@ -9,6 +9,9 @@ jest.mock(
 		/* eslint-enable */
 );
 
+const EMPTY_LIST_MESSAGE = 'This list is empty.';
+const NO_RESULT_MESSAGE = 'No result found.';
+
 function generateProps(values, selected) {
 	return {
 		options: {
@@ -169,6 +172,30 @@ describe('ListViewWidget', () => {
 					cb();
 				});
 		});
+
+		it('should display a message when no results was found', (cb) => {
+			// given
+			const values = ['A', 'B', 'C', 'D'];
+			const onChangeHandler = jest.fn();
+			const wrapper = mount(
+				<ListViewWidget
+					onChange={onChangeHandler}
+					{...generateProps(values)}
+				/>
+			);
+			expect(wrapper.find('Item').length).toBe(4);
+
+			// when
+			wrapper.find('button').at(0).simulate('click');
+
+			simulateSearch(wrapper, 'E')
+				.then(() => {
+					// then
+					expect(wrapper.find('Item').length).toBe(0);
+					expect(wrapper.find('span').at(0).text()).toBe(NO_RESULT_MESSAGE);
+					cb();
+				});
+		});
 	});
 
 	it('should only returns checked', () => {
@@ -189,5 +216,20 @@ describe('ListViewWidget', () => {
 
 		// then
 		expect(handler).toBeCalledWith(['B', 'C']);
+	});
+
+	it('should display empty label if list is empty', () => {
+		// given
+		const values = [];
+
+		// When
+		const wrapper = mount(
+			<ListViewWidget
+				{...generateProps(values)}
+			/>
+		);
+
+		// then
+		expect(wrapper.find('span').at(0).text()).toBe(EMPTY_LIST_MESSAGE);
 	});
 });

@@ -73,12 +73,15 @@ class UIForm extends React.PureComponent {
 				uiSchema={form.uiSchema}
 				properties={form.properties}
 				errors={form.errors}
+				initialData={this.props.data}
 
+				actions={this.props.actions}
 				customValidation={this.props.customValidation}
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
 
 				onChange={this.onChange}
+				onReset={this.props.onReset}
 				setError={this.props.setError}
 				setErrors={this.props.setErrors}
 				updateForm={this.props.updateForm}
@@ -103,6 +106,11 @@ if (process.env.NODE_ENV !== 'production') {
 			 */
 			properties: PropTypes.object,
 		}),
+		/**
+		 * Actions buttons to display at the bottom of the form.
+		 * If not provided, a single submit button is displayed.
+		 */
+		actions: PropTypes.arrayOf(PropTypes.shape(UIFormComponent.propTypes.actions)),
 		/**
 		 * Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)
