@@ -110,8 +110,8 @@ class DatalistWidget extends React.Component {
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
-		renderItemsContainer: PropTypes.element,
-		renderNoMatch: PropTypes.element,
+		renderItemsContainer: PropTypes.func,
+		renderNoMatch: PropTypes.func,
 	};
 
 	static itemContainerStyle = theme['items-container'];
