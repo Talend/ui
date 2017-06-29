@@ -54,12 +54,8 @@ function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }
 		);
 	}
 	if (virtualized) {
-		const classnames = classNames(
-			'tc-list-display',
-			'tc-list-display-virtualized',
-		);
 		return (
-			<div className={classnames}>
+			<div className={'tc-list-display'}>
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}

@@ -18,8 +18,4 @@
 		overflow-y: auto;
 		box-shadow: $shadow-default;
 	}
-
-	:global(.tc-list-display-virtualized) {
-		overflow-y: hidden;
-	}
 }
