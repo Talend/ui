@@ -54,7 +54,10 @@ function DefaultArrayItem(props) {
 
 			{props.hasToolbar ?
 				<div className="col-xs-3 array-item-toolbox">
-					<div className="btn-group" style={{ display: 'flex', justifyContent: 'space-around' }}>
+					<div
+						className="btn-group"
+						style={{ display: 'flex', justifyContent: 'space-around' }}
+					>
 
 						{props.hasMoveUp || props.hasMoveDown ?
 							<IconBtn
@@ -64,7 +67,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveUp}
 								onClick={props.onReorderClick(props.index, props.index - 1)}
 							/>
-            : null}
+							: null}
 
 						{props.hasMoveUp || props.hasMoveDown ?
 							<IconBtn
@@ -74,7 +77,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
-            : null}
+							: null}
 
 						{props.hasRemove ?
 							<IconBtn
@@ -84,10 +87,10 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly}
 								onClick={props.onDropIndexClick(props.index)}
 							/>
-            : null}
+							: null}
 					</div>
 				</div>
-      : null}
+				: null}
 
 		</div>
 	);
@@ -109,7 +112,7 @@ function DefaultFixedArrayFieldTemplate(props) {
 				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.schema.description}
 				</div>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
@@ -145,13 +148,13 @@ function DefaultNormalArrayFieldTemplate(props) {
 					idSchema={props.idSchema}
 					description={props.schema.description}
 				/>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
 				key={`array-item-list-${props.idSchema.$id}`}
 			>
-				{props.items && props.items.map(p => DefaultArrayItem(p))}
+				{props.items && props.items.map(p => <DefaultArrayItem {...p} />)}
 			</div>
 
 			{props.canAdd ? <AddButton
@@ -178,7 +181,7 @@ class ArrayField extends Component {
 		return shouldRender(this, nextProps, nextState);
 	}
 
-	onAddClick = (event) => {
+	onAddClick(event) {
 		event.preventDefault();
 		const { schema, registry, formData } = this.props;
 		const { definitions } = registry;
@@ -190,9 +193,9 @@ class ArrayField extends Component {
 			...formData,
 			getDefaultFormState(itemSchema, undefined, definitions),
 		], { validate: false });
-	};
+	}
 
-	onDropIndexClick = (index) => {
+	onDropIndexClick(index) {
 		return (event) => {
 			if (event) {
 				event.preventDefault();
@@ -202,9 +205,9 @@ class ArrayField extends Component {
 				{ validate: true } // refs #195
 			);
 		};
-	};
+	}
 
-	onReorderClick = (index, newIndex) => {
+	onReorderClick(index, newIndex) {
 		return (event) => {
 			if (event) {
 				event.preventDefault();
@@ -220,9 +223,9 @@ class ArrayField extends Component {
 				return item;
 			}), { validate: true });
 		};
-	};
+	}
 
-	onChangeForIndex = (index) => {
+	onChangeForIndex(index) {
 		return (value) => {
 			const { formData, onChange } = this.props;
 			onChange(formData.map((item, i) => {
@@ -232,14 +235,10 @@ class ArrayField extends Component {
 				return index === i ? jsonValue : item;
 			}), { validate: false });
 		};
-	};
+	}
 
-	onSelectChange = (value) => {
+	onSelectChange(value) {
 		this.props.onChange(value, { validate: false });
-	};
-
-	isItemRequired(itemsSchema) {
-		return itemsSchema.type === 'string' && itemsSchema.minLength > 0;
 	}
 
 	get itemTitle() {
@@ -425,7 +424,7 @@ class ArrayField extends Component {
 				if (additional) {
 					itemUiSchema = uiSchema.additionalItems || {};
 				} else if (Array.isArray(uiSchema.items)) {
-					itemUiSchema = 	uiSchema.items[index];
+					itemUiSchema = uiSchema.items[index];
 				} else {
 					itemUiSchema = uiSchema.items || {};
 				}
@@ -492,7 +491,7 @@ class ArrayField extends Component {
 					formData={itemData}
 					errorSchema={itemErrorSchema}
 					idSchema={itemIdSchema}
-					required={this.isItemRequired(itemSchema)}
+					required={itemSchema.type === 'string' && itemSchema.minLength > 0}
 					onChange={this.onChangeForIndex(index)}
 					onBlur={onBlur}
 					registry={this.props.registry}
