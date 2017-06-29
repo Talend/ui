@@ -32,7 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,
-		}).isRequired,
+		}),
 		value: PropTypes.bool,
 	};
 }

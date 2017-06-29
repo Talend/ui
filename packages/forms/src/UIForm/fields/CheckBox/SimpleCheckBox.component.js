@@ -27,7 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
-		}).isRequired,
+		}),
 		value: PropTypes.bool,
 	};
 }

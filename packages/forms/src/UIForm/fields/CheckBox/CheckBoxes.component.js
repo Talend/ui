@@ -59,7 +59,7 @@ if (process.env.NODE_ENV !== 'production') {
 				name: PropTypes.string,
 				value: PropTypes.string,
 			})),
-		}).isRequired,
+		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};
 }
