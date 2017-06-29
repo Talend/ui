@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { Tabs as RBTabs, Tab as RBTab } from 'react-bootstrap';
 import classNames from 'classnames';
 
-import Fieldset from './Fieldset';
-import { isValid } from '../utils/validation';
+import Fieldset from '../Fieldset';
+import { isValid } from '../../utils/validation';
 import theme from './Tabs.scss';
 
 export default function Tabs(props) {

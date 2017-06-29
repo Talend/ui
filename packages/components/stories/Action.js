@@ -14,6 +14,12 @@ const myAction = {
 	onClick: action('You clicked me'),
 };
 
+const mouseDownAction = {
+	label: 'Click me',
+	icon: 'talend-dataprep',
+	onMouseDown: action('You clicked me'),
+};
+
 storiesOf('Action', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
@@ -60,6 +66,12 @@ storiesOf('Action', module)
 				id="default"
 				{...myAction}
 				tooltipLabel={'Custom label here'}
+			/>
+			<p>onMouse down handler</p>
+			<Action
+				id="hidelabel"
+				{...mouseDownAction}
+				hideLabel
 			/>
 		</div>
 	))

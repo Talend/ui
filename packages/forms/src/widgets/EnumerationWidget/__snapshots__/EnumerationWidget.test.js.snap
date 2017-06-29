@@ -289,6 +289,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -297,6 +298,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -343,6 +345,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -351,6 +354,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -770,6 +774,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -778,6 +783,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -823,6 +829,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -831,6 +838,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -876,6 +884,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -884,6 +893,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -1289,6 +1299,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1297,6 +1308,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1343,6 +1355,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1351,6 +1364,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1764,6 +1778,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1772,6 +1787,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1818,6 +1834,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1826,6 +1843,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2285,6 +2303,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -2293,6 +2312,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2339,6 +2359,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -2347,6 +2368,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2811,6 +2833,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -2819,6 +2842,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -2864,6 +2888,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -2872,6 +2897,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -3195,6 +3221,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3203,6 +3230,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3248,6 +3276,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3256,6 +3285,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3301,6 +3331,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3309,6 +3340,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3727,6 +3759,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -3735,6 +3768,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -3781,6 +3815,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -3789,6 +3824,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4221,6 +4257,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -4229,6 +4266,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4275,6 +4313,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -4283,6 +4322,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4677,6 +4717,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -4685,6 +4726,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -4722,6 +4764,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         disabled={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -4730,6 +4773,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           disabled={true}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5074,6 +5118,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -5082,6 +5127,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -5527,6 +5573,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -5535,6 +5582,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -5572,6 +5620,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -5580,6 +5629,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5625,6 +5675,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -5633,6 +5684,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5994,6 +6046,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -6002,6 +6055,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -6483,6 +6537,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -6491,6 +6546,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -6528,6 +6584,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6536,6 +6593,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6581,6 +6639,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6589,6 +6648,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6709,6 +6769,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -6717,6 +6778,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -6754,6 +6816,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6762,6 +6825,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6807,6 +6871,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6815,6 +6880,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -7193,6 +7259,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7201,6 +7268,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -7499,6 +7567,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7507,6 +7576,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -7982,6 +8052,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7990,6 +8061,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={true}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -8455,6 +8527,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -8463,6 +8536,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -8500,6 +8574,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8508,6 +8583,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8553,6 +8629,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8561,6 +8638,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8679,6 +8757,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -8687,6 +8766,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -8724,6 +8804,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8732,6 +8813,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8777,6 +8859,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8785,6 +8868,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -9223,6 +9307,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -9231,6 +9316,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -9529,6 +9615,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -9537,6 +9624,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -10020,6 +10108,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -10028,6 +10117,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -10065,6 +10155,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10073,6 +10164,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10118,6 +10210,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10126,6 +10219,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10244,6 +10338,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -10252,6 +10347,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -10289,6 +10385,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10297,6 +10394,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10342,6 +10440,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10350,6 +10449,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"

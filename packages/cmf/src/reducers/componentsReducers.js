@@ -1,6 +1,7 @@
 /**
  * @module react-cmf/lib/reducers/componentsReducers
  */
+import get from 'lodash/get';
 import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import ACTIONS from '../actions';
@@ -71,8 +72,13 @@ export function componentsReducers(state = defaultState, action) {
 		}
 
 		return state.deleteIn([action.componentName, action.key]);
-	default:
+	default: {
+		const subAction = get(action, 'cmf.componentState');
+		if (subAction) {
+			return componentsReducers(state, subAction);
+		}
 		return state;
+	}
 	}
 }
 

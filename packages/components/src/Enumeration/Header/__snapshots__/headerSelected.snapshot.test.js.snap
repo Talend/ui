@@ -12,6 +12,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
