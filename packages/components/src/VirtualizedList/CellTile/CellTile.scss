@@ -28,13 +28,6 @@ $tile-margin-width: 25px;
 $content-size: $tile-width - 2 * $tile-padding-width - 2 * $tile-border-size;
 
 .tc-list-tile-row {
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	list-style: none;
-	padding: 0 20px;
-}
-
-.tc-list-tile-row {
 	background: $tile-background;
 	border: $tile-border-size solid $tile-border-color;
 	border-radius: 0.5em;
