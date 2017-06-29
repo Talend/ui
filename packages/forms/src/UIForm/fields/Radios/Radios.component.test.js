@@ -1,22 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TextArea from './TextArea';
+import Radios from './Radios.component';
 
-describe('TextArea field', () => {
+describe('Radios field', () => {
 	const schema = {
 		autoFocus: true,
-		description: 'my text input hint',
-		key: ['user', 'comment'],
-		placeholder: 'Type something here',
-		title: 'My input title',
-		type: 'text',
+		description: 'My radios input hint',
+		title: 'My radios title',
+		titleMap: [
+			{ name: 'My foo custom name', value: 'foo' },
+			{ name: 'My bar custom name', value: 'bar' },
+			{ name: 'My toto custom name', value: 'toto' },
+		],
+		type: 'radios',
 	};
 
-	it('should render textarea', () => {
+	it('should render radios', () => {
 		// when
 		const wrapper = shallow(
-			<TextArea
+			<Radios
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -30,7 +33,30 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render disabled textarea', () => {
+	it('should render inline radios', () => {
+		// given
+		const inlineSchema = {
+			...schema,
+			inline: true,
+		};
+
+		// when
+		const wrapper = shallow(
+			<Radios
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				schema={inlineSchema}
+				value={'toto'}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render disabled input', () => {
 		// given
 		const disabledSchema = {
 			...schema,
@@ -39,7 +65,7 @@ describe('TextArea field', () => {
 
 		// when
 		const wrapper = shallow(
-			<TextArea
+			<Radios
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -53,57 +79,11 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render readonly textarea', () => {
-		// given
-		const readOnlySchema = {
-			...schema,
-			readOnly: true,
-		};
-
-		// when
-		const wrapper = shallow(
-			<TextArea
-				id={'myForm'}
-				isValid
-				errorMessage={'My error message'}
-				onChange={jest.fn()}
-				schema={readOnlySchema}
-				value={'toto'}
-			/>
-		);
-
-		// then
-		expect(wrapper.node).toMatchSnapshot();
-	});
-
-	it('should render provided rows', () => {
-		// given
-		const schemaWithRows = {
-			...schema,
-			rows: 10,
-		};
-
-		// when
-		const wrapper = shallow(
-			<TextArea
-				id={'myForm'}
-				isValid
-				errorMessage={'My error message'}
-				onChange={jest.fn()}
-				schema={schemaWithRows}
-				value={'toto'}
-			/>
-		);
-
-		// then
-		expect(wrapper.node).toMatchSnapshot();
-	});
-
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = shallow(
-			<TextArea
+			<Radios
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -112,13 +92,12 @@ describe('TextArea field', () => {
 				value={'toto'}
 			/>
 		);
-		const value = 'totoa';
-		const event = { target: { value } };
+		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper.find('textarea').simulate('change', event);
+		wrapper.find('input[type="radio"]').at(0).simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, value);
+		expect(onChange).toBeCalledWith(event, schema, 'foo');
 	});
 });

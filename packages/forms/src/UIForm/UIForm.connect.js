@@ -110,7 +110,7 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Actions buttons to display at the bottom of the form.
 		 * If not provided, a single submit button is displayed.
 		 */
-		actions: PropTypes.arrayOf(PropTypes.shape(UIFormComponent.propTypes.actions)),
+		actions: UIFormComponent.propTypes.actions,
 		/**
 		 * Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Fieldset from './Fieldset';
+import Fieldset from './Fieldset.component';
 
 describe('Fieldset widget', () => {
 	it('should render fieldset', () => {

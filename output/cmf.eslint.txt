@@ -11,7 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  52:3  warning  Unexpected console statement  no-console
+  67:3  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
   55:2  error  Prop type `object` is forbidden  react/forbid-prop-types

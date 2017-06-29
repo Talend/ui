@@ -489,6 +489,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   disabled={false}
   onClick={[Function]}
   onFocus={[Function]}
+  onMouseDown={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"

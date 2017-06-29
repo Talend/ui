@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -71,16 +71,18 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.shape({
+			titleMap: PropTypes.arrayOf(PropTypes.shape({
 				name: PropTypes.string.isRequired,
 				value: PropTypes.string.isRequired,
-			}),
+			})),
 			type: PropTypes.string,
-		}).isRequired,
+		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 }
+
 Select.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: '',
 };

@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
-import { convertValue } from '../utils/properties';
-
-export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
+export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
+	const {
+		autoFocus,
+		description,
+		disabled,
+		key,
+		placeholder,
+		readOnly,
+		rows = 5,
+		title,
+	} = schema;
 
 	return (
 		<FieldTemplate
@@ -16,16 +22,16 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 		>
-			<input
+			<textarea
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				label={title}
+				name={key[key.length - 1]}
 				placeholder={placeholder}
-				onChange={event => onChange(event, schema, convertValue(type, event.target.value))}
+				onChange={event => onChange(event, schema, event.target.value)}
 				readOnly={readOnly}
-				type={type}
+				rows={rows}
 				value={value}
 			/>
 		</FieldTemplate>
@@ -33,24 +39,27 @@ export default function Text(props) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	Text.propTypes = {
+	TextArea.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			key: PropTypes.arrayOf(PropTypes.string),
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			rows: PropTypes.number,
 			title: PropTypes.string,
-			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
-Text.defaultProps = {
+
+TextArea.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: '',
 };

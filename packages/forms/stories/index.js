@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
@@ -7,8 +7,10 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
+import { Action } from 'react-talend-components';
 
 import Form from '../src/Form';
+import DatalistWidget from '../src/widgets/DatalistWidget';
 
 a11y(ReactDOM);
 
@@ -114,6 +116,55 @@ decoratedStories.add('Multiple actions', () => {
 	);
 });
 
+function CustomDatalist(...args) {
+	function renderItemsContainer({ children, ...containerProps }) {
+		return (
+			<div {...containerProps}>
+				{children}
+				{children &&
+					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
+						<span style={{ fontSize: '0.9em', padding: '0.5em 0', color: 'gray', width: '100%', display: 'inline-block' }}>
+							Other Actions
+						</span>
+						<Action
+							onMouseDown={action('clicked')}
+							bsStyle="primary"
+							id="default"
+							label="do some stuff"
+						/>
+					</div>}
+			</div>
+		);
+	}
+	renderItemsContainer.propTypes = {
+		children: PropTypes.element,
+	}
+
+	function renderNoMatch({ ...containerProps }) {
+		return (
+			<div {...containerProps} className={`${DatalistWidget.itemContainerStyle} ${DatalistWidget.noResultStyle}`}>
+				<div className={{ padding: '0 1em 1em 1em', width: '100%' }}>
+					<span>No match.</span>
+					<span style={{ fontSize: '0.9em', padding: '0.5em 0', color: 'gray', width: '100%', display: 'inline-block' }}>Other Actions</span>
+					<Action
+						onMouseDown={action('clicked')}
+						bsStyle="primary"
+						id="default"
+						label="do some stuff"
+					/>
+				</div>
+			</div>
+		);
+	}
+	return (
+		<DatalistWidget
+			{...args[0]}
+			renderItemsContainer={renderItemsContainer}
+			renderNoMatch={renderNoMatch}
+		/>
+	);
+}
+
 decoratedStories.add('Datalist', () => {
 	function fetchItems() {
 		return [
@@ -154,6 +205,9 @@ decoratedStories.add('Datalist', () => {
 				fullDatalist: {
 					$ref: '#/definitions/datalist',
 				},
+				withCustomElement: {
+					$ref: '#/definitions/datalist',
+				},
 				remoteDataList: {
 					type: 'string',
 				},
@@ -162,6 +216,7 @@ decoratedStories.add('Datalist', () => {
 		uiSchema: {
 			remoteDataList: {
 				'ui:widget': 'datalist',
+				'ui:placeholder': 'Please select',
 			},
 			fullDatalist: {
 				'ui:widget': 'datalist',
@@ -169,10 +224,14 @@ decoratedStories.add('Datalist', () => {
 					restricted: true,
 				},
 			},
+			withCustomElement: {
+				'ui:widget': 'customDatalist',
+			},
 			'ui:order': [
 				'select1',
 				'fullDatalist',
 				'remoteDataList',
+				'withCustomElement',
 			],
 		},
 		properties: {
@@ -186,6 +245,7 @@ decoratedStories.add('Datalist', () => {
 			formContext={{ fetchItems }}
 			onChange={action('CHANGE')}
 			onSubmit={action('SUBMIT')}
+			widgets={{ customDatalist: CustomDatalist }}
 		/>
 	);
 });
