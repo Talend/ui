@@ -61,11 +61,11 @@ storiesOf('Action', module)
 				{...myAction}
 				tooltipLabel={'Custom label here'}
 			/>
-			<p>not available</p>
 			<Action
 				id="not-available"
 				{...myAction}
 				available={false}
+				label="should not be visible (available=false)"
 			/>
 		</div>
 	))

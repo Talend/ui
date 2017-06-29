@@ -14,7 +14,7 @@ function get(id, context) {
 /**
  * expressions are registred function which can be called through configuration
  */
-function call(expression, context) {
+function call(expression, context, payload) {
 	let id;
 	let args;
 
@@ -38,7 +38,7 @@ function call(expression, context) {
 			`you must register expression ${id} first`
 		);
 	}
-	return check(context, ...args);
+	return check({ context, payload }, ...args);
 }
 
 export default {

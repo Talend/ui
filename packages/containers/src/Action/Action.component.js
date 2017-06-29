@@ -11,11 +11,13 @@ function Action({ name, ...rest }, context) {
 	const onClick = (event, payload) => {
 		context.store.dispatch(payload.action.payload);
 	};
+	let action;
 	if (name) {
-		const action = actions.getProps(context, name, rest.model);
-		return (<PureAction {...action} onClick={onClick} />);
+		action = actions.getProps(context, name, rest.model);
+	} else {
+		action = actions.evalExpressions(rest, context);
 	}
-	return (<PureAction {...rest} onClick={onClick} />);
+	return (<PureAction {...action} onClick={onClick} />);
 }
 
 Action.propTypes = {
