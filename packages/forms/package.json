@@ -23,7 +23,7 @@
     "babel-preset-es2015": "6.14.0",
     "babel-preset-react": "6.11.1",
     "bootstrap-sass": "3.3.7",
-    "bootstrap-talend-theme": "^0.88.0",
+    "bootstrap-talend-theme": "^0.89.0",
     "chokidar": "^1.6.1",
     "cpx": "1.5.0",
     "enzyme": "^2.7.1",
@@ -47,14 +47,14 @@
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
     "react-redux": "v5.0.5",
-    "react-talend-components": "^0.88.0",
+    "react-talend-components": "^0.89.0",
     "react-test-renderer": "15.5.4",
     "react-virtualized": "^9.1.0",
     "redux-mock-store": "1.2.3",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "4.1.1",
-    "talend-icons": "^0.88.0",
+    "talend-icons": "^0.89.0",
     "uuid": "3.0.1",
     "webpack": "^1.14.0"
   },
@@ -69,7 +69,7 @@
     "react": "15.5.4",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
-    "react-talend-components": "^0.88.0",
+    "react-talend-components": "^0.89.0",
     "react-redux": "v5.0.5",
     "redux": "^3.6.0"
   },
@@ -103,5 +103,5 @@
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "version": "0.88.0"
+  "version": "0.89.0"
 }

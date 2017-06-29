@@ -7,120 +7,27 @@ Scoping to packages that match 'react-talend-forms'
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-   18:28  error  'TitleField' is missing in props validation                                                    react/prop-types
-   18:40  error  'idSchema' is missing in props validation                                                      react/prop-types
-   18:50  error  'title' is missing in props validation                                                         react/prop-types
-   18:57  error  'required' is missing in props validation                                                      react/prop-types
-   27:34  error  'DescriptionField' is missing in props validation                                              react/prop-types
-   27:52  error  'idSchema' is missing in props validation                                                      react/prop-types
-   27:62  error  'description' is missing in props validation                                                   react/prop-types
-   37:10  error  'type' is missing in props validation                                                          react/prop-types
-   37:28  error  'icon' is missing in props validation                                                          react/prop-types
-   37:34  error  'className' is missing in props validation                                                     react/prop-types
-   49:19  error  'index' is missing in props validation                                                         react/prop-types
-   49:43  error  'className' is missing in props validation                                                     react/prop-types
-   51:26  error  'hasToolbar' is missing in props validation                                                    react/prop-types
-   52:12  error  'children' is missing in props validation                                                      react/prop-types
-   55:11  error  'hasToolbar' is missing in props validation                                                    react/prop-types
-   59:14  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
-   59:33  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
-   64:25  error  'disabled' is missing in props validation                                                      react/prop-types
-   64:43  error  'readonly' is missing in props validation                                                      react/prop-types
-   64:62  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
-   65:24  error  'onReorderClick' is missing in props validation                                                react/prop-types
-   65:45  error  'index' is missing in props validation                                                         react/prop-types
-   65:58  error  'index' is missing in props validation                                                         react/prop-types
-   69:14  error  'hasMoveUp' is missing in props validation                                                     react/prop-types
-   69:33  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
-   74:25  error  'disabled' is missing in props validation                                                      react/prop-types
-   74:43  error  'readonly' is missing in props validation                                                      react/prop-types
-   74:62  error  'hasMoveDown' is missing in props validation                                                   react/prop-types
-   75:24  error  'onReorderClick' is missing in props validation                                                react/prop-types
-   75:45  error  'index' is missing in props validation                                                         react/prop-types
-   75:58  error  'index' is missing in props validation                                                         react/prop-types
-   79:14  error  'hasRemove' is missing in props validation                                                     react/prop-types
-   84:25  error  'disabled' is missing in props validation                                                      react/prop-types
-   84:43  error  'readonly' is missing in props validation                                                      react/prop-types
-   85:24  error  'onDropIndexClick' is missing in props validation                                              react/prop-types
-   85:47  error  'index' is missing in props validation                                                         react/prop-types
-   98:30  error  'className' is missing in props validation                                                     react/prop-types
-  101:37  error  'idSchema' is missing in props validation                                                      react/prop-types
-  101:46  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  102:23  error  'TitleField' is missing in props validation                                                    react/prop-types
-  103:21  error  'idSchema' is missing in props validation                                                      react/prop-types
-  104:18  error  'title' is missing in props validation                                                         react/prop-types
-  105:21  error  'required' is missing in props validation                                                      react/prop-types
-  108:11  error  'schema' is missing in props validation                                                        react/prop-types
-  108:18  error  'schema.description' is missing in props validation                                            react/prop-types
-  109:72  error  'idSchema' is missing in props validation                                                      react/prop-types
-  109:81  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  110:13  error  'schema' is missing in props validation                                                        react/prop-types
-  110:20  error  'schema.description' is missing in props validation                                            react/prop-types
-  116:35  error  'idSchema' is missing in props validation                                                      react/prop-types
-  116:44  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  118:12  error  'items' is missing in props validation                                                         react/prop-types
-  118:27  error  'items' is missing in props validation                                                         react/prop-types
-  118:33  error  'items.map' is missing in props validation                                                     react/prop-types
-  121:11  error  'canAdd' is missing in props validation                                                        react/prop-types
-  122:20  error  'onAddClick' is missing in props validation                                                    react/prop-types
-  123:21  error  'disabled' is missing in props validation                                                      react/prop-types
-  123:39  error  'readonly' is missing in props validation                                                      react/prop-types
-  131:30  error  'className' is missing in props validation                                                     react/prop-types
-  134:37  error  'idSchema' is missing in props validation                                                      react/prop-types
-  134:46  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  135:23  error  'TitleField' is missing in props validation                                                    react/prop-types
-  136:21  error  'idSchema' is missing in props validation                                                      react/prop-types
-  137:18  error  'title' is missing in props validation                                                         react/prop-types
-  138:21  error  'required' is missing in props validation                                                      react/prop-types
-  141:11  error  'schema' is missing in props validation                                                        react/prop-types
-  141:18  error  'schema.description' is missing in props validation                                            react/prop-types
-  143:44  error  'idSchema' is missing in props validation                                                      react/prop-types
-  143:53  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  144:30  error  'DescriptionField' is missing in props validation                                              react/prop-types
-  145:22  error  'idSchema' is missing in props validation                                                      react/prop-types
-  146:25  error  'schema' is missing in props validation                                                        react/prop-types
-  146:32  error  'schema.description' is missing in props validation                                            react/prop-types
-  152:35  error  'idSchema' is missing in props validation                                                      react/prop-types
-  152:44  error  'idSchema.$id' is missing in props validation                                                  react/prop-types
-  154:12  error  'items' is missing in props validation                                                         react/prop-types
-  154:27  error  'items' is missing in props validation                                                         react/prop-types
-  154:33  error  'items.map' is missing in props validation                                                     react/prop-types
-  154:42  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  157:11  error  'canAdd' is missing in props validation                                                        react/prop-types
-  158:20  error  'onAddClick' is missing in props validation                                                    react/prop-types
-  159:21  error  'disabled' is missing in props validation                                                      react/prop-types
-  159:39  error  'readonly' is missing in props validation                                                      react/prop-types
-  181:2   error  itemTitle should be placed after onSelectChange                                                react/sort-comp
-  186:16  error  Expected 'this' to be used by class method 'isItemRequired'                                    class-methods-use-this
-  204:32  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  216:40  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  234:32  error  Unexpected block statement surrounding arrow body                                              arrow-body-style
-  250:2   error  render should be placed after renderArrayFieldItem                                             react/sort-comp
-  271:4   error  'name' is missing in props validation                                                          react/prop-types
-  277:4   error  'formContext' is missing in props validation                                                   react/prop-types
-  370:39  error  'name' is missing in props validation                                                          react/prop-types
-  400:4   error  'name' is missing in props validation                                                          react/prop-types
-  437:26  error  Do not nest ternary expressions                                                                no-nested-ternary
-  528:22  error  'onClick' is missing in props validation                                                       react/prop-types
-  528:31  error  'disabled' is missing in props validation                                                      react/prop-types
-  544:3   error  Prop type `object` is forbidden                                                                react/forbid-prop-types
-  552:3   error  Prop type `object` is forbidden                                                                react/forbid-prop-types
-  553:3   error  Prop type `object` is forbidden                                                                react/forbid-prop-types
-  556:3   error  Prop type `array` is forbidden                                                                 react/forbid-prop-types
+  547:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  555:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  556:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  559:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  565:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  585:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  612:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  613:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  633:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  634:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
-  25:3  error  'name' is missing in props validation  react/prop-types
-  71:3  error  Prop type `object` is forbidden        react/forbid-prop-types
-  72:3  error  Prop type `object` is forbidden        react/forbid-prop-types
-  73:3  error  Prop type `object` is forbidden        react/forbid-prop-types
+  71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  14:3   error  'name' is missing in props validation                     react/prop-types
-  59:3   error  Prop type `object` is forbidden                           react/forbid-prop-types
-  60:3   error  Prop type `object` is forbidden                           react/forbid-prop-types
-  61:3   error  Prop type `object` is forbidden                           react/forbid-prop-types
-  77:3   error  Prop type `object` is forbidden                           react/forbid-prop-types
-  77:16  error  'formContext' PropType is defined but prop is never used  react/no-unused-prop-types
+  59:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
   193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -132,30 +39,18 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   6:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios.js
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  34:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  35:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  53:5  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-  72:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-  73:3  error  Prop type `object` is forbidden                                                            react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  65:42  error  Unary operator '++' used  no-plusplus
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/utils/utils.js
-  55:22  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
-  63:19  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
+  34:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  35:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
-  49:29  error  Expected parentheses around arrow function argument having a body with curly braces        arrow-parens
-  59:58  error  Unexpected parentheses around single function argument having a body with no curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
   121:3  error  Prop type `any` is forbidden  react/forbid-prop-types
@@ -166,7 +61,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 132 problems (132 errors, 0 warnings)
+✖ 33 problems (33 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute

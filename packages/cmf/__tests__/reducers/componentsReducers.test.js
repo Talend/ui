@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 
-import componentsReducers, {
+import reducer, {
 	defaultState,
 	componentAlreadyExists,
 	componentDoesntExists,
@@ -14,7 +14,7 @@ describe('check component management reducer', () => {
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
 		state tracking to the store if nor the component/key exist`,
 		() => {
-			expect(componentsReducers(initialState, {
+			expect(reducer(initialState, {
 				type: 'REACT_CMF.COMPONENT_ADD_STATE',
 				componentName: 'componentName',
 				key: 'key',
@@ -37,7 +37,7 @@ describe('check component management reducer', () => {
 		state tracking to the store if nor the component/key exist
 		event if initialState is undefined`,
 		() => {
-			expect(componentsReducers(initialState, {
+			expect(reducer(initialState, {
 				type: 'REACT_CMF.COMPONENT_ADD_STATE',
 				componentName: 'componentName',
 				key: 'key',
@@ -57,7 +57,7 @@ describe('check component management reducer', () => {
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
 		state tracking to the store if the key don't exist`,
 		() => {
-			expect(componentsReducers(initialState, {
+			expect(reducer(initialState, {
 				type: 'REACT_CMF.COMPONENT_ADD_STATE',
 				componentName: 'component1',
 				key: 'key',
@@ -79,12 +79,12 @@ describe('check component management reducer', () => {
 			key: 'key1',
 			initialComponentState: 'initialState',
 		};
-		expect(() => componentsReducers(initialState, action)).toThrow(componentAlreadyExists(action));
+		expect(() => reducer(initialState, action)).toThrow(componentAlreadyExists(action));
 	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`,
 		() => {
-			expect(componentsReducers(initialState, {
+			expect(reducer(initialState, {
 				type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 				componentName: 'component1',
 				key: 'key1',
@@ -107,7 +107,7 @@ describe('check component management reducer', () => {
 				key: 'key',
 				componentState: { searchQuery: 'data' },
 			};
-			expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
+			expect(() => reducer(initialState, action)).toThrow(componentDoesntExists(action));
 		}
 	);
 
@@ -115,7 +115,7 @@ describe('check component management reducer', () => {
 	it(`REACT_CMF.COMPONENT_REMOVE_STATE should properly add
 		component/key state tracking to the store`,
 		() => {
-			expect(componentsReducers(initialState, {
+			expect(reducer(initialState, {
 				type: 'REACT_CMF.COMPONENT_REMOVE_STATE',
 				componentName: 'component1',
 				key: 'key1',
@@ -131,6 +131,21 @@ describe('check component management reducer', () => {
 			componentName: 'component',
 			key: 'key',
 		};
-		expect(() => componentsReducers(initialState, action)).toThrow(componentDoesntExists(action));
+		expect(() => reducer(initialState, action)).toThrow(componentDoesntExists(action));
+	});
+	it('should recall itself on action.cmf.componentState', () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_ADD_STATE',
+			componentName: 'componentName',
+			key: 'key',
+			initialComponentState: { searchQuery: 'data' },
+		};
+		const subAction = {
+			type: 'WHAT_EVER',
+			cmf: {
+				componentState: action,
+			},
+		};
+		expect(reducer(initialState, action)).toEqual(reducer(initialState, subAction));
 	});
 });

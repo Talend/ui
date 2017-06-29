@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 export default function Radios({ id, isValid, errorMessage, onChange, schema, value }) {
 	const { autoFocus, description, disabled, inline, title } = schema;
@@ -44,17 +44,23 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
 			title: PropTypes.string,
+			titleMap: PropTypes.arrayOf(PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			})),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
+
 Radios.defaultProps = {
 	isValid: true,
+	schema: {},
 };
