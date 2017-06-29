@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
