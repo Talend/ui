@@ -20,6 +20,8 @@
 	}
 
 	:global(.tc-list-display-virtualized) {
-		overflow-y: hidden;
+		flex-grow: 1;
+		flex-shrink: 1;
+		box-shadow: $shadow-default;
 	}
 }

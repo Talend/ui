@@ -210,7 +210,7 @@ storiesOf('Virtualized List', module)
 				</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '300px'}}>
+			<section style={{ height: '50vh'}}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -258,7 +258,7 @@ storiesOf('Virtualized List', module)
 				To disable sort on a column, add the <b>disableSort</b> props (see Description column).
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '300px'}}>
+			<section style={{ height: '50vh'}}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -312,7 +312,7 @@ storiesOf('Virtualized List', module)
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '300px'}}>
+			<section style={{ height: '50vh'}}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -363,7 +363,7 @@ storiesOf('Virtualized List', module)
 				The row height is by default <b>135px</b> but can be customized by passing a <b>rowHeight</b> props.
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '300px' }}>
+			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -414,7 +414,7 @@ storiesOf('Virtualized List', module)
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '300px'}}>
+			<section style={{ height: '50vh'}}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
