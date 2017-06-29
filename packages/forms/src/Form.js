@@ -23,7 +23,7 @@ import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
  */
 const TRIGGER_AFTER = 'after';
 
-const customWidgets = {
+export const customWidgets = {
 	toggle: ToggleWidget,
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
@@ -137,6 +137,7 @@ class Form extends React.Component {
 			handleAction: this.props.handleAction,
 			...this.props.formContext,
 		};
+
 		return (
 			<RJSForm
 				{...this.props}

@@ -26,11 +26,12 @@ function createCommonProps() {
 		onChange: action('Change'),
 		onTrigger(type, schema, value, properties) {
 			action('Trigger')(type, schema, value, properties);
-			const key = schema.key[schema.key.length - 1];
-			return key.includes('fail') ?
+			const key = schema.key && schema.key[schema.key.length - 1];
+			return key && key.includes('fail') ?
 				Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
 				Promise.resolve({});
 		},
+		onReset: action('onReset'),
 		onSubmit: action('Submit'),
 	};
 }
@@ -48,7 +49,7 @@ function createStory(filename) {
 				<section>
 					<IconsProvider />
 
-					<Tabs>
+					<Tabs id={'store-tabs'}>
 						<Tab
 							eventKey={0}
 							key={'without'}

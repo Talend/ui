@@ -2,7 +2,8 @@
 
 exports[`Tabs widget should render fieldset 1`] = `
 <Uncontrolled(Tabs)
-  className={undefined}
+  className="tf-tabs"
+  id="undefined-tabs"
 >
   <Tab
     eventKey={0}
@@ -70,7 +71,8 @@ exports[`Tabs widget should render fieldset 1`] = `
 
 exports[`Tabs widget should render invalid tab 1`] = `
 <Uncontrolled(Tabs)
-  className={undefined}
+  className="tf-tabs"
+  id="undefined-tabs"
 >
   <Tab
     eventKey={0}

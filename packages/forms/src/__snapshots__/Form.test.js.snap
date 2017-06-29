@@ -102,6 +102,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
       className="btn btn-primary"
       disabled={true}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="submit"
     >
@@ -113,6 +114,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
       type="reset"
     >

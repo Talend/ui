@@ -1,12 +1,7 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
-function convertValue(type, value) {
-	if (type === 'number') {
-		return parseFloat(value);
-	}
-	return value;
-}
+import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
@@ -42,7 +37,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -55,7 +50,9 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
+
 Text.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: '',
 };

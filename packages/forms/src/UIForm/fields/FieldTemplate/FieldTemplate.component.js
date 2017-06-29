@@ -51,4 +51,8 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
+FieldTemplate.defaultProps = {
+	isValid: true,
+};
+
 export default FieldTemplate;

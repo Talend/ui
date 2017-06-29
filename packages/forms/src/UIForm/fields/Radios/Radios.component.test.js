@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Radios from './Radios';
+import Radios from './Radios.component';
 
 describe('Radios field', () => {
 	const schema = {
