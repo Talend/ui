@@ -87,17 +87,6 @@ const settings = {
 			actionCreator: 'redirect:conditional',
 			href: '/href',
 		},
-		'menu:expression:object': {
-			id: 'expression',
-			available: {
-				id: 'hasPermission',
-				args: ['view-my-article'],
-			},
-		},
-		'menu:expression:string': {
-			id: 'expression:string',
-			available: 'checkIfAvailable',
-		},
 	},
 	views: {
 		appmenu: {
