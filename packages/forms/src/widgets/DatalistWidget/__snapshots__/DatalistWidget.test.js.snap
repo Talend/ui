@@ -28,6 +28,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
+        "placeholder": undefined,
         "required": true,
         "value": "noMatchingValue",
       }
@@ -151,6 +152,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
+        "placeholder": undefined,
         "required": true,
         "value": "",
       }
@@ -481,6 +483,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
+        "placeholder": undefined,
         "required": true,
         "value": "aze",
       }
@@ -596,6 +599,7 @@ exports[`DatalistWidget should render input 1`] = `
       onChange={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      placeholder={undefined}
       required={true}
       role="combobox"
       style={Object {}}
@@ -650,6 +654,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
+        "placeholder": undefined,
         "required": true,
         "value": "",
       }
@@ -770,6 +775,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         "onChange": [Function],
         "onFocus": [Function],
         "onKeyDown": [Function],
+        "placeholder": undefined,
         "required": true,
         "value": "aze",
       }
