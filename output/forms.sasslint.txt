@@ -1,6 +1,6 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-forms'
 
-> react-talend-forms@0.88.0 lint:style /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.89.0 lint:style /home/travis/build/Talend/ui/packages/forms
 > sass-lint -v -q
 
