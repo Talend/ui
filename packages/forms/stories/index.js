@@ -185,7 +185,7 @@ decoratedStories.add('Datalist', () => {
 										Other Actions
 									</span>
 									<Action
-										onMouseDown={() => alert('clicked')}
+										onMouseDown={action('clicked')}
 										bsStyle="primary"
 										id="default"
 										label="do some stuff"
