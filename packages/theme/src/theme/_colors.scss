@@ -3,93 +3,129 @@
 /// @group Colors
 ////
 
-/// Primary color, mostly used for the selected elements
-/// and to draw attention to the important elements of interaction.
+////
+/// Primary colors
+/// These colors defines the brand color
+/// @group PrimaryColors
+////
+
+/// Regal Blue
+/// @type Color
+$regal-blue: #17486E;
+
+/// Saint Tropaz
+/// @type Color
+$st-tropaz: #236192;
+
+/// Green Talend
 ///
 /// @type Color
-$st-tropaz: #266092;
+$green-talend: #B6BE00;
 
-/// Secondary color
-///
-/// @type Color
-$rio-grande: #C3D600;
+////
+/// Accent colors
+/// These colors emphasizes actions and highlighted information
+/// @group AccentColors
+////
 
-/// Contextual color for informational alert messages
-///
-/// @type Color
-$scooter: #66BDFF;
-
-/// Linked to valid/validated/validation elements.
-///
-/// @type Color
-$limeade: #8ABC00;
-
-/// Used for validation message in inputs
-///
-/// @type Color
-$pirate-gold: #B78001;
-
-/// Used to notify invalid elements or warning information.
-///
-/// @type Color
-$lightning-yellow: #F2DA0D;
-
-/// Used for errors.
-///
-/// @type Color
-$chestnut-rose: #E96065;
-
-/// Used for labels, titles.
-///
+/// Black
 /// @type Color
 $black: #202020;
 
-/// Used for some labels
-///
-/// @type Color
-$mine-shaft: #333;
-
-/// Used for subtitles.
-///
+/// Dove Gray
 /// @type Color
 $dove-gray: #555;
 
-/// Used for some labels
-///
-/// @type color
+/// Dark Silver
+/// @type Color
 $dark-silver: #888;
 
-/// Used for backgrounds.
-///
+/// Gray
 /// @type Color
-$silver: #C6C6C6;
+$gray: #969696;
 
-/// Used for input disabled colors, etc..
-///
+/// Silver Chalice
 /// @type Color
 $silver-chalice: #ABABAB;
 
-/// Used for backgrounds etc.
-///
+/// Silver
 /// @type Color
-$alto: #DEDEDE;
+$silver: #C6C6C6;
 
-/// Used for panels.
-///
+/// Rio Grande
 /// @type Color
-$concrete: #F2F2F2;
+$rio-grande: #C3D600;
 
-/// Used for empty spaces, toolbar-panels etc.
-///
+/// Scooter
+/// @type Color
+$scooter: #66BDFF;
+
+/// Chesnut Rose
+/// @type Color
+$chestnut-rose: #E96065;
+
+/// Lightning Yellow
+/// @type Color
+$lightning-yellow: #F2DA0D;
+
+////
+/// Background colors
+/// These colors used for backgrounds
+/// @group BackgroundColors
+////
+
+/// White
 /// @type Color
 $white: #FFF;
 
-/// Used for default color theme
-///
+/// Concrete
 /// @type Color
-$smalt-blue:    #4F8992;
+$concrete: #F2F2F2;
+
+/// Alto
+/// @type Color
+$alto: #DEDEDE;
+
+/// Gallery
+/// @type Color
+$gallery: #EAEAEA;
+
+/// Slate Gray
+/// @type Color
+$slate-gray: #758495;
+
+/// Wild Sand
+/// @type Color
+$wild-sand: #F6F6F6;
+
+////
+/// Help colors
+/// These colors used for helping purposes
+/// @group HelpColors
+////
+
+/// Used for default color theme
+/// @type Color
+$patina: #649083;
 
 /// Used for shadows
-///
 /// @type Color
 $shadow: rgba(0, 0, 0, 0.2);
+
+////
+/// Deprecated colors
+/// These colors are deprecated
+/// @group DeprecatedColors
+////
+
+/// Should be changed to $rio-grande
+/// @type Color
+$limeade: #8ABC00;
+
+/// Should be changed to $lightning-yellow
+/// @type Color
+$pirate-gold: #B78001;
+
+/// Should be changed to $black
+/// @type Color
+$mine-shaft: #333;
