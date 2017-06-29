@@ -109,10 +109,13 @@ class DatalistWidget extends React.Component {
 		options: PropTypes.shape({
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
-			renderItemsContainer: PropTypes.element,
-			renderNoMatch: PropTypes.element,
 		}),
+		renderItemsContainer: PropTypes.element,
+		renderNoMatch: PropTypes.element,
 	};
+
+	static itemContainerStyle = theme['items-container'];
+	static noResultStyle = theme['no-result'];
 
 	constructor(props) {
 		super(props);
@@ -254,8 +257,8 @@ class DatalistWidget extends React.Component {
 		const renderItemData = { value: this.state.value };
 		this.inputProps.value = this.state.value;
 		const renderItemsContainer =
-			this.props.options.renderItemsContainer || defaultRenderDatalistItemContainer;
-		const renderNoMatch = this.props.options.renderNoMatch || defaultRenderNoMatch;
+			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
+		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
 		return (
 			<Autowhatever
 				id={this.props.id}
