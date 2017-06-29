@@ -48,6 +48,23 @@ function VirtualizedList(props) {
 			)}
 		</AutoSizer>
 	);
+	// return (
+	// 			<RendererSelector
+	// 				collection={collection}
+	// 				height={500}
+	// 				id={id}
+	// 				isSelected={isSelected}
+	// 				rowHeight={rowHeight}
+	// 				selectionToggle={selectionToggle}
+	// 				sort={sort}
+	// 				sortBy={sortBy}
+	// 				sortDirection={sortDirection}
+	// 				type={type}
+	// 				width={1200}
+	// 			>
+	// 				{contentsConfiguration}
+	// 			</RendererSelector>
+	// );
 }
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;

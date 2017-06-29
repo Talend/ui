@@ -3,9 +3,10 @@ import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
+import ListTile from './ListTile';
 import propTypes from './PropTypes';
 
-const { TABLE } = listTypes;
+const { TABLE, TILE } = listTypes;
 
 /**
  * Select the ListGrid row renderer to use
@@ -59,6 +60,25 @@ function RendererSelector(props) {
 			</ListTable>
 		);
 	}
+
+	if (type === TILE) {
+		return (
+			<ListTile
+				collection={collection}
+				height={height}
+				id={id}
+				isSelected={isSelected}
+				selectionToggle={selectionToggle}
+				sort={sort}
+				sortBy={sortBy}
+				sortDirection={sortDirection}
+				width={width}
+			>
+				{children}
+			</ListTile>
+		);
+	}
+
 	return (
 		<ListGrid
 			collection={collection}

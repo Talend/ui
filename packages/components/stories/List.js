@@ -563,7 +563,7 @@ storiesOf('List', module)
 	.add('Virtualized', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
-			<p>Display the list in tile mode</p>
+			<p>Display the list in table mode</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} virtualized />
 		</div>
@@ -571,11 +571,26 @@ storiesOf('List', module)
 	.add('Virtualized large', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
-			<p>Display the list in tile mode</p>
+			<p>Display the list in large mode</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} displayMode="large" virtualized />
 		</div>
 	))
+	.add('Virtualized Tile', () => {
+		const tprops = {
+			...props,
+			displayMode: 'tile',
+
+		};
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list in tile mode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
 	.add('Virtualized with column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
