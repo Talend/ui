@@ -622,12 +622,20 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Toolbar Filter</p>
 			<h2>Docked</h2>
-			<List {...dockedProps} virtualized />
+			<div style={{ height: '180px' }}>
+				<List {...dockedProps} virtualized />
+			</div>
 			<h2>Input</h2>
-			<List {...inputProps} virtualized />
+			<div style={{ height: '180px' }}>
+				<List {...inputProps} virtualized />
+			</div>
 			<h2>Highlighted</h2>
-			<List {...highlightedProps} virtualized />
+			<div style={{ height: '180px' }}>
+				<List {...highlightedProps} virtualized />
+			</div>
 			<h2>Input with 300ms debounce</h2>
-			<List {...inputDebounceProps} virtualized />
+			<div style={{ height: '180px' }}>
+				<List {...inputDebounceProps} virtualized />
+			</div>
 		</div>);
 	});
