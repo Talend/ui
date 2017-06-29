@@ -103,7 +103,11 @@ function Action(props) {
 	});
 
 	const buttonContent = getContent(props);
-
+	if (available === false) {
+		buttonProps.className = classnames({
+			hidden: available === false,
+		}, buttonProps.className || '');
+	}
 	const btn = (
 		<Button
 			onMouseDown={rMouseDown}
@@ -111,9 +115,6 @@ function Action(props) {
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
-			className={classnames({
-				hidden: available === false,
-			})}
 			{...buttonProps}
 		>
 			{buttonContent}
