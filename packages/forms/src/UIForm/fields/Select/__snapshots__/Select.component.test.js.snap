@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select field should render disabled input 1`] = `
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
+>
+  <select
+    autoFocus={true}
+    className="form-control"
+    disabled={true}
+    id="mySelect"
+    multiple={false}
+    onChange={[Function]}
+    readOnly={undefined}
+    value="lol"
+  >
+    <option
+      disabled={true}
+    >
+      Please select a value
+    </option>
+    <option
+      value="foo"
+    >
+      My foo title
+    </option>
+    <option
+      value="bar"
+    >
+      My bar title
+    </option>
+    <option
+      value="lol"
+    >
+      My lol title
+    </option>
+  </select>
+</FieldTemplate>
+`;
+
+exports[`Select field should render readOnly input 1`] = `
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
+>
+  <select
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="mySelect"
+    multiple={false}
+    onChange={[Function]}
+    readOnly={true}
+    value="lol"
+  >
+    <option
+      disabled={true}
+    >
+      Please select a value
+    </option>
+    <option
+      value="foo"
+    >
+      My foo title
+    </option>
+    <option
+      value="bar"
+    >
+      My bar title
+    </option>
+    <option
+      value="lol"
+    >
+      My lol title
+    </option>
+  </select>
+</FieldTemplate>
+`;
+
+exports[`Select field should render select multiple 1`] = `
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
+>
+  <select
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="mySelect"
+    multiple={true}
+    onChange={[Function]}
+    readOnly={undefined}
+    value={
+      Array [
+        "foo",
+        "lol",
+      ]
+    }
+  >
+    <option
+      disabled={true}
+    >
+      Please select a value
+    </option>
+    <option
+      value="foo"
+    >
+      My foo title
+    </option>
+    <option
+      value="bar"
+    >
+      My bar title
+    </option>
+    <option
+      value="lol"
+    >
+      My lol title
+    </option>
+  </select>
+</FieldTemplate>
+`;
+
+exports[`Select field should render simple select 1`] = `
+<FieldTemplate
+  description="Select me"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My Select title"
+  labelAfter={true}
+>
+  <select
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="mySelect"
+    multiple={false}
+    onChange={[Function]}
+    readOnly={undefined}
+    value="lol"
+  >
+    <option
+      disabled={true}
+    >
+      Please select a value
+    </option>
+    <option
+      value="foo"
+    >
+      My foo title
+    </option>
+    <option
+      value="bar"
+    >
+      My bar title
+    </option>
+    <option
+      value="lol"
+    >
+      My lol title
+    </option>
+  </select>
+</FieldTemplate>
+`;

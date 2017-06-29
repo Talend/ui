@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Tabs from './Tabs';
+import Tabs from './Tabs.component';
 
 describe('Tabs widget', () => {
 	it('should render fieldset', () => {
