@@ -45,7 +45,7 @@ function renderDatalistInput(props) {
  * Render the datalist suggestion items container
  * @param props
  */
-function renderDatalistItemContainer(props) {
+function defaultRenderDatalistItemContainer(props) {
 	return (<div {...props} />);
 }
 
@@ -80,7 +80,7 @@ function renderDatalistItem(item, { value }) {
 /**
  * Render an empty container
  */
-function renderNoMatch() {
+function defaultRenderNoMatch() {
 	return (
 		<div className={`${theme['items-container']} ${theme['no-result']}`}>
 			<span>No match.</span>
@@ -110,8 +110,13 @@ class DatalistWidget extends React.Component {
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
+		renderItemsContainer: PropTypes.func,
+		renderNoMatch: PropTypes.func,
 		placeholder: PropTypes.string,
 	};
+
+	static itemContainerStyle = theme['items-container'];
+	static noResultStyle = theme['no-result'];
 
 	constructor(props) {
 		super(props);
@@ -155,7 +160,7 @@ class DatalistWidget extends React.Component {
 
 	onBlur(event) {
 		const { options } = this.props;
-		if (options && options.restricted &&
+		if (options.restricted &&
 			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
 		} else {
@@ -203,7 +208,7 @@ class DatalistWidget extends React.Component {
 		let items;
 		if (this.props.schema.enum) {
 			items = this.props.schema.enum;
-		} else if (this.props.formContext && this.props.formContext.fetchItems) {
+		} else if (this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
 		const suggestions = getMatchingSuggestions(items, value);
@@ -253,6 +258,9 @@ class DatalistWidget extends React.Component {
 	render() {
 		const renderItemData = { value: this.state.value };
 		this.inputProps.value = this.state.value;
+		const renderItemsContainer =
+			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
+		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
 		return (
 			<Autowhatever
 				id={this.props.id}
@@ -262,12 +270,17 @@ class DatalistWidget extends React.Component {
 				theme={this.style}
 				renderItemData={renderItemData}
 				renderInputComponent={renderDatalistInput}
-				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderDatalistItemContainer}
+				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
 		);
 	}
 }
+
+DatalistWidget.defaultProps = {
+	options: {},
+	formContext: {},
+};
 
 export default DatalistWidget;

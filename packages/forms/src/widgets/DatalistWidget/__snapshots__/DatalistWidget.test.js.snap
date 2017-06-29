@@ -2,8 +2,10 @@
 
 exports[`DatalistWidget should render "no match" message 1`] = `
 <DatalistWidget
+  formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
+  options={Object {}}
   required={true}
   schema={
     Object {
@@ -126,8 +128,10 @@ exports[`DatalistWidget should render "no match" message 1`] = `
 
 exports[`DatalistWidget should render all suggestions on focus 1`] = `
 <DatalistWidget
+  formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
+  options={Object {}}
   required={true}
   schema={
     Object {
@@ -457,8 +461,10 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
 
 exports[`DatalistWidget should render hightlighted matching suggestions on value change 1`] = `
 <DatalistWidget
+  formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
+  options={Object {}}
   required={true}
   schema={
     Object {
@@ -623,6 +629,7 @@ exports[`DatalistWidget should render input 1`] = `
 
 exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 <DatalistWidget
+  formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
   options={
@@ -749,8 +756,10 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 
 exports[`DatalistWidget should set value and reset suggestions on suggestion selection 1`] = `
 <DatalistWidget
+  formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
+  options={Object {}}
   required={true}
   schema={
     Object {
