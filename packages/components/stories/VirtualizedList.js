@@ -6,7 +6,6 @@ import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
-import GridExample from '../src/Test/Test';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -448,43 +447,6 @@ storiesOf('Virtualized List', module)
 				/>
 			</VirtualizedList>
 		</div>
-	))
-	.add('Test', () => (
-		<GridExample
-			collection={collection}
-		>
-		<VirtualizedList.Content
-			label="Id"
-			dataKey="id"
-		/>
-		<VirtualizedList.Content
-			label="Name"
-			dataKey="name"
-			columnData={titleProps}
-			{...CellTitle}
-		/>
-		<VirtualizedList.Content
-			label=""
-			dataKey="actions"
-			{...CellActions}
-		/>
-		<VirtualizedList.Content
-			label="Description"
-			dataKey="description"
-		/>
-		<VirtualizedList.Content
-			label="Author"
-			dataKey="author"
-		/>
-		<VirtualizedList.Content
-			label="Created"
-			dataKey="created"
-		/>
-		<VirtualizedList.Content
-			label="Modified"
-			dataKey="modified"
-		/>
-		</GridExample>
 	))
 	.add('List > Tile', () => (
 		<div style={{ height: '60vh' }}>
