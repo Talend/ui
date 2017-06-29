@@ -1,17 +1,11 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
-export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
-	const {
-		autoFocus,
-		description,
-		disabled,
-		key,
-		placeholder,
-		readOnly,
-		rows = 5,
-		title,
-	} = schema;
+import { convertValue } from '../../utils/properties';
+
+export default function Text(props) {
+	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
 
 	return (
 		<FieldTemplate
@@ -22,16 +16,16 @@ export default function TextArea({ id, isValid, errorMessage, onChange, schema, 
 			label={title}
 			labelAfter
 		>
-			<textarea
+			<input
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				name={key[key.length - 1]}
+				label={title}
 				placeholder={placeholder}
-				onChange={event => onChange(event, schema, event.target.value)}
+				onChange={event => onChange(event, schema, convertValue(type, event.target.value))}
 				readOnly={readOnly}
-				rows={rows}
+				type={type}
 				value={value}
 			/>
 		</FieldTemplate>
@@ -39,7 +33,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, schema, 
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextArea.propTypes = {
+	Text.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -48,16 +42,15 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			key: PropTypes.arrayOf(PropTypes.string),
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
-			rows: PropTypes.number,
 			title: PropTypes.string,
+			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
-TextArea.defaultProps = {
+Text.defaultProps = {
 	isValid: true,
 	value: '',
 };
