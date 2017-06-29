@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import has from 'lodash/has';
 import {
 	HTTP_METHODS,
 	HTTP_REQUEST,
@@ -12,7 +12,7 @@ export const DEFAULT_HTTP_HEADERS = {
 };
 
 export function isHTTPRequest(action) {
-	return action.type in HTTP_METHODS || !!get(action, 'cmf.http');
+	return action.type in HTTP_METHODS || has(action, 'cmf.http');
 }
 
 /**
