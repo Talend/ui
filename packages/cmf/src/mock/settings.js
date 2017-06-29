@@ -35,10 +35,6 @@ const settings = {
 			id: 'menu:article',
 			name: 'My article',
 			icon: 'icon-article',
-			available: {
-				id: 'hasPermission',
-				args: ['view-my-article'],
-			},
 			payload: {
 				type: '@@router/CALL_HISTORY_METHOD',
 				method: 'push',
@@ -49,7 +45,6 @@ const settings = {
 			id: 'menu',
 			name: 'Menu',
 			icon: 'fa-bars',
-			available: 'isInDevMode',
 			payload: {
 				type: 'TEST_MENU',
 			},
@@ -91,6 +86,17 @@ const settings = {
 			icon: 'fa-bars',
 			actionCreator: 'redirect:conditional',
 			href: '/href',
+		},
+		'menu:expression:object': {
+			id: 'expression',
+			available: {
+				id: 'hasPermission',
+				args: ['view-my-article'],
+			},
+		},
+		'menu:expression:string': {
+			id: 'expression:string',
+			available: 'checkIfAvailable',
 		},
 	},
 	views: {

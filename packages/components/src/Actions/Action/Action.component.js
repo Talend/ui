@@ -103,7 +103,7 @@ function Action(props) {
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}
 			className={classnames({
-				hidden: available === true,
+				hidden: available === false,
 			})}
 			{...buttonProps}
 		>
