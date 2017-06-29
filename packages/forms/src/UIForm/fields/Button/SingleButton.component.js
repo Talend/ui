@@ -49,3 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 	};
 }
+
+SingleButton.defaultProps = {
+	schema: {},
+};
