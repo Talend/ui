@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import {
 	Masonry as VirtualizedTile,
@@ -10,32 +10,87 @@ import { toColumns } from '../utils/tablerow';
 import CellTile from '../CellTile';
 import theme from './ListTile.scss';
 
+const SIZE_TILE = 275;
+
 class ListTile extends React.Component {
 	constructor(props) {
 		super(props);
-		this._columnCount = 0;
 
-		this._cache = new CellMeasurerCache({
-			defaultHeight: 300,
-			defaultWidth: 300,
+		this.columnCount = 0;
+
+		this.cache = new CellMeasurerCache({
+			defaultHeight: props.tileHeight,
+			defaultWidth: props.tileWidth,
 			fixedWidth: true,
 			fixedHeight: true,
 		});
 
 		this.state = {
-			columnWidth: 300,
-			columHeight: 300,
-			gutterSize: 25,
+			columnWidth: props.tileHeight,
+			columHeight: props.tileWidth,
+			gutterSize: 0,
 		};
 
 		this.cellRenderer = this.cellRenderer.bind(this);
 		this.setMasonryRef = this.setMasonryRef.bind(this);
 	}
 
-	cellRenderer ({ index, key, parent, style }) {
+	setMasonryRef(ref) {
+		this.masonry = ref;
+	}
+
+	calculateColumnCount() {
+		const {
+			columnWidth,
+			gutterSize,
+		} = this.state;
+
+		this.columnCount = Math.floor(this.width / (columnWidth + gutterSize));
+	}
+
+	updateCellPositioner(oldWidth) {
+		if (typeof this.cellPositioner === 'undefined') {
+			this.initCellPositioner();
+		} else if (this.width !== oldWidth) {
+			this.resetCellPositioner();
+		}
+	}
+
+	initCellPositioner() {
+		const {
+			columnWidth,
+			gutterSize,
+		} = this.state;
+
+		this.cellPositioner = createMasonryCellPositioner({
+			cellMeasurerCache: this.cache,
+			columnCount: this.columnCount,
+			columnWidth,
+			spacer: gutterSize,
+		});
+	}
+
+	resetCellPositioner() {
+		const {
+			columnWidth,
+			gutterSize,
+		} = this.state;
+
+		this.cellPositioner.reset({
+			columnCount: this.columnCount,
+			columnWidth,
+			spacer: gutterSize,
+		});
+
+		if (this.masonry) {
+			this.masonry.recomputeCellPositions();
+		}
+	}
+
+	cellRenderer({ index, key, parent, style }) {
 		return (
 			<CellMeasurer
-				cache={this._cache}
+				cache={this.cache}
 				index={index}
 				key={key}
 				parent={parent}
@@ -47,57 +102,7 @@ class ListTile extends React.Component {
 					style={style}
 				/>
 			</CellMeasurer>
-		)
-	}
-
-	calculateColumnCount() {
-		const {
-			columnWidth,
-			gutterSize
-		} = this.state
-
-		this._columnCount = Math.floor(this._width / (columnWidth + gutterSize))
-	}
-
-	updateCellPositioner(oldWidth) {
-		if (typeof this._cellPositioner === 'undefined') {
-			this.initCellPositioner();
-		} else if(this._width !== oldWidth) {
-			this.resetCellPositioner();
-		}
-	}
-
-	initCellPositioner() {
-		const {
-			columnWidth,
-			gutterSize
-		} = this.state
-
-		this._cellPositioner = createMasonryCellPositioner({
-			cellMeasurerCache: this._cache,
-			columnCount: this._columnCount,
-			columnWidth,
-			spacer: gutterSize
-		})
-	}
-
-	resetCellPositioner() {
-		const {
-			columnWidth,
-			gutterSize
-		} = this.state
-
-		this._cellPositioner.reset({
-			columnCount: this._columnCount,
-			columnWidth,
-			spacer: gutterSize
-		});
-
-		this._masonry && this._masonry.recomputeCellPositions();
-	}
-
-	setMasonryRef (ref) {
-		this._masonry = ref
+		);
 	}
 
 	render() {
@@ -108,8 +113,8 @@ class ListTile extends React.Component {
 			height,
 			id,
 		} = this.props;
-		const oldWidth = this._width;
-		this._width = width;
+		const oldWidth = this.width;
+		this.width = width;
 
 		this.calculateColumnCount();
 		this.updateCellPositioner(oldWidth);
@@ -118,8 +123,8 @@ class ListTile extends React.Component {
 			<VirtualizedTile
 				collection={collection}
 				cellCount={collection.length}
-				cellMeasurerCache={this._cache}
-				cellPositioner={this._cellPositioner}
+				cellMeasurerCache={this.cache}
+				cellPositioner={this.cellPositioner}
 				cellRenderer={this.cellRenderer}
 				className={classNames('tc-list-tile')}
 				height={height}
@@ -132,6 +137,16 @@ class ListTile extends React.Component {
 	}
 }
 
-ListTile.propTypes = VirtualizedTile.propTypes;
+ListTile.propTypes = {
+	...VirtualizedTile.propTypes,
+	tileWidth: PropTypes.number,
+	tileHeight: PropTypes.number,
+};
+
 ListTile.displayName = 'VirtualizedTile(ListTile)';
+
+ListTile.defaultProps = {
+	tileWidth: SIZE_TILE,
+	tileHeight: SIZE_TILE,
+};
 export default ListTile;

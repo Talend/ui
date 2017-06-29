@@ -6,10 +6,8 @@ import {
 	getId,
 	getLabel,
 	renderCell,
-	getCellRenderer,
 } from '../utils/gridrow';
 
-import CellActions from '../CellActions';
 import cellThemes from './CellThemes';
 import theme from './CellTile.scss';
 
@@ -17,33 +15,36 @@ import theme from './CellTile.scss';
  * Render a tile
  */
 
-function CellTile({ className, index, key, parent, style }) {
+function CellTile({ index, key, parent, style }) {
 	const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 	const parentId = getId(parent);
 	const id = parentId && `${parentId}-${index}`;
 	const titleCell = titleField && renderCell(index, parent, titleField);
 	const selectionCell = selectionField && renderCell(index, parent, selectionField);
-	const otherCellsListItems = otherFields.map((field, fieldIndex) => {
+	const otherCellsListItems = otherFields.map((field) => {
 		const cellContent = renderCell(index, parent, field);
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
 		const label = getLabel(field);
 		return [
 			(<dt className={theme.itemtitle}>{label}</dt>),
-			(<dd title={cellContent} className={theme.itemvalue}>{cellContent}</dd>),
+			(<dd title={tooltip} className={theme.itemvalue}>{cellContent}</dd>),
 		];
 	});
 
 	return (
-		<div className={'tc-list-tile-wrapper'}>
+		<div
+			style={style}
+			key={key}
+		>
 			<div
 				className={classNames(cellThemes)}
-				key={key}
-				style={style}
+				id={id}
 			>
-				{titleCell}{selectionCell}
+				{titleCell}
+				{selectionCell}
 				<dl className={theme.itemlist}>
-				{otherCellsListItems}
+					{otherCellsListItems}
 				</dl>
 			</div>
 		</div>
@@ -52,8 +53,6 @@ function CellTile({ className, index, key, parent, style }) {
 
 CellTile.displayName = 'VirtualizedList(CellTile)';
 CellTile.propTypes = {
-	/** Custom classname to set on the row */
-	className: PropTypes.string,
 	/** Cell index */
 	index: PropTypes.number,
 	/** Cell technical key to identify this row for React consolidation */
