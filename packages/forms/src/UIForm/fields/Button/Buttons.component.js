@@ -37,3 +37,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: SingleButton.propTypes.schema,
 	};
 }
+
+Buttons.defaultProps = {
+	schema: {},
+};
