@@ -40,6 +40,15 @@ describe('CMF http middleware', () => {
 		action.type = 'HTTP/POST';
 		expect(isHTTPRequest(action)).toBe(false);
 	});
+	it('should isHTTPRequest check action.cmf.http', () => {
+		const action = {
+			type: 'WHAT_EVER_YOU_WANT',
+			cmf: {
+				http: {},
+			},
+		};
+		expect(isHTTPRequest(action)).toBe(true);
+	});
 	it('should getMethod find HTTP method in action type', () => {
 		expect(getMethod({ type: HTTP_METHODS.POST })).toBe('POST');
 		expect(getMethod({ type: HTTP_METHODS.OPTIONS })).toBe('OPTIONS');
@@ -320,7 +329,7 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
 			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
 			done();
-		});
+		}).catch(error => console.error(error));
 	});
 
 	it('should httpMiddleware handle callback onError', (done) => {
