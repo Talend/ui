@@ -17,6 +17,9 @@ function Action({ name, ...rest }, context) {
 	} else {
 		action = actions.evalExpressions(rest, context);
 	}
+	if (action.available === false) {
+		return null;
+	}
 	return (<PureAction {...action} onClick={onClick} />);
 }
 

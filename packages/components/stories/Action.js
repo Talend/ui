@@ -67,18 +67,6 @@ storiesOf('Action', module)
 				{...myAction}
 				tooltipLabel={'Custom label here'}
 			/>
-			<p>Available (+1 hidden by available=false</p>
-			<Action
-				id="not-available"
-				{...myAction}
-				available={false}
-				label="should not be visible (available=false)"
-			/>
-			<Action
-				id="available"
-				{...myAction}
-				available
-			/>
 			<p>onMouse down handler</p>
 			<Action
 				id="hidelabel"

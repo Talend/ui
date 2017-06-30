@@ -45,9 +45,7 @@ describe('expression', () => {
 		};
 		expression.call({ id: 'test', args: ['foo'] }, context);
 		expect(test.mock.calls.length).toBe(1);
-		expect(test.mock.calls[0][0].context).toBe(context);
-		expect(test.mock.calls[0][0].payload).toBe();
-		expect(test.mock.calls[0][1]).toBe('foo');
+		expect(test).toBeCalledWith({ context }, 'foo');
 	});
 
 	it('should throw if no id provided', () => {

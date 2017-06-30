@@ -3,7 +3,6 @@ import {
 	Button,
 	OverlayTrigger,
 } from 'react-bootstrap';
-import classnames from 'classnames';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -86,7 +85,6 @@ function Action(props) {
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
-		available,
 		...rest
 	} = props;
 
@@ -103,11 +101,7 @@ function Action(props) {
 	});
 
 	const buttonContent = getContent(props);
-	if (available === false) {
-		buttonProps.className = classnames({
-			hidden: available === false,
-		}, buttonProps.className || '');
-	}
+
 	const btn = (
 		<Button
 			onMouseDown={rMouseDown}

@@ -38,7 +38,7 @@ export default function ExampleAction() {
 			/>
 			<Action
 				{...eAction}
-				label="is True expression"
+				label="should not be displayed: false expression"
 				available={{
 					id: 'isTrueExpression',
 					args: [],
@@ -46,15 +46,15 @@ export default function ExampleAction() {
 			/>
 			<Action
 				{...eAction}
+				label="model has label"
 				available="modelHasLabel"
 				model={{ id: 'foo', label: 'bar' }}
-				label="model has label"
 			/>
 			<Action
 				{...eAction}
+				label="should not be displayed: model without label"
 				available="modelHasLabel"
 				model={{ id: 'bar' }}
-				label="model has label"
 			/>
 		</div>
 	);
