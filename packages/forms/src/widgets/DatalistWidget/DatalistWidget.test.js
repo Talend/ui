@@ -207,6 +207,30 @@ describe('DatalistWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should select known value on input blur', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={schema}
+				onChange={onChange}
+				options={{ restricted: true }}
+			/>
+		);
+		const input = wrapper.find('input').at(0);
+
+		// when
+		input.simulate('focus'); // to display suggestions
+		input.simulate('change', { target: { value: 'banane' } });
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toBeCalled();
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	it('should handle arbitrary input if not restricted', () => {
 		const onChange = jest.fn();
 		const value = 'unknown';

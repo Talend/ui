@@ -754,6 +754,133 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 </DatalistWidget>
 `;
 
+exports[`DatalistWidget should select known value on input blur 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={[Function]}
+  options={
+    Object {
+      "restricted": true,
+    }
+  }
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
+    getSectionItems={[Function]}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "banane",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "banane",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    shouldRenderSection={[Function]}
+    theme={
+      Object {
+        "container": "form-control tf-typeahead-container",
+        "containerOpen": undefined,
+        "highlight": undefined,
+        "input": undefined,
+        "itemFocused": undefined,
+        "itemsContainer": undefined,
+        "itemsList": undefined,
+      }
+    }
+  >
+    <div
+      className="form-control tf-typeahead-container"
+    >
+      <div>
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup={false}
+          aria-owns="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          componentClass="input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          role="combobox"
+          style={Object {}}
+          type="text"
+          value="banane"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            role="combobox"
+            style={Object {}}
+            type="text"
+            value="banane"
+          />
+        </FormControl>
+        <div>
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        id="react-autowhatever-myWidget"
+        style={Object {}}
+      />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
 exports[`DatalistWidget should set value and reset suggestions on suggestion selection 1`] = `
 <DatalistWidget
   formContext={Object {}}
