@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getHeaderRenderer should render the custom header renderer if the header is hidden 1`] = `
+<span
+  className="ReactVirtualized__Table__headerTruncatedText sr-only"
+  title="Title"
+>
+  Title
+</span>
+`;
+
+exports[`getHeaderRenderer should render the default header renderer if the header is not hidden 1`] = `
+<div>
+  Title
+</div>
+`;

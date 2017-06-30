@@ -3,9 +3,13 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-import { Column } from 'react-virtualized';
+import {
+	Column,
+	defaultTableHeaderRenderer,
+} from 'react-virtualized';
 
 import CellCheckboxRenderer from '../CellCheckbox';
+import getHeaderRenderer from '../HeaderRenderer';
 import { internalIds } from './constants';
 
 /**
@@ -57,6 +61,7 @@ export function toColumns(id, theme, children) {
 					...field.props.columnData,
 					id,
 				},
+				headerRenderer: getHeaderRenderer(defaultTableHeaderRenderer, field.props.hideHeader),
 			};
 			return <Column key={index} {...colProps} />;
 		});

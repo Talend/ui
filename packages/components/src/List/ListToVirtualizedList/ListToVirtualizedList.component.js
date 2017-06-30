@@ -49,7 +49,9 @@ function ListToVirtualizedList(props) {
 					});
 				}
 				if (supposedActions[column.key]) {
-					Object.assign(cProps, CellActions);
+					Object.assign(cProps, CellActions, {
+						hideHeader: column.hideHeader || false,
+					});
 				}
 				return (
 					<VirtualizedList.Content key={index} {...cProps} />
