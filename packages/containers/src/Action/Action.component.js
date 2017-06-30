@@ -8,9 +8,6 @@ import actions from '../actionAPI';
 <Action name="menu:demo"></Action>
  */
 function Action({ name, ...rest }, context) {
-	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action.payload);
-	};
 	let action;
 	if (name) {
 		action = actions.getProps(context, name, rest.model);
@@ -20,6 +17,9 @@ function Action({ name, ...rest }, context) {
 	if (action.available === false) {
 		return null;
 	}
+	const onClick = (event, payload) => {
+		context.store.dispatch(payload.action.payload);
+	};
 	return (<PureAction {...action} onClick={onClick} />);
 }
 
