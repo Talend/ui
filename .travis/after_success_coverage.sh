@@ -2,19 +2,16 @@
 
 mkdir -p .static
 
-lerna exec --scope=react-cmf -- yarn run test:cov
 mkdir .static/cmf
 rm -rf .static/cmf/coverage
 cp -R packages/cmf/coverage/lcov-report/ .static/cmf/coverage
 echo "✓ Copy cmf coverage to .static"
 
-lerna exec --scope=react-talend-components -- yarn run test:cov
 mkdir .static/components
 rm -rf .static/components/coverage
 cp -R packages/components/coverage/lcov-report/ .static/components/coverage
 echo "✓ Copy components coverage to .static"
 
-lerna exec --scope=react-talend-containers -- yarn run test:cov
 mkdir .static/containers
 rm -rf .static/containers/coverage
 cp -R packages/containers/coverage/lcov-report/ .static/containers/coverage

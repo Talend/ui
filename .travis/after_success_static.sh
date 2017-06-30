@@ -33,10 +33,4 @@ echo "✓ Copy theme showcase to .static"
 
 find .static/
 
-if [ "$TRAVIS_BRANCH" != 'master' ]; then
-	nohup http-server .static/ -p 1337 >/dev/null 2>&1 &
-	sleep 5
-	echo "✓ Start static server"
-fi
-
 cd "$TRAVIS_BUILD_DIR"

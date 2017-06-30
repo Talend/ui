@@ -18,7 +18,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge
 script:
-  - yarn test
+  - yarn test:cov
 after_success:
   - .travis/after_success_lint.sh
   - .travis/after_success_static.sh
