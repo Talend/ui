@@ -5,10 +5,10 @@ exports[`Action should render its name 1`] = `
   className="mock-provider"
 >
   <button
-    available="model.actions.delete"
     className="tc-action"
     icon="icon-article"
     id="menu:article"
+    model={undefined}
     name="My article"
     onClick={[Function]}
     payload={
