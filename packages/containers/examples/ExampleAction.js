@@ -12,8 +12,14 @@ const myAction = {
 	},
 };
 
-export default function ExampleAction() {
+const eAction = {
+	onClick: stAction('You clicked me'),
+	payload: {
+		type: 'MY SUPER REDUX ACTION',
+	},
+};
 
+export default function ExampleAction() {
 	return (
 		<div>
 			<IconsProvider />
@@ -21,6 +27,35 @@ export default function ExampleAction() {
 			<Action name="menu:first" />
 			<p>Using actions</p>
 			<Action {...myAction} />
+			<p>Using available expression (4 Actions 2 hidden)</p>
+			<Action
+				{...eAction}
+				label="is True expression"
+				available={{
+					id: 'isTrueExpression',
+					args: [true],
+				}}
+			/>
+			<Action
+				{...eAction}
+				label="should not be displayed: false expression"
+				available={{
+					id: 'isTrueExpression',
+					args: [],
+				}}
+			/>
+			<Action
+				{...eAction}
+				label="model has label"
+				available="modelHasLabel"
+				model={{ id: 'foo', label: 'bar' }}
+			/>
+			<Action
+				{...eAction}
+				label="should not be displayed: model without label"
+				available="modelHasLabel"
+				model={{ id: 'bar' }}
+			/>
 		</div>
 	);
 }

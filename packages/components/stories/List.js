@@ -600,4 +600,42 @@ storiesOf('List', module)
 				<List {...tprops} />
 			</div>
 		);
+	})
+	.add('Virtualized with filter', () => {
+		const dockedProps = Immutable.fromJS(props).toJS();
+		dockedProps.list.items = [dockedProps.list.items[0]];
+		dockedProps.toolbar.actionBar = null;
+
+		const inputProps = Immutable.fromJS(dockedProps).toJS();
+		inputProps.toolbar.filter.docked = false;
+
+		const highlightedProps = Immutable.fromJS(inputProps).toJS();
+		highlightedProps.toolbar.filter.highlight = true;
+
+		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
+		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
+
+		return (<div style={{ height: '60vh' }} className="virtualized-list">
+			<IconsProvider />
+
+			<h1>List</h1>
+			<h2>Definition</h2>
+			<p>Toolbar Filter</p>
+			<h2>Docked</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...dockedProps} virtualized />
+			</div>
+			<h2>Input</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputProps} virtualized />
+			</div>
+			<h2>Highlighted</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...highlightedProps} virtualized />
+			</div>
+			<h2>Input with 300ms debounce</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputDebounceProps} virtualized />
+			</div>
+		</div>);
 	});

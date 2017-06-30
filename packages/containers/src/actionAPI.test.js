@@ -39,7 +39,7 @@ describe('actionAPI.getActionsProps', () => {
 
 	it('should return props for multiple actions', () => {
 		const context = mock.context();
-		const model = { model: true };
+		const model = { model: {} };
 		context.store.dispatch = jest.fn();
 		const props = action.getProps(context, ['menu:demo', 'menu:article'], model);
 		expect(Array.isArray(props)).toBe(true);

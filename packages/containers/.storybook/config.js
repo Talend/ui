@@ -18,21 +18,21 @@ const reducer = (state = {}, a) => {
 function objectView(event, data) {
 	return {
 		type: 'OBJECT_VIEW',
-		...data
+		...data,
 	};
 }
 
 function hideDialog(event, data) {
 	return {
 		type: 'HIDE_DIALOG',
-		...data
+		...data,
 	};
 }
 
 function confirmDialog(event, data) {
 	return {
 		type: 'CONFIRM_DIALOG',
-		...data
+		...data,
 	};
 }
 
@@ -40,6 +40,18 @@ const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
+
+const isTrueExpressionAction = action('isTrueExpression');
+api.expression.register('isTrueExpression', (context, first) => {
+	isTrueExpressionAction(context, first);
+	return !!first;
+});
+
+const modelHasLabelAction = action('modelHasLabel');
+api.expression.register('modelHasLabel', (context) => {
+	modelHasLabelAction(context);
+	return !!context.payload.model.label;
+});
 
 function loadStories() {
 	Object.keys(examples).forEach((example) => {

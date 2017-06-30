@@ -10,9 +10,11 @@
 import registry from './registry';
 import route from './route';
 import action from './action';
+import expression from './expression';
 
 export default {
 	action,
+	expression,
 	route,
 	registry,
 };
