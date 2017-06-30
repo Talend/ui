@@ -382,7 +382,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table Empty list', () => {
+	.add('Table empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -396,7 +396,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Large Empty list', () => {
+	.add('Large empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -410,7 +410,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Tile Empty list', () => {
+	.add('Tile empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -629,7 +629,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('VirtualizedList Table Empty list', () => {
+	.add('VirtualizedList Table empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -641,7 +641,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('VirtualizedList large Empty list', () => {
+	.add('VirtualizedList Large empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (

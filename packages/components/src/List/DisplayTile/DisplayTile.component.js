@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import ItemTitle from '../ItemTitle';
 import DisplayPropTypes from '../Display/Display.propTypes';
-import NoRows from '../NoRows';
+import NoRows from '../../VirtualizedList/NoRows';
 import theme from './DisplayTile.scss';
 
 const columnPropType = PropTypes.shape({
@@ -156,24 +156,25 @@ function DisplayTile(props) {
 		titleProps,
 	} = props;
 	const { width } = itemProps || {};
-	const hasItems = items && items.length !== 0;
 	return (
 		<div className="tc-list-display">
-			{ hasItems && (<ul className={theme.tiles}>
-				{items.map((item, index) => (
-					<li key={index}>
-						<Tile
-							id={id && `${id}-${index}`}
-							columns={columns}
-							item={item}
-							itemProps={itemProps}
-							titleProps={titleProps}
-							style={{ width: width || '250px' }}
-						/>
-					</li>
-				))}
-			</ul>)}
-			{!hasItems && <NoRows />}
+			{ !!items.length && (
+				<ul className={theme.tiles}>
+					{items.map((item, index) => (
+						<li key={index}>
+							<Tile
+								id={id && `${id}-${index}`}
+								columns={columns}
+								item={item}
+								itemProps={itemProps}
+								titleProps={titleProps}
+								style={{ width: width || '250px' }}
+							/>
+						</li>
+					))}
+				</ul>
+			)}
+			{!items.length && <NoRows />}
 		</div>
 	);
 }

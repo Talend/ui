@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
-import NoRows from '../NoRows/';
+import NoRows from '../../VirtualizedList/NoRows';
 import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
@@ -305,7 +305,6 @@ function DisplayTable(props) {
 		'tc-list-display-table',
 		theme.table,
 	);
-	const hasItems = items && items.length !== 0;
 
 	return (
 		<div className={containerClassName}>
@@ -336,7 +335,7 @@ function DisplayTable(props) {
 						)}
 					</tbody>
 				</table>
-				{ !hasItems && <NoRows /> }
+				{ !items.length && <NoRows /> }
 			</div>
 		</div>
 	);

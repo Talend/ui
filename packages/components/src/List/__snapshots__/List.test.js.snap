@@ -971,11 +971,11 @@ exports[`List should render empty list in large 1`] = `
   <div
     className="tc-list-display"
   >
-    <span
+    <div
       className={undefined}
     >
       No result found
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -1022,11 +1022,11 @@ exports[`List should render empty list in table 1`] = `
         </thead>
         <tbody />
       </table>
-      <span
+      <div
         className={undefined}
       >
         No result found
-      </span>
+      </div>
     </div>
   </div>
 </div>
@@ -1039,11 +1039,11 @@ exports[`List should render empty list in tile 1`] = `
   <div
     className="tc-list-display"
   >
-    <span
+    <div
       className={undefined}
     >
       No result found
-    </span>
+    </div>
   </div>
 </div>
 `;

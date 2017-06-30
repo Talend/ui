@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import VirtualizedList from '../VirtualizedList.component';
 import ListTable from './ListTable.component';
@@ -95,9 +96,9 @@ describe('ListGrid', () => {
 
 	it('should render no-rows component', () => {
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ListTable
-				collection={collection}
+				collection={[]}
 				height={600}
 				id={'my-list'}
 				isSelected={jest.fn()}
@@ -114,10 +115,8 @@ describe('ListGrid', () => {
 				/>
 			</ListTable>
 		);
-		const NoRows = wrapper.prop('noRowsRenderer');
-		const noRowsWrapper = shallow(<NoRows />);
 
 		// then
-		expect(noRowsWrapper.node).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });
