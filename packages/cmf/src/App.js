@@ -24,6 +24,8 @@ export default function App(props) {
 	);
 }
 
+App.Register = RegistryProvider.Register;
+
 App.propTypes = {
 	store: React.PropTypes.object.isRequired,
 	children: React.PropTypes.node,
