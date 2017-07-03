@@ -32,7 +32,6 @@ function RowLarge({ className, index, key, parent, style }) {
 		);
 	});
 
-
 	return (
 		<div
 			className={classNames(rowThemes)}
