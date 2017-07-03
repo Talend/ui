@@ -20,13 +20,13 @@ before_script:
 script:
   - yarn test:cov
 after_success:
-  - .travis/after_success_lint.sh
-  - .travis/after_success_screenshots.sh
-  - .travis/after_success_git.sh
   - .travis/after_success_static.sh
   - .travis/after_success_storybook.sh
   - .travis/after_success_coverage.sh
   - .travis/after_success_deploy.sh
+  - .travis/after_success_lint.sh
+  - .travis/after_success_screenshots.sh
+  - .travis/after_success_git.sh
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
