@@ -10,6 +10,7 @@ if [ -n "$GH_TOKEN" ]; then
 	cd "$TRAVIS_BUILD_DIR"
 	echo "✓ Move to Travis build dir"
 	if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
+	    git fetch
 		git checkout $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
 		git add packages/theme/screenshots/
