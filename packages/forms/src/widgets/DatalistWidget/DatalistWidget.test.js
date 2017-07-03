@@ -228,7 +228,7 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).toBeCalled();
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('input').prop('value')).toEqual('banane');
 	});
 
 	it('should handle arbitrary input if not restricted', () => {
