@@ -3,7 +3,7 @@ import React from 'react';
 import theme from './NoRows.scss';
 
 function NoRows() {
-	return <div className={theme['no-result']}>No result found</div>;
+	return <p className={theme['no-result']}>No result found</p>;
 }
 
 export default NoRows;

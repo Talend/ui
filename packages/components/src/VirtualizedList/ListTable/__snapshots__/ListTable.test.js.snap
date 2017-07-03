@@ -154,9 +154,9 @@ exports[`ListGrid should render no-rows component 1`] = `
           }
           tabIndex={0}
         >
-          <div>
+          <p>
             No result found
-          </div>
+          </p>
         </div>
       </Grid>
     </div>

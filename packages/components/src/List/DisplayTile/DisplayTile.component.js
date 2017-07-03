@@ -155,7 +155,7 @@ function DisplayTile(props) {
 		itemProps,
 		titleProps,
 	} = props;
-	const { width } = itemProps || {};
+	const { width = '250px' } = itemProps || {};
 	return (
 		<div className="tc-list-display">
 			{ !!items.length && (
@@ -168,7 +168,7 @@ function DisplayTile(props) {
 								item={item}
 								itemProps={itemProps}
 								titleProps={titleProps}
-								style={{ width: width || '250px' }}
+								style={{ width }}
 							/>
 						</li>
 					))}
