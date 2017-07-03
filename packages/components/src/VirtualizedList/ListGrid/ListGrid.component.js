@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
-import { getRowData } from '../utils/gridrow';
 
 import theme from './ListGrid.scss';
 
@@ -13,54 +12,56 @@ export function NoRow() {
 	);
 }
 
-function getRowDataFromParent({ parent, index }) {
-	return getRowData(parent, index);
-}
 
 /**
  * List renderer that accepts a custom row renderer.
  * The row renderer will create a row element for each collection item.
  */
-export default function ListGrid(props) {
-	const {
-		children,
-		collection,
-		id,
-		height,
-		isSelected,
-		rowHeight,
-		rowRenderer,
-		selectionToggle,
-		width,
-	} = props;
-
-	let enhancedRowRenderer = rowRenderer;
-	if (selectionToggle) {
-		enhancedRowRenderer = getRowSelectionRenderer(
+class ListGrid extends React.Component {
+	render() {
+		const {
+			children,
+			collection,
+			id,
+			height,
+			isSelected,
+			rowHeight,
 			rowRenderer,
-			{
-				isSelected,
-				getRowData: getRowDataFromParent,
-			}
+			selectionToggle,
+			width,
+		} = this.props;
+
+		this.collection = collection;
+
+		let enhancedRowRenderer = rowRenderer;
+		if (selectionToggle) {
+			enhancedRowRenderer = getRowSelectionRenderer(
+				rowRenderer,
+				{
+					isSelected,
+					getRowData: ({ index }) => this.collection[index],
+				}
+			);
+		}
+
+		return (
+			<VirtualizedList
+				className={theme['tc-list-list']}
+				collection={this.collection}
+				id={id}
+				height={height}
+				overscanRowCount={10}
+				noRowsRenderer={NoRow}
+				rowCount={collection.length}
+				rowHeight={rowHeight}
+				rowRenderer={enhancedRowRenderer}
+				rowGetter={index => this.collection[index]}
+				width={width}
+			>
+				{children}
+			</VirtualizedList>
 		);
 	}
-
-	return (
-		<VirtualizedList
-			className={theme['tc-list-list']}
-			collection={collection}
-			id={id}
-			height={height}
-			overscanRowCount={10}
-			noRowsRenderer={NoRow}
-			rowCount={collection.length}
-			rowHeight={rowHeight}
-			rowRenderer={enhancedRowRenderer}
-			width={width}
-		>
-			{children}
-		</VirtualizedList>
-	);
 }
 
 ListGrid.displayName = 'VirtualizedList(ListGrid)';
@@ -80,3 +81,5 @@ ListGrid.propTypes = {
 ListGrid.defaultProps = {
 	rowHeight: 135,
 };
+
+export default ListGrid;
