@@ -149,7 +149,7 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
-			clone().text().then((response) => {
+			error.stack.response.clone().text().then((response) => {
 				try {
 					errorObject.stack.response = response;
 					errorObject.stack.messageObject = JSON.parse(response);
