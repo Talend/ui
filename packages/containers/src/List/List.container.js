@@ -171,7 +171,7 @@ class List extends React.Component {
 			}
 		}
 
-		return (<Component virtualized {...props} />);
+		return (<Component {...props} />);
 	}
 }
 
