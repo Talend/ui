@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,
@@ -39,5 +39,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 CheckBox.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: false,
 };

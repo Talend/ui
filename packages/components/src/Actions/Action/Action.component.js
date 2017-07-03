@@ -56,6 +56,8 @@ function getContent(props) {
 	);
 }
 
+function noOp() {}
+
 /**
  * @param {object} props react props
  * @example
@@ -78,7 +80,8 @@ function Action(props) {
 		label,
 		link,
 		model,
-		onClick,
+		onMouseDown = noOp,
+		onClick = noOp,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -87,32 +90,38 @@ function Action(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const leftClick = onClick && ((event) => {
-		// to prevent odd bug with FF
-		if (event.button === 0) {
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			});
-		}
-	});
+	const rClick = onClick && ((event) => {
+			// to prevent odd bug with FF
+			if (event.button === 0) {
+				onClick(event, {
+					action: { label, ...rest },
+					model,
+				});
+			}
+		});
 
-	const middleClick = onClick && ((event) => {
-		// to not call onClick twice when left click
-		if (event.button === 1) {
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			});
-		}
-	});
+	const rMouseDown = onClick && ((event) => {
+			// to not call onClick twice when left click
+			if (event.button === 1) {
+				onClick(event, {
+					action: { label, ...rest },
+					model,
+				});
+			}
+			else{
+				onMouseDown(event, {
+					action: { label, ...rest },
+					model,
+				});
+			}
+		});
 
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
-			onClick={leftClick}
-			onMouseDown={middleClick}
+			onMouseDown={rMouseDown}
+			onClick={rClick}
 			bsStyle={style}
 			disabled={inProgress || disabled}
 			role={link ? 'link' : null}

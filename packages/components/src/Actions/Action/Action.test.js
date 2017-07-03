@@ -12,6 +12,12 @@ const myAction = {
 	onClick: onClickFn,
 };
 
+const mouseDownAction = {
+	label: 'Click me',
+	icon: 'talend-caret-down',
+	onMouseDown: jest.fn(),
+};
+
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
@@ -134,5 +140,21 @@ describe('Action', () => {
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should trigger action if set up onMouseDown event', () => {
+		// given
+		const wrapper = renderer.create(<Action extra="extra" {...mouseDownAction} />).toJSON();
+
+		// when
+		wrapper.props.onMouseDown();
+
+		// then
+		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
+		expect(mouseDownAction.onMouseDown.mock.calls.length).toBe(1);
+		const args = mouseDownAction.onMouseDown.mock.calls[0];
+		expect(args.length).toBe(2);
+		expect(args[0]).toBe();
+		expect(args[1].action.extra).toBe('extra');
 	});
 });

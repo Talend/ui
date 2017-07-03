@@ -1,7 +1,7 @@
-import { getValue, omit } from './properties';
+import { getValue, omit, convertValue } from './properties';
 
 describe('Properties utils', () => {
-	describe('getValue', () => {
+	describe('#getValue', () => {
 		it('should return undefined when key is falsy', () => {
 			// given
 			const properties = {
@@ -36,7 +36,7 @@ describe('Properties utils', () => {
 		});
 	});
 
-	describe('omit', () => {
+	describe('#omit', () => {
 		it('should copy all properties except the omitted ones', () => {
 			// given
 			const properties = {
@@ -53,6 +53,30 @@ describe('Properties utils', () => {
 				toKeep: 'toto',
 				other: 'titi',
 			});
+		});
+	});
+
+	describe('#convertValue', () => {
+		it('should return the original value', () => {
+			// given
+			const value = '3';
+
+			// when
+			const convertedValue = convertValue('unknown', value);
+
+			// then
+			expect(convertedValue).toBe(value);
+		});
+
+		it('should convert to number value', () => {
+			// given
+			const value = '3.5';
+
+			// when
+			const convertedValue = convertValue('number', value);
+
+			// then
+			expect(convertedValue).toBe(3.5);
 		});
 	});
 });

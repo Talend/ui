@@ -14,14 +14,24 @@ export function initState(props) {
 	}
 }
 
-export function applyCallback(callback, name, id) {
-	return (dispatch, getState) => {
-		const newState = callback(getStateProps(getState(), name, id));
-		dispatch(actions.componentsActions.mergeComponentState(name, id, newState));
+function getAction({ name, id, operation, componentState }) {
+	return {
+		id,
+		type: `${name}.${operation}`,
+		cmf: { componentState },
 	};
 }
 
 export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+	const dispatchAction = (operation, componentState) => {
+		dispatch(getAction({
+			id,
+			name,
+			componentState,
+			operation,
+		}));
+	};
+
 	const accessors = {
 		setState(state) {
 			if (!DEFAULT_STATE) {
@@ -30,21 +40,26 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 					'you must provide a defaultState to use setState',
 				);
 			}
-			if (typeof state === 'function') {
-				dispatch(applyCallback(state, name, id));
-			} else {
-				dispatch(actions.componentsActions.mergeComponentState(name, id, state));
-			}
+			dispatch((_, getState) => {
+				let newState = state;
+				if (typeof newState === 'function') {
+					newState = state(getStateProps(getState(), name, id));
+				}
+				const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+				dispatchAction('setState', componentState);
+			});
 		},
 		initState(initialState) {
 			if (DEFAULT_STATE) {
 				const state = DEFAULT_STATE.merge(initialState);
-				dispatch(actions.componentsActions.addComponentState(name, id, state));
+				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				dispatchAction('initState', componentState);
 			}
 		},
 		deleteState() {
 			if (DEFAULT_STATE) {
-				dispatch(actions.componentsActions.removeComponentState(name, id));
+				const componentState = actions.componentsActions.removeComponentState(name, id);
+				dispatchAction('deleteState', componentState);
 			}
 		},
 	};
