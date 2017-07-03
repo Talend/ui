@@ -1,19 +1,19 @@
 sudo: false
 language: node_js
-cache:
-  directories:
-    - $HOME/.cache/yarn
+#cache:
+#  directories:
+#    - $HOME/.cache/yarn
 notifications:
   email: false
-env:
-  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
-addons:
-  firefox: "50.0"
+#env:
+#  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+#addons:
+#  firefox: "50.0"
 node_js:
   - '6'
 before_install:
+  - echo "$TRAVIS_COMMIT_MESSAGE \n $TRAVIS_PULL_REQUEST_SHA"; travis_terminate 0;
   - if [[ "$TRAVIS_COMMIT_MESSAGE" =~ 'test(ci)' ]]; then travis_terminate 0; fi
-  - if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" != 'master' ]; then echo "Build request not on PR or master."; travis_terminate 0; fi
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
