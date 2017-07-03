@@ -5,6 +5,7 @@ import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
 import RowSelectionRenderer from '../RowSelection';
+import NoRows from '../NoRows';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -48,6 +49,7 @@ function ListTable(props) {
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}
 			rowRenderer={RowTableRenderer}
+			noRowsRenderer={NoRows}
 			sort={sort}
 			sortBy={sortBy}
 			sortDirection={sortDirection}
