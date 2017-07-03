@@ -43,7 +43,7 @@ export default class UIForm extends React.Component {
 	 * @param schema The field schema
 	 * @param value The new value
 	 */
-	onChange(event, schema, value) {
+	onChange(event, { schema, value }) {
 		const {
 			formName,
 			onChange,
@@ -51,11 +51,11 @@ export default class UIForm extends React.Component {
 			customValidation,
 		} = this.props;
 		const error = validateValue(schema, value, properties, customValidation);
-		onChange(formName, schema, value, error);
+		onChange(event, { formName, schema, value, error });
 
 		const { triggers } = schema;
 		if (triggers && triggers.includes(TRIGGER_AFTER)) {
-			this.onTrigger(event, TRIGGER_AFTER, schema, value, properties);
+			this.onTrigger(event, { type: TRIGGER_AFTER, schema, value, properties });
 		}
 	}
 
@@ -66,17 +66,20 @@ export default class UIForm extends React.Component {
 	 * @param schema The field schema
 	 * @param value The field value
 	 */
-	onTrigger(event, type, schema, value) {
+	onTrigger(event, { type, schema, value }) {
 		const { formName, updateForm, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
 		return onTrigger(
-			type,           // type of trigger
-			schema,         // field schema
-			value,          // field value
-			properties,     // current properties values
+			event,
+			{
+				type,           // type of trigger
+				schema,         // field schema
+				value,          // field value
+				properties,     // current properties values
+			}
 		)
 			.then(newForm => updateForm(
 				formName,
@@ -212,7 +215,7 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * User callback: Trigger > after callback.
-		 * Prototype: function onTrigger(type, schema, value, properties)
+		 * Prototype: function onTrigger(event, { type, schema, value, properties })
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

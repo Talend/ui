@@ -41,12 +41,13 @@ class UIForm extends React.PureComponent {
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
+	 * @param event The change event
 	 * @param formName The form name
 	 * @param schema The schema
 	 * @param value The new value
 	 * @param error The validation error
 	 */
-	onChange(formName, schema, value, error) {
+	onChange(event, { formName, schema, value, error }) {
 		this.props.updateFormData(
 			formName,
 			schema,
@@ -55,9 +56,12 @@ class UIForm extends React.PureComponent {
 		);
 		if (this.props.onChange) {
 			this.props.onChange(
-				schema,
-				value,
-				this.props.form.properties // TODO fix that, old props
+				event,
+				{
+					schema,
+					value,
+					properties: this.props.form.properties, // TODO fix that, old props
+				}
 			);
 		}
 	}
@@ -120,12 +124,12 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * The change callback.
-		 * Prototype: function onChange(schema, value, properties)
+		 * Prototype: function onChange(event, { schema, value, properties })
 		 */
 		onChange: PropTypes.func,
 		/**
 		 * Tigger callback.
-		 * Prototype: function onTrigger(type, schema, value, properties)
+		 * Prototype: function onTrigger(event, { type, schema, value, properties })
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

@@ -102,7 +102,10 @@ describe('UIForm connect', () => {
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(props.onChange).toBeCalledWith(mergedSchema[0], 'toto', data.properties);
+			expect(props.onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema: mergedSchema[0], value: 'toto', properties: data.properties }
+			);
 		});
 	});
 });
