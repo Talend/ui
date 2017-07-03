@@ -254,7 +254,29 @@ describe('DatalistWidget', () => {
 		expect(onChange.mock.calls[0][0]).toBe(value);
 	});
 
-	it('should not trigger onChange if value is not changed', () => {
+	it('should not trigger onChange if value is not changed on unrestricted mode', () => {
+		const onChange = jest.fn();
+		const value = 'banane';
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={schema}
+				value={value}
+				onChange={onChange}
+				options={{ restricted: false }}
+			/>
+		);
+		const input = wrapper.find('input').at(0);
+
+		// when
+		input.simulate('blur', { target: { value } });
+
+		// then
+		expect(onChange).not.toBeCalled();
+	});
+
+	it('should trigger onChange if value is not changed on restricted mode', () => {
 		const onChange = jest.fn();
 		const value = 'banane';
 		const wrapper = mount(
