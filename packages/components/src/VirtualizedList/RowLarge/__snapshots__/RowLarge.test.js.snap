@@ -13,27 +13,45 @@ exports[`RowLarge should render large row 1`] = `
     className="tc-list-large-row undefined my-class-names"
     id="my-list-1"
   >
-    <div
-      className={undefined}
-    >
+    <div>
       <div
-        className="tc-list-title"
-        id="my-list-1-title-cell"
+        className={undefined}
       >
-        <CellTitleSelector
-          cellData="Title from second item"
-          className={undefined}
-          displayMode="text"
+        <div
+          className="tc-list-title"
           id="my-list-1-title-cell"
-          onClick={undefined}
-          onEditCancel={undefined}
-          onEditSubmit={undefined}
-          rowData={
-            Object {
-              "description": "This comes from second element in collection",
-              "id": 1,
-              "name": "Title from second item",
-              "titleActions": Array [
+        >
+          <CellTitleSelector
+            cellData="Title from second item"
+            className={undefined}
+            displayMode="text"
+            id="my-list-1-title-cell"
+            onClick={undefined}
+            onEditCancel={undefined}
+            onEditSubmit={undefined}
+            rowData={
+              Object {
+                "description": "This comes from second element in collection",
+                "id": 1,
+                "name": "Title from second item",
+                "titleActions": Array [
+                  Object {
+                    "icon": "talend-pencil",
+                    "label": "edit",
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "icon": "talend-trash",
+                    "label": "delete",
+                    "onClick": [Function],
+                  },
+                ],
+              }
+            }
+          />
+          <Actions
+            actions={
+              Array [
                 Object {
                   "icon": "talend-pencil",
                   "label": "edit",
@@ -44,62 +62,62 @@ exports[`RowLarge should render large row 1`] = `
                   "label": "delete",
                   "onClick": [Function],
                 },
-              ],
+              ]
             }
-          }
-        />
-        <Actions
-          actions={
-            Array [
-              Object {
-                "icon": "talend-pencil",
-                "label": "edit",
-                "onClick": [Function],
-              },
-              Object {
-                "icon": "talend-trash",
-                "label": "delete",
-                "onClick": [Function],
-              },
-            ]
-          }
-          hideLabel={true}
-          link={true}
-        />
+            hideLabel={true}
+            link={true}
+          />
+        </div>
       </div>
+      <ul
+        className={undefined}
+      >
+        <li>
+          <span
+            className={undefined}
+          >
+            Id
+            : 
+          </span>
+          <span
+            className={undefined}
+            title="1"
+          >
+            1
+          </span>
+        </li>
+        <li>
+          <span
+            className={undefined}
+          >
+            Description
+            : 
+          </span>
+          <span
+            className={undefined}
+            title="Title from second item"
+          >
+            Title from second item
+          </span>
+        </li>
+      </ul>
     </div>
-    <ul
-      className={undefined}
-    >
-      <li>
-        <span
-          className={undefined}
-        >
-          Id
-          : 
-        </span>
-        <span
-          className={undefined}
-          title="1"
-        >
-          1
-        </span>
-      </li>
-      <li>
-        <span
-          className={undefined}
-        >
-          Description
-          : 
-        </span>
-        <span
-          className={undefined}
-          title="Title from second item"
-        >
-          Title from second item
-        </span>
-      </li>
-    </ul>
   </div>
+</div>
+`;
+
+exports[`RowLarge should render large skeketon row during the scroll 1`] = `
+<div
+  className="tc-list-large"
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+>
+  <div
+    className="tc-list-large-row undefined my-class-names"
+    id="my-list-1"
+  />
 </div>
 `;

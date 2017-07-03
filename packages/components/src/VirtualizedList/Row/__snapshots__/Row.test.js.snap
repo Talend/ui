@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowRenderer should show a skeleton during the scroll 1`] = `
+<div
+  className="my-class-names"
+  index={1}
+  isScrolling={true}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "width": "42%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`RowRenderer should show the rowRenderer 1`] = `
+<Unknown
+  className="my-class-names"
+  index={1}
+  parent={Object {}}
+  rowRenderer={<div />}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;

@@ -90,6 +90,6 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(undefined)');
+		expect(wrapper.node.props.rowRenderer()).toMatchSnapshot();
 	});
 });
