@@ -34,6 +34,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   overscanIndicesGetter={[Function]}
   overscanRowCount={10}
   rowCount={2}
+  rowGetter={[Function]}
   rowHeight={130}
   rowRenderer={[Function]}
   scrollToAlignment="auto"
