@@ -252,11 +252,9 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		if ((selectedItem && selectedItem !== this.state.value) || (this.props.options.restricted)) {
-			this.setValue(selectedItem);
-			this.resetSuggestions();
-			this.props.onChange(selectedItem);
-		}
+		this.setValue(selectedItem);
+		this.resetSuggestions();
+		this.props.onChange(selectedItem);
 	}
 
 	render() {

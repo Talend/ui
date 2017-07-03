@@ -163,28 +163,6 @@ describe('DatalistWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should not change the value if it is the same', () => {
-		// given
-		const onChange = jest.fn();
-		const value = 'aze';
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				value={value}
-				required
-				schema={schema}
-				onChange={onChange}
-			/>
-		);
-		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
-
-		// when
-		wrapper.find('#react-autowhatever-myWidget--item-0').simulate('mouseDown');
-
-		// then
-		expect(onChange).not.toBeCalled();
-	});
-
 	it('should reset value on unknown value input blur', () => {
 		// given
 		const onChange = jest.fn();
@@ -252,49 +230,5 @@ describe('DatalistWidget', () => {
 		// then
 		expect(onChange).toBeCalled();
 		expect(onChange.mock.calls[0][0]).toBe(value);
-	});
-
-	it('should not trigger onChange if value is not changed on unrestricted mode', () => {
-		const onChange = jest.fn();
-		const value = 'banane';
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				required
-				schema={schema}
-				value={value}
-				onChange={onChange}
-				options={{ restricted: false }}
-			/>
-		);
-		const input = wrapper.find('input').at(0);
-
-		// when
-		input.simulate('blur', { target: { value } });
-
-		// then
-		expect(onChange).not.toBeCalled();
-	});
-
-	it('should trigger onChange if value is not changed on restricted mode', () => {
-		const onChange = jest.fn();
-		const value = 'banane';
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				required
-				schema={schema}
-				value={value}
-				onChange={onChange}
-				options={{ restricted: true }}
-			/>
-		);
-		const input = wrapper.find('input').at(0);
-
-		// when
-		input.simulate('blur', { target: { value } });
-
-		// then
-		expect(onChange).not.toBeCalled();
 	});
 });
