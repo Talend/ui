@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import {
 	Button,
 	OverlayTrigger,
@@ -85,6 +86,7 @@ function Action(props) {
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
+		available,
 		...rest
 	} = props;
 
@@ -94,6 +96,13 @@ function Action(props) {
 		action: { label, ...rest },
 		model,
 	}));
+
+	if (available === false) {
+		buttonProps.className = classnames(
+			'hidden',
+			buttonProps.className,
+		);
+	}
 
 	const rMouseDown = event => onMouseDown(event, {
 		action: { label, ...rest },
