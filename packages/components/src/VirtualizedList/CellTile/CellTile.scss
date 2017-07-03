@@ -1,0 +1,115 @@
+// DisplayTile styles
+
+/// tile background color
+/// @type Color
+$tile-background: #FFF;
+/// tile border color
+/// @type Color
+$tile-border-color: #CCC;
+/// tile border size
+/// @type Color
+$tile-border-size: 1px;
+/// all tile title color
+/// @type Color
+$title-color: #555;
+/// Global font size for tile rendering
+/// @type Number (Unit)
+$text-size: 15px;
+/// tile width
+/// @type Number (Unit)
+$tile-width: 250px;
+/// tile padding
+/// @type Number (Unit)
+$tile-padding-width: 15px;
+/// tile padding
+/// @type Number (Unit)
+$tile-margin-width: 25px;
+
+$content-size: $tile-width - 2 * $tile-padding-width - 2 * $tile-border-size;
+
+.tc-list-tile-row {
+	background: $tile-background;
+	border: $tile-border-size solid $tile-border-color;
+	border-radius: 0.5em;
+	font-size: $text-size;
+	height: 250px;
+	margin: 25px 0px 0px 25px;
+	max-width: $tile-width;
+	padding: $tile-padding-width;
+	transition: 0.13s background cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.13s border-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+	&:hover {
+		background: lighten($title-color, 60%);
+		border-color: darken($tile-border-color, 40%);
+	}
+
+	.tc-list-title {
+		width: 100%;
+	}
+}
+
+.title {
+	color: $title-color;
+	font-size: $text-size;
+	font-weight: 600;
+	letter-spacing: 0;
+	margin: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-transform: none;
+}
+
+.titlelink {
+	padding: 0;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.itemtitle,
+.itemvalue {
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.itemtitle {
+	color: $title-color;
+	font-size: 0.8em;
+	font-weight: 400;
+	line-height: 2.5em;
+	text-align: right;
+	text-transform: uppercase;
+	width: ($content-size / 2) * 0.80;
+	margin-right: ($content-size / 2) * 0.20;
+	text-align: right;
+	vertical-align: bottom;
+
+	&:after {
+		content: ' :';
+	}
+}
+
+.itemvalue {
+	vertical-align: bottom;
+	margin: 0;
+	overflow: hidden;
+	line-height: 2em;
+	text-overflow: ellipsis;
+	width: ($content-size / 2);
+	white-space: nowrap;
+}
+
+.itemtitle, .itemvalue {
+	display: inline-block;
+}
+
+.itemvalue + .itemtitle:before {
+	content: "\A";
+}
+
+.container {
+	padding: 0 20px;
+}

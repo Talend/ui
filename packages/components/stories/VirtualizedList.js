@@ -457,4 +457,42 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
+	))
+	.add('List > Tile', () => (
+		<div style={{ height: '60vh' }}>
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<VirtualizedList
+				collection={collection}
+				id={'my-list'}
+				type={listTypes.TILE}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+					columnData={titleProps}
+					{...CellTitle}
+				/>
+				<VirtualizedList.Content
+					label="Description"
+					dataKey="description"
+				/>
+				<VirtualizedList.Content
+					label="Author"
+					dataKey="author"
+				/>
+				<VirtualizedList.Content
+					label="Created"
+					dataKey="created"
+				/>
+				<VirtualizedList.Content
+					label="Modified"
+					dataKey="modified"
+				/>
+			</VirtualizedList>
+		</div>
 	));

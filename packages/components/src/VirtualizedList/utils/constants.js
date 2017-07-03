@@ -1,6 +1,7 @@
 export const listTypes = {
 	TABLE: 'TABLE',
 	LARGE: 'LARGE',
+	TILE: 'TILE',
 };
 
 export const cellTitleDisplayModes = {
