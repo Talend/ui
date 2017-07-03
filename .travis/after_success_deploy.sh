@@ -2,7 +2,7 @@
 
 echo "DEPLOY"
 cd "$TRAVIS_BUILD_DIR"
-if [ "$TRAVIS_BRANCH" == 'master' ]; then
+if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; then
 	surge --project .static --domain "talend.surge.sh"
 	echo "✓ Deploy to talend.surge.sh"
 elif [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
