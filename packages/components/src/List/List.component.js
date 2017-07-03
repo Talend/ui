@@ -55,11 +55,13 @@ function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }
 	}
 	if (virtualized) {
 		return (
-			<ListToVirtualizedList
-				id={id}
-				displayMode={displayMode}
-				{...list}
-			/>
+			<div className={'tc-list-display-virtualized'}>
+				<ListToVirtualizedList
+					id={id}
+					displayMode={displayMode}
+					{...list}
+				/>
+			</div>
 		);
 	}
 	switch (displayMode) {

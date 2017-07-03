@@ -35,7 +35,6 @@ const settings = {
 			id: 'menu:article',
 			name: 'My article',
 			icon: 'icon-article',
-			available: 'model.actions.delete',
 			payload: {
 				type: '@@router/CALL_HISTORY_METHOD',
 				method: 'push',

@@ -163,6 +163,10 @@ class DatalistWidget extends React.Component {
 		if (options.restricted &&
 			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
+		} else if (options.restricted &&
+			this.state.initalItems.includes(this.state.value)) {
+			this.props.onChange(this.state.value);
+			this.resetSuggestions();
 		} else {
 			const { value } = event.target;
 			if (value !== this.state.value) {
