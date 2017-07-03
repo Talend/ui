@@ -91,30 +91,29 @@ function Action(props) {
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
 	const rClick = onClick && ((event) => {
-			// to prevent odd bug with FF
-			if (event.button === 0) {
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				});
-			}
-		});
+		// to prevent odd bug with FF
+		if (event.button === 0) {
+			onClick(event, {
+				action: { label, ...rest },
+				model,
+			});
+		}
+	});
 
-	const rMouseDown = onClick && ((event) => {
-			// to not call onClick twice when left click
-			if (event.button === 1) {
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				});
-			}
-			else{
-				onMouseDown(event, {
-					action: { label, ...rest },
-					model,
-				});
-			}
-		});
+	const rMouseDown = ((event) => {
+		// middle-click: call onClick event
+		if (event.button === 1) {
+			onClick(event, {
+				action: { label, ...rest },
+				model,
+			});
+		} else {
+			onMouseDown(event, {
+				action: { label, ...rest },
+				model,
+			});
+		}
+	});
 
 	const buttonContent = getContent(props);
 
