@@ -56,6 +56,7 @@ describe('UIForm component', () => {
 					schema: mergedSchema[0],
 					value: newValue,
 					error: inputValidationError,
+					properties: data.properties,
 				}
 			);
 			expect(props.onTrigger).not.toBeCalled();
@@ -64,7 +65,7 @@ describe('UIForm component', () => {
 		it('should trigger "after" trigger', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} />);
-			const newValue = 'toto';
+			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
@@ -75,9 +76,11 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).toBeCalledWith(
 				expect.anything(),
 				{
+					formName: props.formName,
 					type: 'after',
 					schema: mergedSchema[1],
 					value: newValue,
+					error: null,
 					properties: data.properties,
 				}
 			);
@@ -97,6 +100,7 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).toBeCalledWith(
 				expect.anything(),
 				{
+					formName: props.formName,
 					type: 'after',
 					schema: mergedSchema[2],
 					value: undefined,

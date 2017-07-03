@@ -40,8 +40,7 @@ export default class UIForm extends React.Component {
 	 * - onChange: for each field change
 	 * - onTrigger: when trigger is provided and its value is "after"
 	 * @param event The event that triggered the callback
-	 * @param schema The field schema
-	 * @param value The new value
+	 * @param payload { schema, value } The field schema and its new value
 	 */
 	onChange(event, { schema, value }) {
 		const {
@@ -51,22 +50,24 @@ export default class UIForm extends React.Component {
 			customValidation,
 		} = this.props;
 		const error = validateValue(schema, value, properties, customValidation);
-		onChange(event, { formName, schema, value, error });
+		const payload = { formName, schema, value, error, properties };
+		onChange(event, payload);
 
 		const { triggers } = schema;
 		if (triggers && triggers.includes(TRIGGER_AFTER)) {
-			this.onTrigger(event, { type: TRIGGER_AFTER, schema, value, properties });
+			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
 		}
 	}
 
 	/**
 	 * Triggers an onTrigger callback that is allowed to modify the form
 	 * @param event The event that triggered the callback
-	 * @param type The type of trigger
-	 * @param schema The field schema
-	 * @param value The field value
+	 * @param payload The trigger payload
+	 * type The type of trigger
+	 * schema The field schema
+	 * value The field value
 	 */
-	onTrigger(event, { type, schema, value }) {
+	onTrigger(event, payload) {
 		const { formName, updateForm, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return null;
@@ -75,10 +76,9 @@ export default class UIForm extends React.Component {
 		return onTrigger(
 			event,
 			{
-				type,           // type of trigger
-				schema,         // field schema
-				value,          // field value
-				properties,     // current properties values
+				...payload,
+				formName,
+				properties,
 			}
 		)
 			.then(newForm => updateForm(

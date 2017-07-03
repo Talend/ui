@@ -64,9 +64,11 @@ describe('UIForm container', () => {
 			expect(props.onChange).toBeCalledWith(
 				event,
 				{
+					formName: props.formName,
 					schema: mergedSchema[0],
 					value: 'toto',
-					properties: { lastname: 'toto' },
+					error: 'too short',
+					properties: props.properties,
 				}
 			);
 		});

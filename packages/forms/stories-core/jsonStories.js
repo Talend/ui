@@ -24,8 +24,9 @@ function createCommonProps() {
 		},
 		formName: 'my-form',
 		onChange: action('Change'),
-		onTrigger(event, { type, schema, value, properties }) {
-			action('Trigger')(event, { type, schema, value, properties });
+		onTrigger(event, payload) {
+			action('Trigger')(event, payload);
+			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
 			return key && key.includes('fail') ?
 				Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :

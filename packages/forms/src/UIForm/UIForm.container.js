@@ -27,30 +27,25 @@ export default class UIForm extends React.Component {
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
 	 * @param event The change event
-	 * @param formName The form name
-	 * @param schema The schema
-	 * @param value The new value
-	 * @param error The validation error
+	 * @param payload { formName, schema, value, error } The change payload
+	 * formName: The form name
+	 * schema: The schema
+	 * value: The new value
+	 * error: The validation error
 	 */
-	onChange(event, { formName, schema, value, error }) {
-		const action = updateFormData(formName, schema, value, error);
+	onChange(event, payload) {
+		const action = updateFormData(
+			payload.formName,
+			payload.schema,
+			payload.value,
+			payload.error
+		);
 		this.setState(
 			{
 				properties: modelReducer(this.state.properties, action),
 				errors: validationReducer(this.state.errors, action),
 			},
-			() => {
-				if (this.props.onChange) {
-					this.props.onChange(
-						event,
-						{
-							schema,
-							value,
-							properties: this.state.properties,
-						}
-					);
-				}
-			}
+			this.props.onChange && (() => { this.props.onChange(event, payload); })
 		);
 	}
 
