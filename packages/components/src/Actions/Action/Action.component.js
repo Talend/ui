@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import {
 	Button,
 	OverlayTrigger,
@@ -85,8 +86,13 @@ function Action(props) {
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
+		available,
 		...rest
 	} = props;
+
+	if (!available) {
+		return null;
+	}
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
@@ -114,7 +120,6 @@ function Action(props) {
 			{buttonContent}
 		</Button>
 	);
-
 	if (hideLabel || tooltip || tooltipLabel) {
 		return (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
@@ -143,6 +148,7 @@ Action.propTypes = {
 };
 
 Action.defaultProps = {
+	available: true,
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,
