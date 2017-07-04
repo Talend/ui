@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
-Scoping to packages that match '@talend/react-components'
+Scoping to packages that match 'react-talend-components'
 
-> @talend/react-components@0.92.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.92.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
