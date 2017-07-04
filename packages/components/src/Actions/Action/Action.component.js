@@ -97,13 +97,6 @@ function Action(props) {
 		model,
 	}));
 
-	if (available === false) {
-		buttonProps.className = classnames(
-			'hidden',
-			buttonProps.className,
-		);
-	}
-
 	const rMouseDown = event => onMouseDown(event, {
 		action: { label, ...rest },
 		model,
@@ -123,8 +116,9 @@ function Action(props) {
 			{buttonContent}
 		</Button>
 	);
-
-	if (hideLabel || tooltip || tooltipLabel) {
+	if (!available) {
+		return null;
+	} else if (hideLabel || tooltip || tooltipLabel) {
 		return (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 				{btn}
@@ -152,6 +146,7 @@ Action.propTypes = {
 };
 
 Action.defaultProps = {
+	available: true,
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,

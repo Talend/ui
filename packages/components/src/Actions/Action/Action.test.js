@@ -133,10 +133,10 @@ describe('Action', () => {
 		expect(args[1].action.extra).toBe('extra');
 	});
 
-	it('should add .hidden if props.available=false', () => {
+	it('should not render action if props.available=false', () => {
 		const wrapper = shallow(
 			<Action available={false} />
 		);
-		expect(wrapper.props().className).toBe('hidden');
+		expect(wrapper.type()).toBe(null);
 	});
 });
