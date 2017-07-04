@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
-Scoping to packages that match 'react-talend-forms'
+Scoping to packages that match '@talend/react-forms'
 
-> react-talend-forms@0.91.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> @talend/react-forms@0.92.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -63,6 +63,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 ✖ 33 problems (33 errors, 0 warnings)
 
-Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
+Errored while running command 'npm' with arguments 'run lint:es' in '@talend/react-forms'
 Errored while running ExecCommand.execute
 Command exited with status 1: npm run lint:es
