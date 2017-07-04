@@ -1,19 +1,22 @@
 sudo: false
 language: node_js
-#cache:
-#  directories:
-#    - $HOME/.cache/yarn
+cache:
+  directories:
+    - $HOME/.cache/yarn
 notifications:
   email: false
-#env:
-#  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
-#addons:
-#  firefox: "50.0"
+env:
+  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+addons:
+  firefox: "50.0"
 node_js:
   - '6'
 before_install:
-  - echo "$TRAVIS_COMMIT_MESSAGE \n $TRAVIS_PULL_REQUEST_SHA"; travis_terminate 0;
-  - if [[ "$TRAVIS_COMMIT_MESSAGE" =~ 'test(ci)' ]]; then travis_terminate 0; fi
+#  - .travis/real_commit_message.sh
+  - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
+  - echo $TALEND_COMMIT_MSG
+  - if [[ "$TALEND_COMMIT_MSG" =~ 'test(ci)' ]]; then travis_terminate 0; fi
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
