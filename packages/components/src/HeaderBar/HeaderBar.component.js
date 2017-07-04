@@ -186,7 +186,6 @@ function Products({ renderers, ...props }) {
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
-				label="Apps"
 				pullRight
 				tooltipPlacement="bottom"
 				{...props}
