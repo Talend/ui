@@ -23,15 +23,13 @@ class ListGrid extends React.Component {
 			width,
 		} = this.props;
 
-		this.collection = collection;
-
 		let enhancedRowRenderer = rowRenderer;
 		if (selectionToggle) {
 			enhancedRowRenderer = getRowSelectionRenderer(
 				rowRenderer,
 				{
 					isSelected,
-					getRowData: ({ index }) => this.collection[index],
+					getRowData: ({ index }) => this.props.collection[index],
 				}
 			);
 		}
@@ -39,7 +37,7 @@ class ListGrid extends React.Component {
 		return (
 			<VirtualizedList
 				className={theme['tc-list-list']}
-				collection={this.collection}
+				collection={this.props.collection}
 				id={id}
 				height={height}
 				overscanRowCount={10}
@@ -47,7 +45,7 @@ class ListGrid extends React.Component {
 				rowCount={collection.length}
 				rowHeight={rowHeight}
 				rowRenderer={enhancedRowRenderer}
-				rowGetter={index => this.collection[index]}
+				rowGetter={index => this.props.collection[index]}
 				width={width}
 			>
 				{children}
