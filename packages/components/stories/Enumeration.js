@@ -97,7 +97,7 @@ const dropDownActionsProps = {
 		displayMode: 'dropdown',
 		items: [{
 			label: 'Add values from a file',
-			id: 'append-uploding',
+			id: 'add-value',
 			onClick: action('add values'),
 		}, {
 			label: 'Overwrite existing values',
