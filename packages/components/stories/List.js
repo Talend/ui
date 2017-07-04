@@ -382,7 +382,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Empty list', () => {
+	.add('Table empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -392,6 +392,34 @@ storiesOf('List', module)
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...emptyListProps} />
+				</div>
+			</div>
+		);
+	})
+	.add('Large empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} displayMode="large" />
+				</div>
+			</div>
+		);
+	})
+	.add('Tile empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} displayMode="tile" />
 				</div>
 			</div>
 		);
@@ -597,7 +625,31 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('VirtualizedList Table empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...emptyListProps} virtualized />
+			</div>
+		);
+	})
+	.add('VirtualizedList Large empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...emptyListProps} displayMode="large" virtualized />
 			</div>
 		);
 	})

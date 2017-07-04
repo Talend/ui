@@ -2,6 +2,7 @@
 
 exports[`SingleButton field should render button 1`] = `
 <Action
+  available={true}
   bsStyle="primary"
   className="btn"
   disabled={false}
@@ -17,6 +18,7 @@ exports[`SingleButton field should render button 1`] = `
 
 exports[`SingleButton field should render disabled button 1`] = `
 <Action
+  available={true}
   bsStyle="primary"
   className="btn"
   disabled={true}
@@ -32,6 +34,7 @@ exports[`SingleButton field should render disabled button 1`] = `
 
 exports[`SingleButton field should render inProgress button 1`] = `
 <Action
+  available={true}
   bsStyle="primary"
   className="btn"
   disabled={true}
@@ -47,6 +50,7 @@ exports[`SingleButton field should render inProgress button 1`] = `
 
 exports[`SingleButton field should render reset button 1`] = `
 <Action
+  available={true}
   bsStyle="primary"
   className="btn"
   disabled={false}
@@ -62,6 +66,7 @@ exports[`SingleButton field should render reset button 1`] = `
 
 exports[`SingleButton field should render submit button 1`] = `
 <Action
+  available={true}
   bsStyle="primary"
   className="btn"
   disabled={false}
