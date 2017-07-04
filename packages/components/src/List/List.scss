@@ -17,6 +17,7 @@
 		flex-shrink: 1;
 		overflow-y: auto;
 		box-shadow: $shadow-default;
+		height: 100%;
 	}
 
 	:global(.tc-list-display-virtualized) {

@@ -74,13 +74,33 @@ describe('List', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render empty list', () => {
+	it('should render empty list in table', () => {
 		const tProps = {
 			...listProps,
 			items: [],
 		};
 
 		const wrapper = renderer.create(<List list={tProps} />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render empty list in large', () => {
+		const tProps = {
+			...listProps,
+			items: [],
+		};
+
+		const wrapper = renderer.create(<List list={tProps} displayMode="large" />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render empty list in tile', () => {
+		const tProps = {
+			...listProps,
+			items: [],
+		};
+
+		const wrapper = renderer.create(<List list={tProps} displayMode="tile" />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
 import Action from './Action.component';
 
 jest.mock('react-dom');
@@ -131,5 +131,12 @@ describe('Action', () => {
 		expect(args.length).toBe(2);
 		expect(args[0]).toBe();
 		expect(args[1].action.extra).toBe('extra');
+	});
+
+	it('should not render action if props.available=false', () => {
+		const wrapper = shallow(
+			<Action available={false} />
+		);
+		expect(wrapper.type()).toBe(null);
 	});
 });

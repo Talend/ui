@@ -83,6 +83,7 @@ exports[`ColumnHeader should render with sort 1`] = `
 <th>
   <Action
     aria-label="Sort on Test field"
+    available={true}
     bsStyle="default"
     className={undefined}
     disabled={false}
