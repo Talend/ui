@@ -90,6 +90,10 @@ function Action(props) {
 		...rest
 	} = props;
 
+	if (!available) {
+		return null;
+	}
+
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
 	const rClick = onClick && (event => onClick(event, {
@@ -116,9 +120,7 @@ function Action(props) {
 			{buttonContent}
 		</Button>
 	);
-	if (!available) {
-		return null;
-	} else if (hideLabel || tooltip || tooltipLabel) {
+	if (hideLabel || tooltip || tooltipLabel) {
 		return (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 				{btn}
