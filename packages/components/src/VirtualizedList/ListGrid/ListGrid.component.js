@@ -1,17 +1,9 @@
 import React, { PropTypes } from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
+import NoRows from '../NoRows';
 
 import theme from './ListGrid.scss';
-
-export function NoRow() {
-	return (
-		<div className={'tc-list-no-rows'}>
-			No rows
-		</div>
-	);
-}
-
 
 /**
  * List renderer that accepts a custom row renderer.
@@ -51,7 +43,7 @@ class ListGrid extends React.Component {
 				id={id}
 				height={height}
 				overscanRowCount={10}
-				noRowsRenderer={NoRow}
+				noRowsRenderer={NoRows}
 				rowCount={collection.length}
 				rowHeight={rowHeight}
 				rowRenderer={enhancedRowRenderer}
