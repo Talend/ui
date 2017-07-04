@@ -206,7 +206,9 @@ exports[`Storyshots HeaderBar default 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -221,12 +223,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -2203,7 +2200,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -2218,12 +2217,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -4147,7 +4141,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -4162,12 +4158,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -6260,7 +6251,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -6275,12 +6268,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -8325,7 +8313,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -8340,12 +8330,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -10494,7 +10479,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -10509,12 +10496,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -12397,7 +12379,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -12412,12 +12396,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -14603,7 +14582,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -14618,12 +14599,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span />
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
