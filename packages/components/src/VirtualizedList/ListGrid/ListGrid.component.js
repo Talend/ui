@@ -13,7 +13,6 @@ class ListGrid extends React.Component {
 	render() {
 		const {
 			children,
-			collection,
 			id,
 			height,
 			isSelected,
@@ -29,7 +28,7 @@ class ListGrid extends React.Component {
 				rowRenderer,
 				{
 					isSelected,
-					getRowData: ({ index }) => collection[index],
+					getRowData: ({ index }) => this.props.collection[index],
 				}
 			);
 		}
@@ -37,15 +36,15 @@ class ListGrid extends React.Component {
 		return (
 			<VirtualizedList
 				className={theme['tc-list-list']}
-				collection={collection}
+				collection={this.props.collection}
 				id={id}
 				height={height}
 				overscanRowCount={10}
 				noRowsRenderer={NoRows}
-				rowCount={collection.length}
+				rowCount={this.props.collection.length}
 				rowHeight={rowHeight}
 				rowRenderer={enhancedRowRenderer}
-				rowGetter={index => collection[index]}
+				rowGetter={index => this.props.collection[index]}
 				width={width}
 			>
 				{children}
