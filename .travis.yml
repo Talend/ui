@@ -12,11 +12,12 @@ addons:
 node_js:
   - '6'
 before_install:
-#  - .travis/real_commit_message.sh
+#   Fail fast if ci is triggered by ci commit
   - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
   - echo $TALEND_COMMIT_MSG
   - if [[ "$TALEND_COMMIT_MSG" =~ 'test(ci)' ]]; then travis_terminate 0; fi
+#   Configure git
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
