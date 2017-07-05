@@ -108,7 +108,9 @@ describe('gridrow', () => {
 		it('should return row data from parent props', () => {
 			// given
 			const parent = {
-				props: { collection },
+				props: {
+					rowGetter: index => collection[index],
+				},
 			};
 
 			// when
@@ -130,7 +132,7 @@ describe('gridrow', () => {
 			const parent = {
 				props: {
 					id: 'my-item-id',
-					collection,
+					rowGetter: index => collection[index],
 				},
 			};
 
@@ -221,7 +223,10 @@ describe('gridrow', () => {
 				columnData={{ custom: 'lol' }}
 			/>);
 			const parent = {
-				props: { id: 'my-id', collection },
+				props: {
+					id: 'my-id',
+					rowGetter: index => collection[index],
+				},
 			};
 
 			// when

@@ -59,7 +59,7 @@ export function getLabel(field) {
  * @param index The item index in the collection
  */
 export function getRowData(parent, index) {
-	return parent.props.collection[index];
+	return parent.props.rowGetter(index);
 }
 
 /**
