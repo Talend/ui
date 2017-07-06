@@ -1,10 +1,13 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-talend-components'
 
-> react-talend-components@0.90.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.93.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
+  2:8  error  'classnames' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
@@ -26,7 +29,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 12 problems (12 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
+  12:1  error  Component should be written as a pure function  react/prefer-stateless-function
+
+✖ 14 problems (14 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
