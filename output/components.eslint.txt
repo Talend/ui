@@ -29,7 +29,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   7:2  error  Unexpected require()                                                                                      global-require
 
-✖ 13 problems (13 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
+  12:1  error  Component should be written as a pure function  react/prefer-stateless-function
+
+✖ 14 problems (14 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-components'
 Errored while running ExecCommand.execute
