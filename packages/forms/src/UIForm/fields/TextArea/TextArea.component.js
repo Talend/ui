@@ -29,7 +29,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, schema, 
 				disabled={disabled}
 				name={key[key.length - 1]}
 				placeholder={placeholder}
-				onChange={event => onChange(event, schema, event.target.value)}
+				onChange={event => onChange(event, { schema, value: event.target.value })}
 				readOnly={readOnly}
 				rows={rows}
 				value={value}
