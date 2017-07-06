@@ -94,7 +94,7 @@ describe('Text field', () => {
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, 'totoa');
+		expect(onChange).toBeCalledWith(event, { schema, value: 'totoa' });
 	});
 
 	it('should trigger onChange with number value', () => {
@@ -120,6 +120,6 @@ describe('Text field', () => {
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, numberSchema, 25);
+		expect(onChange).toBeCalledWith(event, { schema: numberSchema, value: 25 });
 	});
 });

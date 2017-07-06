@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
-Scoping to packages that match '@talend/react-cmf'
+Scoping to packages that match 'react-cmf'
 
-> @talend/react-cmf@0.93.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.93.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -28,6 +28,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 ✖ 10 problems (9 errors, 1 warning)
 
-Errored while running command 'npm' with arguments 'run lint:es' in '@talend/react-cmf'
+Errored while running command 'npm' with arguments 'run lint:es' in 'react-cmf'
 Errored while running ExecCommand.execute
 Command exited with status 1: npm run lint:es
