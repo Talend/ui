@@ -1,0 +1,70 @@
+{
+  "jsonSchema": {
+    "title": "Marvel characters",
+    "type": "object",
+    "properties": {
+      "a": {
+        "title": "restricted enum",
+        "type": "string",
+        "enum": [
+          "Captain America",
+          "Deadpool",
+          "Spiderman"
+        ]
+      },
+      "b": {
+        "title": "restricted enumNames",
+        "type": "string",
+        "enum": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "enumNames": [
+          "Captain America",
+          "Deadpool",
+          "Spiderman"
+        ]
+      },
+      "c": {
+        "title": "enumNames",
+        "type": "string",
+        "enum": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "enumNames": [
+          "Captain America",
+          "Deadpool",
+          "Spiderman"
+        ]
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ]
+  },
+  "properties": {
+    "a": "Spiderman",
+    "b": "h2"
+  },
+  "uiSchema": {
+    "a": {
+      "ui:widget": "datalist",
+      "ui:options": {
+        "restricted": true
+      }
+    },
+    "b": {
+      "ui:widget": "datalist",
+      "ui:options": {
+        "restricted": true
+      }
+    },
+    "c": {
+      "ui:widget": "datalist"
+    }
+  }
+}

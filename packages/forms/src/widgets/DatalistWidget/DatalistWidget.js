@@ -18,13 +18,14 @@ export function escapeRegexCharacters(str) {
  * @param value
  */
 export function getMatchingSuggestions(suggestions = [], value) {
-	if (!value) {
+	console.log('getMatchingSuggestions', { suggestions, value });
+	if (!value || !value.length) {
 		return suggestions;
 	}
 
 	const escapedValue = escapeRegexCharacters(value.trim());
 	const regex = new RegExp(escapedValue, 'i');
-	return suggestions.filter(item => regex.test(item));
+	return suggestions.filter(item => regex.test(item.label));
 }
 
 /**
@@ -59,12 +60,13 @@ function renderDatalistItem(item, { value }) {
 	if (value) {
 		emphasisedText = [];
 		const regex = new RegExp(escapeRegexCharacters(value), 'gi');
-		const matchedValues = item.match(regex);
-		const restValues = item.split(regex);
+		const { label } = item;
+		const matchedValues = label.match(regex);
+		const restValues = label.split(regex);
 
 		for (let i = 0; i < restValues.length; i += 1) {
 			emphasisedText.push(restValues[i]);
-			if (matchedValues[i]) {
+			if (matchedValues && matchedValues[i]) {
 				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
 			}
 		}
@@ -101,12 +103,12 @@ class DatalistWidget extends React.Component {
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			title: PropTypes.string.isRequired,
-			enum: PropTypes.arrayOf(PropTypes.string),
 		}).isRequired,
 		formContext: PropTypes.shape({
 			fetchItems: PropTypes.func,
 		}),
 		options: PropTypes.shape({
+			enumOptions: PropTypes.array,
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
@@ -132,7 +134,7 @@ class DatalistWidget extends React.Component {
 			placeholder: props.placeholder,
 			required: props.required,
 			onBlur: event => this.onBlur(event),
-			onFocus: () => this.initSuggestions(this.state.value),
+			onFocus: () => this.initSuggestions(this.processValue()),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
@@ -161,10 +163,10 @@ class DatalistWidget extends React.Component {
 	onBlur(event) {
 		const { options } = this.props;
 		if (options.restricted &&
-			!this.state.initalItems.includes(this.state.value)) {
+			!this.state.initalItems.map(i => i.label).includes(this.state.value)) {
 			this.resetValue();
 		} else if (options.restricted &&
-			this.state.initalItems.includes(this.state.value)) {
+			this.state.initalItems.map(i => i.label).includes(this.state.value)) {
 			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		} else {
@@ -200,18 +202,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
+		console.log('setValue', { value });
 		this.setState({ value });
 	}
 
 	resetValue() {
-		this.setValue('');
+		this.setValue(null);
 		this.resetSuggestions();
 	}
 
 	initSuggestions(value) {
+		console.log('initSuggestions', { value });
 		let items;
-		if (this.props.schema.enum) {
-			items = this.props.schema.enum;
+		if (this.props.options.enumOptions) {
+			items = this.props.options.enumOptions;
 		} else if (this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
@@ -252,16 +256,26 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		if (selectedItem && selectedItem !== this.state.value) {
-			this.setValue(selectedItem);
+		console.log('selectItem', { selectedItem, state: this.state.value });
+		if (selectedItem && selectedItem.value !== this.state.value) {
+			const value = { selectedItem }
+			this.setValue(value);
 			this.resetSuggestions();
-			this.props.onChange(selectedItem);
+			this.props.onChange(value);
 		}
 	}
 
+	processValue() {
+		const currentValue = (this.state && this.state.value) || this.props.value;
+		const currentItem = this.props.options.enumOptions.find(o => o.value === currentValue);
+		const currentItemLabel = currentItem && currentItem.label;
+		return currentItemLabel;
+	}
+
 	render() {
-		const renderItemData = { value: this.state.value };
-		this.inputProps.value = this.state.value;
+		const processedValue = this.processValue();
+		const renderItemData = { value: processedValue };
+		this.inputProps.value = processedValue;
 		const renderItemsContainer =
 			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
 		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
@@ -283,7 +297,9 @@ class DatalistWidget extends React.Component {
 }
 
 DatalistWidget.defaultProps = {
-	options: {},
+	options: {
+		enumOptions: [],
+	},
 	formContext: {},
 };
 
