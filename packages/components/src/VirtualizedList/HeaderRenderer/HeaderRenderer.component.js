@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 /**
- * Higher order row-renderer that wrap the provided row renderer.
- * It manages row selection classname and inject it to the row renderer props.
+ * Higher order header-renderer that wrap the provided header renderer.
  */
 function getHeaderRenderer(WrappedComponent, hideHeader) {
 	function HeaderRenderer(props) {
