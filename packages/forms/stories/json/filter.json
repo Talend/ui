@@ -1,0 +1,41 @@
+{
+  "jsonSchema": {
+    "title": "A filter form",
+    "description": "",
+    "type": "object",
+    "properties": {
+      "filters": {
+        "type": "array",
+        "title": "A list of strings",
+        "items": {
+          "type": "object",
+          "properties": {
+            "function": {
+              "type": "string"
+            },
+            "fieldName": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string"
+            },
+            "operand": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": {
+    "filters" : {
+      "ui:widget": "filter"
+    }
+  },
+  "properties": {
+    "filters": [{
+      "function": "plups",
+      "fieldName": "Filfe"
+    }]
+  }
+}

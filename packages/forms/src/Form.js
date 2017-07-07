@@ -17,7 +17,7 @@ import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
-
+import FilterWidget from './widgets/FilterWidget';
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -32,6 +32,7 @@ export const customWidgets = {
 	enumeration: EnumerationWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
+	filter: FilterWidget,
 };
 
 export function renderActionIcon(icon) {

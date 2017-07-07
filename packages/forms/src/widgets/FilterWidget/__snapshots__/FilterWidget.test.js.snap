@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterWidget should render 1`] = `
+<div
+  className=""
+>
+  <h1>
+    Filter
+  </h1>
+  Object {}
+</div>
+`;
