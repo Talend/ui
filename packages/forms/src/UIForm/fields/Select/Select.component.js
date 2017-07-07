@@ -32,7 +32,10 @@ export default function Select({ id, isValid, errorMessage, onChange, schema = {
 				className="form-control"
 				disabled={disabled}
 				onChange={
-					event => onChange(event, schema, getSelectedOptions(event.target, multiple))
+					event => onChange(
+						event,
+						{ schema, value: getSelectedOptions(event.target, multiple) }
+					)
 				}
 				readOnly={readOnly}
 				value={value}

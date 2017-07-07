@@ -63,6 +63,6 @@ describe('SimpleCheckBox field', () => {
 		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, false);
+		expect(onChange).toBeCalledWith(event, { schema, value: false });
 	});
 });

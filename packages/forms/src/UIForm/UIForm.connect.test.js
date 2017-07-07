@@ -96,13 +96,22 @@ describe('UIForm connect', () => {
 					{...props}
 				/>
 			);
-			const event = { target: { value: 'toto' } };
+			const event = { target: { value: 'toto is toto' } };
 
 			// when
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(props.onChange).toBeCalledWith(mergedSchema[0], 'toto', data.properties);
+			expect(props.onChange).toBeCalledWith(
+				expect.anything(),
+				{
+					formName: props.formName,
+					schema: mergedSchema[0],
+					value: 'toto is toto',
+					error: null,
+					properties: data.properties,
+				}
+			);
 		});
 	});
 });
