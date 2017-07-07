@@ -13,70 +13,11 @@ export function escapeRegexCharacters(str) {
 }
 
 /**
- * Filter suggestions
- * @param suggestions
- * @param value
- */
-export function getMatchingSuggestions(suggestions = [], value) {
-	console.log('getMatchingSuggestions', { suggestions, value });
-	if (!value || !value.length) {
-		return suggestions;
-	}
-
-	const escapedValue = escapeRegexCharacters(value.trim());
-	const regex = new RegExp(escapedValue, 'i');
-	return suggestions.filter(item => regex.test(item.label));
-}
-
-/**
- * Render the datalist input
- * @param props
- */
-function renderDatalistInput(props) {
-	return (
-		<div className={theme['typeahead-input-icon']}>
-			<FormControl {...props} />
-			<div className={theme['dropdown-toggle']}>
-				<span className="caret" />
-			</div>
-		</div>);
-}
-
-/**
  * Render the datalist suggestion items container
  * @param props
  */
 function defaultRenderDatalistItemContainer(props) {
 	return (<div {...props} />);
-}
-
-/**
- * Render the datalist suggestion item
- * @param item
- * @param value
- */
-function renderDatalistItem(item, { value }) {
-	let emphasisedText = [item];
-	if (value) {
-		emphasisedText = [];
-		const regex = new RegExp(escapeRegexCharacters(value), 'gi');
-		const { label } = item;
-		const matchedValues = label.match(regex);
-		const restValues = label.split(regex);
-
-		for (let i = 0; i < restValues.length; i += 1) {
-			emphasisedText.push(restValues[i]);
-			if (matchedValues && matchedValues[i]) {
-				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
-			}
-		}
-	}
-
-	return (
-		<div className={classnames(theme.item, 'datalist-item')}>
-			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
-		</div>
-	);
 }
 
 /**
@@ -103,12 +44,12 @@ class DatalistWidget extends React.Component {
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			title: PropTypes.string.isRequired,
+			enum: PropTypes.arrayOf(PropTypes.string),
 		}).isRequired,
 		formContext: PropTypes.shape({
 			fetchItems: PropTypes.func,
 		}),
 		options: PropTypes.shape({
-			enumOptions: PropTypes.array,
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
@@ -134,7 +75,7 @@ class DatalistWidget extends React.Component {
 			placeholder: props.placeholder,
 			required: props.required,
 			onBlur: event => this.onBlur(event),
-			onFocus: () => this.initSuggestions(this.processValue()),
+			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
@@ -144,6 +85,9 @@ class DatalistWidget extends React.Component {
 			onMouseLeave: () => this.focusOnItem(),
 			onMouseDown: (event, { itemIndex }) => this.selectItem(itemIndex),
 		};
+
+		this.renderDatalistItem = this.renderDatalistItem.bind(this);
+		this.renderDatalistInput = this.renderDatalistInput.bind(this);
 
 		this.style = {
 			container: classnames(
@@ -163,10 +107,10 @@ class DatalistWidget extends React.Component {
 	onBlur(event) {
 		const { options } = this.props;
 		if (options.restricted &&
-			!this.state.initalItems.map(i => i.label).includes(this.state.value)) {
+			!this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
 		} else if (options.restricted &&
-			this.state.initalItems.map(i => i.label).includes(this.state.value)) {
+			this.state.initalItems.includes(this.state.value)) {
 			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		} else {
@@ -202,35 +146,44 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
-		console.log('setValue', { value });
 		this.setState({ value });
 	}
 
 	resetValue() {
-		this.setValue(null);
+		this.setValue('');
 		this.resetSuggestions();
 	}
 
 	initSuggestions(value) {
-		console.log('initSuggestions', { value });
 		let items;
-		if (this.props.options.enumOptions) {
-			items = this.props.options.enumOptions;
+		let itemsMap;
+		if (this.props.schema.enum) {
+			items = this.props.schema.enum;
+			// FIXME [NC]:
+			const opt = this.props.options.enumOptions;
+			if (opt) {
+				itemsMap = {};
+				opt.forEach(function (o, i) {
+					itemsMap[o.value] = o.label;
+				}.bind(this));
+			}
 		} else if (this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
-		const suggestions = getMatchingSuggestions(items, value);
+
+		const suggestions = this.getMatchingSuggestions(items, value);
 		this.setState({
 			value,
 			initalItems: items,
 			items: suggestions,
 			itemIndex: null,
+			itemsMap,
 			noMatch: value && items && !items.length,
 		});
 	}
 
 	updateSuggestions(value) {
-		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
+		let suggestions = this.getMatchingSuggestions(this.state.initalItems, value);
 		if (!value && suggestions && suggestions.length === 0) {
 			suggestions = this.state.initalItems;
 		}
@@ -256,26 +209,77 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		console.log('selectItem', { selectedItem, state: this.state.value });
-		if (selectedItem && selectedItem.value !== this.state.value) {
-			const value = { selectedItem }
-			this.setValue(value);
+		if (selectedItem && selectedItem !== this.state.value) {
+			this.setValue(selectedItem);
 			this.resetSuggestions();
-			this.props.onChange(value);
+			this.props.onChange(selectedItem);
 		}
 	}
 
-	processValue() {
-		const currentValue = (this.state && this.state.value) || this.props.value;
-		const currentItem = this.props.options.enumOptions.find(o => o.value === currentValue);
-		const currentItemLabel = currentItem && currentItem.label;
-		return currentItemLabel;
+	/**
+	 * Render the datalist suggestion item
+	 * @param item
+	 * @param value
+	 */
+	renderDatalistItem(item, { value }) {
+		const label = this.state.itemsMap ? this.state.itemsMap[item] : item;
+		let emphasisedText = [label];
+		if (value) {
+			emphasisedText = [];
+			const regex = new RegExp(escapeRegexCharacters(value), 'gi');
+			const matchedValues = label.match(regex);
+			const restValues = label.split(regex);
+			for (let i = 0; i < restValues.length; i += 1) {
+				emphasisedText.push(restValues[i]);
+				if (matchedValues[i]) {
+					emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
+				}
+			}
+		}
+
+		return (
+			<div className={classnames(theme.item, 'datalist-item')}>
+				{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
+			</div>
+		);
+	}
+
+	/**
+	 * Render the datalist input
+	 * @param props
+	 */
+	renderDatalistInput(props) {
+		// FIXME [NC]:
+		props.value = this.state.itemsMap ? this.state.itemsMap[props.value] : props.value;
+
+		return (
+			<div className={theme['typeahead-input-icon']}>
+				<FormControl {...props} />
+				<div className={theme['dropdown-toggle']}>
+					<span className="caret" />
+				</div>
+			</div>);
+	}
+
+	/**
+	 * Filter suggestions
+	 * @param suggestions
+	 * @param value
+	 */
+	getMatchingSuggestions(suggestions = [], value) {
+		if (!value) {
+			return suggestions;
+		}
+
+		const escapedValue = escapeRegexCharacters(value.trim());
+		const regex = new RegExp(escapedValue, 'i');
+		const getLabel = e => this.state.itemsMap ? this.state.itemsMap[e] : e;
+		return suggestions.filter(item => regex.test(getLabel(item)));
 	}
 
 	render() {
-		const processedValue = this.processValue();
-		const renderItemData = { value: processedValue };
-		this.inputProps.value = processedValue;
+		const renderItemData = { value: this.state.value };
+		this.inputProps.value = this.state.value;
 		const renderItemsContainer =
 			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
 		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
@@ -283,11 +287,11 @@ class DatalistWidget extends React.Component {
 			<Autowhatever
 				id={this.props.id}
 				items={this.state.items}
-				renderItem={renderDatalistItem}
+				renderItem={this.renderDatalistItem}
 				inputProps={this.inputProps}
 				theme={this.style}
 				renderItemData={renderItemData}
-				renderInputComponent={renderDatalistInput}
+				renderInputComponent={this.renderDatalistInput}
 				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
@@ -297,9 +301,7 @@ class DatalistWidget extends React.Component {
 }
 
 DatalistWidget.defaultProps = {
-	options: {
-		enumOptions: [],
-	},
+	options: {},
 	formContext: {},
 };
 
