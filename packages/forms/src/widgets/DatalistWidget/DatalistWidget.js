@@ -44,12 +44,12 @@ class DatalistWidget extends React.Component {
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			title: PropTypes.string.isRequired,
-			enum: PropTypes.arrayOf(PropTypes.string),
 		}).isRequired,
 		formContext: PropTypes.shape({
 			fetchItems: PropTypes.func,
 		}),
 		options: PropTypes.shape({
+			enumOptions: PropTypes.array,
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
 		}),
@@ -63,10 +63,18 @@ class DatalistWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		const itemsMap = [];
+		const { enumOptions } = this.props.options;
+		enumOptions.forEach((o) => {
+			itemsMap[o.value] = o.label;
+		});
+
 		this.state = {
 			value: props.value || '',
 			initalItems: [],
 			items: [],
+			itemsMap,
 			itemIndex: null,
 			noMatch: false,
 		};
@@ -145,6 +153,29 @@ class DatalistWidget extends React.Component {
 		}
 	}
 
+	getLabel(value) {
+		const { itemsMap } = this.state;
+		if (itemsMap) {
+			return itemsMap[value];
+		}
+		return value;
+	}
+
+	/**
+	 * Filter suggestions
+	 * @param suggestions
+	 * @param value
+	 */
+	getMatchingSuggestions(suggestions = [], value) {
+		if (!value) {
+			return suggestions;
+		}
+
+		const escapedValue = escapeRegexCharacters(value.trim());
+		const regex = new RegExp(escapedValue, 'i');
+		return suggestions.filter(item => regex.test(this.getLabel(item)));
+	}
+
 	setValue(value) {
 		this.setState({ value });
 	}
@@ -155,20 +186,12 @@ class DatalistWidget extends React.Component {
 	}
 
 	initSuggestions(value) {
-		let items;
-		let itemsMap;
-		if (this.props.schema.enum) {
-			items = this.props.schema.enum;
-			// FIXME [NC]:
-			const opt = this.props.options.enumOptions;
-			if (opt) {
-				itemsMap = {};
-				opt.forEach(function (o, i) {
-					itemsMap[o.value] = o.label;
-				}.bind(this));
-			}
-		} else if (this.props.formContext.fetchItems) {
+		let items = [];
+		if (this.props.formContext.fetchItems) {
 			items = this.props.formContext.fetchItems(this.props.schema.title);
+			// FIXME deal with key/value schema
+		} else {
+			items = this.props.options.enumOptions.map(o => o.value);
 		}
 
 		const suggestions = this.getMatchingSuggestions(items, value);
@@ -177,7 +200,6 @@ class DatalistWidget extends React.Component {
 			initalItems: items,
 			items: suggestions,
 			itemIndex: null,
-			itemsMap,
 			noMatch: value && items && !items.length,
 		});
 	}
@@ -249,37 +271,23 @@ class DatalistWidget extends React.Component {
 	 * @param props
 	 */
 	renderDatalistInput(props) {
-		// FIXME [NC]:
-		props.value = this.state.itemsMap ? this.state.itemsMap[props.value] : props.value;
+		const inputProps = { ...props };
+		const { itemsMap } = this.state;
+		inputProps.value = itemsMap ? itemsMap[props.value] : props.value;
 
 		return (
 			<div className={theme['typeahead-input-icon']}>
-				<FormControl {...props} />
+				<FormControl {...inputProps} />
 				<div className={theme['dropdown-toggle']}>
 					<span className="caret" />
 				</div>
 			</div>);
 	}
 
-	/**
-	 * Filter suggestions
-	 * @param suggestions
-	 * @param value
-	 */
-	getMatchingSuggestions(suggestions = [], value) {
-		if (!value) {
-			return suggestions;
-		}
-
-		const escapedValue = escapeRegexCharacters(value.trim());
-		const regex = new RegExp(escapedValue, 'i');
-		const getLabel = e => this.state.itemsMap ? this.state.itemsMap[e] : e;
-		return suggestions.filter(item => regex.test(getLabel(item)));
-	}
-
 	render() {
-		const renderItemData = { value: this.state.value };
-		this.inputProps.value = this.state.value;
+		const value = this.state.value;
+		const renderItemData = { value };
+		this.inputProps.value = value;
 		const renderItemsContainer =
 			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
 		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
@@ -301,7 +309,9 @@ class DatalistWidget extends React.Component {
 }
 
 DatalistWidget.defaultProps = {
-	options: {},
+	options: {
+		enumOptions: [],
+	},
 	formContext: {},
 };
 
