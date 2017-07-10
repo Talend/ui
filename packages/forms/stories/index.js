@@ -174,6 +174,18 @@ decoratedStories.add('Datalist', () => {
 			'Goldfinch',
 			'Magpie',
 			'Pewee',
+			{
+				value: 'testkey1',
+				label: 'Test Value 1',
+			},
+			{
+				value: 'testkey2',
+				label: 'Test Value 2',
+			},
+			{
+				value: 'testkey3',
+				label: 'Test Value 3',
+			}
 		];
 	}
 	const schema = {

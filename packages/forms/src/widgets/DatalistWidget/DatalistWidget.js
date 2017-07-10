@@ -64,17 +64,10 @@ class DatalistWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const itemsMap = [];
-		const { enumOptions } = this.props.options;
-		enumOptions.forEach((o) => {
-			itemsMap[o.value] = o.label;
-		});
-
 		this.state = {
 			value: props.value || '',
 			initalItems: [],
 			items: [],
-			itemsMap,
 			itemIndex: null,
 			noMatch: false,
 		};
@@ -114,17 +107,14 @@ class DatalistWidget extends React.Component {
 
 	onBlur(event) {
 		const { options } = this.props;
-		if (options.restricted &&
-			!this.state.initalItems.includes(this.state.value)) {
+		if (options.restricted && !this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
-		} else if (options.restricted &&
-			this.state.initalItems.includes(this.state.value)) {
+		} else if (options.restricted && this.state.initalItems.includes(this.state.value)) {
 			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		} else {
-			const { value } = event.target;
-			if (value !== this.state.value) {
-				this.props.onChange(value);
+			if (event.target.value !== this.state.value) {
+				this.props.onChange(this.state.value);
 			}
 			this.resetSuggestions();
 		}
@@ -147,15 +137,13 @@ class DatalistWidget extends React.Component {
 		case keycode.codes.down:
 			event.preventDefault();
 			this.focusOnItem(newFocusedItemIndex);
-			break;
-		default:
-			break;
 		}
 	}
 
 	getLabel(value) {
 		const { itemsMap } = this.state;
-		if (itemsMap) {
+
+		if (itemsMap && Object.keys(itemsMap).length) {
 			return itemsMap[value];
 		}
 		return value;
@@ -187,11 +175,23 @@ class DatalistWidget extends React.Component {
 
 	initSuggestions(value) {
 		let items = [];
-		if (this.props.formContext.fetchItems) {
-			items = this.props.formContext.fetchItems(this.props.schema.title);
-			// FIXME deal with key/value schema
-		} else {
-			items = this.props.options.enumOptions.map(o => o.value);
+		const itemsMap = [];
+
+		if (this.props.schema.enum) {
+			items = this.props.schema.enum;
+			(this.props.options.enumOptions || []).forEach((o) => {
+				itemsMap[o.value] = o.label;
+			});
+		} else if (this.props.formContext.fetchItems) {
+			this.props.formContext.fetchItems(this.props.schema.title).forEach((t) => {
+				if (typeof t === 'object') {
+					items.push(t.value);
+					itemsMap[t.value] = t.label;
+				} else {
+					items.push(t);
+					itemsMap[t] = t;
+				}
+			});
 		}
 
 		const suggestions = this.getMatchingSuggestions(items, value);
@@ -201,6 +201,7 @@ class DatalistWidget extends React.Component {
 			items: suggestions,
 			itemIndex: null,
 			noMatch: value && items && !items.length,
+			itemsMap,
 		});
 	}
 
@@ -244,8 +245,9 @@ class DatalistWidget extends React.Component {
 	 * @param value
 	 */
 	renderDatalistItem(item, { value }) {
-		const label = this.state.itemsMap ? this.state.itemsMap[item] : item;
+		const label = this.getLabel(item);
 		let emphasisedText = [label];
+
 		if (value) {
 			emphasisedText = [];
 			const regex = new RegExp(escapeRegexCharacters(value), 'gi');
@@ -272,8 +274,7 @@ class DatalistWidget extends React.Component {
 	 */
 	renderDatalistInput(props) {
 		const inputProps = { ...props };
-		const { itemsMap } = this.state;
-		inputProps.value = itemsMap ? itemsMap[props.value] : props.value;
+		inputProps.value = this.getLabel(props.value);
 
 		return (
 			<div className={theme['typeahead-input-icon']}>
@@ -285,12 +286,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	render() {
+		let renderItemsContainer;
 		const value = this.state.value;
 		const renderItemData = { value };
-		this.inputProps.value = value;
-		const renderItemsContainer =
-			this.props.renderItemsContainer || defaultRenderDatalistItemContainer;
 		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
+
+		this.inputProps.value = value;
+		if (this.state.noMatch) {
+			renderItemsContainer = renderNoMatch;
+		} else if (this.props.renderItemsContainer) {
+			renderItemsContainer = this.props.renderItemsContainer;
+		} else {
+			renderItemsContainer = defaultRenderDatalistItemContainer;
+		}
+
 		return (
 			<Autowhatever
 				id={this.props.id}
@@ -300,7 +309,7 @@ class DatalistWidget extends React.Component {
 				theme={this.style}
 				renderItemData={renderItemData}
 				renderInputComponent={this.renderDatalistInput}
-				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderItemsContainer}
+				renderItemsContainer={renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
