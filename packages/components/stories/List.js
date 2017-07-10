@@ -532,23 +532,6 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with ellipsis', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div className="tc-list-fixed-name-column">
-				<h1>List</h1>
-				<p>
-					Display a list with NAME content ellipsis.
-					The NAME column is limited to 400px in css.
-				</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
-			</div>
-		);
-	})
 	.add('Table with sort header click', () => {
 		const tprops = Immutable.fromJS(props).toJS();
 		tprops.toolbar = undefined;
@@ -690,4 +673,20 @@ storiesOf('List', module)
 				<List {...inputDebounceProps} virtualized />
 			</div>
 		</div>);
+	})
+	.add('Virtualized with scroll', () => {
+		const tprops = {
+			...props,
+			toolbar: undefined,
+		};
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display a list in a limited container. To enable content scroll.</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...tprops} virtualized />
+				</div>
+			</div>
+		);
 	});

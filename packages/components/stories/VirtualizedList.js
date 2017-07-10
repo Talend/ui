@@ -226,8 +226,9 @@ storiesOf('Virtualized List', module)
 						{...CellTitle}
 					/>
 					<VirtualizedList.Content
-						label=""
+						label="Actions"
 						dataKey="actions"
+						hideHeader
 						{...CellActions}
 					/>
 					<VirtualizedList.Content
