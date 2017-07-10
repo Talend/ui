@@ -273,4 +273,4 @@ HeaderBar.defaultProps = {
 	t: () => {},
 };
 
-export default translate('tui-components-headerBar')(HeaderBar);
+export default translate('tui-components')(HeaderBar);
