@@ -1,3 +1,3 @@
-import TranslateWrapper from './TranslateWrapper.component';
+import getTranslated from './TranslateWrapper.component';
 
-export default TranslateWrapper;
+export default getTranslated;
