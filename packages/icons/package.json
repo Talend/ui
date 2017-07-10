@@ -24,6 +24,7 @@
     "docs": "node ./scripts/docs.js",
     "prepublish": "npm run build-react && npm run build-webfont",
     "test": "echo no test",
+    "test:cov": "echo no test",
     "start": "echo nothing to start",
     "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
