@@ -36,28 +36,6 @@ function defaultRenderNoMatch() {
  * @param props
  */
 class DatalistWidget extends React.Component {
-
-	static propTypes = {
-		id: PropTypes.string,
-		value: PropTypes.string,
-		required: PropTypes.bool,
-		onChange: PropTypes.func.isRequired,
-		schema: PropTypes.shape({
-			title: PropTypes.string.isRequired,
-		}).isRequired,
-		formContext: PropTypes.shape({
-			fetchItems: PropTypes.func,
-		}),
-		options: PropTypes.shape({
-			enumOptions: PropTypes.array,
-			// Is the field value restricted to the suggestion list
-			restricted: PropTypes.bool,
-		}),
-		renderItemsContainer: PropTypes.func,
-		renderNoMatch: PropTypes.func,
-		placeholder: PropTypes.string,
-	};
-
 	static itemContainerStyle = theme['items-container'];
 	static noResultStyle = theme['no-result'];
 
@@ -105,7 +83,11 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	onBlur(event) {
+	componentWillMount() {
+		this.updateItemsMap();
+	}
+
+	onBlur() {
 		const { options } = this.props;
 		if (options.restricted && !this.state.initalItems.includes(this.state.value)) {
 			this.resetValue();
@@ -113,9 +95,7 @@ class DatalistWidget extends React.Component {
 			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		} else {
-			if (event.target.value !== this.state.value) {
-				this.props.onChange(this.state.value);
-			}
+			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		}
 	}
@@ -144,7 +124,9 @@ class DatalistWidget extends React.Component {
 		const { itemsMap } = this.state;
 
 		if (itemsMap && Object.keys(itemsMap).length) {
-			return itemsMap[value];
+			return Object.prototype.hasOwnProperty.call(itemsMap, value)
+				? itemsMap[value]
+				: value;
 		}
 		return value;
 	}
@@ -173,27 +155,42 @@ class DatalistWidget extends React.Component {
 		this.resetSuggestions();
 	}
 
-	initSuggestions(value) {
-		let items = [];
+	updateItemsMap() {
 		const itemsMap = [];
 
 		if (this.props.schema.enum) {
-			items = this.props.schema.enum;
 			(this.props.options.enumOptions || []).forEach((o) => {
 				itemsMap[o.value] = o.label;
 			});
 		} else if (this.props.formContext.fetchItems) {
 			this.props.formContext.fetchItems(this.props.schema.title).forEach((t) => {
 				if (typeof t === 'object') {
-					items.push(t.value);
 					itemsMap[t.value] = t.label;
 				} else {
-					items.push(t);
 					itemsMap[t] = t;
 				}
 			});
 		}
 
+		this.setState({ itemsMap });
+	}
+
+	initSuggestions(value) {
+		let items = [];
+
+		if (this.props.schema.enum) {
+			items = this.props.schema.enum;
+		} else if (this.props.formContext.fetchItems) {
+			this.props.formContext.fetchItems(this.props.schema.title).forEach((t) => {
+				if (typeof t === 'object') {
+					items.push(t.value);
+				} else {
+					items.push(t);
+				}
+			});
+		}
+
+		this.updateItemsMap();
 		const suggestions = this.getMatchingSuggestions(items, value);
 		this.setState({
 			value,
@@ -201,7 +198,6 @@ class DatalistWidget extends React.Component {
 			items: suggestions,
 			itemIndex: null,
 			noMatch: value && items && !items.length,
-			itemsMap,
 		});
 	}
 
@@ -210,6 +206,7 @@ class DatalistWidget extends React.Component {
 		if (!value && suggestions && suggestions.length === 0) {
 			suggestions = this.state.initalItems;
 		}
+
 		this.setState({
 			value,
 			items: suggestions,
@@ -273,12 +270,12 @@ class DatalistWidget extends React.Component {
 	 * @param props
 	 */
 	renderDatalistInput(props) {
-		const inputProps = { ...props };
-		inputProps.value = this.getLabel(props.value);
-
 		return (
 			<div className={theme['typeahead-input-icon']}>
-				<FormControl {...inputProps} />
+				<FormControl
+					{...props}
+					value={this.getLabel(props.value)}
+				/>
 				<div className={theme['dropdown-toggle']}>
 					<span className="caret" />
 				</div>
@@ -317,11 +314,36 @@ class DatalistWidget extends React.Component {
 	}
 }
 
+
 DatalistWidget.defaultProps = {
 	options: {
 		enumOptions: [],
 	},
 	formContext: {},
 };
+
+if (process.env.NODE_ENV !== 'production') {
+	DatalistWidget.propTypes = {
+		id: PropTypes.string,
+		value: PropTypes.string,
+		required: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+		schema: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			enum: PropTypes.arrayOf(PropTypes.string),
+		}).isRequired,
+		formContext: PropTypes.shape({
+			fetchItems: PropTypes.func,
+		}),
+		options: PropTypes.shape({
+			enumOptions: PropTypes.array,
+			// Is the field value restricted to the suggestion list
+			restricted: PropTypes.bool,
+		}),
+		renderItemsContainer: PropTypes.func,
+		renderNoMatch: PropTypes.func,
+		placeholder: PropTypes.string,
+	};
+}
 
 export default DatalistWidget;
