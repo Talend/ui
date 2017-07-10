@@ -70,5 +70,7 @@ This widget allows you to group your fields into tabs.
 ```
 
 **Result**
+
 ![User Tab](screenshot-user.png)
+
 ![Other Tab](screenshot-other.png)

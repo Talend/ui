@@ -67,4 +67,5 @@ This widget allows you to group your fields into fieldsets.
 ```
 
 **Result**
+
 ![Fieldsets](screenshot.png)
