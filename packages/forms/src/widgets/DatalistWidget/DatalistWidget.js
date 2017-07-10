@@ -38,7 +38,8 @@ function renderDatalistInput(props) {
 			<div className={theme['dropdown-toggle']}>
 				<span className="caret" />
 			</div>
-		</div>);
+		</div>
+	);
 }
 
 /**
@@ -46,7 +47,7 @@ function renderDatalistInput(props) {
  * @param props
  */
 function defaultRenderDatalistItemContainer(props) {
-	return (<div {...props} />);
+	return <div {...props} />;
 }
 
 /**
@@ -65,7 +66,11 @@ function renderDatalistItem(item, { value }) {
 		for (let i = 0; i < restValues.length; i += 1) {
 			emphasisedText.push(restValues[i]);
 			if (matchedValues[i]) {
-				emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
+				emphasisedText.push(
+					<em className={theme['highlight-match']}>
+						{matchedValues[i]}
+					</em>,
+				);
 			}
 		}
 	}
@@ -93,7 +98,6 @@ function defaultRenderNoMatch() {
  * @param props
  */
 class DatalistWidget extends React.Component {
-
 	static propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.string,
@@ -147,7 +151,7 @@ class DatalistWidget extends React.Component {
 			container: classnames(
 				'form-control',
 				theme['tf-typeahead-container'],
-				'tf-typeahead-container'
+				'tf-typeahead-container',
 			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
@@ -226,15 +230,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		let suggestions = getMatchingSuggestions(this.state.initalItems, value);
-		if (!value && suggestions && suggestions.length === 0) {
-			suggestions = this.state.initalItems;
-		}
-		this.setState({
-			value,
-			items: suggestions,
-			itemIndex: null,
-			noMatch: value && suggestions && !suggestions.length,
+		this.setState(prevState => {
+			let suggestions = getMatchingSuggestions(
+				prevState.initalItems,
+				value,
+			);
+			if (!value && suggestions && suggestions.length === 0) {
+				suggestions = prevState.initalItems;
+			}
+			return {
+				value,
+				items: suggestions,
+				itemIndex: null,
+				noMatch: value && suggestions && !suggestions.length,
+			};
 		});
 	}
 
