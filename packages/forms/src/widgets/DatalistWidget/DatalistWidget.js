@@ -269,11 +269,7 @@ class DatalistWidget extends React.Component {
 				theme={this.style}
 				renderItemData={renderItemData}
 				renderInputComponent={renderDatalistInput}
-				renderItemsContainer={
-					this.state.noMatch
-						? renderNoMatch
-						: renderDatalistItemContainer
-				}
+				renderItemsContainer={this.state.noMatch ? renderNoMatch : renderDatalistItemContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
 			/>
