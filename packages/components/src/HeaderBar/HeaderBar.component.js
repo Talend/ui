@@ -150,6 +150,8 @@ function Products({ renderers, t, ...props }) {
 				icon="talend-launcher"
 				label={t('APPS', { defaultValue: 'Apps' })}
 				pullRight
+				hideLabel
+				noCaret
 				tooltipPlacement="bottom"
 				{...props}
 			/>

@@ -26,7 +26,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, schema, va
 								checked={option.value === value}
 								disabled={disabled}
 								name={id}
-								onChange={event => onChange(event, schema, option.value)}
+								onChange={event => onChange(event, { schema, value: option.value })}
 								type={'radio'}
 								value={option.value}
 							/>

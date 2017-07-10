@@ -1,11 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListGrid should render no-rows component 1`] = `
-<div
-  className="tc-list-no-rows"
+<VirtualizedList(ListGrid)
+  collection={Array []}
+  height={600}
+  id="my-list"
+  isSelected={[Function]}
+  rowHeight={130}
+  rowRenderer={[Function]}
+  selectionToggle={[Function]}
+  width={1024}
 >
-  No rows
-</div>
+  <List
+    collection={Array []}
+    estimatedRowSize={30}
+    height={600}
+    id="my-list"
+    noRowsRenderer={[Function]}
+    onRowsRendered={[Function]}
+    onScroll={[Function]}
+    overscanIndicesGetter={[Function]}
+    overscanRowCount={10}
+    rowCount={0}
+    rowGetter={[Function]}
+    rowHeight={130}
+    rowRenderer={[Function]}
+    scrollToAlignment="auto"
+    scrollToIndex={-1}
+    style={Object {}}
+    width={1024}
+  >
+    <Grid
+      aria-label="grid"
+      autoContainerWidth={true}
+      cellRangeRenderer={[Function]}
+      cellRenderer={[Function]}
+      className="ReactVirtualized__List"
+      collection={Array []}
+      columnCount={1}
+      columnWidth={1024}
+      estimatedColumnSize={100}
+      estimatedRowSize={30}
+      getScrollbarSize={[Function]}
+      height={600}
+      id="my-list"
+      noContentRenderer={[Function]}
+      noRowsRenderer={[Function]}
+      onRowsRendered={[Function]}
+      onScroll={[Function]}
+      onSectionRendered={[Function]}
+      overscanColumnCount={0}
+      overscanIndicesGetter={[Function]}
+      overscanRowCount={10}
+      role="grid"
+      rowCount={0}
+      rowGetter={[Function]}
+      rowHeight={130}
+      rowRenderer={[Function]}
+      scrollToAlignment="auto"
+      scrollToColumn={-1}
+      scrollToIndex={-1}
+      scrollToRow={-1}
+      scrollingResetTimeInterval={150}
+      style={Object {}}
+      tabIndex={0}
+      width={1024}
+    >
+      <div
+        aria-label="grid"
+        className="ReactVirtualized__Grid ReactVirtualized__List"
+        id="my-list"
+        onScroll={[Function]}
+        role="grid"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "boxSizing": "border-box",
+            "direction": "ltr",
+            "height": 600,
+            "overflowX": "hidden",
+            "overflowY": "hidden",
+            "position": "relative",
+            "width": 1024,
+            "willChange": "transform",
+          }
+        }
+        tabIndex={0}
+      >
+        <p>
+          No result found
+        </p>
+      </div>
+    </Grid>
+  </List>
+</VirtualizedList(ListGrid)>
 `;
 
 exports[`ListGrid should render react-virtualized list 1`] = `
@@ -34,6 +122,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   overscanIndicesGetter={[Function]}
   overscanRowCount={10}
   rowCount={2}
+  rowGetter={[Function]}
   rowHeight={130}
   rowRenderer={[Function]}
   scrollToAlignment="auto"

@@ -119,6 +119,6 @@ describe('TextArea field', () => {
 		wrapper.find('textarea').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, value);
+		expect(onChange).toBeCalledWith(event, { schema, value });
 	});
 });

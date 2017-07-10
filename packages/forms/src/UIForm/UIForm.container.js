@@ -26,27 +26,26 @@ export default class UIForm extends React.Component {
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
-	 * @param formName The form name
-	 * @param schema The schema
-	 * @param value The new value
-	 * @param error The validation error
+	 * @param event The change event
+	 * @param payload { formName, schema, value, error } The change payload
+	 * formName: The form name
+	 * schema: The schema
+	 * value: The new value
+	 * error: The validation error
 	 */
-	onChange(formName, schema, value, error) {
-		const action = updateFormData(formName, schema, value, error);
+	onChange(event, payload) {
+		const action = updateFormData(
+			payload.formName,
+			payload.schema,
+			payload.value,
+			payload.error
+		);
 		this.setState(
 			{
 				properties: modelReducer(this.state.properties, action),
 				errors: validationReducer(this.state.errors, action),
 			},
-			() => {
-				if (this.props.onChange) {
-					this.props.onChange(
-						schema,
-						value,
-						this.state.properties
-					);
-				}
-			}
+			this.props.onChange && (() => { this.props.onChange(event, payload); })
 		);
 	}
 
@@ -146,12 +145,12 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * The change callback.
-		 * Prototype: function onChange(schema, value, properties)
+		 * Prototype: function onChange(event, { schema, value, properties })
 		 */
 		onChange: PropTypes.func,
 		/**
 		 * Tigger callback.
-		 * Prototype: function onTrigger(type, schema, value, properties)
+		 * Prototype: function onTrigger(event, { type, schema, value, properties })
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

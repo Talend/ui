@@ -1,5 +1,169 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListGrid should render no-rows component 1`] = `
+<VirtualizedList(ListTable)
+  collection={Array []}
+  height={600}
+  id="my-list"
+  isSelected={[Function]}
+  selectionToggle={[Function]}
+  width={1024}
+>
+  <Table
+    className="tc-list-table undefined"
+    disableHeader={false}
+    estimatedRowSize={30}
+    headerHeight={35}
+    headerRowRenderer={[Function]}
+    headerStyle={Object {}}
+    height={600}
+    id="my-list"
+    noRowsRenderer={[Function]}
+    onRowsRendered={[Function]}
+    onScroll={[Function]}
+    overscanIndicesGetter={[Function]}
+    overscanRowCount={10}
+    rowClassName=""
+    rowCount={0}
+    rowGetter={[Function]}
+    rowHeight={50}
+    rowRenderer={[Function]}
+    rowStyle={Object {}}
+    scrollToAlignment="auto"
+    scrollToIndex={-1}
+    style={Object {}}
+    width={1024}
+  >
+    <div
+      className="ReactVirtualized__Table tc-list-table undefined"
+      id="my-list"
+      role="grid"
+      style={Object {}}
+    >
+      <div
+        className="ReactVirtualized__Table__headerRow"
+        role="row"
+        style={
+          Object {
+            "height": 35,
+            "overflow": "hidden",
+            "paddingRight": 0,
+            "width": 1024,
+          }
+        }
+      >
+        <div
+          className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+          role="columnheader"
+          style={
+            Object {
+              "WebkitFlex": "0 1 undefinedpx",
+              "flex": "0 1 undefinedpx",
+              "msFlex": "0 1 undefinedpx",
+            }
+          }
+        >
+          <span
+            className="ReactVirtualized__Table__headerTruncatedText"
+            title="Id"
+          >
+            Id
+          </span>
+        </div>
+        <div
+          className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+          role="columnheader"
+          style={
+            Object {
+              "WebkitFlex": "0 1 undefinedpx",
+              "flex": "0 1 undefinedpx",
+              "msFlex": "0 1 undefinedpx",
+            }
+          }
+        >
+          <span
+            className="ReactVirtualized__Table__headerTruncatedText"
+            title="Name"
+          >
+            Name
+          </span>
+        </div>
+      </div>
+      <Grid
+        aria-label="grid"
+        autoContainerWidth={true}
+        cellRangeRenderer={[Function]}
+        cellRenderer={[Function]}
+        className="ReactVirtualized__Table__Grid"
+        columnCount={1}
+        columnWidth={1024}
+        disableHeader={false}
+        estimatedColumnSize={100}
+        estimatedRowSize={30}
+        getScrollbarSize={[Function]}
+        headerHeight={35}
+        headerRowRenderer={[Function]}
+        headerStyle={Object {}}
+        height={565}
+        noContentRenderer={[Function]}
+        noRowsRenderer={[Function]}
+        onRowsRendered={[Function]}
+        onScroll={[Function]}
+        onSectionRendered={[Function]}
+        overscanColumnCount={0}
+        overscanIndicesGetter={[Function]}
+        overscanRowCount={10}
+        role="rowgroup"
+        rowClassName=""
+        rowCount={0}
+        rowGetter={[Function]}
+        rowHeight={50}
+        rowRenderer={[Function]}
+        rowStyle={Object {}}
+        scrollToAlignment="auto"
+        scrollToColumn={-1}
+        scrollToIndex={-1}
+        scrollToRow={-1}
+        scrollbarWidth={0}
+        scrollingResetTimeInterval={150}
+        style={
+          Object {
+            "overflowX": "hidden",
+          }
+        }
+        tabIndex={0}
+        width={1024}
+      >
+        <div
+          aria-label="grid"
+          className="ReactVirtualized__Grid ReactVirtualized__Table__Grid"
+          onScroll={[Function]}
+          role="rowgroup"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 565,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 1024,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <p>
+            No result found
+          </p>
+        </div>
+      </Grid>
+    </div>
+  </Table>
+</VirtualizedList(ListTable)>
+`;
+
 exports[`ListGrid should render react-virtualized table 1`] = `
 <Table
   className="tc-list-table undefined"
