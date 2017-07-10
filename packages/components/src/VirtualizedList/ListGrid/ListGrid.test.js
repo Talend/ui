@@ -1,7 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import ListGrid, { NoRow } from './ListGrid.component';
+import ListGrid from './ListGrid.component';
 import VirtualizedList from '../VirtualizedList.component';
 import RowLarge from '../RowLarge';
 import collection from '../collection';
@@ -68,9 +69,29 @@ describe('ListGrid', () => {
 
 	it('should render no-rows component', () => {
 		// when
-		const wrapper = shallow(<NoRow />);
+		const wrapper = mount(
+			<ListGrid
+				collection={[]}
+				height={600}
+				id={'my-list'}
+				isSelected={jest.fn()}
+				rowHeight={130}
+				rowRenderer={RowLarge}
+				selectionToggle={jest.fn()}
+				width={1024}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+				/>
+			</ListGrid>
+		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

@@ -26,6 +26,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -50,6 +51,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -74,6 +76,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -99,6 +102,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -202,7 +206,9 @@ exports[`Storyshots HeaderBar default 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -217,14 +223,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -1975,6 +1974,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -1999,6 +1999,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -2095,6 +2096,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -2198,7 +2200,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -2213,14 +2217,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -3903,6 +3900,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -3927,6 +3925,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -4012,6 +4011,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -4037,6 +4037,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -4140,7 +4141,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -4155,14 +4158,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -6075,6 +6071,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -6099,6 +6096,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -6123,6 +6121,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -6148,6 +6147,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -6251,7 +6251,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -6266,14 +6268,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -8048,6 +8043,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -8072,6 +8068,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -8096,6 +8093,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role={null}
                 type="button"
@@ -8315,7 +8313,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -8330,14 +8330,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -10280,6 +10273,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -10304,6 +10298,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -10380,6 +10375,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -10483,7 +10479,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -10498,14 +10496,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -12189,6 +12180,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -12213,6 +12205,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -12282,6 +12275,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -12385,7 +12379,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -12400,14 +12396,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"
@@ -14089,6 +14078,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               id="header-logo"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -14113,6 +14103,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               disabled={false}
               id="header-brand"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -14487,6 +14478,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               disabled={false}
               id="header-help"
               onClick={[Function]}
+              onMouseDown={[Function]}
               role={null}
               type="button"
             >
@@ -14590,7 +14582,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 disabled={false}
                 id="header-products"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -14605,14 +14599,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       xlinkHref="#talend-launcher"
                     />
                   </svg>
-                  <span>
-                    Apps
-                  </span>
                 </span>
-                 
-                <span
-                  className="caret"
-                />
               </button>
               <ul
                 aria-labelledby="header-products"

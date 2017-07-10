@@ -30,10 +30,12 @@ export default function CheckBoxes(props) {
 						key={index}
 						label={item.name}
 						onChange={
-							(event, _, checked) => onChange(
+							(event, payload) => onChange(
 								event,
-								schema,
-								getValues(value, item.value, checked)
+								{
+									schema: payload.schema,
+									value: getValues(value, item.value, payload.value),
+								}
 							)
 						}
 						schema={schema}
@@ -51,14 +53,14 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,
-			titleMap: PropTypes.shape({
+			titleMap: PropTypes.arrayOf(PropTypes.shape({
 				name: PropTypes.string,
 				value: PropTypes.string,
-			}),
+			})),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};
@@ -66,4 +68,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 CheckBoxes.defaultProps = {
 	isValid: true,
+	schema: {},
 };

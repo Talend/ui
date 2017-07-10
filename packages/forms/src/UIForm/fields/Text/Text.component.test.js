@@ -1,22 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TextArea from './TextArea';
+import Text from './Text.component';
 
-describe('TextArea field', () => {
+describe('Text field', () => {
 	const schema = {
 		autoFocus: true,
 		description: 'my text input hint',
-		key: ['user', 'comment'],
 		placeholder: 'Type something here',
 		title: 'My input title',
 		type: 'text',
 	};
 
-	it('should render textarea', () => {
+	it('should render input', () => {
 		// when
 		const wrapper = shallow(
-			<TextArea
+			<Text
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -30,7 +29,7 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render disabled textarea', () => {
+	it('should render disabled input', () => {
 		// given
 		const disabledSchema = {
 			...schema,
@@ -39,7 +38,7 @@ describe('TextArea field', () => {
 
 		// when
 		const wrapper = shallow(
-			<TextArea
+			<Text
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -53,7 +52,7 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render readonly textarea', () => {
+	it('should render readonly input', () => {
 		// given
 		const readOnlySchema = {
 			...schema,
@@ -62,7 +61,7 @@ describe('TextArea field', () => {
 
 		// when
 		const wrapper = shallow(
-			<TextArea
+			<Text
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -76,34 +75,11 @@ describe('TextArea field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render provided rows', () => {
-		// given
-		const schemaWithRows = {
-			...schema,
-			rows: 10,
-		};
-
-		// when
-		const wrapper = shallow(
-			<TextArea
-				id={'myForm'}
-				isValid
-				errorMessage={'My error message'}
-				onChange={jest.fn()}
-				schema={schemaWithRows}
-				value={'toto'}
-			/>
-		);
-
-		// then
-		expect(wrapper.node).toMatchSnapshot();
-	});
-
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = shallow(
-			<TextArea
+			<Text
 				id={'myForm'}
 				isValid
 				errorMessage={'My error message'}
@@ -112,13 +88,38 @@ describe('TextArea field', () => {
 				value={'toto'}
 			/>
 		);
-		const value = 'totoa';
-		const event = { target: { value } };
+		const event = { target: { value: 'totoa' } };
 
 		// when
-		wrapper.find('textarea').simulate('change', event);
+		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, value);
+		expect(onChange).toBeCalledWith(event, { schema, value: 'totoa' });
+	});
+
+	it('should trigger onChange with number value', () => {
+		// given
+		const numberSchema = {
+			...schema,
+			type: 'number',
+		};
+		const onChange = jest.fn();
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={onChange}
+				schema={numberSchema}
+				value={2}
+			/>
+		);
+		const event = { target: { value: '25' } };
+
+		// when
+		wrapper.find('input').simulate('change', event);
+
+		// then
+		expect(onChange).toBeCalledWith(event, { schema: numberSchema, value: 25 });
 	});
 });

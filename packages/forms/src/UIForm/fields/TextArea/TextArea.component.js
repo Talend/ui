@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate from '../FieldTemplate';
 
 export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
 	const {
@@ -29,7 +29,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, schema, 
 				disabled={disabled}
 				name={key[key.length - 1]}
 				placeholder={placeholder}
-				onChange={event => onChange(event, schema, event.target.value)}
+				onChange={event => onChange(event, { schema, value: event.target.value })}
 				readOnly={readOnly}
 				rows={rows}
 				value={value}
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -57,7 +57,9 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};
 }
+
 TextArea.defaultProps = {
 	isValid: true,
+	schema: {},
 	value: '',
 };

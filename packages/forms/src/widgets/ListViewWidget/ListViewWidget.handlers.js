@@ -51,32 +51,28 @@ export function onInputChange(event, value) {
 }
 
 export function onToggleAll() {
-	this.setState(prevState => {
-		const checked = !prevState.toggleAllChecked;
-		const { items, displayedItems } = prevState;
-		const newItems = items.map(item => {
-			const displayedItem = displayedItems.find(
-				i => i.index === item.index,
-			);
-			if (displayedItem) {
-				return {
-					...displayedItem,
-					checked,
-				};
-			}
-			return item;
-		});
-		const newDisplayedItems = prevState.displayedItems.map(
-			displayedItem => ({
+	this.setState(prevState => {const checked = !prevState.toggleAllChecked;
+	const {items , displayedItems }= prevState;
+	const newItems = items.map((item) => {
+		const displayedItem = displayedItems.find(i => i.index === item.index,
+		);if (displayedItem) {
+			return {
 				...displayedItem,
 				checked,
-			}),
-		);
-		return {
-			toggleAllChecked: checked,
-			items: newItems,
-			displayedItems: newDisplayedItems,
-		};
+			};
+		}
+		return item;
+	});
+	const newDisplayedItems = prevState.displayedItems.map(displayedItem => ({
+
+			...displayedItem,
+			checked,
+		}),
+	);
+	return{
+		toggleAllChecked: checked,
+		items: newItems,
+		displayedItems: newDisplayedItems,};
 	}, this.setFormData.bind(this));
 }
 

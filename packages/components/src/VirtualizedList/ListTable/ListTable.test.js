@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import VirtualizedList from '../VirtualizedList.component';
 import ListTable from './ListTable.component';
@@ -91,5 +92,31 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(undefined)');
+	});
+
+	it('should render no-rows component', () => {
+		// when
+		const wrapper = mount(
+			<ListTable
+				collection={[]}
+				height={600}
+				id={'my-list'}
+				isSelected={jest.fn()}
+				selectionToggle={jest.fn()}
+				width={1024}
+			>
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+				/>
+				<VirtualizedList.Content
+					label="Name"
+					dataKey="name"
+				/>
+			</ListTable>
+		);
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

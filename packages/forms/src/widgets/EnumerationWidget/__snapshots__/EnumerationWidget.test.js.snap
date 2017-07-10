@@ -266,6 +266,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -289,6 +290,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -297,6 +299,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -320,6 +323,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -343,6 +347,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -351,6 +356,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -748,6 +754,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 type="text"
               />
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={true}
                 hideLabel={true}
@@ -770,6 +777,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -778,6 +786,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -801,6 +810,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 </TooltipTrigger>
               </Action>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={true}
                 hideLabel={true}
@@ -823,6 +833,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -831,6 +842,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -854,6 +866,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 </TooltipTrigger>
               </Action>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={false}
                 hideLabel={true}
@@ -876,6 +889,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -884,6 +898,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -1266,6 +1281,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -1289,6 +1305,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1297,6 +1314,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1320,6 +1338,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -1343,6 +1362,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1351,6 +1371,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1741,6 +1762,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -1764,6 +1786,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1772,6 +1795,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -1795,6 +1819,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -1818,6 +1843,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -1826,6 +1852,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2262,6 +2289,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -2285,6 +2313,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -2293,6 +2322,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2316,6 +2346,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -2339,6 +2370,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -2347,6 +2379,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -2789,6 +2822,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -2811,6 +2845,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -2819,6 +2854,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -2842,6 +2878,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -2864,6 +2901,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -2872,6 +2910,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -3173,6 +3212,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 type="text"
               />
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={true}
                 hideLabel={true}
@@ -3195,6 +3235,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3203,6 +3244,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3226,6 +3268,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 </TooltipTrigger>
               </Action>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={true}
                 hideLabel={true}
@@ -3248,6 +3291,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={true}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3256,6 +3300,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3279,6 +3324,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 </TooltipTrigger>
               </Action>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={false}
                 hideLabel={true}
@@ -3301,6 +3347,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -3309,6 +3356,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -3704,6 +3752,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -3727,6 +3776,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -3735,6 +3785,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -3758,6 +3809,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -3781,6 +3833,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -3789,6 +3842,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4198,6 +4252,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -4221,6 +4276,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -4229,6 +4285,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4252,6 +4309,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   </TooltipTrigger>
                 </Action>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -4275,6 +4333,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -4283,6 +4342,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -4655,6 +4715,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 id="0-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -4677,6 +4738,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -4685,6 +4747,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -4700,6 +4763,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -4722,6 +4786,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         disabled={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -4730,6 +4795,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                           disabled={true}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5052,6 +5118,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 1 selected value
               </span>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={false}
                 hideLabel={true}
@@ -5074,6 +5141,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -5082,6 +5150,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -5505,6 +5574,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 id="0-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -5527,6 +5597,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -5535,6 +5606,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -5550,6 +5622,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -5572,6 +5645,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -5580,6 +5654,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5603,6 +5678,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -5625,6 +5701,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -5633,6 +5710,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -5972,6 +6050,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 2 selected values
               </span>
               <Action
+                available={true}
                 bsStyle="default"
                 disabled={false}
                 hideLabel={true}
@@ -5994,6 +6073,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                   >
@@ -6002,6 +6082,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                       type="button"
@@ -6461,6 +6542,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 id="0-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -6483,6 +6565,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -6491,6 +6574,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -6506,6 +6590,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -6528,6 +6613,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6536,6 +6622,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6559,6 +6646,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -6581,6 +6669,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6589,6 +6678,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6687,6 +6777,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 id="1-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -6709,6 +6800,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -6717,6 +6809,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -6732,6 +6825,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -6754,6 +6848,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6762,6 +6857,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -6785,6 +6881,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -6807,6 +6904,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -6815,6 +6913,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -7170,6 +7269,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -7193,6 +7293,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7201,6 +7302,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -7476,6 +7578,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                   </TooltipTrigger>
                 </ActionDropdown>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -7499,6 +7602,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7507,6 +7611,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -7959,6 +8064,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -7982,6 +8088,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={true}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -7990,6 +8097,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={true}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -8433,6 +8541,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 id="0-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -8455,6 +8564,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -8463,6 +8573,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -8478,6 +8589,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -8500,6 +8612,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8508,6 +8621,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8531,6 +8645,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -8553,6 +8668,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8561,6 +8677,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8657,6 +8774,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 id="1-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -8679,6 +8797,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -8687,6 +8806,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -8702,6 +8822,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -8724,6 +8845,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8732,6 +8854,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -8755,6 +8878,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -8777,6 +8901,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -8785,6 +8910,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -9200,6 +9326,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 className="actions"
               >
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -9223,6 +9350,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -9231,6 +9359,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -9506,6 +9635,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   </TooltipTrigger>
                 </ActionDropdown>
                 <Action
+                  available={true}
                   bsStyle="default"
                   btooltipPlacement="bottom"
                   disabled={false}
@@ -9529,6 +9659,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseOver={[Function]}
                       role="link"
                     >
@@ -9537,6 +9668,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         disabled={false}
                         onClick={[Function]}
                         onFocus={[Function]}
+                        onMouseDown={[Function]}
                         onMouseOver={[Function]}
                         role="link"
                         type="button"
@@ -9998,6 +10130,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 id="0-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -10020,6 +10153,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -10028,6 +10162,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -10043,6 +10178,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -10065,6 +10201,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10073,6 +10210,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10096,6 +10234,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -10118,6 +10257,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10126,6 +10266,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10222,6 +10363,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 id="1-item"
                               >
                                 <Action
+                                  available={true}
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
@@ -10244,6 +10386,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOver={[Function]}
                                       role={null}
                                     >
@@ -10252,6 +10395,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role={null}
                                         type="button"
@@ -10267,6 +10411,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   className="undefined tc-enumeration-item-actions"
                                 >
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -10289,6 +10434,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10297,6 +10443,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"
@@ -10320,6 +10467,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     </TooltipTrigger>
                                   </Action>
                                   <Action
+                                    available={true}
                                     bsStyle="default"
                                     disabled={false}
                                     hideLabel={true}
@@ -10342,6 +10490,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
+                                        onMouseDown={[Function]}
                                         onMouseOver={[Function]}
                                         role="link"
                                       >
@@ -10350,6 +10499,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
+                                          onMouseDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="link"
                                           type="button"

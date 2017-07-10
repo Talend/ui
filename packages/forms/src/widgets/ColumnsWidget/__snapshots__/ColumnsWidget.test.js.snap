@@ -79,5 +79,27 @@ exports[`ColumnsWidget should render 1`] = `
       }
     }
   />
+  <Column
+    className="tf-column-readOnlyFieldsColumns"
+    formData={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    schema={
+      Object {
+        "properties": Object {
+          "fieldLeft": Object {
+            "title": "Field Left",
+            "type": "string",
+          },
+          "fieldRight": Object {
+            "title": "Field Right",
+            "type": "string",
+          },
+        },
+        "title": "Read only Column Fields",
+        "type": "object",
+      }
+    }
+  />
 </div>
 `;

@@ -1,0 +1,71 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Arrays",
+    "properties": {
+      "simpleChoiceList": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "choiceListWithTitles": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "multipleChoicesList": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "simpleChoiceList",
+      "multipleChoicesList"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "simpleChoiceList",
+      "title": "Simple choice list"
+    },
+    {
+      "key": "choiceListWithTitles",
+      "title": "Choice list with titles",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      }
+    },
+    {
+      "key": "multipleChoicesList",
+      "title": "Multiple choices list",
+      "widget": "select"
+    }
+  ],
+  "properties": {
+    "simpleChoiceList": "bar",
+    "multipleChoicesList": [
+      "foo",
+      "bar"
+    ]
+  }
+}

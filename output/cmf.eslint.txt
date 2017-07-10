@@ -1,7 +1,7 @@
 Lerna v2.0.0-beta.36
 Scoping to packages that match 'react-cmf'
 
-> react-cmf@0.88.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.94.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -11,7 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  52:3  warning  Unexpected console statement  no-console
+  67:3  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
   55:2  error  Prop type `object` is forbidden  react/forbid-prop-types

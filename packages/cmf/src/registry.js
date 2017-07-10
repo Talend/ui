@@ -5,7 +5,6 @@
  */
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }]*/
 
-
 /**
  * The registry that will have the singleton
  * - getRegistry() -> the registry which is a simple key/value POJO
@@ -26,13 +25,23 @@ const Registry = {
 };
 
 /**
+ * @return {object} the registry singleton instance
+ */
+function getRegistry(context) {
+	if (context && context.registry) {
+		return context.registry;
+	}
+	return Registry.getRegistry();
+}
+
+/**
  * Call this one to add anything you want into the registry.
  * It will be added only if not locked.
  * Be warned any existing content will be overridden.
  * @param {string} id Where you want it to store in the registry to get it later
  * @param {any} item Everything you want, a function, an object or whatever
  */
-function addToRegistry(id, item) {
+function addToRegistry(id, item, context) {
 	if (Registry.isLocked()) {
 		throw new Error(
 			`CMF: The registry is locked, you cannot therefore add '${id}' in it. ` +
@@ -41,7 +50,7 @@ function addToRegistry(id, item) {
 		);
 	}
 
-	const registry = Registry.getRegistry();
+	const registry = getRegistry(context);
 	if (registry[id]) {
 		console.warn( // eslint-disable-line no-console
 			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
@@ -58,18 +67,11 @@ function addToRegistry(id, item) {
 }
 
 /**
- * @return {object} the registry singleton instance
- */
-function getRegistry() {
-	return Registry.getRegistry();
-}
-
-/**
  * @param  {string} id the object's id in the registry you want to get
  * @return {any}    the object you are looking for
  */
-function getFromRegistry(id) {
-	return getRegistry()[id];
+function getFromRegistry(id, context) {
+	return getRegistry(context)[id];
 }
 
 /**

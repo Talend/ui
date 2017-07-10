@@ -382,7 +382,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Empty list', () => {
+	.add('Table empty list', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -392,6 +392,34 @@ storiesOf('List', module)
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...emptyListProps} />
+				</div>
+			</div>
+		);
+	})
+	.add('Large empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} displayMode="large" />
+				</div>
+			</div>
+		);
+	})
+	.add('Tile empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} displayMode="tile" />
 				</div>
 			</div>
 		);
@@ -597,7 +625,69 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<List {...tprops} virtualized />
 			</div>
 		);
+	})
+	.add('VirtualizedList Table empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...emptyListProps} virtualized />
+			</div>
+		);
+	})
+	.add('VirtualizedList Large empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...emptyListProps} displayMode="large" virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized with filter', () => {
+		const dockedProps = Immutable.fromJS(props).toJS();
+		dockedProps.list.items = [dockedProps.list.items[0]];
+		dockedProps.toolbar.actionBar = null;
+
+		const inputProps = Immutable.fromJS(dockedProps).toJS();
+		inputProps.toolbar.filter.docked = false;
+
+		const highlightedProps = Immutable.fromJS(inputProps).toJS();
+		highlightedProps.toolbar.filter.highlight = true;
+
+		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
+		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
+
+		return (<div style={{ height: '60vh' }} className="virtualized-list">
+			<IconsProvider />
+
+			<h1>List</h1>
+			<h2>Definition</h2>
+			<p>Toolbar Filter</p>
+			<h2>Docked</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...dockedProps} virtualized />
+			</div>
+			<h2>Input</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputProps} virtualized />
+			</div>
+			<h2>Highlighted</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...highlightedProps} virtualized />
+			</div>
+			<h2>Input with 300ms debounce</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputDebounceProps} virtualized />
+			</div>
+		</div>);
 	});

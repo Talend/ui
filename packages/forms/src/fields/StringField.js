@@ -74,7 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
 		}),
-		formContext: PropTypes.object.isRequired,
+		name: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,

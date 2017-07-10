@@ -15,7 +15,7 @@ export default function SingleButton({ className, id, onTrigger, schema }) {
 
 	let onClick;
 	if (type === 'button' && triggers) {
-		onClick = event => onTrigger(event, triggers[0], schema);
+		onClick = event => onTrigger(event, { type: triggers[0], schema });
 	}
 
 	return (
@@ -49,3 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 	};
 }
+
+SingleButton.defaultProps = {
+	schema: {},
+};

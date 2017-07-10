@@ -15,7 +15,6 @@ Object {
         },
       },
       Object {
-        "available": "model.actions.delete",
         "icon": "icon-article",
         "id": "menu:article",
         "model": undefined,
@@ -42,7 +41,6 @@ Object {
             },
           },
           Object {
-            "available": "model.actions.delete",
             "icon": "icon-article",
             "id": "menu:article",
             "model": undefined,
@@ -67,7 +65,6 @@ Object {
         "id": "menu",
         "items": Array [
           Object {
-            "available": "model.actions.delete",
             "icon": "icon-article",
             "id": "menu:article",
             "model": undefined,

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import {
 	Button,
 	OverlayTrigger,
@@ -56,6 +57,8 @@ function getContent(props) {
 	);
 }
 
+function noOp() {}
+
 /**
  * @param {object} props react props
  * @example
@@ -78,12 +81,18 @@ function Action(props) {
 		label,
 		link,
 		model,
-		onClick,
+		onMouseDown = noOp,
+		onClick = noOp,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
+		available,
 		...rest
 	} = props;
+
+	if (!available) {
+		return null;
+	}
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
@@ -92,10 +101,16 @@ function Action(props) {
 		model,
 	}));
 
+	const rMouseDown = event => onMouseDown(event, {
+		action: { label, ...rest },
+		model,
+	});
+
 	const buttonContent = getContent(props);
 
 	const btn = (
 		<Button
+			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
 			disabled={inProgress || disabled}
@@ -105,7 +120,6 @@ function Action(props) {
 			{buttonContent}
 		</Button>
 	);
-
 	if (hideLabel || tooltip || tooltipLabel) {
 		return (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
@@ -134,6 +148,7 @@ Action.propTypes = {
 };
 
 Action.defaultProps = {
+	available: true,
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,

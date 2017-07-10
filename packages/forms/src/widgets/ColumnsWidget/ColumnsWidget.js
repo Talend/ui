@@ -13,16 +13,17 @@ function getColumnRenderer(type) {
 	return ObjectField;
 }
 
-function Column({ className, schema, formData, onChange, onBlur, registry }) {
-	const Renderer = getColumnRenderer(schema.type);
+function Column(props) {
+	const Renderer = getColumnRenderer(props.schema.type);
 	return (
-		<div className={`${className} ${theme.column}`}>
+		<div className={`${props.className} ${theme.column}`}>
 			<Renderer
-				schema={schema}
-				formData={formData}
-				onChange={onChange}
-				onBlur={onBlur}
-				registry={registry}
+				schema={props.schema}
+				formData={props.formData}
+				onChange={props.onChange}
+				onBlur={props.onBlur}
+				registry={props.registry}
+				readonly={props.uiSchema['ui:readonly']}
 			/>
 		</div>
 	);
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 		className: PropTypes.string,
 		schema: PropTypes.object.isRequired,
 		formData: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object.isRequired,
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func.isRequired,
 		registry: SchemaField.propTypes.registry,
@@ -50,7 +52,7 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 		<div className={`tf-widget-columns ${theme.columns}`}>
 			<TitleField id={`${name}__title`} title={schema.title || name} />
 			{schema.properties ? Object.keys(schema.properties).map(
-				(key) => (
+				key => (
 					<Column
 						{...props}
 						key={key}
