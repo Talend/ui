@@ -30,10 +30,13 @@ describe('UIForm container', () => {
 
 			// when
 			instance.onChange(
-				props.formName,
-				mergedSchema[0],
-				'toto',
-				'too short',
+				null,
+				{
+					formName: props.formName,
+					schema: mergedSchema[0],
+					value: 'toto',
+					error: 'too short',
+				},
 			);
 
 			// then
@@ -44,17 +47,30 @@ describe('UIForm container', () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
+			const event = { target: {} };
 
 			// when
 			instance.onChange(
-				props.formName,
-				mergedSchema[0],
-				'toto',
-				'too short',
+				event,
+				{
+					formName: props.formName,
+					schema: mergedSchema[0],
+					value: 'toto',
+					error: 'too short',
+				},
 			);
 
 			// then
-			expect(props.onChange).toBeCalledWith(mergedSchema[0], 'toto', { lastname: 'toto' });
+			expect(props.onChange).toBeCalledWith(
+				event,
+				{
+					formName: props.formName,
+					schema: mergedSchema[0],
+					value: 'toto',
+					error: 'too short',
+					properties: props.properties,
+				}
+			);
 		});
 	});
 

@@ -188,6 +188,8 @@ function Products({ renderers, ...props }) {
 				icon="talend-launcher"
 				label="Apps"
 				pullRight
+				hideLabel
+				noCaret
 				tooltipPlacement="bottom"
 				{...props}
 			/>

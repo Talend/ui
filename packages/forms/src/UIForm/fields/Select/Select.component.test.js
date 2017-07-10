@@ -131,7 +131,10 @@ describe('Select field', () => {
 		wrapper.find('select').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, 'bar');
+		expect(onChange).toBeCalledWith(
+			event,
+			{ schema, value: 'bar' }
+		);
 	});
 
 	it('should trigger array onChange', () => {
@@ -168,6 +171,9 @@ describe('Select field', () => {
 		wrapper.find('select').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, multipleSchema, ['foo', 'lol']);
+		expect(onChange).toBeCalledWith(
+			event,
+			{ schema: multipleSchema, value: ['foo', 'lol'] }
+		);
 	});
 });
