@@ -29,7 +29,7 @@ export function mapStateToProps(state) {
 	return state.cmf.settings.views.appheaderbar || {};
 }
 
-function mergeProps(stateProps, dispatchProps, ownProps) {
+export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, dispatchProps, stateProps, ownProps);
 	if (stateProps.brandLink) {
 		props.brandLink.onClick = dispatchProps.brandLink.onClick;
