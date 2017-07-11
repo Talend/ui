@@ -1,6 +1,6 @@
 # Checkboxes
 
-This widget allows you to render a select box input.
+This widget allows you to render checkboxes input.
 
 **Json Schema**
 
