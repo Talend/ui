@@ -1,6 +1,6 @@
 # Buttons
 
-This widget allows you to render a select box input.
+This widget allows you to render buttons.
 
 **Json Schema**
 
