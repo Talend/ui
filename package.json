@@ -2,7 +2,7 @@
   "devDependencies": {
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
-    "lerna": "2.0.0-beta.36",
+    "lerna": "2.0.0",
     "npm-watch": "^0.1.8",
     "surge": "^0.18.0"
   },
@@ -74,6 +74,6 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "version": "0.0.0",
+  "version": "0.27.5",
   "private": true
 }
