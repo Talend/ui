@@ -17,7 +17,7 @@ export function escapeRegexCharacters(str) {
  * @param props
  */
 function defaultRenderDatalistItemContainer(props) {
-	return (<div {...props} />);
+	return <div {...props} />;
 }
 
 /**
@@ -90,7 +90,7 @@ class DatalistWidget extends React.Component {
 			container: classnames(
 				'form-control',
 				theme['tf-typeahead-container'],
-				'tf-typeahead-container'
+				'tf-typeahead-container',
 			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
@@ -207,16 +207,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		let suggestions = this.getMatchingSuggestions(this.state.initalItems, value);
-		if (!value && suggestions && suggestions.length === 0) {
-			suggestions = this.state.initalItems;
-		}
-
-		this.setState({
-			value,
-			items: suggestions,
-			itemIndex: null,
-			noMatch: value && suggestions && !suggestions.length,
+		this.setState(prevState => {
+			let suggestions = getMatchingSuggestions(
+				prevState.initalItems,
+				value,
+			);
+			if (!value && suggestions && suggestions.length === 0) {
+				suggestions = prevState.initalItems;
+			}
+			return {
+				value,
+				items: suggestions,
+				itemIndex: null,
+				noMatch: value && suggestions && !suggestions.length,
+			};
 		});
 	}
 
