@@ -54,7 +54,7 @@ describe('AppHeaderBar', () => {
 			},
 		};
 		const ownProps = { foo: 'bar' };
-		const props = mergeProps(stateProps, dispatchProps , ownProps);
+		const props = mergeProps(stateProps, dispatchProps, ownProps);
 		expect(props.brandLink.onClick).toBe(onClick);
 		expect(props.brandLink.className).toBe('my custom class');
 		expect(props.foo).toBe('bar');
