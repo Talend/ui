@@ -6,7 +6,7 @@ This widget allows you to render a text/number input.
 
 | Property | Description |
 |---|---|
-| type | "string" | "number" |
+| type | "string" or "number" |
 
 ```json
   {
