@@ -71,7 +71,7 @@ class DatalistWidget extends React.Component {
 		this.inputProps = {
 			placeholder: props.placeholder,
 			required: props.required,
-			onBlur: event => this.onBlur(event),
+			onBlur: () => this.onBlur(),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
@@ -109,12 +109,11 @@ class DatalistWidget extends React.Component {
 
 	onBlur() {
 		const { options } = this.props;
-		if (options.restricted && !this.state.initalItems.includes(this.state.value)) {
+		const included = this.state.initalItems.includes(this.state.value);
+
+		if (options.restricted && !included) {
 			this.resetValue();
-		} else if (options.restricted && this.state.initalItems.includes(this.state.value)) {
-			this.props.onChange(this.state.value);
-			this.resetSuggestions();
-		} else {
+		} else if ((options.restricted && included) || !options.restricted) {
 			this.props.onChange(this.state.value);
 			this.resetSuggestions();
 		}
@@ -174,12 +173,13 @@ class DatalistWidget extends React.Component {
 	}
 
 	getItems() {
-		if (this.props.options.enumOptions) {
-			return this.props.options.enumOptions;
-		} else if (this.props.schema.enum) {
-			return this.props.schema.enum;
-		} else if (this.props.formContext.fetchItems) {
-			return this.props.formContext.fetchItems(this.props.schema.title);
+		const props = this.props;
+		if (props.options && props.options.enumOptions) {
+			return props.options.enumOptions;
+		} else if (props.schema && props.schema.enum) {
+			return props.schema.enum;
+		} else if (props.formContext && props.formContext.fetchItems) {
+			return props.formContext.fetchItems(props.schema.title);
 		}
 		return [];
 	}
@@ -239,7 +239,9 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		if (selectedItem && selectedItem !== this.state.value) {
+		const selectedItemLabel = this.getLabel(this.state.items[itemIndex]);
+
+		if (selectedItemLabel && selectedItemLabel !== this.state.value) {
 			this.setValue(selectedItem);
 			this.resetSuggestions();
 			this.props.onChange(selectedItem);
@@ -327,9 +329,7 @@ class DatalistWidget extends React.Component {
 
 
 DatalistWidget.defaultProps = {
-	options: {
-		enumOptions: [],
-	},
+	options: {},
 	formContext: {},
 };
 

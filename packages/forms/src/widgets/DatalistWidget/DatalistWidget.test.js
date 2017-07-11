@@ -253,10 +253,11 @@ describe('DatalistWidget', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('blur', { target: { value } });
+		input.simulate('blur');
 
 		// then
 		expect(onChange).toBeCalled();
+		console.log('[NC]  onChange.mock.calls: ', onChange.mock.calls);
 		expect(onChange.mock.calls[0][0]).toBe(value);
 	});
 
