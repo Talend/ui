@@ -250,12 +250,13 @@ class DatalistWidget extends React.Component {
 			const regex = new RegExp(escapeRegexCharacters(value), 'gi');
 			const matchedValues = label.match(regex);
 			const restValues = label.split(regex);
-			for (let i = 0; i < restValues.length; i += 1) {
-				emphasisedText.push(restValues[i]);
+
+			restValues.forEach((val, i) => {
+				emphasisedText.push(val);
 				if (matchedValues[i]) {
 					emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
 				}
-			}
+			});
 		}
 
 		return (
