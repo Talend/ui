@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import DatalistWidget, { escapeRegexCharacters, getMatchingSuggestions } from './DatalistWidget';
+import DatalistWidget, { escapeRegexCharacters } from './DatalistWidget';
 
 describe('escapeRegexCharacters', () => {
 	it('should escape all regex chars', () => {
@@ -29,9 +29,11 @@ describe('getMatchingSuggestions', () => {
 			'   AzErTy   ',
 			'Toto',
 		];
+		let widget;
+		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
 
 		// when
-		const filteredSuggestions = getMatchingSuggestions(suggestions, value);
+		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
 
 		// then
 		expect(filteredSuggestions).toEqual([
@@ -50,9 +52,12 @@ describe('getMatchingSuggestions', () => {
 			'bananaz[e',
 			'   az[erty   ',
 		];
+		let widget;
+		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
+
 
 		// when
-		const filteredSuggestions = getMatchingSuggestions(suggestions, value);
+		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
 
 		// then
 		expect(filteredSuggestions).toEqual([
@@ -153,6 +158,7 @@ describe('DatalistWidget', () => {
 				onChange={onChange}
 			/>
 		);
+
 		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
 
 		// when

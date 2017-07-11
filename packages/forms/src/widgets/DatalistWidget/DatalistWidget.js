@@ -207,14 +207,15 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		this.setState(prevState => {
-			let suggestions = getMatchingSuggestions(
+		this.setState((prevState) => {
+			let suggestions = this.getMatchingSuggestions(
 				prevState.initalItems,
 				value,
 			);
 			if (!value && suggestions && suggestions.length === 0) {
 				suggestions = prevState.initalItems;
 			}
+
 			return {
 				value,
 				items: suggestions,

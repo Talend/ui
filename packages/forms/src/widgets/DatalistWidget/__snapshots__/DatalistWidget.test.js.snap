@@ -5,7 +5,11 @@ exports[`DatalistWidget should render "no match" message 1`] = `
   formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
-  options={Object {}}
+  options={
+    Object {
+      "enumOptions": Array [],
+    }
+  }
   required={true}
   schema={
     Object {
@@ -131,7 +135,11 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
   formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
-  options={Object {}}
+  options={
+    Object {
+      "enumOptions": Array [],
+    }
+  }
   required={true}
   schema={
     Object {
@@ -168,15 +176,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "onMouseLeave": [Function],
       }
     }
-    items={
-      Array [
-        "aze",
-        "banane",
-        "bananAze",
-        "   AzErTy   ",
-        "Toto",
-      ]
-    }
+    items={Array []}
     multiSection={false}
     renderInputComponent={[Function]}
     renderItem={[Function]}
@@ -207,8 +207,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={true}
-          aria-haspopup={true}
+          aria-expanded={false}
+          aria-haspopup={false}
           aria-owns="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
@@ -226,8 +226,8 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={true}
-            aria-haspopup={true}
+            aria-expanded={false}
+            aria-haspopup={false}
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
@@ -251,209 +251,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
       <div
         id="react-autowhatever-myWidget"
         style={Object {}}
-      >
-        <ItemsList
-          focusedItemIndex={null}
-          getItemId={[Function]}
-          itemProps={
-            Object {
-              "onMouseDown": [Function],
-              "onMouseEnter": [Function],
-              "onMouseLeave": [Function],
-            }
-          }
-          items={
-            Array [
-              "aze",
-              "banane",
-              "bananAze",
-              "   AzErTy   ",
-              "Toto",
-            ]
-          }
-          keyPrefix="react-autowhatever-myWidget-"
-          onFocusedItemChange={[Function]}
-          renderItem={[Function]}
-          renderItemData={
-            Object {
-              "value": "",
-            }
-          }
-          sectionIndex={null}
-          theme={[Function]}
-        >
-          <ul
-            role="listbox"
-            style={Object {}}
-          >
-            <Item
-              id="react-autowhatever-myWidget--item-0"
-              item="aze"
-              itemIndex={0}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}
-            >
-              <li
-                id="react-autowhatever-myWidget--item-0"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}
-              >
-                <div
-                  className="datalist-item"
-                >
-                  <span>
-                    aze
-                  </span>
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-1"
-              item="banane"
-              itemIndex={1}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}
-            >
-              <li
-                id="react-autowhatever-myWidget--item-1"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}
-              >
-                <div
-                  className="datalist-item"
-                >
-                  <span>
-                    banane
-                  </span>
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-2"
-              item="bananAze"
-              itemIndex={2}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}
-            >
-              <li
-                id="react-autowhatever-myWidget--item-2"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}
-              >
-                <div
-                  className="datalist-item"
-                >
-                  <span>
-                    bananAze
-                  </span>
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-3"
-              item="   AzErTy   "
-              itemIndex={3}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}
-            >
-              <li
-                id="react-autowhatever-myWidget--item-3"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}
-              >
-                <div
-                  className="datalist-item"
-                >
-                  <span>
-                       AzErTy   
-                  </span>
-                </div>
-              </li>
-            </Item>
-            <Item
-              id="react-autowhatever-myWidget--item-4"
-              item="Toto"
-              itemIndex={4}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              renderItem={[Function]}
-              renderItemData={
-                Object {
-                  "value": "",
-                }
-              }
-              sectionIndex={null}
-              style={Object {}}
-            >
-              <li
-                id="react-autowhatever-myWidget--item-4"
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                role="option"
-                style={Object {}}
-              >
-                <div
-                  className="datalist-item"
-                >
-                  <span>
-                    Toto
-                  </span>
-                </div>
-              </li>
-            </Item>
-          </ul>
-        </ItemsList>
-      </div>
+      />
     </div>
   </Autowhatever>
 </DatalistWidget>
@@ -464,7 +262,11 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
   formContext={Object {}}
   id="myWidget"
   onChange={[Function]}
-  options={Object {}}
+  options={
+    Object {
+      "enumOptions": Array [],
+    }
+  }
   required={true}
   schema={
     Object {
