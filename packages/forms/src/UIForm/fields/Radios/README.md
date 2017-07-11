@@ -1,6 +1,6 @@
 # Radios
 
-This widget allows you to render a select box input.
+This widget allows you to render radios input.
 
 **Json Schema**
 
