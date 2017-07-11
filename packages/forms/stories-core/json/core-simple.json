@@ -7,7 +7,7 @@
         "type": "string"
       },
       "lastname": {
-        "type": "string"
+        "type": "number"
       },
       "firstname": {
         "type": "string"
@@ -31,7 +31,7 @@
       }
     },
     "required": [
-      "name",
+      "lastname",
       "firstname",
       "email",
       "comment"
@@ -44,9 +44,12 @@
     },
     {
       "key": "lastname",
-      "title": "Last Name (with description)",
-      "description": "Hint: this is the last name",
-      "autoFocus": true
+      "widget": "text",
+      "title": "Last name",
+      "autoFocus": false,
+      "disabled": false,
+      "placeholder": "Type here...",
+      "readOnly": false
     },
     {
       "key": "firstname",
@@ -85,7 +88,6 @@
     "name": "Chuck Norris",
     "readonlyField": "You can't change that",
     "disabledField": "You can't change that",
-    "email": "ChuckyFTW@gmail.com",
-    "comment": "lol"
+    "email": "ChuckyFTW@gmail.com"
   }
 }

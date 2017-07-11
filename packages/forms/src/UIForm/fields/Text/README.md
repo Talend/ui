@@ -1,14 +1,19 @@
-# TextArea
+# Text
 
-This widget allows you to render a textarea for a string field.
+This widget allows you to render a text/number input.
 
 **Json Schema**
+
+| Property | Description |
+|---|---|
+| type | "string" | "number" |
+
 ```json
   {
     "type": "object",
     "title": "Comment",
     "properties": {
-      "comment": {
+      "lastname": {
         "type": "string"
       }
     }
@@ -19,30 +24,29 @@ This widget allows you to render a textarea for a string field.
 
 | Property | Description |
 |---|---|
-| widget | Value : "textarea" |
+| widget | Value : "text" (or undefined, because this is the default) |
 | title | The title to display above field |
 | autoFocus | Default: false |
 | disabled | Default: false |
 | placeholder | Text to display as placeholder |
 | readOnly | Default: false |
-| rows | Number of rows |
 
 ```json
   [
     {
-      "key": "comment",
-      "widget": "textarea",
-      "title": "Comment",
+      "key": "lastname",
+      "widget": "text",
+      "title": "Last name",
       "autoFocus": false,
       "disabled": false,
       "placeholder": "Type here...",
-      "readOnly": false,
-      "rows": 5
+      "readOnly": false
     }
   ]
 ```
 
 **Result**
 
-![Textarea](screenshot.png)
-![Textarea with error](screenshot-with-error.png)
+![Text](screenshot.png)
+![Number](screenshot-number.png)
+![Text with error](screenshot-with-error.png)
