@@ -13,6 +13,13 @@
       "description": "This should trigger a successful check"
     },
     {
+      "key": "checkfail",
+      "title": "Check me",
+      "widget": "button",
+      "triggers": ["after"],
+      "description": "This should trigger a failing check"
+    },
+    {
       "widget": "buttons",
       "description": "By default the buttons have space between them. To align things on the left and right you can play with the center button auto-margin",
       "items": [
