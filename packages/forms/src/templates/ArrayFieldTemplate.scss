@@ -1,0 +1,65 @@
+$tf-filterwidget-shadow-color: $shadow !default;
+
+.ArrayFieldTemplate {
+	.arrayElement {
+		display: flex;
+		background: #fff;
+		border: 1px solid $gray-lighter;
+		border-radius: $border-radius-base;
+		box-shadow: 0 1px 3px 0 $tf-filterwidget-shadow-color;
+		margin-bottom: $padding-normal;
+
+		.control {
+			border-right: 1px solid $gray-lighter;
+			display: flex;
+			flex-direction: column;
+			padding: 0 $padding-small;
+
+			.delete {
+				margin: $padding-normal 0 ($padding-normal * 2) 0;
+			}
+
+			button {
+				background: transparent;
+				border: 0;
+			}
+		}
+
+		.element {
+			flex-grow: 1;
+			padding: 0;
+
+			> div {
+				padding: 0;
+				margin: 0;
+			}
+
+			fieldset {
+				legend {
+					border-bottom: 1px solid $gray-lighter;
+					color: $gray-light;
+					font-size: $font-size-base;
+					margin: 0;
+					padding: $padding-normal;
+
+					strong {
+						color: $gray-dark;
+					}
+				}
+
+				:global(.toggle) {
+					background: transparent;
+					border: 0;
+					position: absolute;
+					top: 0;
+					right: 0;
+					padding: $padding-normal;
+				}
+
+				> div {
+					margin: $padding-normal;
+				}
+			}
+		}
+	}
+}

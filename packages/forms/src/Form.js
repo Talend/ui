@@ -17,7 +17,6 @@ import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
-import FilterWidget from './widgets/FilterWidget';
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -32,7 +31,13 @@ export const customWidgets = {
 	enumeration: EnumerationWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
-	filter: FilterWidget,
+};
+
+const customFields = {
+	ArrayField,
+	BooleanField,
+	ObjectField,
+	StringField,
 };
 
 export function renderActionIcon(icon) {
@@ -126,11 +131,9 @@ class Form extends React.Component {
 
 		const formData = this.props.data && this.props.data.properties;
 
-		const customFields = {
-			ArrayField,
-			BooleanField,
-			ObjectField,
-			StringField,
+		const fields = {
+			...customFields,
+			...this.props.fields,
 		};
 
 		const customFormContext = {
@@ -146,7 +149,7 @@ class Form extends React.Component {
 				uiSchema={this.props.data && this.props.data.uiSchema}
 				formData={formData}
 				formContext={customFormContext}
-				fields={customFields}
+				fields={fields}
 				FieldTemplate={FieldTemplate}
 				widgets={widgets}
 				onChange={this.handleChange}
