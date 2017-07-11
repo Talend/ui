@@ -170,6 +170,11 @@ editItemPropsWithError.items[0] = {
 	error: 'an error occured',
 };
 
+const customLabelProps = {
+	...props,
+	label: 'Users',
+};
+
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -240,6 +245,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemPropsWithError}
+			/>
+		</div>
+	))
+	.addWithInfo('with custom label', () => (
+		<div>
+			<p>Should be 'Users' instead of 'Values'</p>
+			<IconsProvider />
+			<Enumeration
+				{...customLabelProps}
 			/>
 		</div>
 	));
