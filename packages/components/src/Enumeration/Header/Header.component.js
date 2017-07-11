@@ -49,10 +49,10 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault, required, label }) {
+function Header({ headerDefault, required, label = 'Values' }) {
 	return (
 		<header className={headerClasses()}>
-			<span>{label || 'Values'}{required && '*'}</span>
+			<span>{label}{required && '*'}</span>
 			<div className="actions">
 				{headerDefault.map(getAction)}
 			</div>
