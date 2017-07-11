@@ -54,7 +54,6 @@ This widget allows you to render checkboxes input.
 
 | Property | Description |
 |---|---|
-| widget | "radios" |
 | title | The title to display above field |
 | autoFocus | Default: false |
 | disabled | Default: false |
