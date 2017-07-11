@@ -10,39 +10,39 @@ This widget allows you to render a select box input.
 | enum | Possible values |
 
 ```json
-  {
-    "type": "object",
-    "title": "Choice",
-    "properties": {
-      "radios": {
-        "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
-      },
-      "withTitleMap": {
-        "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
-      },
-      "inline": {
-        "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
-      }
+{
+  "type": "object",
+  "title": "Choice",
+  "properties": {
+    "radios": {
+      "type": "string",
+      "enum": [
+        "foo",
+        "bar",
+        "fuzz",
+        "qux"
+      ]
+    },
+    "withTitleMap": {
+      "type": "string",
+      "enum": [
+        "foo",
+        "bar",
+        "fuzz",
+        "qux"
+      ]
+    },
+    "inline": {
+      "type": "string",
+      "enum": [
+        "foo",
+        "bar",
+        "fuzz",
+        "qux"
+      ]
     }
   }
+}
 ```
 
 **UI Schema**
@@ -57,30 +57,30 @@ This widget allows you to render a select box input.
 | titleMap | A mapping of value/label to display |
 
 ```json
-  [
-    {
-      "key": "radios",
-      "title": "Type of things",
-      "widget": "radios"
+[
+  {
+    "key": "radios",
+    "title": "Type of things",
+    "widget": "radios"
+  },
+  {
+    "key": "withTitleMap",
+    "title": "Type of things (custom title map)",
+    "titleMap": {
+      "foo": "My custom foo title",
+      "bar": "My custom bar title",
+      "fuzz": "My custom fuzz title",
+      "qux": "my custom qux title"
     },
-    {
-      "key": "withTitleMap",
-      "title": "Type of things (custom title map)",
-      "titleMap": {
-        "foo": "My custom foo title",
-        "bar": "My custom bar title",
-        "fuzz": "My custom fuzz title",
-        "qux": "my custom qux title"
-      },
-      "widget": "radios"
-    },
-    {
-      "key": "inline",
-      "title": "Type of things (inline)",
-      "inline": true,
-      "widget": "radios"
-    }
-  ]
+    "widget": "radios"
+  },
+  {
+    "key": "inline",
+    "title": "Type of things (inline)",
+    "inline": true,
+    "widget": "radios"
+  }
+]
 ```
 
 **Result**

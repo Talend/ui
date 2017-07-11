@@ -7,11 +7,11 @@ This widget allows you to render a select box input.
 The json schema is not impacted be cause there is no value associated to a button.
 
 ```json
-  {
-    "type": "object",
-    "title": "Comment",
-    "properties": {}
-  }
+{
+  "type": "object",
+  "title": "Comment",
+  "properties": {}
+}
 ```
 
 **UI Schema**
@@ -31,65 +31,65 @@ The json schema is not impacted be cause there is no value associated to a butto
 | items[].position | Default: "left". Set it to "right" to align it to right |
 
 ```json
-  [
-    {
-      "key": "check",
-      "title": "Check me",
-      "widget": "button",
-      "triggers": ["after"],
-      "description": "This should trigger a successful check"
-    },
-    {
-      "widget": "buttons",
-      "description": "By default the buttons have space between them. To align things on the left and right you can play with the center button auto-margin",
-      "items": [
-        {
-          "title": "Reset",
-          "type": "reset",
-          "widget": "button"
-        },
-        {
-          "title": "Test",
-          "triggers": ["test"],
-          "type": "button",
-          "widget": "button"
-        },
-        {
-          "bsStyle": "primary",
-          "title": "Submit",
-          "type": "submit",
-          "widget": "button"
-        }
-      ]
-    },
-    {
-      "widget": "buttons",
-      "description": "To align things on the left or right you can pass a 'position' (left | right)",
-      "items": [
-        {
-          "title": "Reset",
-          "type": "reset",
-          "name": "reset",
-          "widget": "button"
-        },
-        {
-          "position": "right",
-          "title": "Test",
-          "triggers": ["test"],
-          "name": "test",
-          "type": "button",
-          "widget": "button"
-        },
-        {
-          "bsStyle": "primary",
-          "title": "Submit",
-          "name": "submit",
-          "type": "submit",
-          "widget": "button"
-        }
-      ]
-    }
-  ]
+[
+  {
+    "key": "check",
+    "title": "Check me",
+    "widget": "button",
+    "triggers": ["after"],
+    "description": "This should trigger a successful check"
+  },
+  {
+    "widget": "buttons",
+    "description": "By default the buttons have space between them. To align things on the left and right you can play with the center button auto-margin",
+    "items": [
+      {
+        "title": "Reset",
+        "type": "reset",
+        "widget": "button"
+      },
+      {
+        "title": "Test",
+        "triggers": ["test"],
+        "type": "button",
+        "widget": "button"
+      },
+      {
+        "bsStyle": "primary",
+        "title": "Submit",
+        "type": "submit",
+        "widget": "button"
+      }
+    ]
+  },
+  {
+    "widget": "buttons",
+    "description": "To align things on the left or right you can pass a 'position' (left | right)",
+    "items": [
+      {
+        "title": "Reset",
+        "type": "reset",
+        "name": "reset",
+        "widget": "button"
+      },
+      {
+        "position": "right",
+        "title": "Test",
+        "triggers": ["test"],
+        "name": "test",
+        "type": "button",
+        "widget": "button"
+      },
+      {
+        "bsStyle": "primary",
+        "title": "Submit",
+        "name": "submit",
+        "type": "submit",
+        "widget": "button"
+      }
+    ]
+  }
+]
 ```
 
 **Result**

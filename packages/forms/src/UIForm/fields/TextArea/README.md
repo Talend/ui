@@ -4,15 +4,15 @@ This widget allows you to render a textarea for a string field.
 
 **Json Schema**
 ```json
-  {
-    "type": "object",
-    "title": "Comment",
-    "properties": {
-      "comment": {
-        "type": "string"
-      }
+{
+  "type": "object",
+  "title": "Comment",
+  "properties": {
+    "comment": {
+      "type": "string"
     }
   }
+}
 ```
 
 **UI Schema**
@@ -28,18 +28,18 @@ This widget allows you to render a textarea for a string field.
 | rows | Number of rows |
 
 ```json
-  [
-    {
-      "key": "comment",
-      "widget": "textarea",
-      "title": "Comment",
-      "autoFocus": false,
-      "disabled": false,
-      "placeholder": "Type here...",
-      "readOnly": false,
-      "rows": 5
-    }
-  ]
+[
+  {
+    "key": "comment",
+    "widget": "textarea",
+    "title": "Comment",
+    "autoFocus": false,
+    "disabled": false,
+    "placeholder": "Type here...",
+    "readOnly": false,
+    "rows": 5
+  }
+]
 ```
 
 **Result**

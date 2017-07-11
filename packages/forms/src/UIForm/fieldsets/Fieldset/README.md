@@ -4,24 +4,24 @@ This widget allows you to group your fields into fieldsets.
 
 **Json Schema**
 ```json
-  {
-    "type": "object",
-    "title": "Comment",
-    "properties": {
-      "lastname": {
-        "type": "string"
-      },
-      "firstname": {
-        "type": "string"
-      },
-      "age": {
-        "type": "number"
-      },
-      "comment": {
-        "type": "string"
-      }
+{
+  "type": "object",
+  "title": "Comment",
+  "properties": {
+    "lastname": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    },
+    "comment": {
+    "type": "string"
     }
   }
+}
 ```
 
 **UI Schema**
@@ -33,37 +33,37 @@ This widget allows you to group your fields into fieldsets.
 | items | Array of widget definitions |
 
 ```json
-  [
-    {
-      "widget": "fieldset",
-      "title": "My awesome USER form",
-      "items": [
-        {
-          "key": "lastname",
-          "title": "Last Name"
-        },
-        {
-          "key": "firstname",
-          "title": "First Name"
-        },
-        {
-          "key": "age",
-          "title": "Age"
-        }
-      ]
-    },
-    {
-      "widget": "fieldset",
-      "title": "Rest of the form",
-      "items": [
-        {
-          "key": "comment",
-          "widget": "textarea",
-          "title": "Comment"
-        }
-      ]
-    }
-  ]
+[
+  {
+    "widget": "fieldset",
+    "title": "My awesome USER form",
+    "items": [
+      {
+        "key": "lastname",
+        "title": "Last Name"
+      },
+      {
+        "key": "firstname",
+        "title": "First Name"
+      },
+      {
+        "key": "age",
+        "title": "Age"
+      }
+    ]
+  },
+  {
+    "widget": "fieldset",
+    "title": "Rest of the form",
+    "items": [
+      {
+        "key": "comment",
+        "widget": "textarea",
+        "title": "Comment"
+      }
+    ]
+  }
+]
 ```
 
 **Result**

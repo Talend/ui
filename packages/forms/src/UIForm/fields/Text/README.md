@@ -9,15 +9,15 @@ This widget allows you to render a text/number input.
 | type | "string" or "number" |
 
 ```json
-  {
-    "type": "object",
-    "title": "Comment",
-    "properties": {
-      "lastname": {
-        "type": "string"
-      }
+{
+  "type": "object",
+  "title": "Comment",
+  "properties": {
+    "lastname": {
+      "type": "string"
     }
   }
+}
 ```
 
 **UI Schema**
@@ -32,17 +32,17 @@ This widget allows you to render a text/number input.
 | readOnly | Default: false |
 
 ```json
-  [
-    {
-      "key": "lastname",
-      "widget": "text",
-      "title": "Last name",
-      "autoFocus": false,
-      "disabled": false,
-      "placeholder": "Type here...",
-      "readOnly": false
-    }
-  ]
+[
+  {
+    "key": "lastname",
+    "widget": "text",
+    "title": "Last name",
+    "autoFocus": false,
+    "disabled": false,
+    "placeholder": "Type here...",
+    "readOnly": false
+  }
+]
 ```
 
 **Result**
