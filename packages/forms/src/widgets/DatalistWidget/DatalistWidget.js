@@ -32,6 +32,15 @@ function defaultRenderNoMatch() {
 }
 
 /**
+ * Convert a datalist item as a value/label pair if needed
+ */
+function getValueLabelPair(item) {
+	return typeof item === 'object'
+	? { [item.value]: item.label }
+	: { [item]: item };
+}
+
+/**
  * Render a typeahead for filtering among a list
  * @param props
  */
@@ -156,21 +165,18 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateItemsMap() {
-		const itemsMap = [];
+		const itemsMap = {};
+		let items = [];
 
 		if (this.props.schema.enum) {
-			(this.props.options.enumOptions || []).forEach((o) => {
-				itemsMap[o.value] = o.label;
-			});
+			items = this.props.options.enumOptions;
 		} else if (this.props.formContext.fetchItems) {
-			this.props.formContext.fetchItems(this.props.schema.title).forEach((t) => {
-				if (typeof t === 'object') {
-					itemsMap[t.value] = t.label;
-				} else {
-					itemsMap[t] = t;
-				}
-			});
+			items = this.props.formContext.fetchItems(this.props.schema.title);
 		}
+
+		(items || []).forEach((item) => {
+			Object.assign(itemsMap, getValueLabelPair(item));
+		});
 
 		this.setState({ itemsMap });
 	}
@@ -182,11 +188,7 @@ class DatalistWidget extends React.Component {
 			items = this.props.schema.enum;
 		} else if (this.props.formContext.fetchItems) {
 			this.props.formContext.fetchItems(this.props.schema.title).forEach((t) => {
-				if (typeof t === 'object') {
-					items.push(t.value);
-				} else {
-					items.push(t);
-				}
+				items.push(getValueLabelPair(t).value);
 			});
 		}
 
