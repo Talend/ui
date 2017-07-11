@@ -1,4 +1,4 @@
-# Checkboxes
+# Buttons
 
 This widget allows you to render a select box input.
 
