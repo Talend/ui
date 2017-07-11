@@ -1,10 +1,37 @@
-{
-  "jsonSchema": {
+# Checkboxes
+
+This widget allows you to render a select box input.
+
+**Json Schema**
+
+The json schema is not impacted be cause there is no value associated to a button.
+
+```json
+  {
     "type": "object",
     "title": "Comment",
     "properties": {}
-  },
-  "uiSchema": [
+  }
+```
+
+**UI Schema**
+
+| Property for a single button | Description |
+|---|---|
+| widget | "button" |
+| title | The button text |
+| bsStyle | The bootstrap style to apply |
+| triggers | List of triggers types. Only the first one is triggered (for now) |
+| type | The button type :<br>"reset" - restore the form values to initial values<br>"button" - perform the trigger<br>"submit" - submit the form |
+
+| Property for a set of buttons | Description |
+|---|---|
+| widget | "buttons" |
+| items | An array of button definitions |
+| items[].position | Default: "left". Set it to "right" to align it to right |
+
+```json
+  [
     {
       "key": "check",
       "title": "Check me",
@@ -62,6 +89,9 @@
         }
       ]
     }
-  ],
-  "properties": {}
-}
+  ]
+```
+
+**Result**
+
+![Buttons](screenshot.png)
