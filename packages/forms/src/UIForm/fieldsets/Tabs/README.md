@@ -28,7 +28,7 @@ This widget allows you to group your fields into tabs.
 
 | Property | Description |
 |---|---|
-| widget | Value : "tabs" |
+| widget | Value : `tabs` |
 | title | The title to display above fields and on the tab |
 | items | Array of widget definitions |
 

@@ -6,7 +6,7 @@ This widget allows you to render a text/number input.
 
 | Property | Description |
 |---|---|
-| type | "string" or "number" |
+| type | `string` or `number` |
 
 ```json
 {
@@ -22,14 +22,14 @@ This widget allows you to render a text/number input.
 
 **UI Schema**
 
-| Property | Description |
-|---|---|
-| widget | Value : "text" (or undefined, because this is the default) |
-| title | The title to display above field |
-| autoFocus | Default: false |
-| disabled | Default: false |
-| placeholder | Text to display as placeholder |
-| readOnly | Default: false |
+| Property | Description | Default |
+|---|---|---|
+| widget | Value : `text` (or undefined, because this is the default) |  |
+| title | The title to display above field |  |
+| autoFocus | Focus on input on render | `false` |
+| disabled | Disable the input | `false` |
+| placeholder | Text to display as placeholder |  |
+| readOnly | Set the input as non modifiable | `false` |
 
 ```json
 [

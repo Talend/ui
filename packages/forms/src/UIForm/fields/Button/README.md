@@ -4,7 +4,7 @@ This widget allows you to render buttons.
 
 **Json Schema**
 
-The json schema is not impacted be cause there is no value associated to a button.
+The json schema is not impacted because there is no value associated to a button.
 
 ```json
 {
@@ -18,17 +18,17 @@ The json schema is not impacted be cause there is no value associated to a butto
 
 | Property for a single button | Description |
 |---|---|
-| widget | "button" |
+| widget | `button` |
 | title | The button text |
 | bsStyle | The bootstrap style to apply |
-| triggers | List of triggers types. Only the first one is triggered (for now) |
-| type | The button type :<br>"reset" - restore the form values to initial values<br>"button" - perform the trigger<br>"submit" - submit the form |
+| triggers | List of trigger types. Only the first one is triggered (for now) |
+| type | The button type :<br>`reset` - restore the form values to initial values<br>`button` - perform the trigger<br>`submit` - submit the form |
 
 | Property for a set of buttons | Description |
 |---|---|
-| widget | "buttons" |
+| widget | `buttons` |
 | items | An array of button definitions |
-| items[].position | Default: "left". Set it to "right" to align it to right |
+| items[].position | Default: `left`. Set it to `right` to align it to right |
 
 ```json
 [

@@ -6,12 +6,12 @@ This widget allows you to render a select box input.
 
 | Property of a single value | Description |
 |---|---|
-| type | "string" |
+| type | `string` |
 | enum | Possible values |
 
 | Property of an array of value | Description |
 |---|---|
-| type | "array" |
+| type | `array` |
 | items.type | Type of the items |
 | items.enum | Possible values |
 | uniqueItems | Must be true, indicates that the items are unique in the array |
@@ -58,14 +58,14 @@ This widget allows you to render a select box input.
 
 **UI Schema**
 
-| Property | Description |
-|---|---|
-| widget | "select". It is mandatory for type array (the default array widget is checkboxes) |
-| title | The title to display above field |
-| autoFocus | Default: false |
-| disabled | Default: false |
-| readOnly | Default: false |
-| titleMap | A mapping of value/label to display |
+| Property | Description | Default |
+|---|---|---|
+| widget | `select`. It is mandatory for type array (the default array widget is checkboxes) |  |
+| title | The title to display above field |  |
+| autoFocus | Focus on input on render | `false` |
+| disabled | Disable the input | `false` |
+| readOnly | Set the input as non modifiable | `false` |
+| titleMap | A mapping of value/label to display |  |
 
 ```json
 [

@@ -6,7 +6,7 @@ This widget allows you to render radios input.
 
 | Property | Description |
 |---|---|
-| type | "string" |
+| type | `string` |
 | enum | Possible values |
 
 ```json
@@ -49,12 +49,21 @@ This widget allows you to render radios input.
 
 | Property | Description |
 |---|---|
-| widget | "radios" |
+| widget | `radios` |
 | title | The title to display above field |
-| autoFocus | Default: false |
-| disabled | Default: false |
-| inline | Default: false. Display the radio on 1 line |
+| autoFocus | Default: `false` |
+| disabled | Default: `false` |
+| inline | Default: `false`. Display the radio on 1 line |
 | titleMap | A mapping of value/label to display |
+
+| Property | Description | Default |
+|---|---|---|
+| widget | `radios` |  |
+| title | The title to display above field |  |
+| autoFocus | Focus on input on render | `false` |
+| disabled | Disable the input | `false` |
+| inline | Display the radio on 1 line | `false` |
+| titleMap | A mapping of value/label to display |  |
 
 ```json
 [

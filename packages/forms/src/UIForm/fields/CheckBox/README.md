@@ -6,11 +6,11 @@ This widget allows you to render checkboxes input.
 
 | Property for single checkbox | Description |
 |---|---|
-| type | "boolean" |
+| type | `boolean` |
 
 | Property for multiple checkboxes | Description |
 |---|---|
-| type | "array" |
+| type | `array` |
 | items.type | Type of the items |
 | items.enum | Possible values |
 
@@ -52,12 +52,12 @@ This widget allows you to render checkboxes input.
 
 **UI Schema**
 
-| Property | Description |
-|---|---|
-| title | The title to display above field |
-| autoFocus | Default: false |
-| disabled | Default: false |
-| titleMap | A mapping of value/label to display |
+| Property | Description | Default |
+|---|---|---|
+| title | The title to display next to the field |  |
+| autoFocus | Focus on input on render | `false` |
+| disabled | Disable the input | `false` |
+| titleMap | A mapping of value/label to display |  |
 
 ```json
 [

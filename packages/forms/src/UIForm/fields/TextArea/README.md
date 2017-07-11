@@ -17,15 +17,15 @@ This widget allows you to render a textarea for a string field.
 
 **UI Schema**
 
-| Property | Description |
-|---|---|
-| widget | Value : "textarea" |
-| title | The title to display above field |
-| autoFocus | Default: false |
-| disabled | Default: false |
-| placeholder | Text to display as placeholder |
-| readOnly | Default: false |
-| rows | Number of rows |
+| Property | Description | Default |
+|---|---|---|
+| widget | Value : `textarea` |  |
+| title | The title to display above field |  |
+| autoFocus | Focus on input on render | `false` |
+| disabled | Disable the input | `false` |
+| placeholder | Text to display as placeholder |  |
+| readOnly | Set the input as non modifiable | `false` |
+| rows | Number of rows |  |
 
 ```json
 [

@@ -28,7 +28,7 @@ This widget allows you to group your fields into fieldsets.
 
 | Property | Description |
 |---|---|
-| widget | Value : "fieldset" |
+| widget | Value : `fieldset` |
 | title | The title to display above fieldset |
 | items | Array of widget definitions |
 
