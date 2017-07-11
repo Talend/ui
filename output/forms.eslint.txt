@@ -7,22 +7,45 @@ Scoping to packages that match 'react-talend-forms'
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  547:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  555:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  556:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  559:3  error  Prop type `array` is forbidden   react/forbid-prop-types
-  565:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  585:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  612:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  613:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  633:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  634:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  334:9  error  'Component' is already declared in the upper scope  no-shadow
+  557:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  565:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  566:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  569:3  error  Prop type `array` is forbidden                      react/forbid-prop-types
+  575:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  588:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  595:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  622:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  623:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  643:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
+  644:3  error  Prop type `object` is forbidden                     react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/CustomObjectField.js
+   2:16  error  'IconsProvider' is defined but never used           no-unused-vars
+  24:40  error  'formData' is missing in props validation           react/prop-types
+  25:15  error  'onChange' is missing in props validation           react/prop-types
+  29:30  error  'schema' is missing in props validation             react/prop-types
+  37:19  error  'formData' is missing in props validation           react/prop-types
+  38:27  error  'formData' is missing in props validation           react/prop-types
+  38:36  error  'formData.isClosed' is missing in props validation  react/prop-types
+  40:15  error  'onChange' is missing in props validation           react/prop-types
+  45:5   error  'uiSchema' is missing in props validation           react/prop-types
+  46:5   error  'formData' is missing in props validation           react/prop-types
+  47:5   error  'errorSchema' is missing in props validation        react/prop-types
+  48:5   error  'idSchema' is missing in props validation           react/prop-types
+  49:5   error  'name' is missing in props validation               react/prop-types
+  50:5   error  'required' is missing in props validation           react/prop-types
+  51:5   error  'disabled' is missing in props validation           react/prop-types
+  52:5   error  'readonly' is missing in props validation           react/prop-types
+  53:5   error  'onBlur' is missing in props validation             react/prop-types
+  54:5   error  'registry' is missing in props validation           react/prop-types
+  58:45  error  'schema' is missing in props validation             react/prop-types
+  96:30  error  'name' is already declared in the upper scope       no-shadow
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
   59:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -30,7 +53,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
-  193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  136:18  error  'fields' is missing in props validation  react/prop-types
+  197:3   error  Prop type `object` is forbidden          react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
+  8:10  error  'items' is missing in props validation       react/prop-types
+  8:17  error  'canAdd' is missing in props validation      react/prop-types
+  8:25  error  'onAddClick' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -62,7 +91,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 59 problems (59 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
