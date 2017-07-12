@@ -31,7 +31,7 @@ const VERSIONS = {
 	'react-addons-css-transition-group': '15.5.2',
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
-	'react-i18next': '^1.8.0',
+	'react-i18next': '^4.3.0',
 	'react-redux': '5.0.5',
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',

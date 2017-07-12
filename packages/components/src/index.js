@@ -94,6 +94,7 @@ import Status from './Status';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
+import TranslateWrapper from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
@@ -130,6 +131,7 @@ export {
 	TabBar,
 	Toggle,
 	TooltipTrigger,
+	TranslateWrapper,
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
