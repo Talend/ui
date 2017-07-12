@@ -136,9 +136,10 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+
 	renderItemsContainer.propTypes = {
 		children: PropTypes.element,
-	}
+	};
 
 	function renderNoMatch({ ...containerProps }) {
 		return (
@@ -185,7 +186,7 @@ decoratedStories.add('Datalist', () => {
 			{
 				value: 'testkey3',
 				label: 'Test Value 3',
-			}
+			},
 		];
 	}
 	const schema = {

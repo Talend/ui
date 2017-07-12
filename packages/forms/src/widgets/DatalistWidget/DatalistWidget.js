@@ -119,7 +119,8 @@ class DatalistWidget extends React.Component {
 		if (options.restricted && !included) {
 			this.resetValue();
 		} else if ((options.restricted && included) || !options.restricted) {
-			this.props.onChange(this.state.value);
+			const { value } = this.state;
+			this.props.onChange(this.processValue(value));
 			this.resetSuggestions();
 		}
 	}
@@ -173,7 +174,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
-		this.setState({ value });
+		this.setState({ value: this.processValue(value) });
 	}
 
 	getItems() {
@@ -187,6 +188,13 @@ class DatalistWidget extends React.Component {
 			return formContext.fetchItems(schema.title);
 		}
 		return [];
+	}
+
+	processValue(value) {
+		if (value && value.length) {
+			return value;
+		}
+		return undefined;
 	}
 
 	resetValue() {

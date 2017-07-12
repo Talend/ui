@@ -1,5 +1,34 @@
 {
   "jsonSchema": {
+    "definitions": {
+      "marvelList": {
+        "type": "string",
+        "enum": [
+          "hero1",
+          "hero2",
+          "hero3",
+          "hero4",
+          "hero5",
+          "hero6",
+          "hero7",
+          "hero8",
+          "hero9",
+          "hero10"
+        ],
+        "enumNames": [
+          "Captain America",
+          "Daredevil",
+          "Deadpool",
+          "Hulk",
+          "Iron Man",
+          "Luke Cage",
+          "Punisher",
+          "Spiderman",
+          "Thor",
+          "Wolverine"
+        ]
+      }
+    },
     "title": "Marvel characters",
     "type": "object",
     "properties": {
@@ -8,37 +37,24 @@
         "type": "string",
         "enum": [
           "Captain America",
+          "Daredevil",
           "Deadpool",
-          "Spiderman"
+          "Hulk",
+          "Iron Man",
+          "Luke Cage",
+          "Punisher",
+          "Spiderman",
+          "Thor",
+          "Wolverine"
         ]
       },
       "b": {
-        "title": "restricted enumNames",
-        "type": "string",
-        "enum": [
-          "h1",
-          "h2",
-          "h3"
-        ],
-        "enumNames": [
-          "Captain America",
-          "Deadpool",
-          "Spiderman"
-        ]
+        "title": "restricted enum+enumNames",
+        "$ref": "#/definitions/marvelList"
       },
       "c": {
-        "title": "enumNames",
-        "type": "string",
-        "enum": [
-          "h1",
-          "h2",
-          "h3"
-        ],
-        "enumNames": [
-          "Captain America",
-          "Deadpool",
-          "Spiderman"
-        ]
+        "title": "enum+enumNames",
+        "$ref": "#/definitions/marvelList"
       }
     },
     "required": [
@@ -48,7 +64,7 @@
   },
   "properties": {
     "a": "Spiderman",
-    "b": "h2"
+    "b": "hero2"
   },
   "uiSchema": {
     "a": {
