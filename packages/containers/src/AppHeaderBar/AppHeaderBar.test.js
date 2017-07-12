@@ -33,7 +33,7 @@ describe('AppHeaderBar', () => {
 		// given
 		const dispatch = jest.fn();
 		const connected = mapDispatchToProps(dispatch);
-		expect(connected.brandLink.onClick).not.toBe(undefined);
+		expect(connected.brandLink.onClick).toBeDefined();
 		expect(typeof connected.brandLink.onClick).toBe('function');
 
 		// when
