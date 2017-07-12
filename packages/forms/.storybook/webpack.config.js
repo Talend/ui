@@ -8,34 +8,37 @@
 // similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
+const SASS_DATA = "@import '~bootstrap-talend-theme/src/theme/guidelines';";
+const autoprefixer = require('autoprefixer');
 
-module.exports = {
-	plugins: [],
-	module: {
-		loaders: [
-			{
-				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-				loader: 'url-loader',
-				options: {
-					limit: 50000,
-					mimetype: 'application/font-woff',
-					name: './fonts/[name].[ext]'
-				}
-			},
-			{
-				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
-			},
-			{ test: /\.json$/, loader: 'json' },
-		],
-	},
-	postcss: [
-		require('autoprefixer')({
-			browsers: ['last 2 versions']
-		})
-	],
-	sassLoader: {
+module.exports = (storybookBaseConfig) => {
+	storybookBaseConfig.plugins.pop();
+
+	storybookBaseConfig.module.loaders.push({
+		test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+		loader: 'url-loader',
+		options: {
+			limit: 50000,
+			mimetype: 'application/font-woff',
+			name: './fonts/[name].[ext]',
+		},
+	}, {
+		test: /\.scss$/,
+		loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
+	}, {
+		test: /\.json$/,
+		loader: 'json',
+	});
+
+	storybookBaseConfig.postcss = [
+		autoprefixer({
+			browsers: ['last 2 versions'],
+		}),
+	];
+
+	storybookBaseConfig.sassLoader = {
 		data: SASS_DATA,
-	},
+	};
+
+	return storybookBaseConfig;
 };
