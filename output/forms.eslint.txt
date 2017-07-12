@@ -47,9 +47,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  233:17  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -85,5 +82,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 55 problems (55 errors, 0 warnings)
+✖ 54 problems (54 errors, 0 warnings)
 
