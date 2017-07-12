@@ -116,11 +116,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-<<<<<<< HEAD
-✖ 59 problems (59 errors, 0 warnings)
-=======
-✖ 55 problems (55 errors, 0 warnings)
->>>>>>> 76b664b5185ae781910839077b722e184adf4624
+✖ 80 problems (80 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
