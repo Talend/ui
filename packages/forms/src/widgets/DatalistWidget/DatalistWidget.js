@@ -239,7 +239,7 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		const selectedItemLabel = this.getLabel(this.state.items[itemIndex]);
+		const selectedItemLabel = this.getLabel(selectedItem);
 
 		if (selectedItemLabel && selectedItemLabel !== this.state.value) {
 			this.setValue(selectedItem);
