@@ -1,5 +1,3 @@
-Lerna v2.0.0-beta.36
-Scoping to packages that match 'talend-log'
 
 > talend-log@0.94.0 lint:es /home/travis/build/Talend/ui/packages/logging
 > eslint --config .eslintrc --ext .js src
