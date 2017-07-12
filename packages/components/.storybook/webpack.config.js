@@ -7,9 +7,12 @@
 // to "React Create App". This only has babel loader to load JavaScript.
 const SASS_DATA = "@import '~bootstrap-talend-theme/src/theme/guidelines';";
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 module.exports = (storybookBaseConfig) => {
-	storybookBaseConfig.plugins.pop();
+	const uglifyIndex = storybookBaseConfig.plugins.findIndex(
+		element => element instanceof webpack.optimize.UglifyJsPlugin);
+	storybookBaseConfig.plugins.splice(uglifyIndex, 1);
 
 	storybookBaseConfig.module.loaders.push({
 			test: /\.js?$/,
