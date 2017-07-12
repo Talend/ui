@@ -1,5 +1,3 @@
-Lerna v2.0.0-beta.36
-Scoping to packages that match 'react-talend-forms'
 
 > react-talend-forms@0.94.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
@@ -7,17 +5,17 @@ Scoping to packages that match 'react-talend-forms'
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  547:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  555:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  556:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  559:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  557:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   565:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  585:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  612:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  613:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  633:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  634:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  566:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  569:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  575:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  588:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  595:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  622:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  623:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  643:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  644:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -43,11 +41,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  35:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  36:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   37:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  74:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  75:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  39:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  77:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
   233:17  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
@@ -89,6 +87,3 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 ✖ 55 problems (55 errors, 0 warnings)
 
-Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:es
