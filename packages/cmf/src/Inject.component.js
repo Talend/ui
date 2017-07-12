@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import api from '../api';
+import api from './api';
 
 const getComponentFrom = api.route.getComponentFromRegistry;
 
