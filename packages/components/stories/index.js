@@ -12,6 +12,7 @@ import './ConfirmDialog';
 import './Checkbox';
 import './Dialog';
 import './Drawer';
+import './Emphasis';
 import './Enumeration';
 import './JSONSchemaRenderer';
 import './ListView';

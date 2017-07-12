@@ -14204,29 +14204,33 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               1
+                              <span>
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 1
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               tempus ardore.
+                              <span>
+                                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 tempus ardore.
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -14243,41 +14247,45 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               2 
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                              s e
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                              phants e
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                              mentaires ont des ai
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
+                              <span>
+                                tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 2 
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                s e
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                phants e
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                mentaires ont des ai
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                              <span>
+                                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -14326,24 +14334,28 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               3
+                              <span>
+                                tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 3
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                              at.
+                              <span>
+                                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                at.
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -14392,18 +14404,22 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               4
+                              <span>
+                                tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 4
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
+                              <span>
+                                description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -14420,18 +14436,22 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               5
+                              <span>
+                                tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 5
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
+                              <span>
+                                description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -14448,18 +14468,22 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             <span
                               className={undefined}
                             >
-                              tit
-                              <em
-                                className={undefined}
-                              >
-                                le
-                              </em>
-                               6
+                              <span>
+                                tit
+                                <em
+                                  className={undefined}
+                                >
+                                  le
+                                </em>
+                                 6
+                              </span>
                             </span>
                             <p
                               className={undefined}
                             >
-                              description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
+                              <span>
+                                description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
+                              </span>
                             </p>
                           </div>
                         </li>

@@ -4,6 +4,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
+import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export const renderInputComponent = (props) => {
@@ -130,32 +131,15 @@ export const renderSectionTitle = (section) => {
 	return null;
 };
 
-function emphasise(text, value) {
-	if (!text) {
-		return '';
-	}
-	if (!value) {
-		return [text];
-	}
-
-	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
-	return parts.map((part) => {
-		if (value && part.toUpperCase() === value.toUpperCase()) {
-			return <em className={theme['highlight-match']}>{part}</em>;
-		}
-		return part;
-	});
-}
-
 export const renderItem = (item, { value }) => {
 	const title = item.title ? item.title.trim() : '';
 	return (
 		<div className={theme.item} title={title}>
 			<span className={theme['item-title']}>
-				{ emphasise(title, value) }
+				<Emphasis value={value} text={title} />
 			</span>
 			<p className={theme['item-description']}>
-				{ emphasise(item.description, value) }
+				<Emphasis value={value} text={item.description} />
 			</p>
 		</div>
 	);
