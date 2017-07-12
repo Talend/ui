@@ -29,8 +29,16 @@ export function mapStateToProps(state) {
 	return state.cmf.settings.views.appheaderbar || {};
 }
 
+/**
+ * If the AppHeaderBar has a brand link configuration,
+ * we inject the onClick from mapDispatchToProps in this configuration
+ */
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, dispatchProps, stateProps, ownProps);
+	const props = {
+		...dispatchProps,
+		...stateProps,
+		...ownProps,
+	};
 	if (stateProps.brandLink) {
 		props.brandLink.onClick = dispatchProps.brandLink.onClick;
 	}
