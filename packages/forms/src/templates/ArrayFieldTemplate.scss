@@ -22,6 +22,11 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			button {
 				background: transparent;
 				border: 0;
+				color: $gray-light;
+				
+				&:hover {
+					color: $gray-dark;
+				}
 			}
 		}
 

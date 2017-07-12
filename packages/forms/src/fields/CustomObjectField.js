@@ -83,7 +83,7 @@ function createCustomObjectField(title) {
 							required={required}
 							formContext={formContext}
 						/>}
-					<button onClick={this.toggle} className="toggle">
+					<button title="Collapse" onClick={this.toggle} className="toggle">
 						<Icon name="talend-caret-down" transform={iconTransform} />
 					</button>
 					{(uiSchema['ui:description'] || schema.description) &&

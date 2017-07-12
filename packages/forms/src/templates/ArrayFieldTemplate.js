@@ -17,6 +17,7 @@ function ArrayFieldTemplate(props) {
 								<button
 									className={theme.delete}
 									onClick={element.onDropIndexClick(element.index)}
+									title="Delete"
 								>
 									<Icon name="talend-trash" />
 								</button>
@@ -26,6 +27,7 @@ function ArrayFieldTemplate(props) {
 											element.index,
 											element.index - 1,
 										)}
+										title="Move Up"
 									>
 										<Icon name="talend-caret-down" transform="flip-vertical" />
 									</button>}
@@ -35,6 +37,7 @@ function ArrayFieldTemplate(props) {
 											element.index,
 											element.index + 1,
 										)}
+										title="Move Down"
 									>
 										<Icon name="talend-caret-down" />
 									</button>}
