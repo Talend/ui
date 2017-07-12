@@ -4,11 +4,11 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const LISTVIEW_SEARCH_ACTION = 'LISTVIEW_SEARCH_ACTION';
 
 export function onSearchHandler() {
-	this.setState({
+	this.setState(prevState => ({
 		headerInput: this.searchInputsActions,
-		searchCriteria: this.state.loadingSearchCriteria,
+		searchCriteria: prevState.loadingSearchCriteria,
 		loadingSearchCriteria: '',
-	});
+	}));
 }
 
 export function onInputChange(event, value) {
@@ -17,38 +17,45 @@ export function onInputChange(event, value) {
 	}
 	this.timerSearch = setTimeout(() => {
 		this.timerSearch = null;
-		if (this.callActionHandler(
+		if (
+			this.callActionHandler(
 				LISTVIEW_SEARCH_ACTION,
 				value.value,
-				onSearchHandler.bind(this)
-			)) {
+				onSearchHandler.bind(this),
+			)
+		) {
 			this.setState({
 				loadingSearchCriteria: value.value,
 				headerInput: this.loadingInputsActions,
 			});
 		} else {
 			const searchCriteria = value.value;
-			const newDisplayedItems = this.state.items.filter(
-				item => item.label.toLowerCase().includes(searchCriteria.toLowerCase())
-			);
-			const toggleAllChecked = !!newDisplayedItems.length &&
-				newDisplayedItems.length === newDisplayedItems.filter(i => i.checked).length;
-			this.setState({
-				toggleAllChecked,
-				searchCriteria,
-				displayedItems: newDisplayedItems,
+			this.setState(prevState => {
+				const newDisplayedItems = prevState.items.filter(item =>
+					item.label
+						.toLowerCase()
+						.includes(searchCriteria.toLowerCase()),
+				);
+				const toggleAllChecked =
+					!!newDisplayedItems.length &&
+					newDisplayedItems.length ===
+						newDisplayedItems.filter(i => i.checked).length;
+				return {
+					toggleAllChecked,
+					searchCriteria,
+					displayedItems: newDisplayedItems,
+				};
 			});
 		}
 	}, 400);
 }
 
 export function onToggleAll() {
-	const checked = !this.state.toggleAllChecked;
-	const items = this.state.items;
-	const displayedItems = this.state.displayedItems;
+	this.setState(prevState => {const checked = !prevState.toggleAllChecked;
+	const {items , displayedItems }= prevState;
 	const newItems = items.map((item) => {
-		const displayedItem = displayedItems.find(i => i.index === item.index);
-		if (displayedItem) {
+		const displayedItem = displayedItems.find(i => i.index === item.index,
+		);if (displayedItem) {
 			return {
 				...displayedItem,
 				checked,
@@ -56,16 +63,16 @@ export function onToggleAll() {
 		}
 		return item;
 	});
-	const newDisplayedItems = this.state.displayedItems.map(displayedItem => (
-		{
+	const newDisplayedItems = prevState.displayedItems.map(displayedItem => ({
+
 			...displayedItem,
 			checked,
-		}
-	));
-	this.setState({
+		}),
+	);
+	return{
 		toggleAllChecked: checked,
 		items: newItems,
-		displayedItems: newDisplayedItems,
+		displayedItems: newDisplayedItems,};
 	}, this.setFormData.bind(this));
 }
 
@@ -80,22 +87,28 @@ export function onItemChange(item, event) {
 		return current;
 	}
 
-	const newDisplayedItems = this.state.displayedItems.map(itemUpdater);
-	this.setState({
-		toggleAllChecked: newDisplayedItems.length === newDisplayedItems.filter(i => i.checked).length,
-		items: this.state.items.map(itemUpdater),
-		displayedItems: newDisplayedItems,
+	this.setState(prevState => {
+		const newDisplayedItems = prevState.displayedItems.map(itemUpdater);
+		return {
+			toggleAllChecked: newDisplayedItems.length ===
+				newDisplayedItems.filter(i => i.checked).length,
+			items: prevState.items.map(itemUpdater),
+			displayedItems: newDisplayedItems,
+		};
 	}, this.setFormData.bind(this));
 }
 
 export function onAbortHandler() {
-	const items = this.state.items;
-	this.setState({
-		displayMode: DISPLAY_MODE_DEFAULT,
-		toggleAllChecked: items.length === items.filter(i => i.checked).length,
-		searchCriteria: null,
-		displayedItems: items,
-	}, this.setFormData.bind(this));
+	this.setState(
+		prevState => ({
+			displayMode: DISPLAY_MODE_DEFAULT,
+			toggleAllChecked: prevState.items.length ===
+				prevState.items.filter(i => i.checked).length,
+			searchCriteria: null,
+			displayedItems: prevState.items,
+		}),
+		this.setFormData.bind(this),
+	);
 }
 
 export function onAddKeyDown(event) {
