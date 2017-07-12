@@ -156,18 +156,18 @@ class MultiSelectTagWidget extends React.Component {
 		}
 		case keycode.codes.up: {
 			if (this.state.selectedIndex > 0) {
-				this.setState({
-					selectedIndex: this.state.selectedIndex - 1,
-				});
+				this.setState(prevState => ({
+					selectedIndex: prevState.selectedIndex - 1,
+				}));
 				this.scrollDropDownIfRequired(this.state.selectedIndex - 1, keycode.codes.up);
 			}
 			break;
 		}
 		case keycode.codes.down: {
 			if (this.state.selectedIndex < optionsToShow.length - 1) {
-				this.setState({
-					selectedIndex: this.state.selectedIndex + 1,
-				});
+				this.setState(prevState => ({
+					selectedIndex: prevState.selectedIndex + 1,
+				}));
 				this.scrollDropDownIfRequired(this.state.selectedIndex + 1, keycode.codes.down);
 			}
 			break;

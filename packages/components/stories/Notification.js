@@ -9,11 +9,18 @@ const icons = {
 	'talend-undo': talendIcons['talend-undo'],
 };
 
+function incrementStateCounter(state) {
+	return { counter: state.counter + 1 };
+}
+
+function decrementStateCounter(state) {
+	return { counter: state.counter - 1 };
+}
+
 class NotificationWrapper extends React.Component {
 	constructor() {
 		super();
-		this.notifications = [
-		];
+		this.notifications = [];
 		this.state = { counter: 1 };
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -27,14 +34,17 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState({	counter: this.state.counter + 1 });
+			this.setState(incrementStateCounter);
 		}, 500);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-2',
 					type: 'error',
-					message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
+					message: [
+						'This is a feedback of your operation2',
+						'This is a feedback of your operation1, This is a feedback of your operation1',
+					],
 					action: {
 						label: 'undo',
 						icon: 'talend-undo',
@@ -42,17 +52,20 @@ class NotificationWrapper extends React.Component {
 					},
 				},
 			]);
-			this.setState({	counter: this.state.counter + 1 });
+			this.setState(incrementStateCounter);
 		}, 1000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-3',
 					type: 'warning',
-					message: ['This is a feedback of your operation3', 'details'],
+					message: [
+						'This is a feedback of your operation3',
+						'details',
+					],
 				},
 			]);
-			this.setState({	counter: this.state.counter + 1 });
+			this.setState(incrementStateCounter);
 		}, 2000);
 		setTimeout(() => {
 			this.notifications = this.notifications.concat([
@@ -62,14 +75,14 @@ class NotificationWrapper extends React.Component {
 					message: 'This is a feedback of your operation4',
 				},
 			]);
-			this.setState({	counter: this.state.counter + 1 });
+			this.setState(incrementStateCounter);
 		}, 2500);
 	}
 	leaveFn(notification) {
 		const index = this.notifications.indexOf(notification);
 		if (index !== -1) {
 			this.notifications.splice(index, 1);
-			this.setState({	counter: this.state.counter - 1 });
+			this.setState(decrementStateCounter);
 		}
 	}
 	render() {
@@ -82,22 +95,21 @@ class NotificationWrapper extends React.Component {
 	}
 }
 
-storiesOf('Notification', module)
-	.addWithInfo('default', () => (
-		<nav>
-			<h1>Notification</h1>
-			<IconsProvider defaultIcons={icons} />
-			<h2>Definition</h2>
-			<p>
-				The Notification component display notification
-				<ul>
-					<li>Type: info, error, warning</li>
-					<li>Slide in, auto slide out after timeout(except error)</li>
-					<li>Timerbar show remaining time before slide out</li>
-					<li>Hover or click to pin</li>
-				</ul>
-			</p>
-			<h2>Examples</h2>
-			<NotificationWrapper />
-		</nav>
-	));
+storiesOf('Notification', module).addWithInfo('default', () => (
+	<nav>
+		<h1>Notification</h1>
+		<IconsProvider defaultIcons={icons} />
+		<h2>Definition</h2>
+		<p>
+			The Notification component display notification
+			<ul>
+				<li>Type: info, error, warning</li>
+				<li>Slide in, auto slide out after timeout(except error)</li>
+				<li>Timerbar show remaining time before slide out</li>
+				<li>Hover or click to pin</li>
+			</ul>
+		</p>
+		<h2>Examples</h2>
+		<NotificationWrapper />
+	</nav>
+));
