@@ -35,17 +35,22 @@ function defaultRenderNoMatch() {
  * Convert a datalist item as a value/label pair if needed
  */
 function getValueLabelPair(item) {
-	return typeof item === 'object'
-	? { [item.value]: item.label }
-	: { [item]: item };
+	if (typeof item === 'object') {
+		return { [item.value]: item.label };
+	}
+	return { [item]: item };
 }
 
 /**
  * Returns the value/label map from given items
  */
 function getItemsMap(items) {
+	if (!items || !items.length) {
+		return {};
+	}
+
 	const itemsMap = {};
-	(items || []).forEach(item => Object.assign(itemsMap, getValueLabelPair(item)));
+	items.forEach(item => Object.assign(itemsMap, getValueLabelPair(item)));
 	return itemsMap;
 }
 
@@ -144,11 +149,10 @@ class DatalistWidget extends React.Component {
 
 	getLabel(value) {
 		const { itemsMap } = this.state;
+		const hasItems = itemsMap && Object.keys(itemsMap).length;
 
-		if (itemsMap && Object.keys(itemsMap).length) {
-			return Object.prototype.hasOwnProperty.call(itemsMap, value)
-				? itemsMap[value]
-				: value;
+		if (hasItems && Object.prototype.hasOwnProperty.call(itemsMap, value)) {
+			return itemsMap[value];
 		}
 		return value;
 	}
@@ -173,13 +177,14 @@ class DatalistWidget extends React.Component {
 	}
 
 	getItems() {
-		const props = this.props;
-		if (props.options && props.options.enumOptions) {
-			return props.options.enumOptions;
-		} else if (props.schema && props.schema.enum) {
-			return props.schema.enum;
-		} else if (props.formContext && props.formContext.fetchItems) {
-			return props.formContext.fetchItems(props.schema.title);
+		const { options, schema, formContext } = this.props;
+
+		if (options && options.enumOptions) {
+			return options.enumOptions;
+		} else if (schema && schema.enum) {
+			return schema.enum;
+		} else if (formContext && formContext.fetchItems) {
+			return formContext.fetchItems(schema.title);
 		}
 		return [];
 	}
@@ -190,10 +195,8 @@ class DatalistWidget extends React.Component {
 	}
 
 	initSuggestions(value) {
-		let keys = [];
-
 		const itemsMap = getItemsMap(this.getItems());
-		keys = Object.keys(itemsMap);
+		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(keys, value);
 
 		this.setState({
