@@ -6,7 +6,7 @@ jest.useFakeTimers();
 
 describe('Emphasis', () => {
 	const props = {
-		text: 'The quick brown fox jumps over the lazy dog',
+		text: 'The lazy quick brown fox jumps over the lazy dog',
 	};
 
 
@@ -15,7 +15,7 @@ describe('Emphasis', () => {
 		const wrapper = shallow(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(wrapper.html()).toBe('<span>The quick <em>brown</em> fox jumps over the lazy dog</span>');
+		expect(wrapper.html()).toBe('<span>The lazy quick <em>brown</em> fox jumps over the lazy dog</span>');
 	});
 
 	it('should be case insensitive ', () => {
@@ -31,7 +31,7 @@ describe('Emphasis', () => {
 		const wrapper = shallow(<Emphasis {...props} />);
 
 		// then
-		expect(wrapper.html()).toBe('<span>The quick brown fox jumps over the lazy dog</span>');
+		expect(wrapper.html()).toBe(`<span>${props.text}</span>`);
 	});
 
 	it('should not emphasise anything if the value is not part of the text', () => {
@@ -41,5 +41,13 @@ describe('Emphasis', () => {
 		// then
 		expect(wrapper.text()).toBe(props.text);
 		expect(wrapper.find('em').length).toBe(0);
+	});
+
+	it('should emphasise every occurences', () => {
+		// given
+		const wrapper = shallow(<Emphasis {...props} value="lazy" />);
+
+		// then
+		expect(wrapper.find('em').length).toBe(2);
 	});
 });
