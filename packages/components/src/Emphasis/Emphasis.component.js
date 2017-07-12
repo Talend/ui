@@ -10,9 +10,9 @@ function emphasise(text, value) {
 	}
 
 	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
-	return parts.map((part) => {
+	return parts.map((part, index) => {
 		if (value && part.toUpperCase() === value.toUpperCase()) {
-			return <em className={theme.highlight}>{part}</em>;
+			return <em key={index} className={theme.highlight}>{part}</em>;
 		}
 		return part;
 	});

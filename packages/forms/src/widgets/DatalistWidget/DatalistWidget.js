@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import Emphasis from 'react-talend-components/lib/Emphasis';
 import classnames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
@@ -56,28 +57,9 @@ function defaultRenderDatalistItemContainer(props) {
  * @param value
  */
 function renderDatalistItem(item, { value }) {
-	let emphasisedText = [item];
-	if (value) {
-		emphasisedText = [];
-		const regex = new RegExp(escapeRegexCharacters(value), 'gi');
-		const matchedValues = item.match(regex);
-		const restValues = item.split(regex);
-
-		for (let i = 0; i < restValues.length; i += 1) {
-			emphasisedText.push(restValues[i]);
-			if (matchedValues[i]) {
-				emphasisedText.push(
-					<em className={theme['highlight-match']}>
-						{matchedValues[i]}
-					</em>,
-				);
-			}
-		}
-	}
-
 	return (
 		<div className={classnames(theme.item, 'datalist-item')}>
-			{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
+			<Emphasis value={value} text={item} />
 		</div>
 	);
 }
@@ -230,7 +212,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		this.setState(prevState => {
+		this.setState((prevState) => {
 			let suggestions = getMatchingSuggestions(
 				prevState.initalItems,
 				value,
