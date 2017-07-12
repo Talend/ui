@@ -22,7 +22,7 @@ This widget allows you to columns containing widgets/fields.
       "type": "number"
     },
     "email": {
-      "type": "string",
+      "type": "string"
     },
     "comment": {
       "type": "string",
