@@ -27,7 +27,7 @@ if ! type jscodeshift > /dev/null
 then
     print_title "You will need jscodeshift to run this script, but it is not installed."
     echo "Please install it and run this script again"
-    echo "Execute : sudo npm install -g jscodeshift"
+    echo "Execute : npm install -g jscodeshift"
     exit 1
 fi
 
