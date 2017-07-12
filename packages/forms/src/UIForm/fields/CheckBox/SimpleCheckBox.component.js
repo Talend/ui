@@ -9,7 +9,7 @@ export default function SimpleCheckBox({ id, label, onChange, schema, value }) {
 					autoFocus={schema.autoFocus}
 					disabled={schema.disabled}
 					label={label}
-					onChange={event => onChange(event, schema, event.target.checked)}
+					onChange={event => onChange(event, { schema, value: event.target.checked })}
 					type="checkbox"
 					checked={value}
 				/>

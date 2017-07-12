@@ -30,10 +30,12 @@ export default function CheckBoxes(props) {
 						key={index}
 						label={item.name}
 						onChange={
-							(event, _, checked) => onChange(
+							(event, payload) => onChange(
 								event,
-								schema,
-								getValues(value, item.value, checked)
+								{
+									schema: payload.schema,
+									value: getValues(value, item.value, payload.value),
+								}
 							)
 						}
 						schema={schema}

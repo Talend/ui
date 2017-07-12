@@ -9,6 +9,7 @@
     "prepublish": "webpack -p",
     "start": "webpack-dev-server --port 1337",
     "test": "echo no test for bootstrap-talend-theme",
+    "test:cov": "echo no test for bootstrap-talend-theme",
     "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
     "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
     "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
@@ -50,5 +51,5 @@
   "dependencies": {
     "bootstrap-sass": "3.3.7"
   },
-  "version": "0.93.0"
+  "version": "0.94.0"
 }
