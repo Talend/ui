@@ -44,7 +44,7 @@ function ArrayFieldTemplate(props) {
 						</div>
 					</div>,
 				)}
-			{canAdd && <button type="button" onClick={onAddClick} />}
+			{canAdd && <button className="btn btn-info" type="button" onClick={onAddClick} >NEW ELEMENT</button>}
 		</div>
 	);
 }
