@@ -257,7 +257,6 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).toBeCalled();
-		console.log('[NC]  onChange.mock.calls: ', onChange.mock.calls);
 		expect(onChange.mock.calls[0][0]).toBe(value);
 	});
 
@@ -281,5 +280,62 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).not.toBeCalled();
+	});
+
+	it('should display labels when available', () => {
+		const options = {
+			enumOptions: [
+				{
+					value: 'key1',
+					label: 'Label A',
+				},
+				{
+					value: 'key2',
+					label: 'Label B',
+				},
+			],
+		};
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+			/>
+		);
+
+		// when
+		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
+
+		// then
+		expect(wrapper.find('li').at(0).text()).toBe('Label A');
+		expect(wrapper.find('li').at(1).text()).toBe('Label B');
+	});
+
+
+	it('should return keys if in value/label mode', () => {
+		const onChange = jest.fn();
+		const options = {
+			enumOptions: [
+				{
+					value: 'key1',
+					label: 'Label A',
+				},
+			],
+		};
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+				onChange={onChange}
+			/>
+		);
+
+		// when
+		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
+		wrapper.find('li').at(0).simulate('mouseDown');
+
+		// then
+		expect(onChange).toBeCalledWith('key1');
 	});
 });
