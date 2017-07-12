@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Emphasis from './Emphasis.component';
 
-jest.useFakeTimers();
 
 describe('Emphasis', () => {
 	const props = {
