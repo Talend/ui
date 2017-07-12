@@ -104,7 +104,7 @@ class DatalistWidget extends React.Component {
 	componentWillMount() {
 		this.setState({
 			itemsMap: getItemsMap(this.getItems()),
-		})
+		});
 	}
 
 	onBlur() {
