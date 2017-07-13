@@ -31,7 +31,7 @@ public class Component {
      * @param name Component name
      * @param selector Component CSS selector
      */
-    Component(WebDriver driver, String name, String selector) {
+    public Component(WebDriver driver, String name, String selector) {
         LOGGER.info("Component " + name + " " + selector);
         this.driver = driver;
         this.name = name;

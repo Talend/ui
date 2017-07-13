@@ -6,16 +6,28 @@ jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
 		/* eslint-disable */
 		<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div>
-		/* eslint-enable */
+	/* eslint-enable */
 );
 
 const EMPTY_LIST_MESSAGE = 'This list is empty.';
 const NO_RESULT_MESSAGE = 'No result found.';
 
+
+function getValueLabelPair(item) {
+	if (typeof item === 'object') {
+		return item;
+	}
+
+	return {
+		label: item,
+		value: item,
+	};
+}
+
 function generateProps(values, selected) {
 	return {
 		options: {
-			enumOptions: values.map(v => ({ label: v, value: v })),
+			enumOptions: values.map(getValueLabelPair),
 		},
 		id: 'root_documents',
 		multiple: true,
@@ -231,5 +243,68 @@ describe('ListViewWidget', () => {
 
 		// then
 		expect(wrapper.find('span').at(0).text()).toBe(EMPTY_LIST_MESSAGE);
+	});
+
+	describe('enumOptions management', () => {
+		it('should display labels if available', () => {
+			// given
+			const values = [
+				{ value: 'key1', label: 'Label 1' },
+				{ value: 'key2', label: 'Label 2' },
+				{ value: 'key3', label: 'Label 3' },
+				{ value: 'key4', label: 'Label 4' },
+			];
+			const wrapper = mount(
+				<ListViewWidget
+					{...generateProps(values)}
+				/>
+			);
+
+			// then
+			values.forEach((v, i) => {
+				const node = wrapper.find(`#${i + 1}-item`).find('.tc-listview-item-label').at(0);
+				expect(node.text()).toBe(v.label);
+			});
+		});
+
+		it('should display key if no labels are availables', () => {
+			// given
+			const values = [
+				'key1',
+				'key2',
+				'key3',
+				'key4',
+			];
+			const wrapper = mount(
+				<ListViewWidget
+					{...generateProps(values)}
+				/>
+			);
+
+			// then
+			values.forEach((v, i) => {
+				const node = wrapper.find(`#${i + 1}-item`).find('.tc-listview-item-label').at(0);
+				expect(node.text()).toBe(v);
+			});
+		});
+
+		it('should returns keys even if label are provided', () => {
+			// given
+			const evt = { target: { checked: true } };
+			const values = [{ value: 'key1', label: 'Label 1' }];
+			const handler = jest.fn();
+			const wrapper = mount(
+				<ListViewWidget
+					onChange={handler}
+					{...generateProps(values)}
+				/>
+			);
+
+			// when
+			wrapper.find('#checkbox-0-item').at(0).simulate('change', evt);
+
+			// then
+			expect(handler).toBeCalledWith(['key1']);
+		});
 	});
 });

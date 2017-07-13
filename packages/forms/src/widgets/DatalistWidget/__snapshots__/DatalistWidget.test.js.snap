@@ -663,7 +663,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         "onKeyDown": [Function],
         "placeholder": undefined,
         "required": true,
-        "value": "",
+        "value": undefined,
       }
     }
     itemProps={
@@ -679,7 +679,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
     renderItem={[Function]}
     renderItemData={
       Object {
-        "value": "",
+        "value": undefined,
       }
     }
     renderItemsContainer={[Function]}
@@ -718,7 +718,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
           role="combobox"
           style={Object {}}
           type="text"
-          value=""
         >
           <input
             aria-activedescendant={null}
@@ -736,7 +735,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
             role="combobox"
             style={Object {}}
             type="text"
-            value=""
           />
         </FormControl>
         <div>

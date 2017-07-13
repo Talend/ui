@@ -47,37 +47,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  233:17  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
-  33:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  54:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  54:29  error  Requires a space after '{'                                                           block-spacing
-  54:29  error  Statement inside of curly braces should be on next line                              brace-style
-  55:2   error  Expected indentation of 2 tabs but found 1                                           indent
-  55:8   error  A space is required after '{'                                                        object-curly-spacing
-  55:15  error  There should be no space before ','                                                  comma-spacing
-  55:33  error  Infix operators must be spaced                                                       space-infix-ops
-  56:2   error  Expected indentation of 2 tabs but found 1                                           indent
-  58:4   error  Missing whitespace after semicolon                                                   semi-spacing
-  66:2   error  Expected indentation of 2 tabs but found 1                                           indent
-  68:4   error  Expected indentation of 2 tabs but found 3                                           indent
-  69:4   error  Expected indentation of 2 tabs but found 3                                           indent
-  70:3   error  Expected indentation of 1 tab but found 2                                            indent
-  72:2   error  Expected indentation of 2 tabs but found 1                                           indent
-  72:2   error  Expected space(s) after "return"                                                     keyword-spacing
-  75:36  error  Unexpected trailing comma                                                            comma-dangle
-  75:36  error  A space is required after ','                                                        comma-spacing
-  75:37  error  A space is required before '}'                                                       object-curly-spacing
-  90:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  121:3  error  Prop type `any` is forbidden  react/forbid-prop-types
+  122:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -85,5 +60,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 55 problems (55 errors, 0 warnings)
+✖ 34 problems (34 errors, 0 warnings)
 
