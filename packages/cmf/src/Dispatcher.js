@@ -1,11 +1,18 @@
+// @flow
 /**
  *
  * @module react-cmf/lib/Dispatcher
  *
  */
-import React, { PropTypes } from 'react';
+import React, { Children, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from './api';
+import { CMFContext } from './flow-typed';
+
+type propsType = {
+	children?: Children,
+	stopPropagation: boolean,
+};
 
 /**
  * check if on[event] string relate to a declared action handler
@@ -14,7 +21,10 @@ import api from './api';
  *
  * @throws
  */
-export function checkIfActionInfoExist(props, context) {
+export function checkIfActionInfoExist(
+	props: propsType,
+	context: CMFContext,
+	) {
 	api.action.getOnProps(props).forEach((name) => {
 		if (typeof props[name] === 'string') {
 			api.action.getActionInfo(context, props[name]);
@@ -33,11 +43,14 @@ function myfunc(event, props, context) {
 </Dispatcher>
  */
 export class Dispatcher extends React.Component {
+	static defaultProps = {
+		stopPropagation: false,
+	};
 
 	/**
 	 * @param  {object} props only one child under children
 	 */
-	constructor(props) {
+	constructor(props: propsType) {
 		super(props);
 		this.onEvent = this.onEvent.bind(this);
 	}
@@ -52,7 +65,7 @@ export class Dispatcher extends React.Component {
 	/**
 	 * Check if the actions are described in settings when receiving new props
 	 */
-	componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps(nextProps: propsType) {
 		checkIfActionInfoExist(nextProps, this.context);
 	}
 
@@ -63,7 +76,7 @@ export class Dispatcher extends React.Component {
 	 * @param  {object} event     the react event dispatched event
 	 * @param  {string} eventName the name of the event
 	 */
-	onEvent(event, eventName) {
+	onEvent(event: Event, eventName: string) {
 		if (this.props.stopPropagation) {
 			event.stopPropagation();
 		}
@@ -92,21 +105,11 @@ export class Dispatcher extends React.Component {
 	}
 }
 
-Dispatcher.defaultProps = {
-	stopPropagation: false,
-};
-
-Dispatcher.propTypes = {
-	children: PropTypes.node.isRequired,
-	stopPropagation: PropTypes.bool,
-};
-
 Dispatcher.contextTypes = {
 	store: PropTypes.object.isRequired,
 	registry: PropTypes.object.isRequired,
 	router: PropTypes.object.isRequired,
 };
-
 
 const ConnectedDispatcher = connect(
 	undefined,
