@@ -228,7 +228,9 @@ describe('DatalistWidget', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('blur', { target: { value: 'banane' } });
+		input.simulate('focus');
+		input.simulate('change', { target: { value: 'banane' } });
+		input.simulate('blur');
 
 		// then
 		expect(onChange).toBeCalled();

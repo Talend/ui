@@ -250,13 +250,7 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		const selectedItemLabel = this.getLabel(selectedItem);
 
-
-		console.log('[NC] selectedItem: ', selectedItem);
-		console.log('[NC] selectedItemLabel: ', selectedItemLabel);
-		console.log('[NC] select item');
-		console.log('[NC] his.state.value: ', this.state.value);
 		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);
 			this.resetSuggestions();
