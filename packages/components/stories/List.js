@@ -325,7 +325,7 @@ storiesOf('List', module)
 			{story()}
 		</form>
 	))
-	.add('Table (default)', () => (
+	.add('Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
@@ -333,7 +333,7 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
-	.add('Large', () => {
+	.add('Large (migrated to virtualized)', () => {
 		const tprops = Immutable.fromJS(props).toJS();
 		tprops.displayMode = 'large';
 		tprops.toolbar.sort.options = [
@@ -382,7 +382,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table empty list', () => {
+	.add('Table empty list (migrated to virtualized)', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -396,7 +396,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Large empty list', () => {
+	.add('Large empty list (migrated to virtualized)', () => {
 		const emptyListProps = Immutable.fromJS(props).toJS();
 		emptyListProps.list.items = [];
 		return (
@@ -424,7 +424,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('No toolbar', () => {
+	.add('No toolbar (migrated to virtualized)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -440,7 +440,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Toolbar with filter', () => {
+	.add('Toolbar with filter (migrated to virtualized)', () => {
 		const dockedProps = Immutable.fromJS(props).toJS();
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
@@ -470,7 +470,7 @@ storiesOf('List', module)
 			<List {...inputDebounceProps} />
 		</div>);
 	})
-	.add('Table with column actions', () => {
+	.add('Table with column actions (migrated to virtualized)', () => {
 		const columnActionsProps = getActionsProps();
 		return (<div>
 			<h1>List</h1>
@@ -502,7 +502,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with custom selected class', () => {
+	.add('Table with custom selected class (not migrated - not used)', () => {
 		const selectedClassProps = Immutable.fromJS(props).toJS();
 		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
 		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
@@ -516,7 +516,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with scroll', () => {
+	.add('Table with scroll (not migrated - natively supported)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -532,7 +532,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with ellipsis', () => {
+	.add('Table with ellipsis (not migrated - natively supported)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -549,7 +549,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with sort header click', () => {
+	.add('Table with sort header click (migrated to virtualized)', () => {
 		const tprops = Immutable.fromJS(props).toJS();
 		tprops.toolbar = undefined;
 		tprops.list.sort = sort;
@@ -588,7 +588,7 @@ storiesOf('List', module)
 			<List {...getPropsFor('tile')} />
 		</div>
 	))
-	.add('Virtualized', () => (
+	.add('Virtualized table', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
@@ -604,7 +604,22 @@ storiesOf('List', module)
 			<List {...props} displayMode="large" virtualized />
 		</div>
 	))
-	.add('Virtualized with column actions', () => {
+	.add('Virtualized - empty list', () => {
+		const emptyListProps = Immutable.fromJS(props).toJS();
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<h2>Table</h2>
+				<List {...emptyListProps} virtualized />
+				<h2>Large</h2>
+				<List {...emptyListProps} displayMode="large" virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -615,7 +630,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Virtualized with sort', () => {
+	.add('Virtualized - sort', () => {
 		const tprops = Immutable.fromJS(props).toJS();
 		tprops.toolbar = undefined;
 		tprops.list.sort = sort;
@@ -629,31 +644,8 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('VirtualizedList Table empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
-		emptyListProps.list.items = [];
-		return (
-			<div style={{ height: '60vh' }}>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} virtualized />
-			</div>
-		);
-	})
-	.add('VirtualizedList Large empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
-		emptyListProps.list.items = [];
-		return (
-			<div style={{ height: '60vh' }}>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} displayMode="large" virtualized />
-			</div>
-		);
-	})
-	.add('Virtualized with filter', () => {
+
+	.add('Virtualized - toolbar with filter', () => {
 		const dockedProps = Immutable.fromJS(props).toJS();
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
@@ -690,4 +682,23 @@ storiesOf('List', module)
 				<List {...inputDebounceProps} virtualized />
 			</div>
 		</div>);
+	})
+	.add('Virtualized - toolbar with filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Get limited options for displayMode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} virtualized />
+			</div>
+		);
 	});
