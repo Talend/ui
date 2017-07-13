@@ -49,9 +49,7 @@ function getItemsMap(items) {
 		return {};
 	}
 
-	const itemsMap = {};
-	items.forEach(item => Object.assign(itemsMap, getValueLabelPair(item)));
-	return itemsMap;
+	return items.reduce((a, b) => Object.assign(a, getValueLabelPair(b)), {});
 }
 
 /**
@@ -130,8 +128,7 @@ class DatalistWidget extends React.Component {
 		if (options.restricted && !included) {
 			this.resetValue();
 		} else if ((options.restricted && included) || !options.restricted) {
-			const { value } = this.state;
-			this.props.onChange(processValue(value));
+			this.props.onChange(processValue(this.state.value));
 			this.resetSuggestions();
 		}
 	}
