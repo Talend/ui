@@ -52,7 +52,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  121:3  error  Prop type `any` is forbidden  react/forbid-prop-types
+  122:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
