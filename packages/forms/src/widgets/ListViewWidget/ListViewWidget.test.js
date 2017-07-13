@@ -1,6 +1,6 @@
-import React from "react";
-import { mount } from "enzyme";
-import ListViewWidget from "./ListViewWidget";
+import React from 'react';
+import { mount } from 'enzyme';
+import ListViewWidget from './ListViewWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
