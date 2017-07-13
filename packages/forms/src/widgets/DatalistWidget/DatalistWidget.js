@@ -80,6 +80,7 @@ class DatalistWidget extends React.Component {
 			items: [],
 			itemIndex: null,
 			noMatch: false,
+			itemsMap: getItemsMap(this.getItems()),
 		};
 
 		this.inputProps = {
@@ -113,12 +114,6 @@ class DatalistWidget extends React.Component {
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
-	}
-
-	componentWillMount() {
-		this.setState({
-			itemsMap: getItemsMap(this.getItems()),
-		});
 	}
 
 	onBlur() {
