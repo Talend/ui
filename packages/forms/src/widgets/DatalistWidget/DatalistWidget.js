@@ -54,17 +54,6 @@ function getItemsMap(items) {
 }
 
 /**
- * Returns undefined if value is an empty string
- */
-function processValue(value) {
-	if (value && value.length) {
-		return value;
-	}
-	return undefined;
-}
-
-
-/**
  * Render a typeahead for filtering among a list
  * @param props
  */
@@ -119,14 +108,15 @@ class DatalistWidget extends React.Component {
 
 	onBlur(event) {
 		const { options } = this.props;
-		const included = this.state.initalItems.includes(this.state.value);
-
-		if (options.restricted && !included) {
+		const { value } = event.target;
+		const isIncluded = this.state.initalItems.includes(this.state.value) ||
+			Object.values(this.state.itemsMap).includes(value);
+		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if ((options.restricted && included) || !options.restricted) {
-			const { value } = event.target;
-			if (value !== this.getLabel(this.state.value)) {
-				this.props.onChange(processValue(this.state.value));
+		} else if ((options.restricted && isIncluded) || !options.restricted) {
+			const label = this.getLabel(this.state.value);
+			if (value !== label) {
+				this.props.onChange(this.state.value);
 			}
 			this.resetSuggestions();
 		}
@@ -181,7 +171,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
-		this.setState({ value: processValue(value) });
+		this.setState({ value });
 	}
 
 	getItems() {
@@ -284,7 +274,7 @@ class DatalistWidget extends React.Component {
 					value={this.getLabel(props.value)}
 				/>
 				<div className={theme['dropdown-toggle']}>
-					<span className="caret" />
+					<span className="caret"/>
 				</div>
 			</div>);
 	}
