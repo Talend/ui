@@ -54,11 +54,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
   122:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
+   24:3  error  Missing semicolon  semi
+  267:6  error  Missing semicolon  semi
+  288:6  error  Missing semicolon  semi
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   66:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 37 problems (37 errors, 0 warnings)
 
