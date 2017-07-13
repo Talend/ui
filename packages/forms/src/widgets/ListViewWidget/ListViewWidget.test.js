@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import ListViewWidget from './ListViewWidget';
+import React from "react";
+import { mount } from "enzyme";
+import ListViewWidget from "./ListViewWidget";
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
 		/* eslint-disable */
 		<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div>
-		/* eslint-enable */
+	/* eslint-enable */
 );
 
 const EMPTY_LIST_MESSAGE = 'This list is empty.';
@@ -21,7 +21,7 @@ function getValueLabelPair(item) {
 	return {
 		label: item,
 		value: item,
-	}
+	};
 }
 
 function generateProps(values, selected) {
@@ -264,7 +264,7 @@ describe('ListViewWidget', () => {
 			values.forEach((v, i) => {
 				const node = wrapper.find(`#${i + 1}-item`).find('.tc-listview-item-label').at(0);
 				expect(node.text()).toBe(v.label);
-			})
+			});
 		});
 
 		it('should display key if no labels are availables', () => {
@@ -285,7 +285,7 @@ describe('ListViewWidget', () => {
 			values.forEach((v, i) => {
 				const node = wrapper.find(`#${i + 1}-item`).find('.tc-listview-item-label').at(0);
 				expect(node.text()).toBe(v);
-			})
+			});
 		});
 
 		it('should returns keys even if label are provided', () => {
