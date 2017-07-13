@@ -36,10 +36,10 @@
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.35.0",
-    "@talend/bootstrap-theme": "^0.94.0",
-    "@talend/react-cmf": "^0.94.0",
-    "@talend/react-components": "^0.94.0",
-    "@talend/icons": "^0.94.0",
+    "@talend/bootstrap-theme": "^0.95.0",
+    "@talend/icons": "^0.95.0",
+    "@talend/react-cmf": "^0.95.0",
+    "@talend/react-components": "^0.95.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -93,8 +93,8 @@
     "webpack": "^1.14.0"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^0.94.0",
-    "@talend/react-components": "^0.94.0",
+    "@talend/react-cmf": "^0.95.0",
+    "@talend/react-components": "^0.95.0",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "lodash": "4.17.4",
@@ -120,5 +120,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.94.0"
+  "version": "0.95.0"
 }
