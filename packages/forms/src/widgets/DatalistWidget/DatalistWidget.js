@@ -55,6 +55,17 @@ function getItemsMap(items) {
 }
 
 /**
+ * Returns undefined if value is an empty string
+ */
+function processValue(value) {
+	if (value && value.length) {
+		return value;
+	}
+	return undefined;
+}
+
+
+/**
  * Render a typeahead for filtering among a list
  * @param props
  */
@@ -120,7 +131,7 @@ class DatalistWidget extends React.Component {
 			this.resetValue();
 		} else if ((options.restricted && included) || !options.restricted) {
 			const { value } = this.state;
-			this.props.onChange(this.processValue(value));
+			this.props.onChange(processValue(value));
 			this.resetSuggestions();
 		}
 	}
@@ -174,7 +185,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
-		this.setState({ value: this.processValue(value) });
+		this.setState({ value: processValue(value) });
 	}
 
 	getItems() {
@@ -188,13 +199,6 @@ class DatalistWidget extends React.Component {
 			return formContext.fetchItems(schema.title);
 		}
 		return [];
-	}
-
-	processValue(value) {
-		if (value && value.length) {
-			return value;
-		}
-		return undefined;
 	}
 
 	resetValue() {
