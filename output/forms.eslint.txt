@@ -55,9 +55,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   122:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
-   24:3  error  Missing semicolon  semi
-  267:6  error  Missing semicolon  semi
-  288:6  error  Missing semicolon  semi
+  1:19  error  Strings must use singlequote  quotes
+  2:23  error  Strings must use singlequote  quotes
+  3:28  error  Strings must use singlequote  quotes
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
