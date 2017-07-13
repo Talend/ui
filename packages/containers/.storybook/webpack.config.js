@@ -6,35 +6,12 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const SASS_DATA = `@import '~bootstrap-talend-theme/src/theme/guidelines';`;
+const commonConfiguration = require('../../../.storybook/webpack.config')
 
-module.exports = {
-	plugins: [
-		// your custom plugins
-	],
-	module: {
-		loaders: [
-			{
-				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-				loader: 'url-loader',
-				options: {
-					limit: 50000,
-					mimetype: 'application/font-woff',
-					name: './fonts/[name].[ext]'
-				}
-			},
-			{
-				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
-			},
-		],
-	},
-	postcss: [
-		require('autoprefixer')({
-			browsers: ['last 2 versions']
-		})
-	],
-	sassLoader: {
-		data: SASS_DATA,
-	},
+module.exports = (storybookBaseConfig) => {
+	const storybookConfig = commonConfiguration(storybookBaseConfig);
+
+	// add project custom configuration here
+
+	return storybookConfig;
 };
