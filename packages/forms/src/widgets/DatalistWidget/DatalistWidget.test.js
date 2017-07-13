@@ -237,29 +237,6 @@ describe('DatalistWidget', () => {
 		expect(wrapper.find('input').prop('value')).toEqual('banane');
 	});
 
-	it('should handle arbitrary input if not restricted', () => {
-		const onChange = jest.fn();
-		const value = 'unknown';
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				required
-				schema={{}}
-				onChange={onChange}
-				options={{ restricted: false }}
-			/>
-		);
-		expect(wrapper.find('Autowhatever').props().inputProps.value).toBe('');
-		const input = wrapper.find('input').at(0);
-
-		// when
-		input.simulate('blur');
-
-		// then
-		expect(onChange).toBeCalled();
-		expect(onChange.mock.calls[0][0]).toBe(value);
-	});
-
 	it('should not trigger onChange if value is not changed', () => {
 		const onChange = jest.fn();
 		const value = 'banane';
