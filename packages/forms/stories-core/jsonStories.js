@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@kadira/storybook';
 import { object } from '@kadira/storybook-addon-knobs';
 import { Tabs, Tab } from 'react-bootstrap';
-import IconsProvider from 'react-talend-components/lib/IconsProvider';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm, ConnectedUIForm } from '../src/UIForm';
 
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);

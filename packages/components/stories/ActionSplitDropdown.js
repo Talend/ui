@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 
 import { ActionSplitDropdown, IconsProvider } from '../src/index';
 

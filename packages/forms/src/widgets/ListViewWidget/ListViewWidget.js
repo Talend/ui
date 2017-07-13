@@ -42,6 +42,7 @@ class ListViewWidget extends React.Component {
 			index,
 			checked: value.indexOf(option.value) !== -1,
 			label: option.label,
+			value: option.value,
 			onChange: onItemChange.bind(this),
 		}));
 
@@ -68,7 +69,7 @@ class ListViewWidget extends React.Component {
 	setFormData() {
 		this.props.onChange(
 			this.state.items.filter(item => item.checked)
-				.map(itemChecked => itemChecked.label)
+				.map(itemChecked => itemChecked.value)
 		);
 	}
 

@@ -1,7 +1,5 @@
-Lerna v2.0.0-beta.36
-Scoping to packages that match '@talend/react-components'
 
-> @talend/react-components@0.94.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.94.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -34,6 +32,3 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 ✖ 14 problems (14 errors, 0 warnings)
 
-Errored while running command 'npm' with arguments 'run lint:es' in '@talend/react-components'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:es

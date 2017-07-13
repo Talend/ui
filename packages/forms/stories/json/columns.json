@@ -82,7 +82,10 @@
       "ui:widget": "columns"
     },
     "fieldsColumns": {
-      "ui:widget": "columns"
+      "ui:widget": "columns",
+      "fieldLeft": {
+        "ui:help": "This is a field hint"
+      }
     },
     "readOnlyFieldsColumns": {
       "ui:widget": "columns",
