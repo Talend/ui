@@ -22,7 +22,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge
 script:
-  - yarn test:cov
+  - yarn test:cov --maxWorkers=2
 after_success:
   - .travis/after_success_static.sh
   - .travis/after_success_demo.sh
