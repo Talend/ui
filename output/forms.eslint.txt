@@ -61,3 +61,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 ✖ 34 problems (34 errors, 0 warnings)
+
