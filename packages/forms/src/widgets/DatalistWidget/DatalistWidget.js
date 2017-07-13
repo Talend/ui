@@ -87,7 +87,7 @@ class DatalistWidget extends React.Component {
 		this.inputProps = {
 			placeholder: props.placeholder,
 			required: props.required,
-			onBlur: () => this.onBlur(),
+			onBlur: event => this.onBlur(event),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
@@ -117,14 +117,17 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	onBlur() {
+	onBlur(event) {
 		const { options } = this.props;
 		const included = this.state.initalItems.includes(this.state.value);
 
 		if (options.restricted && !included) {
 			this.resetValue();
 		} else if ((options.restricted && included) || !options.restricted) {
-			this.props.onChange(processValue(this.state.value));
+			const { value } = event.target;
+			if (value !== this.getLabel(this.state.value)) {
+				this.props.onChange(processValue(this.state.value));
+			}
 			this.resetSuggestions();
 		}
 	}
@@ -172,7 +175,7 @@ class DatalistWidget extends React.Component {
 			return suggestions;
 		}
 
-		const escapedValue = escapeRegexCharacters(value.trim());
+		const escapedValue = escapeRegexCharacters(this.getLabel(value).trim());
 		const regex = new RegExp(escapedValue, 'i');
 		return suggestions.filter(item => regex.test(this.getLabel(item)));
 	}
@@ -249,7 +252,12 @@ class DatalistWidget extends React.Component {
 		const selectedItem = this.state.items[itemIndex];
 		const selectedItemLabel = this.getLabel(selectedItem);
 
-		if (selectedItemLabel && selectedItemLabel !== this.state.value) {
+
+		console.log('[NC] selectedItem: ', selectedItem);
+		console.log('[NC] selectedItemLabel: ', selectedItemLabel);
+		console.log('[NC] select item');
+		console.log('[NC] his.state.value: ', this.state.value);
+		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);
 			this.resetSuggestions();
 			this.props.onChange(selectedItem);
