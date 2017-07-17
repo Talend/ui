@@ -16,7 +16,11 @@ function adaptOnSort(onChange) {
 }
 
 function ListToVirtualizedList(props) {
-	const { id, items, columns, itemProps, sort, titleProps } = props;
+	const {
+		itemProps,
+		sort,
+		titleProps,
+	} = props;
 
 	if (!titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
@@ -31,16 +35,16 @@ function ListToVirtualizedList(props) {
 	}
 	return (
 		<VirtualizedList
-			id={id}
-			collection={items}
+			id={props.id}
+			collection={props.items}
 			isSelected={itemProps && itemProps.isSelected}
 			selectionToggle={itemProps && itemProps.onSelect}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
-			type={(props.displayMode || 'TABLE').toUpperCase()}
+			type={props.displayMode.toUpperCase()}
 		>
-			{columns.map((column, index) => {
+			{props.columns.map((column, index) => {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,
@@ -79,6 +83,9 @@ ListToVirtualizedList.propTypes = {
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
+};
+ListToVirtualizedList.defaultProps = {
+	displayMode: 'table',
 };
 
 export default ListToVirtualizedList;

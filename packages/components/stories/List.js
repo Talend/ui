@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
+import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 
@@ -291,7 +292,7 @@ function getPropsFor(displayMode) {
 }
 
 function getActionsProps() {
-	const columnActionsProps = Immutable.fromJS(props).toJS();
+	const columnActionsProps = cloneDeep(props);
 	const actionsColumn = {
 		key: 'columnActions',
 		label: 'Actions',	// label should be set for screen readers
@@ -340,7 +341,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Tile empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -378,7 +379,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Virtualized - empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div style={{ height: '60vh' }}>
@@ -404,7 +405,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Virtualized - selection', () => {
-		const selectedItemsProps = Immutable.fromJS(props).toJS();
+		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
 				{
@@ -435,7 +436,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Virtualized - sort', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -456,7 +457,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Virtualized - no toolbar', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -468,7 +469,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Virtualized - toolbar with filter', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
+		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
 
@@ -543,7 +544,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('DEPRECATED - Large (migrated to virtualized)', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.displayMode = 'large';
 		tprops.toolbar.sort.options = [
 			{ id: 'name', name: 'Name' },
@@ -577,7 +578,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table empty list (migrated to virtualized)', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -591,7 +592,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Large empty list (migrated to virtualized)', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -621,7 +622,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Toolbar with filter (migrated to virtualized)', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
+		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
 
@@ -693,7 +694,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table with sort header click (migrated to virtualized)', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		tprops.list.sort = sort;
 		return (
@@ -706,7 +707,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table with selected items', () => {
-		const selectedItemsProps = Immutable.fromJS(props).toJS();
+		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.toolbar.actionBar.selected = 1;
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
@@ -729,7 +730,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table with custom selected class (not migrated - not used)', () => {
-		const selectedClassProps = Immutable.fromJS(props).toJS();
+		const selectedClassProps = cloneDeep(props);
 		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
 		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
 		selectedClassProps.toolbar = undefined;
