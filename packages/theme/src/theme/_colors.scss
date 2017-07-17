@@ -7,87 +7,103 @@
 /// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$st-tropaz: #266092;
+$regal-blue: #17486E;
 
-/// Secondary color
+/// Primary color, mostly used for the selected elements
+/// and to draw attention to the important elements of interaction.
+///
+/// @type Color
+$st-tropaz: #236192;
+
+/// Primary color, mostly used for the selected elements
+/// and to draw attention to the important elements of interaction.
+///
+/// @type Color
+$green-talend: #B6BE00;
+
+/// Greyscale.
+///
+/// @type Color
+$black: #202020;
+
+/// Greyscale.
+///
+/// @type Color
+$dove-gray: #555555;
+
+/// Greyscale.
+///
+/// @type color
+$dark-silver: #888888;
+
+/// Greyscale.
+///
+/// @type Color
+$gray: #969696;
+
+/// Greyscale.
+///
+/// @type Color
+$silver-chalice: #ABABAB;
+
+/// Greyscale.
+///
+/// @type Color
+$silver: #C6C6C6;
+
+/// Secondary color.
+/// Used to valid/validated/validation elements.
 ///
 /// @type Color
 $rio-grande: #C3D600;
 
-/// Contextual color for informational alert messages
+/// Secondary color.
+/// Contextual color for informational alert messages.
 ///
 /// @type Color
 $scooter: #66BDFF;
 
-/// Linked to valid/validated/validation elements.
+/// Secondary color.
+/// Errors and to notify non-valid elements or warning information.
 ///
 /// @type Color
-$limeade: #8ABC00;
+$chestnut-rose: #E96065;
 
-/// Used for validation message in inputs
-///
-/// @type Color
-$pirate-gold: #B78001;
-
+/// Secondary color.
 /// Used to notify invalid elements or warning information.
 ///
 /// @type Color
 $lightning-yellow: #F2DA0D;
 
-/// Used for errors.
+/// Background color.
 ///
 /// @type Color
-$chestnut-rose: #E96065;
+$white: #FFFFFF;
 
-/// Used for labels, titles.
-///
-/// @type Color
-$black: #202020;
-
-/// Used for some labels
-///
-/// @type Color
-$mine-shaft: #333;
-
-/// Used for subtitles.
-///
-/// @type Color
-$dove-gray: #555;
-
-/// Used for some labels
-///
-/// @type color
-$dark-silver: #888;
-
-/// Used for backgrounds.
-///
-/// @type Color
-$silver: #C6C6C6;
-
-/// Used for input disabled colors, etc..
-///
-/// @type Color
-$silver-chalice: #ABABAB;
-
-/// Used for backgrounds etc.
-///
-/// @type Color
-$alto: #DEDEDE;
-
-/// Used for panels.
+/// Background color.
 ///
 /// @type Color
 $concrete: #F2F2F2;
 
-/// Used for empty spaces, toolbar-panels etc.
+/// Background color.
 ///
 /// @type Color
-$white: #FFF;
+$alto: #D5D5D5;
 
-/// Used for default color theme
+/// Background color.
 ///
 /// @type Color
-$smalt-blue:    #4F8992;
+$gallery: #EAEAEA;
+
+/// Background color.
+///
+/// @type Color
+$slate-gray: #758495;
+
+/// Background color.
+///
+/// @type Color
+$wild-sand: #F6F6F6;
 
 /// Used for shadows
 ///

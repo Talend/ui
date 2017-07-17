@@ -2,6 +2,9 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## NEXT VERSION
+
+
 ## v0.71.0
 
 * PR #364 [feat: onTrigger !== onChange]
