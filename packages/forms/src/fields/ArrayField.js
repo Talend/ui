@@ -331,8 +331,9 @@ class ArrayField extends Component {
 		};
 
 		// Check if a custom render function was passed in
-		const Component = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
-		return <Component {...arrayProps} />;
+		// backported from 0.49.0
+		const TemplateComponent = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
+		return <TemplateComponent {...arrayProps} />;
 	}
 
 	renderMultiSelect() {
