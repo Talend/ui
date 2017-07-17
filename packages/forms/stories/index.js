@@ -294,7 +294,9 @@ class FormDemo extends React.Component {
 			if (formData.function) {
 				return (
 					<span>
-						{formData.function}(<strong>{formData.fieldName}</strong>)
+						{formData.function}(<strong>{formData.fieldName}</strong>){' '}
+						{formData.operator}{' '}
+						<strong>{formData.operand}</strong>
 					</span>
 				);
 			}
@@ -349,8 +351,16 @@ decoratedStories.add('custom array', () => {
 							},
 							function: {
 								type: 'string',
+								enum: ['upperCase', 'lowerCase'],
 							},
 							fieldName: {
+								type: 'string',
+							},
+							operator: {
+								type: 'string',
+								enum: ['==', '!='],
+							},
+							operand: {
 								type: 'string',
 							},
 						},
@@ -362,22 +372,27 @@ decoratedStories.add('custom array', () => {
 			filters: {
 				items: {
 					'ui:field': 'CustomObjectField',
+					operator: {
+						'ui:widget': 'select',
+					},
 				},
 			},
 		},
 		properties: {
 			filters: [
 				{
-					isClosed: true,
-					function: 'plups',
+					function: 'upperCase',
 					fieldName: 'First',
+					operator: '==',
+					operand: 'test',
 				},
 				{
-					function: 'plups',
+					isClosed: true,
+					function: 'id1',
 					fieldName: 'Second',
 				},
 				{
-					function: 'plups',
+					function: 'id1',
 					fieldName: 'Third',
 				},
 			],

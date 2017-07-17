@@ -1,5 +1,5 @@
-import React from 'react';
-import { Icon, IconsProvider } from 'react-talend-components';
+import React, { PropTypes } from 'react';
+import { Icon } from 'react-talend-components';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 
 function createCustomObjectField(title) {
@@ -118,6 +118,28 @@ function createCustomObjectField(title) {
 				</fieldset>
 			);
 		}
+	}
+	if (process.env.NODE_ENV !== 'production') {
+		CustomObjectField.propTypes = {
+			schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+			uiSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+			errorSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+			idSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+			formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+			onChange: PropTypes.func.isRequired,
+			onBlur: PropTypes.func,
+			required: PropTypes.bool,
+			disabled: PropTypes.bool,
+			name: PropTypes.string,
+			readonly: PropTypes.bool,
+			registry: PropTypes.shape({
+				widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+					.isRequired,
+				fields: PropTypes.objectOf(PropTypes.func).isRequired,
+				definitions: PropTypes.object.isRequired,
+				formContext: PropTypes.object.isRequired,
+			}),
+		};
 	}
 	return CustomObjectField;
 }
