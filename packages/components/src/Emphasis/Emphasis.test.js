@@ -8,7 +8,6 @@ describe('Emphasis', () => {
 		text: 'The lazy quick brown fox jumps over the lazy dog',
 	};
 
-
 	it('should return a span containing the emphatised text', () => {
 		// given
 		const wrapper = shallow(<Emphasis {...props} value="brown" />);

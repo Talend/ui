@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import theme from './Emphasis.scss';
 
-function emphasise(text, value) {
+function isNotEmpty(value) {
+	return value;
+}
+
+function emphasiseAll(text, value) {
 	if (!text) {
 		return '';
 	}
@@ -9,18 +13,19 @@ function emphasise(text, value) {
 		return text;
 	}
 
-	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
-	return parts.map((part, index) => {
-		if (value && part.toUpperCase() === value.toUpperCase()) {
-			return <em key={index} className={theme.highlight}>{part}</em>;
-		}
-		return part;
-	});
+	return text
+		.split(new RegExp(`(${value})`, 'gi'))
+		.filter(isNotEmpty)
+		.map((part, index) => {
+			if (part.toUpperCase() === value.toUpperCase()) {
+				return <em key={index} className={theme.highlight}>{part}</em>;
+			}
+			return part;
+		});
 }
 
 function Emphasis(props) {
-	const { value, text } = props;
-	return <span>{emphasise(text, value)}</span>;
+	return <span>{emphasiseAll(props.text, props.value)}</span>;
 }
 
 Emphasis.propTypes = {
