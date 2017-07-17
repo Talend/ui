@@ -73,16 +73,6 @@ storiesOf('Action', module)
 				{...mouseDownAction}
 				hideLabel
 			/>
-			<p>Disabled with tooltip</p>
-			<Action
-				available
-				bsStyle="default"
-				disabled
-				{...myAction}
-				label="Do mouse in from top or bottom side and mouse out from left or right"
-				tooltipLabel="BUG: Tooltip stays, but should be hidden after timeout"
-				tooltipPlacement="top"
-			/>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {
