@@ -6,6 +6,11 @@
 src/theme/_buttons.scss
   14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
+src/theme/_colors.scss
+  32:13  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  37:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  81:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+
 src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
@@ -27,5 +32,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 19 problems (17 errors, 2 warnings)
 
