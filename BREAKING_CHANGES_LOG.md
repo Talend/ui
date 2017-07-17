@@ -4,6 +4,14 @@ This document aims to ease the WIP migration from a version to another by provid
 
 ## NEXT VERSION
 
+* PR #629 [feat(theme): update colors]
+
+4 colors are gone :
+
+* $limeade : replace by $rio-grande
+* $pirate-gold : not used
+* $mine-shaft : replace by $dove-gray
+* $smalt-blue : not used
 
 ## v0.71.0
 
