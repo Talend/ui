@@ -1,0 +1,86 @@
+{
+  "jsonSchema": {
+    "definitions": {
+      "marvelList": {
+        "type": "string",
+        "enum": [
+          "hero1",
+          "hero2",
+          "hero3",
+          "hero4",
+          "hero5",
+          "hero6",
+          "hero7",
+          "hero8",
+          "hero9",
+          "hero10"
+        ],
+        "enumNames": [
+          "Captain America",
+          "Daredevil",
+          "Deadpool",
+          "Hulk",
+          "Iron Man",
+          "Luke Cage",
+          "Punisher",
+          "Spiderman",
+          "Thor",
+          "Wolverine"
+        ]
+      }
+    },
+    "title": "Marvel characters",
+    "type": "object",
+    "properties": {
+      "a": {
+        "title": "restricted enum",
+        "type": "string",
+        "enum": [
+          "Captain America",
+          "Daredevil",
+          "Deadpool",
+          "Hulk",
+          "Iron Man",
+          "Luke Cage",
+          "Punisher",
+          "Spiderman",
+          "Thor",
+          "Wolverine"
+        ]
+      },
+      "b": {
+        "title": "restricted enum+enumNames",
+        "$ref": "#/definitions/marvelList"
+      },
+      "c": {
+        "title": "enum+enumNames",
+        "$ref": "#/definitions/marvelList"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ]
+  },
+  "properties": {
+    "a": "Spiderman",
+    "b": "hero2"
+  },
+  "uiSchema": {
+    "a": {
+      "ui:widget": "datalist",
+      "ui:options": {
+        "restricted": true
+      }
+    },
+    "b": {
+      "ui:widget": "datalist",
+      "ui:options": {
+        "restricted": true
+      }
+    },
+    "c": {
+      "ui:widget": "datalist"
+    }
+  }
+}
