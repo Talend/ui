@@ -93,19 +93,19 @@ function createCustomObjectField(title) {
 							formContext={formContext}
 						/>}
 					{!formData.isClosed &&
-						orderedProperties.map((name, index) => {
-							if (name !== 'isClosed') {
+						orderedProperties.map((fieldName, index) => {
+							if (fieldName !== 'isClosed') {
 								return (
 									<SchemaField
 										key={index}
-										name={name}
-										required={this.isRequired(name)}
-										schema={schema.properties[name]}
-										uiSchema={uiSchema[name]}
-										errorSchema={errorSchema[name]}
-										idSchema={idSchema[name]}
-										formData={formData[name]}
-										onChange={this.onPropertyChange(name)}
+										name={fieldName}
+										required={this.isRequired(fieldName)}
+										schema={schema.properties[fieldName]}
+										uiSchema={uiSchema[fieldName]}
+										errorSchema={errorSchema[fieldName]}
+										idSchema={idSchema[fieldName]}
+										formData={formData[fieldName]}
+										onChange={this.onPropertyChange(fieldName)}
 										onBlur={onBlur}
 										registry={registry}
 										disabled={disabled}

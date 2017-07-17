@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { Icon, IconsProvider } from 'react-talend-components';
 
@@ -40,6 +40,11 @@ class FieldTemplate extends React.Component {
 		);
 	}
 }
+if (process.env.NODE_ENV !== 'production') {
+	FieldTemplate.propTypes = {
+		element: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+	};
+}
 
 function ArrayFieldTemplate(props) {
 	const { items, canAdd, onAddClick } = props;
@@ -54,5 +59,11 @@ function ArrayFieldTemplate(props) {
 		</div>
 	);
 }
-
+if (process.env.NODE_ENV !== 'production') {
+	ArrayFieldTemplate.propTypes = {
+		items: PropTypes.arrayOf(PropTypes.object).isRequired,
+		canAdd: PropTypes.func.isRequired,
+		onAddClick: PropTypes.func.isRequired,
+	};
+}
 export default ArrayFieldTemplate;
