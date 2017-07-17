@@ -6,11 +6,10 @@ import theme from './Columns.scss';
 
 export default function Columns(props) {
 	const { schema, ...restProps } = props;
-	const columns = schema.items;
 
 	return (
 		<div className={classNames('tf-columns', theme['tf-columns'])}>
-			{columns.map(
+			{schema.items.map(
 				(colSchema, index) => (<Widget {...restProps} key={index} schema={colSchema} />)
 			)}
 		</div>
