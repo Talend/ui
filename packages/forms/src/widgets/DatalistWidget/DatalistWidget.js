@@ -109,14 +109,17 @@ class DatalistWidget extends React.Component {
 	onBlur(event) {
 		const { options } = this.props;
 		const { value } = event.target;
-		const isIncluded = this.state.initalItems.includes(this.state.value) ||
-			Object.values(this.state.itemsMap).includes(value);
+		const isIncluded = this.state.initalItems.includes(this.state.value);
+
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if ((options.restricted && isIncluded) || !options.restricted) {
-			const label = this.getLabel(this.state.value);
-			if (value !== label) {
-				this.props.onChange(this.state.value);
+		} else if (options.restricted && isIncluded) {
+			this.props.onChange(this.state.value);
+			this.resetSuggestions();
+		} else if (!options.restricted) {
+			if (value !== this.getLabel(this.state.lastKnownValue)) {
+				this.setValue(value);
+				this.props.onChange(value);
 			}
 			this.resetSuggestions();
 		}
@@ -171,7 +174,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	setValue(value) {
-		this.setState({ value });
+		this.setState({ value, lastKnownValue: value });
 	}
 
 	getItems() {
@@ -208,21 +211,19 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		this.setState((prevState) => {
-			let suggestions = this.getMatchingSuggestions(
-				prevState.initalItems,
-				value,
-			);
-			if (!value && suggestions && suggestions.length === 0) {
-				suggestions = prevState.initalItems;
-			}
+		let suggestions = this.getMatchingSuggestions(
+			this.state.initalItems,
+			value,
+		);
+		if (!value && suggestions && suggestions.length === 0) {
+			suggestions = this.state.initalItems;
+		}
 
-			return {
-				value,
-				items: suggestions,
-				itemIndex: null,
-				noMatch: value && suggestions && !suggestions.length,
-			};
+		this.setState({
+			value,
+			items: suggestions,
+			itemIndex: null,
+			noMatch: value && suggestions && !suggestions.length,
 		});
 	}
 
@@ -274,7 +275,7 @@ class DatalistWidget extends React.Component {
 					value={this.getLabel(props.value)}
 				/>
 				<div className={theme['dropdown-toggle']}>
-					<span className="caret"/>
+					<span className="caret" />
 				</div>
 			</div>);
 	}
