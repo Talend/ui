@@ -314,9 +314,15 @@ class FormDemo extends React.Component {
 			if (formData.function) {
 				return (
 					<span>
-						{formData.function}(<strong>{formData.fieldName}</strong>){' '}
-						{formData.operator}{' '}
-						<strong>{formData.operand}</strong>
+						{Object.keys(formData).reduce((acc, item, index) => {
+							if (item !== 'isClosed') {
+								if (index === 1) {
+									return `${acc}(${formData[item]}) `;
+								}
+								return `${acc}${formData[item]} `;
+							}
+							return acc;
+						}, '')}
 					</span>
 				);
 			}
@@ -390,6 +396,7 @@ decoratedStories.add('custom array', () => {
 		},
 		uiSchema: {
 			filters: {
+				'ui:trigger': ['after'],
 				items: {
 					'ui:field': 'CustomObjectField',
 					operator: {
@@ -408,17 +415,17 @@ decoratedStories.add('custom array', () => {
 				},
 				{
 					isClosed: true,
-					function: 'id1',
+					function: 'upperCase',
 					fieldName: 'Second',
 				},
 				{
-					function: 'id1',
+					function: 'lowerCase',
 					fieldName: 'Third',
 				},
 			],
 		},
 	};
-	return <FormDemo schema={schema} />;
+	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
 });
 
 decoratedStories.add('Form Children', () => {
