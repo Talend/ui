@@ -134,6 +134,7 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+
 	renderItemsContainer.propTypes = {
 		children: PropTypes.element,
 	};
@@ -178,7 +179,26 @@ function CustomDatalist(...args) {
 
 decoratedStories.add('Datalist', () => {
 	function fetchItems() {
-		return ['Auklet', 'Cormorant', 'Falcon', 'Goldfinch', 'Magpie', 'Pewee'];
+		return [
+			'Auklet',
+			'Cormorant',
+			'Falcon',
+			'Goldfinch',
+			'Magpie',
+			'Pewee',
+			{
+				value: 'testkey1',
+				label: 'Test Value 1',
+			},
+			{
+				value: 'testkey2',
+				label: 'Test Value 2',
+			},
+			{
+				value: 'testkey3',
+				label: 'Test Value 3',
+			},
+		];
 	}
 	const schema = {
 		jsonSchema: {

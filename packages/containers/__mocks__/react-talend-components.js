@@ -19,7 +19,7 @@ const mock = {
 	SidePanel: props => (<div className="tc-side-panel" {...props} />),
 	List: props => (<div className="tc-list" {...props} />),
 };
-
+mock.AppHeaderBar.displayName = 'AppHeaderBar';
 mock.Layout.propTypes = {
 	header: PropTypes.element,
 };

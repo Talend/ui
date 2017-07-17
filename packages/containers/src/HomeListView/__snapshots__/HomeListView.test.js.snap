@@ -45,7 +45,7 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <Connect(AppHeaderBar)
+    <Connect(CMF(AppHeaderBar))
       app="hello app"
     />
   }

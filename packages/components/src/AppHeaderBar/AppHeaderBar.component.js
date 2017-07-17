@@ -226,5 +226,6 @@ AppHeaderBar.propTypes = {
 		React.PropTypes.shape(renderContent.propTypes),
 	),
 };
+AppHeaderBar.displayName = 'AppHeaderBar';
 
 export default AppHeaderBar;
