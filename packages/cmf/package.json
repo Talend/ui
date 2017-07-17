@@ -9,6 +9,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config .eslintrc --ext .js src",
+    "lint:flow": "flow check",
     "lint": "npm run lint:es"
   },
   "repository": {

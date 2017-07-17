@@ -1,5 +1,10 @@
+// @flow
 import get from 'lodash/get';
+import type { Dispatch } from 'redux';
+
 import registry from './registry';
+
+import type { CMFAction, CMFActionCreator, CMFContext, CMFEvent } from './flow-typed';
 
 /**
  * @module react-cmf/lib/action
@@ -12,7 +17,7 @@ const ACTION_CREATOR_PREFIX = 'actionCreator';
  * @param  {object} context
  * @return {object} actions with key === action id
  */
-function getActionsById(context) {
+function getActionsById(context: CMFContext) {
 	const state = context.store.getState();
 	return get(state, 'cmf.settings.actions', {});
 }
@@ -24,7 +29,11 @@ function getActionsById(context) {
  * @param  {String} category
  * @return {Array} actions
  */
-function getContentTypeActions(context, contentType, category) {
+function getContentTypeActions(
+	context: CMFContext,
+	contentType: string,
+	category: string
+) {
 	const state = context.store.getState();
 	return get(
 		state,
@@ -39,7 +48,7 @@ function getContentTypeActions(context, contentType, category) {
  * @param  {string} id the id of the action creator
  * @return {function}
  */
-function getActionCreatorFunction(context, id) {
+function getActionCreatorFunction(context: CMFContext, id: string) {
 	const creator = context.registry[`${ACTION_CREATOR_PREFIX}:${id}`];
 	if (!creator) {
 		throw new Error(`actionCreator not found in the registry: ${id}`);
@@ -53,7 +62,7 @@ function getActionCreatorFunction(context, id) {
  * @param  {String} id
  * @return {object}
  */
-function getActionInfo(context, id) {
+function getActionInfo(context: CMFContext, id: string) {
 	const action = getActionsById(context)[id];
 	if (!action) {
 		throw new Error(`action not found id: ${id}`);
@@ -69,7 +78,12 @@ function getActionInfo(context, id) {
  * @param  {object} event event which have trigger this action
  * @param  {object} data data attached to the action
  */
-function getActionObject(context, id, event, data) {
+function getActionObject(
+	context: CMFContext,
+	id: string,
+	event: CMFEvent,
+	data: any
+) {
 	const action = getActionInfo(context, id);
 	if (action.actionCreator) {
 		const actionCreator = getActionCreatorFunction(context, action.actionCreator);
@@ -88,7 +102,7 @@ function getActionObject(context, id, event, data) {
  * @param  {object} props react props
  * @return {Array}       of string
  */
-function getOnProps(props) {
+function getOnProps(props: { [key: string] : string }): Array<string> {
 	return Object.keys(props).filter(name => (
 		{}.hasOwnProperty.call(props, name) &&
 		/^on.+/.test(name)
@@ -104,7 +118,7 @@ function getOnProps(props) {
  * @return {object}          the connected object
  * @throws if an action is unknown in configuration, throw
  */
-function mapDispatchToProps(dispatch, props) {
+function mapDispatchToProps(dispatch: Dispatch<CMFAction>, props: { [key: string]: string}) {
 	const resolvedActions = {};
 	getOnProps(props).forEach((name) => {
 		resolvedActions[name] = (event, data, context) => {
@@ -127,7 +141,7 @@ function mapDispatchToProps(dispatch, props) {
  * @param  {String} id
  * @param  {Function} actionCreator (event, data, context)
  */
-function registerActionCreator(id, actionCreator) {
+function registerActionCreator(id: string, actionCreator: CMFActionCreator) {
 	registry.addToRegistry(`${ACTION_CREATOR_PREFIX}:${id}`, actionCreator);
 }
 

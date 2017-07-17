@@ -10,16 +10,18 @@ import history from './history';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 
+type Props = {
+	store: Store<any, any>,
+	children?: Children,
+	history?: any,
+};
+
 /*
  * The React component that render your app and provide everythings you need
  * @param  {object} props store and history
  * @return {object} ReactElement
  */
-export default function App(props: {
-	store: Store<any, any>,
-	children?: Children,
-	history?: any,
-}) {
+export default function App(props: Props) {
 	const hist = props.history || history.get(props.store);
 	return (
 		<Provider store={props.store}>

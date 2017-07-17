@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import api from './api';
 import { CMFContext } from './flow-typed';
 
-type propsType = {
+type Props = {
 	children?: Children,
 	stopPropagation: boolean,
 };
@@ -22,7 +22,7 @@ type propsType = {
  * @throws
  */
 export function checkIfActionInfoExist(
-	props: propsType,
+	props: Props,
 	context: CMFContext,
 	) {
 	api.action.getOnProps(props).forEach((name) => {
@@ -50,9 +50,9 @@ export class Dispatcher extends React.Component {
 	/**
 	 * @param  {object} props only one child under children
 	 */
-	constructor(props: propsType) {
+	constructor(props: Props) {
 		super(props);
-		this.onEvent = this.onEvent.bind(this);
+		(this:any).onEvent = this.onEvent.bind(this);
 	}
 
 	/**
@@ -65,7 +65,7 @@ export class Dispatcher extends React.Component {
 	/**
 	 * Check if the actions are described in settings when receiving new props
 	 */
-	componentWillReceiveProps(nextProps: propsType) {
+	componentWillReceiveProps(nextProps: Props) {
 		checkIfActionInfoExist(nextProps, this.context);
 	}
 
