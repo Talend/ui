@@ -8,7 +8,7 @@ import { ActionDropdown, IconsProvider } from '../src/index';
 
 const myAction = {
 	id: 'context-dropdown-related-items',
-	label: 'related items',
+	label: 'related items dlkasjdlasj diasj odijas oij dsaij diasj idsaj',
 	icon: 'talend-file-xls-o',
 	items: [
 		{
