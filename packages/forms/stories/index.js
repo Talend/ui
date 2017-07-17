@@ -316,9 +316,6 @@ class FormDemo extends React.Component {
 					<span>
 						{Object.keys(formData).reduce((acc, item, index) => {
 							if (item !== 'isClosed') {
-								if (index === 1) {
-									return `${acc}(${formData[item]}) `;
-								}
 								return `${acc}${formData[item]} `;
 							}
 							return acc;
