@@ -18,11 +18,13 @@ public class Component {
 
     private static final Logger LOGGER = LogManager.getLogger(Component.class);
 
-    WebDriver driver;
+    protected WebDriver driver;
 
-    String selector;
+    protected String selector;
 
-    String name;
+    protected String name;
+
+    protected WebElement root;
 
     /**
      * Component constructor
@@ -36,6 +38,21 @@ public class Component {
         this.driver = driver;
         this.name = name;
         this.selector = selector;
+
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    /**
+     * Component constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param root Component root element
+     */
+    public Component(WebDriver driver, String name, WebElement root) {
+        LOGGER.info("Component " + name + " from provided root");
+        this.driver = driver;
+        this.name = name;
+        this.root = root;
 
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

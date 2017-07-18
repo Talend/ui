@@ -23,9 +23,9 @@ public class List extends Component {
 
     static final String ADD_BTN_SELECTOR = ".tc-actionbar-container .btn-primary";
 
-    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-display-table thead tr th";
+    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-table .ReactVirtualized__Table__headerColumn";
 
-    static final String LIST_ITEMS_SELECTOR = ".tc-list-display-table div:first-child button";
+    static final String LIST_ITEMS_SELECTOR = ".tc-list-table div:first-child button";
 
     static final String ACTION_BTN_ITEM_XPATH = "//*[contains(@class,'tc-list-display-table-td')]//button[text()='{label}']/../../following-sibling::div[contains(@class, 'actions')]/div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
 
@@ -58,21 +58,12 @@ public class List extends Component {
     }
 
     /**
-     * Get list items
-     *
-     * @return List of WebElement
-     */
-    public java.util.List<WebElement> getItems() {
-        return this.getElement().findElements(By.cssSelector(LIST_ITEMS_SELECTOR));
-    }
-
-    /**
      * Get list item from his label
      *
      * @param label label of the item
      * @return WebElement the item
      */
-    public WebElement getItemFromLabel(String label) {
+    public WebElement getTitleFromLabel(String label) {
         LOGGER.info(NAME + ".getItemFromLabel " + label);
         Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(LIST_ITEMS_SELECTOR)).iterator();
 
