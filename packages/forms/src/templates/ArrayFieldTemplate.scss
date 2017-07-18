@@ -12,8 +12,12 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 		&:hover {
 			background: $white;
-			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+			box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 			border: 1px solid $gallery;
+			
+			.delete {
+				color: $chestnut-rose;
+			}
 		}
 
 		.control {
@@ -24,9 +28,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 			.delete {
 				margin: $padding-normal 0 ($padding-normal * 2) 0;
-				&:hover {
-					color: $chestnut-rose;
-				}
 			}
 
 			button {
@@ -62,6 +63,11 @@ $tf-filterwidget-shadow-color: $shadow !default;
 					font-size: $font-size-base;
 					margin: 0;
 					padding: $padding-normal;
+
+					&:hover {
+						cursor: pointer;
+						color: $dove-gray;
+					}
 
 					strong {
 						color: $gray-dark;
