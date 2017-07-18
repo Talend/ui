@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import i18n from 'i18next';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
@@ -269,8 +270,5 @@ if (process.env.NODE_ENV !== 'production') {
 		t: React.PropTypes.func, // react-i18next
 	};
 }
-HeaderBar.defaultProps = {
-	t: () => {},
-};
 
-export default translate('tui-components')(HeaderBar);
+export default translate('tui-components', { i18n })(HeaderBar);
