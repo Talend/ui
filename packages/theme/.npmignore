@@ -37,10 +37,11 @@ jspm_packages
 .node_repl_history
 
 # let's reduce npm package size
-src
+example
+screenshots
+test
 .babelrc
 .editorconfig
-.eslintignore
-.eslintrc
-env__tests.js
+.sass-lint.yml
+screenshots.config.json
 yarn.lock

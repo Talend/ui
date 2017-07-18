@@ -38,3 +38,16 @@ jspm_packages
 .node_repl_history
 
 __tests__
+
+# let's reduce npm package size
+__mocks__
+.storybook
+src
+stories
+stories-core
+storybook-static
+.babelrc
+.editorconfig
+.eslintrc
+.sass-lint.yml
+yarn.lock
