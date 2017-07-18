@@ -24,6 +24,9 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 			.delete {
 				margin: $padding-normal 0 ($padding-normal * 2) 0;
+				&:hover {
+					color: $chestnut-rose;
+				}
 			}
 
 			button {
