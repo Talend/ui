@@ -113,12 +113,9 @@ class DatalistWidget extends React.Component {
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if (options.restricted && isIncluded) {
-			this.props.onChange(this.state.value);
-			this.resetSuggestions();
-		} else if (!options.restricted) {
-			if (value !== this.getLabel(this.state.lastKnownValue)) {
-				this.setValue(value);
+		} else if (!options.restricted || (options.restricted && isIncluded)) {
+			const lastKnowLabel = this.getLabel(this.state.lastKnownValue);
+			if (value !== lastKnowLabel) {
 				this.props.onChange(value);
 			}
 			this.resetSuggestions();
@@ -202,6 +199,7 @@ class DatalistWidget extends React.Component {
 
 		this.setState({
 			value,
+			lastKnownValue: value,
 			initalItems: keys,
 			items: suggestions,
 			itemIndex: null,
