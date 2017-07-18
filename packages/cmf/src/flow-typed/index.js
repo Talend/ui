@@ -7,12 +7,6 @@ export type Id = string;
 export type CMFRegistry = any;
 export type CMFRouter = any;
 
-export type CMFContext = {
-	registry: CMFRegistry,
-	router?: CMFRouter,
-	store?: Store<CMFStoreState, CMFAction>,
-};
-
 export type CMFStoreState = {
 	cmf: {
 		settings: {
@@ -44,6 +38,12 @@ export type CMActionInfo = {
 	},
 	actionCreator?: string,
 	model?: any,
+};
+
+export type CMFContext = {
+	registry: CMFRegistry,
+	router?: CMFRouter,
+	store?: Store<CMFStoreState, CMFAction>,
 };
 
 export type CMFActionCreator = (event: CMFEvent, data: any, context: CMFContext) => CMFAction;

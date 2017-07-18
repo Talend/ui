@@ -12,11 +12,11 @@ import type { CMFContext, CMFAction, CMFStoreState, CMFActionCreator, CMFEvent }
 
 const ACTION_CREATOR_PREFIX = 'actionCreator';
 
-function getStateFromContext(context: CMFContext): CMFStoreState{
-	if(context.store){
+function getStateFromContext(context: CMFContext): CMFStoreState {
+	if (context.store) {
 		return context.store.getState();
 	}
-	throw new Error(`Store cannot be found bound to the react context`);
+	throw new Error('Store cannot be found bound to the react context');
 }
 
 /**
