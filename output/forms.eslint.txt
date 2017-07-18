@@ -30,9 +30,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
-  7:1  error  Component should be written as a pure function  react/prefer-stateless-function
-
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -63,5 +60,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 34 problems (34 errors, 0 warnings)
 
