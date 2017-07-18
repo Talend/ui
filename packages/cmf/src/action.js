@@ -4,7 +4,7 @@ import type { Dispatch } from 'redux';
 
 import registry from './registry';
 
-import type { CMFAction, CMFActionCreator, CMFContext, CMFEvent } from './flow-typed';
+import type { CMFContext, CMFAction, CMFStoreState, CMFActionCreator, CMFEvent } from './flow-typed';
 
 /**
  * @module react-cmf/lib/action
@@ -12,13 +12,20 @@ import type { CMFAction, CMFActionCreator, CMFContext, CMFEvent } from './flow-t
 
 const ACTION_CREATOR_PREFIX = 'actionCreator';
 
+function getStateFromContext(context: CMFContext): CMFStoreState{
+	if(context.store){
+		return context.store.getState();
+	}
+	throw new Error(`Store cannot be found bound to the react context`);
+}
+
 /**
  * get the global actions registered in the settings
  * @param  {object} context
  * @return {object} actions with key === action id
  */
 function getActionsById(context: CMFContext) {
-	const state = context.store.getState();
+	const state = getStateFromContext(context);
 	return get(state, 'cmf.settings.actions', {});
 }
 
@@ -34,7 +41,7 @@ function getContentTypeActions(
 	contentType: string,
 	category: string
 ) {
-	const state = context.store.getState();
+	const state = getStateFromContext(context);
 	return get(
 		state,
 		`cmf.settings.contentTypes[${contentType}.actions[${category}]`,
@@ -88,7 +95,7 @@ function getActionObject(
 	if (action.actionCreator) {
 		const actionCreator = getActionCreatorFunction(context, action.actionCreator);
 		return actionCreator(event, data, {
-			getState: context.store.getState,
+			getState: getStateFromContext(context),
 			router: context.router,
 			registry: context.registry,
 			action,

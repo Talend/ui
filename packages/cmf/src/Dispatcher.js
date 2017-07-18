@@ -7,7 +7,8 @@
 import React, { Children, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from './api';
-import { CMFContext } from './flow-typed';
+
+import type { CMFContext } from './flow-typed';
 
 type Props = {
 	children?: Children,
