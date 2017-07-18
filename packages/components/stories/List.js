@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
+import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 
@@ -129,7 +130,6 @@ const props = {
 		},
 		itemProps: {
 			classNameKey: 'className',
-			onSelect: action('onSelect'),
 			onToggle: action('onToggle'),
 			onToggleAll: action('onToggleAll'),
 		},
@@ -292,7 +292,7 @@ function getPropsFor(displayMode) {
 }
 
 function getActionsProps() {
-	const columnActionsProps = Immutable.fromJS(props).toJS();
+	const columnActionsProps = cloneDeep(props);
 	const actionsColumn = {
 		key: 'columnActions',
 		label: 'Actions',	// label should be set for screen readers
@@ -341,7 +341,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Tile empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -354,48 +354,14 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with selected items', () => {
-		const selectedItemsProps = Immutable.fromJS(props).toJS();
-		selectedItemsProps.toolbar.actionBar.selected = 1;
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'delete',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('delete'),
-				},
-			],
-		};
-		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with selected items.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
-	.add('Table with custom selected class (not migrated - not used)', () => {
-		const selectedClassProps = Immutable.fromJS(props).toJS();
-		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
-		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		selectedClassProps.toolbar = undefined;
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...selectedClassProps} />
-			</div>
-		);
-	})
 
 	.add('Virtualized - table display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
-			<p>Display the list in tile mode</p>
+			<p>
+				Display the list in table mode.<br />
+				This is the default mode.
+			</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} virtualized />
 		</div>
@@ -403,18 +369,22 @@ storiesOf('List', module)
 	.add('Virtualized - large display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
-			<p>Display the list in tile mode</p>
+			<p>
+				Display the list in large mode.<br />
+				You just need to pass the props displayMode.
+				<pre>&lt;List displayMode="large" ... &gt;</pre>
+			</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...props} displayMode="large" virtualized />
 		</div>
 	))
 	.add('Virtualized - empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
-				<p>Display an empty list</p>
+				<p>When the list is empty, a message is displayed instead of the rows.</p>
 				<IconsProvider defaultIcons={icons} />
 				<h2>Table</h2>
 				<List {...emptyListProps} virtualized />
@@ -428,26 +398,66 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>Display a list with columns containing actions.</p>
+				<p>A column can contains only actions that appear on mouseover.</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...columnActionsProps} virtualized />
 			</div>
 		);
 	})
+	.add('Virtualized - selection', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list" >
+				<h1>List</h1>
+				<p>
+					You can manage selection by passing 2 props : onSelect and isSelected.<br />
+					<b>onSelect(event, item)</b> : item selection callback
+					<b>isSelected(item)</b> : returns true if the item is selected
+					<pre>
+						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedItemsProps} virtualized />
+			</div>
+		);
+	})
 	.add('Virtualized - sort', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>Table with sort header click</p>
+				<p>
+					You add sort management with column header click.<br />
+					<pre>
+						listProps.sort.field = 'name';<br />
+						listProps.sort.isDescending = false;<br />
+						listProps.sort.onChange =
+							(event, &#123;field, isDescending&#125;) => sort(field, isDescending);<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} virtualized />
 			</div>
 		);
 	})
 	.add('Virtualized - no toolbar', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -459,7 +469,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Virtualized - toolbar with filter', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
+		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
 
@@ -477,7 +487,10 @@ storiesOf('List', module)
 
 			<h1>List</h1>
 			<h2>Definition</h2>
-			<p>Toolbar Filter</p>
+			<p>
+				Filter in toolbar can have multiple states.<br />
+				Its state, input, and callbacks are customizable.
+			</p>
 			<h2>Docked</h2>
 			<div style={{ height: '15vh' }}>
 				<List {...dockedProps} virtualized />
@@ -509,7 +522,13 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>Get limited options for displayMode</p>
+				<p>
+					You can get limited options for displayMode.<br />
+					<pre>
+						toolbarProps.display.displayModes = ['large', 'table'];<br />
+						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+					</pre>
+				</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} virtualized />
 			</div>
@@ -525,7 +544,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('DEPRECATED - Large (migrated to virtualized)', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.displayMode = 'large';
 		tprops.toolbar.sort.options = [
 			{ id: 'name', name: 'Name' },
@@ -559,7 +578,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table empty list (migrated to virtualized)', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -573,7 +592,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Large empty list (migrated to virtualized)', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -603,7 +622,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Toolbar with filter (migrated to virtualized)', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
+		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
 
@@ -675,7 +694,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('DEPRECATED - Table with sort header click (migrated to virtualized)', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		tprops.list.sort = sort;
 		return (
@@ -684,6 +703,43 @@ storiesOf('List', module)
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('DEPRECATED - Table with selected items', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.selected = 1;
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with selected items.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
+	.add('DEPRECATED - Table with custom selected class (not migrated - not used)', () => {
+		const selectedClassProps = cloneDeep(props);
+		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.toolbar = undefined;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with custom selected class.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedClassProps} />
 			</div>
 		);
 	})
