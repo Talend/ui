@@ -18,20 +18,20 @@ class FieldTemplate extends React.Component {
 						>
 							<Icon name="talend-trash" />
 						</button>
-						{element.hasMoveUp &&
-							<button
-								onClick={element.onReorderClick(element.index, element.index - 1)}
-								title="Move Up"
-							>
-								<Icon name="talend-caret-down" transform="flip-vertical" />
-							</button>}
-						{element.hasMoveDown &&
-							<button
-								onClick={element.onReorderClick(element.index, element.index + 1)}
-								title="Move Down"
-							>
-								<Icon name="talend-caret-down" />
-							</button>}
+						<button
+							disabled={!element.hasMoveUp}
+							onClick={element.onReorderClick(element.index, element.index - 1)}
+							title="Move Up"
+						>
+							<Icon name="talend-caret-down" transform="flip-vertical" />
+						</button>
+						<button
+							disabled={!element.hasMoveDown}
+							onClick={element.onReorderClick(element.index, element.index + 1)}
+							title="Move Down"
+						>
+							<Icon name="talend-caret-down" />
+						</button>
 					</div>}
 				<div className={theme.element}>
 					{element.children}

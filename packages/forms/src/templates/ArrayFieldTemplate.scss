@@ -32,10 +32,16 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			button {
 				background: transparent;
 				border: 0;
-				color: $gray-light;
+				margin: 0 0 1em 0;
+				color: $dark-silver;
 
 				&:hover {
-					color: $gray-dark;
+					color: $dove-gray;
+				}
+
+				&:disabled {
+					color: $silver;
+					cursor: not-allowed;
 				}
 			}
 		}
