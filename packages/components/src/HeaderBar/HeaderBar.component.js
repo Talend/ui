@@ -163,9 +163,9 @@ function User({ name, firstName, lastName, renderers, ...props }) {
 	let displayName = name;
 	if (firstName && lastName) {
 		displayName = (
-			<span>
-				<span>{firstName}</span>
-				<span className={theme['tc-header-bar-last-name']}>{lastName}</span>
+			<span className={classNames(theme['user-name'], 'user-name')}>
+				<span className={classNames(theme['user-firstname'], 'user-firstname')}>{firstName}</span>
+				<span className={classNames(theme['user-lastname'], 'user-firstname')}>{lastName}</span>
 			</span>
 		);
 	}
