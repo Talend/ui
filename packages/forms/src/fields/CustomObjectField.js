@@ -76,14 +76,16 @@ function createCustomObjectField(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div onClick={this.toggle}>
+					<div onDoubleClick={this.toggle}>
 						{title &&
-							<TitleField
-								id={`${idSchema.$id}__title`}
-								title={title(formData)}
-								required={required}
-								formContext={formContext}
-							/>}
+							<div onClick={this.toggle}>
+								<TitleField
+									id={`${idSchema.$id}__title`}
+									title={title(formData)}
+									required={required}
+									formContext={formContext}
+								/>
+							</div>}
 						<button title="Collapse" className="toggle">
 							<Icon name="talend-caret-down" transform={iconTransform} />
 						</button>
