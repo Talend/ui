@@ -86,7 +86,7 @@ function createCustomObjectField(title) {
 									formContext={formContext}
 								/>
 							</div>}
-						<button title="Collapse" className="toggle">
+						<button onClick={this.toggle} title="Collapse" className="toggle">
 							<Icon name="talend-caret-down" transform={iconTransform} />
 						</button>
 					</div>
