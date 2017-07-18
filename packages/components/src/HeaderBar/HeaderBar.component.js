@@ -153,21 +153,26 @@ Help.propTypes = {
 	}),
 };
 
-function User({ name, firstName, lastName, renderers, ...props }) {
+
+function User({ renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
 		theme.separated,
 	);
 
-	let displayName = name;
-	if (firstName && lastName) {
-		displayName = (
-			<span className={classNames(theme['user-name'], 'user-name')}>
-				<span className={classNames(theme['user-firstname'], 'user-firstname')}>{firstName}</span>
-				<span className={classNames(theme['user-lastname'], 'user-firstname')}>{lastName}</span>
-			</span>
-		);
+	function getDisplayName(params) {
+		const { name, firstName, lastName } = params;
+
+		if (firstName && lastName) {
+			return (
+				<span className={classNames(theme['user-name'], 'user-name')}>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{lastName}</span>
+				</span>
+			);
+		}
+		return name;
 	}
 
 	return (
@@ -178,8 +183,8 @@ function User({ name, firstName, lastName, renderers, ...props }) {
 				pullRight
 				tooltipPlacement="bottom"
 				tooltipLabel={name}
-				label={displayName}
-				{...props}
+				label={getDisplayName(rest)}
+				{...rest}
 			/>
 		</li>
 	);
