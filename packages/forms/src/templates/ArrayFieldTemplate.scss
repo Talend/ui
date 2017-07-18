@@ -82,6 +82,9 @@ $tf-filterwidget-shadow-color: $shadow !default;
 					right: 0;
 					padding: $padding-normal;
 				}
+				div:first-child {
+					margin: 0;
+				}
 
 				> div {
 					margin: $padding-normal;

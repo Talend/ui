@@ -76,16 +76,18 @@ function createCustomObjectField(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					{title &&
-						<TitleField
-							id={`${idSchema.$id}__title`}
-							title={title(formData)}
-							required={required}
-							formContext={formContext}
-						/>}
-					<button title="Collapse" onClick={this.toggle} className="toggle">
-						<Icon name="talend-caret-down" transform={iconTransform} />
-					</button>
+					<div onClick={this.toggle}>
+						{title &&
+							<TitleField
+								id={`${idSchema.$id}__title`}
+								title={title(formData)}
+								required={required}
+								formContext={formContext}
+							/>}
+						<button title="Collapse" className="toggle">
+							<Icon name="talend-caret-down" transform={iconTransform} />
+						</button>
+					</div>
 					{(uiSchema['ui:description'] || schema.description) &&
 						<DescriptionField
 							id={`${idSchema.$id}__description`}
