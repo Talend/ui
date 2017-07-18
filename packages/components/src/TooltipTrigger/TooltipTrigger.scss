@@ -1,3 +1,7 @@
 :global(.tooltip.tooltip-container) {
 	opacity: 0.75;
 }
+
+:global(.tooltip-overlap) {
+	display: inline-block;
+}

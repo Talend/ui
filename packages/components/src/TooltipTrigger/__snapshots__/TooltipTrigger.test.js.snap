@@ -38,8 +38,12 @@ ShallowWrapper {
           ]
     }
 >
-    <div>
-        Action
+    <div
+        className="tooltip-overlap"
+    >
+        <div>
+            Action
+        </div>
     </div>
 </OverlayTrigger>,
   "nodes": Array [
@@ -64,8 +68,12 @@ ShallowWrapper {
                 ]
       }
 >
-      <div>
-            Action
+      <div
+            className="tooltip-overlap"
+      >
+            <div>
+                  Action
+            </div>
       </div>
 </OverlayTrigger>,
   ],
@@ -141,8 +149,12 @@ ShallowWrapper {
                             ]
           }
 >
-          <div>
-                    Action
+          <div
+                    className="tooltip-overlap"
+          >
+                    <div>
+                              Action
+                    </div>
           </div>
 </OverlayTrigger>,
         "_debugID": 6,
@@ -167,8 +179,12 @@ ShallowWrapper {
                             ]
           }
 >
-          <div>
-                    Action
+          <div
+                    className="tooltip-overlap"
+          >
+                    <div>
+                              Action
+                    </div>
           </div>
 </OverlayTrigger>,
       },
@@ -222,8 +238,12 @@ ShallowWrapper {
           ]
     }
 >
-    <div>
-        Action
+    <div
+        className="tooltip-overlap"
+    >
+        <div>
+            Action
+        </div>
     </div>
 </OverlayTrigger>,
   "nodes": Array [
@@ -248,8 +268,12 @@ ShallowWrapper {
                 ]
       }
 >
-      <div>
-            Action
+      <div
+            className="tooltip-overlap"
+      >
+            <div>
+                  Action
+            </div>
       </div>
 </OverlayTrigger>,
   ],
@@ -325,8 +349,12 @@ ShallowWrapper {
                             ]
           }
 >
-          <div>
-                    Action
+          <div
+                    className="tooltip-overlap"
+          >
+                    <div>
+                              Action
+                    </div>
           </div>
 </OverlayTrigger>,
         "_debugID": 9,
@@ -351,8 +379,12 @@ ShallowWrapper {
                             ]
           }
 >
-          <div>
-                    Action
+          <div
+                    className="tooltip-overlap"
+          >
+                    <div>
+                              Action
+                    </div>
           </div>
 </OverlayTrigger>,
       },

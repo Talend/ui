@@ -78,29 +78,33 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               <span
                 className={undefined}
               >
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                 tit
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                 1
+                <span>
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   tit
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   1
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                 tempus ardore.
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   tempus ardore.
+                </span>
               </p>
             </div>
           </li>
@@ -117,41 +121,45 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               <span
                 className={undefined}
               >
-                tit
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                 2 
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                s e
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                phants e
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                mentaires ont des ai
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
+                <span>
+                  tit
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   2 
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                  s e
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                  phants e
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                  mentaires ont des ai
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
               </p>
             </div>
           </li>
@@ -196,24 +204,28 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
               <span
                 className={undefined}
               >
-                tit
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                 3
+                <span>
+                  tit
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   3
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
-                <em
-                  className={undefined}
-                >
-                  le
-                </em>
-                at.
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                  at.
+                </span>
               </p>
             </div>
           </li>
@@ -302,12 +314,16 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <span
                 className={undefined}
               >
-                le title 1
+                <span>
+                  le title 1
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                </span>
               </p>
             </div>
           </li>
@@ -324,12 +340,16 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <span
                 className={undefined}
               >
-                title 2 les elephants elementaires ont des aile
+                <span>
+                  title 2 les elephants elementaires ont des aile
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
               </p>
             </div>
           </li>
@@ -374,12 +394,16 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <span
                 className={undefined}
               >
-                title 3
+                <span>
+                  title 3
+                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                </span>
               </p>
             </div>
           </li>
