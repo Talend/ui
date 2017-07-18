@@ -153,11 +153,22 @@ Help.propTypes = {
 	}),
 };
 
-function User({ name, renderers, ...props }) {
+function User({ name, firstName, lastName, renderers, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-user'],
 		theme.separated,
 	);
+
+	let displayName = name;
+	if (firstName && lastName) {
+		displayName = (
+			<span>
+				<span>{firstName}</span>
+				<span className={theme['tc-header-bar-last-name']}>{lastName}</span>
+			</span>
+		);
+	}
 
 	return (
 		<li className={className}>
@@ -166,7 +177,8 @@ function User({ name, renderers, ...props }) {
 				icon="talend-user-circle"
 				pullRight
 				tooltipPlacement="bottom"
-				label={name}
+				tooltipLabel={name}
+				label={displayName}
 				{...props}
 			/>
 		</li>
@@ -176,6 +188,9 @@ function User({ name, renderers, ...props }) {
 User.propTypes = {
 	renderers: React.PropTypes.shape({
 		ActionDropdown: React.PropTypes.func,
+		name: React.PropTypes.string.isRequired,
+		firstName: React.PropTypes.string,
+		lastName: React.PropTypes.string,
 	}),
 };
 
