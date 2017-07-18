@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Action from '../Actions/Action';
-import theme from './TabBar.scss';
 
 function Tab({ item, onClick, isSelected }) {
 	const onSelect = (event) => {
@@ -33,7 +32,7 @@ Tab.propTypes = {
 
 function TabBar({ items, onSelect, selected }) {
 	return (
-		<nav className={classNames(['nav', 'tc-tab-bar', theme['tc-tab-bar']])}>
+		<nav className={classNames(['nav', 'tc-tab-bar'])}>
 			<ul className="nav nav-tabs tc-tab-bar-actions">
 				{items.map(item => (
 					<Tab key={item.key} onClick={onSelect} isSelected={selected === item.key} item={item} />
