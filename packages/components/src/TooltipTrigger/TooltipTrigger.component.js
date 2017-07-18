@@ -72,7 +72,9 @@ class TooltipTrigger extends React.Component {
 				overlay={tooltip}
 				delayShow={400}
 			>
-				{this.props.children}
+				<div className={classNames(theme['tooltip-overlap'], 'tooltip-overlap')}>
+					{this.props.children}
+				</div>
 			</OverlayTrigger>
 		);
 	}
