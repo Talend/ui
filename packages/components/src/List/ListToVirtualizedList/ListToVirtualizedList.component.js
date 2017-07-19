@@ -38,7 +38,7 @@ function ListToVirtualizedList(props) {
 			id={props.id}
 			collection={props.items}
 			isSelected={itemProps && itemProps.isSelected}
-			selectionToggle={itemProps && itemProps.onSelect}
+			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
@@ -71,7 +71,7 @@ ListToVirtualizedList.propTypes = {
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	itemProps: PropTypes.shape({
 		isSelected: PropTypes.func,
-		onSelect: PropTypes.func,
+		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	sort: PropTypes.shape({
