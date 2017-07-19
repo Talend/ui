@@ -751,7 +751,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   }
                                 >
                                   "
-                                  icon
+                                  Search
                                   "
                                 </span>
                                 , 
@@ -777,6 +777,8 @@ exports[`Storyshots HeaderBar default 1`] = `
                                   link
                                   "
                                 </span>
+                                , 
+                                …
                                 }
                               </span>
                               }
@@ -4720,7 +4722,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   }
                                 >
                                   "
-                                  icon
+                                  Search
                                   "
                                 </span>
                                 , 
@@ -4746,6 +4748,8 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                                   link
                                   "
                                 </span>
+                                , 
+                                …
                                 }
                               </span>
                               }
@@ -6871,7 +6875,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   }
                                 >
                                   "
-                                  icon
+                                  Search
                                   "
                                 </span>
                                 , 
@@ -6897,6 +6901,8 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                                   link
                                   "
                                 </span>
+                                , 
+                                …
                                 }
                               </span>
                               }
@@ -8926,7 +8932,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                                   }
                                 >
                                   "
-                                  icon
+                                  Search
                                   "
                                 </span>
                                 , 
@@ -8952,6 +8958,8 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                                   link
                                   "
                                 </span>
+                                , 
+                                …
                                 }
                               </span>
                               }
