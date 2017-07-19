@@ -1,11 +1,14 @@
 package com.talend.component.list.table;
 
-import org.openqa.selenium.WebDriver;
-
 import com.talend.component.Component;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
@@ -55,29 +58,37 @@ public class Table extends Component {
 
     static final String TABLE_SELECTOR = ".tc-list-table";
 
-    static final String TABLE_COLUMN_HEADER_SELECTOR = ".tc-list-table .ReactVirtualized__Table__headerColumn";
+    static final String TABLE_COLUMN_HEADER_SELECTOR = ".ReactVirtualized__Table__headerColumn";
+
+    static final String TABLE_COLUMN_HEADER_KEY_CLASS = TABLE_COLUMN_HEADER_SELECTOR + ".tc-list-cell-%s";
+
+    static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
 
     public Table(final WebDriver driver) {
         super(driver, NAME, TABLE_SELECTOR);
     }
 
     public List<WebElement> getHeaders() {
-        return null;
+        return this.getElement().findElements(By.cssSelector(TABLE_COLUMN_HEADER_SELECTOR));
     }
 
-    public List<WebElement> getHeaders(final String headerName) {
-        return null;
+    public WebElement getHeader(final String headerKey) {
+        return this.getElement().findElement(By.cssSelector(String.format(TABLE_COLUMN_HEADER_KEY_CLASS, headerKey)));
     }
 
-    public int getHeaderIndex(final String headerName) {
-        return -1;
+    public List<Item> getItems() {
+        return this.getElement()
+                .findElements(By.cssSelector(TABLE_ITEM_SELECTOR))
+                .stream()
+                .map(webElement -> new Item(driver, webElement))
+                .collect(toList());
     }
 
-    public Item getItem(final String itemName) {
-        return null;
-    }
-
-    public Item getItem(final int itemIndex) {
-        return null;
+    public Item getItem(final String itemTitle) {
+        return getItems()
+                .stream()
+                .filter(item -> itemTitle.equalsIgnoreCase(item.getTitle().getText()))
+                .findFirst()
+                .orElseThrow(() -> new NotFoundException("List table item not found with title " + itemTitle));
     }
 }

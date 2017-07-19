@@ -1,13 +1,12 @@
 package com.talend.component;
 
+import com.talend.component.list.table.Table;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.Iterator;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component.
@@ -23,11 +22,11 @@ public class List extends Component {
 
     static final String ADD_BTN_SELECTOR = ".tc-actionbar-container .btn-primary";
 
-    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-table .ReactVirtualized__Table__headerColumn";
+//    static final String LIST_COLUMN_HEADER_SELECTOR = ".tc-list-table .ReactVirtualized__Table__headerColumn";
+//
+//    static final String LIST_ITEMS_SELECTOR = ".tc-list-table div:first-child button";
 
-    static final String LIST_ITEMS_SELECTOR = ".tc-list-table div:first-child button";
-
-    static final String ACTION_BTN_ITEM_XPATH = "//*[contains(@class,'tc-list-display-table-td')]//button[text()='{label}']/../../following-sibling::div[contains(@class, 'actions')]/div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
+//    static final String ACTION_BTN_ITEM_XPATH = "//*[contains(@class,'tc-list-display-table-td')]//button[text()='{label}']/../../following-sibling::div[contains(@class, 'actions')]/div[@class='tc-actions btn-group']/button[@id='{listType}:{action}']";
 
     /**
      * List constructor
@@ -49,65 +48,74 @@ public class List extends Component {
     }
 
     /**
-     * Get list of column header
+     * Get the table display element manager
      *
-     * @return List of WebElement
+     * @return Table the table element manager
      */
-    public java.util.List<WebElement> getColumnsHeaders() {
-        return this.getElement().findElements(By.cssSelector(LIST_COLUMN_HEADER_SELECTOR));
+    public Table getTable() {
+        return new Table(driver);
     }
 
-    /**
-     * Get list item from his label
-     *
-     * @param label label of the item
-     * @return WebElement the item
-     */
-    public WebElement getTitleFromLabel(String label) {
-        LOGGER.info(NAME + ".getItemFromLabel " + label);
-        Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(LIST_ITEMS_SELECTOR)).iterator();
+//    /**
+//     * Get list of column header
+//     *
+//     * @return List of WebElement
+//     */
+//    public java.util.List<WebElement> getColumnsHeaders() {
+//        return this.getElement().findElements(By.cssSelector(LIST_COLUMN_HEADER_SELECTOR));
+//    }
 
-        while (elements.hasNext()) {
-            WebElement el = elements.next();
-            if (el.getText().equalsIgnoreCase(label)) {
-                return el;
-            }
-        }
-        throw new NotFoundException(label);
-    }
-
-    /**
-     * Get action button of a list item
-     *
-     * @param label label of the list item
-     * @param listType type of elements display in the list
-     * @param action button action
-     * @return WebElement of the action button
-     */
-    public WebElement getItemActionButton(String label, String listType, String action) throws Exception {
-        if (label != null && !label.isEmpty() && listType != null && !listType.isEmpty() && action != null && !action.isEmpty()) {
-            String xpath = ACTION_BTN_ITEM_XPATH.replace("{label}", label);
-            xpath = xpath.replace("{listType}", listType);
-            xpath = xpath.replace("{action}", action);
-            return this.getElement().findElement(By.xpath(xpath));
-        } else {
-            LOGGER.error(NAME + ".getItemActionButton(" + label + ", " + listType + ", " + action + ")");
-            throw new Exception("Parameters should not be empty or null!");
-        }
-    }
-
-    /**
-     * Test if an item exists
-     *
-     * @param name label of the list item
-     * @return true if the item is in the list
-     */
-    public Boolean hasItem(String name) {
-        try {
-            this.getItemFromLabel(name);
-        } catch (NotFoundException e) {
-            return false;
-        }
-        return true;
-    }
+//    /**
+//     * Get list item from his label
+//     *
+//     * @param label label of the item
+//     * @return WebElement the item
+//     */
+//    public WebElement getTitleFromLabel(String label) {
+//        LOGGER.info(NAME + ".getItemFromLabel " + label);
+//        Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(LIST_ITEMS_SELECTOR)).iterator();
+//
+//        while (elements.hasNext()) {
+//            WebElement el = elements.next();
+//            if (el.getText().equalsIgnoreCase(label)) {
+//                return el;
+//            }
+//        }
+//        throw new NotFoundException(label);
+//    }
+//
+//    /**
+//     * Get action button of a list item
+//     *
+//     * @param label label of the list item
+//     * @param listType type of elements display in the list
+//     * @param action button action
+//     * @return WebElement of the action button
+//     */
+//    public WebElement getItemActionButton(String label, String listType, String action) throws Exception {
+//        if (label != null && !label.isEmpty() && listType != null && !listType.isEmpty() && action != null && !action.isEmpty()) {
+//            String xpath = ACTION_BTN_ITEM_XPATH.replace("{label}", label);
+//            xpath = xpath.replace("{listType}", listType);
+//            xpath = xpath.replace("{action}", action);
+//            return this.getElement().findElement(By.xpath(xpath));
+//        } else {
+//            LOGGER.error(NAME + ".getItemActionButton(" + label + ", " + listType + ", " + action + ")");
+//            throw new Exception("Parameters should not be empty or null!");
+//        }
+//    }
+//
+//    /**
+//     * Test if an item exists
+//     *
+//     * @param name label of the list item
+//     * @return true if the item is in the list
+//     */
+//    public Boolean hasItem(String name) {
+//        try {
+//            this.getItemFromLabel(name);
+//        } catch (NotFoundException e) {
+//            return false;
+//        }
+//        return true;
+//    }
 }

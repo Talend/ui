@@ -16,10 +16,6 @@ public class Cell extends Component {
         super(driver, NAME, root);
     }
 
-    public String getText() {
-        return this.root.getText();
-    }
-
     public List<WebElement> getActions() {
         return null;
     }

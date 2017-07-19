@@ -75,6 +75,11 @@ public class Component {
      */
     public WebElement getElement() throws NotFoundException {
         LOGGER.info(this.name + ".getElement " + this.selector);
+
+        if(this.root != null) {
+            return this.root;
+        }
+
         List<WebElement> elements = this.getElements();
         if (elements.size() == 0) {
             LOGGER.debug("currentUrl: " + this.driver.getCurrentUrl());
@@ -85,5 +90,9 @@ public class Component {
             throw new NotFoundException("Too many WebElements found for " + this.name);
         }
         return elements.get(0);
+    }
+
+    public String getText() {
+        return this.getElement().getText();
     }
 }
