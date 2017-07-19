@@ -261,7 +261,7 @@ const itemsForItems = [
 ];
 const itemPropsForItems = {
 	classNameKey: 'className',
-	onSelect: action('onItemSelect'),
+	onToggle: action('onItemSelect'),
 	onOpen: action('onItemOpen'),
 	onToggleAll: action('onToggleAll'),
 	isSelected: item => selected.find(next => next.id === item.id),
@@ -719,7 +719,7 @@ storiesOf('List', module)
 				},
 			],
 		};
-		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div>
 				<h1>List</h1>
