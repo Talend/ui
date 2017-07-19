@@ -23,10 +23,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 		padding: 0;
 		margin: 0;
 
-		:global(.tooltip-overlap) {
-			height: 100%;
-		}
-
 		&.right {
 			margin-left: auto;
 		}

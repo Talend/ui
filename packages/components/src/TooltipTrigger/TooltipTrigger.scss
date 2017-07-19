@@ -3,5 +3,6 @@
 }
 
 :global(.tooltip-overlap) {
-	display: inline-block;
+	display: inline-flex;
+	height: 100%;
 }
