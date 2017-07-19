@@ -209,7 +209,6 @@ describe('DatalistWidget', () => {
 		input.simulate('blur', { target: { value: 'unknown' } });
 
 		// then
-		expect(onChange).not.toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
