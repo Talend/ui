@@ -38,9 +38,8 @@ jspm_packages
 
 __tests__
 
-# let's reduce npm package size
 storybook-static
-.yarn-tarball.tgz
+*.tgz
 src
 screenshots
 yarn.lock

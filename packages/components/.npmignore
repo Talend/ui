@@ -41,7 +41,6 @@ tests
 build
 dist
 
-# let's reduce npm package size
 __mocks__
 .storybook
 e2e

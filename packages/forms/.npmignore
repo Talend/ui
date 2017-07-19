@@ -39,7 +39,6 @@ jspm_packages
 
 __tests__
 
-# let's reduce npm package size
 __mocks__
 .storybook
 src
