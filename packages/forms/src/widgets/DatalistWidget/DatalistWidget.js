@@ -101,6 +101,7 @@ class DatalistWidget extends React.Component {
 
 		this.renderDatalistItem = this.renderDatalistItem.bind(this);
 		this.renderDatalistInput = this.renderDatalistInput.bind(this);
+		this.itemsContainerClickHandler = this.itemsContainerClickHandler.bind(this);
 
 		this.style = {
 			container: classnames(
@@ -115,6 +116,12 @@ class DatalistWidget extends React.Component {
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
+
+		document.addEventListener('mousedown', this.itemsContainerClickHandler);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.itemsContainerClickHandler);
 	}
 
 	onBlur() {
@@ -192,6 +199,12 @@ class DatalistWidget extends React.Component {
 			return formContext.fetchItems(schema.title);
 		}
 		return [];
+	}
+
+	itemsContainerClickHandler(event) {
+		if (event.target === this.componentRef.itemsContainer) {
+			event.preventDefault();
+		}
 	}
 
 	resetValue() {
@@ -314,6 +327,7 @@ class DatalistWidget extends React.Component {
 				renderItemsContainer={renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
+				ref={(r) => { this.componentRef = r; }}
 			/>
 		);
 	}

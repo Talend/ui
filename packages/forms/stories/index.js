@@ -8,11 +8,31 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 import { Action } from 'react-talend-components';
+import { Dialog } from 'react-talend-components';
 
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
 
 a11y(ReactDOM);
+
+
+const bsProps = {
+	header: 'OnHide + no backdrop + esc',
+	bsDialogProps: {
+		show: true,
+		size: 'small',
+		onHide: action('onHide'),
+		dialogClassName: 'customDialogClassName',
+		keyboard: true,
+		backdrop: 'static',
+		enforceFocus: true,
+		restoreFocus: true,
+	},
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
@@ -23,7 +43,9 @@ const decoratedStories = storiesOf('Form', module)
 				style={{ marginTop: '20px', marginBottom: '20px' }}
 			>
 				<Well>
-					{story()}
+					<Dialog {...bsProps}>
+						{story()}
+					</Dialog>
 				</Well>
 			</div>
 		</div>
