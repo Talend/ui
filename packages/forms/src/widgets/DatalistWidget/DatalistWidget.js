@@ -68,7 +68,7 @@ class DatalistWidget extends React.Component {
 		this.state = {
 			value,
 			lastKnownValue: value,
-			initalItems: [],
+			initialItems: [],
 			items: [],
 			itemIndex: null,
 			noMatch: false,
@@ -109,22 +109,20 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur(event) {
-		const { options } = this.props;
-		const { value } = event.target;
-		const isIncluded = this.state.initalItems.includes(this.state.value);
+		const inputLabel = event.target.value;
+		const { options, onChange } = this.props;
+		const { initialItems, itemsMap, value, lastKnownValue } = this.state;
+
+		const isIncluded = initialItems.includes(value)
+			|| Object.values(itemsMap).includes(value);
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if (options.restricted && isIncluded) {
-			if (value !== this.getLabel(this.state.lastKnownValue)) {
-				this.props.onChange(this.state.value);
-			}
-			this.resetSuggestions();
-		} else if (!options.restricted) {
-			if (value !== this.getLabel(this.state.lastKnownValue)) {
-				const result = this.getValue(value);
-				this.setValue(result);
-				this.props.onChange(result);
+		} else if (!options.restricted || (options.restricted && isIncluded)) {
+			const inputValue = this.getValue(inputLabel);
+			this.setValue(inputValue);
+			if (inputLabel !== this.getLabel(lastKnownValue)) {
+				onChange(inputValue);
 			}
 			this.resetSuggestions();
 		}
@@ -164,10 +162,10 @@ class DatalistWidget extends React.Component {
 	}
 
 	getValue(item) {
-		const { itemsMap, initalItems } = this.state;
+		const { itemsMap, initialItems } = this.state;
 
 		if (Object.values(itemsMap).includes(item)) {
-			return initalItems.find(i => itemsMap[i] === item);
+			return initialItems.find(i => itemsMap[i] === item);
 		}
 		return item;
 	}
@@ -216,7 +214,7 @@ class DatalistWidget extends React.Component {
 
 		this.setState({
 			value,
-			initalItems: keys,
+			initialItems: keys,
 			items: suggestions,
 			itemIndex: null,
 			noMatch: value && keys && !keys.length,
@@ -226,11 +224,11 @@ class DatalistWidget extends React.Component {
 
 	updateSuggestions(value) {
 		let suggestions = this.getMatchingSuggestions(
-			this.state.initalItems,
+			this.state.initialItems,
 			value,
 		);
 		if (!value && suggestions && suggestions.length === 0) {
-			suggestions = this.state.initalItems;
+			suggestions = this.state.initialItems;
 		}
 
 		this.setState({
@@ -269,10 +267,9 @@ class DatalistWidget extends React.Component {
 	 * @param value
 	 */
 	renderDatalistItem(item, { value }) {
-		const label = this.getLabel(item);
 		return (
 			<div className={classnames(theme.item, 'datalist-item')}>
-				<Emphasis value={value} text={label} />
+				<Emphasis value={this.getLabel(value)} text={this.getLabel(item)} />
 			</div>
 		);
 	}
