@@ -112,14 +112,16 @@ class DatalistWidget extends React.Component {
 		const inputLabel = event.target.value;
 		const { options, onChange } = this.props;
 		const { initialItems, itemsMap, value, lastKnownValue } = this.state;
-
+		const inputValue = this.getValue(inputLabel);
 		const isIncluded = initialItems.includes(value)
 			|| Object.values(itemsMap).includes(value);
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
+			if (inputLabel !== this.getLabel(lastKnownValue)) {
+				onChange(undefined);
+			}
 		} else if (!options.restricted || (options.restricted && isIncluded)) {
-			const inputValue = this.getValue(inputLabel);
 			this.setValue(inputValue);
 			if (inputLabel !== this.getLabel(lastKnownValue)) {
 				onChange(inputValue);
