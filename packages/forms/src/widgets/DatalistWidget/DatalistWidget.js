@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import Emphasis from 'react-talend-components/lib/Emphasis';
 import classnames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
+import Emphasis from 'react-talend-components/lib/Emphasis';
 import theme from './DatalistWidget.scss';
 
 /**
@@ -64,8 +64,10 @@ class DatalistWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const value = props.value || '';
 		this.state = {
-			value: props.value || '',
+			value,
+			lastKnownValue: value,
 			initalItems: [],
 			items: [],
 			itemIndex: null,
@@ -113,10 +115,16 @@ class DatalistWidget extends React.Component {
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if (!options.restricted || (options.restricted && isIncluded)) {
-			const lastKnowLabel = this.getLabel(this.state.lastKnownValue);
-			if (value !== lastKnowLabel) {
-				this.props.onChange(value);
+		} else if (options.restricted && isIncluded) {
+			if (value !== this.getLabel(this.state.lastKnownValue)) {
+				this.props.onChange(this.state.value);
+			}
+			this.resetSuggestions();
+		} else if (!options.restricted) {
+			if (value !== this.getLabel(this.state.lastKnownValue)) {
+				const result = this.getValue(value);
+				this.setValue(result);
+				this.props.onChange(result);
 			}
 			this.resetSuggestions();
 		}
@@ -153,6 +161,15 @@ class DatalistWidget extends React.Component {
 			return itemsMap[value];
 		}
 		return value;
+	}
+
+	getValue(item) {
+		const { itemsMap, initalItems } = this.state;
+
+		if (Object.values(itemsMap).includes(item)) {
+			return initalItems.find(i => itemsMap[i] === item);
+		}
+		return item;
 	}
 
 	/**
@@ -199,7 +216,6 @@ class DatalistWidget extends React.Component {
 
 		this.setState({
 			value,
-			lastKnownValue: value,
 			initalItems: keys,
 			items: suggestions,
 			itemIndex: null,
