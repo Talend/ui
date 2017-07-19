@@ -339,6 +339,7 @@ class FormDemo extends React.Component {
 	onChange(formData) {
 		this.setState({ formData });
 	}
+
 	render() {
 		const schema = this.props.schema;
 		schema.properties = this.state.formData || this.props.schema.properties;
