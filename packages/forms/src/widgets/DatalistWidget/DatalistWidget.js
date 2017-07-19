@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import Emphasis from '@talend/react-components/lib/Emphasis';
 import classnames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
@@ -262,25 +263,9 @@ class DatalistWidget extends React.Component {
 	 */
 	renderDatalistItem(item, { value }) {
 		const label = this.getLabel(item);
-		let emphasisedText = [label];
-
-		if (value) {
-			emphasisedText = [];
-			const regex = new RegExp(escapeRegexCharacters(value), 'gi');
-			const matchedValues = label.match(regex);
-			const restValues = label.split(regex);
-
-			restValues.forEach((val, i) => {
-				emphasisedText.push(val);
-				if (matchedValues[i]) {
-					emphasisedText.push(<em className={theme['highlight-match']}>{matchedValues[i]}</em>);
-				}
-			});
-		}
-
 		return (
 			<div className={classnames(theme.item, 'datalist-item')}>
-				{emphasisedText.map((val, index) => <span key={index}>{val}</span>)}
+				<Emphasis value={value} text={label} />
 			</div>
 		);
 	}

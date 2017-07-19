@@ -91,8 +91,9 @@ const props = {
 	search: {
 		icon: {
 			name: 'talend-search',
-			title: 'icon',
+			title: 'Search',
 			bsStyle: 'link',
+			tooltipPlacement: 'bottom',
 		},
 		id: 'header-search',
 		onToggle: action('onSearchClick'),

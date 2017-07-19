@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
+import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 
@@ -129,9 +130,6 @@ const props = {
 		},
 		itemProps: {
 			classNameKey: 'className',
-			onSelect: action('onSelect'),
-			onToggle: action('onToggle'),
-			onToggleAll: action('onToggleAll'),
 		},
 	},
 	toolbar: {
@@ -261,8 +259,9 @@ const itemsForItems = [
 ];
 const itemPropsForItems = {
 	classNameKey: 'className',
-	onSelect: action('onItemSelect'),
 	onOpen: action('onItemOpen'),
+	onSelect: action('onItemSelect'),
+	onToggle: action('onItemToggle'),
 	onToggleAll: action('onToggleAll'),
 	isSelected: item => selected.find(next => next.id === item.id),
 	onCancel: action('onTitleEditCancel'),
@@ -292,7 +291,7 @@ function getPropsFor(displayMode) {
 }
 
 function getActionsProps() {
-	const columnActionsProps = Immutable.fromJS(props).toJS();
+	const columnActionsProps = cloneDeep(props);
 	const actionsColumn = {
 		key: 'columnActions',
 		label: 'Actions',	// label should be set for screen readers
@@ -320,34 +319,6 @@ function getActionsProps() {
 }
 
 storiesOf('List', module)
-	.addDecorator(story => (
-		<form>
-			{story()}
-		</form>
-	))
-	.add('Table (default)', () => (
-		<div className="display-table tc-list-fixed-name-column">
-			<h1>List</h1>
-			<p>Display a list by defining your.</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...props} />
-		</div>
-	))
-	.add('Large', () => {
-		const tprops = Immutable.fromJS(props).toJS();
-		tprops.displayMode = 'large';
-		tprops.toolbar.sort.options = [
-			{ id: 'name', name: 'Name' },
-		];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display the list in large mode</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
-			</div>
-		);
-	})
 	.add('Tile', () => {
 		const tprops = {
 			...props,
@@ -363,7 +334,225 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Filtered DisplayMode', () => {
+	.add('Tile empty list', () => {
+		const emptyListProps = cloneDeep(props);
+		emptyListProps.list.items = [];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display an empty list</p>
+				<IconsProvider defaultIcons={icons} />
+				<div className="tc-list-small-container">
+					<List {...emptyListProps} displayMode="tile" />
+				</div>
+			</div>
+		);
+	})
+
+	.add('Virtualized - table display', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list in table mode.<br />
+				This is the default mode.
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} virtualized />
+		</div>
+	))
+	.add('Virtualized - large display', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list in large mode.<br />
+				You just need to pass the props displayMode.
+				<pre>&lt;List displayMode="large" ... &gt;</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} displayMode="large" virtualized />
+		</div>
+	))
+	.add('Virtualized - empty list', () => {
+		const emptyListProps = cloneDeep(props);
+		emptyListProps.list.items = [];
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>When the list is empty, a message is displayed instead of the rows.</p>
+				<IconsProvider defaultIcons={icons} />
+				<h2>Table</h2>
+				<List {...emptyListProps} virtualized />
+				<h2>Large</h2>
+				<List {...emptyListProps} displayMode="large" virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - column actions', () => {
+		const columnActionsProps = getActionsProps();
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>A column can contains only actions that appear on mouseover.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...columnActionsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - selection', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list" >
+				<h1>List</h1>
+				<p>
+					You can manage selection by passing 2 props : onSelect and isSelected.<br />
+					<b>onSelect(event, item)</b> : item selection callback
+					<b>isSelected(item)</b> : returns true if the item is selected
+					<pre>
+						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedItemsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - sort', () => {
+		const tprops = cloneDeep(props);
+		tprops.list.sort = sort;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					You add sort management with column header click.<br />
+					<pre>
+						listProps.sort.field = 'name';<br />
+						listProps.sort.isDescending = false;<br />
+						listProps.sort.onChange =
+							(event, &#123;field, isDescending&#125;) => sort(field, isDescending);<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - no toolbar', () => {
+		const tprops = cloneDeep(props);
+		tprops.toolbar = undefined;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Table without toolbar</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - toolbar with filter', () => {
+		const dockedProps = cloneDeep(props);
+		dockedProps.list.items = [dockedProps.list.items[0]];
+		dockedProps.toolbar.actionBar = null;
+
+		const inputProps = Immutable.fromJS(dockedProps).toJS();
+		inputProps.toolbar.filter.docked = false;
+
+		const highlightedProps = Immutable.fromJS(inputProps).toJS();
+		highlightedProps.toolbar.filter.highlight = true;
+
+		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
+		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
+
+		return (<div style={{ height: '60vh' }} className="virtualized-list">
+			<IconsProvider />
+
+			<h1>List</h1>
+			<h2>Definition</h2>
+			<p>
+				Filter in toolbar can have multiple states.<br />
+				Its state, input, and callbacks are customizable.
+			</p>
+			<h2>Docked</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...dockedProps} virtualized />
+			</div>
+			<h2>Input</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputProps} virtualized />
+			</div>
+			<h2>Highlighted</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...highlightedProps} virtualized />
+			</div>
+			<h2>Input with 300ms debounce</h2>
+			<div style={{ height: '15vh' }}>
+				<List {...inputDebounceProps} virtualized />
+			</div>
+		</div>);
+	})
+	.add('Virtualized - toolbar with filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					You can get limited options for displayMode.<br />
+					<pre>
+						toolbarProps.display.displayModes = ['large', 'table'];<br />
+						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+
+	.add('DEPRECATED - Table (migrated to virtualized)', () => (
+		<div className="display-table tc-list-fixed-name-column">
+			<h1>List</h1>
+			<p>Display a list by defining your.</p>
+			<IconsProvider defaultIcons={icons} />
+			<List {...props} />
+		</div>
+	))
+	.add('DEPRECATED - Large (migrated to virtualized)', () => {
+		const tprops = cloneDeep(props);
+		tprops.displayMode = 'large';
+		tprops.toolbar.sort.options = [
+			{ id: 'name', name: 'Name' },
+		];
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display the list in large mode</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('DEPRECATED - Filtered DisplayMode', () => {
 		const tprops = {
 			...props,
 			toolbar: {
@@ -382,8 +571,8 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+	.add('DEPRECATED - Table empty list (migrated to virtualized)', () => {
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -396,8 +585,8 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Large empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
+	.add('DEPRECATED - Large empty list (migrated to virtualized)', () => {
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
@@ -410,21 +599,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Tile empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
-		emptyListProps.list.items = [];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
-				<div className="tc-list-small-container">
-					<List {...emptyListProps} displayMode="tile" />
-				</div>
-			</div>
-		);
-	})
-	.add('No toolbar', () => {
+	.add('DEPRECATED - No toolbar (migrated to virtualized)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -440,8 +615,8 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Toolbar with filter', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
+	.add('DEPRECATED - Toolbar with filter (migrated to virtualized)', () => {
+		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
 
@@ -470,7 +645,7 @@ storiesOf('List', module)
 			<List {...inputDebounceProps} />
 		</div>);
 	})
-	.add('Table with column actions', () => {
+	.add('DEPRECATED - Table with column actions (migrated to virtualized)', () => {
 		const columnActionsProps = getActionsProps();
 		return (<div>
 			<h1>List</h1>
@@ -479,44 +654,7 @@ storiesOf('List', module)
 			<List {...columnActionsProps} />
 		</div>);
 	})
-	.add('Table with selected items', () => {
-		const selectedItemsProps = Immutable.fromJS(props).toJS();
-		selectedItemsProps.toolbar.actionBar.selected = 1;
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'delete',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('delete'),
-				},
-			],
-		};
-		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with selected items.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
-	.add('Table with custom selected class', () => {
-		const selectedClassProps = Immutable.fromJS(props).toJS();
-		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
-		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
-		selectedClassProps.toolbar = undefined;
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...selectedClassProps} />
-			</div>
-		);
-	})
-	.add('Table with scroll', () => {
+	.add('DEPRECATED - Table with scroll (not migrated - natively supported)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -532,7 +670,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with ellipsis', () => {
+	.add('DEPRECATED - Table with ellipsis (not migrated - natively supported)', () => {
 		const tprops = {
 			...props,
 			toolbar: undefined,
@@ -549,8 +687,8 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Table with sort header click', () => {
-		const tprops = Immutable.fromJS(props).toJS();
+	.add('DEPRECATED - Table with sort header click (migrated to virtualized)', () => {
+		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		tprops.list.sort = sort;
 		return (
@@ -562,7 +700,44 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('table of Content', () => (
+	.add('DEPRECATED - Table with selected items', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.selected = 1;
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with selected items.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
+	.add('DEPRECATED - Table with custom selected class (not migrated - not used)', () => {
+		const selectedClassProps = cloneDeep(props);
+		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
+		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.toolbar = undefined;
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with custom selected class.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedClassProps} />
+			</div>
+		);
+	})
+	.add('DEPRECATED - table of Content', () => (
 		<div>
 			<h1>List</h1>
 			<h2>Definition</h2>
@@ -572,7 +747,7 @@ storiesOf('List', module)
 			<List {...getPropsFor('table')} />
 		</div>
 	))
-	.add('large of Content', () => (
+	.add('DEPRECATED - large of Content', () => (
 		<div>
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
@@ -580,114 +755,12 @@ storiesOf('List', module)
 			<List {...getPropsFor('large')} />
 		</div>
 	))
-	.add('tile of Content', () => (
+	.add('DEPRECATED - tile of Content', () => (
 		<div>
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
 		</div>
-	))
-	.add('Virtualized', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>Display the list in tile mode</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...props} virtualized />
-		</div>
-	))
-	.add('Virtualized large', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>Display the list in tile mode</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...props} displayMode="large" virtualized />
-		</div>
-	))
-	.add('Virtualized with column actions', () => {
-		const columnActionsProps = getActionsProps();
-		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display a list with columns containing actions.</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...columnActionsProps} virtualized />
-			</div>
-		);
-	})
-	.add('Virtualized with sort', () => {
-		const tprops = Immutable.fromJS(props).toJS();
-		tprops.toolbar = undefined;
-		tprops.list.sort = sort;
-		tprops.virtualized = true;
-		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Table with sort header click</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} virtualized />
-			</div>
-		);
-	})
-	.add('VirtualizedList Table empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
-		emptyListProps.list.items = [];
-		return (
-			<div style={{ height: '60vh' }}>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} virtualized />
-			</div>
-		);
-	})
-	.add('VirtualizedList Large empty list', () => {
-		const emptyListProps = Immutable.fromJS(props).toJS();
-		emptyListProps.list.items = [];
-		return (
-			<div style={{ height: '60vh' }}>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} displayMode="large" virtualized />
-			</div>
-		);
-	})
-	.add('Virtualized with filter', () => {
-		const dockedProps = Immutable.fromJS(props).toJS();
-		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
+	));
 
-		const inputProps = Immutable.fromJS(dockedProps).toJS();
-		inputProps.toolbar.filter.docked = false;
-
-		const highlightedProps = Immutable.fromJS(inputProps).toJS();
-		highlightedProps.toolbar.filter.highlight = true;
-
-		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
-		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
-
-		return (<div style={{ height: '60vh' }} className="virtualized-list">
-			<IconsProvider />
-
-			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Toolbar Filter</p>
-			<h2>Docked</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...dockedProps} virtualized />
-			</div>
-			<h2>Input</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...inputProps} virtualized />
-			</div>
-			<h2>Highlighted</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...highlightedProps} virtualized />
-			</div>
-			<h2>Input with 300ms debounce</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...inputDebounceProps} virtualized />
-			</div>
-		</div>);
-	});
