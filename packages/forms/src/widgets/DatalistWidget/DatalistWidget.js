@@ -167,7 +167,7 @@ class DatalistWidget extends React.Component {
 		if (Object.values(itemsMap).includes(item)) {
 			return initialItems.find(i => itemsMap[i] === item);
 		}
-		return item;
+		return item || undefined;
 	}
 
 	/**
