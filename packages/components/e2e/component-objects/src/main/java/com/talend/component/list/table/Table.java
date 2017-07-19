@@ -12,83 +12,82 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
- *
- * ** TABLE **
- table = list.getTable();
-
- ** TABLE / HEADER **
-
- // get column headers
- headers = table.getHeaders();
- headerIndex = table.getHeaderIndex(headerName);
- header = table.getHeader(headerName);
- header.click();
-
- ** TABLE / ITEM **
-
- // get item row
- item = table.getItem(itemName);
- item = table.getItem(itemIndex);
-
- // get item title
- title = item.getTitle();
- // DROPPED title = table.getItemTitle(itemName);
- title.click();
-
- // get item actions
- actions = item.getActions();
- // DROPPED actions = table.getItemActions(itemName);
-
- action = item.getAction(actionId); --> need to generate uniform ids
- // DROPPED action = table.getItemAction(itemName, actionId);
- action.click();
-
- // get item cell
- cell = item.get(headerName);
- cell = item.get(headerIndex);
-
- text = cell.getText();
-
- actions = cell.getActions();
- action = cell.getAction(actionId); --> need to generate uniform ids
- action.click();
  */
 public class Table extends Component {
-    static final String NAME = "Table";
 
-    static final String TABLE_SELECTOR = ".tc-list-table";
+    private static final String NAME = "Table";
 
-    static final String TABLE_COLUMN_HEADER_SELECTOR = ".ReactVirtualized__Table__headerColumn";
+    private static final String TABLE_SELECTOR = ".tc-list-table";
 
-    static final String TABLE_COLUMN_HEADER_KEY_CLASS = TABLE_COLUMN_HEADER_SELECTOR + ".tc-list-cell-%s";
+    private static final String TABLE_COLUMN_HEADER_SELECTOR = ".ReactVirtualized__Table__headerColumn";
 
-    static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
+    private static final String TABLE_COLUMN_HEADER_KEY_CLASS = TABLE_COLUMN_HEADER_SELECTOR + ".tc-list-cell-%s";
 
+    private static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
+
+    /**
+     * Constructor.
+     *
+     * @param driver Selenium WebDriver
+     */
     public Table(final WebDriver driver) {
         super(driver, NAME, TABLE_SELECTOR);
     }
 
+    /**
+     * Get the headers.
+     *
+     * @return List of headers WebElement
+     */
     public List<WebElement> getHeaders() {
         return this.getElement().findElements(By.cssSelector(TABLE_COLUMN_HEADER_SELECTOR));
     }
 
-    public WebElement getHeader(final String headerKey) {
-        return this.getElement().findElement(By.cssSelector(String.format(TABLE_COLUMN_HEADER_KEY_CLASS, headerKey)));
+    /**
+     * Get a specific header, identified by the column key.
+     * You can get this key from the className on header element : tc-list-cell-(columnKey).
+     *
+     * @param columnKey The column key
+     * @return The header WebElement
+     */
+    public WebElement getHeader(final String columnKey) {
+        return this.getElement().findElement(By.cssSelector(String.format(TABLE_COLUMN_HEADER_KEY_CLASS, columnKey)));
     }
 
+    /**
+     * Get all rendered items, represented by a row in the table.
+     *
+     * @return The list of Items
+     */
     public List<Item> getItems() {
-        return this.getElement()
-                .findElements(By.cssSelector(TABLE_ITEM_SELECTOR))
-                .stream()
-                .map(webElement -> new Item(driver, webElement))
+        return this.getElement() //
+                .findElements(By.cssSelector(TABLE_ITEM_SELECTOR)) //
+                .stream() //
+                .map(webElement -> new Item(driver, webElement)) //
                 .collect(toList());
     }
 
+    /**
+     * Get a specific item, find by the item title.
+     * It should be unique in the list.
+     *
+     * @param itemTitle The item title
+     * @return The Item
+     */
     public Item getItem(final String itemTitle) {
-        return getItems()
-                .stream()
-                .filter(item -> itemTitle.equalsIgnoreCase(item.getTitle().getText()))
-                .findFirst()
+        return getItems() //
+                .stream() //
+                .filter(item -> itemTitle.equalsIgnoreCase(item.getTitle().getText())) //
+                .findFirst() //
                 .orElseThrow(() -> new NotFoundException("List table item not found with title " + itemTitle));
+    }
+
+    /**
+     * Click on header.
+     *
+     * @param columnKey The column key
+     */
+    public void clickOnHeader(final String columnKey) {
+        getHeader(columnKey).click();
     }
 }
