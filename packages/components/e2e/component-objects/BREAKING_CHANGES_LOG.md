@@ -18,7 +18,22 @@ After
 import org.talend.component.*;
 ```
 
-Explanation : this aligns the package name with all talend project
+Explanation : this aligns the package name with all talend projects
+
+### WebDriver configuration
+
+Before
+```java
+this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+```
+
+After
+```java
+// removed this configuration
+```
+
+Explanation : when the component-objects were instantiated, it was overriding the timeout configuration of the WebDriver.
+This should not be here, and only managed by the test project.
 
 ### list.getItems()
 
@@ -94,7 +109,3 @@ After
 ```java
 final boolean exists = list.getTable().hasItem(titleLabel);
 ```
-
-Explanation :
- * the buttons should have ids or part of ids that are similar
- * listType and action parameters are specific to a project. They are used to create the id.

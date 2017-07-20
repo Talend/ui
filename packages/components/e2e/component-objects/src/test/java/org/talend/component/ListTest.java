@@ -15,7 +15,7 @@ public class ListTest extends StorybookTest {
     @Test
     public void should_get_table() {
         // when
-        listObject.getElement();
+        listObject.getTable().getElement();
 
         // then
         // should not throw NotFoundException

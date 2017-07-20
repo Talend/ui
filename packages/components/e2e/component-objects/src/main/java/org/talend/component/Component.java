@@ -1,14 +1,13 @@
 package org.talend.component;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Parent class for API react-talend-component components.
@@ -38,8 +37,6 @@ public class Component {
         this.driver = driver;
         this.name = name;
         this.selector = selector;
-
-        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     /**
@@ -53,8 +50,6 @@ public class Component {
         this.driver = driver;
         this.name = name;
         this.root = root;
-
-        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     /**
@@ -76,7 +71,7 @@ public class Component {
     public WebElement getElement() throws NotFoundException {
         LOGGER.info(this.name + ".getElement " + this.selector);
 
-        if(this.root != null) {
+        if (this.root != null) {
             return this.root;
         }
 
