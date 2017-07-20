@@ -63,6 +63,9 @@ function processValue(value) {
 	return undefined;
 }
 
+function itemsContainerClickHandler(e) {
+	e.preventDefault();
+}
 
 /**
  * Render a typeahead for filtering among a list
@@ -101,7 +104,6 @@ class DatalistWidget extends React.Component {
 
 		this.renderDatalistItem = this.renderDatalistItem.bind(this);
 		this.renderDatalistInput = this.renderDatalistInput.bind(this);
-		this.itemsContainerClickHandler = this.itemsContainerClickHandler.bind(this);
 
 		this.style = {
 			container: classnames(
@@ -117,16 +119,12 @@ class DatalistWidget extends React.Component {
 			itemsList: theme.items,
 		};
 
-		document.addEventListener('mousedown', this.itemsContainerClickHandler);
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('mousedown', this.itemsContainerClickHandler);
 	}
 
 	onBlur() {
 		const { options } = this.props;
 		const included = this.state.initalItems.includes(this.state.value);
+		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 
 		if (options.restricted && !included) {
 			this.resetValue();
@@ -201,12 +199,6 @@ class DatalistWidget extends React.Component {
 		return [];
 	}
 
-	itemsContainerClickHandler(event) {
-		if (event.target === this.componentRef.itemsContainer) {
-			event.preventDefault();
-		}
-	}
-
 	resetValue() {
 		this.setValue('');
 		this.resetSuggestions();
@@ -217,6 +209,7 @@ class DatalistWidget extends React.Component {
 		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(keys, value);
 
+		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
 		this.setState({
 			value,
 			initalItems: keys,
@@ -327,7 +320,7 @@ class DatalistWidget extends React.Component {
 				renderItemsContainer={renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
-				ref={(r) => { this.componentRef = r; }}
+				ref={(ref) => { this.reference = ref; }}
 			/>
 		);
 	}
