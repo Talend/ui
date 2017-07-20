@@ -91,8 +91,9 @@ const props = {
 	search: {
 		icon: {
 			name: 'talend-search',
-			title: 'icon',
+			title: 'Search',
 			bsStyle: 'link',
+			tooltipPlacement: 'bottom',
 		},
 		id: 'header-search',
 		onToggle: action('onSearchClick'),
@@ -110,7 +111,9 @@ const props = {
 				onClick: action('onSettingsClick'),
 			},
 		],
-		name: 'User NAME',
+		name: 'John Doe',
+		firstName: 'John',
+		lastName: 'Doe',
 	},
 	products: {
 		id: 'header-products',
