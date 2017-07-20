@@ -118,7 +118,6 @@ class DatalistWidget extends React.Component {
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
-
 	}
 
 	onBlur() {

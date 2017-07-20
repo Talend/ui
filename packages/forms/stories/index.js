@@ -15,25 +15,6 @@ import DatalistWidget from '../src/widgets/DatalistWidget';
 
 a11y(ReactDOM);
 
-
-const bsProps = {
-	header: 'OnHide + no backdrop + esc',
-	bsDialogProps: {
-		show: true,
-		size: 'small',
-		onHide: action('onHide'),
-		dialogClassName: 'customDialogClassName',
-		keyboard: true,
-		backdrop: 'static',
-		enforceFocus: true,
-		restoreFocus: true,
-	},
-	action: {
-		label: 'OK',
-		onClick: action('ok'),
-	},
-};
-
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
@@ -43,19 +24,14 @@ const decoratedStories = storiesOf('Form', module)
 				style={{ marginTop: '20px', marginBottom: '20px' }}
 			>
 				<Well>
-					<Dialog {...bsProps}>
-						{story()}
-					</Dialog>
+					{story()}
 				</Well>
 			</div>
 		</div>
 	));
 
-const capitalizeFirstLetter =
-	string => string.charAt(0).toUpperCase() + string.slice(1);
-
+const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
-
 const sampleFilenameRegex = /^.\/(.*).js/;
 
 sampleFilenames
@@ -188,7 +164,7 @@ function CustomDatalist(...args) {
 	);
 }
 
-decoratedStories.add('Datalist', () => {
+function getDatalist() {
 	function fetchItems() {
 		return [
 			'Auklet',
@@ -282,6 +258,30 @@ decoratedStories.add('Datalist', () => {
 			onSubmit={action('SUBMIT')}
 			widgets={{ customDatalist: CustomDatalist }}
 		/>
+	);
+}
+
+decoratedStories.add('Datalist', getDatalist);
+decoratedStories.add('Datalist in modal', () => {
+	const props = {
+		header: 'Datalist in modal',
+		bsDialogProps: {
+			show: true,
+			size: 'small',
+			keyboard: true,
+		}
+	};
+
+	// Need to override style for this demo (items-container must be scrollable)
+	return (
+		<div>
+			<style>
+				{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}
+			</style>
+			<Dialog {...props}>
+				{ getDatalist() }
+			</Dialog>
+		</div>
 	);
 });
 
