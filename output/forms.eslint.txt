@@ -47,6 +47,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   77:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
+  122:2  error  Block must not be padded by blank lines  padded-blocks
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -60,5 +63,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 35 problems (35 errors, 0 warnings)
 
