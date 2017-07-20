@@ -164,9 +164,15 @@ class DatalistWidget extends React.Component {
 	}
 
 	getValue(item) {
-		const { itemsMap, initialItems } = this.state;
+		const { itemsMap } = this.state;
+		const key = Object.keys(itemsMap).find(k => itemsMap[k] === item);
 
-		return initialItems.find(i => itemsMap[i] === item);
+		if (key != null) {
+			return key;
+		} else if (item != null) {
+			return item;
+		}
+		return undefined;
 	}
 
 	/**
