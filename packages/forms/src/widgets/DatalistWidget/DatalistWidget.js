@@ -114,7 +114,7 @@ class DatalistWidget extends React.Component {
 		const { initialItems, itemsMap, value, lastKnownValue } = this.state;
 		const inputValue = this.getValue(inputLabel);
 		const isIncluded = initialItems.includes(value)
-			|| itemsMap.includes(value);
+			|| Object.keys(itemsMap).some(k => itemsMap[k] === value);
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
@@ -166,10 +166,7 @@ class DatalistWidget extends React.Component {
 	getValue(item) {
 		const { itemsMap, initialItems } = this.state;
 
-		if (itemsMap.includes(item)) {
-			return initialItems.find(i => itemsMap[i] === item);
-		}
-		return item || undefined;
+		return initialItems.find(i => itemsMap[i] === item);
 	}
 
 	/**
