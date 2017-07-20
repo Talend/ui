@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { Icon } from 'react-talend-components';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 
-function createCustomObjectField(title) {
-	class CustomObjectField extends React.Component {
+function createCollapsibleFieldset(title) {
+	class CollapsibleFieldset extends React.Component {
 		static defaultProps = {
 			uiSchema: {},
 			formData: {},
@@ -76,9 +76,9 @@ function createCustomObjectField(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div onDoubleClick={this.toggle}>
+					<div onDoubleClick={this.toggle} role="button">
 						{title &&
-							<div onClick={this.toggle}>
+							<div onClick={this.toggle} role="button">
 								<TitleField
 									id={`${idSchema.$id}__title`}
 									title={title(formData)}
@@ -124,7 +124,7 @@ function createCustomObjectField(title) {
 		}
 	}
 	if (process.env.NODE_ENV !== 'production') {
-		CustomObjectField.propTypes = {
+		CollapsibleFieldset.propTypes = {
 			schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 			uiSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 			errorSchema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -145,7 +145,7 @@ function createCustomObjectField(title) {
 			}),
 		};
 	}
-	return CustomObjectField;
+	return CollapsibleFieldset;
 }
 
-export default createCustomObjectField;
+export default createCollapsibleFieldset;

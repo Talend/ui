@@ -11,7 +11,7 @@ import { Action } from 'react-talend-components';
 
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
-import createCustomObjectField from '../src/fields/CustomObjectField';
+import createCollapsibleFieldset from '../src/fields/CollapsibleFieldset';
 import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
 a11y(ReactDOM);
@@ -310,7 +310,7 @@ decoratedStories.add('Custom widget', () => {
 
 class FormDemo extends React.Component {
 	static fields = {
-		CustomObjectField: createCustomObjectField(formData => {
+		CollapsibleFieldset: createCollapsibleFieldset(formData => {
 			if (formData.function) {
 				return (
 					<span>
@@ -396,7 +396,7 @@ decoratedStories.add('custom array', () => {
 			filters: {
 				'ui:trigger': ['after'],
 				items: {
-					'ui:field': 'CustomObjectField',
+					'ui:field': 'CollapsibleFieldset',
 					operator: {
 						'ui:widget': 'select',
 					},
