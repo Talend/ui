@@ -76,9 +76,9 @@ function createCustomObjectField(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div onDoubleClick={this.toggle}>
+					<div onDoubleClick={this.toggle} role="button">
 						{title &&
-							<div onClick={this.toggle}>
+							<div onClick={this.toggle} role="button">
 								<TitleField
 									id={`${idSchema.$id}__title`}
 									title={title(formData)}
