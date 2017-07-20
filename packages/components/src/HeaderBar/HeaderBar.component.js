@@ -154,7 +154,7 @@ Help.propTypes = {
 };
 
 
-function User({ renderers, ...rest }) {
+function User({ name, firstName, lastName, renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
@@ -162,17 +162,15 @@ function User({ renderers, ...rest }) {
 	);
 
 	function getDisplayName(params) {
-		const { name, firstName, lastName } = params;
-
-		if (firstName && lastName) {
+		if (params.firstName && params.lastName) {
 			return (
 				<span className={classNames(theme['user-name'], 'user-name')}>
-					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{firstName}</span>
-					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{lastName}</span>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
 				</span>
 			);
 		}
-		return name;
+		return params.name;
 	}
 
 	return (
@@ -183,7 +181,7 @@ function User({ renderers, ...rest }) {
 				pullRight
 				tooltipPlacement="bottom"
 				tooltipLabel={name}
-				label={getDisplayName(rest)}
+				label={getDisplayName({ name, firstName, lastName })}
 				{...rest}
 			/>
 		</li>

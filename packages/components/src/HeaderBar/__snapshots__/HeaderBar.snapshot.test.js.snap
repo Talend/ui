@@ -161,7 +161,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -2174,7 +2174,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -4132,7 +4132,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -6261,7 +6261,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -8342,7 +8342,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -10527,7 +10527,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -12444,7 +12444,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
@@ -14688,7 +14688,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         John
                       </span>
                       <span
-                        className="user-firstname"
+                        className="user-lastname"
                       >
                         Doe
                       </span>
