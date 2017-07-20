@@ -7,7 +7,7 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
-import { Action } from 'react-talend-components';
+import { Action, Dialog } from 'react-talend-components';
 
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
@@ -29,11 +29,8 @@ const decoratedStories = storiesOf('Form', module)
 		</div>
 	));
 
-const capitalizeFirstLetter =
-	string => string.charAt(0).toUpperCase() + string.slice(1);
-
+const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
-
 const sampleFilenameRegex = /^.\/(.*).js/;
 
 sampleFilenames
@@ -166,7 +163,7 @@ function CustomDatalist(...args) {
 	);
 }
 
-decoratedStories.add('Datalist', () => {
+function getDatalist() {
 	function fetchItems() {
 		return [
 			'Auklet',
@@ -260,6 +257,30 @@ decoratedStories.add('Datalist', () => {
 			onSubmit={action('SUBMIT')}
 			widgets={{ customDatalist: CustomDatalist }}
 		/>
+	);
+}
+
+decoratedStories.add('Datalist', getDatalist);
+decoratedStories.add('Datalist in modal', () => {
+	const props = {
+		header: 'Datalist in modal',
+		bsDialogProps: {
+			show: true,
+			size: 'small',
+			keyboard: true,
+		}
+	};
+
+	// Need to override style for this demo (items-container must be scrollable)
+	return (
+		<div>
+			<style>
+				{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}
+			</style>
+			<Dialog {...props}>
+				{ getDatalist() }
+			</Dialog>
+		</div>
 	);
 });
 
