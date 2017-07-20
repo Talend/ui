@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import Emphasis from 'react-talend-components/lib/Emphasis';
 import classnames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
-import Emphasis from 'react-talend-components/lib/Emphasis';
 import theme from './DatalistWidget.scss';
 
 /**
@@ -51,6 +51,10 @@ function getItemsMap(items) {
 	}
 
 	return items.reduce((a, b) => Object.assign(a, getValueLabelPair(b)), {});
+}
+
+function itemsContainerClickHandler(e) {
+	e.preventDefault();
 }
 
 /**
@@ -115,6 +119,8 @@ class DatalistWidget extends React.Component {
 		const inputValue = this.getValue(inputLabel);
 		const isIncluded = initialItems.includes(value)
 			|| Object.keys(itemsMap).some(k => itemsMap[k] === value);
+
+		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
@@ -218,6 +224,7 @@ class DatalistWidget extends React.Component {
 		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(keys, value);
 
+		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
 		this.setState({
 			value,
 			initialItems: keys,
@@ -324,6 +331,7 @@ class DatalistWidget extends React.Component {
 				renderItemsContainer={renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
+				ref={(ref) => { this.reference = ref; }}
 			/>
 		);
 	}
