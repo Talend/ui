@@ -17,7 +17,7 @@ public class Table extends Component {
 
     private static final String NAME = "Table";
 
-    private static final String TABLE_SELECTOR = ".tc-list-table";
+    private static final String TABLE_SELECTOR = ".tc-list-table%s";
 
     private static final String TABLE_COLUMN_HEADER_SELECTOR = ".ReactVirtualized__Table__headerColumn";
 
@@ -31,7 +31,16 @@ public class Table extends Component {
      * @param driver Selenium WebDriver
      */
     public Table(final WebDriver driver) {
-        super(driver, NAME, TABLE_SELECTOR);
+        this(driver, null);
+    }
+
+    /**
+     * Constructor with table id
+     *
+     * @param driver Selenium WebDriver
+     */
+    public Table(final WebDriver driver, final String id) {
+        super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
     }
 
     /**
@@ -80,6 +89,21 @@ public class Table extends Component {
                 .filter(item -> itemTitle.equalsIgnoreCase(item.getTitle().getText())) //
                 .findFirst() //
                 .orElseThrow(() -> new NotFoundException("List table item not found with title " + itemTitle));
+    }
+
+    /**
+     * Test if an item exists, based on its title
+     *
+     * @param itemTitle Title label of the list item
+     * @return true if the item is in the list
+     */
+    public Boolean hasItem(String itemTitle) {
+        try {
+            this.getItem(itemTitle);
+        } catch (NotFoundException e) {
+            return false;
+        }
+        return true;
     }
 
     /**

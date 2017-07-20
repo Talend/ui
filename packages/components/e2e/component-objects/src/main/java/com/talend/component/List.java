@@ -43,4 +43,14 @@ public class List extends Component {
     public Table getTable() {
         return new Table(driver);
     }
+
+    /**
+     * Get the table display element manager identified by id.
+     *
+     * @param id The table id
+     * @return Table the table element manager
+     */
+    public Table getTable(final String id) {
+        return new Table(driver, id);
+    }
 }
