@@ -87,8 +87,9 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final WebElement actionButton = getAction(actionId);
+        final WebElement actionButton = this.getAction(actionId);
         final Actions action = new Actions(driver);
-        action.moveToElement(actionButton).click().build().perform();
+        action.moveToElement(actionButton).perform();
+        actionButton.click();
     }
 }
