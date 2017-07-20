@@ -7,8 +7,7 @@ import { withKnobs, object } from '@kadira/storybook-addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
-import { Action } from 'react-talend-components';
-import { Dialog } from 'react-talend-components';
+import { Action, Dialog } from 'react-talend-components';
 
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
