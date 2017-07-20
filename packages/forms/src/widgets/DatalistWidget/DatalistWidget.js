@@ -170,7 +170,7 @@ class DatalistWidget extends React.Component {
 		if (key != null) {
 			return key;
 		}
-		if (item != null) {
+		if (item != null && item.length) {
 			return item;
 		}
 		return undefined;
