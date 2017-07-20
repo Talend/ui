@@ -6,6 +6,20 @@ This document aims to ease the migration from a version to another by providing 
 
 List component object has entirely changed.
 
+### package name
+
+Before
+```java
+import com.talend.component.*;
+```
+
+After
+```java
+import org.talend.component.*;
+```
+
+Explanation : this aligns the package name with all talend project
+
 ### list.getItems()
 
 Before

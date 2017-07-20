@@ -1,6 +1,6 @@
-package com.talend.component;
+package org.talend.component;
 
-import com.talend.component.list.table.Table;
+import org.talend.component.list.table.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

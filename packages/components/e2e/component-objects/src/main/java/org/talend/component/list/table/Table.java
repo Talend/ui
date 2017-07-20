@@ -1,6 +1,6 @@
-package com.talend.component.list.table;
+package org.talend.component.list.table;
 
-import com.talend.component.Component;
+import org.talend.component.Component;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;

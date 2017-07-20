@@ -1,11 +1,11 @@
-package com.talend.component.list.table;
+package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import com.talend.component.Component;
+import org.talend.component.Component;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.

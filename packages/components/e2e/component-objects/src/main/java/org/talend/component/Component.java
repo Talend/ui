@@ -1,4 +1,4 @@
-package com.talend.component;
+package org.talend.component;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
