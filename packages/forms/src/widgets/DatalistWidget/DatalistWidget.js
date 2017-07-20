@@ -160,7 +160,7 @@ class DatalistWidget extends React.Component {
 		if (hasItems && Object.prototype.hasOwnProperty.call(itemsMap, value)) {
 			return itemsMap[value];
 		}
-		return value || '';
+		return value != null ? value : '';
 	}
 
 	getValue(item) {
