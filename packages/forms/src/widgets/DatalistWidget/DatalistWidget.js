@@ -53,16 +53,6 @@ function getItemsMap(items) {
 	return items.reduce((a, b) => Object.assign(a, getValueLabelPair(b)), {});
 }
 
-/**
- * Returns undefined if value is an empty string
- */
-function processValue(value) {
-	if (value && value.length) {
-		return value;
-	}
-	return undefined;
-}
-
 function itemsContainerClickHandler(e) {
 	e.preventDefault();
 }
@@ -78,9 +68,11 @@ class DatalistWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const value = props.value || '';
 		this.state = {
-			value: props.value || '',
-			initalItems: [],
+			value,
+			lastKnownValue: value,
+			initialItems: [],
 			items: [],
 			itemIndex: null,
 			noMatch: false,
@@ -90,7 +82,7 @@ class DatalistWidget extends React.Component {
 		this.inputProps = {
 			placeholder: props.placeholder,
 			required: props.required,
-			onBlur: () => this.onBlur(),
+			onBlur: event => this.onBlur(event),
 			onFocus: () => this.initSuggestions(this.state.value),
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
@@ -120,15 +112,25 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	onBlur() {
-		const { options } = this.props;
-		const included = this.state.initalItems.includes(this.state.value);
+	onBlur(event) {
+		const inputLabel = event.target.value;
+		const { options, onChange } = this.props;
+		const { value, lastKnownValue } = this.state;
+		const inputValue = this.getValue(inputLabel);
+		const isIncluded = this.isPartOfItems(value);
+
 		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 
-		if (options.restricted && !included) {
+		if (options.restricted && !isIncluded) {
 			this.resetValue();
-		} else if ((options.restricted && included) || !options.restricted) {
-			this.props.onChange(processValue(this.state.value));
+			if (inputLabel !== this.getLabel(lastKnownValue)) {
+				onChange(undefined);
+			}
+		} else if (!options.restricted || (options.restricted && isIncluded)) {
+			this.setValue(inputValue);
+			if (inputLabel !== this.getLabel(lastKnownValue)) {
+				onChange(inputValue);
+			}
 			this.resetSuggestions();
 		}
 	}
@@ -163,7 +165,20 @@ class DatalistWidget extends React.Component {
 		if (hasItems && Object.prototype.hasOwnProperty.call(itemsMap, value)) {
 			return itemsMap[value];
 		}
-		return value;
+		return value != null ? value : '';
+	}
+
+	getValue(item) {
+		const { itemsMap } = this.state;
+		const key = Object.keys(itemsMap).find(k => itemsMap[k] === item);
+
+		if (key != null) {
+			return key;
+		}
+		if (item != null && item.length) {
+			return item;
+		}
+		return undefined;
 	}
 
 	/**
@@ -176,13 +191,13 @@ class DatalistWidget extends React.Component {
 			return suggestions;
 		}
 
-		const escapedValue = escapeRegexCharacters(value.trim());
+		const escapedValue = escapeRegexCharacters(this.getLabel(value).trim());
 		const regex = new RegExp(escapedValue, 'i');
 		return suggestions.filter(item => regex.test(this.getLabel(item)));
 	}
 
 	setValue(value) {
-		this.setState({ value: processValue(value) });
+		this.setState({ value, lastKnownValue: value });
 	}
 
 	getItems() {
@@ -198,6 +213,11 @@ class DatalistWidget extends React.Component {
 		return [];
 	}
 
+	isPartOfItems(value) {
+		const { initialItems, itemsMap } = this.state;
+		return initialItems.includes(value) || Object.keys(itemsMap).some(k => itemsMap[k] === value);
+	}
+
 	resetValue() {
 		this.setValue('');
 		this.resetSuggestions();
@@ -211,7 +231,7 @@ class DatalistWidget extends React.Component {
 		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
 		this.setState({
 			value,
-			initalItems: keys,
+			initialItems: keys,
 			items: suggestions,
 			itemIndex: null,
 			noMatch: value && keys && !keys.length,
@@ -220,21 +240,19 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		this.setState((prevState) => {
-			let suggestions = this.getMatchingSuggestions(
-				prevState.initalItems,
-				value,
-			);
-			if (!value && suggestions && suggestions.length === 0) {
-				suggestions = prevState.initalItems;
-			}
+		let suggestions = this.getMatchingSuggestions(
+			this.state.initialItems,
+			value,
+		);
+		if (!value && suggestions && suggestions.length === 0) {
+			suggestions = this.state.initialItems;
+		}
 
-			return {
-				value,
-				items: suggestions,
-				itemIndex: null,
-				noMatch: value && suggestions && !suggestions.length,
-			};
+		this.setState({
+			value,
+			items: suggestions,
+			itemIndex: null,
+			noMatch: value && suggestions && !suggestions.length,
 		});
 	}
 
@@ -252,9 +270,8 @@ class DatalistWidget extends React.Component {
 
 	selectItem(itemIndex) {
 		const selectedItem = this.state.items[itemIndex];
-		const selectedItemLabel = this.getLabel(selectedItem);
 
-		if (selectedItemLabel && selectedItemLabel !== this.state.value) {
+		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);
 			this.resetSuggestions();
 			this.props.onChange(selectedItem);
@@ -267,10 +284,9 @@ class DatalistWidget extends React.Component {
 	 * @param value
 	 */
 	renderDatalistItem(item, { value }) {
-		const label = this.getLabel(item);
 		return (
 			<div className={classnames(theme.item, 'datalist-item')}>
-				<Emphasis value={value} text={label} />
+				<Emphasis value={this.getLabel(value)} text={this.getLabel(item)} />
 			</div>
 		);
 	}
