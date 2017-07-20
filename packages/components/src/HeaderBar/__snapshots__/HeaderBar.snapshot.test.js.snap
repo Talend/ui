@@ -134,7 +134,9 @@ exports[`Storyshots HeaderBar default 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -150,7 +152,20 @@ exports[`Storyshots HeaderBar default 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -1075,9 +1090,11 @@ exports[`Storyshots HeaderBar default 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -2130,7 +2147,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -2146,7 +2165,20 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -3001,9 +3033,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -4071,7 +4105,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -4087,7 +4123,20 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -5012,9 +5061,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -6183,7 +6234,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -6199,7 +6252,20 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -7148,9 +7214,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -8247,7 +8315,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -8263,7 +8333,20 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -9380,9 +9463,11 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -10415,7 +10500,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -10431,7 +10518,20 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -11287,9 +11387,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -12315,7 +12417,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -12331,7 +12435,20 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -13185,9 +13302,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
@@ -14542,7 +14661,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 disabled={false}
                 id="header-user"
                 onClick={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseOver={[Function]}
                 role="button"
                 type="button"
               >
@@ -14558,7 +14679,20 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     />
                   </svg>
                   <span>
-                    User NAME
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
                   </span>
                 </span>
                  
@@ -16166,9 +16300,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                               }
                             >
                               "
-                              User NAME
+                              John Doe
                               "
                             </span>
+                            , 
+                            …
                             }
                           </span>
                           }
