@@ -3,6 +3,11 @@ import { api } from 'react-cmf';
 /**
  * add support for expression in actions.
  * it change the action props by their expression value
+ * it support the following props in the action
+ * * available
+ * * disabled
+ * * inProgress
+ * * labelExpression
  */
 function evalExpressions(action, context, payload = {}) {
 	const newAction = Object.assign({}, action, payload);

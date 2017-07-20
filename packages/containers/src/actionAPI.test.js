@@ -73,10 +73,19 @@ describe('actionAPI.evalExpressions', () => {
 			labelInProgress: 'Running',
 			labelExpression: 'getLabel',
 		};
-		const isInTest = ({ context }) => context.router.location === '/test';
-		const isDisabled = ({ payload }) => payload.model.value;
-		const isInProgress = ({ payload }) => payload.model.value;
-		const getLabel = ({ payload }) => payload.model.value ? payload.labelInProgress : payload.label;
+		function isInTest({ context }) {
+			return context.router.location === '/test';
+		}
+		function isDisabled({ payload }) {
+			return payload.model.value;
+		}
+		function isInProgress({ payload }) {
+			return payload.model.value;
+		}
+		function getLabel({ payload }) {
+			return payload.model.value ? payload.labelInProgress : payload.label;
+		}
+
 		const modelTruthy = { value: true };
 		const modelFalsy = { value: false };
 		const context = {
