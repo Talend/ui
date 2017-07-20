@@ -63,6 +63,9 @@ function processValue(value) {
 	return undefined;
 }
 
+function itemsContainerClickHandler(e) {
+	e.preventDefault();
+}
 
 /**
  * Render a typeahead for filtering among a list
@@ -120,6 +123,7 @@ class DatalistWidget extends React.Component {
 	onBlur() {
 		const { options } = this.props;
 		const included = this.state.initalItems.includes(this.state.value);
+		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 
 		if (options.restricted && !included) {
 			this.resetValue();
@@ -204,6 +208,7 @@ class DatalistWidget extends React.Component {
 		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(keys, value);
 
+		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
 		this.setState({
 			value,
 			initalItems: keys,
@@ -314,6 +319,7 @@ class DatalistWidget extends React.Component {
 				renderItemsContainer={renderItemsContainer}
 				focusedItemIndex={this.state.itemIndex}
 				itemProps={this.itemProps}
+				ref={(ref) => { this.reference = ref; }}
 			/>
 		);
 	}
