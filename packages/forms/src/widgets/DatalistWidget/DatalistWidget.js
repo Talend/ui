@@ -115,10 +115,9 @@ class DatalistWidget extends React.Component {
 	onBlur(event) {
 		const inputLabel = event.target.value;
 		const { options, onChange } = this.props;
-		const { initialItems, itemsMap, value, lastKnownValue } = this.state;
+		const { value, lastKnownValue } = this.state;
 		const inputValue = this.getValue(inputLabel);
-		const isIncluded = initialItems.includes(value)
-			|| Object.keys(itemsMap).some(k => itemsMap[k] === value);
+		const isIncluded = this.isPartOfItems(value);
 
 		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 
@@ -212,6 +211,11 @@ class DatalistWidget extends React.Component {
 			return formContext.fetchItems(schema.title);
 		}
 		return [];
+	}
+
+	isPartOfItems(value) {
+		const { initialItems, itemsMap } = this.state;
+		return initialItems.includes(value) || Object.keys(itemsMap).some(k => itemsMap[k] === value);
 	}
 
 	resetValue() {
