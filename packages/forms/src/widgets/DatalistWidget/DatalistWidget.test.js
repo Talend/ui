@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import DatalistWidget, { escapeRegexCharacters, getMatchingSuggestions } from './DatalistWidget';
+import DatalistWidget, { escapeRegexCharacters } from './DatalistWidget';
 
 describe('escapeRegexCharacters', () => {
 	it('should escape all regex chars', () => {
@@ -29,9 +29,11 @@ describe('getMatchingSuggestions', () => {
 			'   AzErTy   ',
 			'Toto',
 		];
+		let widget;
+		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
 
 		// when
-		const filteredSuggestions = getMatchingSuggestions(suggestions, value);
+		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
 
 		// then
 		expect(filteredSuggestions).toEqual([
@@ -50,9 +52,12 @@ describe('getMatchingSuggestions', () => {
 			'bananaz[e',
 			'   az[erty   ',
 		];
+		let widget;
+		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
+
 
 		// when
-		const filteredSuggestions = getMatchingSuggestions(suggestions, value);
+		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
 
 		// then
 		expect(filteredSuggestions).toEqual([
@@ -153,6 +158,7 @@ describe('DatalistWidget', () => {
 				onChange={onChange}
 			/>
 		);
+
 		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
 
 		// when
@@ -203,7 +209,6 @@ describe('DatalistWidget', () => {
 		input.simulate('blur', { target: { value: 'unknown' } });
 
 		// then
-		expect(onChange).not.toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -222,36 +227,13 @@ describe('DatalistWidget', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('focus'); // to display suggestions
+		input.simulate('focus');
 		input.simulate('change', { target: { value: 'banane' } });
 		input.simulate('blur');
 
 		// then
 		expect(onChange).toBeCalled();
 		expect(wrapper.find('input').prop('value')).toEqual('banane');
-	});
-
-	it('should handle arbitrary input if not restricted', () => {
-		const onChange = jest.fn();
-		const value = 'unknown';
-		const wrapper = mount(
-			<DatalistWidget
-				id="myWidget"
-				required
-				schema={{}}
-				onChange={onChange}
-				options={{ restricted: false }}
-			/>
-		);
-		expect(wrapper.find('Autowhatever').props().inputProps.value).toBe('');
-		const input = wrapper.find('input').at(0);
-
-		// when
-		input.simulate('blur', { target: { value } });
-
-		// then
-		expect(onChange).toBeCalled();
-		expect(onChange.mock.calls[0][0]).toBe(value);
 	});
 
 	it('should not trigger onChange if value is not changed', () => {
@@ -274,5 +256,62 @@ describe('DatalistWidget', () => {
 
 		// then
 		expect(onChange).not.toBeCalled();
+	});
+
+	it('should display labels when available', () => {
+		const options = {
+			enumOptions: [
+				{
+					value: 'key1',
+					label: 'Label A',
+				},
+				{
+					value: 'key2',
+					label: 'Label B',
+				},
+			],
+		};
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+			/>
+		);
+
+		// when
+		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
+
+		// then
+		expect(wrapper.find('li').at(0).text()).toBe('Label A');
+		expect(wrapper.find('li').at(1).text()).toBe('Label B');
+	});
+
+
+	it('should return keys if in value/label mode', () => {
+		const onChange = jest.fn();
+		const options = {
+			enumOptions: [
+				{
+					value: 'key1',
+					label: 'Label A',
+				},
+			],
+		};
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+				onChange={onChange}
+			/>
+		);
+
+		// when
+		wrapper.find('input').at(0).simulate('focus'); // to display suggestions
+		wrapper.find('li').at(0).simulate('mouseDown');
+
+		// then
+		expect(onChange).toBeCalledWith('key1');
 	});
 });

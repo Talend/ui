@@ -153,11 +153,25 @@ Help.propTypes = {
 	}),
 };
 
-function User({ name, renderers, ...props }) {
+
+function User({ name, firstName, lastName, renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-user'],
 		theme.separated,
 	);
+
+	function getDisplayName(params) {
+		if (params.firstName && params.lastName) {
+			return (
+				<span className={classNames(theme['user-name'], 'user-name')}>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
+				</span>
+			);
+		}
+		return params.name;
+	}
 
 	return (
 		<li className={className}>
@@ -166,8 +180,9 @@ function User({ name, renderers, ...props }) {
 				icon="talend-user-circle"
 				pullRight
 				tooltipPlacement="bottom"
-				label={name}
-				{...props}
+				tooltipLabel={name}
+				label={getDisplayName({ name, firstName, lastName })}
+				{...rest}
 			/>
 		</li>
 	);
@@ -176,6 +191,9 @@ function User({ name, renderers, ...props }) {
 User.propTypes = {
 	renderers: React.PropTypes.shape({
 		ActionDropdown: React.PropTypes.func,
+		name: React.PropTypes.string.isRequired,
+		firstName: React.PropTypes.string,
+		lastName: React.PropTypes.string,
 	}),
 };
 

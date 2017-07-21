@@ -313,9 +313,14 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 <div
                   className="datalist-item"
                 >
-                  <span>
-                    aze
-                  </span>
+                  <Emphasis
+                    text="aze"
+                    value=""
+                  >
+                    <span>
+                      aze
+                    </span>
+                  </Emphasis>
                 </div>
               </li>
             </Item>
@@ -346,9 +351,14 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 <div
                   className="datalist-item"
                 >
-                  <span>
-                    banane
-                  </span>
+                  <Emphasis
+                    text="banane"
+                    value=""
+                  >
+                    <span>
+                      banane
+                    </span>
+                  </Emphasis>
                 </div>
               </li>
             </Item>
@@ -379,9 +389,14 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 <div
                   className="datalist-item"
                 >
-                  <span>
-                    bananAze
-                  </span>
+                  <Emphasis
+                    text="bananAze"
+                    value=""
+                  >
+                    <span>
+                      bananAze
+                    </span>
+                  </Emphasis>
                 </div>
               </li>
             </Item>
@@ -412,9 +427,14 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 <div
                   className="datalist-item"
                 >
-                  <span>
-                       AzErTy   
-                  </span>
+                  <Emphasis
+                    text="   AzErTy   "
+                    value=""
+                  >
+                    <span>
+                         AzErTy   
+                    </span>
+                  </Emphasis>
                 </div>
               </li>
             </Item>
@@ -445,9 +465,14 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
                 <div
                   className="datalist-item"
                 >
-                  <span>
-                    Toto
-                  </span>
+                  <Emphasis
+                    text="Toto"
+                    value=""
+                  >
+                    <span>
+                      Toto
+                    </span>
+                  </Emphasis>
                 </div>
               </li>
             </Item>

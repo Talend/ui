@@ -56,8 +56,7 @@
       "./env__tests.js"
     ]
   },
-  "peerDependencies": {},
-  "version": "0.94.0",
+  "version": "0.96.0",
   "dependencies": {
     "tracekit": "^0.4.4",
     "whatwg-fetch": "^2.0.2"

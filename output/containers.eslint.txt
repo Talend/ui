@@ -1,7 +1,5 @@
-Lerna v2.0.0-beta.36
-Scoping to packages that match 'react-talend-containers'
 
-> react-talend-containers@0.94.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> react-talend-containers@0.96.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -45,6 +43,3 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 ✖ 13 problems (12 errors, 1 warning)
 
-Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-containers'
-Errored while running ExecCommand.execute
-Command exited with status 1: npm run lint:es
