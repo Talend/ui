@@ -6,6 +6,7 @@ import api from './api';
 import App from './App';
 import cmfConnect from './cmfConnect';
 import ConnectedDispatcher from './Dispatcher';
+import Inject from './Inject.component.js';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import history from './history';
@@ -35,6 +36,7 @@ export {
 	App,
 	cmfConnect,
 	Dispatcher,
+	Inject,
 	history,
 	store,
 	reducers,
