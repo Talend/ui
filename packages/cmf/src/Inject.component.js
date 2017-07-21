@@ -3,11 +3,25 @@ import api from './api';
 
 const getComponentFrom = api.route.getComponentFromRegistry;
 
-function Inject({ component, ...props }, context) {
-	const Component = getComponentFrom(context, component);
+function NotFoundComponent({ children, error, ...props }) {
+	console.error(e);
 	return (
-		<Component {...props} />
+		<div {...props}>
+			<div className="alert alert-danger">{error.message}</div>
+			{children}
+		</div>
 	);
+}
+
+function Inject({ component, ...props }, context) {
+	try {
+		const Component = getComponentFrom(context, component);
+		return (
+			<Component {...props} />
+		);
+	} catch(error) {
+		return <NotFoundComponent error={error.message} {...props} />
+	}
 }
 Inject.contextTypes = {
 	registry: PropTypes.object.isRequired,
@@ -15,5 +29,6 @@ Inject.contextTypes = {
 Inject.propTypes = {
 	component: PropTypes.string.isRequired,
 };
+Inject.NotFoundComponent = NotFoundComponent;
 
 export default Inject;
