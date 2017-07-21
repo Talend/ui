@@ -3,16 +3,25 @@ import { api } from '@talend/react-cmf';
 /**
  * add support for expression in actions.
  * it change the action props by their expression value
+ * it support the following props in the action
+ * * available
+ * * disabled
+ * * inProgress
+ * * labelExpression
  */
 function evalExpressions(action, context, payload = {}) {
 	const newAction = Object.assign({}, action, payload);
-	const EXPRESSION_ATTRIBUTES = ['available', 'disabled'];
+	const EXPRESSION_ATTRIBUTES = ['available', 'disabled', 'inProgress'];
 	EXPRESSION_ATTRIBUTES.forEach((attr) => {
 		const value = action[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
 			newAction[attr] = api.expression.call(value, context, newAction);
 		}
 	});
+	if (action.labelExpression) {
+		delete newAction.labelExpression;
+		newAction.label = api.expression.call(action.labelExpression, context, newAction);
+	}
 	return newAction;
 }
 

@@ -209,7 +209,6 @@ describe('DatalistWidget', () => {
 		input.simulate('blur', { target: { value: 'unknown' } });
 
 		// then
-		expect(onChange).not.toBeCalled();
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -228,7 +227,7 @@ describe('DatalistWidget', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('focus'); // to display suggestions
+		input.simulate('focus');
 		input.simulate('change', { target: { value: 'banane' } });
 		input.simulate('blur');
 

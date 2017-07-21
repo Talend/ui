@@ -13,13 +13,15 @@
           "hero7",
           "hero8",
           "hero9",
-          "hero10"
+          "hero10",
+          "hero11"
         ],
         "enumNames": [
           "Captain America",
           "Daredevil",
           "Deadpool",
           "Hulk",
+          "Hulk le retour",
           "Iron Man",
           "Luke Cage",
           "Punisher",
@@ -40,6 +42,7 @@
           "Daredevil",
           "Deadpool",
           "Hulk",
+          "Hulk le retour",
           "Iron Man",
           "Luke Cage",
           "Punisher",

@@ -62,3 +62,53 @@ describe('actionAPI.getActionsProps', () => {
 		expect(calls[1][0].type).toBe('@@router/CALL_HISTORY_METHOD');
 	});
 });
+
+describe('actionAPI.evalExpressions', () => {
+	it('should eval available', () => {
+		const actionInfo = {
+			available: 'isInTest',
+			disabled: 'isDisabled',
+			inProgress: 'isInProgress',
+			label: 'Run',
+			labelInProgress: 'Running',
+			labelExpression: 'getLabel',
+		};
+		function isInTest({ context }) {
+			return context.router.location === '/test';
+		}
+		function isDisabled({ payload }) {
+			return payload.model.value;
+		}
+		function isInProgress({ payload }) {
+			return payload.model.value;
+		}
+		function getLabel({ payload }) {
+			return payload.model.value ? payload.labelInProgress : payload.label;
+		}
+
+		const modelTruthy = { value: true };
+		const modelFalsy = { value: false };
+		const context = {
+			registry: {
+				'expression:isInTest': isInTest,
+				'expression:isDisabled': isDisabled,
+				'expression:isInProgress': isInProgress,
+				'expression:getLabel': getLabel,
+			},
+			router: {
+				location: '/test',
+			},
+		};
+		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
+		expect(truthyAction.available).toBe(true);
+		expect(truthyAction.disabled).toBe(true);
+		expect(truthyAction.inProgress).toBe(true);
+		expect(truthyAction.label).toBe('Running');
+
+		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
+		expect(falsyAction.available).toBe(true);
+		expect(falsyAction.disabled).toBe(false);
+		expect(falsyAction.inProgress).toBe(false);
+		expect(falsyAction.label).toBe('Run');
+	});
+});

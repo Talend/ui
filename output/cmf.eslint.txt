@@ -1,5 +1,5 @@
 
-> @talend/react-cmf@0.95.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.96.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -10,6 +10,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   67:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
+  7:2  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
   55:2  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -24,5 +27,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   28:2  error  Prop type `object` is forbidden  react/forbid-prop-types
   29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 10 problems (9 errors, 1 warning)
+✖ 11 problems (9 errors, 2 warnings)
 
