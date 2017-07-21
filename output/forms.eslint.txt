@@ -5,30 +5,31 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  557:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  565:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  558:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   566:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  569:3  error  Prop type `array` is forbidden   react/forbid-prop-types
-  575:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  588:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  595:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  622:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  567:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  570:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  576:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  589:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  596:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   623:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  643:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  624:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   644:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  645:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
+  79:74  error  Multiple spaces found before 'role'                                                  no-multi-spaces
+  81:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
   59:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/Form.js
-  193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -60,5 +61,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 35 problems (35 errors, 0 warnings)
 
