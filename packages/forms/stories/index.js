@@ -106,8 +106,11 @@ decoratedStories.add('Multiple actions', () => {
 
 function CustomDatalist(...args) {
 	function renderItemsContainer({ children, ...containerProps }) {
+		const { className, ...rest } = containerProps;
+
 		return (
-			<div {...containerProps}>
+			<div className={className}>
+				<div {...rest} />
 				{children}
 				{children &&
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
