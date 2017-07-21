@@ -110,5 +110,5 @@ describe('actionAPI.evalExpressions', () => {
 		expect(falsyAction.disabled).toBe(false);
 		expect(falsyAction.inProgress).toBe(false);
 		expect(falsyAction.label).toBe('Run');
-	})
-})
+	});
+});
