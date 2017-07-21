@@ -119,4 +119,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 	}
+
+	.tc-header-bar-user {
+		.user-lastname {
+			text-transform: uppercase;
+
+			&:before {
+				content: ' ';
+			}
+		}
+	}
 }
