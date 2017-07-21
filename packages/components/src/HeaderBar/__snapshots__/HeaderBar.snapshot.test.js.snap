@@ -1526,7 +1526,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -1568,7 +1568,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -3469,7 +3469,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -3511,7 +3511,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -5659,7 +5659,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -5701,7 +5701,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -7650,7 +7650,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -7692,7 +7692,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -9899,7 +9899,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -9941,7 +9941,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -11823,7 +11823,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -11865,7 +11865,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -13738,7 +13738,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -13780,7 +13780,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -16736,7 +16736,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
@@ -16778,7 +16778,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       other
                     </td>
                     <td>
-                      yes
+                      no
                     </td>
                     <td>
                       -
