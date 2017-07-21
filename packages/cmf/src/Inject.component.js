@@ -3,24 +3,20 @@ import api from './api';
 
 const getComponentFrom = api.route.getComponentFromRegistry;
 
-function NotFoundComponent({ children, error, ...props }) {
-	console.error(e);
-	return (
-		<div {...props}>
-			<div className="alert alert-danger">{error.message}</div>
-			{children}
-		</div>
-	);
+function NotFoundComponent({ error }) {
+	console.error(error.message);
+	return (<div className="alert alert-danger">{error.message}</div>);
 }
+NotFoundComponent.propTypes = {
+	error: PropTypes.string.isRequired,
+};
 
 function Inject({ component, ...props }, context) {
 	try {
 		const Component = getComponentFrom(context, component);
-		return (
-			<Component {...props} />
-		);
-	} catch(error) {
-		return <NotFoundComponent error={error.message} {...props} />
+		return (<Component {...props} />);
+	} catch (error) {
+		return (<NotFoundComponent error={error.message} />);
 	}
 }
 Inject.contextTypes = {
