@@ -8,7 +8,6 @@ import { configure, setAddon } from '@storybook/react';
 import infoAddon from '@storybook/addon-info';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
-//import '!style-loader!css-loader!postcss-loader!sass-loader!bootstrap-talend-theme/src/theme/theme.scss';
 import '../node_modules/bootstrap-talend-theme/src/theme/theme.scss';
 
 a11y(ReactDOM);
