@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf, setAddon, action } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
+import { storiesOf, setAddon, action } from '@storybook/react';
+import infoAddon from '@storybook/addon-info';
 import { Breadcrumbs, IconsProvider } from '../src/index';
 import talendIcons from 'talend-icons/dist/react';
 

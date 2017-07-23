@@ -1,7 +1,7 @@
-import { configure, setAddon } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
+import { configure, setAddon } from '@storybook/react';
+import infoAddon from '@storybook/addon-info';
 
-import '!style!css!postcss!sass!bootstrap-talend-theme/src/theme/theme.scss';
+import '../node_modules/bootstrap-talend-theme/src/theme/theme.scss';
 
 setAddon(infoAddon);
 

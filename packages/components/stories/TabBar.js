@@ -2,7 +2,7 @@ import React from 'react';
 import { // eslint-disable-line import/no-extraneous-dependencies
 	storiesOf,
 	action,
-} from '@kadira/storybook';
+} from '@storybook/react';
 
 import { TabBar } from '../src/';
 

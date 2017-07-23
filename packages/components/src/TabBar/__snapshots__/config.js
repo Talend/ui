@@ -1,9 +1,9 @@
 import { // eslint-disable-line import/no-extraneous-dependencies
 	configure,
 	setAddon,
-} from '@kadira/storybook';
+} from '@storybook/react';
 import infoAddon from // eslint-disable-line import/no-extraneous-dependencies
-	'@kadira/react-storybook-addon-info';
+	'@storybook/addon-info';
 
 setAddon(infoAddon);
 

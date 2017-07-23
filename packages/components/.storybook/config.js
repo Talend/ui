@@ -4,11 +4,12 @@ import a11y from 'react-a11y';
 
 import 'babel-polyfill';
 
-import { configure, setAddon } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
+import { configure, setAddon } from '@storybook/react';
+import infoAddon from '@storybook/addon-info';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
-import '!style!css!postcss!sass!bootstrap-talend-theme/src/theme/theme.scss';
+//import '!style-loader!css-loader!postcss-loader!sass-loader!bootstrap-talend-theme/src/theme/theme.scss';
+import '../node_modules/bootstrap-talend-theme/src/theme/theme.scss';
 
 a11y(ReactDOM);
 
