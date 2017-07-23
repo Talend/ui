@@ -45,7 +45,12 @@ const handler = {
 	onChange: action('onChange'),
 };
 
-storiesOf('ObjectViewer', module)
+const stories = storiesOf('ObjectViewer', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

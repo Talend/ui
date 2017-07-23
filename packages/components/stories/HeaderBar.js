@@ -147,6 +147,10 @@ const decoratedStories = storiesOf('HeaderBar', module)
 		</div>
 	));
 
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
+
 decoratedStories
 	.addWithInfo('default', () => {
 		const headerProps = Immutable.fromJS(props).toJS();

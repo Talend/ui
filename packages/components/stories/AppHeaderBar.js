@@ -156,6 +156,10 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 		</div>
 	));
 
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
+
 decoratedStories
 	.addWithInfo('default', () => {
 		if (props.content[1]) {

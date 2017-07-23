@@ -44,7 +44,12 @@ const items = [{
 	icon: 'talend-star',
 }];
 
-storiesOf('SidePanel', module)
+const stories = storiesOf('SidePanel', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

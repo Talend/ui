@@ -28,7 +28,12 @@ const props = {
 	selected: '2',
 };
 
-storiesOf('TabBar', module)
+const stories = storiesOf('TabBar', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('default', () => (
 		<nav>
 			<p>Default TabBar</p>
