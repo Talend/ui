@@ -51,6 +51,6 @@ function story() {
 }
 
 export default {
-	name: 'Custom widget',
+	name: 'Core Custom widget',
 	story,
 };
