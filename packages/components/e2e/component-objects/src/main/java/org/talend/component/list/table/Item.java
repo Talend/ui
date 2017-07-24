@@ -20,7 +20,7 @@ public class Item extends Component {
 
     private static final String TABLE_ITEM_ACTIONS_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > .tc-actions button";
 
-    private static final String TABLE_ITEM_ACTION_SELECTOR = TABLE_ITEM_ACTIONS_SELECTOR + "[id*=%s]";
+    private static final String TABLE_ITEM_ACTION_SELECTOR = TABLE_ITEM_ACTIONS_SELECTOR + "[id*=\"%s\"]";
 
     private static final String TABLE_ITEM_SELECT_CHECKBOX_SELECTOR = ".tc-list-internal-row-selector input[type=checkbox]";
 
