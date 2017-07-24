@@ -21,7 +21,6 @@ import com.talend.component.*;
 ```
 
 After
-```
 ```xml
 <dependency>
     <groupId>org.talend</groupId>
