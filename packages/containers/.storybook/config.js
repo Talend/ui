@@ -3,7 +3,7 @@ import cmf from 'react-storybook-cmf';
 import mock from 'react-cmf/lib/mock';
 import { api } from 'react-cmf';
 
-import '../node_modules/bootstrap-talend-theme/src/theme/theme.scss';
+import 'bootstrap-talend-theme/src/theme/theme.scss';
 
 import examples from '../examples';
 

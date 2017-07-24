@@ -24,11 +24,16 @@ module.exports = (storybookBaseConfig) => {
 				'style-loader',
 				'css-loader',
 				{
+					loader: 'postcss-loader',
+					options: {
+						autoprefixer: {
+							browsers: ['last 2 versions'],
+						},
+					},
+				},
+				{
 					loader: 'sass-loader',
 					options: {
-						includePaths: [
-							path.resolve(__dirname, '../packages/components/node_modules'),
-						],
 						data: SASS_DATA,
 					},
 				}
@@ -50,9 +55,6 @@ module.exports = (storybookBaseConfig) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						includePaths: [
-							path.resolve(__dirname, '../packages/components/node_modules'),
-						],
 						data: SASS_DATA,
 					},
 				}

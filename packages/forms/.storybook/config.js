@@ -1,7 +1,7 @@
 import { configure, setAddon } from '@storybook/react';
 import infoAddon from '@storybook/addon-info';
 
-import '../node_modules/bootstrap-talend-theme/src/theme/theme.scss';
+import 'bootstrap-talend-theme/src/theme/theme.scss';
 
 setAddon(infoAddon);
 
