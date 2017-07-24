@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, object } from '@kadira/storybook-addon-knobs';
+import { storiesOf, action } from '@storybook/react';
+import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
