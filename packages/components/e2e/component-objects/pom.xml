@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.talend</groupId>
+    <groupId>org.talend</groupId>
     <artifactId>component-objects</artifactId>
-    <version>0.95.0-SNAPSHOT</version>
+    <version>0.96.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
