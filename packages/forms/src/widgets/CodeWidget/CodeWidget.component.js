@@ -61,18 +61,16 @@ export class AceCodeWidget extends React.Component {
 			<AceEditor
 				autofocus={autofocus}
 				id={id}
-				mode={options.language}
+				mode={options && options.language}
 				onLoad={this.onLoad}
 				onChange={this.onChange}
 				readOnly={readonly}
 				disabled={disabled}
 				className="form-control"
-				setOptions={{
-					enableBasicAutocompletion: true,
-					enableLiveAutocompletion: true,
-					enableSnippets: true,
-					showLineNumbers: true,
-				}}
+				enableBasicAutocompletion
+				enableLiveAutocompletion
+				enableSnippets
+				showLineNumbers
 				value={value}
 			/>
 		);

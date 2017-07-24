@@ -1,13 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import CodeWidget from './CodeWidget.component';
+import CodeWidget, {
+	AceCodeWidget,
+	TextareaCodeWidget,
+} from './CodeWidget.component';
 
 describe('CodeWidget', () => {
-	it('should render', () => {
+	it('should be AceCodeWidget', () => {
+		expect(CodeWidget).toBe(AceCodeWidget);
+	});
+
+	it('should render ReactAce', () => {
 		const wrapper = shallow(
 			<CodeWidget />
 		);
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.root.node).toMatchSnapshot();
 	});
 });
