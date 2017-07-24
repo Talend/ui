@@ -9,16 +9,31 @@ List component object has entirely changed.
 ### package name
 
 Before
+```xml
+<dependency>
+    <groupId>com.talend</groupId>
+    <artifactId>component-objects</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 ```java
 import com.talend.component.*;
 ```
 
 After
+```
+```xml
+<dependency>
+    <groupId>org.talend</groupId>
+    <artifactId>component-objects</artifactId>
+    <version>0.97.0</version>
+</dependency>
+```
 ```java
 import org.talend.component.*;
 ```
 
-Explanation : this aligns the package name with all talend projects
+Explanation : this aligns the package name with all talend projects, and align version to Talend/ui
 
 ### WebDriver configuration
 
