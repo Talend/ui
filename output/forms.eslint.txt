@@ -41,6 +41,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
+  17:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.js
+  51:23  error  'validateAll' was used before it was defined  no-use-before-define
+  71:22  error  'validateAll' was used before it was defined  no-use-before-define
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   37:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -61,5 +68,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 38 problems (37 errors, 1 warning)
 
