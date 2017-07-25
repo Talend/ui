@@ -65,12 +65,17 @@ function getActionInfo(context, id) {
  * Return the action object ready to be dispatched
  * This is supposed to be used outside of content type
  * @param  {object} context
- * @param  {String} id
+ * @param  {String|Object} id or the action
  * @param  {object} event event which have trigger this action
  * @param  {object} data data attached to the action
  */
 function getActionObject(context, id, event, data) {
-	const action = getActionInfo(context, id);
+	let action;
+	if (typeof id === 'string') {
+		action = getActionInfo(context, id);
+	} else {
+		action = id;
+	}
 	if (action.actionCreator) {
 		const actionCreator = getActionCreatorFunction(context, action.actionCreator);
 		return actionCreator(event, data, {

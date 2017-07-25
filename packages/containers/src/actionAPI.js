@@ -29,13 +29,19 @@ export function getActionsProps(context, ids, model) {
 	if (!ids) {
 		return [];
 	}
-
 	let tmpIds = ids;
-	if (typeof ids === 'string') {
+	const onlyOne = typeof ids === 'string' || (typeof ids === 'object' && !Array.isArray(ids));
+	if (onlyOne) {
 		tmpIds = [ids];
 	}
 
-	const infos = tmpIds.map(id => api.action.getActionInfo(context, id));
+	const infos = tmpIds.map(id => {
+		if (typeof id === 'string') {
+			return api.action.getActionInfo(context, id);
+		}
+		return id;
+	});
+
 	const props = infos.map(info => Object.assign({
 		onClick(event, data) {
 			if (info.actionCreator) {
@@ -50,7 +56,7 @@ export function getActionsProps(context, ids, model) {
 		},
 	}, evalExpressions(info, context, { model })));
 
-	if (typeof ids === 'string') {
+	if (onlyOne) {
 		return props[0];
 	}
 
