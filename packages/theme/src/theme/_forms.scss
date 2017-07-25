@@ -31,7 +31,7 @@ form {
 		[type=email].form-control,
 		[type=tel].form-control,
 		[contenteditable].form-control {
-			&:focus + label {
+			&:focus:not([readonly]) + label {
 				color: $scooter;
 			}
 		}
@@ -61,9 +61,14 @@ form {
 
 		}
 
-		&[disabled],
-		&[readonly] {
+		&[disabled] {
 			background-color: transparent;
+		}
+
+		&[readonly],
+		&[readonly]:focus {
+			background-color: transparent;
+			box-shadow: none;
 		}
 
 		&.input {
