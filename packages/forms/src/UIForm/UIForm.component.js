@@ -14,6 +14,7 @@ export default class UIForm extends React.Component {
 		this.state = {
 			mergedSchema: merge(jsonSchema, uiSchema),
 		};
+		console.log(this.state.mergedSchema);
 
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
@@ -42,14 +43,18 @@ export default class UIForm extends React.Component {
 	 * @param event The event that triggered the callback
 	 * @param payload { schema, value } The field schema and its new value
 	 */
-	onChange(event, { schema, value }) {
+	onChange(event, { schema, value }, options = {}) {
 		const {
 			formName,
 			onChange,
 			properties,
 			customValidation,
 		} = this.props;
-		const error = validateValue(schema, value, properties, customValidation);
+
+		const error = options.validate !== false ?
+			validateValue(schema, value, properties, customValidation) :
+			null;
+
 		const payload = { formName, schema, value, error, properties };
 		onChange(event, payload);
 

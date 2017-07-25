@@ -1,0 +1,58 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "required": [
+      "comments"
+    ],
+    "properties": {
+      "comments": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "email": {
+              "title": "Email",
+              "type": "string",
+              "pattern": "^\\S+@\\S+$",
+              "description": "Email will be used for evil."
+            },
+            "comment": {
+              "title": "Comment",
+              "type": "string",
+              "maxLength": 20,
+              "validationMessage": "Don't be greedy!"
+            }
+          },
+          "required": [
+            "name",
+            "comment"
+          ]
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "comments",
+      "add": "New",
+      "style": {
+        "add": "btn-success"
+      },
+      "items": [
+        "comments[].name",
+        "comments[].email",
+        {
+          "key": "comments[].comment",
+          "type": "textarea"
+        }
+      ]
+    }
+  ],
+  "properties": {}
+}

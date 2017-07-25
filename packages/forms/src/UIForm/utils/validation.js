@@ -18,6 +18,63 @@ export function validateValue(schema, value, properties, customValidationFn) {
 	return staticResult.valid ? null : staticResult.error.message;
 }
 
+function validateArray(mergedSchema, properties, customValidationFn) {
+	const results = {};
+	const { key, items } = mergedSchema;
+
+	// validate array definition, not its sub-items here
+	const schemaWithoutItems = {
+		...mergedSchema,
+		schema: {
+			...mergedSchema.schema,
+			items: [],
+		},
+	};
+	const value = key && getValue(properties, key);
+	const error = validateValue(schemaWithoutItems, value, properties, customValidationFn);
+	if (error) {
+		results[key] = error;
+	}
+
+	// validate each value of the array
+	if (value) {
+		for (let valueIndex = 0; valueIndex < value.length; valueIndex += 1) {
+			// adapt items schema with value index
+			const indexedItems = items.map((item) => {
+				const indexedKey = [...item.key];
+				indexedKey[indexedKey.length - 2] = valueIndex;
+				return {
+					...item,
+					key: indexedKey,
+				};
+			});
+			const subResults = validateAll(indexedItems, properties);
+			Object.assign(results, subResults);
+		}
+	}
+
+	return results;
+}
+
+function validateObject(mergedSchema, properties, customValidationFn) {
+	const results = {};
+	const { key, items } = mergedSchema;
+
+	if (key) {
+		const value = getValue(properties, key);
+		const error = validateValue(mergedSchema, value, properties, customValidationFn);
+		if (error) {
+			results[key] = error;
+		}
+	}
+	if (items) {
+		const subResults = validateAll(items, properties);
+		Object.assign(results, subResults);
+	}
+
+	return results;
+}
+
 /**
  * Validate values.
  * @param mergedSchema The merged schema array.
@@ -29,16 +86,11 @@ export function validateValue(schema, value, properties, customValidationFn) {
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach((schema) => {
-		const { key, items } = schema;
-		if (key) {
-			const value = getValue(properties, key);
-			const error = validateValue(schema, value, properties, customValidationFn);
-			if (error) {
-				results[key] = error;
-			}
-		}
-		if (items) {
-			const subResults = validateAll(items, properties);
+		if (schema.type === 'array') {
+			const subResults = validateArray(schema, properties, customValidationFn);
+			Object.assign(results, subResults);
+		} else {
+			const subResults = validateObject(schema, properties, customValidationFn);
 			Object.assign(results, subResults);
 		}
 	});
