@@ -1,7 +1,7 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 
-import { TooltipTrigger, Icon, Button } from '../src/index';
+import { TooltipTrigger, Button } from '../src/index';
 
 storiesOf('TooltipTrigger', module)
 	.addWithInfo('default', () => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
 
@@ -146,6 +146,10 @@ const decoratedStories = storiesOf('HeaderBar', module)
 			<IconsProvider defaultIcons={icons} />
 		</div>
 	));
+
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
 
 decoratedStories
 	.addWithInfo('default', () => {

@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, object } from '@kadira/storybook-addon-knobs';
+import { storiesOf, action } from '@storybook/react';
+import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
@@ -106,8 +106,11 @@ decoratedStories.add('Multiple actions', () => {
 
 function CustomDatalist(...args) {
 	function renderItemsContainer({ children, ...containerProps }) {
+		const { className, ...rest } = containerProps;
+
 		return (
-			<div {...containerProps}>
+			<div className={className}>
+				<div {...rest} />
 				{children}
 				{children &&
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>

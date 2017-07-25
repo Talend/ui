@@ -33,7 +33,6 @@
   "homepage": "https://github.com/Talend/react-talend-containers#readme",
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.35.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -88,7 +87,8 @@
     "style-loader": "^0.13.1",
     "talend-icons": "^0.97.0",
     "uuid": "3.0.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "@storybook/react": "3.1.9"
   },
   "jest": {
     "collectCoverageFrom": [
