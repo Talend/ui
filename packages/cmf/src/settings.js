@@ -10,7 +10,7 @@ import invariant from 'invariant';
  * if an object try to find _ref property and resolve it
  */
 export function attachRef(state, obj) {
-	if (obj === null || typeof obj !== 'object') {
+	if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
 		return obj;
 	}
 	let props = Object.assign({}, obj);
