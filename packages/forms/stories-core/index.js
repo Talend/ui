@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 import { Provider } from 'react-redux';
-import { storiesOf } from '@kadira/storybook';
-import { withKnobs } from '@kadira/storybook-addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 
@@ -40,6 +40,5 @@ const decoratedStories = storiesOf('Form', module)
 jsonStories.forEach(({ name, story }) => {
 	decoratedStories.add(name, story);
 });
-decoratedStories.add(customWidgetStory.name, customWidgetStory.story);
 decoratedStories.add(customWidgetStory.name, customWidgetStory.story);
 decoratedStories.add(customActionsStory.name, customActionsStory.story);

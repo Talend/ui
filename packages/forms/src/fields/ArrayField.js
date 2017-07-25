@@ -179,7 +179,6 @@ class ArrayField extends Component {
 
 	constructor(props) {
 		super(props);
-
 		this.onAddClick = this.onAddClick.bind(this);
 		this.onDropIndexClick = this.onDropIndexClick.bind(this);
 		this.onReorderClick = this.onReorderClick.bind(this);
@@ -332,8 +331,9 @@ class ArrayField extends Component {
 		};
 
 		// Check if a custom render function was passed in
-		const renderFunction = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
-		return renderFunction(arrayProps);
+		// backported from 0.49.0
+		const TemplateComponent = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
+		return <TemplateComponent {...arrayProps} />;
 	}
 
 	renderMultiSelect() {
@@ -517,6 +517,7 @@ class ArrayField extends Component {
 			hasMoveDown: has.moveDown,
 			hasRemove: has.remove,
 			index,
+			itemData,
 			onDropIndexClick: this.onDropIndexClick,
 			onReorderClick: this.onReorderClick,
 			readonly,

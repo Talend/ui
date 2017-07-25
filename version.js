@@ -49,6 +49,8 @@ const VERSIONS = {
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
+	'@storybook/react': '3.1.9',
+	'@storybook/addon-storyshots': '3.1.9',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',

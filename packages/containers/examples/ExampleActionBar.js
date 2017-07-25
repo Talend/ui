@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconsProvider } from 'react-talend-components';
-import { action } from '@kadira/storybook';
+import { action } from '@storybook/react';
 import { ActionBar } from '../src';
 
 const infos = [

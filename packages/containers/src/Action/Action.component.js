@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { api } from 'react-cmf';
 import { Action as PureAction } from 'react-talend-components';
 import actions from '../actionAPI';
 
@@ -18,7 +19,13 @@ function Action({ name, ...rest }, context) {
 		return null;
 	}
 	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action.payload);
+		if (payload.action.actionCreator) {
+			context.store.dispatch(
+				api.action.getActionObject(context, payload.action.actionCreator, event, payload.model)
+			);
+		} else if (payload.action.payload) {
+			context.store.dispatch(payload.action.payload);
+		}
 	};
 	return (<PureAction {...action} onClick={onClick} />);
 }
