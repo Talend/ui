@@ -40,7 +40,6 @@
   "uiSchema": [
     {
       "key": "comments",
-      "add": "New",
       "style": {
         "add": "btn-success"
       },
@@ -49,10 +48,19 @@
         "comments[].email",
         {
           "key": "comments[].comment",
-          "type": "textarea"
+          "type": "textarea",
+          "rows": 3
         }
       ]
     }
   ],
-  "properties": {}
+  "properties": {
+    "comments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      }
+    ]
+  }
 }

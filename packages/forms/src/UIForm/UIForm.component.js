@@ -36,12 +36,28 @@ export default class UIForm extends React.Component {
 		});
 	}
 
+	onArrayAdd(event, { schema }) {
+
+	}
+
+	onArrayRemove(event, { schema, index }) {
+
+	}
+
+	onArrayReorder(event, { schema, previousIndex, nextIndex }) {
+
+	}
+
 	/**
 	 * Fire callbacks while interacting with form fields
 	 * - onChange: for each field change
 	 * - onTrigger: when trigger is provided and its value is "after"
 	 * @param event The event that triggered the callback
-	 * @param payload { schema, value } The field schema and its new value
+	 * @param schema The payload field schema
+	 * @param value The payload new value
+	 * @param options
+	 * Skip validation if set to true
+	 * before validation if options.skipValidation is set to true
 	 */
 	onChange(event, { schema, value }, options = {}) {
 		const {
@@ -51,11 +67,17 @@ export default class UIForm extends React.Component {
 			customValidation,
 		} = this.props;
 
-		const error = options.validate !== false ?
-			validateValue(schema, value, properties, customValidation) :
-			null;
+		const error = options.skipValidation ?
+			null :
+			validateValue(schema, value, properties, customValidation);
 
-		const payload = { formName, schema, value, error, properties };
+		const payload = {
+			formName,
+			schema,
+			value,
+			error,
+			properties,
+		};
 		onChange(event, payload);
 
 		const { triggers } = schema;
@@ -165,6 +187,9 @@ export default class UIForm extends React.Component {
 							id={this.props.id}
 							key={index}
 							formName={this.props.formName}
+							onArrayAdd={this.onArrayAdd}
+							onArrayRemove={this.onArrayRemove}
+							onArrayReorder={this.onArrayReorder}
 							onChange={this.onChange}
 							onTrigger={this.onTrigger}
 							schema={nextSchema}
