@@ -4,9 +4,10 @@ import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
 
 jest.mock('../src/api', () => ({
 	action: {
-		getActionInfo(context, id) {
+		getActionCreatorFunction(context, id) {
 			if (id !== 'existingActionCreator:id'
 				&& id !== 'actionCreator:id'
+				&& id !== 'noOp'
 				&& id !== 'another:actionCreator:id') {
 				throw new Error(`action not found id: ${id}`);
 			}
@@ -28,8 +29,9 @@ describe('Testing <Dispatcher />', () => {
 	const noOp = () => { };
 
 	it('should inject dispatchable on(event) props into its children', () => {
+		const dispatchActionCreator = jest.fn();
 		const wrapper = mount(
-			<Dispatcher onClick="actionCreator:id" onStuff="another:actionCreator:id">
+			<Dispatcher onClick="actionCreator:id" onStuff="another:actionCreator:id" dispatchActionCreator={dispatchActionCreator}>
 				<button />
 			</Dispatcher>
 		);
@@ -52,7 +54,7 @@ describe('Testing <Dispatcher />', () => {
 	});
 	it('should have its method onEvent called when children handle an event', () => {
 		const wrapper = shallow(
-			<Dispatcher onClick={noOp} onStuff={noOp}>
+			<Dispatcher onClick="noOp" onStuff="noOp">
 				<button />
 			</Dispatcher>
 		);
@@ -64,7 +66,7 @@ describe('Testing <Dispatcher />', () => {
 		expect(instance.onEvent).toHaveBeenCalledWith(undefined, 'onClick');
 	});
 
-	it('should call getActionInfo and reThrow at mount time'
+	it('should call getActionCreatorFunction and reThrow at mount time'
 		+ 'if action info bind onto on[eventName] can\'t be found in settings', () => {
 		expect(() => {
 			mount(
@@ -75,7 +77,7 @@ describe('Testing <Dispatcher />', () => {
 		}).toThrowError('action not found id: error:actionCreator:id');
 	});
 
-	it('should call getActionInfo and reThrow at willreceivePropsTime'
+	it('should call getActionCreatorFunction and reThrow at willreceivePropsTime'
 		+ 'if action info bind onto on[eventName] can\'t be found in settings', () => {
 		const wrapper = mount(
 			<Dispatcher onClick="existingActionCreator:id" onStuff="existingActionCreator:id">
@@ -88,10 +90,15 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it('should not prevent event propagation by default', () => {
+		const dispatchActionCreator = jest.fn();
 		const onClick = jest.fn();
 		const wrapper = mount(
 			<div onClick={onClick}>
-				<Dispatcher onClick={noOp} onStuff="existingActionCreator:id">
+				<Dispatcher
+					dispatchActionCreator={dispatchActionCreator}
+					onClick="noOp"
+					onStuff="existingActionCreator:id"
+				>
 					<a />
 				</Dispatcher>
 			</div>
@@ -101,15 +108,40 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it('should prevent event propagation if stopPropagation is set', () => {
+		const dispatchActionCreator = jest.fn();
 		const onClick = jest.fn();
 		const wrapper = mount(
 			<div onClick={onClick}>
-				<Dispatcher stopPropagation onClick={noOp} onStuff="existingActionCreator:id">
+				<Dispatcher
+					dispatchActionCreator={dispatchActionCreator}
+					stopPropagation
+					onClick="noOp"
+					onStuff="existingActionCreator:id"
+				>
 					<a />
 				</Dispatcher>
 			</div>
 		);
 		wrapper.find('a').simulate('click');
 		expect(onClick).not.toHaveBeenCalled();
+	});
+
+	it('should preventDefault if props is set', () => {
+		const dispatchActionCreator = jest.fn();
+		const event = {
+			type: 'click',
+			preventDefault: jest.fn(),
+		};
+		const wrapper = shallow(
+			<Dispatcher
+				dispatchActionCreator={dispatchActionCreator}
+				preventDefault
+				onClick="noOp"
+			>
+				<a />
+			</Dispatcher>
+		);
+		wrapper.find('a').simulate('click', event);
+		expect(event.preventDefault).toHaveBeenCalled();
 	});
 });
