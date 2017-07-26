@@ -49,7 +49,7 @@ function DisplayModeComponent({
 		isActive,
 		list,
 		onRowClick,
-        useContent,
+		useContent,
 		virtualized }) {
 	if (useContent) {
 		return (
