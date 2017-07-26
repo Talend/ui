@@ -2,6 +2,7 @@
 
 :global(.tc-list-table),
 :global(.tc-list-large) {
+	.row-selection.active,
 	.row-selection.selected {
 		background: $tc-list-row-selected-bg;
 

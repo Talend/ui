@@ -17,7 +17,9 @@ function adaptOnSort(onChange) {
 
 function ListToVirtualizedList(props) {
 	const {
+		isActive,
 		itemProps,
+		onRowClick,
 		sort,
 		titleProps,
 	} = props;
@@ -37,7 +39,9 @@ function ListToVirtualizedList(props) {
 		<VirtualizedList
 			id={props.id}
 			collection={props.items}
+			isActive={isActive}
 			isSelected={itemProps && itemProps.isSelected}
+			onRowClick={onRowClick}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
@@ -69,11 +73,13 @@ ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
+	isActive: PropTypes.func,
 	itemProps: PropTypes.shape({
 		isSelected: PropTypes.func,
 		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
+	onRowClick: PropTypes.func,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,

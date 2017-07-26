@@ -9,48 +9,47 @@ import theme from './ListGrid.scss';
  * List renderer that accepts a custom row renderer.
  * The row renderer will create a row element for each collection item.
  */
-class ListGrid extends React.Component {
-	render() {
-		const {
-			children,
-			id,
-			height,
-			isSelected,
-			rowHeight,
+function ListGrid(props) {
+	const {
+		children,
+		id,
+		height,
+		isActive,
+		isSelected,
+		onRowClick,
+		rowHeight,
+		rowRenderer,
+		selectionToggle,
+		width,
+	} = props;
+
+	const enhancedRowRenderer = selectionToggle || onRowClick ?
+		getRowSelectionRenderer(
 			rowRenderer,
-			selectionToggle,
-			width,
-		} = this.props;
+			{
+				isActive,
+				isSelected,
+				getRowData: ({ index }) => this.props.collection[index],
+			}
+		) : rowRenderer;
 
-		let enhancedRowRenderer = rowRenderer;
-		if (selectionToggle) {
-			enhancedRowRenderer = getRowSelectionRenderer(
-				rowRenderer,
-				{
-					isSelected,
-					getRowData: ({ index }) => this.props.collection[index],
-				}
-			);
-		}
-
-		return (
-			<VirtualizedList
-				className={theme['tc-list-list']}
-				collection={this.props.collection}
-				id={id}
-				height={height}
-				overscanRowCount={10}
-				noRowsRenderer={NoRows}
-				rowCount={this.props.collection.length}
-				rowHeight={rowHeight}
-				rowRenderer={enhancedRowRenderer}
-				rowGetter={index => this.props.collection[index]}
-				width={width}
-			>
-				{children}
-			</VirtualizedList>
-		);
-	}
+	return (
+		<VirtualizedList
+			className={theme['tc-list-list']}
+			collection={props.collection}
+			id={id}
+			height={height}
+			overscanRowCount={10}
+			noRowsRenderer={NoRows}
+			rowCount={props.collection.length}
+			rowHeight={rowHeight}
+			rowRenderer={enhancedRowRenderer}
+			rowGetter={index => props.collection[index]}
+			width={width}
+		>
+			{children}
+		</VirtualizedList>
+	);
 }
 
 ListGrid.displayName = 'VirtualizedList(ListGrid)';
@@ -59,7 +58,9 @@ ListGrid.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	selectionToggle: PropTypes.func,

@@ -210,7 +210,7 @@ storiesOf('Virtualized List', module)
 				</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh'}}>
+			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -258,7 +258,7 @@ storiesOf('Virtualized List', module)
 				To disable sort on a column, add the <b>disableSort</b> props (see Description column).
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh'}}>
+			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -312,7 +312,7 @@ storiesOf('Virtualized List', module)
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh'}}>
+			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}
@@ -354,13 +354,65 @@ storiesOf('Virtualized List', module)
 			</section>
 		</div>
 	))
+	.add('List > Table : row click', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<p>
+				Row click can be enabled by passing <b>onRowClick</b> callback
+				and <b>isActive</b> function that returns if a row is active.<br />
+				Here example <pre>{'isActive={item => item.id === 6}'}</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList
+					collection={collection}
+					id={'my-list'}
+					onRowClick={() => action('onClick')()}
+					isActive={item => item.id === 6}
+				>
+					<VirtualizedList.Content
+						label="Id"
+						dataKey="id"
+					/>
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content
+						label=""
+						dataKey="actions"
+						{...CellActions}
+					/>
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+					/>
+					<VirtualizedList.Content
+						label="Author"
+						dataKey="author"
+					/>
+					<VirtualizedList.Content
+						label="Created"
+						dataKey="created"
+					/>
+					<VirtualizedList.Content
+						label="Modified"
+						dataKey="modified"
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	))
 	.add('List > Large', () => (
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
-				On Large rendering, the title is automatically placed at the top.<br/>
-				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br/><br/>
-				The row height is by default <b>135px</b> but can be customized by passing a <b>rowHeight</b> props.
+				On Large rendering, the title is automatically placed at the top.<br />
+				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br/>
+				The row height is by default <b>135px</b> but can be customized by passing a
+				<b>rowHeight</b> props.
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
@@ -414,7 +466,7 @@ storiesOf('Virtualized List', module)
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh'}}>
+			<section style={{ height: '50vh' }}>
 				<VirtualizedList
 					collection={collection}
 					id={'my-list'}

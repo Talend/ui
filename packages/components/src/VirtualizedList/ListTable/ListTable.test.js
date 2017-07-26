@@ -75,7 +75,9 @@ describe('ListGrid', () => {
 				collection={collection}
 				height={600}
 				id={'my-list'}
+				isActive={jest.fn()}
 				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				width={1024}
 			>

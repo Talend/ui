@@ -20,19 +20,22 @@ function ListTable(props) {
 		collection,
 		height,
 		id,
+		isActive,
 		isSelected,
 		selectionToggle,
+		onRowClick,
 		sort,
 		sortBy,
 		sortDirection,
 		width,
 	} = props;
 
-	const RowTableRenderer = selectionToggle ?
+	const RowTableRenderer = selectionToggle || onRowClick ?
 		RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
 				isSelected,
+				isActive,
 				getRowData: rowProps => rowProps.rowData,
 			}) :
 		DefaultTableRowRenderer;
@@ -44,6 +47,7 @@ function ListTable(props) {
 			headerHeight={35}
 			height={height}
 			id={id}
+			onRowClick={onRowClick}
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
@@ -65,7 +69,9 @@ ListTable.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
 	selectionToggle: PropTypes.func,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,

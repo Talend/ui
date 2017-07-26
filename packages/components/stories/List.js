@@ -400,6 +400,7 @@ storiesOf('List', module)
 	})
 	.add('Virtualized - selection', () => {
 		const selectedItemsProps = cloneDeep(props);
+		const rowClickAction = action('onClick');
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
 				{
@@ -410,6 +411,8 @@ storiesOf('List', module)
 				},
 			],
 		};
+		selectedItemsProps.onRowClick = () => rowClickAction();
+		selectedItemsProps.list.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list" >
@@ -421,6 +424,8 @@ storiesOf('List', module)
 					<pre>
 						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
 						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+						listProps.onRowClick = (event, item) => myOnRowClickCallback(event, item);<br />
+						listProps.isActive = (item) => item.id === 2;<br />
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>

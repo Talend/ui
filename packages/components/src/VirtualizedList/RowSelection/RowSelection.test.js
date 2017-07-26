@@ -12,6 +12,9 @@ const notSelectedRowData = { id: 1 };
 function isSelected(rowData) {
 	return rowData === selectedRowData;
 }
+function isActive(rowData) {
+	return rowData === selectedRowData;
+}
 
 describe('RowSelection', () => {
 	it('should enhance classname with selection class on selected row', () => {
@@ -51,6 +54,28 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'red' }}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should enhance classname with active class on row click', () => {
+		// given
+		function getRowData() {
+			return selectedRowData;
+		}
+		const Row = new RowSelection(RowRenderer, { isActive, getRowData });
+
+		// when
+		const wrapper = shallow(
+			<Row
+				className={'my-class-names'}
+				index={1}
+				key={18}
+				parent={{}}
+				style={{ background: 'blue' }}
 			/>
 		);
 

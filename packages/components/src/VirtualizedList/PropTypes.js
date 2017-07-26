@@ -10,10 +10,14 @@ export default {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
+	/* Highlight row on click */
+	isActive: PropTypes.func,
 	/** Function : (collectionItem) => Boolean
 	 *  This is called to determine if the element is selected.
 	 *  Note that this is not used/displayed if the selectionToggle props is not passed */
 	isSelected: PropTypes.func,
+	// The row click
+	onRowClick: PropTypes.func,
 	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
 	/** Function to call on element selection
