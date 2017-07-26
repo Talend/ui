@@ -7,9 +7,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/actionAPI.js
-  38:27  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 /home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
@@ -44,5 +41,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
