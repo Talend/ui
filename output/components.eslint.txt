@@ -23,8 +23,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
-  12:1  error  Component should be written as a pure function  react/prefer-stateless-function
-
-✖ 10 problems (10 errors, 0 warnings)
+✖ 9 problems (9 errors, 0 warnings)
 
