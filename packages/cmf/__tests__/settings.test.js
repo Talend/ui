@@ -42,6 +42,7 @@ describe('attachRef', () => {
 		expect(attachRef({}, testFunction)).toEqual(testFunction);
 		expect(attachRef({}, undefined)).toEqual(undefined);
 		expect(attachRef({}, null)).toEqual(null);
+		expect(attachRef({}, [])).toEqual([]);
 	});
 
 	it('should try to resolve _ref if obj is an object', () => {
