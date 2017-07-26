@@ -35,7 +35,7 @@ export function getActionsProps(context, ids, model) {
 		tmpIds = [ids];
 	}
 
-	const infos = tmpIds.map(id => {
+	const infos = tmpIds.map((id) => {
 		if (typeof id === 'string') {
 			return api.action.getActionInfo(context, id);
 		}
