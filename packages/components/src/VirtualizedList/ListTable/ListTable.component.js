@@ -30,15 +30,17 @@ function ListTable(props) {
 		width,
 	} = props;
 
-	const RowTableRenderer = selectionToggle || onRowClick ?
-		RowSelectionRenderer( // eslint-disable-line new-cap
+	let RowTableRenderer = DefaultTableRowRenderer;
+	if (selectionToggle || onRowClick) {
+		RowTableRenderer = RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
 				isSelected,
 				isActive,
 				getRowData: rowProps => rowProps.rowData,
-			}) :
-		DefaultTableRowRenderer;
+			}
+		);
+	}
 
 	return (
 		<VirtualizedTable

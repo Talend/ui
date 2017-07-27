@@ -23,15 +23,17 @@ function ListGrid(props) {
 		width,
 	} = props;
 
-	const enhancedRowRenderer = selectionToggle || onRowClick ?
-		getRowSelectionRenderer(
+	let enhancedRowRenderer = rowRenderer;
+	if (selectionToggle || onRowClick) {
+		enhancedRowRenderer = getRowSelectionRenderer(
 			rowRenderer,
 			{
 				isActive,
 				isSelected,
 				getRowData: ({ index }) => this.props.collection[index],
 			}
-		) : rowRenderer;
+		);
+	}
 
 	return (
 		<VirtualizedList
