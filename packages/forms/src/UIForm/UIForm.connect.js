@@ -9,6 +9,9 @@ import {
 	removeForm,
 	updateForm,
 	updateFormData,
+	updateFormDataAddArrayItem,
+	updateFormDataRemoveArrayItem,
+	updateFormDataReorderArrayItem,
 	setError,
 	setErrors,
 } from './actions';
@@ -16,6 +19,9 @@ import {
 class UIForm extends React.PureComponent {
 	constructor(props) {
 		super(props);
+		this.onArrayAdd = this.onArrayAdd.bind(this);
+		this.onArrayRemove = this.onArrayRemove.bind(this);
+		this.onArrayReorder = this.onArrayReorder.bind(this);
 		this.onChange = this.onChange.bind(this);
 	}
 
@@ -60,6 +66,67 @@ class UIForm extends React.PureComponent {
 		}
 	}
 
+	/**
+	 * Add an item in an form data array
+	 * @param event The event that triggered this add
+	 * @param payload { formName, schema, index, value } The add payload
+	 * formName: The form name
+	 * schema: The array schema
+	 * index: The index where to insert the value
+	 * value: The new value to insert
+	 */
+	onArrayAdd(event, payload) {
+		this.props.updateFormDataAddArrayItem(
+			payload.formName,
+			payload.schema,
+			payload.index,
+			payload.value
+		);
+		if (this.props.onChange) {
+			this.props.onChange(event, payload);
+		}
+	}
+
+	/**
+	 * Remove an item in an form data array
+	 * @param event The event that triggered this removal
+	 * @param payload { formName, schema, index } The removal payload
+	 * formName: The form name
+	 * schema: The array schema
+	 * index: The index where to remove
+	 */
+	onArrayRemove(event, payload) {
+		this.props.updateFormDataRemoveArrayItem(
+			payload.formName,
+			payload.schema,
+			payload.index
+		);
+		if (this.props.onChange) {
+			this.props.onChange(event, payload);
+		}
+	}
+
+	/**
+	 * Reorder an item in an form data array
+	 * @param event The event that triggered this removal
+	 * @param payload { formName, schema, previousIndex, nextIndex } The removal payload
+	 * formName: The form name
+	 * schema: The array schema
+	 * previousIndex: The index where is the item to move
+	 * nextIndex: The index where the item will be moved
+	 */
+	onArrayReorder(event, payload) {
+		this.props.updateFormDataReorderArrayItem(
+			payload.formName,
+			payload.schema,
+			payload.previousIndex,
+			payload.nextIndex
+		);
+		if (this.props.onChange) {
+			this.props.onChange(event, payload);
+		}
+	}
+
 	render() {
 		const { form } = this.props;
 
@@ -78,6 +145,9 @@ class UIForm extends React.PureComponent {
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
 
+				onArrayAdd={this.onArrayAdd}
+				onArrayRemove={this.onArrayRemove}
+				onArrayReorder={this.onArrayReorder}
 				onChange={this.onChange}
 				onReset={this.props.onReset}
 				setError={this.props.setError}
@@ -164,6 +234,22 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is injected by react-redux. See mapDispatchToProps
 		 */
 		updateFormData: PropTypes.func,
+
+		/**
+		 * Value mutation : add an item in an array identified by schema.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		updateFormDataAddArrayItem: PropTypes.func,
+		/**
+		 * Value mutation : remove an item in an array identified by schema.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		updateFormDataRemoveArrayItem: PropTypes.func,
+		/**
+		 * Value mutation : reorder an item in an array identified by schema.
+		 * This is injected by react-redux. See mapDispatchToProps
+		 */
+		updateFormDataReorderArrayItem: PropTypes.func,
 		/**
 		 * Partial form validation action.
 		 * This is injected by react-redux. See mapDispatchToProps
@@ -195,6 +281,9 @@ function mapDispatchToProps(dispatch) {
 		createForm: bindActionCreators(createForm, dispatch),
 		removeForm: bindActionCreators(removeForm, dispatch),
 		updateFormData: bindActionCreators(updateFormData, dispatch),
+		updateFormDataAddArrayItem: bindActionCreators(updateFormDataAddArrayItem, dispatch),
+		updateFormDataRemoveArrayItem: bindActionCreators(updateFormDataRemoveArrayItem, dispatch),
+		updateFormDataReorderArrayItem: bindActionCreators(updateFormDataReorderArrayItem, dispatch),
 		updateForm: bindActionCreators(updateForm, dispatch),
 		setError: bindActionCreators(setError, dispatch),
 		setErrors: bindActionCreators(setErrors, dispatch),

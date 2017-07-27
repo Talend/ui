@@ -6,8 +6,12 @@ import Widget from '../../Widget';
 import theme from './Array.scss';
 
 function adaptKeyWithIndex(keys, index) {
-	const indexedKeys = [...keys];
-	indexedKeys[keys.length - 2] = index;
+	let indexedKeys = keys;
+	const firstIndexPlaceholder = indexedKeys.indexOf('');
+	if (firstIndexPlaceholder >= 0) {
+		indexedKeys = [...keys];
+		indexedKeys[firstIndexPlaceholder] = index;
+	}
 	return indexedKeys;
 }
 
@@ -15,9 +19,28 @@ export default class ArrayWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.addItem = this.addItem.bind(this);
+		this.onAdd = this.onAdd.bind(this);
 		this.onRemove = this.onRemove.bind(this);
 		this.onReorder = this.onReorder.bind(this);
+	}
+
+	onAdd(event) {
+		const schema = this.props.schema;
+		const index = this.props.value.length;
+		const value = schema.schema.items.type === 'object' ? {} : '';
+		return this.props.onArrayAdd(event, {
+			index,
+			schema,
+			value,
+		});
+
+		/*
+		 this.props.onChange(
+		 event,
+		 { schema: this.props.schema, value: [...this.props.value, {}] },
+		 { skipValidation: true }
+		 );
+		 */
 	}
 
 	onRemove(event, index) {
@@ -60,17 +83,6 @@ export default class ArrayWidget extends React.Component {
 		*/
 	}
 
-	addItem(event) {
-		return this.props.onChange(event, { schema: this.props.schema });
-
-		/*
-		this.props.onChange(
-			event,
-			{ schema: this.props.schema, value: [...this.props.value, {}] },
-			{ skipValidation: true }
-		);
-		*/
-	}
 	render() {
 		const { errorMessage, id, isValid, schema, value, ...restProps } = this.props;
 		const { description, key, items } = schema;
@@ -112,7 +124,7 @@ export default class ArrayWidget extends React.Component {
 					})}
 				</ol>
 				<div>
-					<button type="button" className="btn btn-info" onClick={this.addItem}>New Element</button>
+					<button type="button" className="btn btn-info" onClick={this.onAdd}>New Element</button>
 				</div>
 				<Message
 					errorMessage={errorMessage}
@@ -136,6 +148,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
+		onArrayAdd: PropTypes.func.isRequired,
 		onArrayRemove: PropTypes.func.isRequired,
 		onArrayReorder: PropTypes.func.isRequired,
 		onChange: PropTypes.func.isRequired,

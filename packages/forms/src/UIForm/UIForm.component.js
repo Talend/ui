@@ -16,6 +16,9 @@ export default class UIForm extends React.Component {
 		};
 		console.log(this.state.mergedSchema);
 
+		this.onArrayAdd = this.onArrayAdd.bind(this);
+		this.onArrayRemove = this.onArrayRemove.bind(this);
+		this.onArrayReorder = this.onArrayReorder.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onReset = this.onReset.bind(this);
@@ -36,16 +39,12 @@ export default class UIForm extends React.Component {
 		});
 	}
 
-	onArrayAdd(event, { schema }) {
-
-	}
-
-	onArrayRemove(event, { schema, index }) {
-
-	}
-
-	onArrayReorder(event, { schema, previousIndex, nextIndex }) {
-
+	addAdditionalInfo(payload) {
+		return {
+			...payload,
+			formName: this.props.formName,
+			properties: this.props.properties,
+		};
 	}
 
 	/**
@@ -55,35 +54,48 @@ export default class UIForm extends React.Component {
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
 	 * @param value The payload new value
-	 * @param options
-	 * Skip validation if set to true
-	 * before validation if options.skipValidation is set to true
 	 */
-	onChange(event, { schema, value }, options = {}) {
-		const {
-			formName,
-			onChange,
-			properties,
-			customValidation,
-		} = this.props;
-
-		const error = options.skipValidation ?
-			null :
-			validateValue(schema, value, properties, customValidation);
-
-		const payload = {
-			formName,
+	onChange(event, { schema, value }) {
+		const error = validateValue(
 			schema,
 			value,
-			error,
-			properties,
-		};
-		onChange(event, payload);
+			this.props.properties,
+			this.props.customValidation
+		);
 
-		const { triggers } = schema;
-		if (triggers && triggers.includes(TRIGGER_AFTER)) {
+		const payload = this.addAdditionalInfo({ schema, value, error });
+		this.props.onChange(event, payload);
+
+		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
 			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
 		}
+	}
+
+	/**
+	 * Fire callbacks while adding an item in an array
+	 * @param event The event that triggered the callback
+	 * @param payload The add payload
+	 */
+	onArrayAdd(event, payload) {
+		this.props.onArrayAdd(event, this.addAdditionalInfo(payload));
+	}
+
+	/**
+	 * Fire callbacks while removing an item in an array
+	 * @param event The event that triggered the callback
+	 * @param payload The removal payload
+	 */
+	onArrayRemove(event, payload) {
+		this.props.onArrayRemove(event, this.addAdditionalInfo(payload));
+	}
+
+	/**
+	 * Fire callbacks while reordering an item in an array
+	 * @param event The event that triggered the callback
+	 * @param payload The reorder payload
+	 */
+	onArrayReorder(event, payload) {
+		this.props.onArrayReorder(event, this.addAdditionalInfo(payload));
 	}
 
 	/**
@@ -254,6 +266,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
+		/** State management impl: The array add callback */
+		onArrayAdd: PropTypes.func.isRequired,
+		/** State management impl: The array remove callback */
+		onArrayRemove: PropTypes.func.isRequired,
+		/** State management impl: The array reorder callback */
+		onArrayReorder: PropTypes.func.isRequired,
 		/** State management impl: Set Partial fields validation error */
 		setError: PropTypes.func,
 		/** State management impl: Set All fields validations errors */

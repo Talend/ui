@@ -1,4 +1,10 @@
-import { TF_UPDATE_FORM_DATA } from '../actions';
+import {
+	TF_UPDATE_FORM_DATA,
+	TF_UPDATE_FORM_DATA_ADD_ARRAY_ITEM,
+	TF_UPDATE_FORM_DATA_REMOVE_ARRAY_ITEM,
+	TF_UPDATE_FORM_DATA_REORDER_ARRAY_ITEM,
+} from '../actions';
+import { getValue } from '../utils/properties';
 
 /**
  * Mutate the properties, setting the value in the path identified by key
@@ -36,6 +42,29 @@ export default function modelReducer(state = {}, action) {
 	switch (action.type) {
 	case TF_UPDATE_FORM_DATA:
 		return mutateValue(state, action.schema.key, action.value);
+
+	case TF_UPDATE_FORM_DATA_ADD_ARRAY_ITEM: {
+		const arrayKey = action.schema.key;
+		const arrayValue = getValue(state, arrayKey).slice(0);
+		arrayValue.splice(action.index, 0, action.value);
+		return mutateValue(state, arrayKey, arrayValue);
+	}
+
+	case TF_UPDATE_FORM_DATA_REMOVE_ARRAY_ITEM: {
+		const arrayKey = action.schema.key;
+		const arrayValue = getValue(state, arrayKey).slice(0);
+		arrayValue.splice(action.index, 1);
+		return mutateValue(state, arrayKey, arrayValue);
+	}
+
+	case TF_UPDATE_FORM_DATA_REORDER_ARRAY_ITEM: {
+		// const arrayKey = action.schema.key;
+		// const arrayValue = getValue(state, arrayKey).slice(0);
+		// const [item] = arrayValue.splice(action.index, 1);
+		// arrayValue.splice(action.index, 1);
+		// return mutateValue(state, arrayKey, arrayValue);
+	}
+
 	default:
 		return state;
 	}
