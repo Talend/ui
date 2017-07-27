@@ -15,6 +15,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
+  141:6  error  Expected indentation of 4 tab characters but found 5  react/jsx-indent
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -26,5 +29,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
   12:1  error  Component should be written as a pure function  react/prefer-stateless-function
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 11 problems (11 errors, 0 warnings)
 
