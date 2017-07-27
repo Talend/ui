@@ -1,10 +1,6 @@
 import i18n from 'i18next';
-import XHR from 'i18next-xhr-backend';
-import resources from '../../locales';
 
-console.log(resources);
-
-i18n.use(XHR)
+i18n
 	.init({
 		// locales load path. lng = language, ns = namespace
 		// backend: {
@@ -17,9 +13,6 @@ i18n.use(XHR)
 
 		// Fallback language
 		// fallbackLng: 'en',
-		lng: 'en',
-		resources,
-
 		debug: false,
 		wait: true, // globally set to wait for loaded translations in translate hoc
 	});
