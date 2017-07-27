@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
@@ -9,7 +10,7 @@ import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 
-function ListToolbar({ id, toolbar, displayMode, list }) {
+function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {
 		return null;
 	}
@@ -17,6 +18,7 @@ function ListToolbar({ id, toolbar, displayMode, list }) {
 	const toolbarProps = {
 		...toolbar,
 		id,
+		t,
 	};
 
 	if (toolbar.display) {
@@ -41,6 +43,7 @@ ListToolbar.propTypes = {
 		PropTypes.shape(Content.propTypes),
 	]),
 	toolbar: PropTypes.shape(Toolbar.propTypes),
+	t: PropTypes.func.isRequired,
 };
 
 function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
@@ -130,7 +133,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
+function List({ id, displayMode, toolbar, list, useContent, virtualized, t }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -142,6 +145,7 @@ function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
+				t={t}
 			/>
 			<ListDisplay
 				id={id}
@@ -164,4 +168,8 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default List;
+export const UI_COMPONENTS_LIST = 'UI_COMPONENTS_LIST';
+export {
+	List,
+};
+export default translate(UI_COMPONENTS_LIST)(List);

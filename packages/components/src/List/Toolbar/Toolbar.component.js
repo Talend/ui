@@ -42,7 +42,7 @@ function adaptLeftAndRightActions(actions, parentId) {
  * @example
  <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, filter }) {
+function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, filter, t }) {
 	let actionBarProps = actionBar;
 	if (id && actionBar) {
 		const { actions, multiSelectActions } = actionBar;
@@ -71,7 +71,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 					role="toolbar" fluid
 				>
 					{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
-					{display && (<Label text="Display:" htmlFor={displayModeId} />)}
+					{display && (<Label text={t('TOOLBAR_DISPLAY')} htmlFor={displayModeId} />)}
 					{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
 					{sort && (<Label text="Sort by:" htmlFor={id && `${id}-sort-by`} />)}
 					{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
@@ -91,6 +91,7 @@ Toolbar.propTypes = {
 	sort: React.PropTypes.shape(SelectSortBy.propTypes),
 	pagination: React.PropTypes.shape(Pagination.propTypes),
 	filter: React.PropTypes.shape(Filter.propTypes),
+	t: React.PropTypes.func.isRequired,
 };
 
 export default Toolbar;

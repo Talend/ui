@@ -3,7 +3,10 @@ import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line i
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
 
-import { List, IconsProvider } from '../src/index';
+import { List, IconsProvider, TranslateWrapper } from '../src/index';
+import i18n from './config/i18n';
+
+const TranslatedList = TranslateWrapper(List, { i18n });
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -330,7 +333,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...props} />
+			<TranslatedList {...props} />
 		</div>
 	))
 	.add('Large', () => {
@@ -344,7 +347,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<TranslatedList {...tprops} />
 			</div>
 		);
 	})
@@ -359,7 +362,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<TranslatedList {...tprops} />
 			</div>
 		);
 	})
@@ -378,7 +381,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Get limited options for displayMode</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<TranslatedList {...tprops} />
 			</div>
 		);
 	})
@@ -391,7 +394,7 @@ storiesOf('List', module)
 				<p>Display an empty list</p>
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
-					<List {...emptyListProps} />
+					<TranslatedList {...emptyListProps} />
 				</div>
 			</div>
 		);
@@ -405,7 +408,7 @@ storiesOf('List', module)
 				<p>Display an empty list</p>
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
-					<List {...emptyListProps} displayMode="large" />
+					<TranslatedList {...emptyListProps} displayMode="large" />
 				</div>
 			</div>
 		);
@@ -419,7 +422,7 @@ storiesOf('List', module)
 				<p>Display an empty list</p>
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
-					<List {...emptyListProps} displayMode="tile" />
+					<TranslatedList {...emptyListProps} displayMode="tile" />
 				</div>
 			</div>
 		);
@@ -435,7 +438,7 @@ storiesOf('List', module)
 				<p>Display a list without toolbar</p>
 				<IconsProvider />
 				<div className="list-container">
-					<List {...tprops} />
+					<TranslatedList {...tprops} />
 				</div>
 			</div>
 		);
@@ -461,13 +464,13 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Toolbar Filter</p>
 			<h2>Docked</h2>
-			<List {...dockedProps} />
+			<TranslatedList {...dockedProps} />
 			<h2>Input</h2>
-			<List {...inputProps} />
+			<TranslatedList {...inputProps} />
 			<h2>Highlighted</h2>
-			<List {...highlightedProps} />
+			<TranslatedList {...highlightedProps} />
 			<h2>Input with 300ms debounce</h2>
-			<List {...inputDebounceProps} />
+			<TranslatedList {...inputDebounceProps} />
 		</div>);
 	})
 	.add('Table with column actions', () => {
@@ -476,7 +479,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display a list with columns containing actions.</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...columnActionsProps} />
+			<TranslatedList {...columnActionsProps} />
 		</div>);
 	})
 	.add('Table with selected items', () => {
@@ -498,7 +501,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list with selected items.</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...selectedItemsProps} />
+				<TranslatedList {...selectedItemsProps} />
 			</div>
 		);
 	})
@@ -512,7 +515,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list with custom selected class.</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...selectedClassProps} />
+				<TranslatedList {...selectedClassProps} />
 			</div>
 		);
 	})
@@ -527,7 +530,7 @@ storiesOf('List', module)
 				<p>Display a list in a limited container. To enable content scroll.</p>
 				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
-					<List {...tprops} />
+					<TranslatedList {...tprops} />
 				</div>
 			</div>
 		);
@@ -545,7 +548,7 @@ storiesOf('List', module)
 					The NAME column is limited to 400px in css.
 				</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<TranslatedList {...tprops} />
 			</div>
 		);
 	})
@@ -558,7 +561,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} />
+				<TranslatedList {...tprops} />
 			</div>
 		);
 	})
@@ -569,7 +572,7 @@ storiesOf('List', module)
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
 			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('table')} />
+			<TranslatedList {...getPropsFor('table')} />
 		</div>
 	))
 	.add('large of Content', () => (
@@ -577,7 +580,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('large')} />
+			<TranslatedList {...getPropsFor('large')} />
 		</div>
 	))
 	.add('tile of Content', () => (
@@ -585,7 +588,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...getPropsFor('tile')} />
+			<TranslatedList {...getPropsFor('tile')} />
 		</div>
 	))
 	.add('Virtualized', () => (
@@ -593,7 +596,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...props} virtualized />
+			<TranslatedList {...props} virtualized />
 		</div>
 	))
 	.add('Virtualized large', () => (
@@ -601,7 +604,7 @@ storiesOf('List', module)
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
-			<List {...props} displayMode="large" virtualized />
+			<TranslatedList {...props} displayMode="large" virtualized />
 		</div>
 	))
 	.add('Virtualized with column actions', () => {
@@ -611,7 +614,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display a list with columns containing actions.</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...columnActionsProps} virtualized />
+				<TranslatedList {...columnActionsProps} virtualized />
 			</div>
 		);
 	})
@@ -625,7 +628,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Table with sort header click</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...tprops} virtualized />
+				<TranslatedList {...tprops} virtualized />
 			</div>
 		);
 	})
@@ -637,7 +640,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display an empty list</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} virtualized />
+				<TranslatedList {...emptyListProps} virtualized />
 			</div>
 		);
 	})
@@ -649,7 +652,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display an empty list</p>
 				<IconsProvider defaultIcons={icons} />
-				<List {...emptyListProps} displayMode="large" virtualized />
+				<TranslatedList {...emptyListProps} displayMode="large" virtualized />
 			</div>
 		);
 	})
@@ -675,19 +678,19 @@ storiesOf('List', module)
 			<p>Toolbar Filter</p>
 			<h2>Docked</h2>
 			<div style={{ height: '15vh' }}>
-				<List {...dockedProps} virtualized />
+				<TranslatedList {...dockedProps} virtualized />
 			</div>
 			<h2>Input</h2>
 			<div style={{ height: '15vh' }}>
-				<List {...inputProps} virtualized />
+				<TranslatedList {...inputProps} virtualized />
 			</div>
 			<h2>Highlighted</h2>
 			<div style={{ height: '15vh' }}>
-				<List {...highlightedProps} virtualized />
+				<TranslatedList {...highlightedProps} virtualized />
 			</div>
 			<h2>Input with 300ms debounce</h2>
 			<div style={{ height: '15vh' }}>
-				<List {...inputDebounceProps} virtualized />
+				<TranslatedList {...inputDebounceProps} virtualized />
 			</div>
 		</div>);
 	});
