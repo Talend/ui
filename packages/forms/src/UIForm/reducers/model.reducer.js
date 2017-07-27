@@ -58,11 +58,11 @@ export default function modelReducer(state = {}, action) {
 	}
 
 	case TF_UPDATE_FORM_DATA_REORDER_ARRAY_ITEM: {
-		// const arrayKey = action.schema.key;
-		// const arrayValue = getValue(state, arrayKey).slice(0);
-		// const [item] = arrayValue.splice(action.index, 1);
-		// arrayValue.splice(action.index, 1);
-		// return mutateValue(state, arrayKey, arrayValue);
+		const arrayKey = action.schema.key;
+		const arrayValue = getValue(state, arrayKey).slice(0);
+		const [item] = arrayValue.splice(action.previousIndex, 1);
+		arrayValue.splice(action.nextIndex, 0, item);
+		return mutateValue(state, arrayKey, arrayValue);
 	}
 
 	default:
