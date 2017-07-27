@@ -39,18 +39,22 @@ exports[`ConfirmDialog should render with a large container 1`] = `
         CANCEL
       </span>
     </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <div
+      className={undefined}
     >
-      <span>
-        OK
-      </span>
-    </button>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -98,18 +102,22 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
         CANCEL
       </span>
     </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <div
+      className={undefined}
     >
-      <span>
-        OK
-      </span>
-    </button>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -153,6 +161,53 @@ exports[`ConfirmDialog should render with a small container 1`] = `
         CANCEL
       </span>
     </button>
+    <div
+      className={undefined}
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with additional actions 1`] = `
+<div
+  bsSize={undefined}
+  className="Modal"
+  keyboard={true}
+  show={true}
+>
+  <div
+    className="Header"
+    closeButton={false}
+  >
+    <div
+      className="Title"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer"
+  >
     <button
       className="btn btn-default"
       disabled={false}
@@ -162,9 +217,37 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       type="button"
     >
       <span>
-        OK
+        CANCEL
       </span>
     </button>
+    <div
+      className={undefined}
+    >
+      <button
+        className="btn btn-info"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          Keep on Github
+        </span>
+      </button>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -208,18 +291,22 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
         CANCEL
       </span>
     </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <div
+      className={undefined}
     >
-      <span>
-        OK
-      </span>
-    </button>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -253,18 +340,22 @@ exports[`ConfirmDialog should render without header 1`] = `
         CANCEL
       </span>
     </button>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <div
+      className={undefined}
     >
-      <span>
-        OK
-      </span>
-    </button>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
