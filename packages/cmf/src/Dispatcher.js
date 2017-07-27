@@ -71,7 +71,7 @@ export class Dispatcher extends React.Component {
 			event.preventDefault();
 		}
 		if (this.props[eventName]) {
-			this.props.dispatchActionCreator(this.props[eventName], event);
+			this.props.dispatchActionCreator(this.props[eventName], event, this.props);
 		}
 	}
 

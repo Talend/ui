@@ -144,4 +144,25 @@ describe('Testing <Dispatcher />', () => {
 		wrapper.find('a').simulate('click', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 	});
+
+	it('should dispatch actionCreator with props as data', () => {
+		const dispatchActionCreator = jest.fn();
+		const event = {
+			type: 'click',
+			preventDefault: jest.fn(),
+		};
+		const props = {
+			dispatchActionCreator,
+			preventDefault: true,
+			stopPropagation: false,
+			onClick: 'noOp',
+			extra: 'foo',
+			children: <a />,
+		};
+		const wrapper = shallow(
+			<Dispatcher {...props} />
+		);
+		wrapper.find('a').simulate('click', event);
+		expect(dispatchActionCreator).toHaveBeenCalledWith('noOp', event, props);
+	});
 });
