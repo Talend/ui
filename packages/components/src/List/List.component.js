@@ -9,6 +9,7 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
+import NAME_SPACE_I18N_COMPONENTS from '../utils/nameSpaceI18n';
 
 function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {
@@ -168,8 +169,7 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export const UI_COMPONENTS_LIST = 'UI_COMPONENTS_LIST';
 export {
 	List,
 };
-export default translate(UI_COMPONENTS_LIST)(List);
+export default translate(NAME_SPACE_I18N_COMPONENTS)(List);

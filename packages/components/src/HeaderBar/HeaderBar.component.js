@@ -8,6 +8,7 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
+import NAME_SPACE_I18N_COMPONENTS from '../utils/nameSpaceI18n';
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -271,4 +272,8 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate('tui-components', { i18n })(HeaderBar);
+export {
+	HeaderBar,
+};
+
+export default translate(NAME_SPACE_I18N_COMPONENTS, { i18n })(HeaderBar);
