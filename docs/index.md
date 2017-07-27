@@ -15,6 +15,6 @@ Welcome to react CMF documentation.
 
 1. Learn [what is CMF]({{ site.baseurl }}{% link _posts/2017-02-28-what-is-cmf.md %})
 2. Try to [add a new page]({{ site.baseurl }}{% link _posts/2017-02-28-how-to-add-a-new-page-.md %})
-2. [List of Components provided]({{ site.baseurl }}{% link _posts/2017-07-12-list-of-components-.md %})
+2. [List of Components provided]({{ site.baseurl }}{% link _posts/2017-07-12-list-of-components.md %})
 
 But keep in mind that it is important to learn the concepts to fully use CMF the right way.

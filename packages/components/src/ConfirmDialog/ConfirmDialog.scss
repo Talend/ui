@@ -3,6 +3,7 @@ $tc-dialog-progress-bg: #C3D600 !default;
 $tc-dialog-header-color: #607D8B !default;
 $tc-dialog-medium-padding: 20px !default;
 $tc-dialog-body-padding: 30px !default;
+$tc-dialog-buttons-margin: 15px !default;
 
 .tc-confirm-dialog {
 
@@ -85,9 +86,11 @@ $tc-dialog-body-padding: 30px !default;
 		display: flex;
 		justify-content: flex-start;
 
-		> button {
-			&:last-child {
-				margin-left: auto;
+		> .tc-confirm-actions {
+			margin-left: auto;
+
+			button {
+				margin-left: $tc-dialog-buttons-margin;
 			}
 		}
 	}

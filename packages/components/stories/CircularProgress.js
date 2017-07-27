@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf, setAddon } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
+import { storiesOf, setAddon } from '@storybook/react';
+import infoAddon from '@storybook/addon-info';
 
 import { CircularProgress } from '../src';
 

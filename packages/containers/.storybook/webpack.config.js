@@ -6,7 +6,7 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const commonConfiguration = require('../../../.storybook/webpack.config')
+const commonConfiguration = require('../../../.storybook/webpack.config');
 
 module.exports = (storybookBaseConfig) => {
 	const storybookConfig = commonConfiguration(storybookBaseConfig);
