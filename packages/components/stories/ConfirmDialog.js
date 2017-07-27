@@ -302,4 +302,38 @@ storiesOf('ConfirmDialog', module)
 				</ConfirmDialog>
 			</div>
 		);
+	})
+	.addWithInfo('with secondary actions', () => {
+		const propsWithMoreActions = {
+			...defaultProps,
+			header: 'Delete projects',
+			validateAction: {
+				label: 'Delete All',
+				onClick: action('ok'),
+				bsStyle: 'danger',
+			},
+			secondaryActions: [
+				{
+					label: 'Keep on Github',
+					onClick: action('info'),
+					bsStyle: 'info',
+				},
+			],
+		};
+		const content = (
+			<div>
+				<p>1 item will be removed PERMANENTLY</p>
+				<ul>
+					<li>Demo-Project</li>
+				</ul>
+				<p>This operation cannot be undone.</p>
+				<p>You can keep project(s) on Github or delete them there as well. What do you prefer?</p>
+			</div>
+		);
+		return (
+			<div>
+				<h1>Dialog</h1>
+				<ConfirmDialog {...propsWithMoreActions}>{content}</ConfirmDialog>
+			</div>
+		);
 	});
