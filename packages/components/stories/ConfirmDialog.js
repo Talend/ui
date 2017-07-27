@@ -302,4 +302,28 @@ storiesOf('ConfirmDialog', module)
 				</ConfirmDialog>
 			</div>
 		);
+	})
+	.addWithInfo('with secondary actions', () => {
+		const propsWithMoreActions = {
+			...defaultProps,
+			header: 'Delete elements',
+			validateAction: {
+				label: 'Delete',
+				onClick: action('ok'),
+				bsStyle: 'danger',
+			},
+			secondaryActions: [
+				{
+					label: 'Show info',
+					onClick: action('info'),
+					bsStyle: 'info',
+				},
+			],
+		};
+		return (
+			<div>
+				<h1>Dialog</h1>
+				<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
+			</div>
+		);
 	});
