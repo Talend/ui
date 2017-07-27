@@ -1,0 +1,5 @@
+
+> react-cmf@0.95.0 lint:flow /Users/jmfrancois/github/talend/ui/packages/cmf
+> flow check
+
+Found 0 errors

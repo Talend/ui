@@ -1,19 +1,27 @@
+// @flow
 /**
  * @module react-cmf/lib/App
  */
-import React from 'react';
+import React, { Children } from 'react';
 import { Provider } from 'react-redux';
+import type { Store } from 'redux';
 
 import history from './history';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
+
+type Props = {
+	store: Store<any, any>,
+	children?: Children,
+	history?: any,
+};
 
 /*
  * The React component that render your app and provide everythings you need
  * @param  {object} props store and history
  * @return {object} ReactElement
  */
-export default function App(props) {
+export default function App(props: Props) {
 	const hist = props.history || history.get(props.store);
 	return (
 		<Provider store={props.store}>
@@ -23,9 +31,3 @@ export default function App(props) {
 		</Provider>
 	);
 }
-
-App.propTypes = {
-	store: React.PropTypes.object.isRequired,
-	children: React.PropTypes.node,
-	history: React.PropTypes.object,
-};
