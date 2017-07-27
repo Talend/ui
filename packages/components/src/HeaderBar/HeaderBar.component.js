@@ -138,10 +138,10 @@ function Help({ renderers, ...props }) {
 	return (
 		<li className={theme['tc-header-bar-action']}>
 			{ props.items && props.items.length ? (
-					<renderers.ActionSplitDropdown pullRight {...global} />
-				) : (
-					<renderers.Action {...global} />
-				)}
+				<renderers.ActionSplitDropdown pullRight {...global} />
+			) : (
+				<renderers.Action {...global} />
+			)}
 		</li>
 	);
 }
@@ -232,7 +232,6 @@ function HeaderBar(props) {
 		Help,
 		Products,
 	}, props.renderers || {});
-
 
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
