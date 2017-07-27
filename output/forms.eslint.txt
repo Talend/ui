@@ -31,6 +31,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/Form.js
+  22:14  error    Unexpected require()                                                                                                        global-require
+  22:14  error    'react-talend-containers' should be listed in the project's dependencies. Run 'npm i -S react-talend-containers' to add it  import/no-extraneous-dependencies
+  22:22  error    Unable to resolve path to module 'react-talend-containers'                                                                  import/no-unresolved
+  24:2   warning  Unexpected console statement                                                                                                no-console
+
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -61,5 +67,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 39 problems (38 errors, 1 warning)
 

@@ -3,7 +3,6 @@ import React, { PropTypes } from 'react';
 import RJSForm from 'react-jsonschema-form/lib/index';
 
 import { Action } from 'react-talend-components';
-
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
@@ -17,6 +16,14 @@ import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
+
+let CMFAction = Action;
+try {
+	CMFAction = require('react-talend-containers').Action;
+} catch (e) {
+	console.warn('react-talend-containers not found fallback to Action from react-talend-components', e);
+}
+
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -47,19 +54,26 @@ export function renderActionIcon(icon) {
 	return null;
 }
 
-export function renderActions(actions, handleActionClick) {
-	if (actions) {
-		return actions.map((action, index) => (
-			<Action
-				key={index}
-				bsStyle={action.style}
-				label={action.title}
-				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
-			>
-				{renderActionIcon(action.icon)}
-				{action.label}
-			</Action>),
-		);
+export function renderActions(actions, handleActionClick, formState) {
+	if (Array.isArray(actions)) {
+		return actions.map((action, index) => {
+			if (typeof action === 'object') {
+				return (
+					<Action
+						key={index}
+						bsStyle={action.style}
+						label={action.title}
+						{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
+					>
+						{renderActionIcon(action.icon)}
+						{action.label}
+					</Action>
+				);
+			}
+			return (
+				<CMFAction name={action} model={formState} />
+			);
+		});
 	}
 	return (<Action
 		bsStyle="primary"
@@ -160,7 +174,7 @@ class Form extends React.Component {
 			>
 				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
-					{renderActions(this.props.actions, this.handleActionClick)}
+					{renderActions(this.props.actions, this.handleActionClick, this.form && this.form.state)}
 				</div>
 			</RJSForm>
 		);
