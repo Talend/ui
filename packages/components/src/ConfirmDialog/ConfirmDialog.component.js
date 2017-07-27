@@ -65,7 +65,7 @@ function ConfirmDialog({
 			</Modal.Body>
 			<Modal.Footer>
 				<Action {...cancelAction} />
-				<div>
+				<div className={theme['tc-confirm-actions']}>
 					{secondaryActions && secondaryActions.map((props, i) => <Action {...props} key={i} />)}
 					<Action {...validateAction} />
 				</div>

@@ -86,7 +86,7 @@ $tc-dialog-buttons-margin: 15px !default;
 		display: flex;
 		justify-content: flex-start;
 
-		> div:last-child {
+		> .tc-confirm-actions {
 			margin-left: auto;
 
 			button {
