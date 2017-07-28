@@ -18,7 +18,15 @@ export function validateValue(schema, value, properties, customValidationFn) {
 	return staticResult.valid ? null : staticResult.error.message;
 }
 
-function validateArray(mergedSchema, properties, customValidationFn) {
+/**
+ * Validate an array
+ * @param mergedSchema The array schema
+ * @param properties The form data
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
+ * @returns {object} The validation result
+ */
+export function validateArray(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	const { key, items } = mergedSchema;
 
@@ -42,7 +50,7 @@ function validateArray(mergedSchema, properties, customValidationFn) {
 			// adapt items schema with value index
 			const indexedItems = items.map((item) => {
 				const indexedKey = [...item.key];
-				indexedKey[indexedKey.length - 2] = valueIndex;
+				indexedKey[key.length] = valueIndex;
 				return {
 					...item,
 					key: indexedKey,
@@ -56,7 +64,15 @@ function validateArray(mergedSchema, properties, customValidationFn) {
 	return results;
 }
 
-function validateObject(mergedSchema, properties, customValidationFn) {
+/**
+ * Validate a simple value or an complex object.
+ * @param mergedSchema The schema to validate
+ * @param properties The form data
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
+ * @returns {object} The validation result
+ */
+export function validateObject(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	const { key, items } = mergedSchema;
 
