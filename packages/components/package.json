@@ -52,8 +52,8 @@
     "@storybook/addon-info": "^3.1.9",
     "@storybook/addon-storyshots": "3.1.9",
     "@storybook/react": "3.1.9",
-    "@talend/bootstrap-theme": "^0.97.1",
-    "@talend/icons": "^0.97.1",
+    "@talend/bootstrap-theme": "^0.98.0",
+    "@talend/icons": "^0.98.0",
     "autoprefixer": "^6.7.2",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
@@ -102,8 +102,8 @@
     "webpack": "^1.14.0"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.97.1",
-    "@talend/icons": "^0.97.1",
+    "@talend/bootstrap-theme": "^0.98.0",
+    "@talend/icons": "^0.98.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "invariant": "2.2.2",
@@ -135,5 +135,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.97.1"
+  "version": "0.98.0"
 }
