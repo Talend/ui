@@ -17,22 +17,22 @@ function getIcon(selected) {
 	}
 }
 
-function getLabel(selected) {
+function getLabel(selected, t) {
 	switch (selected) {
 	case 'table':
-		return 'Table';
+		return t('SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	case 'large':
-		return 'Expanded';
+		return t('SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
 	case 'tile':
-		return 'Tile';
+		return t('SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
 	default:
-		return 'Table';
+		return t('SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
 const options = ['table', 'large', 'tile'];
 
-function SelectDisplayMode({ id, mode, displayModes, onChange }) {
+function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	const selected = mode || 'table';
 	const modes = displayModes || options;
 	const displayIcon = (<Icon name={getIcon(selected)} />);
@@ -49,7 +49,7 @@ function SelectDisplayMode({ id, mode, displayModes, onChange }) {
 				eventKey={option}
 			>
 				<Icon name={getIcon(option)} />
-				{getLabel(option)}
+				{getLabel(option, t)}
 			</MenuItem>
 		);
 	}
@@ -72,6 +72,7 @@ SelectDisplayMode.propTypes = {
 	mode: PropTypes.string,
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 export default SelectDisplayMode;

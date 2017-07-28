@@ -72,7 +72,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 				>
 					{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
 					{display && (<Label text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })} htmlFor={displayModeId} />)}
-					{display && (<SelectDisplayMode id={displayModeId} {...display} />)}
+					{display && (<SelectDisplayMode id={displayModeId} {...display} t={t} />)}
 					{sort && (<Label text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })} htmlFor={id && `${id}-sort-by`} />)}
 					{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
 					{pagination && (<Label text="Show:" htmlFor={id && `${id}-pagination-size`} />)}
