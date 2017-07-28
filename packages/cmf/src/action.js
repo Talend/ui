@@ -65,27 +65,27 @@ function getActionInfo(context, id) {
  * Return the action object ready to be dispatched
  * This is supposed to be used outside of content type
  * @param  {object} context
- * @param  {String|Object} id or the action
+ * @param  {String|Object} action or the action
  * @param  {object} event event which have trigger this action
  * @param  {object} data data attached to the action
  */
-function getActionObject(context, id, event, data) {
-	let action;
-	if (typeof id === 'string') {
-		action = getActionInfo(context, id);
+function getActionObject(context, action, event, data) {
+	let actionInfo;
+	if (typeof action === 'string') {
+		actionInfo = getActionInfo(context, action);
 	} else {
-		action = id;
+		actionInfo = action;
 	}
-	if (action.actionCreator) {
-		const actionCreator = getActionCreatorFunction(context, action.actionCreator);
+	if (actionInfo.actionCreator) {
+		const actionCreator = getActionCreatorFunction(context, actionInfo.actionCreator);
 		return actionCreator(event, data, {
 			getState: context.store.getState,
 			router: context.router,
 			registry: context.registry,
-			action,
+			actionInfo,
 		});
 	}
-	return Object.assign({}, action.payload, { event, data, context });
+	return Object.assign({}, actionInfo.payload, { event, data, context });
 }
 
 /**
