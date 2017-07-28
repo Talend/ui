@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
+import { I18nextProvider } from 'react-i18next';
 
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, object } from '@kadira/storybook-addon-knobs';
@@ -9,6 +10,7 @@ import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 import { Action } from 'react-talend-components';
 
+import i18n from './config/i18n';
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
 
@@ -23,7 +25,9 @@ const decoratedStories = storiesOf('Form', module)
 				style={{ marginTop: '20px', marginBottom: '20px' }}
 			>
 				<Well>
-					{story()}
+					<I18nextProvider i18n={i18n}>
+						{story()}
+					</I18nextProvider>
 				</Well>
 			</div>
 		</div>

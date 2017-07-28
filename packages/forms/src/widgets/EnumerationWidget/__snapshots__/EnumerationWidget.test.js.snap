@@ -21,6 +21,7 @@ exports[`EnumerationWidget delete all 1`] = `
     ]
   }
   onChange={[Function]}
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -495,7 +496,9 @@ exports[`EnumerationWidget delete all 1`] = `
 `;
 
 exports[`EnumerationWidget should be in add mode 1`] = `
-<EnumerationWidget>
+<EnumerationWidget
+  t={[Function]}
+>
   <div>
     <Enumeration
       displayMode="DISPLAY_MODE_ADD"
@@ -1036,7 +1039,9 @@ exports[`EnumerationWidget should be in add mode 1`] = `
 `;
 
 exports[`EnumerationWidget should be in default mode 1`] = `
-<EnumerationWidget>
+<EnumerationWidget
+  t={[Function]}
+>
   <div>
     <Enumeration
       displayMode="DISPLAY_MODE_DEFAULT"
@@ -1516,6 +1521,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       "required": true,
     }
   }
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -2004,6 +2010,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
     ]
   }
   onChange={[Function]}
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -2953,7 +2960,9 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
 `;
 
 exports[`EnumerationWidget should be in search mode 1`] = `
-<EnumerationWidget>
+<EnumerationWidget
+  t={[Function]}
+>
   <div>
     <Enumeration
       displayMode="DISPLAY_MODE_SEARCH"
@@ -3507,6 +3516,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
     ]
   }
   onChange={[Function]}
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -4001,6 +4011,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       },
     }
   }
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -4859,6 +4870,7 @@ exports[`EnumerationWidget should select an item 1`] = `
     ]
   }
   onChange={[Function]}
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -5773,6 +5785,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
     ]
   }
   onChange={[Function]}
+  t={[Function]}
 >
   <div>
     <Enumeration
@@ -6962,6 +6975,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
       "allowImport": true,
     }
   }
+  t={[Function]}
 >
   <div>
     <input
@@ -7801,6 +7815,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       "allowImport": true,
     }
   }
+  t={[Function]}
 >
   <div>
     <input
@@ -8985,6 +9000,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       "allowImport": true,
     }
   }
+  t={[Function]}
 >
   <div>
     <input

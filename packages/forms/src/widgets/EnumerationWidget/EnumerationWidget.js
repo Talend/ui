@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react';
 import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
+import NAME_SPACE_I18N_FORMS from '../../nameSpaceI18n';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -45,6 +47,8 @@ class EnumerationWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
+		const t = props.t;
+
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
@@ -57,66 +61,66 @@ class EnumerationWidget extends React.Component {
 
 		this.addInputs = [{
 			disabled: true,
-			label: 'Validate and Add',
+			label: t('ENUMERATION_WIDGET_VALIDATE_AND_ADD', { defaultValue: 'Validate and Add' }),
 			icon: 'talend-check-plus',
 			id: 'validate-and-add',
 			key: 'validateAdd',
 			onClick: this.onValidateAndAddHandler.bind(this),
 		}, {
 			disabled: true,
-			label: 'Validate',
+			label: t('ENUMERATION_WIDGET_VALIDATE', { defaultValue: 'Validate' }),
 			icon: 'talend-check',
 			id: 'validate',
 			key: 'validate',
 			onClick: this.onAddHandler.bind(this),
 		}, {
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
 			onClick: this.onAbortHandler.bind(this),
 		}];
 		this.searchInputsActions = [{
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
 			onClick: this.onAbortHandler.bind(this),
 		}];
 		this.loadingInputsActions = [{
-			label: 'Loading',
+			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Loading' }),
 			icon: 'talend-cross',
 			inProgress: true,
 			id: 'loading',
 		}];
 		this.itemEditActions = [{
 			disabled: true,
-			label: 'Validate',
+			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Validate' }),
 			icon: 'talend-check',
 			id: 'validate',
 			onClick: this.onSubmitItem.bind(this),
 		}, {
 			disabled: false,
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: this.onAbortItem.bind(this),
 		}];
 		this.defaultActions = [{
 			disabled: false,
-			label: 'Edit',
+			label: t('ENUMERATION_WIDGET_EDIT', { defaultValue: 'Edit' }),
 			icon: 'talend-pencil',
 			id: 'edit',
 			onClick: this.onEnterEditModeItem.bind(this),
 		}, {
-			label: 'Remove value',
+			label: t('ENUMERATION_WIDGET_REMOVE_VALUE', { defaultValue: 'Remove value' }),
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItem.bind(this),
 		}];
 		this.defaultHeaderActions = [{
 			disabled: false,
-			label: 'Search for specific values',
+			label: t('ENUMERATION_WIDGET_SEARCH_VALUES', { defaultValue: 'Search for specific values' }),
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
@@ -124,17 +128,17 @@ class EnumerationWidget extends React.Component {
 
 		if (this.allowImport) {
 			this.defaultHeaderActions.push({
-				label: 'Import values from a file',
+				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', { defaultValue: 'Import values from a file' }),
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
 				displayMode: 'dropdown',
 				items: [{
-					label: 'Add values from a file',
+					label: t('ENUMERATION_WIDGET_ADD_FROM_FILE', { defaultValue: 'Add values from a file' }),
 					id: 'append-uploding',
 					onClick: this.onImportAppendClick.bind(this),
 				}, {
-					label: 'Overwrite existing values',
+					label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', { defaultValue: 'Overwrite existing values' }),
 					id: 'append-uploding',
 					onClick: this.onImportOverwriteClick.bind(this),
 				}],
@@ -142,14 +146,14 @@ class EnumerationWidget extends React.Component {
 		}
 
 		this.defaultHeaderActions.push({
-			label: 'Add item',
+			label: t('ENUMERATION_WIDGET_ADD_ITEM', { defaultValue: 'Add item' }),
 			icon: 'talend-plus',
 			id: 'add',
 			onClick: this.changeDisplayToAddMode.bind(this),
 		});
 
 		this.selectedHeaderActions = [{
-			label: 'Remove selected values',
+			label: t('ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES', { defaultValue: 'Remove selected values' }),
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItems.bind(this),
@@ -778,7 +782,11 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
+		t: PropTypes.func.isRequired,
 	};
 }
 
-export default EnumerationWidget;
+export {
+	EnumerationWidget,
+}
+export default translate(NAME_SPACE_I18N_FORMS)(EnumerationWidget);

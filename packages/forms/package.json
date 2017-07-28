@@ -46,7 +46,7 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
-    "react-i18next": "^4.3.0",
+    "react-i18next": "^4.7.0",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.94.0",
     "react-test-renderer": "15.5.4",

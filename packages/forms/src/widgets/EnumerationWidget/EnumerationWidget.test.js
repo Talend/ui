@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import EnumerationWidget from './EnumerationWidget';
+import t from '../../../test/translate';
+import { EnumerationWidget } from './EnumerationWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -13,7 +14,7 @@ jest.mock(
 describe('EnumerationWidget', () => {
 	it('should be in default mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget t={t} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -24,13 +25,14 @@ describe('EnumerationWidget', () => {
 				schema={{
 					required: true,
 				}}
+				t={t}
 			/>);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in add mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget t={t} />);
 
 		// when
 		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
@@ -41,7 +43,7 @@ describe('EnumerationWidget', () => {
 
 	it('should be in search mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget t={t} />);
 
 		// when
 		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
@@ -58,6 +60,7 @@ describe('EnumerationWidget', () => {
 				formData={[
 					{ id: '111', values: ['titi', 'tata'] },
 				]}
+				t={t}
 			/>
 		);
 
@@ -75,6 +78,7 @@ describe('EnumerationWidget', () => {
 				formData={[
 					{ id: '111', values: ['titi', 'tata'] },
 				]}
+				t={t}
 			/>
 		);
 
@@ -93,6 +97,7 @@ describe('EnumerationWidget', () => {
 				formData={[
 					{ id: '111', values: ['titi', 'tata'] },
 				]}
+				t={t}
 			/>
 		);
 
@@ -113,6 +118,7 @@ describe('EnumerationWidget', () => {
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['titi2', 'tata2'] },
 				]}
+				t={t}
 			/>
 		);
 
@@ -133,6 +139,7 @@ describe('EnumerationWidget', () => {
 					{ id: '112', values: ['titi', 'tata'] },
 					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
+				t={t}
 			/>
 		);
 		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
@@ -160,6 +167,7 @@ describe('EnumerationWidget', () => {
 				formData={[
 					{ id: '11212242', values: ['titi', 'tata'] },
 				]}
+				t={t}
 			/>
 		);
 
@@ -180,6 +188,7 @@ describe('EnumerationWidget', () => {
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['toto', 'tutu'] },
 				]}
+				t={t}
 			/>);
 
 		// edit item
@@ -200,6 +209,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
@@ -219,6 +229,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 
 			// when
@@ -250,6 +261,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 
 			// when
@@ -281,6 +293,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 
 			// when
@@ -312,6 +325,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 
 			// when
@@ -337,6 +351,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					t={t}
 				/>);
 			wrapper.instance().inputFile.click = jest.fn();
 			spyOn(document.activeElement, 'blur').and.callThrough();
@@ -375,6 +390,7 @@ describe('EnumerationWidget', () => {
 						{ id: '111', values: ['titi', 'tata'] },
 						{ id: '112', values: ['titi2', 'tata2'] },
 					]}
+					t={t}
 				/>);
 
 			const event = {
@@ -409,7 +425,9 @@ describe('EnumerationWidget', () => {
 	describe('utils method', () => {
 		it('should split with using coma separator and trim the sub strings', () => {
 			// given
-			const enumerationWidget = new EnumerationWidget({});
+			const enumerationWidget = new EnumerationWidget({
+				t,
+			});
 			// when
 			const resultArray =
 				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
