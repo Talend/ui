@@ -6720,128 +6720,1001 @@ exports[`HeaderBar should render HeaderBar with search input 1`] = `
 `;
 
 exports[`HeaderBar should render default HeaderBar 1`] = `
-<nav
-  className="tc-header-bar"
+<HeaderBar
+  brand={
+    Object {
+      "id": "header-brand",
+      "name": "Example App Name",
+      "onClick": [Function],
+    }
+  }
+  help={
+    Object {
+      "id": "header-help",
+      "onClick": [Function],
+    }
+  }
+  logo={
+    Object {
+      "id": "header-logo",
+      "onClick": [Function],
+    }
+  }
+  products={
+    Object {
+      "id": "header-products",
+      "items": Array [
+        Object {
+          "icon": "talend-logo-dp",
+          "key": "tdp",
+          "label": "Data Preparation",
+        },
+        Object {
+          "icon": "talend-logo-ic",
+          "key": "tic",
+          "label": "Integration Cloud",
+        },
+        Object {
+          "icon": "talend-logo-mc",
+          "key": "tmc",
+          "label": "Management Console",
+        },
+      ],
+      "onSelect": [Function],
+    }
+  }
+  search={
+    Object {
+      "icon": Object {
+        "bsStyle": "link",
+        "name": "talend-search",
+        "title": "icon",
+      },
+      "id": "header-search",
+      "onToggle": [Function],
+    }
+  }
+  t={[Function]}
+  user={
+    Object {
+      "id": "header-user",
+      "items": Array [
+        Object {
+          "icon": "talend-cog",
+          "label": "Settings",
+          "onClick": [Function],
+        },
+      ],
+      "name": "User NAME",
+    }
+  }
 >
-  <ul>
-    <Logo
-      id="header-logo"
-      onClick={[Function]}
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
-        }
-      }
-      t={[Function]}
-    />
-    <Brand
-      id="header-brand"
-      isSeparated={false}
-      name="Example App Name"
-      onClick={[Function]}
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
-        }
-      }
-    />
-  </ul>
-  <ul
-    className=""
+  <nav
+    className="tc-header-bar"
   >
-    <Search
-      icon={
-        Object {
-          "bsStyle": "link",
-          "name": "talend-search",
-          "title": "icon",
-        }
-      }
-      id="header-search"
-      onToggle={[Function]}
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
-        }
-      }
-    />
-    <Help
-      id="header-help"
-      onClick={[Function]}
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
-        }
-      }
-      t={[Function]}
-    />
-    <User
-      id="header-user"
-      items={
-        Array [
+    <ul>
+      <Logo
+        id="header-logo"
+        onClick={[Function]}
+        renderers={
           Object {
-            "icon": "talend-cog",
-            "label": "Settings",
-            "onClick": [Function],
-          },
-        ]
-      }
-      name="User NAME"
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
         }
-      }
-    />
-    <Products
-      id="header-products"
-      items={
-        Array [
+        t={[Function]}
+      >
+        <li
+          className="undefined"
+        >
+          <Action
+            available={true}
+            bsStyle="link"
+            className=""
+            disabled={false}
+            hideLabel={true}
+            icon="talend-logo-square"
+            id="header-logo"
+            inProgress={false}
+            label="Go to Portal"
+            onClick={[Function]}
+            tooltipPlacement="bottom"
+          >
+            <TooltipTrigger
+              label="Go to Portal"
+              tooltipPlacement="bottom"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="link"
+                className=""
+                disabled={false}
+                id="header-logo"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-logo"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <Icon
+                    name="talend-logo-square"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-square"
+                      />
+                    </svg>
+                  </Icon>
+                </button>
+              </Button>
+            </TooltipTrigger>
+          </Action>
+        </li>
+      </Logo>
+      <Brand
+        id="header-brand"
+        isSeparated={false}
+        name="Example App Name"
+        onClick={[Function]}
+        renderers={
           Object {
-            "icon": "talend-logo-dp",
-            "key": "tdp",
-            "label": "Data Preparation",
-          },
-          Object {
-            "icon": "talend-logo-ic",
-            "key": "tic",
-            "label": "Integration Cloud",
-          },
-          Object {
-            "icon": "talend-logo-mc",
-            "key": "tmc",
-            "label": "Management Console",
-          },
-        ]
-      }
-      onSelect={[Function]}
-      renderers={
-        Object {
-          "Action": [Function],
-          "ActionDropdown": [Function],
-          "ActionSplitDropdown": [Function],
-          "Typeahead": [Function],
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
         }
-      }
-      t={[Function]}
-    />
-  </ul>
-</nav>
+      >
+        <li
+          className=""
+        >
+          <Action
+            available={true}
+            bsStyle="link"
+            disabled={false}
+            id="header-brand"
+            inProgress={false}
+            label="Example App Name"
+            onClick={[Function]}
+            tooltipPlacement="bottom"
+          >
+            <Button
+              active={false}
+              block={false}
+              bsClass="btn"
+              bsStyle="link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </Button>
+          </Action>
+        </li>
+      </Brand>
+    </ul>
+    <ul
+      className=""
+    >
+      <Search
+        icon={
+          Object {
+            "bsStyle": "link",
+            "name": "talend-search",
+            "title": "icon",
+          }
+        }
+        id="header-search"
+        onToggle={[Function]}
+        renderers={
+          Object {
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
+        }
+      >
+        <li
+          className=""
+        >
+          <form
+            className="navbar-form navbar-right"
+            role="search"
+          >
+            <Typeahead
+              icon={
+                Object {
+                  "bsStyle": "link",
+                  "name": "talend-search",
+                  "title": "icon",
+                }
+              }
+              id="header-search"
+              items={null}
+              noResultText="No result."
+              onToggle={[Function]}
+              position="left"
+              searching={false}
+              searchingText="Searching for matches…"
+            >
+              <Action
+                available={true}
+                bsStyle="link"
+                disabled={false}
+                hideLabel={true}
+                icon="talend-search"
+                inProgress={false}
+                label="icon"
+                onClick={[Function]}
+                tooltipPlacement="top"
+              >
+                <TooltipTrigger
+                  label="icon"
+                  tooltipPlacement="top"
+                >
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="link"
+                    disabled={false}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseOver={[Function]}
+                    role={null}
+                  >
+                    <button
+                      className="btn btn-link"
+                      disabled={false}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseOver={[Function]}
+                      role={null}
+                      type="button"
+                    >
+                      <Icon
+                        name="talend-search"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-search"
+                          />
+                        </svg>
+                      </Icon>
+                    </button>
+                  </Button>
+                </TooltipTrigger>
+              </Action>
+            </Typeahead>
+          </form>
+        </li>
+      </Search>
+      <Help
+        id="header-help"
+        onClick={[Function]}
+        renderers={
+          Object {
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
+        }
+        t={[Function]}
+      >
+        <li>
+          <Action
+            available={true}
+            bsStyle="link"
+            disabled={false}
+            icon="talend-question-circle"
+            id="header-help"
+            inProgress={false}
+            label="Help"
+            onClick={[Function]}
+            tooltipPlacement="bottom"
+          >
+            <Button
+              active={false}
+              block={false}
+              bsClass="btn"
+              bsStyle="link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <Icon
+                  name="talend-question-circle"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-question-circle"
+                    />
+                  </svg>
+                </Icon>
+                <span>
+                  Help
+                </span>
+              </button>
+            </Button>
+          </Action>
+        </li>
+      </Help>
+      <User
+        id="header-user"
+        items={
+          Array [
+            Object {
+              "icon": "talend-cog",
+              "label": "Settings",
+              "onClick": [Function],
+            },
+          ]
+        }
+        name="User NAME"
+        renderers={
+          Object {
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
+        }
+      >
+        <li
+          className=""
+        >
+          <ActionDropdown
+            bsStyle="link"
+            icon="talend-user-circle"
+            id="header-user"
+            items={
+              Array [
+                Object {
+                  "icon": "talend-cog",
+                  "label": "Settings",
+                  "onClick": [Function],
+                },
+              ]
+            }
+            label="User NAME"
+            pullRight={true}
+            tooltipPlacement="bottom"
+          >
+            <DropdownButton
+              bsStyle="link"
+              id="header-user"
+              onSelect={[Function]}
+              pullRight={true}
+              role="button"
+              title={
+                <span>
+                  <Icon
+                    name="talend-user-circle"
+                  />
+                  <span>
+                    User NAME
+                  </span>
+                </span>
+              }
+            >
+              <Uncontrolled(Dropdown)
+                bsStyle="link"
+                id="header-user"
+                onSelect={[Function]}
+                pullRight={true}
+                role="button"
+              >
+                <Dropdown
+                  bsClass="dropdown"
+                  bsStyle="link"
+                  componentClass={[Function]}
+                  id="header-user"
+                  onSelect={[Function]}
+                  onToggle={[Function]}
+                  pullRight={true}
+                  role="button"
+                >
+                  <ButtonGroup
+                    block={false}
+                    bsClass="btn-group"
+                    bsStyle="link"
+                    className="dropdown"
+                    justified={false}
+                    vertical={false}
+                  >
+                    <div
+                      className="dropdown btn-group btn-group-link"
+                    >
+                      <DropdownToggle
+                        bsClass="dropdown-toggle"
+                        bsRole="toggle"
+                        bsStyle="link"
+                        id="header-user"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        open={false}
+                        role="button"
+                        useAnchor={false}
+                      >
+                        <Button
+                          active={false}
+                          aria-expanded={false}
+                          aria-haspopup={true}
+                          block={false}
+                          bsClass="btn"
+                          bsStyle="link"
+                          className="dropdown-toggle"
+                          disabled={false}
+                          id="header-user"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          role="button"
+                        >
+                          <button
+                            aria-expanded={false}
+                            aria-haspopup={true}
+                            className="dropdown-toggle btn btn-link"
+                            disabled={false}
+                            id="header-user"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="button"
+                            type="button"
+                          >
+                            <span>
+                              <Icon
+                                name="talend-user-circle"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  className="tc-svg-icon"
+                                  focusable="false"
+                                  title={null}
+                                >
+                                  <use
+                                    xlinkHref="#talend-user-circle"
+                                  />
+                                </svg>
+                              </Icon>
+                              <span>
+                                User NAME
+                              </span>
+                            </span>
+                             
+                            <span
+                              className="caret"
+                            />
+                          </button>
+                        </Button>
+                      </DropdownToggle>
+                      <DropdownMenu
+                        bsClass="dropdown-menu"
+                        bsRole="menu"
+                        labelledBy="header-user"
+                        onClose={[Function]}
+                        onSelect={[Function]}
+                        pullRight={true}
+                      >
+                        <RootCloseWrapper
+                          disabled={true}
+                          event="click"
+                          onRootClose={[Function]}
+                        >
+                          <ul
+                            aria-labelledby="header-user"
+                            className="dropdown-menu dropdown-menu-right"
+                            role="menu"
+                          >
+                            <MenuItem
+                              bsClass="dropdown"
+                              disabled={false}
+                              divider={false}
+                              eventKey={
+                                Object {
+                                  "icon": "talend-cog",
+                                  "label": "Settings",
+                                  "onClick": [Function],
+                                }
+                              }
+                              header={false}
+                              icon="talend-cog"
+                              label="Settings"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                              onSelect={[Function]}
+                            >
+                              <li
+                                className=""
+                                role="presentation"
+                              >
+                                <SafeAnchor
+                                  componentClass="a"
+                                  icon="talend-cog"
+                                  label="Settings"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="menuitem"
+                                  tabIndex="-1"
+                                >
+                                  <a
+                                    href="#"
+                                    icon="talend-cog"
+                                    label="Settings"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="menuitem"
+                                    tabIndex="-1"
+                                  >
+                                    <Icon
+                                      name="talend-cog"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className="tc-svg-icon"
+                                        focusable="false"
+                                        title={null}
+                                      >
+                                        <use
+                                          xlinkHref="#talend-cog"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                    Settings
+                                  </a>
+                                </SafeAnchor>
+                              </li>
+                            </MenuItem>
+                          </ul>
+                        </RootCloseWrapper>
+                      </DropdownMenu>
+                    </div>
+                  </ButtonGroup>
+                </Dropdown>
+              </Uncontrolled(Dropdown)>
+            </DropdownButton>
+          </ActionDropdown>
+        </li>
+      </User>
+      <Products
+        id="header-products"
+        items={
+          Array [
+            Object {
+              "icon": "talend-logo-dp",
+              "key": "tdp",
+              "label": "Data Preparation",
+            },
+            Object {
+              "icon": "talend-logo-ic",
+              "key": "tic",
+              "label": "Integration Cloud",
+            },
+            Object {
+              "icon": "talend-logo-mc",
+              "key": "tmc",
+              "label": "Management Console",
+            },
+          ]
+        }
+        onSelect={[Function]}
+        renderers={
+          Object {
+            "Action": [Function],
+            "ActionDropdown": [Function],
+            "ActionSplitDropdown": [Function],
+            "Typeahead": [Function],
+          }
+        }
+        t={[Function]}
+      >
+        <li>
+          <ActionDropdown
+            bsStyle="link"
+            hideLabel={true}
+            icon="talend-launcher"
+            id="header-products"
+            items={
+              Array [
+                Object {
+                  "icon": "talend-logo-dp",
+                  "key": "tdp",
+                  "label": "Data Preparation",
+                },
+                Object {
+                  "icon": "talend-logo-ic",
+                  "key": "tic",
+                  "label": "Integration Cloud",
+                },
+                Object {
+                  "icon": "talend-logo-mc",
+                  "key": "tmc",
+                  "label": "Management Console",
+                },
+              ]
+            }
+            label="Apps"
+            noCaret={true}
+            onSelect={[Function]}
+            pullRight={true}
+            tooltipPlacement="bottom"
+          >
+            <TooltipTrigger
+              label="Apps"
+              tooltipPlacement="bottom"
+            >
+              <DropdownButton
+                bsStyle="link"
+                id="header-products"
+                noCaret={true}
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+                onSelect={[Function]}
+                pullRight={true}
+                role="button"
+                title={
+                  <span>
+                    <Icon
+                      name="talend-launcher"
+                    />
+                  </span>
+                }
+              >
+                <Uncontrolled(Dropdown)
+                  bsStyle="link"
+                  id="header-products"
+                  onSelect={[Function]}
+                  pullRight={true}
+                  role="button"
+                >
+                  <Dropdown
+                    bsClass="dropdown"
+                    bsStyle="link"
+                    componentClass={[Function]}
+                    id="header-products"
+                    onSelect={[Function]}
+                    onToggle={[Function]}
+                    pullRight={true}
+                    role="button"
+                  >
+                    <ButtonGroup
+                      block={false}
+                      bsClass="btn-group"
+                      bsStyle="link"
+                      className="dropdown"
+                      justified={false}
+                      vertical={false}
+                    >
+                      <div
+                        className="dropdown btn-group btn-group-link"
+                      >
+                        <DropdownToggle
+                          bsClass="dropdown-toggle"
+                          bsRole="toggle"
+                          bsStyle="link"
+                          id="header-products"
+                          noCaret={true}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onMouseOver={[Function]}
+                          open={false}
+                          role="button"
+                          useAnchor={false}
+                        >
+                          <Button
+                            active={false}
+                            aria-expanded={false}
+                            aria-haspopup={true}
+                            block={false}
+                            bsClass="btn"
+                            bsStyle="link"
+                            className="dropdown-toggle"
+                            disabled={false}
+                            id="header-products"
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onMouseOver={[Function]}
+                            role="button"
+                          >
+                            <button
+                              aria-expanded={false}
+                              aria-haspopup={true}
+                              className="dropdown-toggle btn btn-link"
+                              disabled={false}
+                              id="header-products"
+                              onClick={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
+                              onMouseOver={[Function]}
+                              role="button"
+                              type="button"
+                            >
+                              <span>
+                                <Icon
+                                  name="talend-launcher"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="tc-svg-icon"
+                                    focusable="false"
+                                    title={null}
+                                  >
+                                    <use
+                                      xlinkHref="#talend-launcher"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </span>
+                            </button>
+                          </Button>
+                        </DropdownToggle>
+                        <DropdownMenu
+                          bsClass="dropdown-menu"
+                          bsRole="menu"
+                          labelledBy="header-products"
+                          onClose={[Function]}
+                          onSelect={[Function]}
+                          pullRight={true}
+                        >
+                          <RootCloseWrapper
+                            disabled={true}
+                            event="click"
+                            onRootClose={[Function]}
+                          >
+                            <ul
+                              aria-labelledby="header-products"
+                              className="dropdown-menu dropdown-menu-right"
+                              role="menu"
+                            >
+                              <MenuItem
+                                bsClass="dropdown"
+                                disabled={false}
+                                divider={false}
+                                eventKey={
+                                  Object {
+                                    "icon": "talend-logo-dp",
+                                    "key": "tdp",
+                                    "label": "Data Preparation",
+                                  }
+                                }
+                                header={false}
+                                icon="talend-logo-dp"
+                                label="Data Preparation"
+                                onKeyDown={[Function]}
+                                onSelect={[Function]}
+                              >
+                                <li
+                                  className=""
+                                  role="presentation"
+                                >
+                                  <SafeAnchor
+                                    componentClass="a"
+                                    icon="talend-logo-dp"
+                                    label="Data Preparation"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="menuitem"
+                                    tabIndex="-1"
+                                  >
+                                    <a
+                                      href="#"
+                                      icon="talend-logo-dp"
+                                      label="Data Preparation"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="menuitem"
+                                      tabIndex="-1"
+                                    >
+                                      <Icon
+                                        name="talend-logo-dp"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="tc-svg-icon"
+                                          focusable="false"
+                                          title={null}
+                                        >
+                                          <use
+                                            xlinkHref="#talend-logo-dp"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                      Data Preparation
+                                    </a>
+                                  </SafeAnchor>
+                                </li>
+                              </MenuItem>
+                              <MenuItem
+                                bsClass="dropdown"
+                                disabled={false}
+                                divider={false}
+                                eventKey={
+                                  Object {
+                                    "icon": "talend-logo-ic",
+                                    "key": "tic",
+                                    "label": "Integration Cloud",
+                                  }
+                                }
+                                header={false}
+                                icon="talend-logo-ic"
+                                label="Integration Cloud"
+                                onKeyDown={[Function]}
+                                onSelect={[Function]}
+                              >
+                                <li
+                                  className=""
+                                  role="presentation"
+                                >
+                                  <SafeAnchor
+                                    componentClass="a"
+                                    icon="talend-logo-ic"
+                                    label="Integration Cloud"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="menuitem"
+                                    tabIndex="-1"
+                                  >
+                                    <a
+                                      href="#"
+                                      icon="talend-logo-ic"
+                                      label="Integration Cloud"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="menuitem"
+                                      tabIndex="-1"
+                                    >
+                                      <Icon
+                                        name="talend-logo-ic"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="tc-svg-icon"
+                                          focusable="false"
+                                          title={null}
+                                        >
+                                          <use
+                                            xlinkHref="#talend-logo-ic"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                      Integration Cloud
+                                    </a>
+                                  </SafeAnchor>
+                                </li>
+                              </MenuItem>
+                              <MenuItem
+                                bsClass="dropdown"
+                                disabled={false}
+                                divider={false}
+                                eventKey={
+                                  Object {
+                                    "icon": "talend-logo-mc",
+                                    "key": "tmc",
+                                    "label": "Management Console",
+                                  }
+                                }
+                                header={false}
+                                icon="talend-logo-mc"
+                                label="Management Console"
+                                onKeyDown={[Function]}
+                                onSelect={[Function]}
+                              >
+                                <li
+                                  className=""
+                                  role="presentation"
+                                >
+                                  <SafeAnchor
+                                    componentClass="a"
+                                    icon="talend-logo-mc"
+                                    label="Management Console"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="menuitem"
+                                    tabIndex="-1"
+                                  >
+                                    <a
+                                      href="#"
+                                      icon="talend-logo-mc"
+                                      label="Management Console"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="menuitem"
+                                      tabIndex="-1"
+                                    >
+                                      <Icon
+                                        name="talend-logo-mc"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="tc-svg-icon"
+                                          focusable="false"
+                                          title={null}
+                                        >
+                                          <use
+                                            xlinkHref="#talend-logo-mc"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                      Management Console
+                                    </a>
+                                  </SafeAnchor>
+                                </li>
+                              </MenuItem>
+                            </ul>
+                          </RootCloseWrapper>
+                        </DropdownMenu>
+                      </div>
+                    </ButtonGroup>
+                  </Dropdown>
+                </Uncontrolled(Dropdown)>
+              </DropdownButton>
+            </TooltipTrigger>
+          </ActionDropdown>
+        </li>
+      </Products>
+    </ul>
+  </nav>
+</HeaderBar>
 `;
 
 exports[`HeaderBar with search results 1`] = `
