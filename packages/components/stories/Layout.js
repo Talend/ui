@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
 import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';

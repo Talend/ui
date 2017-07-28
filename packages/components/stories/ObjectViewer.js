@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ObjectViewer, IconsProvider } from '../src/index';
@@ -45,7 +45,12 @@ const handler = {
 	onChange: action('onChange'),
 };
 
-storiesOf('ObjectViewer', module)
+const stories = storiesOf('ObjectViewer', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

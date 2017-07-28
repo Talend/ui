@@ -1,5 +1,5 @@
 import React from 'react';
-import { action as stAction } from '@kadira/storybook';
+import { action as stAction } from '@storybook/react';
 import { IconsProvider } from '@talend/react-components';
 import { Action } from '../src';
 

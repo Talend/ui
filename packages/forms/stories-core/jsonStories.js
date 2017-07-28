@@ -1,6 +1,6 @@
 import React from 'react';
-import { action } from '@kadira/storybook';
-import { object } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/react';
+import { object } from '@storybook/addon-knobs';
 import { Tabs, Tab } from 'react-bootstrap';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm, ConnectedUIForm } from '../src/UIForm';

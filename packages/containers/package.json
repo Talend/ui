@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.35.0",
+    "@storybook/react": "3.1.9",
     "@talend/bootstrap-theme": "^0.97.1",
     "@talend/icons": "^0.97.1",
     "@talend/react-cmf": "^0.97.1",

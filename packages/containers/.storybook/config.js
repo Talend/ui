@@ -1,9 +1,9 @@
-import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
+import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 
-import '!style!css!postcss!sass!@talend/bootstrap-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
 

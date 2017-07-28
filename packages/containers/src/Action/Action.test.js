@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from '@talend/react-cmf/lib/mock';
+import { shallow } from 'enzyme';
+import mock from '@talend/react-cmf/lib/mock';
 
 import Action from './Action.component';
 
@@ -10,11 +10,20 @@ jest.mock(
 );
 
 describe('Action', () => {
-	it('should render its name', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Action name="menu:article" />
-			</Provider>).toJSON();
-		expect(wrapper).toMatchSnapshot();
+	it('should render from name props', () => {
+		const context = mock.context();
+		const wrapper = shallow(
+			<Action name="menu:article" />,
+			{ context }
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+	it('should render null if not available', () => {
+		const context = mock.context();
+		const wrapper = shallow(
+			<Action available={false} />,
+			{ context }
+		);
+		expect(wrapper.root.node).toBe(null);
 	});
 });
