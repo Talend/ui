@@ -3,7 +3,7 @@ import { merge } from 'talend-json-schema-form-core';
 
 import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
-import { validateValue, validateAll } from './utils/validation';
+import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 
@@ -54,20 +54,29 @@ export default class UIForm extends React.Component {
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
 	 * @param value The payload new value
+	 * @param deepValidation Validate the subItems
+	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
 	 */
-	onChange(event, { schema, value }) {
-		const error = validateValue(
+	onChange(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
+		const error = validateSingle(
 			schema,
 			value,
 			this.props.properties,
-			this.props.customValidation
-		);
+			this.props.customValidation,
+			deepValidation
+		)[schema.key];
 
 		const payload = this.addAdditionalInfo({ schema, value, error });
 		this.props.onChange(event, payload);
 
 		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
 			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
+		}
+
+		if (widgetChangeErrors) {
+			const errors = Object.assign(widgetChangeErrors(this.props.errors));
+			errors[schema.key] = error;
+			this.props.setErrors(this.props.formName, errors);
 		}
 	}
 

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import Widget from '../../Widget';
+import { shiftArrayErrorsKeys } from '../../utils/validation';
 
 import theme from './Array.scss';
 
@@ -15,6 +16,18 @@ function adaptKeyWithIndex(keys, index) {
 	return indexedKeys;
 }
 
+function getRange(previousIndex, nextIndex) {
+	const range = {};
+	if (previousIndex < nextIndex) {
+		range.minIndex = previousIndex;
+		range.maxIndex = nextIndex + 1;
+	} else {
+		range.minIndex = nextIndex;
+		range.maxIndex = previousIndex + 1;
+	}
+	return range;
+}
+
 export default class ArrayWidget extends React.Component {
 	constructor(props) {
 		super(props);
@@ -26,61 +39,68 @@ export default class ArrayWidget extends React.Component {
 
 	onAdd(event) {
 		const schema = this.props.schema;
-		const index = this.props.value.length;
-		const value = schema.schema.items.type === 'object' ? {} : '';
-		return this.props.onArrayAdd(event, {
-			index,
-			schema,
-			value,
-		});
-
-		/*
-		 this.props.onChange(
-		 event,
-		 { schema: this.props.schema, value: [...this.props.value, {}] },
-		 { skipValidation: true }
-		 );
-		 */
-	}
-
-	onRemove(event, index) {
-		return this.props.onArrayRemove(event, { schema: this.props.schema, index });
-
-		/*
-		// TODO remove error and shift the following ones
-		console.log(`Remove ${index}`);
+		const defaultValue = schema.schema.items.type === 'object' ? {} : '';
+		const value = [...this.props.value, defaultValue];
 
 		this.props.onChange(
 			event,
-			{
-				schema: this.props.schema,
-				value: this.props.value.filter((_, itemIndex) => itemIndex !== index),
-			},
-			{ skipValidation: true }
+			{ schema, value }
 		);
-		*/
+	}
+
+	onRemove(event, indexToRemove) {
+		const schema = this.props.schema;
+		const value = this.props.value.slice(0);
+		value.splice(indexToRemove, 1);
+
+		return this.props.onChange(
+			event,
+			{ schema, value },
+			{
+				widgetChangeErrors(errors) {
+					return shiftArrayErrorsKeys(
+						errors,
+						{
+							arrayKey: schema.key,
+							minIndex: indexToRemove,
+							shouldRemoveIndex(index) { return index === indexToRemove; },
+							getNextIndex(index) { return index - 1; },
+						},
+					);
+				},
+			}
+		);
 	}
 
 	onReorder(event, { previousIndex, nextIndex }) {
-		return this.props.onArrayReorder(
-			event,
-			{ schema: this.props.schema, previousIndex, nextIndex }
-		);
+		const schema = this.props.schema;
+		const value = this.props.value.slice(0);
+		const [item] = value.splice(previousIndex, 1);
+		value.splice(nextIndex, 0, item);
 
-		/*
-		// TODO switch the errors
-		console.log(`Reorder ${previousIndex} to ${nextIndex}`);
-
-		const newValue = this.props.value.slice(0);
-		const previousIndexValue = newValue[previousIndex];
-		newValue[previousIndex] = newValue[nextIndex];
-		newValue[nextIndex] = previousIndexValue;
-		this.props.onChange(
+		return this.props.onChange(
 			event,
-			{ schema: this.props.schema, value: newValue },
-			{ skipValidation: true }
+			{ schema, value },
+			{
+				widgetChangeErrors(errors) {
+					// determine the range [min, max[ of items to shift, with the pace
+					const { minIndex, maxIndex } = getRange(previousIndex, nextIndex);
+					const switchPace = previousIndex - nextIndex;
+
+					return shiftArrayErrorsKeys(
+						errors,
+						{
+							arrayKey: schema.key,
+							minIndex,
+							maxIndex,
+							getNextIndex(index) {
+								return index === previousIndex ? nextIndex : index + switchPace;
+							},
+						},
+					);
+				},
+			}
 		);
-		*/
 	}
 
 	render() {
