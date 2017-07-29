@@ -80,7 +80,7 @@ describe('UIForm component', () => {
 					type: 'after',
 					schema: mergedSchema[1],
 					value: newValue,
-					error: null,
+					error: undefined,
 					properties: data.properties,
 				}
 			);
