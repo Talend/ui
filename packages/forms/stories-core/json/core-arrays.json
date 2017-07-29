@@ -40,9 +40,6 @@
   "uiSchema": [
     {
       "key": "comments",
-      "style": {
-        "add": "btn-success"
-      },
       "items": [
         "comments[].name",
         "comments[].email",

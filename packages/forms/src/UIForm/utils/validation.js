@@ -1,7 +1,6 @@
 import { validate } from 'talend-json-schema-form-core';
 import { getValue, omitAll } from '../utils/properties';
 
-
 /**
  * Validate a value.
  * @param schema The merged schema.
@@ -68,7 +67,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 }
 
 /**
- * Validate a simple value or object.
+ * Validate a simple value.
  * @param mergedSchema The schema to validate.
  * @param value The value.
  * @param properties All the values.
