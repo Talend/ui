@@ -58,6 +58,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 					key: indexedKey,
 				};
 			});
+			// eslint-disable-next-line no-use-before-define
 			const subResults = validateAll(indexedItems, properties, customValidationFn);
 			Object.assign(results, subResults);
 		}
@@ -76,7 +77,13 @@ export function validateArray(mergedSchema, value, properties, customValidationF
  * @param deepValidation Validate subItems if true.
  * @returns {object} The validation result.
  */
-export function validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation) {
+export function validateSimple(
+	mergedSchema,
+	value,
+	properties,
+	customValidationFn,
+	deepValidation
+) {
 	const results = {};
 	const { key, items } = mergedSchema;
 
@@ -85,6 +92,7 @@ export function validateSimple(mergedSchema, value, properties, customValidation
 		results[key] = error;
 	}
 	if (deepValidation && items) {
+		// eslint-disable-next-line no-use-before-define
 		const subResults = validateAll(items, properties, customValidationFn);
 		Object.assign(results, subResults);
 	}
@@ -102,12 +110,18 @@ export function validateSimple(mergedSchema, value, properties, customValidation
  * @param deepValidation Validate subItems if true.
  * @returns {Object} The validation result by field.
  */
-export function validateSingle(mergedSchema, value, properties, customValidationFn, deepValidation) {
+export function validateSingle(
+	mergedSchema,
+	value,
+	properties,
+	customValidationFn,
+	deepValidation
+) {
 	if (mergedSchema.type === 'array') {
 		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
-	} else {
-		return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
 	}
+
+	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
 }
 
 /**
@@ -123,7 +137,13 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	mergedSchema.forEach((schema) => {
 		const { key } = schema;
 		const value = key && getValue(properties, key);
-		const subResults = validateSingle(schema, value, properties, customValidationFn, true /* deep */);
+		const subResults = validateSingle(
+			schema,
+			value,
+			properties,
+			customValidationFn,
+			true /* deep validation */
+		);
 		Object.assign(results, subResults);
 	});
 	return results;
