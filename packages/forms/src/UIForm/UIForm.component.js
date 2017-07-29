@@ -14,11 +14,7 @@ export default class UIForm extends React.Component {
 		this.state = {
 			mergedSchema: merge(jsonSchema, uiSchema),
 		};
-		console.log(this.state.mergedSchema);
 
-		this.onArrayAdd = this.onArrayAdd.bind(this);
-		this.onArrayRemove = this.onArrayRemove.bind(this);
-		this.onArrayReorder = this.onArrayReorder.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onReset = this.onReset.bind(this);
@@ -37,14 +33,6 @@ export default class UIForm extends React.Component {
 		this.setState({
 			mergedSchema: merge(jsonSchema, uiSchema),
 		});
-	}
-
-	addAdditionalInfo(payload) {
-		return {
-			...payload,
-			formName: this.props.formName,
-			properties: this.props.properties,
-		};
 	}
 
 	/**
@@ -66,7 +54,13 @@ export default class UIForm extends React.Component {
 			deepValidation
 		)[schema.key];
 
-		const payload = this.addAdditionalInfo({ schema, value, error });
+		const payload = {
+			formName: this.props.formName,
+			properties: this.props.properties,
+			schema,
+			value,
+			error,
+		};
 		this.props.onChange(event, payload);
 
 		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
@@ -78,33 +72,6 @@ export default class UIForm extends React.Component {
 			errors[schema.key] = error;
 			this.props.setErrors(this.props.formName, errors);
 		}
-	}
-
-	/**
-	 * Fire callbacks while adding an item in an array
-	 * @param event The event that triggered the callback
-	 * @param payload The add payload
-	 */
-	onArrayAdd(event, payload) {
-		this.props.onArrayAdd(event, this.addAdditionalInfo(payload));
-	}
-
-	/**
-	 * Fire callbacks while removing an item in an array
-	 * @param event The event that triggered the callback
-	 * @param payload The removal payload
-	 */
-	onArrayRemove(event, payload) {
-		this.props.onArrayRemove(event, this.addAdditionalInfo(payload));
-	}
-
-	/**
-	 * Fire callbacks while reordering an item in an array
-	 * @param event The event that triggered the callback
-	 * @param payload The reorder payload
-	 */
-	onArrayReorder(event, payload) {
-		this.props.onArrayReorder(event, this.addAdditionalInfo(payload));
 	}
 
 	/**
@@ -208,9 +175,6 @@ export default class UIForm extends React.Component {
 							id={this.props.id}
 							key={index}
 							formName={this.props.formName}
-							onArrayAdd={this.onArrayAdd}
-							onArrayRemove={this.onArrayRemove}
-							onArrayReorder={this.onArrayReorder}
 							onChange={this.onChange}
 							onTrigger={this.onTrigger}
 							schema={nextSchema}
@@ -275,12 +239,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
-		/** State management impl: The array add callback */
-		onArrayAdd: PropTypes.func.isRequired,
-		/** State management impl: The array remove callback */
-		onArrayRemove: PropTypes.func.isRequired,
-		/** State management impl: The array reorder callback */
-		onArrayReorder: PropTypes.func.isRequired,
 		/** State management impl: Set Partial fields validation error */
 		setError: PropTypes.func,
 		/** State management impl: Set All fields validations errors */

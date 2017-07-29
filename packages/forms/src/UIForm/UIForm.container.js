@@ -3,16 +3,7 @@ import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
 
 import { formReducer, modelReducer, validationReducer } from './reducers';
-import {
-	createForm,
-	updateForm,
-	updateFormData,
-	updateFormDataAddArrayItem,
-	updateFormDataRemoveArrayItem,
-	updateFormDataReorderArrayItem,
-	setError,
-	setErrors,
-} from './actions';
+import { createForm, updateForm, updateFormData, setError, setErrors } from './actions';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -26,9 +17,6 @@ export default class UIForm extends React.Component {
 		);
 		this.state = formReducer(undefined, action)[this.props.formName];
 
-		this.onArrayAdd = this.onArrayAdd.bind(this);
-		this.onArrayRemove = this.onArrayRemove.bind(this);
-		this.onArrayReorder = this.onArrayReorder.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.updateForm = this.updateForm.bind(this);
 		this.setError = this.setError.bind(this);
@@ -51,78 +39,6 @@ export default class UIForm extends React.Component {
 			payload.schema,
 			payload.value,
 			payload.error
-		);
-		this.setState(
-			{
-				properties: modelReducer(this.state.properties, action),
-				errors: validationReducer(this.state.errors, action),
-			},
-			this.props.onChange && (() => { this.props.onChange(event, payload); })
-		);
-	}
-
-	/**
-	 * Add an item in an form data array
-	 * @param event The event that triggered this add
-	 * @param payload { formName, schema, index, value } The add payload
-	 * formName: The form name
-	 * schema: The array schema
-	 * index: The index where to insert the value
-	 * value: The new value to insert
-	 */
-	onArrayAdd(event, payload) {
-		const action = updateFormDataAddArrayItem(
-			payload.formName,
-			payload.schema,
-			payload.index,
-			payload.value
-		);
-		this.setState(
-			{
-				properties: modelReducer(this.state.properties, action),
-			},
-			this.props.onChange && (() => { this.props.onChange(event, payload); })
-		);
-	}
-
-	/**
-	 * Remove an item in an form data array
-	 * @param event The event that triggered this removal
-	 * @param payload { formName, schema, index } The removal payload
-	 * formName: The form name
-	 * schema: The array schema
-	 * index: The index where to remove
-	 */
-	onArrayRemove(event, payload) {
-		const action = updateFormDataRemoveArrayItem(
-			payload.formName,
-			payload.schema,
-			payload.index
-		);
-		this.setState(
-			{
-				properties: modelReducer(this.state.properties, action),
-				errors: validationReducer(this.state.errors, action),
-			},
-			this.props.onChange && (() => { this.props.onChange(event, payload); })
-		);
-	}
-
-	/**
-	 * Reorder an item in an form data array
-	 * @param event The event that triggered this removal
-	 * @param payload { formName, schema, previousIndex, nextIndex } The removal payload
-	 * formName: The form name
-	 * schema: The array schema
-	 * previousIndex: The index where is the item to move
-	 * nextIndex: The index where the item will be moved
-	 */
-	onArrayReorder(event, payload) {
-		const action = updateFormDataReorderArrayItem(
-			payload.formName,
-			payload.schema,
-			payload.previousIndex,
-			payload.nextIndex
 		);
 		this.setState(
 			{
@@ -189,11 +105,8 @@ export default class UIForm extends React.Component {
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
 
-				onArrayAdd={this.onArrayAdd}
-				onArrayRemove={this.onArrayRemove}
-				onArrayReorder={this.onArrayReorder}
-				onChange={this.onChange}
 				onReset={this.props.onReset}
+				onChange={this.onChange}
 				setError={this.setError}
 				setErrors={this.setErrors}
 				updateForm={this.updateForm}

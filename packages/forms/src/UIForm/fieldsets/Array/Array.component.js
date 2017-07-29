@@ -58,6 +58,7 @@ export default class ArrayWidget extends React.Component {
 			{ schema, value },
 			{
 				widgetChangeErrors(errors) {
+					// shift up the items errors after the one we remove
 					return shiftArrayErrorsKeys(
 						errors,
 						{
@@ -87,6 +88,8 @@ export default class ArrayWidget extends React.Component {
 					const { minIndex, maxIndex } = getRange(previousIndex, nextIndex);
 					const switchPace = previousIndex - nextIndex;
 
+					// shift the items errors between the previous and next position
+					// set the item-we-move errors indexes
 					return shiftArrayErrorsKeys(
 						errors,
 						{
@@ -111,8 +114,6 @@ export default class ArrayWidget extends React.Component {
 			<div>
 				<ol id={id} className={theme['tf-array']}>
 					{value.map((itemValue, index) => {
-						// TODO optimise that, compute the item schema only when value number change
-						// and store it in component state
 						const arrayItems = items.map(item => ({
 							...item,
 							key: adaptKeyWithIndex(item.key, index),

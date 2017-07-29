@@ -156,8 +156,8 @@ export function isValid(schema, errors) {
 }
 
 /**
- * Filter the errors from array which items are between a range
- * This returns only the keys within range.
+ * Filter the errors on array which items indexes are between a range
+ * This returns only the errors keys.
  * @param errors The errors map
  * @param arrayKey The array key
  * @param minIndex The min item index (INCLUDED)
@@ -170,8 +170,7 @@ export function filterArrayErrorsKeys(errors, arrayKey, minIndex, maxIndex) {
 	return Object.keys(errors)
 		.filter(errorKey => errorKey.startsWith(arrayKey))
 		.filter(errorKey => !minArrayIndexKey || errorKey >= minArrayIndexKey)
-		.filter(errorKey => !maxArrayIndexKey || errorKey < maxArrayIndexKey)
-		.sort();
+		.filter(errorKey => !maxArrayIndexKey || errorKey < maxArrayIndexKey);
 }
 
 /**

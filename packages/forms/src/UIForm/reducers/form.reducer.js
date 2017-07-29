@@ -3,9 +3,6 @@ import {
 	TF_REMOVE_FORM,
 	TF_UPDATE_FORM,
 	TF_UPDATE_FORM_DATA,
-	TF_UPDATE_FORM_DATA_ADD_ARRAY_ITEM,
-	TF_UPDATE_FORM_DATA_REMOVE_ARRAY_ITEM,
-	TF_UPDATE_FORM_DATA_REORDER_ARRAY_ITEM,
 	TF_SET_ALL_ERRORS,
 	TF_SET_PARTIAL_ERROR,
 } from '../actions';
@@ -64,9 +61,6 @@ export default function formReducer(state = {}, action) {
 	case TF_REMOVE_FORM:
 		return omit(state, action.formName);
 	case TF_UPDATE_FORM_DATA:
-	case TF_UPDATE_FORM_DATA_ADD_ARRAY_ITEM:
-	case TF_UPDATE_FORM_DATA_REMOVE_ARRAY_ITEM:
-	case TF_UPDATE_FORM_DATA_REORDER_ARRAY_ITEM:
 	case TF_SET_ALL_ERRORS:
 	case TF_SET_PARTIAL_ERROR: {
 		if (!form) {
