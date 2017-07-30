@@ -41,6 +41,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
+  11:3  error  'id' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   37:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -61,5 +64,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 36 problems (36 errors, 0 warnings)
 
