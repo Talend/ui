@@ -66,8 +66,8 @@ Array of objects { name, email, comment }
 
 | Property | Description |
 |---|---|
-| widget | `columns` |
-| items | An array of field/fieldset definitions |
+| itemWidget | An optional widget to render each item. Default: `fieldset` |
+| items | An array of field/fieldset definitions that is included in each array object |
 
 Array of simple strings
 
