@@ -57,6 +57,7 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		hasMoveDown: PropTypes.bool.isRequired,
 		hasMoveUp: PropTypes.bool.isRequired,
+		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
