@@ -13,20 +13,15 @@
           "type": "object",
           "properties": {
             "name": {
-              "title": "Name",
               "type": "string"
             },
             "email": {
-              "title": "Email",
               "type": "string",
-              "pattern": "^\\S+@\\S+$",
-              "description": "Email will be used for evil."
+              "pattern": "^\\S+@\\S+$"
             },
             "comment": {
-              "title": "Comment",
               "type": "string",
-              "maxLength": 20,
-              "validationMessage": "Don't be greedy!"
+              "maxLength": 20
             }
           },
           "required": [
@@ -41,12 +36,21 @@
     {
       "key": "comments",
       "items": [
-        "comments[].name",
-        "comments[].email",
+        {
+          "key": "comments[].name",
+          "title": "Name"
+        },
+        {
+          "key": "comments[].email",
+          "title": "Email",
+          "description": "Email will be used for evil."
+        },
         {
           "key": "comments[].comment",
+          "title": "Comment",
           "type": "textarea",
-          "rows": 3
+          "rows": 3,
+          "validationMessage": "Don't be greedy!"
         }
       ]
     }
