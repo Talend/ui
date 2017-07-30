@@ -28,6 +28,23 @@ function getRange(previousIndex, nextIndex) {
 	return range;
 }
 
+function getItemSchema(arraySchema, index) {
+	// insert index in all fields
+	const items = arraySchema.items.map(item => ({
+		...item,
+		key: adaptKeyWithIndex(item.key, index),
+	}));
+
+	// insert index in item schema key
+	const key = arraySchema.key.concat(index);
+
+	return {
+		key,
+		items,
+		widget: arraySchema.itemWidget || 'fieldset',
+	};
+}
+
 export default class ArrayWidget extends React.Component {
 	constructor(props) {
 		super(props);
@@ -86,7 +103,7 @@ export default class ArrayWidget extends React.Component {
 				widgetChangeErrors(errors) {
 					// determine the range [min, max[ of items to shift, with the pace
 					const { minIndex, maxIndex } = getRange(previousIndex, nextIndex);
-					const switchPace = previousIndex - nextIndex;
+					const switchPace = Math.sign(previousIndex - nextIndex);
 
 					// shift the items errors between the previous and next position
 					// set the item-we-move errors indexes
@@ -108,30 +125,24 @@ export default class ArrayWidget extends React.Component {
 
 	render() {
 		const { errorMessage, id, isValid, schema, value, ...restProps } = this.props;
-		const { description, key, items } = schema;
 
 		return (
 			<div>
 				<ol id={id} className={theme['tf-array']}>
 					{value.map((itemValue, index) => {
-						const arrayItems = items.map(item => ({
-							...item,
-							key: adaptKeyWithIndex(item.key, index),
-						}));
-						const itemSchema = {
-							key: key.concat(index),
-							items: arrayItems,
-							widget: schema.itemWidget || 'fieldset',
-						};
+						// create item schema with item index in key
+						const itemSchema = getItemSchema(schema, index, itemValue);
+
 						return (
 							<li className={theme.item} key={index}>
 								<ArrayItem
 									hasMoveDown={index < value.length - 1}
 									hasMoveUp={index > 0}
+									id={id && `${id}-control-${index}`}
 									index={index}
 									onRemove={this.onRemove}
 									onReorder={this.onReorder}
-									value={value}
+									value={itemValue}
 								>
 									<Widget
 										{...restProps}
@@ -149,7 +160,7 @@ export default class ArrayWidget extends React.Component {
 				</div>
 				<Message
 					errorMessage={errorMessage}
-					description={description}
+					description={schema.description}
 					isValid={isValid}
 				/>
 			</div>
@@ -168,10 +179,6 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
-		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		onArrayAdd: PropTypes.func.isRequired,
-		onArrayRemove: PropTypes.func.isRequired,
-		onArrayReorder: PropTypes.func.isRequired,
 		onChange: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,

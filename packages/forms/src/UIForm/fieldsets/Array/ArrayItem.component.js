@@ -8,6 +8,7 @@ export default function ArrayItem(props) {
 		children,
 		hasMoveDown,
 		hasMoveUp,
+		id,
 		index,
 		onRemove,
 		onReorder,
@@ -20,6 +21,7 @@ export default function ArrayItem(props) {
 				<div className={theme.control}>
 					<button
 						className={theme.delete}
+						id={id && `${id}-delete`}
 						onClick={event => onRemove(event, index)}
 						title="Delete"
 						type="button"
@@ -28,6 +30,7 @@ export default function ArrayItem(props) {
 					</button>
 					<button
 						disabled={!hasMoveUp}
+						id={id && `${id}-moveUp`}
 						onClick={event => onReorder(event, { previousIndex: index, nextIndex: index - 1 })}
 						title="Move Up"
 						type="button"
@@ -36,6 +39,7 @@ export default function ArrayItem(props) {
 					</button>
 					<button
 						disabled={!hasMoveDown}
+						id={id && `${id}-moveDown`}
 						onClick={event => onReorder(event, { previousIndex: index, nextIndex: index + 1 })}
 						type="button"
 						title="Move Down"
