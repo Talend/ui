@@ -115,6 +115,8 @@
     "react-talend-components": "^0.94.0",
     "reselect": "^2.5.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "i18next": "^8.4.3"
+  },
   "version": "0.94.0"
 }
