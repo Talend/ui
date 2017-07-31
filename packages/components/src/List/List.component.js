@@ -46,9 +46,7 @@ ListToolbar.propTypes = {
 function DisplayModeComponent({
 		displayMode,
 		id,
-		isActive,
 		list,
-		onRowClick,
 		useContent,
 		virtualized }) {
 	if (useContent) {
@@ -66,8 +64,6 @@ function DisplayModeComponent({
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
-					isActive={isActive}
-					onRowClick={onRowClick}
 					{...list}
 				/>
 			</div>
@@ -82,17 +78,15 @@ function DisplayModeComponent({
 DisplayModeComponent.propTypes = {
 	displayMode: PropTypes.string,
 	id: PropTypes.string,
-	isActive: PropTypes.func,
 	list: PropTypes.oneOfType([
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
 	]),
-	onRowClick: PropTypes.func,
 	useContent: PropTypes.bool,
 	virtualized: PropTypes.bool,
 };
 
-function ListDisplay({ displayMode, id, isActive, list, onRowClick, useContent, virtualized }) {
+function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -100,8 +94,6 @@ function ListDisplay({ displayMode, id, isActive, list, onRowClick, useContent, 
 			displayMode={displayMode}
 			list={list}
 			virtualized={virtualized}
-			onRowClick={onRowClick}
-			isActive={isActive}
 		/>
 	);
 }
@@ -143,7 +135,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, isActive, list, onRowClick, toolbar, useContent, virtualized }) {
+function List({ displayMode, id, list, toolbar, useContent, virtualized }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -159,9 +151,7 @@ function List({ displayMode, id, isActive, list, onRowClick, toolbar, useContent
 			<ListDisplay
 				displayMode={displayMode}
 				id={id}
-				isActive={isActive}
 				list={list}
-				onRowClick={onRowClick}
 				useContent={useContent}
 				virtualized={virtualized}
 			/>

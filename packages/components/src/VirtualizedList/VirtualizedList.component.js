@@ -25,7 +25,6 @@ function VirtualizedList(props) {
 
 	const contentsConfiguration = insertSelectionConfiguration({
 		children,
-		isActive,
 		isSelected,
 		selectionToggle,
 	});

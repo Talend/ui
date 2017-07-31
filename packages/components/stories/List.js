@@ -400,7 +400,6 @@ storiesOf('List', module)
 	})
 	.add('Virtualized - selection', () => {
 		const selectedItemsProps = cloneDeep(props);
-		const rowClickAction = action('onClick');
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
 				{
@@ -411,8 +410,6 @@ storiesOf('List', module)
 				},
 			],
 		};
-		selectedItemsProps.onRowClick = () => rowClickAction();
-		selectedItemsProps.list.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list" >
@@ -424,8 +421,41 @@ storiesOf('List', module)
 					<pre>
 						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
 						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
-						listProps.onRowClick = (event, item) => myOnRowClickCallback(event, item);<br />
-						listProps.isActive = (item) => item.id === 2;<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...selectedItemsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - row click', () => {
+		const selectedItemsProps = cloneDeep(props);
+		const rowClickAction = action('onRowClick');
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		selectedItemsProps.list.itemProps.isSelected = item => item.id === 2;
+		selectedItemsProps.list.itemProps.onToggle = () => {};
+		selectedItemsProps.list.itemProps.onRowClick = event => rowClickAction(event.rowData);
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list" >
+				<h1>List</h1>
+				<p>
+					You can manage selection by passing 2 props : onSelect and isSelected.<br />
+					<b>onSelect(event, item)</b> : item selection callback
+					<b>isSelected(item)</b> : returns true if the item is selected
+					<pre>
+						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>

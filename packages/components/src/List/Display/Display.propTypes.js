@@ -7,7 +7,9 @@ export default {
 	items: PropTypes.arrayOf(PropTypes.object),
 	itemProps: PropTypes.shape({
 		classNameKey: PropTypes.string,
+		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
+		onRowClick: PropTypes.func,
 		onSelect: PropTypes.func,
 		onToggle: PropTypes.func,
 		onToggleAll: PropTypes.func,
