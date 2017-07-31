@@ -5,6 +5,7 @@ import Tabs from '../fieldsets/Tabs';
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
 import Radios from '../fields/Radios';
+import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
 import Text from '../fields/Text';
 import TextArea from '../fields/TextArea';
@@ -22,6 +23,7 @@ const widgets = {
 	checkboxes: CheckBoxes,
 	number: Text,
 	radios: Radios,
+	radioOrSelect: RadioOrSelect,
 	reset: Button,
 	select: Select,
 	submit: Button,
