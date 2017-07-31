@@ -8,6 +8,7 @@ import Radios from '../fields/Radios';
 import Select from '../fields/Select';
 import Text from '../fields/Text';
 import TextArea from '../fields/TextArea';
+import Toggle from '../fields/Toggle';
 
 const widgets = {
 	// fieldsets
@@ -27,6 +28,7 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+	toggle: Toggle,
 };
 
 export default widgets;
