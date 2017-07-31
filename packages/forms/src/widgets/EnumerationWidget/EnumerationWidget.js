@@ -788,5 +788,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 export {
 	EnumerationWidget,
-}
+};
 export default translate(NAME_SPACE_I18N_FORMS)(EnumerationWidget);
