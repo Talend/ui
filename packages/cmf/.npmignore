@@ -38,22 +38,13 @@ jspm_packages
 
 __tests__
 
-storybook-static
-*.tgz
 src
-screenshots
-yarn.lock
-stories
-stories-core
-e2e
-screenshots.config.json
-.sass-lint.yml
-.storybook
-output
-.eslintrc
-examples
-.yarn-metadata.json
-__mocks__
-.editorconfig
 .babelrc
-test
+.editorconfig
+.eslintignore
+.eslintrc
+*.tgz
+BREAKING_CHANGES_LOG.md
+docs.json
+env__tests.js
+yarn.lock
