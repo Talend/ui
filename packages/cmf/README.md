@@ -178,7 +178,7 @@ Note onResponse and onError accept function:
 ## Expressions
 
 Expression are registred function use to eval props.
-We use them to handle dynamic configuration like disable buttons if a user doen't have the permission.
+We use them to handle dynamic configuration like disable buttons if a user doesn't have the permission.
 
 Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
 
