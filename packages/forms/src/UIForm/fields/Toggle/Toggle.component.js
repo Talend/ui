@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Toggle from 'react-talend-components/lib/Toggle';
 import FieldTemplate from '../FieldTemplate';
 
-const ToggleWidget = (props) => {
+function ToggleWidget(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
 	const { autoFocus, description, disabled, title } = schema;
 
@@ -22,7 +22,7 @@ const ToggleWidget = (props) => {
 			/>
 		</FieldTemplate>
 	);
-};
+}
 
 if (process.env.NODE_ENV !== 'production') {
 	ToggleWidget.propTypes = {
