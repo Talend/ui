@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { IconsProvider, AppHeaderBar } from '../src';
@@ -155,6 +155,10 @@ const decoratedStories = storiesOf('AppHeaderBar', module)
 			<div className="container" style={{ paddingTop: 40 }} />
 		</div>
 	));
+
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
 
 decoratedStories
 	.addWithInfo('default', () => {

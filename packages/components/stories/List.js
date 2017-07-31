@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';  // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
 import { cloneDeep } from 'lodash';
@@ -130,8 +130,6 @@ const props = {
 		},
 		itemProps: {
 			classNameKey: 'className',
-			onToggle: action('onToggle'),
-			onToggleAll: action('onToggleAll'),
 		},
 	},
 	toolbar: {
@@ -261,8 +259,9 @@ const itemsForItems = [
 ];
 const itemPropsForItems = {
 	classNameKey: 'className',
-	onSelect: action('onItemSelect'),
 	onOpen: action('onItemOpen'),
+	onSelect: action('onItemSelect'),
+	onToggle: action('onItemToggle'),
 	onToggleAll: action('onToggleAll'),
 	isSelected: item => selected.find(next => next.id === item.id),
 	onCancel: action('onTitleEditCancel'),
@@ -320,11 +319,6 @@ function getActionsProps() {
 }
 
 storiesOf('List', module)
-	.addDecorator(story => (
-		<form>
-			{story()}
-		</form>
-	))
 	.add('Tile', () => {
 		const tprops = {
 			...props,
@@ -719,7 +713,7 @@ storiesOf('List', module)
 				},
 			],
 		};
-		selectedItemsProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div>
 				<h1>List</h1>

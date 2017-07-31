@@ -2,60 +2,54 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, object } from '@kadira/storybook-addon-knobs';
+import { storiesOf, action } from '@storybook/react';
+import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
-import { Action } from 'react-talend-components';
+import { Action, Dialog } from 'react-talend-components';
 
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
+import createCollapsibleFieldset from '../src/fields/CollapsibleFieldset';
+import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
 a11y(ReactDOM);
 
-const decoratedStories = storiesOf('Form', module)
-	.addDecorator(withKnobs)
-	.addDecorator(story => (
-		<div className="container-fluid">
-			<div
-				className="col-md-offset-1 col-md-10"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				<Well>
-					{story()}
-				</Well>
-			</div>
+const decoratedStories = storiesOf('Form', module).addDecorator(withKnobs).addDecorator(story =>
+	<div className="container-fluid">
+		<div
+			className="col-md-offset-1 col-md-10"
+			style={{ marginTop: '20px', marginBottom: '20px' }}
+		>
+			<Well>
+				{story()}
+			</Well>
 		</div>
-	));
+	</div>,
+);
 
-const capitalizeFirstLetter =
-	string => string.charAt(0).toUpperCase() + string.slice(1);
-
+const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
-
 const sampleFilenameRegex = /^.\/(.*).js/;
 
-sampleFilenames
-	.keys()
-	.forEach(
-		(filename) => {
-			const sampleNameMatches = filename.match(sampleFilenameRegex);
-			const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
-			const capitalizedSampleName = capitalizeFirstLetter(sampleName);
-			decoratedStories.add(capitalizedSampleName, () => (
-				<section>
-					<IconsProvider />
-					<Form
-						autocomplete="off"
-						data={object(capitalizedSampleName, sampleFilenames(filename))}
-						onChange={action('Change')}
-						onBlur={action('Blur')}
-						onSubmit={action('Submit')}
-					/>
-				</section>
-			));
-		});
+sampleFilenames.keys().forEach(filename => {
+	const sampleNameMatches = filename.match(sampleFilenameRegex);
+	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
+	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
+	decoratedStories.add(capitalizedSampleName, () =>
+		<section>
+			<IconsProvider />
+			<Form
+				autocomplete="off"
+				data={object(capitalizedSampleName, sampleFilenames(filename))}
+				onChange={action('Change')}
+				onBlur={action('Blur')}
+				onSubmit={action('Submit')}
+			/>
+		</section>,
+	);
+});
 
 decoratedStories.add('Multiple actions', () => {
 	const actions = [
@@ -107,23 +101,28 @@ decoratedStories.add('Multiple actions', () => {
 			},
 		},
 	};
-	return (
-		<Form
-			data={schema}
-			onSubmit={action('SUBMIT')}
-			actions={actions}
-		/>
-	);
+	return <Form data={schema} onSubmit={action('SUBMIT')} actions={actions} />;
 });
 
 function CustomDatalist(...args) {
 	function renderItemsContainer({ children, ...containerProps }) {
+		const { className, ...rest } = containerProps;
+
 		return (
-			<div {...containerProps}>
+			<div className={className}>
+				<div {...rest} />
 				{children}
 				{children &&
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
-						<span style={{ fontSize: '0.9em', padding: '0.5em 0', color: 'gray', width: '100%', display: 'inline-block' }}>
+						<span
+							style={{
+								fontSize: '0.9em',
+								padding: '0.5em 0',
+								color: 'gray',
+								width: '100%',
+								display: 'inline-block',
+							}}
+						>
 							Other Actions
 						</span>
 						<Action
@@ -143,10 +142,23 @@ function CustomDatalist(...args) {
 
 	function renderNoMatch({ ...containerProps }) {
 		return (
-			<div {...containerProps} className={`${DatalistWidget.itemContainerStyle} ${DatalistWidget.noResultStyle}`}>
+			<div
+				{...containerProps}
+				className={`${DatalistWidget.itemContainerStyle} ${DatalistWidget.noResultStyle}`}
+			>
 				<div className={{ padding: '0 1em 1em 1em', width: '100%' }}>
 					<span>No match.</span>
-					<span style={{ fontSize: '0.9em', padding: '0.5em 0', color: 'gray', width: '100%', display: 'inline-block' }}>Other Actions</span>
+					<span
+						style={{
+							fontSize: '0.9em',
+							padding: '0.5em 0',
+							color: 'gray',
+							width: '100%',
+							display: 'inline-block',
+						}}
+					>
+						Other Actions
+					</span>
 					<Action
 						onMouseDown={action('clicked')}
 						bsStyle="primary"
@@ -166,7 +178,7 @@ function CustomDatalist(...args) {
 	);
 }
 
-decoratedStories.add('Datalist', () => {
+function getDatalist() {
 	function fetchItems() {
 		return [
 			'Auklet',
@@ -194,21 +206,11 @@ decoratedStories.add('Datalist', () => {
 			title: 'A simple typeahead',
 			description: 'A simple typeahead widget example.',
 			type: 'object',
-			required: [
-				'fullDatalist',
-				'select1',
-			],
+			required: ['fullDatalist', 'select1'],
 			definitions: {
 				datalist: {
 					type: 'string',
-					enum: [
-						'Apple',
-						'Pine[apple]',
-						'Banana',
-						'Cher[ry',
-						'Lemo}n',
-						'Grapefruit',
-					],
+					enum: ['Apple', 'Pine[apple]', 'Banana', 'Cher[ry', 'Lemo}n', 'Grapefruit'],
 				},
 			},
 			properties: {
@@ -240,12 +242,7 @@ decoratedStories.add('Datalist', () => {
 			withCustomElement: {
 				'ui:widget': 'customDatalist',
 			},
-			'ui:order': [
-				'select1',
-				'fullDatalist',
-				'remoteDataList',
-				'withCustomElement',
-			],
+			'ui:order': ['select1', 'fullDatalist', 'remoteDataList', 'withCustomElement'],
 		},
 		properties: {
 			fullDatalist: 'Apple',
@@ -261,9 +258,33 @@ decoratedStories.add('Datalist', () => {
 			widgets={{ customDatalist: CustomDatalist }}
 		/>
 	);
+}
+
+decoratedStories.add('Datalist', getDatalist);
+decoratedStories.add('Datalist in modal', () => {
+	const props = {
+		header: 'Datalist in modal',
+		bsDialogProps: {
+			show: true,
+			size: 'small',
+			keyboard: true,
+		}
+	};
+
+	// Need to override style for this demo (items-container must be scrollable)
+	return (
+		<div>
+			<style>
+				{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}
+			</style>
+			<Dialog {...props}>
+				{ getDatalist() }
+			</Dialog>
+		</div>
+	);
 });
 
-const UnknownWidget = (props) => {
+const UnknownWidget = props => {
 	const { value } = props;
 
 	return (
@@ -272,7 +293,8 @@ const UnknownWidget = (props) => {
 				<h3 className="panel-title">Custom widget</h3>
 			</div>
 			<div className="panel-body">
-				Form was instantiated with a custom widget to display its selected value <code>{value}</code>.
+				Form was instantiated with a custom widget to display its selected value{' '}
+				<code>{value}</code>.
 			</div>
 		</div>
 	);
@@ -307,13 +329,126 @@ decoratedStories.add('Custom widget', () => {
 			},
 		},
 	};
-	return (
-		<Form
-			data={schema}
-			widgets={widgets}
-			onSubmit={action('SUBMIT')}
-		/>
-	);
+
+	return <Form data={schema} widgets={widgets} onSubmit={action('SUBMIT')} />;
+});
+
+class FormDemo extends React.Component {
+	static fields = {
+		CollapsibleFieldset: createCollapsibleFieldset(formData => {
+			if (formData.function) {
+				return (
+					<span>
+						{Object.keys(formData).reduce((acc, item, index) => {
+							if (item !== 'isClosed') {
+								return `${acc}${formData[item]} `;
+							}
+							return acc;
+						}, '')}
+					</span>
+				);
+			}
+			return (
+				<span>
+					<em>Create a new whatever</em>
+				</span>
+			);
+		}),
+	};
+
+	constructor(props) {
+		super(props);
+		this.state = { formData: this.props.schema.properties };
+	}
+
+	onChange(formData) {
+		this.setState({ formData });
+	}
+
+	render() {
+		const schema = this.props.schema;
+		schema.properties = this.state.formData || this.props.schema.properties;
+		return (
+			<Form
+				ArrayFieldTemplate={ArrayFieldTemplate}
+				fields={FormDemo.fields}
+				data={schema}
+				onSubmit={action('SUBMIT')}
+			>
+				<h1>Child</h1>
+				<p>This is an inner child in the form</p>
+			</Form>
+		);
+	}
+}
+
+decoratedStories.add('custom array', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'A filter form',
+			description: '',
+			type: 'object',
+			properties: {
+				filters: {
+					type: 'array',
+					title: 'A list of strings',
+					items: {
+						type: 'object',
+						properties: {
+							isClosed: {
+								type: 'boolean',
+							},
+							function: {
+								type: 'string',
+								enum: ['upperCase', 'lowerCase'],
+							},
+							fieldName: {
+								type: 'string',
+							},
+							operator: {
+								type: 'string',
+								enum: ['==', '!='],
+							},
+							operand: {
+								type: 'string',
+							},
+						},
+					},
+				},
+			},
+		},
+		uiSchema: {
+			filters: {
+				'ui:trigger': ['after'],
+				items: {
+					'ui:field': 'CollapsibleFieldset',
+					operator: {
+						'ui:widget': 'select',
+					},
+				},
+			},
+		},
+		properties: {
+			filters: [
+				{
+					function: 'upperCase',
+					fieldName: 'First',
+					operator: '==',
+					operand: 'test',
+				},
+				{
+					isClosed: true,
+					function: 'upperCase',
+					fieldName: 'Second',
+				},
+				{
+					function: 'lowerCase',
+					fieldName: 'Third',
+				},
+			],
+		},
+	};
+	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
 });
 
 decoratedStories.add('Form Children', () => {

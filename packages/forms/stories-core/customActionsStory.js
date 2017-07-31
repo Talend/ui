@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@kadira/storybook';
+import { action } from '@storybook/react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { ConnectedUIForm, UIForm } from '../src/UIForm';
 

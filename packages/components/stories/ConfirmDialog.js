@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { List, ConfirmDialog, IconsProvider } from '../src/index';
@@ -300,6 +300,30 @@ storiesOf('ConfirmDialog', module)
 				<ConfirmDialog bodyOverflow={false} {...largeProps}>
 					<List {...tprops} />
 				</ConfirmDialog>
+			</div>
+		);
+	})
+	.addWithInfo('with secondary actions', () => {
+		const propsWithMoreActions = {
+			...defaultProps,
+			header: 'Delete elements',
+			validateAction: {
+				label: 'Delete',
+				onClick: action('ok'),
+				bsStyle: 'danger',
+			},
+			secondaryActions: [
+				{
+					label: 'Show info',
+					onClick: action('info'),
+					bsStyle: 'info',
+				},
+			],
+		};
+		return (
+			<div>
+				<h1>Dialog</h1>
+				<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
 			</div>
 		);
 	});

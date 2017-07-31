@@ -9,18 +9,16 @@ import actions from '../actionAPI';
  */
 function Action({ name, ...rest }, context) {
 	let action;
+
 	if (name) {
 		action = actions.getProps(context, name, rest.model);
 	} else {
-		action = actions.evalExpressions(rest, context);
+		action = actions.getProps(context, rest, rest.model);
 	}
 	if (action.available === false) {
 		return null;
 	}
-	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action.payload);
-	};
-	return (<PureAction {...action} onClick={onClick} />);
+	return (<PureAction {...action} />);
 }
 
 Action.propTypes = {
