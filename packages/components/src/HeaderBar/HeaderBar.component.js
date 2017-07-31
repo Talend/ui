@@ -236,8 +236,9 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				<Components.Logo renderers={renderers} {...props.logo} />
-				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{ props.logo && <Components.Logo renderers={renderers} {...props.logo} /> }
+				{ props.brand &&
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} /> }
 				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
@@ -259,8 +260,8 @@ HeaderBar.User = User;
 HeaderBar.Products = Products;
 
 HeaderBar.propTypes = {
-	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
-	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
+	logo: React.PropTypes.shape(Logo.propTypes),
+	brand: React.PropTypes.shape(Brand.propTypes),
 	env: React.PropTypes.shape(Environment.propTypes),
 	search: React.PropTypes.shape(Search.propTypes),
 	help: React.PropTypes.shape(Help.propTypes),

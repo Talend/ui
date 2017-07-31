@@ -108,6 +108,30 @@ describe('CMF action', () => {
 		expect(action.context).toBe(undefined);
 	});
 
+	it('getActionObject should support action object', () => {
+		const obj = {
+			payload: {
+				type: 'MY_ACTION_TYPE',
+				extra: 'foo',
+			},
+		};
+		const action = actionAPI.getActionObject(context, obj);
+		expect(typeof action).toBe('object');
+		expect(action.type).toBe('MY_ACTION_TYPE');
+		expect(action.extra).toBe('foo');
+	});
+
+	it('getActionObject should support action object with actionCreator', () => {
+		const obj = {
+			actionCreator: 'myActionCreator',
+		};
+		context.registry = {};
+		context.registry['actionCreator:myActionCreator'] = jest.fn(() => ({ type: 'MY_ACTION_TYPE' }));
+		const action = actionAPI.getActionObject(context, obj);
+		expect(context.registry['actionCreator:myActionCreator']).toHaveBeenCalled();
+		expect(action.type).toBe('MY_ACTION_TYPE');
+	});
+
 	it('mapDispatchToProps should build a dispatchable action for any on[eventName] in props', () => {
 		function dispatch() {}
 		const props = {

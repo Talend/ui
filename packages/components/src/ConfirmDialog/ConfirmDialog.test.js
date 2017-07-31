@@ -159,4 +159,29 @@ describe('ConfirmDialog', () => {
 		// then
 		expect(wrapper.ref('modal').root.node.props.bodyOverflow).toBe(false);
 	});
+
+	it('should render with additional actions', () => {
+		// given
+		const properties = {
+			header: 'Hello world',
+			show: true,
+			validateAction,
+			cancelAction,
+			secondaryActions: [
+				{
+					label: 'Keep on Github',
+					onClick: jest.fn(),
+					bsStyle: 'info',
+				},
+			],
+		};
+
+		// when
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });
