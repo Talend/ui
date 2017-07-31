@@ -75,6 +75,7 @@ const props = {
 			name: 'talend-search',
 			title: 'icon',
 			bsStyle: 'link',
+			tooltipPlacement: 'bottom',
 		},
 		id: 'header-search',
 		onToggle: jest.fn(),
@@ -92,7 +93,9 @@ const props = {
 				onClick: jest.fn(),
 			},
 		],
-		name: 'User NAME',
+		name: 'John Doe',
+		firstName: 'John',
+		lastName: 'Doe',
 	},
 	products: {
 		id: 'header-products',
