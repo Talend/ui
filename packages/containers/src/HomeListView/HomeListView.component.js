@@ -25,11 +25,9 @@ function HomeListView({ sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
-	let drawers = wrapChildren(children);
+	let drawers = children || [];;
 	if (!Array.isArray(drawers)) {
-		drawers = [drawers];
-	} else if (children === null) {
-		drawers = [];
+		drawers = wrapChildren(drawers);
 	}
 
 	return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
-import Component, { wrapChildren } from './HomeListView.component';
+import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
 
 const sidepanel = {
