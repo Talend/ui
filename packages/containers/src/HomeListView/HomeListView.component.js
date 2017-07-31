@@ -16,7 +16,8 @@ function wrapChildren(children) {
 	if (children && children.props && children.props.children) {
 		return [children, ...wrapChildren(children.props.children)];
 	} else if (children && !children.props) {
-		return [];  // this happens ony in tests with enzyme's mount
+		// this happens ony in tests with enzyme's mount
+		return [];
 	}
 	return [children];
 }
