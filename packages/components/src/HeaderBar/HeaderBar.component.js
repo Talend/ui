@@ -245,22 +245,22 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 	};
 
-  Help.propTypes = {
-	  renderers: React.PropTypes.shape({
-		  ActionSplitDropdown: React.PropTypes.func,
-		  Action: React.PropTypes.func,
-	  }),
-    t: React.PropTypes.func.isRequired,
-  };
+	Help.propTypes = {
+		renderers: React.PropTypes.shape({
+			ActionSplitDropdown: React.PropTypes.func,
+			Action: React.PropTypes.func,
+		}),
+		t: React.PropTypes.func.isRequired,
+	};
 
-  User.propTypes = {
-    renderers: React.PropTypes.shape({
-      ActionDropdown: React.PropTypes.func,
-      name: React.PropTypes.string.isRequired,
-      firstName: React.PropTypes.string,
-      lastName: React.PropTypes.string,
-    }),
-  };
+	User.propTypes = {
+		renderers: React.PropTypes.shape({
+			ActionDropdown: React.PropTypes.func,
+			name: React.PropTypes.string.isRequired,
+			firstName: React.PropTypes.string,
+			lastName: React.PropTypes.string,
+		}),
+	};
 
 	Products.propTypes = {
 		renderers: React.PropTypes.shape({
