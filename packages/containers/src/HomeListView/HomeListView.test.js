@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
-import Component from './HomeListView.component';
+import Component, { wrapChildren } from './HomeListView.component';
 import Connected from './HomeListView.connect';
 
 const sidepanel = {
@@ -81,14 +81,28 @@ describe('Component HomeListView', () => {
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
 	it('should children transformed as array in props.drawer', () => {
+		const children = {
+			props: {
+				foo: 'bar',
+				children: {
+					props: {
+						label: 'foo',
+						children: {
+							props: {
+								children: null,
+							},
+						},
+					},
+				},
+			},
+		};
 		const wrapper = shallow(
 			<Component
 				header={(<div>hello app</div>)}
 				sidepanel={(<div>hello sidepanel</div>)}
 				list={(<div>hello list</div>)}
-			>
-				<h1>Hello children</h1>
-			</Component>
+				children={children}
+			/>
 		);
 		expect(wrapper.props().drawers).toMatchSnapshot();
 	});
