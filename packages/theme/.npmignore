@@ -36,15 +36,11 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-__tests__
-
-src
+example
+screenshots
+test
 .babelrc
 .editorconfig
-.eslintignore
-.eslintrc
-*.tgz
-BREAKING_CHANGES_LOG.md
-docs.json
-env__tests.js
+.sass-lint.yml
+screenshots.config.json
 yarn.lock
