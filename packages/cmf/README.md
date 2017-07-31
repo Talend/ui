@@ -175,6 +175,22 @@ Note onResponse and onError accept function:
 * onResponse(response)
 * onError(error)
 
+## Expressions
+
+Expression are registred function use to eval props.
+We use them to handle dynamic configuration like disable buttons if a user doen't have the permission.
+
+Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
+
+```javascript
+import { api } from 'react-cmf';
+import MyComponent from './MyComponent';
+
+const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
+
+return <MySuperComponent disabled="userDontHaveSuperPower" />
+```
+
 ## Tests & mocks
 
 When you are in the context of CMF and you want to test your component you
@@ -218,10 +234,10 @@ you may change the following using simple props:
 
 For 1.0
 
-- [ ] embedable apps
+- [x] embedable apps
 - [ ] higher order configuration (RegistryProvider)
-- [ ] react-router v5
+- [ ] react-router v4
 - [ ] i18n
-- [ ] generator
+- [x] generator
 - [ ] content types
 - [ ] actionCreator should become first class
