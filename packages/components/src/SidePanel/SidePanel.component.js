@@ -37,7 +37,6 @@ function SidePanel(props) {
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',
-		theme['action-list'],
 	);
 	const isActionSelected = (action) => {
 		if (selected) {
