@@ -15,6 +15,23 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
+  248:3  error  Expected indentation of 1 tab but found 2 spaces   indent
+  249:2  error  Mixed spaces and tabs                              no-mixed-spaces-and-tabs
+  250:2  error  Mixed spaces and tabs                              no-mixed-spaces-and-tabs
+  251:2  error  Mixed spaces and tabs                              no-mixed-spaces-and-tabs
+  252:2  error  Mixed spaces and tabs                              no-mixed-spaces-and-tabs
+  253:5  error  Expected indentation of 1 tab but found 4 spaces   indent
+  254:3  error  Expected indentation of 0 tabs but found 2 spaces  indent
+  256:3  error  Expected indentation of 1 tab but found 2 spaces   indent
+  257:5  error  Expected indentation of 1 tab but found 4 spaces   indent
+  258:7  error  Expected indentation of 1 tab but found 6 spaces   indent
+  259:7  error  Expected indentation of 1 tab but found 6 spaces   indent
+  260:7  error  Expected indentation of 1 tab but found 6 spaces   indent
+  261:7  error  Expected indentation of 1 tab but found 6 spaces   indent
+  262:5  error  Expected indentation of 0 tabs but found 4 spaces  indent
+  263:3  error  Expected indentation of 0 tabs but found 2 spaces  indent
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -26,5 +43,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
   12:1  error  Component should be written as a pure function  react/prefer-stateless-function
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 25 problems (25 errors, 0 warnings)
 
