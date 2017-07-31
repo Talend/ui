@@ -2,6 +2,17 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## NEXT VERSION
+
+* PR #629 [feat(theme): update colors]
+
+4 colors are gone :
+
+* $limeade : replace by $rio-grande
+* $pirate-gold : not used
+* $mine-shaft : replace by $dove-gray
+* $smalt-blue : not used
+
 ## v0.71.0
 
 * PR #364 [feat: onTrigger !== onChange]

@@ -123,11 +123,24 @@ function Help({ renderers, t, ...props }) {
 	);
 }
 
-function User({ name, renderers, ...props }) {
+function User({ name, firstName, lastName, renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-user'],
 		theme.separated,
 	);
+
+	function getDisplayName(params) {
+		if (params.firstName && params.lastName) {
+			return (
+				<span className={classNames(theme['user-name'], 'user-name')}>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
+				</span>
+			);
+		}
+		return params.name;
+	}
 
 	return (
 		<li className={className}>
@@ -136,8 +149,9 @@ function User({ name, renderers, ...props }) {
 				icon="talend-user-circle"
 				pullRight
 				tooltipPlacement="bottom"
-				label={name}
-				{...props}
+				tooltipLabel={name}
+				label={getDisplayName({ name, firstName, lastName })}
+				{...rest}
 			/>
 		</li>
 	);
@@ -176,8 +190,9 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				<Components.Logo renderers={renderers} {...props.logo} t={props.t} />
-				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{ props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} /> }
+				{ props.brand &&
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} /> }
 				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
@@ -230,20 +245,22 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 	};
 
-	Help.propTypes = {
-		items: React.PropTypes.arrayOf(React.PropTypes.object),
-		renderers: React.PropTypes.shape({
-			ActionSplitDropdown: React.PropTypes.func,
-			Action: React.PropTypes.func,
-		}),
-		t: React.PropTypes.func.isRequired,
-	};
+  Help.propTypes = {
+	  renderers: React.PropTypes.shape({
+		  ActionSplitDropdown: React.PropTypes.func,
+		  Action: React.PropTypes.func,
+	  }),
+    t: React.PropTypes.func.isRequired,
+  };
 
-	User.propTypes = {
-		renderers: React.PropTypes.shape({
-			ActionDropdown: React.PropTypes.func,
-		}),
-	};
+  User.propTypes = {
+    renderers: React.PropTypes.shape({
+      ActionDropdown: React.PropTypes.func,
+      name: React.PropTypes.string.isRequired,
+      firstName: React.PropTypes.string,
+      lastName: React.PropTypes.string,
+    }),
+  };
 
 	Products.propTypes = {
 		renderers: React.PropTypes.shape({

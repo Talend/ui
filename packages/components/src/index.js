@@ -79,6 +79,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
+import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import ListView from './ListView';
 import TreeView from './TreeView';
@@ -117,6 +118,7 @@ export {
 	ListView,
 	ConfirmDialog,
 	Drawer,
+	Emphasis,
 	TreeView,
 	TalendBadge as Badge,
 	Icon,

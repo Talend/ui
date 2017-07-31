@@ -23,7 +23,7 @@ $brand-primary-light:   tint($brand-primary, 12) !default;
 $brand-primary-dark:    shade($brand-primary, 12) !default;
 $brand-primary-darker:  shade($brand-primary, 25) !default;
 $brand-secondary:       $rio-grande !default;
-$brand-success:         $limeade !default;
+$brand-success:         $rio-grande !default;
 $brand-info:            $scooter !default;
 $brand-warning:         $lightning-yellow !default;
 $brand-danger:          $chestnut-rose !default;
@@ -66,6 +66,8 @@ $font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
 $font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-weight-bold: 600;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14

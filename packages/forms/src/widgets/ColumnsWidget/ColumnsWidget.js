@@ -20,6 +20,7 @@ function Column(props) {
 			<Renderer
 				schema={props.schema}
 				formData={props.formData}
+				uiSchema={props.uiSchema[props.columnKey]}
 				onChange={props.onChange}
 				onBlur={props.onBlur}
 				registry={props.registry}
@@ -32,6 +33,7 @@ function Column(props) {
 if (process.env.NODE_ENV !== 'production') {
 	Column.propTypes = {
 		className: PropTypes.string,
+		columnKey: PropTypes.string.isRequired,
 		schema: PropTypes.object.isRequired,
 		formData: PropTypes.object.isRequired,
 		uiSchema: PropTypes.object.isRequired,
@@ -56,6 +58,7 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 					<Column
 						{...props}
 						key={key}
+						columnKey={key}
 						schema={schema.properties[key]}
 						formData={formData[key]}
 						onChange={onColumnChange(key, onChange, formData)}
