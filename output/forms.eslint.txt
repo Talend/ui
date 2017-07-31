@@ -30,8 +30,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
-   17:8  error  Using exported name 'EnumerationWidget' as identifier for default export  import/no-named-as-default
-  193:3  error  Prop type `object` is forbidden                                           react/forbid-prop-types
+  193:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -50,9 +49,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   74:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   75:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  791:2  error  Missing semicolon  semi
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -66,7 +62,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 36 problems (36 errors, 0 warnings)
+✖ 34 problems (34 errors, 0 warnings)
 
 Errored while running command 'npm' with arguments 'run lint:es' in 'react-talend-forms'
 Errored while running ExecCommand.execute
