@@ -1,5 +1,5 @@
 
-> react-talend-components@0.97.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.96.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -8,23 +8,27 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:8  error  'classnames' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
+  2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:2  error  Unexpected require()                                                                                      global-require
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
+  2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:2  error  Unexpected require()                                                                                      global-require
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
+  2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:2  error  Unexpected require()                                                                                      global-require
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1  error  '@kadira/storybook' should be listed in the project's dependencies, not devDependencies                   import/no-extraneous-dependencies
+  2:1  error  '@kadira/react-storybook-addon-info' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  7:2  error  Unexpected require()                                                                                      global-require
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
   12:1  error  Component should be written as a pure function  react/prefer-stateless-function
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 14 problems (14 errors, 0 warnings)
 
