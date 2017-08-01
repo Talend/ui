@@ -20,13 +20,13 @@ function getIcon(selected) {
 function getLabel(selected, t) {
 	switch (selected) {
 	case 'table':
-		return t('SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	case 'large':
-		return t('SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
+		return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
 	case 'tile':
-		return t('SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
+		return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
 	default:
-		return t('SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
