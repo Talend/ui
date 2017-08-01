@@ -34,11 +34,6 @@ function myfunc(event, props, context) {
  */
 export class Dispatcher extends React.Component {
 	static displayName = 'Dispatcher';
-	static defaultProps = {
-		stopPropagation: false,
-		preventDefault: false,
-	};
-
 	static propTypes = {
 		children: PropTypes.node.isRequired,
 		stopPropagation: PropTypes.bool,
@@ -111,6 +106,10 @@ export class Dispatcher extends React.Component {
 	}
 }
 
+Dispatcher.defaultProps = {
+	stopPropagation: false,
+	preventDefault: false,
+};
 const ConnectedDispatcher = cmfConnect({})(Dispatcher);
 
 /**
