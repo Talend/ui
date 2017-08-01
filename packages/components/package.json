@@ -99,7 +99,9 @@
     "style-loader": "^0.13.1",
     "talend-icons": "^0.98.0",
     "uuid": "3.0.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "i18next": "^8.4.2",
+    "react-i18next": "^4.3.0"
   },
   "jest": {
     "collectCoverageFrom": [
