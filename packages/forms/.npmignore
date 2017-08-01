@@ -38,3 +38,15 @@ jspm_packages
 .node_repl_history
 
 __tests__
+
+__mocks__
+.storybook
+src
+stories
+stories-core
+storybook-static
+.babelrc
+.editorconfig
+.eslintrc
+.sass-lint.yml
+yarn.lock
