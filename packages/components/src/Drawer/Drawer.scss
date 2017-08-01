@@ -4,7 +4,7 @@ $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #FFF !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-action-bar-background-color: lighten($alto, 5%) !default;
+$tc-action-bar-background-color: $concrete !default;
 
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {

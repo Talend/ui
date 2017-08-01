@@ -98,6 +98,6 @@ describe('Radios field', () => {
 		wrapper.find('input[type="radio"]').at(0).simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, 'foo');
+		expect(onChange).toBeCalledWith(event, { schema, value: 'foo' });
 	});
 });

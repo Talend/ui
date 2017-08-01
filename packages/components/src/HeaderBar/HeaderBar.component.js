@@ -153,11 +153,25 @@ Help.propTypes = {
 	}),
 };
 
-function User({ name, renderers, ...props }) {
+
+function User({ name, firstName, lastName, renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-user'],
 		theme.separated,
 	);
+
+	function getDisplayName(params) {
+		if (params.firstName && params.lastName) {
+			return (
+				<span className={classNames(theme['user-name'], 'user-name')}>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
+				</span>
+			);
+		}
+		return params.name;
+	}
 
 	return (
 		<li className={className}>
@@ -166,8 +180,9 @@ function User({ name, renderers, ...props }) {
 				icon="talend-user-circle"
 				pullRight
 				tooltipPlacement="bottom"
-				label={name}
-				{...props}
+				tooltipLabel={name}
+				label={getDisplayName({ name, firstName, lastName })}
+				{...rest}
 			/>
 		</li>
 	);
@@ -176,6 +191,9 @@ function User({ name, renderers, ...props }) {
 User.propTypes = {
 	renderers: React.PropTypes.shape({
 		ActionDropdown: React.PropTypes.func,
+		name: React.PropTypes.string.isRequired,
+		firstName: React.PropTypes.string,
+		lastName: React.PropTypes.string,
 	}),
 };
 
@@ -188,6 +206,8 @@ function Products({ renderers, ...props }) {
 				icon="talend-launcher"
 				label="Apps"
 				pullRight
+				hideLabel
+				noCaret
 				tooltipPlacement="bottom"
 				{...props}
 			/>
@@ -216,8 +236,9 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				<Components.Logo renderers={renderers} {...props.logo} />
-				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{ props.logo && <Components.Logo renderers={renderers} {...props.logo} /> }
+				{ props.brand &&
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} /> }
 				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
@@ -239,8 +260,8 @@ HeaderBar.User = User;
 HeaderBar.Products = Products;
 
 HeaderBar.propTypes = {
-	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
-	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
+	logo: React.PropTypes.shape(Logo.propTypes),
+	brand: React.PropTypes.shape(Brand.propTypes),
 	env: React.PropTypes.shape(Environment.propTypes),
 	search: React.PropTypes.shape(Search.propTypes),
 	help: React.PropTypes.shape(Help.propTypes),

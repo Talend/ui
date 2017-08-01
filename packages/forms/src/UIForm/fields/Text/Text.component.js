@@ -23,7 +23,12 @@ export default function Text(props) {
 				disabled={disabled}
 				label={title}
 				placeholder={placeholder}
-				onChange={event => onChange(event, schema, convertValue(type, event.target.value))}
+				onChange={
+					event => onChange(
+						event,
+						{ schema, value: convertValue(type, event.target.value) }
+					)
+				}
 				readOnly={readOnly}
 				type={type}
 				value={value}

@@ -94,7 +94,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['foo', 'bar', 'lol']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['foo', 'bar', 'lol'] }
+			);
 		});
 
 		it('should trigger callback, adding a value to undefined values', () => {
@@ -115,7 +118,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['lol']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['lol'] }
+			);
 		});
 
 		it('should trigger callback, removing a value to existing multi values', () => {
@@ -138,7 +144,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['bar']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['bar'] }
+			);
 		});
 
 		it('should trigger callback, removing a value to existing single value', () => {
@@ -161,7 +170,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, undefined);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: undefined },
+			);
 		});
 	});
 });

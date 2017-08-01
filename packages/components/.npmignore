@@ -40,3 +40,19 @@ tests
 # Build and distribution folders
 build
 dist
+
+__mocks__
+.storybook
+e2e
+output
+screenshots
+src
+stories
+storybook-static
+test
+.babelrc
+.editorconfig
+.eslintrc
+.sass-lint.yml
+screenshots.config.json
+yarn.lock

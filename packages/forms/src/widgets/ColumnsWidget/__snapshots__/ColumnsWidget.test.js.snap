@@ -10,6 +10,7 @@ exports[`ColumnsWidget should render 1`] = `
   />
   <Column
     className="tf-column-columns"
+    columnKey="columns"
     formData={undefined}
     onBlur={[Function]}
     onChange={[Function]}
@@ -59,6 +60,7 @@ exports[`ColumnsWidget should render 1`] = `
   />
   <Column
     className="tf-column-fieldsColumns"
+    columnKey="fieldsColumns"
     formData={undefined}
     onBlur={[Function]}
     onChange={[Function]}
@@ -75,6 +77,29 @@ exports[`ColumnsWidget should render 1`] = `
           },
         },
         "title": "Column Fields",
+        "type": "object",
+      }
+    }
+  />
+  <Column
+    className="tf-column-readOnlyFieldsColumns"
+    columnKey="readOnlyFieldsColumns"
+    formData={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    schema={
+      Object {
+        "properties": Object {
+          "fieldLeft": Object {
+            "title": "Field Left",
+            "type": "string",
+          },
+          "fieldRight": Object {
+            "title": "Field Right",
+            "type": "string",
+          },
+        },
+        "title": "Read only Column Fields",
         "type": "object",
       }
     }

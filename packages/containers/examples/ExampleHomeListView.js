@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconsProvider, Drawer } from 'react-talend-components';
 import talendIcons from 'talend-icons/dist/react';
-import { action } from '@kadira/storybook';
+import { action } from '@storybook/react';
 import Immutable from 'immutable';
 
 import { HomeListView } from '../src';

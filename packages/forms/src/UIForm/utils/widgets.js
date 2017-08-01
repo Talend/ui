@@ -1,3 +1,4 @@
+import Columns from '../fieldsets/Columns';
 import Fieldset from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
@@ -10,6 +11,7 @@ import TextArea from '../fields/TextArea';
 
 const widgets = {
 	// fieldsets
+	columns: Columns,
 	fieldset: Fieldset,
 	tabs: Tabs,
 
