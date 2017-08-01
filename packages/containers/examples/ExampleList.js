@@ -1,7 +1,10 @@
 import React from 'react';
 import { IconsProvider } from 'react-talend-components';
 import Immutable from 'immutable';
+import { I18nextProvider } from 'react-i18next';
+
 import { List } from '../src';
+import i18n from './config/i18n';
 
 const list = {
 	columns: [
@@ -76,28 +79,34 @@ const items = Immutable.fromJS([
 
 const ExampleList = {
 	default: () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} />
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props} items={items} />
+				</div>
 			</div>
-		</div>
+		</I18nextProvider>
 	),
 	'no toolbar': () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List list={list} actions={actions} items={items} />
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List list={list} actions={actions} items={items} />
+				</div>
 			</div>
-		</div>
+		</I18nextProvider>
 	),
 	virtualized: () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} virtualized />
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props} items={items} virtualized />
+				</div>
 			</div>
-		</div>
+		</I18nextProvider>
 	),
 };
 export default ExampleList;

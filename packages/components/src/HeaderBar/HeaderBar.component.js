@@ -43,7 +43,7 @@ function Logo({ isFull, renderers, t, ...props }) {
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
-				label={t('GO_PORTAL', { defaultValue: 'Go to Portal' })}
+				label={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
 				icon={icon}
 				tooltipPlacement="bottom"
 				{...props}
@@ -107,7 +107,7 @@ function Help({ renderers, t, ...props }) {
 	const global = {
 		bsStyle: 'link',
 		icon: 'talend-question-circle',
-		label: t('HELP', { defaultValue: 'Help' }),
+		label: t('HEADERBAR_HELP', { defaultValue: 'Help' }),
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -164,7 +164,7 @@ function Products({ renderers, t, ...props }) {
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
-				label={t('APPS', { defaultValue: 'Apps' })}
+				label={t('HEADERBAR_APPS', { defaultValue: 'Apps' })}
 				pullRight
 				hideLabel
 				noCaret

@@ -28,7 +28,6 @@
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-containers && npm run extract-i18n-forms",
     "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false",
-    "extract-i18n-containers": "i18next packages/containers/src -r -o i18n/containers -n tui-containers -l en --write-old false",
     "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false"
   },
   "watch": {

@@ -47,7 +47,6 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
-    "react-i18next": "^4.7.0",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.98.0",
     "react-test-renderer": "15.5.4",
@@ -62,7 +61,6 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "i18next": "^8.4.3",
     "keycode": "2.1.9",
     "react-autowhatever": "^7.0.0",
     "react-jsonschema-form": "^0.42.0",
@@ -72,6 +70,7 @@
     "react": "15.5.4",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
+    "i18next": "^8.4.3",
     "react-i18next": "^4.3.0",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.98.0",

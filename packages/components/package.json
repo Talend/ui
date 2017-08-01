@@ -41,7 +41,6 @@
     "url": "https://github.com/Talend/react-talend-components"
   },
   "dependencies": {
-    "i18next": "^8.4.2",
     "lodash": "4.17.4",
     "react-autowhatever": "^7.0.0",
     "react-debounce-input": "^2.4.2",
@@ -91,7 +90,6 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
-    "react-i18next": "^4.3.0",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "15.5.4",
     "rimraf": "^2.6.1",
@@ -131,6 +129,7 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
+    "i18next": "^8.4.2",
     "react-i18next": "^4.3.0",
     "talend-icons": "^0.98.0",
     "uuid": "3.0.1"

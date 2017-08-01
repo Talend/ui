@@ -322,9 +322,9 @@ function getActionsProps() {
 
 storiesOf('List', module)
 	.addDecorator(story => (
-			<I18nextProvider i18n={i18n}>
-				{story()}
-			</I18nextProvider>
+		<I18nextProvider i18n={i18n}>
+			{story()}
+		</I18nextProvider>
   ))
 	.add('Tile', () => {
 		const tprops = {
@@ -342,10 +342,10 @@ storiesOf('List', module)
 		);
 	})
 	.add('Tile empty list', () => {
-		const emptyListProps = 
-          
-          
-          
+		const emptyListProps =
+
+
+
           (props);
 		emptyListProps.list.items = [];
 		return (
@@ -774,4 +774,3 @@ storiesOf('List', module)
 			<List {...getPropsFor('tile')} />
 		</div>
 	));
-
