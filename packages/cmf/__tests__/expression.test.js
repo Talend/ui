@@ -1,3 +1,5 @@
+import React from 'react';
+import { shallow } from 'enzyme';
 import { api } from '../src';
 import expression from '../src/expression';
 
@@ -76,5 +78,34 @@ describe('expression', () => {
 		const msg = 'you must register expression test first';
 		expect(toThrowString).toThrow(msg);
 		expect(toThrowObject).toThrow(msg);
+	});
+
+	it('should getProps eval requested props', () => {
+		const isTrue = () => true;
+		const context = {
+			registry: {
+				'expression:test': isTrue,
+			},
+		};
+		const props = {
+			disabled: 'test',
+		};
+		const newProps = expression.getProps(props, ['disabled'], context);
+		expect(newProps.disabled).toBe(true);
+		expect(newProps.disabled).not.toBe('test');
+	});
+
+	it('should withExpression create a wrapper', () => {
+		const MyComponent = props => <button {...props} />;
+		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
+		const isTrue = () => true;
+		const context = {
+			registry: {
+				'expression:test': isTrue,
+			},
+		};
+		const wrapper = shallow(<WithExpr disabled="test" />, { context });
+		expect(wrapper.props().disabled).toBe(true);
+		expect(wrapper.props().disabled).not.toBe('test');
 	});
 });
