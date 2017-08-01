@@ -4,22 +4,39 @@ import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
 
+export function escapeRegexCharacters(str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
 		this.onBlur = this.onBlur.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+
+		this.state = { value: props.value };
 	}
 
 	onBlur(event) {
 		console.log('OnBlur', arguments);
 	}
 
+	onChange(event) {
+		console.log('OnChange', arguments);
+	}
+
+	onFocus(event) {
+		this.updateSuggestions(this.state.value);
+	}
+
 	onKeyDown(event) {
 		console.log('onKeyDown', arguments);
 	}
 
-	onSelect() {
+	onSelect(event) {
 		console.log('OnSelect', arguments);
 	}
 
@@ -27,31 +44,42 @@ class Datalist extends Component {
 
 	}
 
-	updateSuggestions() {
+	updateSuggestions(value) {
+		let suggestions = this.props.schema.titleMap.map(item => item.value);
+		if (value) {
+			const regex = escapeRegexCharacters(value.trim());
+			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+		}
 
+		this.setState({ suggestions });
 	}
 
 	render() {
-		const { id, isValid, errorMessage, onChange, schema, value } = props;
-		const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
-
 		return (
 			<FieldTemplate
-				description={description}
-				errorMessage={errorMessage}
-				id={id}
-				isValid={isValid}
-				label={title}
+				description={this.props.schema.description}
+				errorMessage={this.props.errorMessage}
+				id={this.props.id}
+				isValid={this.props.isValid}
+				label={this.props.schema.title}
 			>
-				<Typeahead
-					id={id}
-					focusedItemIndex={this.state.focusedItemIndex}
-					items={this.state.suggestions}
-					onBlur={this.onBlur}
-					onKeyDown={this.onKeyDown}
-					onSelect={this.onSelect}
-					value={value}
-				/>
+				<div className={theme['tf-datalist']}>
+					<Typeahead
+						className={theme.container}
+						id={this.props.id}
+						focusedItemIndex={this.state.focusedItemIndex}
+						items={this.state.suggestions}
+						onBlur={this.onBlur}
+						onChange={this.onChange}
+						onFocus={this.onFocus}
+						onKeyDown={this.onKeyDown}
+						onSelect={this.onSelect}
+						value={this.state.value}
+					/>
+					<div className={theme.toggle}>
+						<span className="caret" />
+					</div>
+				</div>
 			</FieldTemplate>
 		);
 	}
@@ -72,6 +100,11 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
+			titleMap: PropTypes.arrayOf(PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			})),
+			type: PropTypes.string,
 		}),
 		value: PropTypes.string,
 	};

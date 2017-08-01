@@ -36,6 +36,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 	const containerClass = classNames(
 		theme['tc-typeahead-container'],
 		(position === 'right') && theme.right,
+		rest.className,
 	);
 
 	const autowhateverProps = {
@@ -45,6 +46,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			placeholder: rest.placeholder,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
+			onFocus: rest.onFocus,
 			onKeyDown: rest.onKeyDown,
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
@@ -93,6 +95,7 @@ Typeahead.defaultProps = {
 
 Typeahead.propTypes = {
 	id: PropTypes.string,
+	className: PropTypes.string,
 	onToggle: PropTypes.func,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
@@ -104,6 +107,7 @@ Typeahead.propTypes = {
 	placeholder: PropTypes.string,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
