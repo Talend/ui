@@ -89,7 +89,7 @@
     "uuid": "3.0.1",
     "webpack": "^1.14.0",
     "react-i18next": "^1.8.0",
-    "i18next": "^8.4.3",
+    "i18next": "^8.4.3"
   },
   "jest": {
     "collectCoverageFrom": [
