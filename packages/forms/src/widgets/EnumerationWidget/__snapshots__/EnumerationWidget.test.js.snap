@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EnumerationWidget delete all 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -492,11 +492,11 @@ exports[`EnumerationWidget delete all 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should be in add mode 1`] = `
-<EnumerationWidget
+<EnumerationForm
   t={[Function]}
 >
   <div>
@@ -1035,11 +1035,11 @@ exports[`EnumerationWidget should be in add mode 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should be in default mode 1`] = `
-<EnumerationWidget
+<EnumerationForm
   t={[Function]}
 >
   <div>
@@ -1511,11 +1511,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should be in default mode 2`] = `
-<EnumerationWidget
+<EnumerationForm
   schema={
     Object {
       "required": true,
@@ -1993,11 +1993,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should be in edit mode 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -2957,11 +2957,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should be in search mode 1`] = `
-<EnumerationWidget
+<EnumerationForm
   t={[Function]}
 >
   <div>
@@ -3500,11 +3500,11 @@ exports[`EnumerationWidget should be in search mode 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should delete an item 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -3988,11 +3988,11 @@ exports[`EnumerationWidget should delete an item 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should delete an item with callHandler 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -4855,11 +4855,11 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should select an item 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -5764,11 +5764,11 @@ exports[`EnumerationWidget should select an item 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget should select multiple  items 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -6969,11 +6969,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget upload file should add a upload icon 1`] = `
-<EnumerationWidget
+<EnumerationForm
   schema={
     Object {
       "allowImport": true,
@@ -7783,11 +7783,11 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget upload file should trigger a event when the user clicks on the upload action, shows a loading and return to initial state when we call the success callback 1`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -8969,11 +8969,11 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;
 
 exports[`EnumerationWidget upload file should trigger a event when the user clicks on the upload action, shows a loading and return to initial state when we call the success callback 2`] = `
-<EnumerationWidget
+<EnumerationForm
   formData={
     Array [
       Object {
@@ -10560,5 +10560,5 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       </div>
     </Enumeration>
   </div>
-</EnumerationWidget>
+</EnumerationForm>
 `;

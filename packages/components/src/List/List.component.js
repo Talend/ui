@@ -134,7 +134,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ id, displayMode, toolbar, list, useContent, virtualized, t }) {
+export function List({ id, displayMode, toolbar, list, useContent, virtualized, t }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -169,7 +169,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export {
-	List,
-};
 export default translate(NAME_SPACE_I18N_COMPONENTS)(List);

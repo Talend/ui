@@ -25,7 +25,7 @@ const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
 const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
 const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
-class EnumerationWidget extends React.Component {
+class EnumerationForm extends React.Component {
 
 	static getItemHeight() {
 		return ITEMS_DEFAULT_HEIGHT;
@@ -775,7 +775,7 @@ class EnumerationWidget extends React.Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	EnumerationWidget.propTypes = {
+	EnumerationForm.propTypes = {
 		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
@@ -787,6 +787,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export {
-	EnumerationWidget,
+	EnumerationForm,
 };
-export default translate(NAME_SPACE_I18N_FORMS)(EnumerationWidget);
+export default translate(NAME_SPACE_I18N_FORMS)(EnumerationForm);

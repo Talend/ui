@@ -14,7 +14,7 @@ import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget';
-import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget'; // eslint-disable-line import/no-named-as-default
+import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 /**

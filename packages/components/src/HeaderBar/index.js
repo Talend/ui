@@ -1,3 +1,3 @@
-import HeaderBar from './HeaderBar.component'; // eslint-disable-line import/no-named-as-default
+import Component from './HeaderBar.component';
 
-export default HeaderBar;
+export default Component;

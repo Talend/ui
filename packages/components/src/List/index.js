@@ -1,3 +1,3 @@
-import List from './List.component';  // eslint-disable-line import/no-named-as-default
+import Component from './List.component';
 
-export default List;
+export default Component;

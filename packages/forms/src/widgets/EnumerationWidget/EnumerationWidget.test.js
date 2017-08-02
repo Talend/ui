@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import t from '../../../test/translate';
-import { EnumerationWidget } from './EnumerationWidget';
+import { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
