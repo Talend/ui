@@ -3,9 +3,10 @@ import { IconsProvider, Drawer } from 'react-talend-components';
 import talendIcons from 'talend-icons/dist/react';
 import { action } from '@storybook/react';
 import Immutable from 'immutable';
+import { I18nextProvider } from 'react-i18next';
 
+import i18n from './config/i18n';
 import { HomeListView } from '../src';
-
 
 const primary = {
 	label: 'Primary',
@@ -168,38 +169,42 @@ const listProps = {
 
 const ExampleHomeListView = {
 	default: () => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			<HomeListView
-				sidepanel={sidepanel}
-				list={listProps}
-			/>
-		</div>
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				<HomeListView
+					sidepanel={sidepanel}
+					list={listProps}
+				/>
+			</div>
+		</I18nextProvider>
 	),
 	drawer: () => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			<HomeListView
-				header={header}
-				sidepanel={sidepanel}
-				list={listProps}
-			>
-				<Drawer
-					stacked title="Im stacked drawer 1"
-					footerActions={Object.assign({}, basicProps, { selected: 0 })}
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				<HomeListView
+					header={header}
+					sidepanel={sidepanel}
+					list={listProps}
 				>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I&#39;m first</p>
-				</Drawer>
-				<Drawer
-					title="Im drawer 2"
-					footerActions={Object.assign({}, basicProps, { selected: 0 })}
-				>
-					<h1>Hello drawer 2</h1>
-					<p>The content dictate the width</p>
-				</Drawer>
-			</HomeListView>
-		</div>
+					<Drawer
+						stacked title="Im stacked drawer 1"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 1</h1>
+						<p>You should not being able to read this because I&#39;m first</p>
+					</Drawer>
+					<Drawer
+						title="Im drawer 2"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 2</h1>
+						<p>The content dictate the width</p>
+					</Drawer>
+				</HomeListView>
+			</div>
+		</I18nextProvider>
 	),
 };
 
