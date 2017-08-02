@@ -33,14 +33,32 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		);
 	}
 
-	const containerClass = classNames(
-		theme['tc-typeahead-container'],
-		(position === 'right') && theme.right,
-		rest.className,
-	);
+	const sectionProps = rest.multiSection ?
+		{ getSectionItems: section => section.suggestions, renderSectionTitle } :
+		null;
 
-	const autowhateverProps = {
-		...rest,
+	const themeProps = {
+		theme: {
+			containerOpen: theme['container-open'],
+			highlight: theme['highlight-match'],
+			input: theme['typeahead-input'],
+			itemFocused: theme['item-focused'],
+			itemsContainer: theme['items-container'],
+			itemsList: theme.items,
+			sectionContainer: theme['section-container'],
+
+			...rest.theme,
+			container: classNames(
+				theme['tc-typeahead-container'],
+				(position === 'right') && theme.right,
+				rest.theme && rest.theme.container,
+				rest.className,
+			),
+		},
+	};
+
+	const inputProps = {
+		renderInputComponent,
 		inputProps: {
 			value: rest.value,
 			placeholder: rest.placeholder,
@@ -52,31 +70,29 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			debounceTimeout: rest.debounceTimeout,
 			icon,
 		},
+	};
+
+	const defaultRenderersProps = {
+		renderItem,
+		renderItemsContainer: renderItemsContainerFactory(
+			rest.items,
+			rest.noResultText,
+			rest.searching,
+			rest.searchingText
+		),
+		renderItemData: { value: rest.value },
+	};
+
+	const autowhateverProps = {
+		...defaultRenderersProps,
+		...rest,
+		...sectionProps,
+		...themeProps,
+		...inputProps,
+		items: rest.items || [],
 		itemProps: {
 			onMouseDown: rest.onSelect,
 		},
-		renderInputComponent,
-		renderItemsContainer: renderItemsContainerFactory(
-			rest.items, rest.noResultText, rest.searching, rest.searchingText),
-		renderSectionTitle,
-		renderItem,
-		multiSection: true,
-		getSectionItems: section => section.suggestions,
-		theme: {
-			...rest.theme,
-			container: containerClass,
-			containerOpen: theme['container-open'],
-			highlight: theme['highlight-match'],
-			input: theme['typeahead-input'],
-			itemFocused: theme['item-focused'],
-			itemsContainer: theme['items-container'],
-			itemsList: theme.items,
-			sectionContainer: theme['section-container'],
-		},
-		focusedSectionIndex: rest.focusedSectionIndex,
-		focusedItemIndex: rest.focusedItemIndex,
-		items: rest.items || [],
-		renderItemData: { value: rest.value },
 	};
 
 	return (
@@ -88,6 +104,7 @@ Typeahead.defaultProps = {
 	id: uuid.v4(),
 	position: 'left',
 	items: null,
+	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
 	searching: false,
 	searchingText: 'Searching for matches…',
@@ -112,6 +129,7 @@ Typeahead.propTypes = {
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
 	focusedItemIndex: PropTypes.number,
+	multiSection: PropTypes.bool,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			title: PropTypes.string,

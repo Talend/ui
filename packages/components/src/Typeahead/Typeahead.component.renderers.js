@@ -132,15 +132,22 @@ export const renderSectionTitle = (section) => {
 };
 
 export const renderItem = (item, { value }) => {
-	const title = item.title ? item.title.trim() : '';
+	let title;
+	let description;
+	if (typeof item === 'string') {
+		title = item;
+	} else {
+		title = item.title ? item.title.trim() : '';
+		description = item.description;
+	}
 	return (
 		<div className={theme.item} title={title}>
 			<span className={theme['item-title']}>
 				<Emphasis value={value} text={title} />
 			</span>
-			<p className={theme['item-description']}>
-				<Emphasis value={value} text={item.description} />
-			</p>
+			{description && <p className={theme['item-description']}>
+				<Emphasis value={value} text={description} />
+			</p>}
 		</div>
 	);
 };

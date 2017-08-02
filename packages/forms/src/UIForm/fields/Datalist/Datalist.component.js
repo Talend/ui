@@ -1,11 +1,21 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import Typeahead from 'react-talend-components/lib/Typeahead';
+import Emphasis from 'react-talend-components/lib/Emphasis';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function renderDatalistItem(item, { value }) {
+	return (
+		<div className={classNames(theme.item, 'datalist-item')}>
+			<Emphasis value={value} text={item} />
+		</div>
+	);
 }
 
 class Datalist extends Component {
@@ -17,11 +27,25 @@ class Datalist extends Component {
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 
+		this.theme = {
+			container: classNames(
+				theme.container,
+				'tf-datalist-container'
+			),
+			//containerOpen: theme['container-open'],
+			//highlight: theme['highlight-match'],
+			//input: theme['typeahead-input'],
+			//itemFocused: theme['item-focused'],
+			itemsContainer: theme['items-container'],
+			itemsList: theme.items,
+		};
+
 		this.state = { value: props.value };
 	}
 
 	onBlur(event) {
 		console.log('OnBlur', arguments);
+		//this.setState({ suggestions: undefined });
 	}
 
 	onChange(event) {
@@ -65,15 +89,16 @@ class Datalist extends Component {
 			>
 				<div className={theme['tf-datalist']}>
 					<Typeahead
-						className={theme.container}
 						id={this.props.id}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
+						multiSection={false}
 						onBlur={this.onBlur}
 						onChange={this.onChange}
 						onFocus={this.onFocus}
 						onKeyDown={this.onKeyDown}
 						onSelect={this.onSelect}
+						theme={this.theme}
 						value={this.state.value}
 					/>
 					<div className={theme.toggle}>
