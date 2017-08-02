@@ -61,6 +61,28 @@ describe('actionAPI.getActionsProps', () => {
 		expect(calls[1][0].model).toBe(a2.model);
 		expect(calls[1][0].type).toBe('@@router/CALL_HISTORY_METHOD');
 	});
+
+	it('should return props for multiple object actions', () => {
+		const context = mock.context();
+		const model = { model: {} };
+		const a1 = {
+			label: 'A1',
+			payload: {
+				type: 'ACTION_ONE',
+			},
+		};
+		const a2 = {
+			label: 'A2',
+			actionCreator: 'my',
+		};
+		const props = action.getProps(context, [a1, a2], model);
+		expect(props[0].label).toBe('A1');
+		expect(props[0].payload.type).toBe('ACTION_ONE');
+		expect(props[0].model).toBe(model);
+		expect(props[1].label).toBe('A2');
+		expect(props[1].actionCreator).toBe('my');
+		expect(props[1].model).toBe(model);
+	});
 });
 
 describe('actionAPI.evalExpressions', () => {
