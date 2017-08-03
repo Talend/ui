@@ -1,3 +1,4 @@
+import ArrayWidget from '../fieldsets/Array';
 import Columns from '../fieldsets/Columns';
 import Fieldset from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
@@ -13,6 +14,7 @@ import Toggle from '../fields/Toggle';
 
 const widgets = {
 	// fieldsets
+	array: ArrayWidget,
 	columns: Columns,
 	fieldset: Fieldset,
 	tabs: Tabs,

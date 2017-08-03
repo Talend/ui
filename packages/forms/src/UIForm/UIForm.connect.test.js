@@ -108,7 +108,7 @@ describe('UIForm connect', () => {
 					formName: props.formName,
 					schema: mergedSchema[0],
 					value: 'toto is toto',
-					error: null,
+					error: undefined,
 					properties: data.properties,
 				}
 			);
