@@ -1,0 +1,39 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Choice",
+    "properties": {
+      "radios": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar"
+        ]
+      },
+      "select": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "radios",
+      "title": "Type of things",
+      "description": "This field has less that 2 possible items, it should be rendered as Radios",
+      "widget": "radioOrSelect"
+    },
+    {
+      "key": "select",
+      "title": "Type of things",
+      "description": "This field has more that 2 possible items, it should be rendered as Select",
+      "widget": "radioOrSelect"
+    }
+  ],
+  "properties": {}
+}
