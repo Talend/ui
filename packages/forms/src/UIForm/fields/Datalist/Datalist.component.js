@@ -31,6 +31,10 @@ class Datalist extends Component {
 		this.state = { previousValue: props.value, value: props.value };
 	}
 
+	/**
+	 * Persist the value (if not already persisted) and remove the suggestions on blur event
+	 * @param event The blur event
+	 */
 	onBlur(event) {
 		this.resetSuggestions();
 		const { value, previousValue } = this.state;
@@ -40,15 +44,32 @@ class Datalist extends Component {
 		}
 	}
 
+	/**
+	 * Update value (non persistent) on input value change and update the suggestions
+	 * @param event
+	 * @param value
+	 */
 	onChange(event, { value }) {
 		this.updateSuggestions(value);
 		this.updateValue(event, value, false);
 	}
 
+	/**
+	 * Display suggestions on focus
+	 */
 	onFocus() {
 		this.updateSuggestions(this.state.value);
 	}
 
+	/**
+	 * Hook on input keydown
+	 * ESC: reset the value to the previous persited one
+	 * ENTER: select a suggestion, persist the value, or submit the form
+	 * UP/DOWN: update the active suggestion index
+	 * @param event The keydown event
+	 * @param focusedItemIndex The previous focused suggestion index
+	 * @param newFocusedItemIndex The new focused suggestion index
+	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
 		case keycode.codes.esc:
@@ -59,13 +80,13 @@ class Datalist extends Component {
 			if (!this.state.suggestions) {
 				break;
 			}
-
 			event.preventDefault();
 			if (Number.isInteger(focusedItemIndex)) {
-				// enum is displayed and an item has the focus : we select it
+				// suggestions are displayed and an item has the focus : we select it
 				this.onSelect(event, { itemIndex: focusedItemIndex });
 			} else if (this.state.value !== this.state.previousValue) {
-				// there is no focused item : we set the value
+				// there is no focused item and the current value is not persisted
+				// we persist it
 				this.updateValue(event, this.state.value, true);
 			}
 			this.resetSuggestions();
@@ -80,33 +101,24 @@ class Datalist extends Component {
 		}
 	}
 
+	/**
+	 * Select an item in suggestions list
+	 * @param event The select event
+	 * @param itemIndex The item index in suggestions list
+	 */
 	onSelect(event, { itemIndex }) {
 		const newValue = this.state.suggestions[itemIndex];
 		this.updateValue(event, newValue, true);
 	}
 
+	/**
+	 * Set a value.
+	 * This new value can be persisted, or not. If not, it enables the ESC key to reset the value
+	 * @param event The change event
+	 * @param value The new value
+	 * @param persist Value will be persisted if true
+	 */
 	updateValue(event, value, persist) {
-		/*
-		const { restricted, titleMap } = this.props.schema;
-		const restrictedValueIsCorrect =
-			!restricted ||                               // value is not restricted
-			!value ||                                    // value is empty
-			titleMap.find(item => item.value === value); // value is in possible values
-
-		if (persist && !restrictedValueIsCorrect) {
-			this.resetValue();
-		} else {
-			const previousValue = persist ? value : this.state.previousValue;
-			this.setState({ value, previousValue });
-			if (persist) {
-				this.props.onChange(event, {
-					schema: this.props.schema,
-					value,
-				});
-			}
-		}
-		*/
-
 		const previousValue = persist ? value : this.state.previousValue;
 		this.setState({ value, previousValue });
 		if (persist) {
@@ -117,6 +129,10 @@ class Datalist extends Component {
 		}
 	}
 
+	/**
+	 * Set back the value to the last validated value.
+	 * This remove the suggestions.
+	 */
 	resetValue() {
 		this.setState({
 			suggestions: undefined,
@@ -124,6 +140,12 @@ class Datalist extends Component {
 		});
 	}
 
+	/**
+	 * Filter suggestions.
+	 * This sets at least an empty array, which means the suggestion box will always display
+	 * If the array is empty, the suggestion box will display a "No result" message
+	 * @param value The value to base suggestions on
+	 */
 	updateSuggestions(value) {
 		let suggestions = this.props.schema.titleMap.map(item => item.value);
 		if (value) {
@@ -135,6 +157,9 @@ class Datalist extends Component {
 		this.setState({ suggestions });
 	}
 
+	/**
+	 * Remove all suggestions
+	 */
 	resetSuggestions() {
 		this.setState({
 			suggestions: undefined,

@@ -5,8 +5,7 @@
     "properties": {
       "simpleDatalist": {
         "type": "string",
-        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ],
-        "skipValidation": true
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       },
       "restrictedDatalist": {
         "type": "string",
@@ -20,6 +19,7 @@
   "uiSchema": [
     {
       "key": "simpleDatalist",
+      "restricted": false,
       "title": "Simple Datalist",
       "widget": "datalist"
     },
