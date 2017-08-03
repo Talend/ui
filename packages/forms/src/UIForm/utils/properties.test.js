@@ -1,4 +1,4 @@
-import { getValue, omit, convertValue } from './properties';
+import { getValue, omit, omitAll, convertValue } from './properties';
 
 describe('Properties utils', () => {
 	describe('#getValue', () => {
@@ -37,7 +37,7 @@ describe('Properties utils', () => {
 	});
 
 	describe('#omit', () => {
-		it('should copy all properties except the omitted ones', () => {
+		it('should copy all properties except the omitted one', () => {
 			// given
 			const properties = {
 				toKeep: 'toto',
@@ -47,6 +47,28 @@ describe('Properties utils', () => {
 
 			// when
 			const result = omit(properties, 'toBeOmitted');
+
+			// then
+			expect(result).toEqual({
+				toKeep: 'toto',
+				other: 'titi',
+			});
+		});
+	});
+
+	describe('#omitAll', () => {
+		it('should copy all properties except the omitted ones', () => {
+			// given
+			const properties = {
+				toKeep: 'toto',
+				toBeOmitted: 'tata',
+				toBeOmittedBis: 'tata',
+				toBeOmittedTer: 'tata',
+				other: 'titi',
+			};
+
+			// when
+			const result = omitAll(properties, ['toBeOmitted', 'toBeOmittedBis', 'toBeOmittedTer']);
 
 			// then
 			expect(result).toEqual({

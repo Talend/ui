@@ -1,4 +1,4 @@
-import { validateValue, validateAll, isValid } from './validation';
+import { validateAll, validateArray, validateSimple, validateSingle, validateValue, isValid } from './validation';
 
 const customError = 'This field is invalid';
 function customValidationFn() {
@@ -68,6 +68,222 @@ describe('Validation utils', () => {
 
 			// then
 			expect(errors).toBe(null);
+		});
+	});
+
+	describe('#validateArray', () => {
+		const schema = {
+			key: ['comments'],
+			items: [{
+				key: ['comments', '', 'name'],
+				title: 'Name',
+				required: true,
+				schema: { title: 'Name', type: 'string' },
+				type: 'text',
+			}, {
+				key: ['comments', '', 'email'],
+				title: 'Email',
+				description: 'Email will be used for evil.',
+				schema: {
+					title: 'Email',
+					type: 'string',
+					pattern: '^\\S+@\\S+$',
+					description: 'Email will be used for evil.',
+				},
+				type: 'text',
+			}, {
+				key: ['comments', '', 'comment'],
+				type: 'textarea',
+				rows: 3,
+				title: 'Comment',
+				maxlength: 20,
+				validationMessage: "Don't be greedy!",
+				schema: {
+					title: 'Comment',
+					type: 'string',
+					maxLength: 20,
+					validationMessage: "Don't be greedy!",
+				},
+			}],
+			title: 'comments',
+			required: true,
+			schema: {
+				type: 'array',
+				maxItems: 2,
+				items: {
+					type: 'object',
+					properties: {
+						name: { title: 'Name', type: 'string' },
+						email: {
+							title: 'Email',
+							type: 'string',
+							pattern: '^\\S+@\\S+$',
+							description: 'Email will be used for evil.',
+						},
+						comment: {
+							title: 'Comment',
+							type: 'string',
+							maxLength: 20,
+							validationMessage: "Don't be greedy!",
+						},
+					},
+					required: ['name', 'comment'],
+				},
+			},
+			type: 'array',
+		};
+
+		it('should validate array (not deep)', () => {
+			// given
+			const value = [{}, {}, {}];
+			const properties = { comments: value };
+
+			// when
+			const errors = validateArray(schema, value, properties, null, false);
+
+			// then
+			expect(errors).toEqual({ comments: 'Array is too long (3), maximum 2' });
+		});
+
+		it('should validate array (deep validation)', () => {
+			// given
+			const value = [{}, {}, {}];
+			const properties = { comments: value };
+
+			// when
+			const errors = validateArray(schema, value, properties, null, true);
+
+			// then
+			expect(errors).toEqual({
+				comments: 'Array is too long (3), maximum 2',
+				'comments,0,name': 'Missing required property: name',
+				'comments,1,name': 'Missing required property: name',
+				'comments,2,name': 'Missing required property: name',
+			});
+		});
+	});
+
+	describe('#validateSimple', () => {
+		it('should validate simple value', () => {
+			// given
+			const schema = {
+				key: ['user', 'firstname'],
+				customValidation: true,
+				required: true,
+				schema: {
+					type: 'string',
+				},
+				type: 'text',
+			};
+			const value = '';
+			const properties = { use: { firstname: value } };
+
+			// when
+			const errors = validateSimple(schema, value, properties);
+
+			// then
+			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
+		});
+	});
+
+	describe('#validateSingle', () => {
+		const arraySchema = {
+			key: ['comments'],
+			items: [{
+				key: ['comments', '', 'name'],
+				title: 'Name',
+				required: true,
+				schema: { title: 'Name', type: 'string' },
+				type: 'text',
+			}, {
+				key: ['comments', '', 'email'],
+				title: 'Email',
+				description: 'Email will be used for evil.',
+				schema: {
+					title: 'Email',
+					type: 'string',
+					pattern: '^\\S+@\\S+$',
+					description: 'Email will be used for evil.',
+				},
+				type: 'text',
+			}, {
+				key: ['comments', '', 'comment'],
+				type: 'textarea',
+				rows: 3,
+				title: 'Comment',
+				maxlength: 20,
+				validationMessage: "Don't be greedy!",
+				schema: {
+					title: 'Comment',
+					type: 'string',
+					maxLength: 20,
+					validationMessage: "Don't be greedy!",
+				},
+			}],
+			title: 'comments',
+			required: true,
+			schema: {
+				type: 'array',
+				maxItems: 2,
+				items: {
+					type: 'object',
+					properties: {
+						name: { title: 'Name', type: 'string' },
+						email: {
+							title: 'Email',
+							type: 'string',
+							pattern: '^\\S+@\\S+$',
+							description: 'Email will be used for evil.',
+						},
+						comment: {
+							title: 'Comment',
+							type: 'string',
+							maxLength: 20,
+							validationMessage: "Don't be greedy!",
+						},
+					},
+					required: ['name', 'comment'],
+				},
+			},
+			type: 'array',
+		};
+
+		it('should validate array', () => {
+			// given
+			const value = [{}, {}, {}];
+			const properties = { comments: value };
+
+			// when
+			const errors = validateSingle(arraySchema, value, properties, null, true);
+
+			// then
+			expect(errors).toEqual({
+				comments: 'Array is too long (3), maximum 2',
+				'comments,0,name': 'Missing required property: name',
+				'comments,1,name': 'Missing required property: name',
+				'comments,2,name': 'Missing required property: name',
+			});
+		});
+
+		it('should validate simple value', () => {
+			// given
+			const schema = {
+				key: ['user', 'firstname'],
+				customValidation: true,
+				required: true,
+				schema: {
+					type: 'string',
+				},
+				type: 'text',
+			};
+			const value = '';
+			const properties = { use: { firstname: value } };
+
+			// when
+			const errors = validateSingle(schema, value, properties);
+
+			// then
+			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
 	});
 

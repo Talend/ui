@@ -40,16 +40,19 @@ const selected = [
 
 const actions = [
 	{
+		id: 'edit',
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
 	},
 	{
+		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 	},
 	{
+		id: 'related',
 		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'talend-folder',
@@ -124,7 +127,7 @@ const props = {
 			key: 'name',
 			iconKey: 'icon',
 			displayModeKey: 'display',
-			onClick: action('onClick'),
+			onClick: action('onTitleClick'),
 			onEditCancel: action('onEditCancel'),
 			onEditSubmit: action('onEditSubmit'),
 		},
