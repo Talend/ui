@@ -60,14 +60,15 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 	const inputProps = {
 		renderInputComponent,
 		inputProps: {
-			value: rest.value,
-			placeholder: rest.placeholder,
+			autoFocus: rest.autoFocus,
+			debounceMinLength: rest.debounceMinLength,
+			debounceTimeout: rest.debounceTimeout,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
 			onKeyDown: rest.onKeyDown,
-			debounceMinLength: rest.debounceMinLength,
-			debounceTimeout: rest.debounceTimeout,
+			placeholder: rest.placeholder,
+			value: rest.value,
 			icon,
 		},
 	};
@@ -111,20 +112,33 @@ Typeahead.defaultProps = {
 };
 
 Typeahead.propTypes = {
+	// container
 	id: PropTypes.string,
 	className: PropTypes.string,
+	noResultText: PropTypes.string,
+	position: PropTypes.oneOf(['left', 'right']),
+	searching: PropTypes.bool,
+	searchingText: PropTypes.string,
+
+	// toggle button
 	onToggle: PropTypes.func,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
 	}),
-	position: PropTypes.oneOf(['left', 'right']),
-	value: PropTypes.string,
-	placeholder: PropTypes.string,
+
+	// input
+	autoFocus: PropTypes.bool,
+	debounceMinLength: PropTypes.number,
+	debounceTimeout: PropTypes.number,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	placeholder: PropTypes.string,
+	value: PropTypes.string,
+
+	// suggestions
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
@@ -142,11 +156,6 @@ Typeahead.propTypes = {
 			),
 		}),
 	),
-	noResultText: PropTypes.string,
-	searching: PropTypes.bool,
-	searchingText: PropTypes.string,
-	debounceMinLength: PropTypes.number,
-	debounceTimeout: PropTypes.number,
 };
 
 export default Typeahead;

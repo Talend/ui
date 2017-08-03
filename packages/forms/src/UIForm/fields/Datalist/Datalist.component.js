@@ -1,21 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import keycode from 'keycode';
 import Typeahead from 'react-talend-components/lib/Typeahead';
-import Emphasis from 'react-talend-components/lib/Emphasis';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function renderDatalistItem(item, { value }) {
-	return (
-		<div className={classNames(theme.item, 'datalist-item')}>
-			<Emphasis value={value} text={item} />
-		</div>
-	);
 }
 
 class Datalist extends Component {
@@ -32,50 +24,122 @@ class Datalist extends Component {
 				theme.container,
 				'tf-datalist-container'
 			),
-			//containerOpen: theme['container-open'],
-			//highlight: theme['highlight-match'],
-			//input: theme['typeahead-input'],
-			//itemFocused: theme['item-focused'],
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
 
-		this.state = { value: props.value };
+		this.state = { previousValue: props.value, value: props.value };
 	}
 
 	onBlur(event) {
-		console.log('OnBlur', arguments);
-		//this.setState({ suggestions: undefined });
+		this.resetSuggestions();
+		const { value, previousValue } = this.state;
+
+		if (value !== previousValue) {
+			this.updateValue(event, value, true);
+		}
 	}
 
-	onChange(event) {
-		console.log('OnChange', arguments);
+	onChange(event, { value }) {
+		this.updateSuggestions(value);
+		this.updateValue(event, value, false);
 	}
 
-	onFocus(event) {
+	onFocus() {
 		this.updateSuggestions(this.state.value);
 	}
 
-	onKeyDown(event) {
-		console.log('onKeyDown', arguments);
+	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
+		switch (event.which) {
+		case keycode.codes.esc:
+			event.preventDefault();
+			this.resetValue();
+			break;
+		case keycode.codes.enter:
+			if (!this.state.suggestions) {
+				break;
+			}
+
+			event.preventDefault();
+			if (Number.isInteger(focusedItemIndex)) {
+				// enum is displayed and an item has the focus : we select it
+				this.onSelect(event, { itemIndex: focusedItemIndex });
+			} else if (this.state.value !== this.state.previousValue) {
+				// there is no focused item : we set the value
+				this.updateValue(event, this.state.value, true);
+			}
+			this.resetSuggestions();
+			break;
+		case keycode.codes.up:
+		case keycode.codes.down:
+			event.preventDefault();
+			this.setState({ focusedItemIndex: newFocusedItemIndex });
+			break;
+		default:
+			break;
+		}
 	}
 
-	onSelect(event) {
-		console.log('OnSelect', arguments);
+	onSelect(event, { itemIndex }) {
+		const newValue = this.state.suggestions[itemIndex];
+		this.updateValue(event, newValue, true);
 	}
 
-	setValue() {
+	updateValue(event, value, persist) {
+		/*
+		const { restricted, titleMap } = this.props.schema;
+		const restrictedValueIsCorrect =
+			!restricted ||                               // value is not restricted
+			!value ||                                    // value is empty
+			titleMap.find(item => item.value === value); // value is in possible values
 
+		if (persist && !restrictedValueIsCorrect) {
+			this.resetValue();
+		} else {
+			const previousValue = persist ? value : this.state.previousValue;
+			this.setState({ value, previousValue });
+			if (persist) {
+				this.props.onChange(event, {
+					schema: this.props.schema,
+					value,
+				});
+			}
+		}
+		*/
+
+		const previousValue = persist ? value : this.state.previousValue;
+		this.setState({ value, previousValue });
+		if (persist) {
+			this.props.onChange(event, {
+				schema: this.props.schema,
+				value,
+			});
+		}
+	}
+
+	resetValue() {
+		this.setState({
+			suggestions: undefined,
+			value: this.state.previousValue,
+		});
 	}
 
 	updateSuggestions(value) {
 		let suggestions = this.props.schema.titleMap.map(item => item.value);
 		if (value) {
-			const regex = escapeRegexCharacters(value.trim());
+			const escapedValue = escapeRegexCharacters(value.trim());
+			const regex = new RegExp(escapedValue, 'i');
 			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
 		}
 
 		this.setState({ suggestions });
+	}
+
+	resetSuggestions() {
+		this.setState({
+			suggestions: undefined,
+			focusedItemIndex: undefined,
+		});
 	}
 
 	render() {
@@ -90,6 +154,7 @@ class Datalist extends Component {
 				<div className={theme['tf-datalist']}>
 					<Typeahead
 						id={this.props.id}
+						autoFocus={this.props.schema.autoFocus}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
 						multiSection={false}
@@ -110,7 +175,9 @@ class Datalist extends Component {
 	}
 }
 
-Datalist.defaultProps = {};
+Datalist.defaultProps = {
+	value: '',
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
@@ -124,6 +191,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(PropTypes.shape({
 				name: PropTypes.string.isRequired,
