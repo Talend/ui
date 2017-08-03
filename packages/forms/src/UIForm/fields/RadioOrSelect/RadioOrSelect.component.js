@@ -6,9 +6,9 @@ const MAX_TO_RADIO = 2;
 
 export default function RadioOrSelect(props) {
 	if (props.schema.titleMap && props.schema.titleMap.length <= MAX_TO_RADIO) {
-		return (<Radio {...props} />);
+		return <Radio {...props} />;
 	}
-	return (<Select {...props} />);
+	return <Select {...props} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
