@@ -3,11 +3,11 @@ import { getValue, omitAll } from '../utils/properties';
 
 /**
  * Validate a value.
- * @param schema The merged schema.
- * @param value The value.
- * @param properties The values.
- * @param customValidationFn A custom validation function.
- * that is applied on schema.customValidation = true.
+ * @param schema The merged schema
+ * @param value The value
+ * @param properties The values
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
  * @returns {object} The validation result.
  */
 export function validateValue(schema, value, properties, customValidationFn) {
@@ -20,12 +20,12 @@ export function validateValue(schema, value, properties, customValidationFn) {
 
 /**
  * Validate an array.
- * @param mergedSchema The array schema.
- * @param value The value.
- * @param properties All the values.
- * @param customValidationFn A custom validation function.
- * that is applied on schema.customValidation = true.
- * @param deepValidation Validate the array values if set to true.
+ * @param mergedSchema The array schema
+ * @param value The value
+ * @param properties All the values
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
+ * @param deepValidation Validate the array values if set to true
  * @returns {object} The validation result.
  */
 export function validateArray(mergedSchema, value, properties, customValidationFn, deepValidation) {
@@ -68,12 +68,12 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 
 /**
  * Validate a simple value.
- * @param mergedSchema The schema to validate.
- * @param value The value.
- * @param properties All the values.
- * @param customValidationFn A custom validation function.
- * that is applied on schema.customValidation = true.
- * @param deepValidation Validate subItems if true.
+ * @param mergedSchema The schema to validate
+ * @param value The value
+ * @param properties All the values
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
+ * @param deepValidation Validate subItems if true
  * @returns {object} The validation result.
  */
 export function validateSimple(
@@ -101,12 +101,12 @@ export function validateSimple(
 
 /**
  * Execute the right validation depending on the schema type.
- * @param mergedSchema The merged schema.
- * @param value The value.
- * @param properties All the values.
- * @param customValidationFn A custom validation function.
- * that is applied on schema.customValidation = true.
- * @param deepValidation Validate subItems if true.
+ * @param mergedSchema The merged schema
+ * @param value The value
+ * @param properties All the values
+ * @param customValidationFn A custom validation function
+ * that is applied on schema.customValidation = true
+ * @param deepValidation Validate subItems if true
  * @returns {Object} The validation result by field.
  */
 export function validateSingle(
@@ -125,10 +125,10 @@ export function validateSingle(
 
 /**
  * Validate all values in the schema.
- * @param mergedSchema The merged schema array.
- * @param properties The values.
+ * @param mergedSchema The merged schema array
+ * @param properties The values
  * @param customValidationFn A custom validation function
- * that is applied on schema.customValidation = true.
+ * that is applied on schema.customValidation = true
  * @returns {object} The validation result by field.
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
@@ -141,7 +141,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 			value,
 			properties,
 			customValidationFn,
-			true /* deep validation */
+			true // deep validation
 		);
 		Object.assign(results, subResults);
 	});
@@ -153,8 +153,8 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
  * It is invalid if :
  * - the schema is an invalid field (errors[key] is falsy)
  * - the schema has items (ex: fieldset, tabs, ...), and at least one of them is invalid
- * @param schema The schema.
- * @param errors The errors.
+ * @param schema The schema
+ * @param errors The errors
  * @returns {boolean} true if it is invalid, false otherwise.
  */
 export function isValid(schema, errors) {

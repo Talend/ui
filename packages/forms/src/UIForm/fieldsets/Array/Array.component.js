@@ -17,15 +17,17 @@ function adaptKeyWithIndex(keys, index) {
 }
 
 function getRange(previousIndex, nextIndex) {
-	const range = {};
 	if (previousIndex < nextIndex) {
-		range.minIndex = previousIndex;
-		range.maxIndex = nextIndex + 1;
-	} else {
-		range.minIndex = nextIndex;
-		range.maxIndex = previousIndex + 1;
+		return {
+			minIndex: previousIndex,
+			maxIndex: nextIndex + 1,
+		};
 	}
-	return range;
+
+	return {
+		minIndex: nextIndex,
+		maxIndex: previousIndex + 1,
+	};
 }
 
 function getItemSchema(arraySchema, index) {
@@ -55,13 +57,13 @@ export default class ArrayWidget extends React.Component {
 	}
 
 	onAdd(event) {
-		const schema = this.props.schema;
-		const defaultValue = schema.schema.items.type === 'object' ? {} : '';
+		const arrayMergedSchema = this.props.schema;
+		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 		const value = [...this.props.value, defaultValue];
 
 		this.props.onChange(
 			event,
-			{ schema, value }
+			{ schema: arrayMergedSchema, value }
 		);
 	}
 
@@ -81,8 +83,12 @@ export default class ArrayWidget extends React.Component {
 						{
 							arrayKey: schema.key,
 							minIndex: indexToRemove,
-							shouldRemoveIndex(index) { return index === indexToRemove; },
-							getNextIndex(index) { return index - 1; },
+							shouldRemoveIndex(index) {
+								return index === indexToRemove;
+							},
+							getNextIndex(index) {
+								return index - 1;
+							},
 						},
 					);
 				},
