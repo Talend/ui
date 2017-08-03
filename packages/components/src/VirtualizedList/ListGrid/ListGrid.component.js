@@ -12,6 +12,7 @@ import theme from './ListGrid.scss';
 function ListGrid(props) {
 	const {
 		children,
+		collection,
 		id,
 		height,
 		isActive,
@@ -19,18 +20,18 @@ function ListGrid(props) {
 		onRowClick,
 		rowHeight,
 		rowRenderer,
-		selectionToggle,
 		width,
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
-	if (selectionToggle || onRowClick) {
+	if (isActive || isSelected) {
 		enhancedRowRenderer = getRowSelectionRenderer(
 			rowRenderer,
 			{
 				isActive,
 				isSelected,
-				getRowData: ({ index }) => this.props.collection[index],
+				onRowClick,
+				getRowData: ({ index }) => collection[index],
 			}
 		);
 	}
@@ -38,21 +39,23 @@ function ListGrid(props) {
 	return (
 		<VirtualizedList
 			className={theme['tc-list-list']}
-			collection={props.collection}
+			collection={collection}
 			id={id}
 			height={height}
 			overscanRowCount={10}
+			onRowClick={onRowClick}
 			noRowsRenderer={NoRows}
-			rowCount={props.collection.length}
+			rowCount={collection.length}
 			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}
-			rowGetter={index => props.collection[index]}
+			rowGetter={index => collection[index]}
 			width={width}
 		>
 			{children}
 		</VirtualizedList>
 	);
 }
+
 
 ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
@@ -65,7 +68,6 @@ ListGrid.propTypes = {
 	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
-	selectionToggle: PropTypes.func,
 	width: PropTypes.number,
 };
 

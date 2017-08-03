@@ -3,6 +3,7 @@
 exports[`RowLarge should render large row 1`] = `
 <div
   className="tc-list-large"
+  onClick={undefined}
   style={
     Object {
       "background": "red",

@@ -22,7 +22,6 @@ function ListTable(props) {
 		id,
 		isActive,
 		isSelected,
-		selectionToggle,
 		onRowClick,
 		sort,
 		sortBy,
@@ -31,7 +30,7 @@ function ListTable(props) {
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
-	if (selectionToggle || onRowClick) {
+	if (isActive || isSelected) {
 		RowTableRenderer = RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
@@ -74,7 +73,6 @@ ListTable.propTypes = {
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
 	onRowClick: PropTypes.func,
-	selectionToggle: PropTypes.func,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,

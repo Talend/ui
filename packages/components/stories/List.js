@@ -372,6 +372,24 @@ storiesOf('List', module)
 			<List {...props} displayMode="large" virtualized />
 		</div>
 	))
+	.add('Virtualized - large with onClick', () => {
+		const largeItemProps = cloneDeep(props);
+		const rowClickAction = action('onClick');
+		largeItemProps.list.itemProps.isActive = item => item.id === 0;
+		largeItemProps.list.itemProps.onRowClick = event => rowClickAction('onRowClick', event.rowData);
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in large mode.<br />
+					You just need to pass the props displayMode.
+					<pre>&lt;List displayMode="large" ... &gt;</pre>
+				</p>
+				<IconsProvider defaultIcons={icons}/>
+				<List {...largeItemProps} displayMode="large" virtualized/>
+			</div>
+		);
+	})
 	.add('Virtualized - empty list', () => {
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
@@ -432,30 +450,20 @@ storiesOf('List', module)
 	.add('Virtualized - row click', () => {
 		const selectedItemsProps = cloneDeep(props);
 		const rowClickAction = action('onRowClick');
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'remove',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('remove'),
-				},
-			],
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
+		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.isSelected = item => item.id === 2;
 		selectedItemsProps.list.itemProps.onToggle = () => {};
-		selectedItemsProps.list.itemProps.onRowClick = event => rowClickAction(event.rowData);
+		selectedItemsProps.list.itemProps.onRowClick = event => rowClickAction('onRowClick', event.rowData);
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list" >
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 2 props : onSelect and isSelected.<br />
-					<b>onSelect(event, item)</b> : item selection callback
-					<b>isSelected(item)</b> : returns true if the item is selected
+					You can manage selection by passing 2 props : onRowClick and isActive.<br />
+					<b>onRowClick(event)</b> : item selection callback
+					<b>isActive(item)</b> : returns true if the item is selected
 					<pre>
-						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+						listProps.itemProps.onRowClick = (event) => myRowClickCallback(event.rowData);<br />
+						listProps.itemProps.isActive = (item) => item.id === 0;<br />
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>

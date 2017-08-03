@@ -15,6 +15,9 @@ function isSelected(rowData) {
 function isActive(rowData) {
 	return rowData === selectedRowData;
 }
+function onRowClick(rowData) {
+	return rowData === selectedRowData;
+}
 
 describe('RowSelection', () => {
 	it('should enhance classname with selection class on selected row', () => {
@@ -66,7 +69,7 @@ describe('RowSelection', () => {
 		function getRowData() {
 			return selectedRowData;
 		}
-		const Row = new RowSelection(RowRenderer, { isActive, getRowData });
+		const Row = new RowSelection(RowRenderer, { isActive, getRowData, onRowClick });
 
 		// when
 		const wrapper = shallow(

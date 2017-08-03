@@ -13,7 +13,7 @@ import theme from './RowLarge.scss';
 /**
  * Row renderer that displays a Large item
  */
-function RowLarge({ className, index, key, parent, style }) {
+function RowLarge({ className, index, key, parent, style, onRowClick }) {
 	const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 	const parentId = getId(parent);
@@ -37,6 +37,7 @@ function RowLarge({ className, index, key, parent, style }) {
 			className={classNames(rowThemes)}
 			key={key}
 			style={style}
+			onClick={onRowClick}
 		>
 			<div
 				className={`tc-list-large-row ${theme['inner-box']} ${className}`}
@@ -66,6 +67,7 @@ RowLarge.propTypes = {
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	onRowClick: PropTypes.func,
 };
 
 export default RowLarge;
