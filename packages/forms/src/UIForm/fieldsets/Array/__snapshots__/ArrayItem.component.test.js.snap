@@ -2,7 +2,7 @@
 
 exports[`Array Item component should NOT render control panel when value.isClosed is true 1`] = `
 <div
-  className={undefined}
+  className="tf-array-item"
 >
   <span>
     This is the item content
@@ -12,7 +12,7 @@ exports[`Array Item component should NOT render control panel when value.isClose
 
 exports[`Array Item component should disable moveDown 1`] = `
 <div
-  className={undefined}
+  className="tf-array-item"
 >
   <div
     className={undefined}
@@ -60,7 +60,7 @@ exports[`Array Item component should disable moveDown 1`] = `
 
 exports[`Array Item component should disable moveUp 1`] = `
 <div
-  className={undefined}
+  className="tf-array-item"
 >
   <div
     className={undefined}
@@ -108,7 +108,7 @@ exports[`Array Item component should disable moveUp 1`] = `
 
 exports[`Array Item component should render control panel with item content 1`] = `
 <div
-  className={undefined}
+  className="tf-array-item"
 >
   <div
     className={undefined}

@@ -68,7 +68,7 @@ export default class UIForm extends React.Component {
 		}
 
 		if (widgetChangeErrors) {
-			const errors = Object.assign(widgetChangeErrors(this.props.errors));
+			const errors = widgetChangeErrors(this.props.errors);
 			errors[schema.key] = error;
 			this.props.setErrors(this.props.formName, errors);
 		}

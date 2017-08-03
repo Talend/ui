@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Icon } from 'react-talend-components';
+import classNames from 'classnames';
 
 import theme from './ArrayItem.scss';
 
@@ -14,8 +15,9 @@ export default function ArrayItem(props) {
 		onReorder,
 		value,
 	} = props;
+
 	return (
-		<div className={theme['tf-array-item']} >
+		<div className={classNames(theme['tf-array-item'], 'tf-array-item')} >
 			{
 				!value.isClosed &&
 				<div className={theme.control}>
@@ -52,6 +54,7 @@ export default function ArrayItem(props) {
 		</div>
 	);
 }
+
 if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
 		children: PropTypes.node,

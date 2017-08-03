@@ -72,27 +72,23 @@ export default class ArrayWidget extends React.Component {
 		const value = this.props.value.slice(0);
 		value.splice(indexToRemove, 1);
 
+		// shift up the items errors after the one we remove
+		function widgetChangeErrors(errors) {
+			return shiftArrayErrorsKeys(
+				errors,
+				{
+					arrayKey: schema.key,
+					minIndex: indexToRemove,
+					shouldRemoveIndex: index => index === indexToRemove,
+					getNextIndex: index => index - 1,
+				},
+			);
+		}
+
 		return this.props.onChange(
 			event,
 			{ schema, value },
-			{
-				widgetChangeErrors(errors) {
-					// shift up the items errors after the one we remove
-					return shiftArrayErrorsKeys(
-						errors,
-						{
-							arrayKey: schema.key,
-							minIndex: indexToRemove,
-							shouldRemoveIndex(index) {
-								return index === indexToRemove;
-							},
-							getNextIndex(index) {
-								return index - 1;
-							},
-						},
-					);
-				},
-			}
+			{ widgetChangeErrors }
 		);
 	}
 
@@ -102,30 +98,30 @@ export default class ArrayWidget extends React.Component {
 		const [item] = value.splice(previousIndex, 1);
 		value.splice(nextIndex, 0, item);
 
+		function widgetChangeErrors(errors) {
+			// determine the range [min, max[ of items to shift, with the pace
+			const { minIndex, maxIndex } = getRange(previousIndex, nextIndex);
+			const switchPace = Math.sign(previousIndex - nextIndex);
+
+			// shift the items errors between the previous and next position
+			// set the item-we-move errors indexes
+			return shiftArrayErrorsKeys(
+				errors,
+				{
+					arrayKey: schema.key,
+					minIndex,
+					maxIndex,
+					getNextIndex(index) {
+						return index === previousIndex ? nextIndex : index + switchPace;
+					},
+				},
+			);
+		}
+
 		return this.props.onChange(
 			event,
 			{ schema, value },
-			{
-				widgetChangeErrors(errors) {
-					// determine the range [min, max[ of items to shift, with the pace
-					const { minIndex, maxIndex } = getRange(previousIndex, nextIndex);
-					const switchPace = Math.sign(previousIndex - nextIndex);
-
-					// shift the items errors between the previous and next position
-					// set the item-we-move errors indexes
-					return shiftArrayErrorsKeys(
-						errors,
-						{
-							arrayKey: schema.key,
-							minIndex,
-							maxIndex,
-							getNextIndex(index) {
-								return index === previousIndex ? nextIndex : index + switchPace;
-							},
-						},
-					);
-				},
-			}
+			{ widgetChangeErrors }
 		);
 	}
 
