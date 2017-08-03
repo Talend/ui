@@ -121,7 +121,7 @@ export default function cmfConnect({
 }) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
-			static displayName = `CMF(${WrappedComponent.displayName})`;
+			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
 				...statePropTypes,

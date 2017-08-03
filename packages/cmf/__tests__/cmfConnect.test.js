@@ -351,5 +351,19 @@ describe('cmfConnect', () => {
 			expect(props.willUnMountActionCreator).not.toBeDefined();
 			expect(props.nonInternalProp).toBe('lol');
 		});
+
+		it('should expose displayName', () => {
+			const ArrowComponent = () => (<div />);
+			function FunctionComponent() {
+				return <div />;
+			}
+			class ClassComponent extends React.Component {}
+			const CMFConnectedArrow = cmfConnect({})(ArrowComponent);
+			const CMFConnectedFunction = cmfConnect({})(FunctionComponent);
+			const CMFConnectedClass = cmfConnect({})(ClassComponent);
+			expect(CMFConnectedArrow.displayName).toBe('Connect(CMF(ArrowComponent))');
+			expect(CMFConnectedFunction.displayName).toBe('Connect(CMF(FunctionComponent))');
+			expect(CMFConnectedClass.displayName).toBe('Connect(CMF(ClassComponent))');
+		});
 	});
 });
