@@ -187,9 +187,10 @@ export function filterArrayErrorsKeys(errors, arrayKey, minIndex, maxIndex) {
 	const maxArrayIndexKey = Number.isInteger(maxIndex) && arrayKey.concat(maxIndex).toString();
 
 	return Object.keys(errors)
-		.filter(errorKey => errorKey.startsWith(arrayKey))
-		.filter(errorKey => !minArrayIndexKey || errorKey >= minArrayIndexKey)
-		.filter(errorKey => !maxArrayIndexKey || errorKey < maxArrayIndexKey);
+		.filter(errorKey => errorKey.startsWith(arrayKey) && // is on target array
+				(!minArrayIndexKey || errorKey >= minArrayIndexKey) && // is after min
+				(!maxArrayIndexKey || errorKey < maxArrayIndexKey) // is before max
+		);
 }
 
 /**
