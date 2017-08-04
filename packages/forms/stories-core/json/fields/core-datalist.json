@@ -21,6 +21,7 @@
       "key": "simpleDatalist",
       "restricted": false,
       "title": "Simple Datalist",
+      "description": "This datalist accepts values that are not in the list of suggestions",
       "widget": "datalist"
     },
     {

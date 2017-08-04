@@ -91,8 +91,16 @@ class Datalist extends Component {
 			}
 			this.resetSuggestions();
 			break;
-		case keycode.codes.up:
 		case keycode.codes.down:
+			event.preventDefault();
+			if (!this.state.suggestions) {
+				// display suggestions when it is not already displayed
+				this.updateSuggestions(this.state.value);
+			}
+			this.setState({ focusedItemIndex: newFocusedItemIndex });
+			break;
+			// no break: it executes the focused index
+		case keycode.codes.up:
 			event.preventDefault();
 			this.setState({ focusedItemIndex: newFocusedItemIndex });
 			break;
