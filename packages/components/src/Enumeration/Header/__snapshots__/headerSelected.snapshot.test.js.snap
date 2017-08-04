@@ -8,13 +8,11 @@ exports[`Header should render header with trash icon in case of multiple selecti
     2 selected values
   </span>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -22,6 +20,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

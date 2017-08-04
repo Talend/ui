@@ -1,43 +1,6 @@
 import { PropTypes } from 'react';
-import { Map } from 'immutable';
+import invariant from 'invariant';
 import actions from './actions';
-
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
-	const accessors = {
-		setState(state) {
-			dispatch(
-				actions.componentsActions.mergeComponentState(
-					name,
-					id,
-					state,
-				),
-			);
-		},
-		initState(initialState) {
-			const state = DEFAULT_STATE.merge(initialState);
-			dispatch(
-				actions.componentsActions.addComponentState(
-					name,
-					id,
-					state,
-				),
-			);
-		},
-		deleteState() {
-			dispatch(
-				actions.componentsActions.removeComponentState(
-					name,
-					id,
-				),
-			);
-		},
-	};
-	accessors.updateState = function updateState(state) {
-		console.warn('DEPRECATION WARNING: please use props.setState');
-		accessors.setState(state);
-	};
-	return accessors;
-}
 
 export function getStateProps(state, name, id) {
 	return {
@@ -49,6 +12,62 @@ export function initState(props) {
 	if (!props.state && props.initState) {
 		props.initState(props.initialState);
 	}
+}
+
+function getAction({ name, id, operation, componentState }) {
+	return {
+		id,
+		type: `${name}.${operation}`,
+		cmf: { componentState },
+	};
+}
+
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+	const dispatchAction = (operation, componentState) => {
+		dispatch(getAction({
+			id,
+			name,
+			componentState,
+			operation,
+		}));
+	};
+
+	const accessors = {
+		setState(state) {
+			if (!DEFAULT_STATE) {
+				invariant(
+					process.env.NODE_ENV === 'production',
+					'you must provide a defaultState to use setState',
+				);
+			}
+			dispatch((_, getState) => {
+				let newState = state;
+				if (typeof newState === 'function') {
+					newState = state(getStateProps(getState(), name, id));
+				}
+				const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+				dispatchAction('setState', componentState);
+			});
+		},
+		initState(initialState) {
+			if (DEFAULT_STATE) {
+				const state = DEFAULT_STATE.merge(initialState);
+				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				dispatchAction('initState', componentState);
+			}
+		},
+		deleteState() {
+			if (DEFAULT_STATE) {
+				const componentState = actions.componentsActions.removeComponentState(name, id);
+				dispatchAction('deleteState', componentState);
+			}
+		},
+	};
+	accessors.updateState = function updateState(state) {
+		console.warn('DEPRECATION WARNING: please use props.setState');
+		accessors.setState(state);
+	};
+	return accessors;
 }
 
 export const statePropTypes = {

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowSelection should enhance classname with selection class on selected row 1`] = `
+<RowRenderer
+  className="my-class-names undefined selected"
+  index={1}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;
+
+exports[`RowSelection should enhance classname without selection class on non selected row 1`] = `
+<RowRenderer
+  className="my-class-names"
+  index={1}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 import { // eslint-disable-line import/no-extraneous-dependencies
 	storiesOf,
 	action,
-} from '@kadira/storybook';
+} from '@storybook/react';
 
 import { TabBar } from '../src/';
 
@@ -28,7 +28,12 @@ const props = {
 	selected: '2',
 };
 
-storiesOf('TabBar', module)
+const stories = storiesOf('TabBar', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('default', () => (
 		<nav>
 			<p>Default TabBar</p>

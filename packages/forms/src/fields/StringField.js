@@ -68,13 +68,13 @@ if (process.env.NODE_ENV !== 'production') {
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
 				PropTypes.func,
-				PropTypes.object
+				PropTypes.object,
 			])).isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
 		}),
-		formContext: PropTypes.object.isRequired,
+		name: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,

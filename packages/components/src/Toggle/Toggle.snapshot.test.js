@@ -18,6 +18,7 @@ describe('Toggle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render a checked Toggle', () => {
 		// given
 		const props = {
@@ -31,6 +32,7 @@ describe('Toggle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render a disabled Toggle', () => {
 		// given
 		const props = {
@@ -44,6 +46,21 @@ describe('Toggle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render a autoFocused Toggle', () => {
+		// given
+		const props = {
+			...defaultProps,
+			autoFocus: true,
+		};
+
+		// when
+		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render a Toggle with label', () => {
 		// given
 		const props = {
@@ -57,6 +74,7 @@ describe('Toggle', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render a Checkbox', () => {
 		// given
 		const props = {

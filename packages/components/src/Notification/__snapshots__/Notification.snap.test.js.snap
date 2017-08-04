@@ -21,12 +21,14 @@ exports[`Notification should render 1`] = `
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -45,12 +47,14 @@ exports[`Notification should render 1`] = `
           className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
           disabled={false}
           onClick={[Function]}
+          onMouseDown={[Function]}
           role={null}
           type="button"
         >
           <svg
             aria-hidden="true"
             className="tc-svg-icon"
+            focusable="false"
             title={null}
           >
             <use
@@ -77,12 +81,14 @@ exports[`Notification should render 1`] = `
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -107,12 +113,14 @@ exports[`Notification should render 1`] = `
             className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role={null}
             type="button"
           >
             <svg
               aria-hidden="true"
               className="tc-svg-icon"
+              focusable="false"
               title={null}
             >
               <use
@@ -137,12 +145,14 @@ exports[`Notification should render 1`] = `
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use
@@ -180,12 +190,14 @@ exports[`Notification should render 1`] = `
         className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <svg
           aria-hidden="true"
           className="tc-svg-icon"
+          focusable="false"
           title={null}
         >
           <use

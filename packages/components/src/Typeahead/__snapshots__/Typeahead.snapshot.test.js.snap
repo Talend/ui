@@ -51,6 +51,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-filter"
+              focusable="false"
               title="icon"
             />
             <span
@@ -66,51 +67,56 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="le title 1"
             >
               <span
                 className={undefined}
               >
                 <span>
-                  
                   <em
                     className={undefined}
                   >
                     le
                   </em>
-                </span>
-                <span>
                    tit
                   <em
                     className={undefined}
                   >
                     le
                   </em>
-                </span>
-                <span>
                    1
                 </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                   tempus ardore.
+                </span>
               </p>
             </div>
           </li>
           <li
             id="react-autowhatever-my-search-section-0-item-1"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="title 2 les elephants elementaires ont des aile"
             >
               <span
                 className={undefined}
@@ -122,32 +128,24 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                   >
                     le
                   </em>
-                </span>
-                <span>
                    2 
                   <em
                     className={undefined}
                   >
                     le
                   </em>
-                </span>
-                <span>
                   s e
                   <em
                     className={undefined}
                   >
                     le
                   </em>
-                </span>
-                <span>
                   phants e
                   <em
                     className={undefined}
                   >
                     le
                   </em>
-                </span>
-                <span>
                   mentaires ont des ai
                   <em
                     className={undefined}
@@ -155,14 +153,13 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                     le
                   </em>
                 </span>
-                <span>
-                   
-                </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
               </p>
             </div>
           </li>
@@ -180,6 +177,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
+              focusable="false"
               title="icon"
             />
             <span
@@ -195,12 +193,13 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="title 3"
             >
               <span
                 className={undefined}
@@ -212,15 +211,21 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
                   >
                     le
                   </em>
-                </span>
-                <span>
                    3
                 </span>
               </span>
               <p
                 className={undefined}
               >
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                  <em
+                    className={undefined}
+                  >
+                    le
+                  </em>
+                  at.
+                </span>
               </p>
             </div>
           </li>
@@ -282,6 +287,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-filter"
+              focusable="false"
               title="icon"
             />
             <span
@@ -297,12 +303,13 @@ exports[`Typeahead items should render typeahead with results 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="le title 1"
             >
               <span
                 className={undefined}
@@ -314,30 +321,35 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <p
                 className={undefined}
               >
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                </span>
               </p>
             </div>
           </li>
           <li
             id="react-autowhatever-my-search-section-0-item-1"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="title 2 les elephants elementaires ont des aile"
             >
               <span
                 className={undefined}
               >
                 <span>
-                  title 2 les elephants elementaires ont des aile 
+                  title 2 les elephants elementaires ont des aile
                 </span>
               </span>
               <p
                 className={undefined}
               >
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
               </p>
             </div>
           </li>
@@ -355,6 +367,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-asterisk"
+              focusable="false"
               title="icon"
             />
             <span
@@ -370,12 +383,13 @@ exports[`Typeahead items should render typeahead with results 1`] = `
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
-            onClick={undefined}
+            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
             <div
               className={undefined}
+              title="title 3"
             >
               <span
                 className={undefined}
@@ -387,7 +401,9 @@ exports[`Typeahead items should render typeahead with results 1`] = `
               <p
                 className={undefined}
               >
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                </span>
               </p>
             </div>
           </li>
@@ -493,13 +509,11 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 
 exports[`Typeahead with toggle should render button 1`] = `
 <button
-  aria-describedby={42}
   className="btn btn-link"
   disabled={false}
-  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseOut={[Function]}
+  onMouseDown={[Function]}
   onMouseOver={[Function]}
   role={null}
   type="button"
@@ -507,6 +521,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   <i
     aria-hidden="true"
     className="fa fa-search"
+    focusable="false"
     title={null}
   />
 </button>

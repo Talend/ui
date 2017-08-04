@@ -33,6 +33,7 @@
 		li > a {
 			display: flex;
 			align-items: center;
+			flex-basis: 100%;
 			padding: $padding-small $padding-normal;
 			transition: 0.1s background-color ease-out;
 

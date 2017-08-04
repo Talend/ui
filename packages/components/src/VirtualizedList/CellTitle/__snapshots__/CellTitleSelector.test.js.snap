@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitleSelector should render the button 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="link"
+  className="my-title-classname"
+  disabled={false}
+  id="my-title-btn"
+  onClick={[Function]}
+  role="link"
+>
+  my value
+</Button>
+`;
+
+exports[`CellTitleSelector should render the input 1`] = `
+<CellTitleInput
+  cellData="my value"
+  id="my-title-input"
+  onEditCancel={[Function]}
+  onEditSubmit={[Function]}
+  rowData={
+    Object {
+      "id": 1,
+    }
+  }
+/>
+`;
+
+exports[`CellTitleSelector should render the simple text 1`] = `
+<span
+  className="my-title-classname"
+  id="my-title"
+>
+  my value
+</span>
+`;

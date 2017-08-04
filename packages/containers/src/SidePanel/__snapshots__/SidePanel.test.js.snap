@@ -1,21 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`SidePanel should render 1`] = `
 <div
-  className="mock-provider">
+  className="mock-provider"
+>
   <div
     actions={Array []}
     className="tc-side-panel"
     docked={false}
-    onToggleDock={[Function]} />
+    onToggleDock={[Function]}
+  />
 </div>
 `;
 
 exports[`SidePanel should render provided actions as string 1`] = `
 <div
-  className="mock-provider">
+  className="mock-provider"
+>
   <div
     actions={Array []}
     className="tc-side-panel"
     docked={false}
-    onToggleDock={[Function]} />
+    onToggleDock={[Function]}
+  />
 </div>
 `;

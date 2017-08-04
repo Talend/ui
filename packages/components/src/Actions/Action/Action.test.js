@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
 import Action from './Action.component';
 
 jest.mock('react-dom');
@@ -9,6 +9,12 @@ const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
+};
+
+const mouseDownAction = {
+	label: 'Click me',
+	icon: 'talend-caret-down',
+	onMouseDown: jest.fn(),
 };
 
 describe('Action', () => {
@@ -109,5 +115,28 @@ describe('Action', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should trigger action if set up onMouseDown event', () => {
+		// given
+		const wrapper = renderer.create(<Action extra="extra" {...mouseDownAction} />).toJSON();
+
+		// when
+		wrapper.props.onMouseDown();
+
+		// then
+		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
+		expect(mouseDownAction.onMouseDown.mock.calls.length).toBe(1);
+		const args = mouseDownAction.onMouseDown.mock.calls[0];
+		expect(args.length).toBe(2);
+		expect(args[0]).toBe();
+		expect(args[1].action.extra).toBe('extra');
+	});
+
+	it('should not render action if props.available=false', () => {
+		const wrapper = shallow(
+			<Action available={false} />
+		);
+		expect(wrapper.type()).toBe(null);
 	});
 });

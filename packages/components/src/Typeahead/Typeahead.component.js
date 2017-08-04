@@ -51,7 +51,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			icon,
 		},
 		itemProps: {
-			onClick: rest.onSelect,
+			onMouseDown: rest.onSelect,
 		},
 		renderInputComponent,
 		renderItemsContainer: renderItemsContainerFactory(

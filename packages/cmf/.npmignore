@@ -37,3 +37,14 @@ jspm_packages
 .node_repl_history
 
 __tests__
+
+src
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc
+*.tgz
+BREAKING_CHANGES_LOG.md
+docs.json
+env__tests.js
+yarn.lock

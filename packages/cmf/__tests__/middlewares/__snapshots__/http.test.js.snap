@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`HTTPError should create a new instance 1`] = `
 Object {
   "message": "Internal Server Error",

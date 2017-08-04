@@ -22,12 +22,14 @@ exports[`Status should render a label 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-cancel"
+          focusable="false"
           title={null}
         />
         <span>
@@ -38,12 +40,14 @@ exports[`Status should render a label 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-delete"
+          focusable="false"
           title={null}
         />
         <span>
@@ -62,6 +66,7 @@ exports[`Status should render a label with Icon 1`] = `
   <i
     aria-hidden="true"
     className="fa fa-check"
+    focusable="false"
     title={null}
   />
   <span
@@ -81,12 +86,14 @@ exports[`Status should render a label with Icon 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-cancel"
+          focusable="false"
           title={null}
         />
         <span>
@@ -97,12 +104,14 @@ exports[`Status should render a label with Icon 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-delete"
+          focusable="false"
           title={null}
         />
         <span>
@@ -121,6 +130,7 @@ exports[`Status should render a label with Icon without actions 1`] = `
   <i
     aria-hidden="true"
     className="fa fa-check"
+    focusable="false"
     title={null}
   />
   <span
@@ -146,6 +156,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
 >
   <svg
     className=""
+    focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
@@ -179,12 +190,14 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-cancel"
+          focusable="false"
           title={null}
         />
         <span>
@@ -195,12 +208,14 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-delete"
+          focusable="false"
           title={null}
         />
         <span>
@@ -218,6 +233,7 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
 >
   <svg
     className=""
+    focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
@@ -251,12 +267,14 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-cancel"
+          focusable="false"
           title={null}
         />
         <span>
@@ -267,12 +285,14 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
         className="btn btn-sm btn-default"
         disabled={false}
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
         <i
           aria-hidden="true"
           className="fa fa-delete"
+          focusable="false"
           title={null}
         />
         <span>

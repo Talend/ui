@@ -40,6 +40,15 @@ describe('CMF http middleware', () => {
 		action.type = 'HTTP/POST';
 		expect(isHTTPRequest(action)).toBe(false);
 	});
+	it('should isHTTPRequest check action.cmf.http', () => {
+		const action = {
+			type: 'WHAT_EVER_YOU_WANT',
+			cmf: {
+				http: {},
+			},
+		};
+		expect(isHTTPRequest(action)).toBe(true);
+	});
 	it('should getMethod find HTTP method in action type', () => {
 		expect(getMethod({ type: HTTP_METHODS.POST })).toBe('POST');
 		expect(getMethod({ type: HTTP_METHODS.OPTIONS })).toBe('OPTIONS');
@@ -139,12 +148,18 @@ describe('CMF http middleware', () => {
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 	});
+
 	it('should httpMiddleware handle response promise', (done) => {
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+
 		const store = {
 			dispatch: jest.fn(),
 		};
 		const next = jest.fn();
 		const action = {
+			url: 'foo',
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
 			onSend: 'CALL_ME_BACK on send',
@@ -153,12 +168,33 @@ describe('CMF http middleware', () => {
 			response: {
 				ok: true,
 				status: 200,
-				json: () => new Promise(resolve => resolve({ foo: 'bar' })),
+				json,
 			},
 		};
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
+		const config = {
+			body: '{"label":"great test"}',
+			credentials: 'same-origin',
+			headers: DEFAULT_HTTP_HEADERS,
+			method: 'POST',
+			onError: 'CALL_ME_BACK on error',
+			onResponse: 'CALL_ME_BACK on response',
+			onSend: 'CALL_ME_BACK on send',
+			response: {
+				ok: true,
+				status: 200,
+				json,
+			},
+			url: 'foo',
+		};
+
+		expect(global.fetch.mock.calls[0]).toEqual([
+			'foo',
+			config,
+		]);
+
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
@@ -166,6 +202,62 @@ describe('CMF http middleware', () => {
 			done();
 		});
 	});
+
+	it('should httpMiddleware with formData', (done) => {
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const formData = new FormData();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: formData,
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: 200,
+				json,
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		const config = {
+			body: formData,
+			credentials: 'same-origin',
+			headers: DEFAULT_HTTP_HEADERS,
+			method: 'POST',
+			onError: 'CALL_ME_BACK on error',
+			onResponse: 'CALL_ME_BACK on response',
+			onSend: 'CALL_ME_BACK on send',
+			response: {
+				ok: true,
+				status: 200,
+				json,
+			},
+			url: 'foo',
+		};
+
+		expect(global.fetch.mock.calls[1]).toEqual([
+			'foo',
+			config,
+		]);
+
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
+		});
+	});
+
 	it('should httpMiddleware handle response promise with error', (done) => {
 		const store = {
 			dispatch: jest.fn(),
@@ -203,6 +295,7 @@ describe('CMF http middleware', () => {
 			done();
 		});
 	});
+
 	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
 		const store = {
 			dispatch: jest.fn(),
@@ -236,7 +329,7 @@ describe('CMF http middleware', () => {
 			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
 			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
 			done();
-		});
+		}).catch(error => console.error(error));
 	});
 
 	it('should httpMiddleware handle callback onError', (done) => {

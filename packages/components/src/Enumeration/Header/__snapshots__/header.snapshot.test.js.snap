@@ -11,13 +11,11 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -25,6 +23,7 @@ exports[`Header should render header with one button 1`] = `
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -48,13 +47,11 @@ exports[`Header should render header with one button and indicate the component 
     className="actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -62,6 +59,7 @@ exports[`Header should render header with one button and indicate the component 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -69,6 +67,92 @@ exports[`Header should render header with one button and indicate the component 
         />
       </svg>
     </button>
+  </div>
+</header>
+`;
+
+exports[`Header should render header with one dropdown and two items 1`] = `
+<header
+  className="undefined tc-enumeration-header"
+>
+  <span>
+    Values
+  </span>
+  <div
+    className="actions"
+  >
+    <div
+      className="dropdown btn-group btn-group-link"
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        btooltipPlacement="bottom"
+        className="dropdown-toggle btn btn-link"
+        disabled={false}
+        id={undefined}
+        inProgress={undefined}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseOver={[Function]}
+        role="button"
+        type="button"
+      >
+        <span>
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-plus"
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        aria-labelledby={undefined}
+        className="dropdown-menu dropdown-menu-right"
+        role="menu"
+      >
+        <li
+          className=""
+          role="presentation"
+          style={undefined}
+        >
+          <a
+            href="#"
+            id="append-uploding"
+            label="Add values from a file"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+          >
+            Add values from a file
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}
+        >
+          <a
+            href="#"
+            id="append-uploding"
+            label="Overwrite existing values"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+          >
+            Overwrite existing values
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
 `;

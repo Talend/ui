@@ -1,7 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import mock, { Provider } from 'react-cmf/lib/mock';
-import { fromJS, Map } from 'immutable';
+import { shallow } from 'enzyme';
+import { fromJS } from 'immutable';
 
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
@@ -14,9 +13,6 @@ const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
-		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created' },
-		{ key: 'modified', label: 'Modified' },
 	],
 	titleProps: {
 		key: 'label',
@@ -49,23 +45,6 @@ const items = fromJS([
 		display: 'text',
 		className: 'item-0-class',
 	},
-	{
-		id: 2,
-		label: 'Title in input mode',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'fa fa-file-pdf-o',
-		display: 'input',
-		className: 'item-1-class',
-	},
-	{
-		id: 3,
-		label: 'Super long title to trigger overflow on tile rendering',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT with super long name',
-	},
 ]);
 
 const listProps = {
@@ -74,20 +53,58 @@ const listProps = {
 	toolbar,
 	items,
 };
-const reduxState = mock.state();
-reduxState.cmf.components = new Map({});
-reduxState.cmf.collections = new Map({});
 
 describe('Component HomeListView', () => {
-	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider state={reduxState}>
-				<Component header={(<div className="header" />)} sidepanel={sidepanel} list={listProps}>
-					<h1>Hello children</h1>
-				</Component>
-			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+	it('should render with object props', () => {
+		const wrapper = shallow(
+			<Component
+				header={{ app: 'hello app' }}
+				sidepanel={sidepanel}
+				list={listProps}
+			>
+				<h1>Hello children</h1>
+			</Component>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+
+	it('should render with element props', () => {
+		const wrapper = shallow(
+			<Component
+				header={(<div>hello app</div>)}
+				sidepanel={(<div>hello sidepanel</div>)}
+				list={(<div>hello list</div>)}
+			>
+				<h1>Hello children</h1>
+			</Component>
+		);
+		expect(wrapper.root.node).toMatchSnapshot();
+	});
+	it('should children transformed as array in props.drawer', () => {
+		const children = {
+			props: {
+				foo: 'bar',
+				children: {
+					props: {
+						label: 'foo',
+						children: {
+							props: {
+								children: null,
+							},
+						},
+					},
+				},
+			},
+		};
+		const wrapper = shallow(
+			<Component
+				header={(<div>hello app</div>)}
+				sidepanel={(<div>hello sidepanel</div>)}
+				list={(<div>hello list</div>)}
+				children={children}
+			/>
+		);
+		expect(wrapper.props().drawers).toMatchSnapshot();
 	});
 });
 

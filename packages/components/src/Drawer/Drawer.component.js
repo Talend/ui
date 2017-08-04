@@ -1,33 +1,60 @@
 import React, { PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
+import TabBar from '../TabBar';
 
 import theme from './Drawer.scss';
 
-function DrawerAnimation({ children }) {
-	return (
-		<ReactCSSTransitionGroup
-			transitionName="tc-drawer"
-			transitionAppearTimeout={230}
-			transitionEnterTimeout={230}
-			transitionLeaveTimeout={230}
-		>
-			{children}
-		</ReactCSSTransitionGroup>
-	);
+class DrawerAnimation extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
+		this.state = { transitioned: false };
+	}
+
+	handleTransitionComplete() {
+		this.props.onTransitionComplete();
+		this.setState({ transitioned: true });
+	}
+
+	render() {
+		const { children, ...rest } = this.props;
+		return (
+			<CSSTransition
+				{...rest}
+				onTransitionComplete={this.handleTransitionComplete}
+				defaultStyle={{ transform: 'translateX(100%)' }}
+				enterStyle={{ transform: transit('translateX(0%)', 350, 'ease-in-out') }}
+				leaveStyle={{ transform: transit('translateX(100%)', 350, 'ease-in-out') }}
+				activeStyle={{ transform: 'translateX(0%)' }}
+			>
+				{React.cloneElement(children, this.state)}
+			</CSSTransition>
+		);
+	}
+
 }
 
 DrawerAnimation.propTypes = {
 	children: PropTypes.node,
+	onTransitionComplete: PropTypes.func,
+};
+DrawerAnimation.defaultProps = {
+	onTransitionComplete: () => {},
 };
 
-function DrawerContainer({ stacked, className, children, ...rest }) {
+function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
+		{
+			[theme['tc-drawer-transition']]: withTransition,
+			'tc-drawer-transition': withTransition,
+		},
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
@@ -43,6 +70,7 @@ function DrawerContainer({ stacked, className, children, ...rest }) {
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
+	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -127,14 +155,22 @@ function Drawer({
 	children,
 	footerActions,
 	onCancelAction,
+	tabs,
+	withTransition = true,
 }) {
 	if (!children) {
 		return null;
 	}
 	return (
-		<DrawerContainer stacked={stacked} className={className} style={style}>
+		<DrawerContainer
+			stacked={stacked}
+			className={className}
+			style={style}
+			withTransition={withTransition}
+		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'auto' }}>
+			{tabs && (<TabBar {...tabs} />)}
+			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>
@@ -153,6 +189,8 @@ Drawer.propTypes = {
 	// footer action, see action bar for api
 	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
 	onCancelAction: PropTypes.shape(Action.propTypes),
+	tabs: PropTypes.shape(TabBar.propTypes),
+	withTransition: PropTypes.bool,
 };
 
 Drawer.Animation = DrawerAnimation;

@@ -1,16 +1,7 @@
 
 .navbar {
 	[role='search'] {
-		.btn {
-			display: inline-flex;
-			align-items: center;
-
-			&:before,
-			&:after {
-				content: '';
-				flex: 1 0 auto;
-			}
-		}
+		display: flex;
 
 		.form-control {
 			font-style: italic;

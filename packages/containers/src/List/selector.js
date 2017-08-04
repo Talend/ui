@@ -55,7 +55,7 @@ export function configureGetFilteredItems(configure) {
 			let results = items || localConfig.items;
 			if (componentState) {
 				const searchQuery = componentState.get('searchQuery');
-				if (searchQuery) {
+				if (searchQuery && results) {
 					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
 				}
 			}

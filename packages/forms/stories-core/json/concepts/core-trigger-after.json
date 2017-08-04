@@ -1,0 +1,33 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "properties": {
+      "lastname": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "firstname",
+      "email",
+      "comment"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "lastname",
+      "title": "Last Name (with trigger)",
+      "triggers": ["after"],
+      "description": "This field perform a trigger 'after' on change"
+    },
+    {
+      "key": "firstname",
+      "title": "First Name",
+      "description": "This field has no trigger"
+    }
+  ],
+  "properties": {}
+}

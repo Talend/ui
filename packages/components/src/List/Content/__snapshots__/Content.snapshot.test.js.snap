@@ -44,6 +44,7 @@ exports[`Content should render 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o"
+            focusable="false"
             title={null}
           />
         </div>
@@ -118,6 +119,7 @@ exports[`Content should render 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o"
+            focusable="false"
             title={null}
           />
         </div>
@@ -298,6 +300,7 @@ exports[`Content should render with display mode if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o"
+            focusable="false"
             title={null}
           />
         </div>
@@ -372,6 +375,7 @@ exports[`Content should render with display mode if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o"
+            focusable="false"
             title={null}
           />
         </div>
@@ -552,6 +556,7 @@ exports[`Content should render with id if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-excel-o"
+            focusable="false"
             title={null}
           />
         </div>
@@ -626,6 +631,7 @@ exports[`Content should render with id if provided 1`] = `
           <i
             aria-hidden="true"
             className="fa fa-file-pdf-o"
+            focusable="false"
             title={null}
           />
         </div>

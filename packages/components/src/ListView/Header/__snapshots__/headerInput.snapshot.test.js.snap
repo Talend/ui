@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render filter header 1`] = `
+<header
+  className="tc-listview-header"
+>
+  <input
+    aria-label="Search"
+    autoFocus={true}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search"
+    type="text"
+  />
+  <button
+    className="btn btn-link"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseOver={[Function]}
+    role="link"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
+</header>
+`;

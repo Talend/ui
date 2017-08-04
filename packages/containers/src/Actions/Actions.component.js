@@ -32,4 +32,6 @@ Actions.contextTypes = {
 	store: React.PropTypes.object,
 };
 
+Actions.displayName = 'CMF(Actions)';
+
 export default Actions;

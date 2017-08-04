@@ -1,5 +1,5 @@
 yarn run v0.19.1
-$ eslint --config .eslintrc src 
+$ eslint --config .eslintrc src
 
 /home/travis/build/Talend/react-talend-components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
   7:27  error  'name' is missing in props validation  react/prop-types
@@ -17,7 +17,7 @@ $ eslint --config .eslintrc src
 /home/travis/build/Talend/react-talend-components/src/ObjectViewer/JSONLike/index.js
   1:8  error  Using exported name 'JSONLike' as identifier for default export  import/no-named-as-default
 
-/home/travis/build/Talend/react-talend-components/src/ObjectViewer/Table/Table.component.js
+/home/travis/build/Talend/react-talend-components/src/ObjectViewer/Table/ListTable.component.js
   4:8  error  'theme' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/react-talend-components/src/SidePanel/__snapshots__/config.js

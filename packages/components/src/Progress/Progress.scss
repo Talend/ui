@@ -1,11 +1,27 @@
 $tc-progress-color: $brand-success !default;
+$infinite-indicator-ratio: 3;
+$infinite-indicator-width: 100% / $infinite-indicator-ratio;
+
+@keyframes infinite-progression-keyframes {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(100% * $infinite-indicator-ratio);
+	}
+}
 
 .progress {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
 	height: 5px;
+	width: 100%;
+
+	&.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
 
 	&.hidden {
 		display: none;
@@ -15,13 +31,16 @@ $tc-progress-color: $brand-success !default;
 		background: $tc-progress-color;
 		height: 100%;
 		transition: width 200ms ease;
+		overflow: hidden;
 
-		&:after {
-			content: ' ';
-			position: absolute;
-			top: 0;
-			height: 200%;
-			width: 100%;
+		.infinite-indicator {
+			height: 100%;
+			background: $white;
+			position: relative;
+			width: $infinite-indicator-width;
+			animation-fill-mode: forwards;
+			animation: infinite-progression-keyframes 0.6s infinite;
+			animation-timing-function: linear;
 		}
 	}
 }

@@ -26,4 +26,34 @@ describe('ActionBar', () => {
 		// then
 		expect(onClickMock).toHaveBeenCalled();
 	});
+
+	it('should support custom renderers', () => {
+		// given
+		function MyAction(props) {
+			return (<div className="my-custom-action" {...props} />);
+		}
+		const props = {
+			selected: 0,
+			actions: {
+				left: [
+					{ label: 'Preparations', icon: 'talend-preparation' },
+				],
+			},
+			renderers: {
+				Action: MyAction,
+			},
+		};
+
+		// when
+		const actionBar = (
+			<ActionBar {...props} />
+		);
+		const wrapper = mount(actionBar);
+		const render = wrapper.find('.my-custom-action').first();
+
+		// then
+		expect(render.hasClass('my-custom-action')).toBe(true);
+		expect(render.name()).toBe('div');
+		expect(render.props()).toMatchSnapshot();
+	});
 });

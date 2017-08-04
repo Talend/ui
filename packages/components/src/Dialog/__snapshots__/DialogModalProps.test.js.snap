@@ -12,21 +12,25 @@ exports[`Dialog modal props should render dialog without bsDialogProps 1`] = `
   keyboard={true}
   manager={
     ModalManager {
+      "add": [Function],
       "containers": Array [],
       "data": Array [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
+      "isTopModal": [Function],
       "modals": Array [],
+      "remove": [Function],
     }
   }
   onHide={[Function]}
   renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
   <ModalHeader
-    aria-label="Close"
     bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
     <ModalTitle
       bsClass="modal-title"
@@ -54,21 +58,25 @@ exports[`Dialog modal props should render dialog without bsDialogProps 2`] = `
   keyboard={true}
   manager={
     ModalManager {
+      "add": [Function],
       "containers": Array [],
       "data": Array [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
+      "isTopModal": [Function],
       "modals": Array [],
+      "remove": [Function],
     }
   }
   onHide={[Function]}
   renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
   <ModalHeader
-    aria-label="Close"
     bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
     <ModalTitle
       bsClass="modal-title"
@@ -96,21 +104,25 @@ exports[`Dialog modal props should render dialog without bsDialogProps 3`] = `
   keyboard={true}
   manager={
     ModalManager {
+      "add": [Function],
       "containers": Array [],
       "data": Array [],
       "handleContainerOverflow": true,
       "hideSiblingNodes": true,
+      "isTopModal": [Function],
       "modals": Array [],
+      "remove": [Function],
     }
   }
   onHide={[Function]}
   renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
   <ModalHeader
-    aria-label="Close"
     bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
     <ModalTitle
       bsClass="modal-title"

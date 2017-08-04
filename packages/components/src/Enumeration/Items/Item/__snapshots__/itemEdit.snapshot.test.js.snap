@@ -16,25 +16,21 @@ exports[`Item should display input value with error 1`] = `
     className="undefined tc-enumeration-item-actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -64,25 +60,21 @@ exports[`Item should display input value with two buttons 1`] = `
     className="undefined tc-enumeration-item-actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -107,25 +99,21 @@ exports[`Item should display input value with two buttons. The validate button i
     className="undefined tc-enumeration-item-actions"
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={true}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
     />
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"

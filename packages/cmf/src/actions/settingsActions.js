@@ -3,6 +3,8 @@
  */
 import get from 'lodash/get';
 
+import http from './http';
+
 export const REQUEST_SETTINGS = 'REACT_CMF.REQUEST_SETTINGS';
 export const REQUEST_KO = 'REACT_CMF.REQUEST_SETTINGS_KO';
 export const REQUEST_OK = 'REACT_CMF.REQUEST_SETTINGS_OK';
@@ -38,14 +40,8 @@ export function errorWithSettings(error) {
  * @return {function} with the fetch process results
  */
 export function fetchSettings(path = 'settings.json') {
-	return (dispatch) => {
-		dispatch(requestSettings());
-		return fetch(path)
-			.then(response => response.json())
-			.then((json) => {
-				dispatch(receiveSettings(json));
-			}, (error) => {
-				dispatch(errorWithSettings(error));
-			});
-	};
+	return http.get(path, {
+		onResponse: response => receiveSettings(response),
+		onError: error => errorWithSettings(error),
+	});
 }

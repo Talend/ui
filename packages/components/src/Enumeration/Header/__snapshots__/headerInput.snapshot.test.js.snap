@@ -10,6 +10,7 @@ exports[`Header should render header input with error 1`] = `
     onKeyDown={[Function]}
     placeholder="New entry"
     type="text"
+    value={undefined}
   />
   <div
     className="undefined tc-enumeration-header-error"
@@ -17,13 +18,11 @@ exports[`Header should render header input with error 1`] = `
     duplicate value
   </div>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -31,6 +30,7 @@ exports[`Header should render header input with error 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -39,13 +39,11 @@ exports[`Header should render header input with error 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -53,6 +51,7 @@ exports[`Header should render header input with error 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -73,15 +72,14 @@ exports[`Header should render header input with two buttons 1`] = `
     onKeyDown={[Function]}
     placeholder="New entry"
     type="text"
+    value={undefined}
   />
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -89,6 +87,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use
@@ -97,13 +96,11 @@ exports[`Header should render header input with two buttons 1`] = `
     </svg>
   </button>
   <button
-    aria-describedby={42}
     className="btn btn-link"
     disabled={false}
-    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
+    onMouseDown={[Function]}
     onMouseOver={[Function]}
     role="link"
     type="button"
@@ -111,6 +108,7 @@ exports[`Header should render header input with two buttons 1`] = `
     <svg
       aria-hidden="true"
       className="tc-svg-icon"
+      focusable="false"
       title={null}
     >
       <use

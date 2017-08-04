@@ -35,7 +35,6 @@ const settings = {
 			id: 'menu:article',
 			name: 'My article',
 			icon: 'icon-article',
-			available: 'model.actions.delete',
 			payload: {
 				type: '@@router/CALL_HISTORY_METHOD',
 				method: 'push',
@@ -69,6 +68,24 @@ const settings = {
 					routerReplace: '/test',
 				},
 			},
+		},
+		'menu:routerPush': {
+			id: 'routerPush',
+			name: 'Menu',
+			icon: 'fa-bars',
+			payload: {
+				type: 'TEST_MENU',
+				cmf: {
+					routerReplace: '/push',
+				},
+			},
+		},
+		'menu:href': {
+			id: 'href',
+			name: 'Menu',
+			icon: 'fa-bars',
+			actionCreator: 'redirect:conditional',
+			href: '/href',
 		},
 	},
 	views: {

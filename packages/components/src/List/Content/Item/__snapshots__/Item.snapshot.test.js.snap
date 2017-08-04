@@ -89,13 +89,11 @@ exports[`Item should render with actions 1`] = `
     }
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -103,6 +101,7 @@ exports[`Item should render with actions 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-edit"
+        focusable="false"
         title={null}
       />
     </button>
@@ -116,13 +115,11 @@ exports[`Item should render with actions 1`] = `
     }
   >
     <button
-      aria-describedby={42}
       className="btn btn-link"
       disabled={false}
-      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseOut={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -130,6 +127,7 @@ exports[`Item should render with actions 1`] = `
       <i
         aria-hidden="true"
         className="fa fa-trash-o"
+        focusable="false"
         title={null}
       />
     </button>
@@ -262,6 +260,7 @@ exports[`Item should render with icon 1`] = `
     <i
       aria-hidden="true"
       className="fa fa-file-excel-o"
+      focusable="false"
       title={null}
     />
   </div>

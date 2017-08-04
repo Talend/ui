@@ -13,21 +13,31 @@ import ToggleWidget from './widgets/ToggleWidget';
 import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
-import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
+import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
-
+import ColumnsWidget from './widgets/ColumnsWidget';
+import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 /**
  * @type {string} After trigger name for field value has changed
  */
 const TRIGGER_AFTER = 'after';
 
-const customWidgets = {
+export const customWidgets = {
 	toggle: ToggleWidget,
 	tabs: TabsWidget,
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
+	columns: ColumnsWidget,
+	listview: ListViewWidget,
+};
+
+const customFields = {
+	ArrayField,
+	BooleanField,
+	ObjectField,
+	StringField,
 };
 
 export function renderActionIcon(icon) {
@@ -48,7 +58,7 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>)
+			</Action>),
 		);
 	}
 	return (<Action
@@ -60,7 +70,6 @@ export function renderActions(actions, handleActionClick) {
 }
 
 class Form extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
@@ -95,7 +104,7 @@ class Form extends React.Component {
 
 	handleActionClick(onClick) {
 		if (onClick) {
-			return (event, data) => onClick(event, { ...data, ...this.form.state });
+			return (event, data) => onClick(event, { ...data, ...(this.form && this.form.state) });
 		}
 		return () => {};
 	}
@@ -122,16 +131,15 @@ class Form extends React.Component {
 
 		const formData = this.props.data && this.props.data.properties;
 
-		const customFields = {
-			ArrayField,
-			BooleanField,
-			ObjectField,
-			StringField,
+		const fields = {
+			...customFields,
+			...this.props.fields,
 		};
 
 		const customFormContext = {
 			handleSchemaChange: this.handleSchemaChange,
 			handleAction: this.props.handleAction,
+			...this.props.formContext,
 		};
 
 		return (
@@ -141,7 +149,7 @@ class Form extends React.Component {
 				uiSchema={this.props.data && this.props.data.uiSchema}
 				formData={formData}
 				formContext={customFormContext}
-				fields={customFields}
+				fields={fields}
 				FieldTemplate={FieldTemplate}
 				widgets={widgets}
 				onChange={this.handleChange}
@@ -150,6 +158,7 @@ class Form extends React.Component {
 					this.form = c;
 				}}
 			>
+				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
 					{renderActions(this.props.actions, this.handleActionClick)}
 				</div>
@@ -176,16 +185,21 @@ export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	title: PropTypes.string,
 }));
 
-Form.propTypes = {
-	data: DataPropTypes.isRequired,
-	onChange: PropTypes.func,
-	onTrigger: PropTypes.func,
-	onSubmit: PropTypes.func,
-	actions: ActionsPropTypes,
-	buttonBlockClass: PropTypes.string,
-	handleAction: PropTypes.func,
-	widgets: PropTypes.object,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Form.propTypes = {
+		data: DataPropTypes.isRequired,
+		onChange: PropTypes.func,
+		onTrigger: PropTypes.func,
+		onSubmit: PropTypes.func,
+		actions: ActionsPropTypes,
+		buttonBlockClass: PropTypes.string,
+		handleAction: PropTypes.func,
+		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		formContext: PropTypes.func,
+		children: PropTypes.element,
+		fields: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	};
+}
 
 Form.defaultProps = {
 	buttonBlockClass: 'form-actions',

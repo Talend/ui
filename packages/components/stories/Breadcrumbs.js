@@ -1,9 +1,14 @@
 import React from 'react';
-import { storiesOf, setAddon, action } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
-import { Breadcrumbs } from '../src/index';
+import { storiesOf, setAddon, action } from '@storybook/react';
+import infoAddon from '@storybook/addon-info';
+import { Breadcrumbs, IconsProvider } from '../src/index';
+import talendIcons from 'talend-icons/dist/react';
 
 setAddon(infoAddon);
+
+const icons = {
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
+};
 
 storiesOf('Breadcrumbs', module)
 	.addWithInfo('default', () => {
@@ -14,6 +19,7 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
+				<IconsProvider defaultIcons={icons} />
 				<Breadcrumbs items={items} />
 			</div>
 		);
@@ -28,6 +34,7 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
+				<IconsProvider defaultIcons={icons} />
 				<Breadcrumbs items={items} maxItems={2} />
 			</div>
 		);

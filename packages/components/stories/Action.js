@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
@@ -12,6 +12,12 @@ const myAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
 	onClick: action('You clicked me'),
+};
+
+const mouseDownAction = {
+	label: 'Click me',
+	icon: 'talend-dataprep',
+	onMouseDown: action('You clicked me'),
 };
 
 storiesOf('Action', module)
@@ -60,6 +66,12 @@ storiesOf('Action', module)
 				id="default"
 				{...myAction}
 				tooltipLabel={'Custom label here'}
+			/>
+			<p>onMouse down handler</p>
+			<Action
+				id="hidelabel"
+				{...mouseDownAction}
+				hideLabel
 			/>
 		</div>
 	))

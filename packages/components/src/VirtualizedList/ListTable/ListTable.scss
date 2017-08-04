@@ -1,0 +1,49 @@
+@import '../colors';
+
+$tc-list-table-cell-padding: 8px !default;
+$tc-list-table-header-color: $black !default;
+
+.tc-list-table {
+
+	.row {
+		border-bottom: 1px solid darken($concrete, 5%);
+		display: flex;
+		align-items: center;
+
+		&:hover {
+			background: $tc-list-row-hover-bg;
+		}
+	}
+
+	:global(.ReactVirtualized__Table__headerRow) {
+		box-shadow: $shadow-default;
+
+		.header {
+			color: $tc-list-table-header-color;
+			display: inline-flex;
+			font-size: 1.4rem;
+			font-weight: bold;
+			padding: $tc-list-table-cell-padding;
+			text-transform: uppercase;
+		}
+	}
+
+	:global(.ReactVirtualized__Table__sortableHeaderColumn) {
+		cursor: pointer;
+	}
+
+	.grid {
+		box-shadow: $shadow-default;
+
+		.cell {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding: $tc-list-table-cell-padding;
+		}
+	}
+
+	[class*='tc-list-cell-'] {
+		flex: 1 1 100%;
+	}
+}

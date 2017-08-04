@@ -6,6 +6,7 @@ import DisplayLarge from './DisplayLarge';
 import DisplayTable from './DisplayTable';
 import DisplayTile from './DisplayTile';
 import Content from './Content';
+import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 
 function ListToolbar({ id, toolbar, displayMode, list }) {
@@ -42,11 +43,27 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
 
-function DisplayModeComponent({ id, useContent, displayMode, list }) {
+function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
 	if (useContent) {
-		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+		return (
+			<Content
+				id={id && `${id}-content`}
+				displayMode={displayMode}
+				{...list}
+			/>
+		);
 	}
-
+	if (virtualized) {
+		return (
+			<div className={'tc-list-display-virtualized'}>
+				<ListToVirtualizedList
+					id={id}
+					displayMode={displayMode}
+					{...list}
+				/>
+			</div>
+		);
+	}
 	switch (displayMode) {
 	case 'tile': return <DisplayTile id={id} {...list} />;
 	case 'large': return <DisplayLarge id={id} {...list} />;
@@ -61,21 +78,19 @@ DisplayModeComponent.propTypes = {
 		PropTypes.shape(Content.propTypes),
 	]),
 	useContent: PropTypes.bool,
+	virtualized: PropTypes.bool,
 };
 
-function ListDisplay({ id, useContent, displayMode, list }) {
-	if (list.items && list.items.length) {
-		return (
-			<DisplayModeComponent
-				id={id}
-				useContent={useContent}
-				displayMode={displayMode}
-				list={list}
-			/>
-		);
-	}
-
-	return (<span className={theme['no-result']}>No result found</span>);
+function ListDisplay({ id, useContent, displayMode, list, virtualized }) {
+	return (
+		<DisplayModeComponent
+			id={id}
+			useContent={useContent}
+			displayMode={displayMode}
+			list={list}
+			virtualized={virtualized}
+		/>
+	);
 }
 ListDisplay.propTypes = DisplayModeComponent.propTypes;
 
@@ -115,7 +130,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ id, displayMode, toolbar, list, useContent }) {
+function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -133,6 +148,7 @@ function List({ id, displayMode, toolbar, list, useContent }) {
 				useContent={useContent}
 				displayMode={displayMode}
 				list={list}
+				virtualized={virtualized}
 			/>
 		</div>
 	);

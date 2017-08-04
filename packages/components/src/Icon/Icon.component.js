@@ -37,6 +37,7 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  */
 function Icon({ className, name, title, transform }) {
 	const accessibility = {
+		focusable: 'false', // IE11
 		'aria-hidden': 'true',
 		title: title || null,
 	};

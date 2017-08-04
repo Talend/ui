@@ -9,6 +9,14 @@ import {
 	getStateAccessors,
 	getStateProps,
 } from './componentState';
+import { mapStateToViewProps } from './settings';
+
+const CMF_PROPS = [
+	'didMountActionCreator', // componentDidMount action creator id in registry
+	'keepComponentState', // redux state management on unmount
+	'view', // view component id in registry
+	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
+];
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -41,12 +49,14 @@ export function getStateToProps({
 		return state.cmf.collections.get(id);
 	};
 
+	const viewProps = mapStateToViewProps(state, ownProps);
+
 	let userProps = {};
 	if (mapStateToProps) {
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...userProps };
+	return { ...cmfProps, ...viewProps, ...userProps };
 }
 
 export function getDispatchToProps({
@@ -85,7 +95,7 @@ export function getDispatchToProps({
  * this function wrap your component to inject the following:
  * - props.state
  * - props.setState
- * - props.initState (call it un didMount)
+ * - props.initState (you should never have to call it your self)
  * - props.getCollection
  * - dispatch(action)
  * - dispatchActionCreator(id, event, data, [context])
@@ -96,25 +106,26 @@ export function getDispatchToProps({
  * - willUnMountActionCreator (id or array of id)
  * - componentId (or will use uuid)
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
+ * - didMountActionCreator (string called as action creator in didMount)
+ * - view (string to inject the settings as props with ref support)
  * @return {ReactComponent}
  */
 export default function cmfConnect({
-		componentId,
-		defaultState,
-		keepComponentState,
-		mapStateToProps,
-		mapDispatchToProps,
-		mergeProps,
-		...rest,
-	}) {
+	componentId,
+	defaultState,
+	keepComponentState,
+	mapStateToProps,
+	mapDispatchToProps,
+	mergeProps,
+	...rest
+}) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
-			static displayName = `CMF(${WrappedComponent.displayName})`;
-			static propTypes = Object.assign(
-				{},
-				...WrappedComponent.propTypes || {},
-				...statePropTypes
-			);
+			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
+			static propTypes = {
+				...WrappedComponent.propTypes,
+				...statePropTypes,
+			};
 			static contextTypes = {
 				store: PropTypes.object,
 				registry: PropTypes.object,
@@ -159,10 +170,15 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign({
-					state: defaultState,
-					dispatchActionCreator: this.dispatchActionCreator,
-				}, this.props);
+				const props = Object.assign(
+					{ state: defaultState },
+					this.props,
+					{ dispatchActionCreator: this.dispatchActionCreator },
+				);
+
+				// remove all internal props already used by the container
+				CMF_PROPS.forEach((key) => { delete props[key]; });
+
 				return createElement(
 					WrappedComponent,
 					props,
@@ -172,6 +188,7 @@ export default function cmfConnect({
 		const Connected = connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
+				defaultState,
 				ownProps,
 				state,
 				mapStateToProps,

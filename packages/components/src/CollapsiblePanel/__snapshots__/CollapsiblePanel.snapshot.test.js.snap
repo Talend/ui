@@ -25,6 +25,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             <i
               aria-hidden="true"
               className="fa fa-check"
+              focusable="false"
               title={null}
             />
             <span
@@ -44,12 +45,14 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-cancel"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -60,12 +63,14 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-delete"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -80,13 +85,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
+            onMouseDown={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -94,6 +97,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             <i
               aria-hidden="true"
               className="fa fa-edit"
+              focusable="false"
               title={null}
             />
           </button>
@@ -102,12 +106,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -117,23 +117,15 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -150,6 +142,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -223,6 +216,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-check"
+              focusable="false"
               title={null}
             />
             <span
@@ -242,12 +236,14 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-cancel"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -258,12 +254,14 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-delete"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -278,13 +276,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
+            onMouseDown={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -292,6 +288,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-edit"
+              focusable="false"
               title={null}
             />
           </button>
@@ -300,12 +297,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -315,23 +308,15 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -348,6 +333,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -421,6 +407,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-check"
+              focusable="false"
               title={null}
             />
             <span
@@ -440,12 +427,14 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-cancel"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -456,12 +445,14 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
+                  onMouseDown={[Function]}
                   role={null}
                   type="button"
                 >
                   <i
                     aria-hidden="true"
                     className="fa fa-delete"
+                    focusable="false"
                     title={null}
                   />
                   <span>
@@ -476,13 +467,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <button
-            aria-describedby={42}
             className="btn btn-link"
             disabled={false}
-            onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onMouseOut={[Function]}
+            onMouseDown={[Function]}
             onMouseOver={[Function]}
             role="link"
             type="button"
@@ -490,6 +479,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             <i
               aria-hidden="true"
               className="fa fa-edit"
+              focusable="false"
               title={null}
             />
           </button>
@@ -498,12 +488,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Charles
@@ -513,23 +499,15 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            aria-describedby={42}
             className="label label-default"
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             XML
@@ -565,23 +543,15 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             (Read Only)
@@ -591,12 +561,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             03/02/2017 14:44:55
@@ -613,6 +579,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       <svg
         aria-hidden="true"
         className="tc-svg-icon"
+        focusable="false"
         title={null}
       >
         <use
@@ -642,23 +609,15 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             className={undefined}
           >
             <span
-              aria-describedby={42}
               className={undefined}
-              onBlur={[Function]}
-              onClick={null}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
               21 step
             </span>
             <span
-              aria-describedby={42}
               className="text-right"
-              onBlur={[Function]}
-              onClick={null}
               onFocus={[Function]}
-              onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
               by Abdelaziz Maalej test 1 test 2 test 1 test 2
@@ -704,23 +663,15 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             (Read Only)
@@ -730,12 +681,8 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           className=""
         >
           <span
-            aria-describedby={42}
             className={undefined}
-            onBlur={[Function]}
-            onClick={null}
             onFocus={[Function]}
-            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             03/02/2017 14:44:55

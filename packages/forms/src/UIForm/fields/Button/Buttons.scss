@@ -1,0 +1,14 @@
+.tf-buttons {
+	display: flex;
+	justify-content: space-between;
+
+	.left {
+		margin-left: $padding-large;
+		margin-right: auto;
+	}
+
+	.right {
+		margin-left: auto;
+		margin-right: $padding-large;
+	}
+}

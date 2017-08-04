@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 
 import talendIcons from 'talend-icons/dist/react';
 import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar } from '../src/index';
@@ -91,6 +91,28 @@ const basicProps = {
 	multiSelectActions,
 };
 
+const tabs = {
+	items: [{
+		id: '1',
+		key: 'info',
+		label: 'Info',
+	}, {
+		id: '2',
+		key: 'navigator',
+		label: 'Navigator',
+	}, {
+		id: '3',
+		key: 'profile',
+		label: 'Profile',
+	}, {
+		id: '4',
+		key: 'metrics',
+		label: 'Metrics',
+	}],
+	onSelect: action('Tab clicked'),
+	selected: 'navigator',
+};
+
 function scrollableContent() {
 	const content = [];
 	for (let i = 0; i < 42; i += 1) {
@@ -112,12 +134,17 @@ const drawers = [
 	</Drawer>),
 ];
 
+const sidePanel = (<SidePanel
+	actions={actions}
+	onToggleDock={action('Toggle dock clicked')}
+/>);
+
 storiesOf('Drawer', module)
 	.addWithInfo('Default', () => {
-		const sidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-		/>);
+		const rows = [];
+		for (let index = 0; index < 20; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
 		return (
 			<Layout
 				header={header}
@@ -126,40 +153,63 @@ storiesOf('Drawer', module)
 				drawers={drawers}
 			>
 				<span>zone with drawer</span>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
-				<p>The content dictate the width</p>
+				{rows}
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('stacked drawers', () => {
+		const stackedDrawers = [
+			(<Drawer stacked title="I'm stacked drawer 1" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 1</h1>
+				<p>{ "You should not being able to read this because I'm first" }</p>
+			</Drawer>),
+			(<Drawer stacked title="I'm drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 2</h1>
+				<p>The content dictate the scroll</p>
+				{scrollableContent()}
+			</Drawer>),
+			(<Drawer stacked title="I'm drawer 3" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<h1>Hello drawer 3</h1>
+				<p>The content dictate the scroll</p>
+				{scrollableContent()}
+			</Drawer>),
+		];
+		const rows = [];
+		for (let index = 0; index < 50; index++) {
+			rows.push(<p key={index}>The content dictate the width</p>);
+		}
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={stackedDrawers}
+			>
+				<span>zone with drawer</span>
+				{rows}
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('With tabs', () => {
+		const drawersWithTabs = [(
+			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
+				<p>The content</p>
+			</Drawer>
+		), (
+			<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
+				<p>The content</p>
+			</Drawer>
+		)];
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={drawersWithTabs}
+			>
+				<span>zone with drawer</span>
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
@@ -171,7 +221,7 @@ storiesOf('Drawer', module)
 					defaultActiveKey="info"
 				>
 					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-						<Drawer.Title title="custom with tabs" onCancelAction={onCancelAction}>
+						<Drawer.Title title="Custom drawer with tabs and a super long name that breaks the drawer title" onCancelAction={onCancelAction}>
 							<Nav bsClass="nav nav-tabs">
 								<NavItem componentClass="button" eventKey="info">
 									Info
@@ -219,10 +269,6 @@ storiesOf('Drawer', module)
 				</Tab.Container>
 			</Drawer.Container>
 		)];
-		const sidePanel = (<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-		/>);
 		return (
 			<Layout
 				header={header}

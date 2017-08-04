@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import { Typeahead } from '../src';
 import IconProvider from '../src/IconsProvider';
 
@@ -16,7 +16,7 @@ const items = [
 				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
-				title: 'title 2 les elephants elementaires ont des aile ',
+				title: 'title 2 Les elephants elementaires ont des aile ',
 				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
 		],
@@ -52,6 +52,12 @@ const items = [
 			{
 				title: 'title 6',
 				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
+			},
+			{
+				title: 'without description',
+			},
+			{
+				description: 'without title',
 			},
 		],
 	},

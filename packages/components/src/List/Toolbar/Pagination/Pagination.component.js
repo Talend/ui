@@ -1,11 +1,10 @@
 import React from 'react';
-import classNames from 'classnames';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 import Icon from '../../../Icon';
 
-import css from './Pagination.scss';
+import theme from './Pagination.scss';
 
 const FIRST = 'first';
 const PREV = 'prev';
@@ -28,13 +27,14 @@ function getMenuItem(option, index) {
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
 	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
 	const {
-		first = { name: 'fa fa-backward' },
-		prev = { name: 'fa fa-play', transform: 'rotate-180' },
-		next = { name: 'fa fa-play' },
-		last = { name: 'fa fa-forward' },
+		first = { name: 'talend-chevron-end' },
+		prev = { name: 'talend-chevron-left' },
+		next = { name: 'talend-chevron-left', transform: 'rotate-180' },
+		last = { name: 'talend-chevron-end', transform: 'rotate-180' },
 	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
+	const isNavigationShown = itemsPerPage > 0 && pagesLength > 1;
 	function onChangeItemsPerPage(value) {
 		return onChange(1, value);
 	}
@@ -54,7 +54,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			break;
 		}
 		case LAST: {
-			from = (pagesLength * (itemsPerPage - 1)) + 1;
+			from = ((pagesLength - 1) * itemsPerPage) + 1;
 			break;
 		}
 		default:
@@ -62,8 +62,54 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		}
 		onChange(from, itemsPerPage);
 	}
+	function getNavigationItems() {
+		return [(
+			<NavItem
+				eventKey={FIRST}
+				id={id && `${id}-nav-to-first`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...first} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={PREV}
+				id={id && `${id}-nav-to-prev`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...prev} />
+			</NavItem>
+		), (
+			<NavItem disabled>
+				<span className="btn-link">{currentPage}/{pagesLength}</span>
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={NEXT}
+				id={id && `${id}-nav-to-next`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...next} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={LAST}
+				id={id && `${id}-nav-to-last`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...last} />
+			</NavItem>
+		)];
+	}
 	return (
-		<Nav onSelect={selectedKey => changePageTo(selectedKey)}>
+		<Nav
+			className={theme['tc-pagination']}
+			onSelect={selectedKey => changePageTo(selectedKey)}
+		>
 			<NavDropdown
 				id={id ? `${id}-size` : uuid.v4()}
 				title={getItemsPerPageTitle(itemsPerPage)}
@@ -71,51 +117,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			>
 				{itemsPerPageOptions.map((option, index) => getMenuItem(option, index))}
 			</NavDropdown>
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={FIRST}
-					id={id && `${id}-nav-to-first`}
-					className="btn-link"
-					disabled={startIndex === 1}
-				>
-					<Icon {...first} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={PREV}
-					id={id && `${id}-nav-to-prev`}
-					className={classNames('btn-link', css['tc-pagination-ctrl-prev'], 'tc-pagination-ctrl-prev')}
-					disabled={startIndex === 1}
-				>
-					<Icon {...prev} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem disabled>
-					<span className="btn-link">{currentPage}/{pagesLength}</span>
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={NEXT}
-					id={id && `${id}-nav-to-next`}
-					className="btn-link"
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...next} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={LAST}
-					id={id && `${id}-nav-to-last`}
-					className="btn-link"
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...last} />
-				</NavItem>
-			)}
+			{isNavigationShown && getNavigationItems()}
 		</Nav>
 	);
 }

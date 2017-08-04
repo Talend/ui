@@ -1,0 +1,12 @@
+.tf-tabs {
+	li.has-error {
+		> a,
+		> a:focus {
+			color: $brand-danger;
+		}
+
+		&:global(.active) > a {
+			@include box-shadow(inset 0 -2px 0 $brand-danger);
+		}
+	}
+}

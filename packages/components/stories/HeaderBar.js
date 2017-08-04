@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
 
@@ -21,6 +21,7 @@ const icons = {
 	'talend-share-alt': talendIcons['talend-share-alt'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-user-circle': talendIcons['talend-user-circle'],
+	'talend-board': talendIcons['talend-board'],
 };
 
 const typeaheadItems = [
@@ -90,8 +91,9 @@ const props = {
 	search: {
 		icon: {
 			name: 'talend-search',
-			title: 'icon',
+			title: 'Search',
 			bsStyle: 'link',
+			tooltipPlacement: 'bottom',
 		},
 		id: 'header-search',
 		onToggle: action('onSearchClick'),
@@ -109,7 +111,9 @@ const props = {
 				onClick: action('onSettingsClick'),
 			},
 		],
-		name: 'User NAME',
+		name: 'John Doe',
+		firstName: 'John',
+		lastName: 'Doe',
 	},
 	products: {
 		id: 'header-products',
@@ -118,21 +122,19 @@ const props = {
 				icon: 'talend-logo-dp',
 				key: 'tdp',
 				label: 'Data Preparation',
-				onClick: action('onTDPClick'),
 			},
 			{
 				icon: 'talend-logo-ic',
 				key: 'tic',
 				label: 'Integration Cloud',
-				onClick: action('onTICClick'),
 			},
 			{
 				icon: 'talend-logo-mc',
 				key: 'tmc',
 				label: 'Management Console',
-				onClick: action('onTMCClick'),
 			},
 		],
+		onSelect: action('onProductClick'),
 	},
 };
 
@@ -144,6 +146,10 @@ const decoratedStories = storiesOf('HeaderBar', module)
 			<IconsProvider defaultIcons={icons} />
 		</div>
 	));
+
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
 
 decoratedStories
 	.addWithInfo('default', () => {
@@ -167,6 +173,22 @@ decoratedStories
 			],
 			label: 'Default',
 		};
+		return <HeaderBar {...headerProps} />;
+	})
+	.addWithInfo('with help split dropdown', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.help.items = [
+			{
+				icon: 'talend-board',
+				label: 'Onboarding',
+				onClick: action('onOnboardingClick'),
+			},
+			{
+				icon: 'talend-cog',
+				label: 'About',
+				onClick: action('onAboutClick'),
+			},
+		];
 		return <HeaderBar {...headerProps} />;
 	})
 	.addWithInfo('with search input', () => {

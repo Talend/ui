@@ -1,5 +1,4 @@
 // TreeView styles
-$max-depth: 10;
 $item-height: 40px;
 
 .tc-treeview-li {
@@ -45,7 +44,7 @@ $item-height: 40px;
 			}
 
 			:global(.btn-link) {
-				display: block;
+				visibility: visible;
 			}
 		}
 
@@ -91,23 +90,17 @@ $item-height: 40px;
 				fill: $brand-primary;
 			}
 		}
-
-		@for $i from 0 through $max-depth {
-			&[data-depth='#{$i}'] {
-				padding-left: $i * $padding-normal + $padding-large;
-			}
-		}
 	}
 
-	:global(.tc-treeview-item-ctrl) {
+	.tc-treeview-item-ctrl {
 		margin-left: auto;
 		display: flex;
-		min-width: 65px;
 
 		:global(.btn-link) {
 			margin-left: auto;
-			display: none;
+			visibility: hidden;
 			outline: none;
+			padding: 0 $padding-smaller;
 
 			:global(.tc-svg-icon) {
 				width: $svg-md-size;
@@ -123,7 +116,7 @@ $item-height: 40px;
 
 		:global(.tc-badge-solid) {
 			height: $item-height - 2 * $padding-small;
-			margin: 0 $padding-large 0 0;
+			margin: 0 $padding-normal 0 0;
 			border: none;
 		}
 	}

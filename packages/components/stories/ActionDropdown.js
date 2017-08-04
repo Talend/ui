@@ -1,5 +1,8 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { // eslint-disable-line import/no-extraneous-dependencies
+	storiesOf,
+	action,
+} from '@storybook/react';
 
 import { ActionDropdown, IconsProvider } from '../src/index';
 
@@ -13,6 +16,9 @@ const myAction = {
 			icon: 'talend-file-json-o',
 			label: 'document 1',
 			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
 		},
 		{
 			id: 'context-dropdown-item-document-2',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconsProvider, Drawer } from 'react-talend-components';
 import talendIcons from 'talend-icons/dist/react';
-import { storiesOf, action } from '@kadira/storybook';
+import { action } from '@storybook/react';
 import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
@@ -10,21 +10,21 @@ import { HomeListView } from '../src';
 const primary = {
 	label: 'Primary',
 	bsStyle: 'primary',
-	onClick: action('You clicked me'),
+	onClick: action('You clicked on primary action'),
 };
 
-const onCancelAction = {
+const cancel = {
 	label: 'Cancel',
 	onClick: action('You clicked on cancel action'),
 };
 
 const connect = {
 	label: 'Connect',
-	onClick: action('You clicked me'),
+	onClick: action('You clicked on connect action'),
 };
 
 const panelActions = {
-	left: [],
+	left: [cancel],
 	right: [
 		connect,
 		primary,
@@ -184,11 +184,17 @@ const ExampleHomeListView = {
 				sidepanel={sidepanel}
 				list={listProps}
 			>
-				<Drawer stacked title="Im stacked drawer 1">
+				<Drawer
+					stacked title="Im stacked drawer 1"
+					footerActions={Object.assign({}, basicProps, { selected: 0 })}
+				>
 					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I'm first</p>
+					<p>You should not being able to read this because I&#39;m first</p>
 				</Drawer>
-				<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+				<Drawer
+					title="Im drawer 2"
+					footerActions={Object.assign({}, basicProps, { selected: 0 })}
+				>
 					<h1>Hello drawer 2</h1>
 					<p>The content dictate the width</p>
 				</Drawer>

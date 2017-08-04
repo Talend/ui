@@ -1,21 +1,20 @@
-exports[`Action should render its name 1`] = `
-<div
-  className="mock-provider">
-  <button
-    available="model.actions.delete"
-    className="tc-action"
-    icon="icon-article"
-    id="menu:article"
-    name="My article"
-    onClick={[Function]}
-    payload={
-      Object {
-        "args": Array [
-          "/myarticle",
-        ],
-        "method": "push",
-        "type": "@@router/CALL_HISTORY_METHOD",
-      }
-    } />
-</div>
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action should render from name props 1`] = `
+<Action
+  icon="icon-article"
+  id="menu:article"
+  model={undefined}
+  name="My article"
+  onClick={[Function]}
+  payload={
+    Object {
+      "args": Array [
+        "/myarticle",
+      ],
+      "method": "push",
+      "type": "@@router/CALL_HISTORY_METHOD",
+    }
+  }
+/>
 `;
