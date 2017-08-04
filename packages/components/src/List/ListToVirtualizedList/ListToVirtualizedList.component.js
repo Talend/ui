@@ -74,8 +74,8 @@ ListToVirtualizedList.propTypes = {
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
-		onToggle: PropTypes.func,
 		onRowClick: PropTypes.func,
+		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	sort: PropTypes.shape({

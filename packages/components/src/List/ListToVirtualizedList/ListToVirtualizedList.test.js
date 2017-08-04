@@ -154,23 +154,6 @@ describe('ListToVirtualizedList', () => {
 		expect(onToggle).toBeCalledWith(event, props.items[0]);
 	});
 
-	it('should adapt selection isSelected', () => {
-		// given
-		const isSelected = jest.fn();
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				itemProps={{ isSelected }}
-			/>
-		).props();
-
-		// when
-		virtualizedProps.isSelected(props.items[0]);
-
-		// then
-		expect(isSelected).toBeCalledWith(props.items[0]);
-	});
-
 	it('should adapt click onRowClick', () => {
 		// given
 		const onRowClick = jest.fn();

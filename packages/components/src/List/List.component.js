@@ -43,12 +43,7 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
 
-function DisplayModeComponent({
-		displayMode,
-		id,
-		list,
-		useContent,
-		virtualized }) {
+function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
 	if (useContent) {
 		return (
 			<Content
