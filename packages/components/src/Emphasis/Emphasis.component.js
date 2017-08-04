@@ -5,6 +5,10 @@ function isNotEmpty(value) {
 	return value;
 }
 
+export function escapeRegexCharacters(str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function emphasiseAll(text, value) {
 	if (!text) {
 		return '';
@@ -14,7 +18,7 @@ function emphasiseAll(text, value) {
 	}
 
 	return text
-		.split(new RegExp(`(${value})`, 'gi'))
+		.split(new RegExp(`(${escapeRegexCharacters(value)})`, 'gi'))
 		.filter(isNotEmpty)
 		.map((part, index) => {
 			if (part.toUpperCase() === value.toUpperCase()) {

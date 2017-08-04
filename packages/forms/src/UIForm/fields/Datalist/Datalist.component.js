@@ -94,8 +94,8 @@ class Datalist extends Component {
 		case keycode.codes.down:
 			event.preventDefault();
 			if (!this.state.suggestions) {
-				// display suggestions when it is not already displayed
-				this.updateSuggestions(this.state.value);
+				// display all suggestions when they are not displayed
+				this.updateSuggestions();
 			}
 			this.setState({ focusedItemIndex: newFocusedItemIndex });
 			break;
