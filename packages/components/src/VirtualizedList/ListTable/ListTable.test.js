@@ -36,7 +36,6 @@ describe('ListGrid', () => {
 		expect(wrapper.node.props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
 	});
 
-
 	it('should render table with sort props', () => {
 		// when
 		const wrapper = shallow(
@@ -75,7 +74,9 @@ describe('ListGrid', () => {
 				collection={collection}
 				height={600}
 				id={'my-list'}
+				isActive={jest.fn()}
 				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
