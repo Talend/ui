@@ -70,7 +70,10 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 }
 
 :global(.tc-list-large-row.active):hover :global(.tc-list-title .tc-actions),
-:global(.ReactVirtualized__Table__row.active):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.active):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+}
+
 :global(.tc-list-large-row.selected):hover :global(.tc-list-title .tc-actions),
 :global(.ReactVirtualized__Table__row.selected):hover :global(.tc-list-title .tc-actions) {
 	background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);

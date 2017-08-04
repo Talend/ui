@@ -2,12 +2,18 @@
 
 :global(.tc-list-table),
 :global(.tc-list-large) {
-	.row-selection.active,
 	.row-selection.selected {
 		background: $tc-list-row-selected-bg;
 
 		&:hover {
 			background: $tc-list-row-selected-hover-bg;
+		}
+	}
+	.row-selection.active {
+		background: $tc-list-row-active-bg;
+
+		&:hover {
+			background: $tc-list-row-active-hover-bg;
 		}
 	}
 }
