@@ -78,7 +78,7 @@ exports[`Component HomeListView should render with object props 1`] = `
   }
   mode="TwoColumns"
   one={
-    <Connect(CMF(SidePanel))
+    <Connect(CMF(undefined))
       actionIds={
         Array [
           "menu:demo",

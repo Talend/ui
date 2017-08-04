@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Container(Form) should pass props to Form lib 1`] = `
 Object {
   "actions": Array [],
@@ -38,10 +40,17 @@ exports[`Container(Form) should render a Form 1`] = `
   onChange={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
-  other={true} />
+  other={true}
+/>
 `;
 
-exports[`Container(Form) should use props.onChange 1`] = `Array []`;
+exports[`Container(Form) should use props.onChange 1`] = `
+Array [
+  Object {
+    "foo": "bar",
+  },
+]
+`;
 
 exports[`Container(Form) should use props.onChange 2`] = `
 Array [
@@ -71,11 +80,11 @@ Array [
       "onSubmit": [Function],
       "onSubmitActionCreator": "myaction",
       "setState": [Function],
-      "state": Object {
-        "data": Object {
-          "schema": true,
+      "state": Immutable.Map {
+        data: Immutable.Map {
+                schema: true,
         },
-      },
+},
     },
   },
 ]

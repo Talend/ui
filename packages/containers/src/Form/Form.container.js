@@ -43,17 +43,27 @@ class Form extends React.Component {
 		this.uiSchema = this.uiSchema.bind(this);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.formId !== this.props.formId) {
+			if (this.props.state) {
+				this.props.deleteState();
+			}
+			if (!nextProps.state) {
+				nextProps.initState();
+			}
+		}
+	}
+
 	onTrigger(formData, formId, propertyName, propertyValue) {
 		if (this.props.onTrigger) {
 			this.props.onTrigger(formData, formId, propertyName, propertyValue);
 		}
-		// TODO: add support for props.onTriggerActionCreator
 	}
 
 	onChange(form) {
 		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
-			this.props.onChange(...form);
+			this.props.onChange(form);
 		}
 	}
 
@@ -95,12 +105,20 @@ class Form extends React.Component {
 		return this.props.uiSchema;
 	}
 
+	data() {
+		const state = (this.props.state || DEFAULT_STATE).toJS();
+		if (typeof this.props.data === 'function') {
+			return this.props.data(state.data);
+		}
+		return Object.assign({}, this.props.data, state.data);
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const data = {
 			jsonSchema: this.jsonSchema(),
 			uiSchema: this.uiSchema(),
-			properties: Object.assign({}, this.props.data, state.data),
+			properties: this.data(),
 		};
 		const className = classnames(
 			'tc-form',
