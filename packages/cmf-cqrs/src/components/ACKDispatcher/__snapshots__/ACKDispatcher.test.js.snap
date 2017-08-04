@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected ACKDispatcher should mapStateToProps 1`] = `
+Object {
+  "acks": Immutable.Map {
+    123: Immutable.Map {
+        actionCreator: "test",
+        data: Object {
+            "foo": "bar",
+          },
+        received: true,
+    },
+},
+}
+`;
+
+exports[`Container ACKDispatcher should dispatch call props.dispatch even when ack only when both received is true, and action exist
+	meaning that we can receive ack before creation request is resolve 1`] = `
+Array [
+  "actionCreator",
+  Object {
+    "foo": "bar",
+  },
+  "123",
+]
+`;
+
+exports[`Container ACKDispatcher should dispatch call props.dispatch with action created 1`] = `
+Object {
+  "ack": Object {
+    "requestId": 123,
+    "type": "ACK_DELETE",
+  },
+  "type": "__TEST__",
+}
+`;
+
+exports[`Container ACKDispatcher should processACK call dispatch 1`] = `
+Array [
+  "actionCreator",
+  Object {
+    "foo": "bar",
+  },
+  "123",
+]
+`;
