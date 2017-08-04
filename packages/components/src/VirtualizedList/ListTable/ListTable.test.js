@@ -36,7 +36,6 @@ describe('ListGrid', () => {
 		expect(wrapper.node.props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
 	});
 
-
 	it('should render table with sort props', () => {
 		// when
 		const wrapper = shallow(

@@ -74,7 +74,6 @@ const parent = {
 
 describe('RowLarge', () => {
 	it('should render large row', () => {
-		const onRowClick = jest.fn();
 		// when
 		const wrapper = shallow(
 			<RowLarge
@@ -83,7 +82,6 @@ describe('RowLarge', () => {
 				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
-				onClick={onRowClick}
 			/>
 		);
 

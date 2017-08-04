@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RowSelection should enhance classname with active class on row click 1`] = `
+exports[`RowSelection should enhance classname with active class on active row 1`] = `
 <RowRenderer
   className="my-class-names undefined active"
   index={1}
-  onRowClick={[Function]}
   parent={Object {}}
   style={
     Object {
@@ -18,7 +17,6 @@ exports[`RowSelection should enhance classname with selection class on selected 
 <RowRenderer
   className="my-class-names undefined selected"
   index={1}
-  onRowClick={undefined}
   parent={Object {}}
   style={
     Object {
@@ -32,7 +30,6 @@ exports[`RowSelection should enhance classname without selection class on non se
 <RowRenderer
   className="my-class-names"
   index={1}
-  onRowClick={undefined}
   parent={Object {}}
   style={
     Object {

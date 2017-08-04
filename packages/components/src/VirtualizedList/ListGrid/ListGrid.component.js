@@ -30,7 +30,6 @@ function ListGrid(props) {
 			{
 				isActive,
 				isSelected,
-				onRowClick,
 				getRowData: ({ index }) => collection[index],
 			}
 		);

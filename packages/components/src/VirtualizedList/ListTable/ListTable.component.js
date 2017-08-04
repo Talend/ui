@@ -41,6 +41,11 @@ function ListTable(props) {
 		);
 	}
 
+	let onRowClickCallback;
+	if (onRowClick) {
+		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
+	}
+
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
@@ -48,13 +53,13 @@ function ListTable(props) {
 			headerHeight={35}
 			height={height}
 			id={id}
-			onRowClick={onRowClick}
+			onRowClick={onRowClickCallback}
+			noRowsRenderer={NoRows}
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}
 			rowRenderer={RowTableRenderer}
-			noRowsRenderer={NoRows}
 			sort={sort}
 			sortBy={sortBy}
 			sortDirection={sortDirection}
