@@ -43,7 +43,7 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
 
-function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
+function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
 	if (useContent) {
 		return (
 			<Content
@@ -71,8 +71,8 @@ function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }
 	}
 }
 DisplayModeComponent.propTypes = {
-	id: PropTypes.string,
 	displayMode: PropTypes.string,
+	id: PropTypes.string,
 	list: PropTypes.oneOfType([
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
@@ -81,7 +81,7 @@ DisplayModeComponent.propTypes = {
 	virtualized: PropTypes.bool,
 };
 
-function ListDisplay({ id, useContent, displayMode, list, virtualized }) {
+function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -130,7 +130,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
+function List({ displayMode, id, list, toolbar, useContent, virtualized }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -144,10 +144,10 @@ function List({ id, displayMode, toolbar, list, useContent, virtualized }) {
 				list={list}
 			/>
 			<ListDisplay
-				id={id}
-				useContent={useContent}
 				displayMode={displayMode}
+				id={id}
 				list={list}
+				useContent={useContent}
 				virtualized={virtualized}
 			/>
 		</div>

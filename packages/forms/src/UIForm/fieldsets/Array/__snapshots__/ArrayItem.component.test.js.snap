@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Array Item component should NOT render control panel when value.isClosed is true 1`] = `
+<div
+  className="tf-array-item"
+>
+  <span>
+    This is the item content
+  </span>
+</div>
+`;
+
+exports[`Array Item component should disable moveDown 1`] = `
+<div
+  className="tf-array-item"
+>
+  <div
+    className={undefined}
+  >
+    <button
+      className={undefined}
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-trash"
+      />
+    </button>
+    <button
+      disabled={false}
+      id="talend-control-3-moveUp"
+      onClick={[Function]}
+      title="Move Up"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform="flip-vertical"
+      />
+    </button>
+    <button
+      disabled={true}
+      id="talend-control-3-moveDown"
+      onClick={[Function]}
+      title="Move Down"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+      />
+    </button>
+  </div>
+  <span>
+    This is the item content
+  </span>
+</div>
+`;
+
+exports[`Array Item component should disable moveUp 1`] = `
+<div
+  className="tf-array-item"
+>
+  <div
+    className={undefined}
+  >
+    <button
+      className={undefined}
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-trash"
+      />
+    </button>
+    <button
+      disabled={true}
+      id="talend-control-3-moveUp"
+      onClick={[Function]}
+      title="Move Up"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform="flip-vertical"
+      />
+    </button>
+    <button
+      disabled={false}
+      id="talend-control-3-moveDown"
+      onClick={[Function]}
+      title="Move Down"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+      />
+    </button>
+  </div>
+  <span>
+    This is the item content
+  </span>
+</div>
+`;
+
+exports[`Array Item component should render control panel with item content 1`] = `
+<div
+  className="tf-array-item"
+>
+  <div
+    className={undefined}
+  >
+    <button
+      className={undefined}
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-trash"
+      />
+    </button>
+    <button
+      disabled={false}
+      id="talend-control-3-moveUp"
+      onClick={[Function]}
+      title="Move Up"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform="flip-vertical"
+      />
+    </button>
+    <button
+      disabled={false}
+      id="talend-control-3-moveDown"
+      onClick={[Function]}
+      title="Move Down"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+      />
+    </button>
+  </div>
+  <span>
+    This is the item content
+  </span>
+</div>
+`;
