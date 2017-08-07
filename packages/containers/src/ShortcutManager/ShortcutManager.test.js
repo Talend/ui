@@ -9,10 +9,8 @@ import Connected from './ShortcutManager.connect';
 
 describe('Container ShortcutManager', () => {
 	it('should render', () => {
-		const wrapper = shallow(
-			<Container />,
-		);
-		expect(wrapper.props()).toMatchSnapshot();
+		const wrapper = shallow(<Container />);
+		expect(wrapper.node).toBeNull();
 	});
 });
 
