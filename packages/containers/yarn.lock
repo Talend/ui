@@ -1402,9 +1402,9 @@ bootstrap-sass@3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.97.0:
-  version "0.97.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.97.0.tgz#415881bd6bb1e0877d9439a9e3fd37d14819a46e"
+bootstrap-talend-theme@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.100.0.tgz#6b163e89cd936340a160c8f2f2b61fce71032bcb"
   dependencies:
     bootstrap-sass "3.3.7"
 
@@ -5379,9 +5379,9 @@ react-bootstrap@0.31.0:
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
-react-cmf@^0.97.0:
-  version "0.97.0"
-  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.97.0.tgz#b5f7f5ea1c8edf992289e1e12f5a75698f0cc904"
+react-cmf@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.100.0.tgz#9e6224d9af3746bf3bf8d60512a65f5368227824"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
@@ -5554,9 +5554,9 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-talend-components@^0.97.0:
-  version "0.97.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.97.0.tgz#9ace03229f2cdeca3d1e0e9d1b315093958055de"
+react-talend-components@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.100.0.tgz#f821b7f01695311d5773fc499e20ffe71060ebcf"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "^7.0.0"
@@ -6318,9 +6318,9 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-talend-icons@^0.97.0:
-  version "0.97.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.97.0.tgz#0b31539a96d9b6586290135d6f94d38b5e4e3b6a"
+talend-icons@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.100.0.tgz#18042bfd81804fae53f198ffdaee2500ea78f7d4"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
