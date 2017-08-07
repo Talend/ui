@@ -61,7 +61,6 @@ try {
 				readonly,
 				autofocus,
 			} = this.props;
-			console.log(options);
 			if (options && options.language && DEFAULT_LANGUAGES.indexOf(options.language) === -1) {
 				try {
 					require(`brace/mode/${options.language}`);
@@ -69,8 +68,10 @@ try {
 					console.error(e);
 				}
 			}
+
 			return (
 				<AceEditor
+					className="tf-widget-code form-control"
 					autofocus={autofocus}
 					id={id}
 					width="auto"
@@ -79,7 +80,6 @@ try {
 					onChange={this.onChange}
 					readOnly={readonly}
 					disabled={disabled}
-					className="form-control"
 					setOptions={setOptions}
 					theme="monokai"
 					enableSnippets
