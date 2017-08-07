@@ -12,7 +12,9 @@ function VirtualizedList(props) {
 		collection,
 		children,
 		id,
+		isActive,
 		isSelected,
+		onRowClick,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -34,7 +36,9 @@ function VirtualizedList(props) {
 					collection={collection}
 					height={height}
 					id={id}
+					isActive={isActive}
 					isSelected={isSelected}
+					onRowClick={onRowClick}
 					rowHeight={rowHeight}
 					selectionToggle={selectionToggle}
 					sort={sort}

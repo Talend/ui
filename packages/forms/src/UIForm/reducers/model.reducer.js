@@ -14,10 +14,17 @@ function mutateValue(properties, key, value) {
 
 	const nextKey = key[0];
 	const restKeys = key.slice(1);
-	return {
-		...properties,
-		[nextKey]: mutateValue(properties[nextKey], restKeys, value),
-	};
+	const nextValue = mutateValue(properties[nextKey], restKeys, value);
+
+	let nextProperties;
+	if (properties instanceof Array) {
+		nextProperties = properties.slice(0);
+	} else {
+		nextProperties = { ...properties };
+	}
+
+	nextProperties[nextKey] = nextValue;
+	return nextProperties;
 }
 
 /**
