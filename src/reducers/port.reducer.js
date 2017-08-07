@@ -3,7 +3,7 @@
 import invariant from 'invariant';
 import { Map, fromJS } from 'immutable';
 
-import type { Id, FlowAction, Port, PortDirection, PortRecordType, PortRecordMap, FlowState } from '../flow-typed';
+import type { Id, PortAction, Port, PortDirection, PortRecordType, PortRecordMap, State } from '../flow-typed';
 
 import {
 	PortRecord, PortData, PortGraphicalAttributes, PositionRecord,
@@ -67,7 +67,7 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
 	});
 }
 
-function setPort(state: FlowState, port: Port): FlowState {
+function setPort(state: State, port: Port) {
 	const index: number = port.graphicalAttributes.properties.index
 		|| calculateNewPortIndex(state.get('ports'), port);
 	const newState = state.setIn(['ports', port.id], new PortRecord({
@@ -96,7 +96,7 @@ function setPort(state: FlowState, port: Port): FlowState {
 	return state;
 }
 
-export default function portReducer(state: FlowState, action: FlowAction): FlowState {
+export default function portReducer(state: State, action: PortAction): State {
 	switch (action.type) {
 	case FLOWDESIGNER_PORT_ADD:
 		if (!state.getIn(['nodes', action.nodeId])) {
