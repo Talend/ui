@@ -4,12 +4,13 @@ import { Icon, IconsProvider } from 'react-talend-components';
 
 import theme from './ArrayFieldTemplate.scss';
 
-function FieldTemplate({ element }) {
+function FieldTemplate({ element, cantDelete }) {
 	return (
 		<div className={theme.arrayElement}>
 			{!element.itemData.isClosed &&
 				<div className={theme.control}>
 					<button
+						disabled={cantDelete}
 						className={theme.delete}
 						onClick={element.onDropIndexClick(element.index)}
 						title="Delete"
@@ -40,15 +41,19 @@ function FieldTemplate({ element }) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		element: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		cantDelete: PropTypes.bool.isRequired,
 	};
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick, maxItems } = props;
+	const { items, canAdd, onAddClick, minItems, maxItems } = props;
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{items && items.map(element => <FieldTemplate element={element} />)}
+			{items && items.map(element => <FieldTemplate
+				element={element}
+				cantDelete={items.length <= minItems}
+			/>)}
 			{canAdd && items.length < maxItems &&
 				<button className="btn btn-info" type="button" onClick={onAddClick}>
 					NEW ELEMENT
@@ -61,7 +66,8 @@ if (process.env.NODE_ENV !== 'production') {
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
 		canAdd: PropTypes.func.isRequired,
 		onAddClick: PropTypes.func.isRequired,
-		maxItems: PropTypes.number,
+		minItems: PropTypes.number.isRequired,
+		maxItems: PropTypes.number.isRequired,
 	};
 }
 export default ArrayFieldTemplate;
