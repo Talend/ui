@@ -103,7 +103,6 @@ describe('smart websocket tests', () => {
 	describe('SmartWebsocket function', () => {
 		it('should create a websocket', () => {
 			// given
-			const url = urlWS;
 			const options = {
 				onMessage: jest.fn(),
 				onOpen: jest.fn(),
