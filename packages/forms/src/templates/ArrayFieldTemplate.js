@@ -44,12 +44,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick } = props;
+	const { items, canAdd, onAddClick, maxItems } = props;
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
 			{items && items.map(element => <FieldTemplate element={element} />)}
-			{canAdd &&
+			{canAdd && items.length < maxItems &&
 				<button className="btn btn-info" type="button" onClick={onAddClick}>
 					NEW ELEMENT
 				</button>}
@@ -61,6 +61,7 @@ if (process.env.NODE_ENV !== 'production') {
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
 		canAdd: PropTypes.func.isRequired,
 		onAddClick: PropTypes.func.isRequired,
+		maxItems: PropTypes.number,
 	};
 }
 export default ArrayFieldTemplate;

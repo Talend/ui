@@ -300,6 +300,7 @@ class ArrayField extends Component {
 
 		const arrayProps = {
 			canAdd: addable,
+			maxItems: schema.maxItems,
 			items: formData.map((item, index) => {
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
