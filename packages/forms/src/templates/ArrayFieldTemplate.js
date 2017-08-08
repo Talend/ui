@@ -50,7 +50,7 @@ function ArrayFieldTemplate(props) {
 			<IconsProvider />
 			{items && items.map(element => <FieldTemplate element={element} />)}
 			{canAdd &&
-				<button className="btn btn-info" type="button" onClick={onAddClick}>
+				<button className="btn btn-info" type="button" name="new-element" onClick={onAddClick}>
 					NEW ELEMENT
 				</button>}
 		</div>
