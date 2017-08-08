@@ -3,7 +3,7 @@ import { merge } from 'talend-json-schema-form-core';
 
 import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
-import { validateValue, validateAll } from './utils/validation';
+import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 
@@ -40,22 +40,37 @@ export default class UIForm extends React.Component {
 	 * - onChange: for each field change
 	 * - onTrigger: when trigger is provided and its value is "after"
 	 * @param event The event that triggered the callback
-	 * @param payload { schema, value } The field schema and its new value
+	 * @param schema The payload field schema
+	 * @param value The payload new value
+	 * @param deepValidation Validate the subItems
+	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
 	 */
-	onChange(event, { schema, value }) {
-		const {
-			formName,
-			onChange,
-			properties,
-			customValidation,
-		} = this.props;
-		const error = validateValue(schema, value, properties, customValidation);
-		const payload = { formName, schema, value, error, properties };
-		onChange(event, payload);
+	onChange(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
+		const error = validateSingle(
+			schema,
+			value,
+			this.props.properties,
+			this.props.customValidation,
+			deepValidation
+		)[schema.key];
 
-		const { triggers } = schema;
-		if (triggers && triggers.includes(TRIGGER_AFTER)) {
+		const payload = {
+			formName: this.props.formName,
+			properties: this.props.properties,
+			schema,
+			value,
+			error,
+		};
+		this.props.onChange(event, payload);
+
+		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
 			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
+		}
+
+		if (widgetChangeErrors) {
+			const errors = widgetChangeErrors(this.props.errors);
+			errors[schema.key] = error;
+			this.props.setErrors(this.props.formName, errors);
 		}
 	}
 
