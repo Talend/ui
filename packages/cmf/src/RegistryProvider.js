@@ -2,7 +2,6 @@
  * @module react-cmf/lib/RegistryProvider
  */
 import PropTypes from 'prop-types';
-
 import React, { Children } from 'react';
 import Registry from './registry';
 
