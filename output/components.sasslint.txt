@@ -6,5 +6,8 @@
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 1 problem (0 errors, 1 warning)
+src/VirtualizedList/RowSelection/RowSelection.scss
+  12:1  warning  Space expected between blocks  empty-line-between-blocks
+
+✖ 2 problems (0 errors, 2 warnings)
 
