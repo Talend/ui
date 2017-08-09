@@ -72,8 +72,8 @@ try {
 			return (
 				<AceEditor
 					className="tf-widget-code form-control"
-					autofocus={autofocus}
-					id={id}
+					focus={autofocus || false}
+					name={id}
 					width="auto"
 					mode={options && options.language}
 					onLoad={this.onLoad}
