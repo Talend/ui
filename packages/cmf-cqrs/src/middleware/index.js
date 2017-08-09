@@ -1,5 +1,3 @@
 import smartWebsocket from './smartWebsocket';
 
-export default {
-	smartWebsocket,
-};
+export default { smartWebsocket };
