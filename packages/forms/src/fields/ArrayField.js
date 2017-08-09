@@ -276,8 +276,7 @@ class ArrayField extends Component {
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
 		const { TitleField, DescriptionField } = fields;
 		const itemsSchema = retrieveSchema(schema.items, definitions);
-		const { widget, addable = true, ...options } = getUiOptions(uiSchema);
-
+		const { widget, addable = true, type = 'element', ...options } = getUiOptions(uiSchema);
 		if (typeof widget === 'string') {
 			if (widget === 'hidden') {
 				return null;
@@ -299,6 +298,7 @@ class ArrayField extends Component {
 		}
 
 		const arrayProps = {
+			type,
 			canAdd: addable,
 			minItems: schema.minItems || 0,
 			maxItems: schema.maxItems || 999,
@@ -412,7 +412,6 @@ class ArrayField extends Component {
 			retrieveSchema(schema.additionalItems, definitions) : null;
 		const { addable = true } = getUiOptions(uiSchema);
 		const canAdd = addable && additionalSchema;
-
 		if (!items || items.length < itemSchemas.length) {
 			// to make sure at least all fixed items are generated
 			items = items || [];

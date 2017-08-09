@@ -59,13 +59,14 @@ function ArrayFieldTemplate(props) {
 			/>)}
 			{canAdd &&
 				<button className="btn btn-info" type="button" name="btn-new-element" disabled={items.length >= maxItems} onClick={onAddClick}>
-					NEW ELEMENT
+					{`NEW ${props.type}`}
 				</button>}
 		</div>
 	);
 }
 if (process.env.NODE_ENV !== 'production') {
 	ArrayFieldTemplate.propTypes = {
+		type: PropTypes.string.isRequired,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
 		canAdd: PropTypes.func.isRequired,
 		onAddClick: PropTypes.func.isRequired,
