@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import Form from '../Form';
 
 import createCollapsibleFieldset from './CollapsibleFieldset';
+import ArrayFieldTemplate from '../templates/ArrayFieldTemplate';
 
 describe('<CollapsibleFieldset />', () => {
 	const fields = {
@@ -17,6 +18,8 @@ describe('<CollapsibleFieldset />', () => {
 				filters: {
 					type: 'array',
 					title: 'A list of strings',
+					minItems: 1,
+					maxItems: 2,
 					items: {
 						type: 'object',
 						properties: {
@@ -90,5 +93,35 @@ describe('<CollapsibleFieldset />', () => {
 		);
 		wrapper.find('#root_filters_0__title_bar').simulate('doubleClick');
 		expect(wrapper.html()).toMatchSnapshot();
+	});
+
+	it('should handle minItems', () => {
+		const wrapper = mount(
+			<Form fields={fields} data={schema} ArrayFieldTemplate={ArrayFieldTemplate}>
+				<h1>Child</h1>
+				<p>This is an inner child in the form</p>
+			</Form>
+		);
+		expect(wrapper.find("button[name='btn-delete-element-0']").prop('disabled')).toBeTruthy();
+	});
+
+	it('should handle maxItems', () => {
+		schema.properties.filters = [
+			{
+				isClosed: false,
+				function: 'upperCase',
+			},
+			{
+				isClosed: false,
+				function: 'upperCase',
+			},
+		];
+		const wrapper = mount(
+			<Form fields={fields} data={schema} ArrayFieldTemplate={ArrayFieldTemplate}>
+				<h1>Child</h1>
+				<p>This is an inner child in the form</p>
+			</Form>
+		);
+		expect(wrapper.find("button[name='btn-new-element']").prop('disabled')).toBeTruthy();
 	});
 });
