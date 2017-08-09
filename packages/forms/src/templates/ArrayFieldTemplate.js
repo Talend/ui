@@ -10,6 +10,7 @@ function FieldTemplate({ element, cantDelete }) {
 			{!element.itemData.isClosed &&
 				<div className={theme.control}>
 					<button
+						name={`btn-delete-element-${element.index}`}
 						disabled={cantDelete}
 						className={theme.delete}
 						onClick={element.onDropIndexClick(element.index)}
@@ -18,6 +19,7 @@ function FieldTemplate({ element, cantDelete }) {
 						<Icon name="talend-trash" />
 					</button>
 					<button
+						name={`btn-move-element-up-${element.index}`}
 						disabled={!element.hasMoveUp}
 						onClick={element.onReorderClick(element.index, element.index - 1)}
 						title="Move Up"
@@ -25,6 +27,7 @@ function FieldTemplate({ element, cantDelete }) {
 						<Icon name="talend-caret-down" transform="flip-vertical" />
 					</button>
 					<button
+						name={`btn-move-element-down-${element.index}`}
 						disabled={!element.hasMoveDown}
 						onClick={element.onReorderClick(element.index, element.index + 1)}
 						title="Move Down"
@@ -55,7 +58,7 @@ function ArrayFieldTemplate(props) {
 				cantDelete={items.length <= minItems}
 			/>)}
 			{canAdd &&
-				<button className="btn btn-info" type="button" disabled={items.length >= maxItems} onClick={onAddClick}>
+				<button className="btn btn-info" type="button" name="btn-new-element" disabled={items.length >= maxItems} onClick={onAddClick}>
 					NEW ELEMENT
 				</button>}
 		</div>
