@@ -55,7 +55,7 @@ function ArrayFieldTemplate(props) {
 				cantDelete={items.length <= minItems}
 			/>)}
 			{canAdd &&
-				<button className="btn btn-info" type="button" disabled={items.length < maxItems} onClick={onAddClick}>
+				<button className="btn btn-info" type="button" disabled={items.length >= maxItems} onClick={onAddClick}>
 					NEW ELEMENT
 				</button>}
 		</div>
