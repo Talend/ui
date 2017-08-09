@@ -116,7 +116,7 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(

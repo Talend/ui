@@ -44,7 +44,7 @@ export function getActionsProps(context, ids, model) {
 			} else {
 				context.store.dispatch(Object.assign({
 					model,
-				}, info.payload));
+				}, info.payload, { event: { ctrlKey: event.ctrlKey, button: event.button } }));
 			}
 		},
 	}, evalExpressions(info, context, { model })));

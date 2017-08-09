@@ -35,7 +35,7 @@ describe('Item', () => {
 		const wrapper = mount(itemInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(1).simulate('click', { stopPropagation: () => {} });
+		buttons.at(1).simulate('click', { button: 0 });
 
 		// then
 		expect(buttons.length).toBe(3);
@@ -55,7 +55,7 @@ describe('Item', () => {
 		const wrapper = mount(itemInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		buttons.at(0).simulate('click', { button: 0 });
 
 		// then
 		expect(buttons.length).toBe(3);

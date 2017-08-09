@@ -56,7 +56,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Action').at(0).simulate('click');
+			typeaheadInstance.find('Action').at(0).simulate('click', { button: 0 });
 
 			// then
 			expect(props.onToggle).toBeCalled();

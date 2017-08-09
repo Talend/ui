@@ -70,7 +70,7 @@ describe('DisplayTable', () => {
 		// when
 		const list = (<DisplayTable {...props} />);
 		const wrapper = mount(list);
-		wrapper.find('th').at(2).find('button').simulate('click');
+		wrapper.find('th').at(2).find('button').simulate('click', { button: 0 });
 
 		// then
 		expect(sort.onChange).toBeCalled();
@@ -96,7 +96,7 @@ describe('DisplayTable', () => {
 		// when
 		const list = (<DisplayTable {...props} />);
 		const wrapper = mount(list);
-		wrapper.find('th').at(1).find('button').simulate('click');
+		wrapper.find('th').at(1).find('button').simulate('click', { button: 0 });
 
 		// then
 		expect(sort.onChange).toBeCalled();

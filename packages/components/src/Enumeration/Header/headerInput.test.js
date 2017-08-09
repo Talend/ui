@@ -27,8 +27,8 @@ describe('Header input', () => {
 		const wrapper = mount(headerInputInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
-		buttons.at(1).simulate('click', { stopPropagation: () => {} });
+		buttons.at(0).simulate('click', { button: 0 });
+		buttons.at(1).simulate('click', { button: 0 });
 
 		// then
 		expect(props.headerInput[0].onClick).toBeCalled();

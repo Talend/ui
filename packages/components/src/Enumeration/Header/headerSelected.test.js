@@ -23,7 +23,7 @@ describe('Header selected', () => {
 		const wrapper = mount(headerInputInstance);
 		const buttons = wrapper.find(Button);
 
-		buttons.at(0).simulate('click', { stopPropagation: () => {} });
+		buttons.at(0).simulate('click', { button: 0 });
 
 		// then
 		expect(props.headerSelected[0].onClick).toBeCalled();

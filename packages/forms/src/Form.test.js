@@ -315,7 +315,7 @@ describe('<Form/>', () => {
 			const reset = actions.at(1);
 			expect(reset.props().type).toEqual('reset');
 
-			reset.simulate('click');
+			reset.simulate('click', { button: 0 });
 			expect(onClickReset.mock.calls.length).toEqual(1);
 			expect(onClickReset.mock.calls[0][0]).toBeTruthy();
 			expect(onClickReset.mock.calls[0][1]).toMatchSnapshot();

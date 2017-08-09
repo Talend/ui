@@ -45,7 +45,6 @@ function simulateSearch(wrp, value) {
 	});
 }
 
-
 describe('ListViewWidget', () => {
 	describe('toggleAll', () => {
 		it('should check every items', () => {
@@ -117,7 +116,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 			simulateSearch(wrapper, 'e')
 				.then(() => {
 					wrapper.find('#tc-listview-toggle-all').simulate('change');
@@ -147,7 +146,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('HeaderListView > input').length).toBe(0);
 		});
 
-		it('should input should be toggled when clicking on searh icon', () => {
+		it('should input should be toggled when clicking on search icon', () => {
 			// given
 			const wrapper = mount(
 				<ListViewWidget
@@ -156,7 +155,7 @@ describe('ListViewWidget', () => {
 			);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 
 			// then
 			expect(wrapper.find('HeaderListView > input').length).toBe(1);
@@ -175,7 +174,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 
 			simulateSearch(wrapper, 'e')
 				.then(() => {
@@ -198,7 +197,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			wrapper.find('button').at(0).simulate('click', { button: 0 });
 
 			simulateSearch(wrapper, 'E')
 				.then(() => {

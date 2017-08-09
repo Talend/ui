@@ -1,136 +1,160 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Action from './Action.component';
 
 jest.mock('react-dom');
-
+const onClickFn = jest.fn();
+const onMouseDownFn = jest.fn();
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
-	onClick: jest.fn(),
-};
-
-const mouseDownAction = {
-	label: 'Click me',
-	icon: 'talend-caret-down',
-	onMouseDown: jest.fn(),
+	onClick: onClickFn,
+	onMouseDown: onMouseDownFn,
 };
 
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = renderer.create(<Action {...myAction} />).toJSON();
+		const wrapper = shallow(<Action {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should click on the button trigger the onclick props', () => {
+	it('should trigger the onclick props when left-click on the button ', () => {
 		// given
-		const wrapper = renderer.create(<Action extra="extra" {...myAction} />).toJSON();
+		const wrapper = shallow(<Action extra="extra" {...myAction} />);
+		const buttonWrapper = wrapper.find('Button').at(0);
 
 		// when
-		wrapper.props.onClick();
+		buttonWrapper.simulate('click', { button: 0 });
 
 		// then
-		expect(myAction.onClick).toHaveBeenCalled();
-		expect(myAction.onClick.mock.calls.length).toBe(1);
-		const args = myAction.onClick.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(onClickFn).toHaveBeenCalledWith(
+			{ button: 0 },
+			{ action: {
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+			},
+				model: undefined,
+			});
+	});
+
+	it('should trigger the onclick props when middle-click on the button', () => {
+		// given
+		const wrapper = shallow(<Action extra="extra" {...myAction} />);
+		const buttonWrapper = wrapper.find('Button').at(0);
+
+		// when
+		buttonWrapper.simulate('mouseDown', { button: 1 });
+
+		// then
+		expect(onClickFn).toHaveBeenCalledWith(
+			{ button: 1 },
+			{ action: {
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+			},
+				model: undefined,
+			});
+	});
+
+	it('should trigger the onMouseDown props when mousedown (not middle-click) on the button', () => {
+		// given
+		const wrapper = shallow(<Action extra="extra" {...myAction} />);
+		const buttonWrapper = wrapper.find('Button').at(0);
+
+		// when
+		buttonWrapper.simulate('mouseDown', { button: 0 });
+
+		// then
+		expect(onMouseDownFn).toHaveBeenCalledWith(
+			{ button: 0 },
+			{ action: {
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+			},
+				model: undefined,
+			});
 	});
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				className="navbar-btn"
 				notExisting
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				className="navbar-btn"
 				inProgress
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should display a disabled Icon', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				className="navbar-btn"
 				disabled
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				iconPosition="right"
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				iconTransform={'rotate-180'}
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Action
 				name="custom_name"
 				{...myAction}
-			/>).toJSON();
+			/>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should trigger action if set up onMouseDown event', () => {
-		// given
-		const wrapper = renderer.create(<Action extra="extra" {...mouseDownAction} />).toJSON();
-
-		// when
-		wrapper.props.onMouseDown();
-
-		// then
-		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
-		expect(mouseDownAction.onMouseDown.mock.calls.length).toBe(1);
-		const args = mouseDownAction.onMouseDown.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should not render action if props.available=false', () => {

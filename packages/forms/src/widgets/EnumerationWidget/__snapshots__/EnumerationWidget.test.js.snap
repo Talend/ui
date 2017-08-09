@@ -5752,7 +5752,7 @@ exports[`EnumerationWidget should select an item 1`] = `
 </EnumerationWidget>
 `;
 
-exports[`EnumerationWidget should select multiple  items 1`] = `
+exports[`EnumerationWidget should select multiple items 1`] = `
 <EnumerationWidget
   formData={
     Array [
