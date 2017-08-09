@@ -32,7 +32,7 @@ class ShortcutManager extends React.Component {
 
 	// eslint-disable-next-line class-methods-use-this
 	componentWillUnmount() {
-		document.removeEventListener('keydown');
+		document.removeEventListener('keydown', this.handleKeyPress);
 	}
 
 	redirect(event, path) {
