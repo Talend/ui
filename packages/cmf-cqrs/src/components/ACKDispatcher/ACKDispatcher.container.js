@@ -4,9 +4,8 @@ import { api, componentState } from 'react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = new Map({});
 
-});
 /**
  * {
 		type: 'ACK_ADD_CONTEXT',
@@ -14,10 +13,10 @@ export const DEFAULT_STATE = new Map({
 		data: { foo: 'bar' },
 		actionCreator: 'dataset:fetchAll'
 	}
-	{
-		type: 'ACK_RECEIVE_MESSAGE',
-		requestId: '123',
-	}
+ {
+	 type: 'ACK_RECEIVE_MESSAGE',
+	 requestId: '123',
+ }
 
  */
 class ACKDispatcher extends React.Component {
@@ -34,38 +33,56 @@ class ACKDispatcher extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.dispatch = this.dispatch.bind(this);
+		this.dispatchAndUpdateAck = this.dispatchAndUpdateAck.bind(this);
+		this.processACK = this.processACK.bind(this);
+		this.state = { dispatchedAck: [] };
+	}
+
+	componentDidMount() {
+		if (this.props.acks) {
+			this.processACK(this.props.acks);
+		}
+	}
+
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.acks) {
+			this.processACK(nextProps.acks);
+		}
 	}
 
 	shouldComponentUpdate(nextProps) {
 		return this.props.acks !== nextProps.acks;
 	}
 
-	dispatch(actionCreator, data, requestId) {
+	dispatchAndUpdateAck(actionCreator, data, requestId) {
 		const action = api.action.getActionCreatorFunction(
-				this.context,
-				actionCreator,
+			this.context,
+			actionCreator,
 		)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
+		this.setState((oldState) => {
+			if (oldState.dispatchedAck.includes(requestId)) {
+				return oldState;
+			}
+			return { dispatchedAck: oldState.dispatchedAck.concat([requestId]) };
+		});
 	}
 
-	processACK() {
-		this.props.acks
+	processACK(acks) {
+		acks
 			.filter(ack => ack.get('received') === true && ack.get('actionCreator'))
 			.forEach((ack, requestId) => {
 				let data = ack.get('data');
 				if (data === undefined) {
 					data = {};
 				}
-				this.dispatch(ack.get('actionCreator'), data, requestId);
+				this.dispatchAndUpdateAck(ack.get('actionCreator'), data, requestId);
 			});
 	}
 
-	render() {
-		if (this.props.acks) {
-			this.processACK();
-		}
+	render() { // eslint-disable-line class-methods-use-this
 		return null;
 	}
 }
