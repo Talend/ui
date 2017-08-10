@@ -41,55 +41,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/tmp.js
-   1:19  error  Strings must use singlequote                                                                      quotes
-   2:1   error  'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
-   2:23  error  Strings must use singlequote                                                                      quotes
-   5:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  17:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  17:9   error  Unexpected dangling '_' in '_onChange'                                                            no-underscore-dangle
-  17:34  error  'value' is already declared in the upper scope                                                    no-shadow
-  17:48  error  Unexpected block statement surrounding arrow body                                                 arrow-body-style
-  18:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  18:31  error  Strings must use singlequote                                                                      quotes
-  19:3   error  Expected indentation of 0 tabs but found 2 spaces                                                 indent
-  20:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  21:5   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent
-  22:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  23:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  24:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  24:31  error  Strings must use singlequote                                                                      quotes
-  24:45  error  Strings must use singlequote                                                                      quotes
-  25:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  26:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  27:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  28:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  29:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  30:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  31:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  32:7   error  Expected indentation of 1 tab character but found 0                                               react/jsx-indent-props
-  38:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  39:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  42:30  error  Strings must use singlequote                                                                      quotes
-  43:3   error  Expected indentation of 1 tab but found 2 spaces                                                  indent
-  44:5   error  Prop type `object` is forbidden                                                                   react/forbid-prop-types
-  44:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  44:13  error  'schema' PropType is defined but prop is never used                                               react/no-unused-prop-types
-  45:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  46:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  47:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  48:7   error  Expected indentation of 1 tab but found 6 spaces                                                  indent
-  49:5   error  Expected indentation of 0 tabs but found 4 spaces                                                 indent
-  50:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  51:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  52:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  53:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  54:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  55:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  56:5   error  Expected indentation of 1 tab but found 4 spaces                                                  indent
-  57:3   error  Expected indentation of 0 tabs but found 2 spaces                                                 indent
-  60:31  error  Newline required at end of file but not found                                                     eol-last
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   37:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -110,5 +61,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 82 problems (82 errors, 0 warnings)
+✖ 35 problems (35 errors, 0 warnings)
 
