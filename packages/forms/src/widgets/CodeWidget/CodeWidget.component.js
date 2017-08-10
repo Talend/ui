@@ -87,6 +87,8 @@ try {
 					enableSnippets
 					value={value}
 					theme="monokai"
+					showGutter={false}
+					showPrintMargin={false}
 					{...contextProps}
 				/>
 			);
