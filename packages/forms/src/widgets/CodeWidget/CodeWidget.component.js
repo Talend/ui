@@ -18,25 +18,9 @@ const SET_OPTIONS = {
 	enableLiveAutocompletion: true,
 	enableSnippets: true,
 };
-const DEFAULT_LANGUAGES = ['javascript', 'java', 'python', 'sql', 'json'];
 
 try {
 	const AceEditor = require('react-ace').default;
-
-	try {
-		require('brace/theme/monokai');
-		require('brace/ext/language_tools');
-	} catch (e) {
-		console.log(e);
-	}
-	DEFAULT_LANGUAGES.forEach((lang) => {
-		try {
-			require(`brace/mode/${lang}`);
-			require(`brace/snippets/${lang}`);
-		} catch (e) {
-			console.log(e);
-		}
-	});
 
 	class AceCodeWidget extends React.Component {
 		static displayName = 'AceCodeWidget';
