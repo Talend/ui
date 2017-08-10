@@ -1,7 +1,7 @@
 import smartWebsocket from './smartWebsocket';
-import socketMiddleware from './socketMiddleware';
+import createWebsocketMiddleware from './socketMiddleware';
 
 export default {
 	smartWebsocket,
-	socketMiddleware,
+	createWebsocketMiddleware,
 };
