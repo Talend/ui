@@ -9,4 +9,11 @@
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
+	.row-selection.active {
+		background: $tc-list-row-active-bg;
+
+		&:hover {
+			background: $tc-list-row-active-hover-bg;
+		}
+	}
 }
