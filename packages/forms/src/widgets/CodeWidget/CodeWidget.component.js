@@ -1,3 +1,8 @@
+/* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable global-require */
+
 import React, { PropTypes } from 'react';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
 
