@@ -14,6 +14,12 @@ import jsonStories from './jsonStories';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
 
+// integrate widget code
+import 'brace/theme/monokai';
+import 'brace/ext/language_tools';
+import 'brace/mode/python';
+import 'brace/snippets/python';
+
 const reducers = { forms: formReducer };
 const reducer = combineReducers(reducers);
 const store = createStore(reducer);
