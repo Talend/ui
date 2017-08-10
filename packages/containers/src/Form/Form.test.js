@@ -37,7 +37,7 @@ describe('Container(Form)', () => {
 		const onSubmit = jest.fn();
 		const dispatchActionCreator = jest.fn();
 		const form = new Container({
-			state: fromJS({ schema: true }),
+			state: fromJS({ data: { schema: true } }),
 			setState: jest.fn(),
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
@@ -52,7 +52,7 @@ describe('Container(Form)', () => {
 		const onChange = jest.fn();
 		const setState = jest.fn();
 		const form = new Container({
-			state: fromJS({ schema: true }),
+			state: fromJS({ data: { schema: true } }),
 			onChange,
 			setState,
 		});
@@ -64,7 +64,7 @@ describe('Container(Form)', () => {
 	it('should use props.onTrigger', () => {
 		const onTrigger = jest.fn();
 		const form = new Container({
-			state: fromJS({ schema: true }),
+			state: fromJS({ data: { schema: true } }),
 			onTrigger,
 		});
 		form.onTrigger({ foo: 'bar' }, 'my-form', 'key', 'value');
