@@ -72,11 +72,10 @@ class Form extends React.Component {
 			this.props.onSubmit(formData);
 		}
 		if (this.props.onSubmitActionCreator) {
-			this.props.dispatchActionCreator(
-				this.props.onSubmitActionCreator,
-				null,
-				{ props: this.props, formData },
-			);
+			this.props.dispatchActionCreator(this.props.onSubmitActionCreator, null, {
+				props: this.props,
+				formData,
+			});
 		}
 		this.props.setState({ data: undefined, dirty: false });
 	}
@@ -84,7 +83,7 @@ class Form extends React.Component {
 	formActions() {
 		if (typeof this.props.actions === 'function') {
 			const state = (this.props.state || DEFAULT_STATE).toJS();
-			return this.props.actions(state.data);
+			return this.props.actions(state.data || this.props.data);
 		}
 		return this.props.actions;
 	}
@@ -120,14 +119,10 @@ class Form extends React.Component {
 			uiSchema: this.uiSchema(),
 			properties: this.data(),
 		};
-		const className = classnames(
-			'tc-form',
-			'rjsf',
-			{
-				dirty: state.dirty,
-				pristine: !state.dirty,
-			},
-		);
+		const className = classnames('tc-form', 'rjsf', {
+			dirty: state.dirty,
+			pristine: !state.dirty,
+		});
 		return (
 			<ComponentForm
 				className={className}

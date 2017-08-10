@@ -15,8 +15,8 @@ describe('Container(Form)', () => {
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
 				actions={actions}
-				formProps={formProps}  // extra props
-			/>,
+				formProps={formProps} // extra props
+			/>
 		);
 		const props = wrapper.props();
 		expect(props).toMatchSnapshot();
@@ -31,8 +31,8 @@ describe('Container(Form)', () => {
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
 				actions={actions}
-				formProps={formProps}  // extra props
-			/>,
+				formProps={formProps} // extra props
+			/>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
