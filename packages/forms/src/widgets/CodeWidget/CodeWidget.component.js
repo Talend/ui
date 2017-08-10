@@ -3,7 +3,8 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable global-require */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
 
 function TextareaCodeWidget(props) {
@@ -67,9 +68,6 @@ try {
 				readonly,
 				autofocus,
 			} = this.props;
-			if (options && options.language && DEFAULT_LANGUAGES.indexOf(options.language) === -1) {
-				console.error(`${options.language} language not supported`);
-			}
 			// allow override using
 			const contextProps = this.props.formContext && this.props.formContext.codeWidgetProps;
 			let setOptions = SET_OPTIONS;
