@@ -18,6 +18,7 @@ import ActionBar from './ActionBar';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
+import Form from './Form';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -38,6 +39,7 @@ export {
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
+	Form,
 	HomeListView,
 	Icon,
 	IconsProvider,
