@@ -41,21 +41,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.component.js
-    9:1   error    Exporting mutable 'let' binding, use 'const' instead                                    import/no-mutable-exports
-   18:20  error    Unexpected require()                                                                    global-require
-   18:20  error    'react-ace' should be listed in the project's dependencies, not devDependencies         import/no-extraneous-dependencies
-   21:3   error    Unexpected require()                                                                    global-require
-   21:3   error    'brace' should be listed in the project's dependencies. Run 'npm i -S brace' to add it  import/no-extraneous-dependencies
-   22:3   error    Unexpected require()                                                                    global-require
-   22:3   error    'brace' should be listed in the project's dependencies. Run 'npm i -S brace' to add it  import/no-extraneous-dependencies
-   24:3   warning  Unexpected console statement                                                            no-console
-   28:4   error    Unexpected require()                                                                    global-require
-   29:4   error    Unexpected require()                                                                    global-require
-   31:4   warning  Unexpected console statement                                                            no-console
-   66:5   warning  Unexpected console statement                                                            no-console
-  114:2   warning  Unexpected console statement                                                            no-console
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/tmp.js
    1:19  error  Strings must use singlequote                                                                      quotes
    2:1   error  'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
@@ -125,5 +110,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 95 problems (91 errors, 4 warnings)
+✖ 82 problems (82 errors, 0 warnings)
 
