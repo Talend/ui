@@ -10,11 +10,5 @@ const commonConfiguration = require('../../../.storybook/webpack.config');
 
 module.exports = (storybookBaseConfig) => {
 	const storybookConfig = commonConfiguration(storybookBaseConfig);
-
-	storybookConfig.module.rules.push({
-		test: /\.json$/,
-		loader: 'json-loader',
-	});
-
 	return storybookConfig;
 };
