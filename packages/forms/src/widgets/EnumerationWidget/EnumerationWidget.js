@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import keycode from 'keycode';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';

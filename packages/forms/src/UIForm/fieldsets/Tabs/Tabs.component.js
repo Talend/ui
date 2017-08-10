@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Tabs as RBTabs, Tab as RBTab } from 'react-bootstrap';
 import classNames from 'classnames';
 
@@ -37,7 +38,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		schema: PropTypes.shape({
 			items: PropTypes.arrayOf(
-				React.PropTypes.shape({
+				PropTypes.shape({
 					title: PropTypes.string.isRequired,
 					items: PropTypes.array.isRequired,
 				})

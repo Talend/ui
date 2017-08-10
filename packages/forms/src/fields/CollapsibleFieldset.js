@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Icon } from '@talend/react-components';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 

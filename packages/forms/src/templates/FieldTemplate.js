@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Label from './LabelTemplate';
 
 /**
@@ -34,6 +35,7 @@ function CustomFieldTemplate(props) {
 		'checkboxes',
 		'checkbox',
 		'radio',
+		'code',
 		'range',
 		'multiSelectTag',
 	].includes(uiWidget);

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Emphasis from '@talend/react-components/lib/Emphasis';
 import classnames from 'classnames';

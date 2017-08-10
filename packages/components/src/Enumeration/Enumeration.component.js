@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import headerPropTypes from './Header/Header.propTypes';
@@ -52,9 +53,9 @@ Enumeration.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
-		getItemHeight: React.PropTypes.oneOfType([
-			React.PropTypes.func,
-			React.PropTypes.number,
+		getItemHeight: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.number,
 		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,

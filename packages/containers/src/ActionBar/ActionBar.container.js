@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { ActionBar as Component } from '@talend/react-components';
 import { getActionsProps } from '../actionAPI';
 import Action from '../Action';

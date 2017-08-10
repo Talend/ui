@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Action as PureAction } from '@talend/react-components';
 import actions from '../actionAPI';
 
