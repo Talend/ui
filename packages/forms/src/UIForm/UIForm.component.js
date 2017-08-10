@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
 import { TRIGGER_AFTER } from './utils/triggers';

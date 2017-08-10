@@ -3,7 +3,9 @@
  * @module react-cmf/lib/Dispatcher
  *
  */
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React from 'react';
 import cmfConnect from './cmfConnect';
 import api from './api';
 

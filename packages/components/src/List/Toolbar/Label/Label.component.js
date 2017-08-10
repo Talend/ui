@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 
@@ -10,8 +11,8 @@ function Label({ htmlFor, text }) {
 }
 
 Label.propTypes = {
-	htmlFor: React.PropTypes.string,
-	text: React.PropTypes.string.isRequired,
+	htmlFor: PropTypes.string,
+	text: PropTypes.string.isRequired,
 };
 
 export default Label;

@@ -47,6 +47,7 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
+    "prop-types": "^15.5.10",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.101.0",
     "react-test-renderer": "15.5.4",
@@ -70,6 +71,7 @@
     "react": "15.5.4",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
+    "prop-types": "^15.5.10",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.101.0",
     "redux": "^3.6.0"
