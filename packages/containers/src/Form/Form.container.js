@@ -30,7 +30,7 @@ class Form extends React.Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data']);
+		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], Map());
 	}
 
 	constructor(props) {
@@ -41,6 +41,7 @@ class Form extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
+		this.data = this.data.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
