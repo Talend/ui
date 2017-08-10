@@ -1415,9 +1415,9 @@ bootstrap-sass@3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.99.0:
-  version "0.99.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.99.0.tgz#2aec9a63428edeb7fac9a5dee922bf4056c41438"
+bootstrap-talend-theme@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.100.0.tgz#6b163e89cd936340a160c8f2f2b61fce71032bcb"
   dependencies:
     bootstrap-sass "3.3.7"
 
@@ -5489,9 +5489,9 @@ react-bootstrap@0.31.0:
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
-react-cmf@^0.99.0:
-  version "0.99.0"
-  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.99.0.tgz#b8145838a7bc3ffe428143dcba5c97415b9f0979"
+react-cmf@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.100.0.tgz#9e6224d9af3746bf3bf8d60512a65f5368227824"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
@@ -5684,9 +5684,9 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-talend-components@^0.99.0:
-  version "0.99.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.99.0.tgz#bd1a0b694922b87f65223097bf00919866ecdfc3"
+react-talend-components@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.100.0.tgz#f821b7f01695311d5773fc499e20ffe71060ebcf"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "^7.0.0"

@@ -11,6 +11,8 @@ import {
 	Typeahead,
 } from 'react-talend-components';
 
+import actionAPI from './actionAPI';
+import componentState from './state';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import Actions from './Actions';
@@ -22,36 +24,33 @@ import List from './List';
 import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
+import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
-
-import actionAPI from './actionAPI';
-import componentState from './state';
 
 export {
 	actionAPI,
 	componentState,
-
 	Action,
 	ActionBar,
 	Actions,
-	AppHeaderBar,
-	Form,
-	HomeListView,
-	List,
-	ObjectViewer,
-	Redirect,
-	SidePanel,
-
 	ActionDropdown,
-	Notification,
+	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
-	TreeView,
+	Form,
+	HomeListView,
 	Icon,
 	IconsProvider,
 	Layout,
+	List,
+	Notification,
+	ObjectViewer,
+	Redirect,
+	ShortcutManager,
+	SidePanel,
 	TooltipTrigger,
+	TreeView,
 	Typeahead,
 };
