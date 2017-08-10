@@ -7,25 +7,30 @@ function TextareaCodeWidget(props) {
 TextareaCodeWidget.displayName = 'TextareaCodeWidget';
 
 let CodeWidget = TextareaWidget;
+const SET_OPTIONS = {
+	enableBasicAutocompletion: true,
+	enableLiveAutocompletion: true,
+	enableSnippets: true,
+};
+const DEFAULT_LANGUAGES = ['javascript', 'java', 'python', 'sql', 'json'];
 
 try {
-	const DEFAULT_LANGUAGES = ['javascript', 'java', 'python'];
 	const AceEditor = require('react-ace').default;
+
 	try {
 		require('brace/theme/monokai');
 		require('brace/ext/language_tools');
-	} catch (e) {}
-	DEFAULT_LANGUAGES.forEach(lang => {
+	} catch (e) {
+		console.log(e);
+	}
+	DEFAULT_LANGUAGES.forEach((lang) => {
 		try {
 			require(`brace/mode/${lang}`);
 			require(`brace/snippets/${lang}`);
-		} catch(e) {}
+		} catch (e) {
+			console.log(e);
+		}
 	});
-	const setOptions = {
-		enableBasicAutocompletion: true,
-		enableLiveAutocompletion: true,
-		enableSnippets: true,
-	};
 
 	class AceCodeWidget extends React.Component {
 		static displayName = 'AceCodeWidget';
@@ -36,20 +41,16 @@ try {
 			this.onLoad = this.onLoad.bind(this);
 		}
 
-		/**
-		 * ACE editor has an onchange quite different
-		 * this re-map the change to a more form stuff
-		 * @param  {String} value     the old value
-		 * @param  {Object} operation {"start":{"row":1,"column":0},"end":{"row":2,"column":0},"action":"insert","lines":["",""]}
-		 */
-		onChange(value, operation) {
+		onChange(value) {
 			if (this.props.onChange) {
 				this.props.onChange(value);
 			}
 		}
 
-		onLoad(event, arg2) {
-			this.editor = event.env.editor;
+		onLoad(event) {
+			if (this.props.formContext.codeWidgetOnLoad) {
+				this.props.formContext.codeWidgetOnLoad(event.env.editor);
+			}
 		}
 
 		render() {
@@ -62,13 +63,15 @@ try {
 				autofocus,
 			} = this.props;
 			if (options && options.language && DEFAULT_LANGUAGES.indexOf(options.language) === -1) {
-				try {
-					require(`brace/mode/${options.language}`);
-				} catch (e) {
-					console.error(e);
-				}
+				console.error(`${options.language} language not supported`);
 			}
-
+			// allow override using
+			const contextProps = this.props.formContext && this.props.formContext.codeWidgetProps;
+			let setOptions = SET_OPTIONS;
+			if (contextProps && contextProps.setOptions) {
+				setOptions = Object.assign({}, SET_OPTIONS, contextProps.setOptions);
+				delete contextProps.setOptions;
+			}
 			return (
 				<AceEditor
 					className="tf-widget-code form-control"
@@ -81,17 +84,34 @@ try {
 					readOnly={readonly}
 					disabled={disabled}
 					setOptions={setOptions}
-					theme="monokai"
 					enableSnippets
-					showLineNumbers
 					value={value}
+					theme="monokai"
+					{...contextProps}
 				/>
 			);
 		}
 	}
 	CodeWidget = AceCodeWidget;
-	CodeWidget.displayName = 'AceEditorCodeWidget';
+	if (process.env.NODE_ENV !== 'production') {
+		AceCodeWidget.propTypes = {
+			onChange: PropTypes.func,
+			formContext: PropTypes.shape({
+				codeWidgetProps: PropTypes.object,
+				codeWidgetOnLoad: PropTypes.func,
+			}),
+			id: PropTypes.string,
+			options: PropTypes.shape({
+				language: PropTypes.string,
+			}),
+			value: PropTypes.string,
+			disabled: PropTypes.bool,
+			readonly: PropTypes.bool,
+			autofocus: PropTypes.bool,
+		};
+	}
 } catch (error) {
 	console.warn('CodeWidget react-ace not found, fallback to TextareaWidget', TextareaWidget);
 }
+
 export default CodeWidget;

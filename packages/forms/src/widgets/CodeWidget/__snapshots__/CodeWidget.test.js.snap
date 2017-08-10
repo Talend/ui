@@ -1,19 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CodeWidget should render AceEditor 1`] = `
+exports[`CodeWidget should render ReactAce 1`] = `
 <ReactAce
-  autofocus={undefined}
-  className="form-control"
+  className="tf-widget-code form-control"
   cursorStart={1}
   disabled={undefined}
   editorProps={Object {}}
   enableBasicAutocompletion={false}
   enableLiveAutocompletion={false}
+  enableSnippets={true}
   focus={false}
   fontSize={12}
   height="500px"
   highlightActiveLine={true}
-  id={undefined}
   maxLines={null}
   minLines={null}
   mode=""
@@ -36,16 +35,15 @@ exports[`CodeWidget should render AceEditor 1`] = `
       "enableBasicAutocompletion": true,
       "enableLiveAutocompletion": true,
       "enableSnippets": true,
-      "showLineNumbers": true,
     }
   }
   showGutter={true}
   showPrintMargin={true}
   style={Object {}}
   tabSize={4}
-  theme=""
+  theme="monokai"
   value=""
-  width="500px"
+  width="auto"
   wrapEnabled={false}
 />
 `;
