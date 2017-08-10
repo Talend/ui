@@ -1,0 +1,28 @@
+{
+  "opts": {
+    "recurse": true,
+    "destination": "docs/jsdoc",
+    "readme": "README.md"
+  },
+  "source": {
+    "include": [
+    ],
+    "excludePattern": "(node_modules/*|docs/*|lib/*)"
+  },
+  "plugins": [],
+  "templates": {
+    "license": "Apache-2.0",
+    "outputSourceFiles": true,
+    "systemName": "React CMF CQRS",
+    "navType": "vertical",
+    "theme": "cerulean",
+    "linenums": true,
+    "collapseSymbols": false,
+    "inverseNav": false,
+    "dateFormat": "YYYY-MM-DD",
+    "analytics": {
+      "ua": "UA-77701501-4",
+      "domain": "auto"
+    }
+  }
+}

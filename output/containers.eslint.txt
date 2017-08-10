@@ -16,6 +16,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
+  33:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
 /home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
@@ -44,5 +50,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 16 problems (15 errors, 1 warning)
 
