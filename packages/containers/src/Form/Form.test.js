@@ -7,15 +7,13 @@ import Connected from './Form.connect';
 
 describe('Container(Form)', () => {
 	it('should pass props to Form lib', () => {
-		const actions = [];
-		const formProps = { other: true };
 		const wrapper = shallow(
 			<Container
 				formId="test-form"
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
-				actions={actions}
-				formProps={formProps} // extra props
+				actions={[]}
+				formProps={{ other: true }} // extra props
 			/>
 		);
 		const props = wrapper.props();
@@ -23,26 +21,23 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render a Form', () => {
-		const actions = [];
-		const formProps = { other: true };
 		const wrapper = shallow(
 			<Container
 				formId="test-form"
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
-				actions={actions}
-				formProps={formProps} // extra props
+				actions={[]}
+				formProps={{ other: true }} // extra props
 			/>
 		);
 		expect(wrapper.root.node).toMatchSnapshot();
 	});
 
 	it('should use props.onSubmit', () => {
-		const data = { schema: true };
 		const onSubmit = jest.fn();
 		const dispatchActionCreator = jest.fn();
 		const form = new Container({
-			state: fromJS({ data }),
+			state: fromJS({ schema: true }),
 			setState: jest.fn(),
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
@@ -54,11 +49,10 @@ describe('Container(Form)', () => {
 	});
 
 	it('should use props.onChange', () => {
-		const data = { schema: true };
 		const onChange = jest.fn();
 		const setState = jest.fn();
 		const form = new Container({
-			state: fromJS({ data }),
+			state: fromJS({ schema: true }),
 			onChange,
 			setState,
 		});
@@ -68,10 +62,9 @@ describe('Container(Form)', () => {
 	});
 
 	it('should use props.onTrigger', () => {
-		const data = { schema: true };
 		const onTrigger = jest.fn();
 		const form = new Container({
-			state: fromJS({ data }),
+			state: fromJS({ schema: true }),
 			onTrigger,
 		});
 		form.onTrigger({ foo: 'bar' }, 'my-form', 'key', 'value');
@@ -85,7 +78,7 @@ describe('Container(Form)', () => {
 			cmf: {
 				components: fromJS({
 					'Container(Form)': {
-						'my-form': {
+						[formId]: {
 							data: { foo: 'bar' },
 						},
 					},
