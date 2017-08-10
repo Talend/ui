@@ -383,7 +383,7 @@ class FormDemo extends React.Component {
 	}
 }
 
-decoratedStories.add('custom array', () => {
+decoratedStories.add('Custom array', () => {
 	const schema = {
 		jsonSchema: {
 			title: 'A filter form',
@@ -393,6 +393,8 @@ decoratedStories.add('custom array', () => {
 				filters: {
 					type: 'array',
 					title: 'A list of strings',
+					minItems: 1,
+					maxItems: 5,
 					items: {
 						type: 'object',
 						properties: {

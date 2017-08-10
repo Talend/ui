@@ -102,7 +102,7 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0"
   },
-  "version": "0.100.0",
+  "version": "0.101.0",
   "dependencies": {
     "hoist-non-react-statics": "^1.2.0"
   }
