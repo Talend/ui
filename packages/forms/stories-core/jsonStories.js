@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 import { Tabs, Tab } from 'react-bootstrap';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';

@@ -34,6 +34,7 @@ function CustomFieldTemplate(props) {
 		'checkboxes',
 		'checkbox',
 		'radio',
+		'code',
 		'range',
 		'multiSelectTag',
 	].includes(uiWidget);

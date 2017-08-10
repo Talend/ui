@@ -16,7 +16,9 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
 a11y(ReactDOM);
 
-const decoratedStories = storiesOf('Form', module).addDecorator(withKnobs).addDecorator(story =>
+const decoratedStories = storiesOf('Form', module)
+.addDecorator(withKnobs)
+.addDecorator(story =>
 	<div className="container-fluid">
 		<div
 			className="col-md-offset-1 col-md-10"
@@ -268,7 +270,7 @@ decoratedStories.add('Datalist in modal', () => {
 			show: true,
 			size: 'small',
 			keyboard: true,
-		}
+		},
 	};
 
 	// Need to override style for this demo (items-container must be scrollable)
