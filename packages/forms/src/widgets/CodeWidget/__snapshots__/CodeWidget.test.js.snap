@@ -37,8 +37,8 @@ exports[`CodeWidget should render ReactAce 1`] = `
       "enableSnippets": true,
     }
   }
-  showGutter={true}
-  showPrintMargin={true}
+  showGutter={false}
+  showPrintMargin={false}
   style={Object {}}
   tabSize={4}
   theme="monokai"
