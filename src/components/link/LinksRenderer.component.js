@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import invariant from 'invariant';
 import { mapOf } from 'react-immutable-proptypes';
 import { LinkType, PortType } from '../../constants/flowdesigner.proptypes';

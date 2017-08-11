@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function Grid({ transform }) {
 	const smallGridSize = 10 * transform.k;

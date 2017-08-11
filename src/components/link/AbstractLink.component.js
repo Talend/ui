@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { line, curveBasis } from 'd3-shape';
 import { interpolateBasis } from 'd3-interpolate';
