@@ -4,6 +4,7 @@ exports[`Container(Form) should pass props to Form lib 1`] = `
 Object {
   "actions": Array [],
   "buttonBlockClass": "form-actions",
+  "children": undefined,
   "className": "tc-form rjsf pristine",
   "data": Object {
     "jsonSchema": Object {
