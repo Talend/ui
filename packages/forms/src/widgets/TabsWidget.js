@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { toIdSchema } from 'react-jsonschema-form/lib/utils';
 import ObjectField from '../fields/ObjectField';

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 
@@ -34,9 +35,9 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 }
 
 OneColumn.propTypes = {
-	children: React.PropTypes.node,
-	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
-	tabs: React.PropTypes.shape(TabBar.propTypes),
+	children: PropTypes.node,
+	drawers: PropTypes.arrayOf(PropTypes.node),
+	tabs: PropTypes.shape(TabBar.propTypes),
 };
 
 export default OneColumn;

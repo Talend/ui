@@ -1,5 +1,6 @@
 import get from 'lodash/get';
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { SidePanel as Component } from 'react-talend-components';
 import { componentState } from 'react-cmf';
 import { Map } from 'immutable';
@@ -45,8 +46,8 @@ class SidePanel extends React.Component {
 		...componentState.propTypes,
 	};
 	static contextTypes = {
-		store: React.PropTypes.object,
-		router: React.PropTypes.object,
+		store: PropTypes.object,
+		router: PropTypes.object,
 		registry: PropTypes.object,
 	};
 

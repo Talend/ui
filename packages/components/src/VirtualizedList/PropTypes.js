@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { SORT_BY, listTypes } from './utils/constants';
 
 const { TABLE, LARGE } = listTypes;

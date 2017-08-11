@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
@@ -15,8 +16,10 @@ import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget';
 import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
+import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
+
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -29,6 +32,7 @@ export const customWidgets = {
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
 	enumeration: EnumerationWidget,
+	code: CodeWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
 };

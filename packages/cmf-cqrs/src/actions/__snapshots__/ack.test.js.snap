@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions.ack.addContext should return action 1`] = `
+Object {
+  "actionCreator": "my super action creator id",
+  "data": Object {
+    "foo": "bar",
+  },
+  "requestId": "123",
+  "type": "ACK_ADD_CONTEXT",
+}
+`;
+
+exports[`actions.ack.deleteACK should return action 1`] = `
+Object {
+  "requestId": "123",
+  "type": "ACK_DELETE",
+}
+`;
+
+exports[`actions.ack.receiveMessage should return action 1`] = `
+Object {
+  "requestId": "123",
+  "type": "ACK_RECEIVE_MESSAGE",
+}
+`;

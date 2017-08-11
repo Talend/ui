@@ -1,15 +1,18 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Icon, IconsProvider } from 'react-talend-components';
 
 import theme from './ArrayFieldTemplate.scss';
 
-function FieldTemplate({ element }) {
+function FieldTemplate({ element, cantDelete }) {
 	return (
 		<div className={theme.arrayElement}>
 			{
 				<div className={theme.control}>
 					<button
+						name={`btn-delete-element-${element.index}`}
+						disabled={cantDelete}
 						className={theme.delete}
 						onClick={element.onDropIndexClick(element.index)}
 						title="Delete"
@@ -19,6 +22,7 @@ function FieldTemplate({ element }) {
 					{!element.itemData.isClosed &&
 						<div className={theme.orderaction}>
 							<button
+								name={`btn-move-element-up-${element.index}`}
 								disabled={!element.hasMoveUp}
 								onClick={element.onReorderClick(element.index, element.index - 1)}
 								title="Move Up"
@@ -26,6 +30,7 @@ function FieldTemplate({ element }) {
 								<Icon name="talend-caret-down" transform="flip-vertical" />
 							</button>
 							<button
+								name={`btn-move-element-down-${element.index}`}
 								disabled={!element.hasMoveDown}
 								onClick={element.onReorderClick(element.index, element.index + 1)}
 								title="Move Down"
@@ -44,27 +49,40 @@ function FieldTemplate({ element }) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		element: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		cantDelete: PropTypes.bool.isRequired,
 	};
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick } = props;
+	const { items, canAdd, onAddClick, minItems, maxItems } = props;
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{items && items.map(element => <FieldTemplate element={element} />)}
+			{items &&
+				items.map(element =>
+					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
+				)}
 			{canAdd &&
-				<button className="btn btn-info" type="button" onClick={onAddClick}>
-					NEW ELEMENT
+				<button
+					className="btn btn-info"
+					type="button"
+					name="btn-new-element"
+					disabled={items.length >= maxItems}
+					onClick={onAddClick}
+				>
+					{`NEW ${props.type}`}
 				</button>}
 		</div>
 	);
 }
 if (process.env.NODE_ENV !== 'production') {
 	ArrayFieldTemplate.propTypes = {
+		type: PropTypes.string.isRequired,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
 		canAdd: PropTypes.func.isRequired,
 		onAddClick: PropTypes.func.isRequired,
+		minItems: PropTypes.number.isRequired,
+		maxItems: PropTypes.number.isRequired,
 	};
 }
 export default ArrayFieldTemplate;
