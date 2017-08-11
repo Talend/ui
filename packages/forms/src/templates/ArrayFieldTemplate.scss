@@ -10,6 +10,17 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		transition: box-shadow 0.3s cubic-bezier(.25, .8, .25, 1);
 		margin-bottom: $padding-normal;
 
+		&.closed {
+			.delete {
+				visibility: hidden;
+			}
+			&:hover {
+				.delete {
+					visibility: initial;
+				}
+			}
+		}
+
 		&:hover {
 			background: $white;
 			box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
@@ -33,6 +44,12 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 			.delete {
 				margin: $padding-normal 0 $padding-small 0;
+				&.hidden {
+					display: none;
+					&:hover {
+						display: initial;
+					}
+				}
 			}
 
 			button {
@@ -72,13 +89,17 @@ $tf-filterwidget-shadow-color: $shadow !default;
 					div {
 						display: inline-block;
 						width: inherit;
+						max-width: 100%;
 
 						legend {
 							color: $gray-light;
 							font-size: $font-size-base;
 							margin: 0;
-							padding: $padding-normal;
-							width: inherit;
+							max-width: 100%;
+							overflow: hidden;
+							padding: $padding-normal ($padding-large * 2) $padding-normal $padding-normal;
+							text-overflow: ellipsis;
+							white-space: nowrap;
 							// to allow classic text selection
 							user-select: text;
 							-moz-user-select: text;

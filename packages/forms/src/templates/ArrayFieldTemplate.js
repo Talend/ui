@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 
 import { Icon, IconsProvider } from 'react-talend-components';
 
 import theme from './ArrayFieldTemplate.scss';
 
 function FieldTemplate({ element, cantDelete }) {
+	const arrayElement = classNames(theme.arrayElement, element.itemData.isClosed && theme.closed);
 	return (
-		<div className={theme.arrayElement}>
+		<div className={arrayElement}>
 			{
 				<div className={theme.control}>
 					<button
