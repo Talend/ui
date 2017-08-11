@@ -135,7 +135,9 @@ class Form extends React.Component {
 				onSubmit={this.onSubmit}
 				buttonBlockClass={this.props.buttonBlockClass}
 				{...this.props.formProps}
-			/>
+			>
+				{this.props.children}
+			</ComponentForm>
 		);
 	}
 }
