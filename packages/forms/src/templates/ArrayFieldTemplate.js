@@ -7,7 +7,7 @@ import theme from './ArrayFieldTemplate.scss';
 function FieldTemplate({ element }) {
 	return (
 		<div className={theme.arrayElement}>
-			{!element.itemData.isClosed &&
+			{
 				<div className={theme.control}>
 					<button
 						className={theme.delete}
@@ -16,34 +16,28 @@ function FieldTemplate({ element }) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					<button
-						disabled={!element.hasMoveUp}
-						onClick={element.onReorderClick(element.index, element.index - 1)}
-						title="Move Up"
-					>
-						<Icon name="talend-caret-down" transform="flip-vertical" />
-					</button>
-					<button
-						disabled={!element.hasMoveDown}
-						onClick={element.onReorderClick(element.index, element.index + 1)}
-						title="Move Down"
-					>
-						<Icon name="talend-caret-down" />
-					</button>
-				</div>}
+					{!element.itemData.isClosed &&
+						<div className={theme.orderaction}>
+							<button
+								disabled={!element.hasMoveUp}
+								onClick={element.onReorderClick(element.index, element.index - 1)}
+								title="Move Up"
+							>
+								<Icon name="talend-caret-down" transform="flip-vertical" />
+							</button>
+							<button
+								disabled={!element.hasMoveDown}
+								onClick={element.onReorderClick(element.index, element.index + 1)}
+								title="Move Down"
+							>
+								<Icon name="talend-caret-down" />
+							</button>
+						</div>}
+				</div>
+			}
 			<div className={theme.element}>
 				{element.children}
 			</div>
-			{element.itemData.isClosed &&
-				<div className={theme.control}>
-					<button
-						className={theme.delete}
-						onClick={element.onDropIndexClick(element.index)}
-						title="Delete"
-					>
-						<Icon name="talend-trash" />
-					</button>
-				</div>}
 		</div>
 	);
 }

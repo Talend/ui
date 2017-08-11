@@ -25,9 +25,14 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			display: flex;
 			flex-direction: column;
 			padding: 0 $padding-small;
+			.orderaction {
+				display: flex;
+				flex-direction: column;
+				padding-top: ($padding-normal * 2);
+			}
 
 			.delete {
-				margin: $padding-normal 0 ($padding-normal * 2) 0;
+				margin: $padding-normal 0 $padding-small 0;
 			}
 
 			button {
