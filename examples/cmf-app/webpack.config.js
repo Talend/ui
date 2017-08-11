@@ -16,62 +16,80 @@ module.exports = {
 		publicPath: '/',
 		filename: '[hash].app.js',
 	},
-	resolve: ['', '.scss', '.css', 'js', 'jsx'],
+	resolve: {
+		extensions: ['.js', '.jsx', '.scss', '.css'],
+	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
+				use: 'babel-loader',
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css', {
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: 'css-loader',
 					publicPath: './',
 				}),
 			},
 			{
 				test: /theme.scss$/,
-				loader: ExtractTextPlugin.extract(
-					'css!postcss!sass', {
-						publicPath: './',
-					}
-				),
+				use: ExtractTextPlugin.extract({
+					use: [{
+						loader: 'css-loader',
+					}, {
+						loader: 'postcss-loader',
+						options: {
+							plugins: [
+								autoprefixer({ browsers: ['last 2 versions'] }),
+							],
+						},
+					}, {
+						loader: 'sass-loader',
+						options: {
+							includePaths: [
+								path.resolve(__dirname, 'node_modules'),
+							],
+							data: SASS_DATA,
+						},
+					}],
+					publicPath: './',
+				}),
 			},
 			{
 				test: /\.scss$/,
 				exclude: /theme.scss/,
-				loader: ExtractTextPlugin.extract(
-					'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass', {
-						publicPath: './',
-					}
-				),
+				use: ExtractTextPlugin.extract({
+					use: [{
+						loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+					}, {
+						loader: 'sass-loader',
+						options: {
+							includePaths: [
+								path.resolve(__dirname, 'node_modules'),
+							],
+							data: SASS_DATA,
+						},
+					}],
+					publicPath: './',
+				}),
 			},
 			{
 				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-				loader: 'url',
-				query: {
+				loader: 'url-loader',
+				options: {
 					limit: 50000,
 					mimetype: 'application/font-woff',
 					name: './fonts/[name].[ext]',
 				},
-			}
+			},
 		],
-	},
-	sassLoader: {
-		includePaths: [
-			path.resolve(
-				__dirname,
-				'node_modules'
-			),
-		],
-		data: SASS_DATA,
-	},
-	postcss() {
-		return [autoprefixer({ browsers: ['last 2 versions'] })];
 	},
 	plugins: [
-		new ExtractTextPlugin('[hash].style.css', {
+		new ExtractTextPlugin({
+			filename: '[hash].style.css',
 			allChunks: true,
 		}),
 		new HtmlWebpackPlugin({
