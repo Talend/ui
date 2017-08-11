@@ -84,8 +84,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 					border-bottom: 1px solid $wild-sand;
 					// to forbid children selection of text on double click
 					user-select: none;
-					-moz-user-select: none;
-					-ms-user-select: none;
 
 					div {
 						display: inline-block;
@@ -103,8 +101,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 							white-space: nowrap;
 							// to allow classic text selection
 							user-select: text;
-							-moz-user-select: text;
-							-ms-user-select: text;
 
 							&:hover {
 								cursor: pointer;

@@ -90,7 +90,7 @@ function createCollapsibleFieldset(title) {
 							>
 								<TitleField
 									id={`${idSchema.$id}__title`}
-									title={title(formData)}
+									title={title(formData, uiSchema)}
 									required={required}
 									formContext={formContext}
 								/>
