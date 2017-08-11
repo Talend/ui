@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
-import Action from '../Actions/Action';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
@@ -15,43 +15,31 @@ function listviewClasses() {
 }
 
 function ListView(props) {
+	const label = props.displayMode === DISPLAY_MODE_SEARCH ? props.noResultLabel : props.emptyLabel;
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
-			<ItemsListView {...props} />
+			{
+				props.items && props.items.length ? (
+					<ItemsListView {...props} />
+				) : (
+					<span className={theme['empty-message']}>{label}</span>
+				)
+			}
 		</div>
 	);
 }
 
 ListView.propTypes = {
-	displayMode: PropTypes.oneOf([
-		DISPLAY_MODE_DEFAULT,
-		DISPLAY_MODE_SEARCH,
-	]),
-	required: PropTypes.bool,
-	headerError: PropTypes.string,
-	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
-	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	items: PropTypes.arrayOf(PropTypes.object),
-	headerLabel: PropTypes.string,
-	toggleAllChecked: PropTypes.bool,
-	toggleAllLabel: PropTypes.string,
-	emptyLabel: PropTypes.string,
-	onToggleAll: PropTypes.func,
-	searchCriteria: PropTypes.string,
-	searchPlaceholder: PropTypes.string,
-	onInputChange: PropTypes.func.isRequired,
-	onAddKeyDown: PropTypes.func,
-	getItemHeight: React.PropTypes.oneOfType([
-		React.PropTypes.func,
-		React.PropTypes.number,
-	]),
+	noResultLabel: PropTypes.string,
 };
 
 ListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
 	headerLabel: 'Values',
 	emptyLabel: 'This list is empty.',
+	noResultLabel: 'No result found.',
 	toggleAllLabel: 'All',
 	searchPlaceholder: 'Search',
 	items: [],
@@ -65,20 +53,20 @@ function ItemsListView(props) {
 			toggleAllChecked={props.toggleAllChecked}
 			toggleAllLabel={props.toggleAllLabel}
 			onToggleAll={props.onToggleAll}
-			emptyLabel={props.emptyLabel}
 			getItemHeight={props.getItemHeight}
+			emptyLabel={props.emptyLabel}
 		/>
 	);
 }
 
 ItemsListView.propTypes = {
 	items: ListView.propTypes.items,
-	emptyLabel: ListView.propTypes.emptyLabel,
 	searchCriteria: ListView.propTypes.searchCriteria,
 	toggleAllChecked: ListView.propTypes.toggleAllChecked,
 	toggleAllLabel: ListView.propTypes.toggleAllLabel,
 	onToggleAll: ListView.propTypes.onToggleAll,
 	getItemHeight: ListView.propTypes.getItemHeight,
+	emptyLabel: PropTypes.string,
 };
 
 function HeaderListView(props) {

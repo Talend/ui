@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -40,7 +41,10 @@ class DrawerAnimation extends React.Component {
 
 DrawerAnimation.propTypes = {
 	children: PropTypes.node,
-	onTransitionComplete: PropTypes.func.isRequired,
+	onTransitionComplete: PropTypes.func,
+};
+DrawerAnimation.defaultProps = {
+	onTransitionComplete: () => {},
 };
 
 function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {

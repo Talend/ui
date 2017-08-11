@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`UIForm connect #onChange should update state properties and errors 1`] = `
 Object {
   "error": "String is too short (4 chars), minimum 10",
@@ -181,6 +183,7 @@ exports[`UIForm connect should render form 1`] = `
   formName="myFormName"
   id="myFormId"
   onChange={[Function]}
+  onReset={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
   removeForm={[Function]}
@@ -220,5 +223,6 @@ exports[`UIForm connect should render form 1`] = `
     Object {
       "custom": [Function],
     }
-  } />
+  }
+/>
 `;

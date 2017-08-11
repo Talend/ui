@@ -1,10 +1,12 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
 import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
-import { validateValue, validateAll } from './utils/validation';
+import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
+import Buttons from './fields/Button/Buttons.component';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -16,7 +18,8 @@ export default class UIForm extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.submit = this.submit.bind(this);
+		this.onReset = this.onReset.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	/**
@@ -38,43 +41,61 @@ export default class UIForm extends React.Component {
 	 * - onChange: for each field change
 	 * - onTrigger: when trigger is provided and its value is "after"
 	 * @param event The event that triggered the callback
-	 * @param schema The field schema
-	 * @param value The new value
+	 * @param schema The payload field schema
+	 * @param value The payload new value
+	 * @param deepValidation Validate the subItems
+	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
 	 */
-	onChange(event, schema, value) {
-		const {
-			formName,
-			onChange,
-			properties,
-			customValidation,
-		} = this.props;
-		const error = validateValue(schema, value, properties, customValidation);
-		onChange(formName, schema, value, error);
+	onChange(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
+		const error = validateSingle(
+			schema,
+			value,
+			this.props.properties,
+			this.props.customValidation,
+			deepValidation
+		)[schema.key];
 
-		const { triggers } = schema;
-		if (triggers && triggers.includes(TRIGGER_AFTER)) {
-			this.onTrigger(event, TRIGGER_AFTER, schema, value, properties);
+		const payload = {
+			formName: this.props.formName,
+			properties: this.props.properties,
+			schema,
+			value,
+			error,
+		};
+		this.props.onChange(event, payload);
+
+		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
+			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
+		}
+
+		if (widgetChangeErrors) {
+			const errors = widgetChangeErrors(this.props.errors);
+			errors[schema.key] = error;
+			this.props.setErrors(this.props.formName, errors);
 		}
 	}
 
 	/**
 	 * Triggers an onTrigger callback that is allowed to modify the form
 	 * @param event The event that triggered the callback
-	 * @param type The type of trigger
-	 * @param schema The field schema
-	 * @param value The field value
+	 * @param payload The trigger payload
+	 * type The type of trigger
+	 * schema The field schema
+	 * value The field value
 	 */
-	onTrigger(event, type, schema, value) {
+	onTrigger(event, payload) {
 		const { formName, updateForm, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
 		return onTrigger(
-			type,           // type of trigger
-			schema,         // field schema
-			value,          // field value
-			properties,     // current properties values
+			event,
+			{
+				...payload,
+				formName,
+				properties,
+			}
 		)
 			.then(newForm => updateForm(
 				formName,
@@ -87,10 +108,29 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
+	 * Set the original data and schema
+	 * Triggers reset callback if form is valid
+	 * @param event the reset event
+	 */
+	onReset(event) {
+		this.props.updateForm(
+			this.props.formName,
+			this.props.initialData.jsonSchema,
+			this.props.initialData.uiSchema,
+			this.props.initialData.properties
+		);
+		this.props.setErrors(this.props.formName, {});
+
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
+	}
+
+	/**
 	 * Triggers submit callback if form is valid
 	 * @param event the submit event
 	 */
-	submit(event) {
+	onSubmit(event) {
 		if (this.props.onSubmit) {
 			event.preventDefault();
 		}
@@ -109,6 +149,13 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
+		const actions = this.props.actions || [{
+			bsStyle: 'primary',
+			title: 'Submit',
+			type: 'submit',
+			widget: 'button',
+		}];
+
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
@@ -119,7 +166,8 @@ export default class UIForm extends React.Component {
 				method={this.props.method}
 				name={this.props.formName}
 				noValidate={this.props.noHtml5Validate}
-				onSubmit={this.submit}
+				onReset={this.onReset}
+				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
 				{
@@ -137,7 +185,11 @@ export default class UIForm extends React.Component {
 						/>
 					))
 				}
-				<button type="submit" className="btn btn-primary">Submit</button>
+				<Buttons
+					id={`${this.props.id}-${this.props.formName}-actions`}
+					onTrigger={this.onTrigger}
+					schema={{ items: actions }}
+				/>
 			</form>
 		);
 	}
@@ -158,7 +210,18 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		/** Form definition: The forms initial data */
+		initialData: PropTypes.shape({
+			jsonSchema: PropTypes.object,
+			uiSchema: PropTypes.array,
+			properties: PropTypes.object,
+		}),
 
+		/**
+		 * Actions buttons to display at the bottom of the form.
+		 * If not provided, a single submit button is displayed.
+		 */
+		actions: PropTypes.arrayOf(Buttons.propTypes.schema),
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)
@@ -168,7 +231,7 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * User callback: Trigger > after callback.
-		 * Prototype: function onTrigger(type, schema, value, properties)
+		 * Prototype: function onTrigger(event, { type, schema, value, properties })
 		 * This is executed on changes on fields with uiSchema > triggers : ['after']
 		 */
 		onTrigger: PropTypes.func,

@@ -1,8 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
 Array [
-  <h1>
-    Hello children
-</h1>,
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": Object {
+            "props": Object {
+              "children": null,
+            },
+          },
+          "label": "foo",
+        },
+      },
+      "foo": "bar",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": null,
+        },
+      },
+      "label": "foo",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": null,
+    },
+  },
 ]
 `;
 
@@ -25,7 +54,8 @@ exports[`Component HomeListView should render with element props 1`] = `
     <div>
       hello sidepanel
     </div>
-  }>
+  }
+>
   <div>
     hello list
   </div>
@@ -42,32 +72,35 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <Connect(AppHeaderBar)
-      app="hello app" />
+    <Connect(CMF(AppHeaderBar))
+      app="hello app"
+    />
   }
   mode="TwoColumns"
   one={
-    <Connect(CMF(undefined))
+    <Connect(CMF(SidePanel))
       actionIds={
         Array [
           "menu:demo",
           "menu:article",
         ]
-      } />
-  }>
+      }
+    />
+  }
+>
   <Connect(CMF(Container(List)))
     actions={Object {}}
     items={
-      Array [
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "className": "item-0-class",
-          "created": "2016-09-22",
-          "display": "text",
-          "icon": "fa fa-file-excel-o",
-          "id": 1,
-          "label": "Title with actions",
-          "modified": "2016-09-22",
+      Immutable.List [
+        Immutable.Map {
+          id: 1,
+          label: "Title with actions",
+          created: "2016-09-22",
+          modified: "2016-09-22",
+          author: "Jean-Pierre DUPONT",
+          icon: "fa fa-file-excel-o",
+          display: "text",
+          className: "item-0-class",
         },
       ]
     }
@@ -107,6 +140,7 @@ exports[`Component HomeListView should render with object props 1`] = `
           ],
         },
       }
-    } />
+    }
+  />
 </Layout>
 `;

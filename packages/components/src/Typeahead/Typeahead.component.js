@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
@@ -51,7 +52,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			icon,
 		},
 		itemProps: {
-			onClick: rest.onSelect,
+			onMouseDown: rest.onSelect,
 		},
 		renderInputComponent,
 		renderItemsContainer: renderItemsContainerFactory(

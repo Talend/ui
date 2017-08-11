@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Form/> actions should render form with custom css 1`] = `
 <form
   acceptCharset={undefined}
@@ -10,16 +12,20 @@ exports[`<Form/> actions should render form with custom css 1`] = `
   name={undefined}
   noValidate={false}
   onSubmit={[Function]}
-  target={undefined}>
+  target={undefined}
+>
   <div
-    className="form-group field field-object">
+    className="form-group field field-object"
+  >
     <fieldset>
       <legend
-        id="root__title">
+        id="root__title"
+      >
         TestForm
       </legend>
       <div
-        className="form-group field field-string">
+        className="form-group field field-string"
+      >
         <input
           autoFocus={false}
           className="form-control"
@@ -32,10 +38,12 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           readOnly={false}
           required={false}
           type="text"
-          value="John Doe" />
+          value="John Doe"
+        />
         <label
           className="control-label"
-          htmlFor="root_name">
+          htmlFor="root_name"
+        >
           Name*
         </label>
         <div />
@@ -43,7 +51,8 @@ exports[`<Form/> actions should render form with custom css 1`] = `
         <div />
       </div>
       <div
-        className="form-group field field-string">
+        className="form-group field field-string"
+      >
         <select
           autoFocus={false}
           className="form-control"
@@ -54,23 +63,28 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           onChange={[Function]}
           readOnly={false}
           required={false}
-          value="">
+          value=""
+        >
           <option
-            value="">
+            value=""
+          >
             
           </option>
           <option
-            value="dev">
+            value="dev"
+          >
             dev
           </option>
           <option
-            value="pm">
+            value="pm"
+          >
             pm
           </option>
         </select>
         <label
           className="control-label"
-          htmlFor="root_roles">
+          htmlFor="root_roles"
+        >
           roles
         </label>
         <div />
@@ -82,13 +96,16 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     <div />
   </div>
   <div
-    className="buttons">
+    className="buttons"
+  >
     <button
       className="btn btn-primary"
       disabled={true}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
-      type="submit">
+      type="submit"
+    >
       <span>
         Submit
       </span>
@@ -97,8 +114,10 @@ exports[`<Form/> actions should render form with custom css 1`] = `
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
+      onMouseDown={[Function]}
       role={null}
-      type="reset">
+      type="reset"
+    >
       <span>
         Reset
       </span>

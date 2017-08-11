@@ -1,6 +1,8 @@
 /**
  * @module react-cmf/lib/App
  */
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
@@ -25,7 +27,7 @@ export default function App(props) {
 }
 
 App.propTypes = {
-	store: React.PropTypes.object.isRequired,
-	children: React.PropTypes.node,
-	history: React.PropTypes.object,
+	store: PropTypes.object.isRequired,
+	children: PropTypes.node,
+	history: PropTypes.object,
 };

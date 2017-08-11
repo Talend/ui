@@ -5,7 +5,6 @@
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 
-import React from 'react';
 import { connect } from 'react-redux';
 import registry from './registry';
 import { mapStateToViewProps } from './settings';
@@ -66,7 +65,7 @@ function getFunction(id) {
  */
 function oldConnectView(context, component, view) {
 	return connect(
-		(state) => mapStateToViewProps(state, { view })
+		state => mapStateToViewProps(state, { view })
 	)(component);
 }
 

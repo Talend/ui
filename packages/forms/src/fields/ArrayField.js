@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import {
 	getWidget,
@@ -54,7 +55,10 @@ function DefaultArrayItem(props) {
 
 			{props.hasToolbar ?
 				<div className="col-xs-3 array-item-toolbox">
-					<div className="btn-group" style={{ display: 'flex', justifyContent: 'space-around' }}>
+					<div
+						className="btn-group"
+						style={{ display: 'flex', justifyContent: 'space-around' }}
+					>
 
 						{props.hasMoveUp || props.hasMoveDown ?
 							<IconBtn
@@ -64,7 +68,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveUp}
 								onClick={props.onReorderClick(props.index, props.index - 1)}
 							/>
-            : null}
+							: null}
 
 						{props.hasMoveUp || props.hasMoveDown ?
 							<IconBtn
@@ -74,7 +78,7 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
-            : null}
+							: null}
 
 						{props.hasRemove ?
 							<IconBtn
@@ -84,10 +88,10 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly}
 								onClick={props.onDropIndexClick(props.index)}
 							/>
-            : null}
+							: null}
 					</div>
 				</div>
-      : null}
+				: null}
 
 		</div>
 	);
@@ -109,7 +113,7 @@ function DefaultFixedArrayFieldTemplate(props) {
 				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.schema.description}
 				</div>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
@@ -145,13 +149,13 @@ function DefaultNormalArrayFieldTemplate(props) {
 					idSchema={props.idSchema}
 					description={props.schema.description}
 				/>
-      ) : null}
+			) : null}
 
 			<div
 				className="row array-item-list"
 				key={`array-item-list-${props.idSchema.$id}`}
 			>
-				{props.items && props.items.map(p => DefaultArrayItem(p))}
+				{props.items && props.items.map(p => <DefaultArrayItem {...p} />)}
 			</div>
 
 			{props.canAdd ? <AddButton
@@ -174,20 +178,20 @@ class ArrayField extends Component {
 		autofocus: false,
 	};
 
+	constructor(props) {
+		super(props);
+		this.onAddClick = this.onAddClick.bind(this);
+		this.onDropIndexClick = this.onDropIndexClick.bind(this);
+		this.onReorderClick = this.onReorderClick.bind(this);
+		this.onChangeForIndex = this.onChangeForIndex.bind(this);
+		this.onSelectChange = this.onSelectChange.bind(this);
+	}
+
 	shouldComponentUpdate(nextProps, nextState) {
 		return shouldRender(this, nextProps, nextState);
 	}
 
-	get itemTitle() {
-		const { schema } = this.props;
-		return schema.items.title || schema.items.description || 'Item';
-	}
-
-	isItemRequired(itemsSchema) {
-		return itemsSchema.type === 'string' && itemsSchema.minLength > 0;
-	}
-
-	onAddClick = (event) => {
+	onAddClick(event) {
 		event.preventDefault();
 		const { schema, registry, formData } = this.props;
 		const { definitions } = registry;
@@ -199,9 +203,9 @@ class ArrayField extends Component {
 			...formData,
 			getDefaultFormState(itemSchema, undefined, definitions),
 		], { validate: false });
-	};
+	}
 
-	onDropIndexClick = (index) => {
+	onDropIndexClick(index) {
 		return (event) => {
 			if (event) {
 				event.preventDefault();
@@ -211,9 +215,9 @@ class ArrayField extends Component {
 				{ validate: true } // refs #195
 			);
 		};
-	};
+	}
 
-	onReorderClick = (index, newIndex) => {
+	onReorderClick(index, newIndex) {
 		return (event) => {
 			if (event) {
 				event.preventDefault();
@@ -229,9 +233,9 @@ class ArrayField extends Component {
 				return item;
 			}), { validate: true });
 		};
-	};
+	}
 
-	onChangeForIndex = (index) => {
+	onChangeForIndex(index) {
 		return (value) => {
 			const { formData, onChange } = this.props;
 			onChange(formData.map((item, i) => {
@@ -241,24 +245,15 @@ class ArrayField extends Component {
 				return index === i ? jsonValue : item;
 			}), { validate: false });
 		};
-	};
+	}
 
-	onSelectChange = (value) => {
+	onSelectChange(value) {
 		this.props.onChange(value, { validate: false });
-	};
+	}
 
-	render() {
-		const { schema, uiSchema } = this.props;
-		if (isFilesArray(schema, uiSchema)) {
-			return this.renderFiles();
-		}
-		if (isFixedItems(schema)) {
-			return this.renderFixedArray();
-		}
-		if (isMultiSelect(schema)) {
-			return this.renderMultiSelect();
-		}
-		return this.renderNormalArray();
+	get itemTitle() {
+		const { schema } = this.props;
+		return schema.items.title || schema.items.description || 'Item';
 	}
 
 	renderNormalArray() {
@@ -282,8 +277,7 @@ class ArrayField extends Component {
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
 		const { TitleField, DescriptionField } = fields;
 		const itemsSchema = retrieveSchema(schema.items, definitions);
-		const { widget, addable = true, ...options } = getUiOptions(uiSchema);
-
+		const { widget, addable = true, type = 'element', ...options } = getUiOptions(uiSchema);
 		if (typeof widget === 'string') {
 			if (widget === 'hidden') {
 				return null;
@@ -305,7 +299,10 @@ class ArrayField extends Component {
 		}
 
 		const arrayProps = {
+			type,
 			canAdd: addable,
+			minItems: schema.minItems || 0,
+			maxItems: schema.maxItems || 999,
 			items: formData.map((item, index) => {
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
@@ -337,8 +334,9 @@ class ArrayField extends Component {
 		};
 
 		// Check if a custom render function was passed in
-		const renderFunction = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
-		return renderFunction(arrayProps);
+		// backported from 0.49.0
+		const TemplateComponent = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
+		return <TemplateComponent {...arrayProps} />;
 	}
 
 	renderMultiSelect() {
@@ -415,7 +413,6 @@ class ArrayField extends Component {
 			retrieveSchema(schema.additionalItems, definitions) : null;
 		const { addable = true } = getUiOptions(uiSchema);
 		const canAdd = addable && additionalSchema;
-
 		if (!items || items.length < itemSchemas.length) {
 			// to make sure at least all fixed items are generated
 			items = items || [];
@@ -430,15 +427,19 @@ class ArrayField extends Component {
 			idSchema,
 			items: items.map((item, index) => {
 				const additional = index >= itemSchemas.length;
-				const itemSchema = additional ?
-          additionalSchema : itemSchemas[index];
+				const itemSchema = additional ? additionalSchema : itemSchemas[index];
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
 				const itemIdSchema = toIdSchema(itemSchema, itemIdPrefix, definitions);
-				const itemUiSchema = additional ?
-					uiSchema.additionalItems || {} :
-					Array.isArray(uiSchema.items) ?
-						uiSchema.items[index] : uiSchema.items || {};
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
+				let itemUiSchema = null;
+
+				if (additional) {
+					itemUiSchema = uiSchema.additionalItems || {};
+				} else if (Array.isArray(uiSchema.items)) {
+					itemUiSchema = uiSchema.items[index];
+				} else {
+					itemUiSchema = uiSchema.items || {};
+				}
 
 				return this.renderArrayFieldItem({
 					index,
@@ -502,7 +503,7 @@ class ArrayField extends Component {
 					formData={itemData}
 					errorSchema={itemErrorSchema}
 					idSchema={itemIdSchema}
-					required={this.isItemRequired(itemSchema)}
+					required={itemSchema.type === 'string' && itemSchema.minLength > 0}
 					onChange={this.onChangeForIndex(index)}
 					onBlur={onBlur}
 					registry={this.props.registry}
@@ -518,10 +519,25 @@ class ArrayField extends Component {
 			hasMoveDown: has.moveDown,
 			hasRemove: has.remove,
 			index,
+			itemData,
 			onDropIndexClick: this.onDropIndexClick,
 			onReorderClick: this.onReorderClick,
 			readonly,
 		};
+	}
+
+	render() {
+		const { schema, uiSchema } = this.props;
+		if (isFilesArray(schema, uiSchema)) {
+			return this.renderFiles();
+		}
+		if (isFixedItems(schema)) {
+			return this.renderFixedArray();
+		}
+		if (isMultiSelect(schema)) {
+			return this.renderMultiSelect();
+		}
+		return this.renderNormalArray();
 	}
 }
 
@@ -558,6 +574,8 @@ if (process.env.NODE_ENV !== 'production') {
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,
 		autofocus: PropTypes.bool,
+		name: PropTypes.string,
+		formContext: PropTypes.object,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
 				PropTypes.func,
@@ -567,6 +585,73 @@ if (process.env.NODE_ENV !== 'production') {
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
 		}),
+	};
+
+	ArrayFieldTitle.propTypes = {
+		idSchema: PropTypes.object,
+		required: PropTypes.bool,
+		title: PropTypes.string,
+		TitleField: PropTypes.element,
+	};
+
+	ArrayFieldDescription.propTypes = {
+		idSchema: PropTypes.object,
+		description: PropTypes.string,
+		DescriptionField: PropTypes.element,
+	};
+
+	IconBtn.propTypes = {
+		type: PropTypes.string,
+		icon: PropTypes.string,
+		className: PropTypes.string,
+	};
+
+	DefaultArrayItem.propTypes = {
+		index: PropTypes.number,
+		className: PropTypes.string,
+		hasToolbar: PropTypes.bool,
+		children: PropTypes.node,
+		hasMoveUp: PropTypes.bool,
+		hasMoveDown: PropTypes.bool,
+		hasRemove: PropTypes.bool,
+		disabled: PropTypes.bool,
+		readonly: PropTypes.bool,
+		onReorderClick: PropTypes.func,
+		onDropIndexClick: PropTypes.func,
+	};
+
+	DefaultFixedArrayFieldTemplate.propTypes = {
+		className: PropTypes.string,
+		idSchema: PropTypes.object,
+		schema: PropTypes.object,
+		TitleField: PropTypes.element,
+		title: PropTypes.string,
+		required: PropTypes.bool,
+		items: PropTypes.arrayOf(DefaultArrayItem.propTypes),
+		canAdd: PropTypes.bool,
+		onAddClick: PropTypes.func,
+		disabled: PropTypes.bool,
+		readonly: PropTypes.bool,
+	};
+
+	DefaultNormalArrayFieldTemplate.propTypes = {
+		className: PropTypes.string,
+		title: PropTypes.string,
+		TitleField: PropTypes.element,
+		DescriptionField: PropTypes.element,
+		required: PropTypes.bool,
+		disabled: PropTypes.bool,
+		readonly: PropTypes.bool,
+		canAdd: PropTypes.bool,
+		idSchema: PropTypes.object,
+		schema: PropTypes.object,
+		onAddClick: PropTypes.func,
+		items: PropTypes.arrayOf(PropTypes.DefaultArrayItem),
+	};
+
+	AddButton.propTypes = {
+		onClick: PropTypes.func,
+		disabled: PropTypes.bool,
 	};
 }
 

@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 export const formPropTypes = {
 	/** Form element configuration: auto complete */
@@ -21,6 +21,8 @@ export const formPropTypes = {
 	 *  This will be prevented if you provide an onSubmit props
 	 */
 	method: PropTypes.string,
+	/** Form definition: reset callback */
+	onReset: PropTypes.func,
 	/** Form definition: submit callback. This will prevent default submit behavior */
 	onSubmit: PropTypes.func,
 	/** Form definition: prevent html 5 validations */

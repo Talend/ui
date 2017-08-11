@@ -1,13 +1,11 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import Immutable, { Map } from 'immutable';
-import actions from '../src/actions/';
 
 import state, {
 	getStateAccessors,
 	getStateProps,
 	initState,
 	statePropTypes,
-	applyCallback,
 } from '../src/componentState';
 
 describe('state', () => {
@@ -20,15 +18,17 @@ describe('state', () => {
 
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
 		const dispatch = jest.fn();
-		const props = getStateAccessors(dispatch, 'name', 'id');
+		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
 		expect(typeof props.setState).toBe('function');
+
 		props.setState();
-		const call = dispatch.mock.calls[0][0];
-		expect(call.type).toBe('REACT_CMF.COMPONENT_MERGE_STATE');
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
-		expect(call.componentState).toBe();
+		let call = dispatch.mock.calls[0][0];
+		call(dispatch, () => undefined);
+		call = dispatch.mock.calls[1][0];
+
+		expect(call).toMatchSnapshot();
 	});
+
 	it('should getStateAccessors return accessors', () => {
 		const dispatch = jest.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
@@ -39,27 +39,17 @@ describe('state', () => {
 
 		props.initState();
 		let call = dispatch.mock.calls[0][0];
-		const addComp = actions.componentsActions.addComponentState('name', 'id', DEFAULT_STATE);
-		expect(call.type).toBe(addComp.type);
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
+		expect(call).toMatchSnapshot();
 
 		props.setState({ foo: 'baz' });
 		call = dispatch.mock.calls[1][0];
-		const mergeComp = actions.componentsActions.mergeComponentState(
-			'name',
-			'id',
-			DEFAULT_STATE.set('foo', 'baz'),
-		);
-		expect(call.type).toBe(mergeComp.type);
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
-		expect(call.componentState.foo).toBe('baz');
+		call(dispatch, () => ({ foo: 'baz' }));
+		call = dispatch.mock.calls[2][0];
+		expect(call).toMatchSnapshot();
 
 		props.deleteState();
-		call = dispatch.mock.calls[2][0];
-		expect(call.componentName).toBe('name');
-		expect(call.key).toBe('id');
+		call = dispatch.mock.calls[3][0];
+		expect(call).toMatchSnapshot();
 	});
 
 	it(`should call state if state is a function,
@@ -72,34 +62,6 @@ describe('state', () => {
 		props.setState(callBack);
 		const call = dispatch.mock.calls[0][0];
 		expect(typeof call === 'function').toEqual(true);
-	});
-
-	it('should applyCallback dispatch mergeComponentState', () => {
-		const callback = jest.fn(() => ({ compState: false }));
-		const dispatch = jest.fn();
-		const getState = jest.fn(() => ({
-			cmf: {
-				components: new Map({
-					name: new Map({
-						id: { compState: true },
-					}),
-				}),
-			},
-		}));
-		applyCallback(callback, 'name', 'id')(dispatch, getState);
-		expect(callback.mock.calls[0][0]).toEqual({
-			state: {
-				compState: true,
-			},
-		});
-		expect(dispatch.mock.calls[0][0]).toEqual({
-			type: 'REACT_CMF.COMPONENT_MERGE_STATE',
-			componentName: 'name',
-			key: 'id',
-			componentState: {
-				compState: false,
-			},
-		});
 	});
 
 	it('should getStateProps return state', () => {

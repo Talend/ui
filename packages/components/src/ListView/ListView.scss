@@ -19,4 +19,13 @@ $tc-listview-font-size: 1.4rem !default;
 	header {
 		flex-shrink: 0;
 	}
+
+	.empty-message {
+		flex-grow: 1;
+		flex-shrink: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px 0;
+	}
 }

@@ -464,6 +464,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             disabled={false}
             id={undefined}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role="link"
             type="button"
           >
@@ -541,6 +542,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             disabled={false}
             id={undefined}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role="link"
             type="button"
           >
@@ -612,6 +614,7 @@ exports[`DisplayTile should render 3 tiles which render a title buttons 1`] = `
             disabled={false}
             id={undefined}
             onClick={[Function]}
+            onMouseDown={[Function]}
             role="link"
             type="button"
           >

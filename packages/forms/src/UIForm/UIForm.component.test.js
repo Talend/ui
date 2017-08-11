@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { data, mergedSchema, initProps } from '../../__mocks__/data';
+import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 
 import UIForm from './UIForm.component';
 
@@ -23,6 +23,20 @@ describe('UIForm component', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
+	it('should render provided actions', () => {
+		// when
+		const wrapper = shallow(
+			<UIForm
+				{...data}
+				{...props}
+				actions={actions}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
 	describe('#onChange', () => {
 		it('should call onChange callback', () => {
 			// given
@@ -36,18 +50,23 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onChange).toBeCalledWith(
-				props.formName,
-				mergedSchema[0],
-				newValue,
-				inputValidationError,
+				expect.anything(),
+				{
+					formName: props.formName,
+					schema: mergedSchema[0],
+					value: newValue,
+					error: inputValidationError,
+					properties: data.properties,
+				}
 			);
 			expect(props.onTrigger).not.toBeCalled();
+			expect(props.setErrors).not.toBeCalled();
 		});
 
 		it('should trigger "after" trigger', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} />);
-			const newValue = 'toto';
+			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
@@ -56,10 +75,36 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(
-				'after',
-				mergedSchema[1],
-				newValue,
-				data.properties,
+				expect.anything(),
+				{
+					formName: props.formName,
+					type: 'after',
+					schema: mergedSchema[1],
+					value: newValue,
+					error: undefined,
+					properties: data.properties,
+				}
+			);
+		});
+
+		it('should set errors, applying widget errors hook', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const newValue = 'toto is toto';
+			const event = { target: { value: newValue } };
+			const newErrors = { lastname: 'lol' };
+
+			// when
+			wrapper.instance().onChange(
+				event,
+				{ schema: mergedSchema[0], value: newValue },
+				{ widgetChangeErrors() { return newErrors; } }
+			);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(
+				props.formName,
+				newErrors
 			);
 		});
 	});
@@ -75,10 +120,14 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(
-				'after',
-				mergedSchema[2],
-				undefined,
-				data.properties,
+				expect.anything(),
+				{
+					formName: props.formName,
+					type: 'after',
+					schema: mergedSchema[2],
+					value: undefined,
+					properties: data.properties,
+				}
 			);
 		});
 
@@ -141,26 +190,26 @@ describe('UIForm component', () => {
 		});
 	});
 
-	describe('#submit', () => {
+	describe('#onSubmit', () => {
+		const submitEvent = { preventDefault: jest.fn() };
+
 		it('should prevent event default', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(event.preventDefault).toBeCalled();
+			expect(submitEvent.preventDefault).toBeCalled();
 		});
 
 		it('should validate all fields', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(
@@ -172,10 +221,9 @@ describe('UIForm component', () => {
 		it('should not call submit callback when form is invalid', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -189,13 +237,63 @@ describe('UIForm component', () => {
 				firstname: 'This is required',
 			};
 			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
-			const event = { preventDefault: jest.fn() };
 
 			// when
-			wrapper.instance().submit(event);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
+		});
+	});
+
+	describe('#onReset', () => {
+		const resetEvent = { target: {} };
+
+		it('should reset form with initial schema and data', () => {
+			// given
+			const initialData = {
+				...data,
+				properties: {
+					...data.properties,
+					changedField: 'lol',
+				},
+			};
+			const wrapper = mount(
+				<UIForm
+					{...data}
+					initialData={initialData}
+					{...props}
+				/>
+			);
+
+			// when
+			wrapper.find('form').at(0).simulate('reset', resetEvent);
+
+			// then
+			expect(props.updateForm).toBeCalledWith(
+				props.formName,
+				initialData.jsonSchema,
+				initialData.uiSchema,
+				initialData.properties
+			);
+			expect(props.setErrors).toBeCalledWith(props.formName, {});
+		});
+
+		it('should call onReset from props', () => {
+			// given
+			const wrapper = mount(
+				<UIForm
+					{...data}
+					initialData={data}
+					{...props}
+				/>
+			);
+
+			// when
+			wrapper.find('form').at(0).simulate('reset', resetEvent);
+
+			// then
+			expect(props.onReset).toBeCalled();
 		});
 	});
 });

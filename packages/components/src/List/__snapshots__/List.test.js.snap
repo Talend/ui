@@ -712,6 +712,7 @@ exports[`List should render 1`] = `
           disabled={false}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"
@@ -963,15 +964,87 @@ exports[`List should render 1`] = `
 </div>
 `;
 
-exports[`List should render empty list 1`] = `
+exports[`List should render empty list in large 1`] = `
 <div
   className="tc-list"
 >
-  <span
-    className={undefined}
+  <div
+    className="tc-list-display"
   >
-    No result found
-  </span>
+    <p
+      className={undefined}
+    >
+      No result found
+    </p>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in table 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <div>
+      <table
+        className="table tc-list-display-table"
+      >
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <span
+                className={undefined}
+              >
+                Id
+              </span>
+              <div
+                aria-hidden="true"
+              >
+                Id
+              </div>
+            </th>
+            <th>
+              <span
+                className={undefined}
+              >
+                Name
+              </span>
+              <div
+                aria-hidden="true"
+              >
+                Name
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+      <p
+        className={undefined}
+      >
+        No result found
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in tile 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <p
+      className={undefined}
+    >
+      No result found
+    </p>
+  </div>
 </div>
 `;
 
@@ -1451,6 +1524,7 @@ exports[`List should render id if provided 1`] = `
           id="context-filter"
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"

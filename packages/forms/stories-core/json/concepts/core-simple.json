@@ -1,0 +1,91 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      },
+      "age": {
+        "type": "number"
+      },
+      "readonlyField": {
+        "type": "string"
+      },
+      "disabledField": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "pattern": "^\\S+@\\S+$"
+      },
+      "comment": {
+        "type": "string",
+        "maxLength": 20
+      }
+    },
+    "required": [
+      "name",
+      "firstname",
+      "email",
+      "comment"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "name",
+      "title": "Name"
+    },
+    {
+      "key": "lastname",
+      "title": "Last Name (with description)",
+      "description": "Hint: this is the last name",
+      "autoFocus": true
+    },
+    {
+      "key": "firstname",
+      "title": "First Name (with placeholder)",
+      "placeholder": "Enter your firstname here"
+    },
+    {
+      "key": "age",
+      "title": "Age"
+    },
+    {
+      "key": "email",
+      "title": "Email (with pattern validation and custom validation message)",
+      "description": "Email will be used for evil.",
+      "validationMessage": "Please enter a valid email address, e.g. user@email.com"
+    },
+    {
+      "key": "readonlyField",
+      "title": "Field (read only mode)",
+      "readOnly": true
+    },
+    {
+      "key": "disabledField",
+      "title": "Field (disabled mode)",
+      "disabled": true
+    },
+    {
+      "key": "comment",
+      "widget": "textarea",
+      "title": "Comment",
+      "rows": 5,
+      "validationMessage": "Don't be greedy!"
+    }
+  ],
+  "properties": {
+    "name": "Chuck Norris",
+    "readonlyField": "You can't change that",
+    "disabledField": "You can't change that",
+    "email": "ChuckyFTW@gmail.com",
+    "comment": "lol"
+  }
+}

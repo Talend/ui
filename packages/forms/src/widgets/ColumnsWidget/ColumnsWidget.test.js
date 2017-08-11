@@ -16,6 +16,6 @@ describe('ColumnsWidget', () => {
 				onBlur={noop}
 			/>
 		);
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });

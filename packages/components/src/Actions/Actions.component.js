@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { ButtonGroup } from 'react-bootstrap';
+import classNames from 'classnames';
 import Action from './Action';
 import ActionDropdown from './ActionDropdown';
 import ActionSplitDropdown from './ActionSplitDropdown';
@@ -82,7 +84,10 @@ function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);
 
 	return (
-		<ButtonGroup className="tc-actions" {...buttonGroupProps}>
+		<ButtonGroup
+			className={classNames('tc-actions', props.className)}
+			{...buttonGroupProps}
+		>
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				const ActionComponent = getActionComponent(displayMode);
@@ -109,6 +114,7 @@ Actions.propTypes = {
 			}),
 		]),
 	),
+	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	tooltipPlacement: Action.propTypes.tooltipPlacement,
 	link: PropTypes.bool,

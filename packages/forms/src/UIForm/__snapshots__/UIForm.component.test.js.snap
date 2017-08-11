@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`UIForm component should render form 1`] = `
 <form
   acceptCharset={undefined}
@@ -8,8 +10,10 @@ exports[`UIForm component should render form 1`] = `
   method={undefined}
   name="myFormName"
   noValidate={true}
+  onReset={[Function]}
   onSubmit={[Function]}
-  target={undefined}>
+  target={undefined}
+>
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -38,7 +42,8 @@ exports[`UIForm component should render form 1`] = `
       Object {
         "custom": [Function],
       }
-    } />
+    }
+  />
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -68,7 +73,8 @@ exports[`UIForm component should render form 1`] = `
       Object {
         "custom": [Function],
       }
-    } />
+    }
+  />
   <Widget
     errors={Object {}}
     formName="myFormName"
@@ -92,11 +98,167 @@ exports[`UIForm component should render form 1`] = `
       Object {
         "custom": [Function],
       }
-    } />
-  <button
-    className="btn btn-primary"
-    type="submit">
-    Submit
-  </button>
+    }
+  />
+  <Buttons
+    id="myFormId-myFormName-actions"
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "items": Array [
+          Object {
+            "bsStyle": "primary",
+            "title": "Submit",
+            "type": "submit",
+            "widget": "button",
+          },
+        ],
+      }
+    }
+  />
+</form>
+`;
+
+exports[`UIForm component should render provided actions 1`] = `
+<form
+  acceptCharset={undefined}
+  action={undefined}
+  autoComplete="off"
+  encType={undefined}
+  id="myFormId"
+  method={undefined}
+  name="myFormName"
+  noValidate={true}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  target={undefined}
+>
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "autoFocus": true,
+        "description": "Hint: this is the last name",
+        "key": Array [
+          "lastname",
+        ],
+        "minlength": 10,
+        "ngModelOptions": Object {},
+        "schema": Object {
+          "minLength": 10,
+          "type": "string",
+        },
+        "title": "Last Name (with description)",
+        "type": "text",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    }
+  />
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "key": Array [
+          "firstname",
+        ],
+        "ngModelOptions": Object {},
+        "placeholder": "Enter your firstname here",
+        "required": true,
+        "schema": Object {
+          "type": "string",
+        },
+        "title": "First Name (with placeholder)",
+        "triggers": Array [
+          "after",
+        ],
+        "type": "text",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    }
+  />
+  <Widget
+    errors={Object {}}
+    formName="myFormName"
+    id="myFormId"
+    onChange={[Function]}
+    onTrigger={[Function]}
+    properties={Object {}}
+    schema={
+      Object {
+        "key": Array [
+          "check",
+        ],
+        "title": "Check the thing",
+        "triggers": Array [
+          "after",
+        ],
+        "widget": "button",
+      }
+    }
+    widgets={
+      Object {
+        "custom": [Function],
+      }
+    }
+  />
+  <Buttons
+    id="myFormId-myFormName-actions"
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "items": Array [
+          Object {
+            "title": "Reset",
+            "type": "reset",
+            "widget": "button",
+          },
+          Object {
+            "disabled": true,
+            "title": "Disabled",
+            "type": "button",
+            "widget": "button",
+          },
+          Object {
+            "inProgress": true,
+            "title": "In progress",
+            "type": "button",
+            "widget": "button",
+          },
+          Object {
+            "title": "Trigger",
+            "triggers": Array [
+              "test",
+            ],
+            "type": "button",
+            "widget": "button",
+          },
+          Object {
+            "bsStyle": "primary",
+            "title": "Submit",
+            "type": "submit",
+            "widget": "button",
+          },
+        ],
+      }
+    }
+  />
 </form>
 `;

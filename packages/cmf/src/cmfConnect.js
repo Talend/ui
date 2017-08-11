@@ -1,4 +1,5 @@
-import React, { PropTypes, createElement } from 'react';
+import PropTypes from 'prop-types';
+import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import { connect } from 'react-redux';
 import api from './api';
@@ -117,11 +118,11 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
-	...rest,
+	...rest
 }) {
 	return function wrapWithCMF(WrappedComponent) {
 		class CMFContainer extends React.Component {
-			static displayName = `CMF(${WrappedComponent.displayName})`;
+			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
 				...statePropTypes,
@@ -188,6 +189,7 @@ export default function cmfConnect({
 		const Connected = connect(
 			(state, ownProps) => getStateToProps({
 				componentId,
+				defaultState,
 				ownProps,
 				state,
 				mapStateToProps,

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { ProgressBar, Modal } from 'react-bootstrap';
 
@@ -39,6 +40,7 @@ function ConfirmDialog({
 	header,
 	children,
 	validateAction,
+	secondaryActions,
 	cancelAction,
 	progressValue,
 	bodyOverflow = true,
@@ -64,7 +66,10 @@ function ConfirmDialog({
 			</Modal.Body>
 			<Modal.Footer>
 				<Action {...cancelAction} />
-				<Action {...validateAction} />
+				<div className={theme['tc-confirm-actions']}>
+					{secondaryActions && secondaryActions.map((props, i) => <Action {...props} key={i} />)}
+					<Action {...validateAction} />
+				</div>
 			</Modal.Footer>
 		</Modal>
 	);
@@ -77,6 +82,7 @@ ConfirmDialog.propTypes = {
 	show: PropTypes.bool,
 	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
 	validateAction: PropTypes.shape(Action.propTypes).isRequired,
+	secondaryActions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	progressValue: PropTypes.number,
 	bodyOverflow: PropTypes.bool,
 };

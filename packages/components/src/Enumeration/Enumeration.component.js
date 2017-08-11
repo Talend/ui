@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import headerPropTypes from './Header/Header.propTypes';
@@ -52,9 +53,9 @@ Enumeration.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
-		getItemHeight: React.PropTypes.oneOfType([
-			React.PropTypes.func,
-			React.PropTypes.number,
+		getItemHeight: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.number,
 		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
@@ -68,6 +69,7 @@ Enumeration.propTypes = {
 	onAddKeyDown: PropTypes.func,
 	inputPlaceholder: PropTypes.string,
 	inputValue: PropTypes.string,
+	label: PropTypes.string,
 	...ItemEditPropTypes,
 };
 
@@ -93,7 +95,7 @@ ItemsEnumeration.propTypes = {
 function HeaderEnumeration({
 		displayMode, headerError, onInputChange, onAddKeyDown,
 		headerInput, headerDefault, headerSelected, items, required,
-		inputValue, inputRef,
+		inputValue, inputRef, label,
 	}) {
 	switch (displayMode) {
 	case DISPLAY_MODE_SEARCH: {
@@ -124,6 +126,7 @@ function HeaderEnumeration({
 		const propsDefault = {
 			headerDefault,
 			required,
+			label,
 		};
 
 		return <Header {...propsDefault} />;
@@ -154,6 +157,7 @@ HeaderEnumeration.propTypes = {
 	required: Enumeration.propTypes.required,
 	inputValue: Enumeration.propTypes.inputValue,
 	inputRef: Enumeration.propTypes.inputRef,
+	label: Enumeration.propTypes.label,
 };
 
 export default Enumeration;

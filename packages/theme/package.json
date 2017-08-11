@@ -9,6 +9,7 @@
     "prepublish": "webpack -p",
     "start": "webpack-dev-server --port 1337",
     "test": "echo no test for bootstrap-talend-theme",
+    "test:cov": "echo no test for bootstrap-talend-theme",
     "test:phantomcss": "babel -d .tmp test/ && casperjs test .tmp/screenshots.phantomcss.js",
     "test:phantomcss-rebase": "yarn run test:phantomcss -- --rebase",
     "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
@@ -16,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Talend/bootstrap-theme.git"
+    "url": "git+https://github.com/Talend/ui.git"
   },
   "keywords": [
     "bootstrap",
@@ -25,30 +26,30 @@
   "author": "Talend",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Talend/bootstrap-theme/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
-  "homepage": "https://github.com/Talend/bootstrap-theme#readme",
+  "homepage": "https://github.com/Talend/ui",
   "devDependencies": {
     "autoprefixer": "^6.7.5",
-    "babel-cli": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^2.0.0",
+    "babel-cli": "6.24.1",
+    "babel-preset-es2015": "6.14.0",
+    "css-loader": "0.28.2",
+    "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "^0.9.0",
-    "node-sass": "^3.8.0",
+    "node-sass": "4.5.3",
     "path": "^0.12.7",
     "phantomcss": "^1.1.3",
     "postcss-loader": "^1.3.1",
     "sass-lint": "^1.9.1",
-    "sass-loader": "^4.0.0",
+    "sass-loader": "6.0.5",
     "slimerjs": "^0.10.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "3.3.7"
   },
-  "version": "0.82.0"
+  "version": "0.102.0"
 }

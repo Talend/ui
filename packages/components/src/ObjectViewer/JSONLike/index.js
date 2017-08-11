@@ -1,3 +1,1 @@
-import JSONLike from './JSONLike.component';
-
-export default JSONLike;
+export { default } from './JSONLike.component';

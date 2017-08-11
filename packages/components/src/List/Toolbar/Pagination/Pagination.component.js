@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -34,6 +35,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	} = paginationIconProps;
 	const currentPage = Math.ceil(startIndex / itemsPerPage);
 	const pagesLength = Math.ceil(totalResults / itemsPerPage);
+	const isNavigationShown = itemsPerPage > 0 && pagesLength > 1;
 	function onChangeItemsPerPage(value) {
 		return onChange(1, value);
 	}
@@ -61,6 +63,49 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		}
 		onChange(from, itemsPerPage);
 	}
+	function getNavigationItems() {
+		return [(
+			<NavItem
+				eventKey={FIRST}
+				id={id && `${id}-nav-to-first`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...first} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={PREV}
+				id={id && `${id}-nav-to-prev`}
+				className={'btn-link'}
+				disabled={startIndex <= 1}
+			>
+				<Icon {...prev} />
+			</NavItem>
+		), (
+			<NavItem disabled>
+				<span className="btn-link">{currentPage}/{pagesLength}</span>
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={NEXT}
+				id={id && `${id}-nav-to-next`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...next} />
+			</NavItem>
+		), (
+			<NavItem
+				eventKey={LAST}
+				id={id && `${id}-nav-to-last`}
+				className={'btn-link'}
+				disabled={startIndex + itemsPerPage > totalResults}
+			>
+				<Icon {...last} />
+			</NavItem>
+		)];
+	}
 	return (
 		<Nav
 			className={theme['tc-pagination']}
@@ -73,62 +118,18 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			>
 				{itemsPerPageOptions.map((option, index) => getMenuItem(option, index))}
 			</NavDropdown>
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={FIRST}
-					id={id && `${id}-nav-to-first`}
-					className={'btn-link'}
-					disabled={startIndex === 1}
-				>
-					<Icon {...first} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={PREV}
-					id={id && `${id}-nav-to-prev`}
-					className={'btn-link'}
-					disabled={startIndex === 1}
-				>
-					<Icon {...prev} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem disabled>
-					<span className="btn-link">{currentPage}/{pagesLength}</span>
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={NEXT}
-					id={id && `${id}-nav-to-next`}
-					className={'btn-link'}
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...next} />
-				</NavItem>
-			)}
-			{itemsPerPage > 0 && (
-				<NavItem
-					eventKey={LAST}
-					id={id && `${id}-nav-to-last`}
-					className={'btn-link'}
-					disabled={startIndex + itemsPerPage > totalResults}
-				>
-					<Icon {...last} />
-				</NavItem>
-			)}
+			{isNavigationShown && getNavigationItems()}
 		</Nav>
 	);
 }
 
 Pagination.propTypes = {
-	id: React.PropTypes.string,
-	startIndex: React.PropTypes.number,
-	itemsPerPage: React.PropTypes.number,
-	totalResults: React.PropTypes.number.isRequired,
-	itemsPerPageOptions: React.PropTypes.arrayOf(React.PropTypes.number),
-	onChange: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	startIndex: PropTypes.number,
+	itemsPerPage: PropTypes.number,
+	totalResults: PropTypes.number.isRequired,
+	itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+	onChange: PropTypes.func.isRequired,
 };
 
 Pagination.defaultProps = {

@@ -36,7 +36,7 @@ const VERSIONS = {
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
-	'react-virtualized': '^9.1.0',
+	'react-virtualized': '^9.7.0',
 	reselect: '^2.5.4',
 
 	redux: '3.6.0',
@@ -49,22 +49,24 @@ const VERSIONS = {
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
+	'@storybook/react': '3.1.9',
+	'@storybook/addon-storyshots': '3.1.9',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
 	'babel-jest': JEST_VERSION,
-	'babel-loader': '6.2.5',
+	'babel-loader': '6.2.10',
 	'babel-plugin-transform-class-properties': '6.18.0',
-	'babel-plugin-transform-object-rest-spread': '6.16.0',
-	'babel-preset-es2015': '6.14.0',
-	'babel-preset-react': '6.11.1',
+	'babel-plugin-transform-object-rest-spread': '6.20.1',
+	'babel-preset-es2015': '6.18.0',
+	'babel-preset-react': '6.16.0',
 	cpx: '1.5.0',
 	enzyme: '^2.7.1',
-	eslint: '^3.4.0',
-	'eslint-config-airbnb': '^11.0.0',
-	'eslint-plugin-import': '^1.14.0',
-	'eslint-plugin-jsx-a11y': '^2.2.1',
-	'eslint-plugin-react': '^6.2.0',
+	eslint: '^3.6.1',
+	'eslint-config-airbnb': '^11.1.0',
+	'eslint-plugin-import': '^1.16.0',
+	'eslint-plugin-jsx-a11y': '^2.2.2',
+	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'react-storybook-cmf': '^0.1.3',
@@ -75,10 +77,9 @@ const VERSIONS = {
 	// webpack
 	'copy-webpack-plugin': '4.0.1',
 	'css-loader': '0.28.2',
-	'file-loader': '^0.9.0',
+	'file-loader': '^0.10.0',
 	'node-sass': '4.5.3',
 	'postcss-loader': '^1.3.1',
-	'sass-loader': '6.0.5',
 	'style-loader': '^0.13.1',
 	'url-loader': '^0.5.7',
 	'webpack-bundle-analyzer': '^2.8.2',
@@ -87,12 +88,14 @@ const VERSIONS = {
 
 const WEBPACK_2_VERSIONS = {
 	'extract-text-webpack-plugin': '2.1.0',
+	'sass-loader': '6.0.5',
 	webpack: '^2.5.1',
 	'webpack-dev-server': '^2.4.5',
 };
 
 const WEBPACK_1_VERSIONS = {
 	'extract-text-webpack-plugin': '^1.0.1',
+	'sass-loader': '4.1.1',
 	webpack: '^1.14.0',
 	'webpack-dev-server': '^1.16.5',
 };
@@ -217,7 +220,7 @@ files.forEach((ppath) => {
 			if (!program.quite) {
 				console.log(`delete ${yarnLock}`);
 			}
-			fs.unlink(yarnLock);
+			//fs.unlink(yarnLock);
 		}
 	}
 });

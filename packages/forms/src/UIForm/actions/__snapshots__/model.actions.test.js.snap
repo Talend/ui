@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Model actions #updateFormData action should create the action payload 1`] = `
 Object {
   "error": "error",

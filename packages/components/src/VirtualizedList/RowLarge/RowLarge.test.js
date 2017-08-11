@@ -43,6 +43,7 @@ const parent = {
 	props: {
 		id: 'my-list',
 		collection,
+		rowGetter: index => collection[index],
 		children: [
 			<VirtualizedList.Content
 				label="Id"

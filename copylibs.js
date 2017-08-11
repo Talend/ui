@@ -39,15 +39,11 @@ const deps = [
 	},
 	{
 		src: 'cmf/lib',
-		dest: '../examples/cmf-app/node_modules/react-cmf/lib',
+		dest: 'cmf-cqrs/node_modules/react-cmf/lib',
 	},
 	{
-		src: 'components/lib',
-		dest: '../examples/cmf-app/node_modules/react-talend-components/lib',
-	},
-	{
-		src: 'containers/lib',
-		dest: '../examples/cmf-app/node_modules/react-talend-containers/lib',
+		src: 'forms/lib',
+		dest: 'containers/node_modules/react-talend-forms/lib',
 	},
 	{
 		src: 'theme/src',
@@ -60,6 +56,18 @@ const deps = [
 	{
 		src: 'theme/src',
 		dest: 'forms/node_modules/bootstrap-talend-theme/src',
+	},
+	{
+		src: 'cmf/lib',
+		dest: '../examples/cmf-app/node_modules/react-cmf/lib',
+	},
+	{
+		src: 'components/lib',
+		dest: '../examples/cmf-app/node_modules/react-talend-components/lib',
+	},
+	{
+		src: 'containers/lib',
+		dest: '../examples/cmf-app/node_modules/react-talend-containers/lib',
 	},
 ];
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const mock = {
 	AppHeaderBar: props => (<div className="tc-appheaderbar" {...props} />),
@@ -19,7 +20,7 @@ const mock = {
 	SidePanel: props => (<div className="tc-side-panel" {...props} />),
 	List: props => (<div className="tc-list" {...props} />),
 };
-
+mock.AppHeaderBar.displayName = 'AppHeaderBar';
 mock.Layout.propTypes = {
 	header: PropTypes.element,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
@@ -13,8 +14,8 @@ function TitleText({ id, value }) {
 }
 
 TitleText.propTypes = {
-	id: React.PropTypes.string,
-	value: React.PropTypes.string.isRequired,
+	id: PropTypes.string,
+	value: PropTypes.string.isRequired,
 };
 
 function TitleButton({ id, value, onClick }) {
@@ -32,9 +33,9 @@ function TitleButton({ id, value, onClick }) {
 }
 
 TitleButton.propTypes = {
-	id: React.PropTypes.string,
-	value: React.PropTypes.string.isRequired,
-	onClick: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
@@ -65,11 +66,11 @@ function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
 }
 
 TitleInput.propTypes = {
-	id: React.PropTypes.string,
-	value: React.PropTypes.string.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	onSubmit: React.PropTypes.func.isRequired,
-	onCancel: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
+	onCancel: PropTypes.func.isRequired,
 };
 
 /**
@@ -111,17 +112,17 @@ function ItemTitle(props) {
 }
 
 ItemTitle.propTypes = {
-	id: React.PropTypes.string,
-	value: React.PropTypes.string.isRequired,
-	display: React.PropTypes.oneOf([
+	id: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	display: PropTypes.oneOf([
 		TITLE_MODE_TEXT,
 		TITLE_MODE_BUTTON,
 		TITLE_MODE_INPUT,
 	]),
-	onClick: React.PropTypes.func,
-	onChange: React.PropTypes.func,
-	onSubmit: React.PropTypes.func,
-	onCancel: React.PropTypes.func,
+	onClick: PropTypes.func,
+	onChange: PropTypes.func,
+	onSubmit: PropTypes.func,
+	onCancel: PropTypes.func,
 };
 
 ItemTitle.defaultProps = {

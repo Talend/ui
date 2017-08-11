@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import keycode from 'keycode';
 
 /**
@@ -68,4 +69,6 @@ CellTitleInput.propTypes = {
 	onEditSubmit: PropTypes.func.isRequired,
 	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	/** The input label. */
+	label: PropTypes.string,
 };

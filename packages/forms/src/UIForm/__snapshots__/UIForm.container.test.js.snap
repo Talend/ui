@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`UIForm container #onChange should update state properties and errors 1`] = `
 Object {
   "errors": Object {
@@ -225,12 +227,60 @@ exports[`UIForm container should render form 2`] = `
 <UIForm
   acceptCharset={undefined}
   action={undefined}
+  actions={undefined}
   autoComplete="off"
   customValidation={[Function]}
   encType={undefined}
   errors={Object {}}
   formName="myFormName"
   id="myFormId"
+  initialData={
+    Object {
+      "errors": Object {},
+      "jsonSchema": Object {
+        "properties": Object {
+          "check": Object {},
+          "firstname": Object {
+            "type": "string",
+          },
+          "lastname": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "firstname",
+        ],
+        "title": "Comment",
+        "type": "object",
+      },
+      "properties": Object {},
+      "uiSchema": Array [
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": "lastname",
+          "title": "Last Name (with description)",
+        },
+        Object {
+          "key": "firstname",
+          "placeholder": "Enter your firstname here",
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+        },
+        Object {
+          "key": "check",
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        },
+      ],
+    }
+  }
   jsonSchema={
     Object {
       "properties": Object {
@@ -253,6 +303,7 @@ exports[`UIForm container should render form 2`] = `
   method={undefined}
   noHtml5Validate={true}
   onChange={[Function]}
+  onReset={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
   properties={Object {}}
@@ -290,5 +341,6 @@ exports[`UIForm container should render form 2`] = `
     Object {
       "custom": [Function],
     }
-  } />
+  }
+/>
 `;

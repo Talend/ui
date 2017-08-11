@@ -2,7 +2,7 @@
   "devDependencies": {
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
-    "lerna": "2.0.0-beta.36",
+    "lerna": "2.0.0",
     "npm-watch": "^0.1.8",
     "surge": "^0.18.0"
   },
@@ -18,10 +18,11 @@
     "build-logging": "lerna exec --ignore=generator-talend  -- yarn run prepublish",
     "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && ./copylibs.js --scope=theme",
     "test": "lerna exec --concurrency 1 -- yarn test",
+    "test:cov": "lerna exec --concurrency 1 -- yarn test:cov",
     "start": "lerna exec -- yarn start",
     "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
-    "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_coverage.sh",
+    "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color"
   },

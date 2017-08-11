@@ -1,10 +1,28 @@
-import React, { PropTypes } from 'react';
-import VirtualizedList from '../../VirtualizedList';
+import PropTypes from 'prop-types';
+import React from 'react';
+import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
+function adaptOnSort(onChange) {
+	if (!onChange) {
+		return null;
+	}
+	return function onSortChange({ sortBy, sortDirection }) {
+		return onChange(
+			null,
+			{ field: sortBy, isDescending: sortDirection === SORT_BY.DESC }
+		);
+	};
+}
+
 function ListToVirtualizedList(props) {
-	const { id, items, columns, titleProps } = props;
+	const {
+		itemProps,
+		sort,
+		titleProps,
+	} = props;
+
 	if (!titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
@@ -18,11 +36,18 @@ function ListToVirtualizedList(props) {
 	}
 	return (
 		<VirtualizedList
-			id={id}
-			collection={items}
-			type={(props.displayMode || 'TABLE').toUpperCase()}
+			id={props.id}
+			collection={props.items}
+			isActive={itemProps && itemProps.isActive}
+			isSelected={itemProps && itemProps.isSelected}
+			onRowClick={itemProps && itemProps.onRowClick}
+			selectionToggle={itemProps && itemProps.onToggle}
+			sort={adaptOnSort(sort && sort.onChange)}
+			sortBy={sort && sort.field}
+			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
+			type={props.displayMode.toUpperCase()}
 		>
-			{columns.map((column, index) => {
+			{props.columns.map((column, index) => {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,
@@ -45,13 +70,27 @@ function ListToVirtualizedList(props) {
 
 ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
+	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
+	itemProps: PropTypes.shape({
+		isActive: PropTypes.func,
+		isSelected: PropTypes.func,
+		onRowClick: PropTypes.func,
+		onToggle: PropTypes.func,
+	}),
+	items: PropTypes.arrayOf(PropTypes.object),
+	sort: PropTypes.shape({
+		onChange: PropTypes.func,
+		field: PropTypes.string,
+		isDescending: PropTypes.bool,
+	}),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
-	items: PropTypes.arrayOf(PropTypes.object),
-	columns: PropTypes.arrayOf(PropTypes.object),
+};
+ListToVirtualizedList.defaultProps = {
+	displayMode: 'table',
 };
 
 export default ListToVirtualizedList;

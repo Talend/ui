@@ -1,0 +1,10 @@
+.tc-split-dropdown {
+	li>a {
+		i,
+		svg {
+			margin-right: $padding-smaller;
+			width: $svg-md-size;
+			height: $svg-md-size;
+		}
+	}
+}

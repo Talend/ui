@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import ItemTitle from '../ItemTitle';
 
 export default {
@@ -7,7 +7,9 @@ export default {
 	items: PropTypes.arrayOf(PropTypes.object),
 	itemProps: PropTypes.shape({
 		classNameKey: PropTypes.string,
+		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
+		onRowClick: PropTypes.func,
 		onSelect: PropTypes.func,
 		onToggle: PropTypes.func,
 		onToggleAll: PropTypes.func,

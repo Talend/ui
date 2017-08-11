@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate should render invalid className 1`] = `
+<div
+  className="form-group has-error"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    errorMessage="This is wrong o_o"
+    isValid={false}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with label after 1`] = `
+<div
+  className="form-group"
+>
+  <input
+    id="myAwesomeField"
+  />
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <Message
+    description="My awesome description"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with label before 1`] = `
+<div
+  className="form-group"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;

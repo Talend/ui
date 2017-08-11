@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 
 import { Enumeration, IconsProvider } from '../src/index';
 
@@ -41,22 +41,25 @@ const abortAction = {
 
 const ITEM_DEFAULT_HEIGHT = 33;
 
+const items = [];
+for (let i = 0; i < 1000; i += 1) {
+	items.push({ values: [`Lorem ipsum dolor sit amet ${i}`] });
+}
+
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
 	headerDefault: [addItemAction, loadingAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
-	items: Array(1000).fill('').map((item, index) => ({
-		values: [`Lorem ipsum dolor sit amet ${index}`],
-	})),
+	items,
 	itemsProp: {
 		key: 'values',
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
@@ -87,21 +90,20 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
-const dropDownActions = {
+const dropDownActionsProps = {
 	...props,
-};
-
-dropDownActions.headerDefault[0] = {
-	...dropDownActions.headerDefault[0],
-	displayMode: 'dropdown',
-	items: [{
-		label: 'Add values from a file',
-		id: 'append-uploding',
-		onClick: action('add values'),
-	}, {
-		label: 'Overwrite existing values',
-		id: 'append-uploding',
-		onClick: action('overwrite'),
+	headerDefault: [{
+		...props.headerDefault[0],
+		displayMode: 'dropdown',
+		items: [{
+			label: 'Add values from a file',
+			id: 'add-value',
+			onClick: action('add values'),
+		}, {
+			label: 'Overwrite existing values',
+			id: 'append-uploding',
+			onClick: action('overwrite'),
+		}],
 	}],
 };
 
@@ -168,6 +170,11 @@ editItemPropsWithError.items[0] = {
 	error: 'an error occured',
 };
 
+const customLabelProps = {
+	...props,
+	label: 'Users',
+};
+
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -183,7 +190,7 @@ storiesOf('Enumeration', module)
 			<p>By default :</p>
 			<IconsProvider />
 			<Enumeration
-				{...props}
+				{...dropDownActionsProps}
 			/>
 		</div>
 	))
@@ -238,6 +245,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemPropsWithError}
+			/>
+		</div>
+	))
+	.addWithInfo('with custom label', () => (
+		<div>
+			<p>Should be 'Users' instead of 'Values'</p>
+			<IconsProvider />
+			<Enumeration
+				{...customLabelProps}
 			/>
 		</div>
 	));

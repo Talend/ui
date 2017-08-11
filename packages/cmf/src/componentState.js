@@ -1,5 +1,5 @@
-import { PropTypes } from 'react';
-import { Map } from 'immutable';
+import PropTypes from 'prop-types';
+import invariant from 'invariant';
 import actions from './actions';
 
 export function getStateProps(state, name, id) {
@@ -14,28 +14,53 @@ export function initState(props) {
 	}
 }
 
-export function applyCallback(callback, name, id) {
-	return (dispatch, getState) => {
-		const newState = callback(getStateProps(getState(), name, id));
-		dispatch(actions.componentsActions.mergeComponentState(name, id, newState));
+function getAction({ name, id, operation, componentState }) {
+	return {
+		id,
+		type: `${name}.${operation}`,
+		cmf: { componentState },
 	};
 }
 
-export function getStateAccessors(dispatch, name, id, DEFAULT_STATE = new Map()) {
+export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
+	const dispatchAction = (operation, componentState) => {
+		dispatch(getAction({
+			id,
+			name,
+			componentState,
+			operation,
+		}));
+	};
+
 	const accessors = {
 		setState(state) {
-			if (typeof state === 'function') {
-				dispatch(applyCallback(state, name, id));
-			} else {
-				dispatch(actions.componentsActions.mergeComponentState(name, id, state));
+			if (!DEFAULT_STATE) {
+				invariant(
+					process.env.NODE_ENV === 'production',
+					'you must provide a defaultState to use setState',
+				);
 			}
+			dispatch((_, getState) => {
+				let newState = state;
+				if (typeof newState === 'function') {
+					newState = state(getStateProps(getState(), name, id));
+				}
+				const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+				dispatchAction('setState', componentState);
+			});
 		},
 		initState(initialState) {
-			const state = DEFAULT_STATE.merge(initialState);
-			dispatch(actions.componentsActions.addComponentState(name, id, state));
+			if (DEFAULT_STATE) {
+				const state = DEFAULT_STATE.merge(initialState);
+				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				dispatchAction('initState', componentState);
+			}
 		},
 		deleteState() {
-			dispatch(actions.componentsActions.removeComponentState(name, id));
+			if (DEFAULT_STATE) {
+				const componentState = actions.componentsActions.removeComponentState(name, id);
+				dispatchAction('deleteState', componentState);
+			}
 		},
 	};
 	accessors.updateState = function updateState(state) {

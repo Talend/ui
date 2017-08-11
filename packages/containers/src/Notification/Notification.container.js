@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { List, Map } from 'immutable';
 import { Notification as Component } from 'react-talend-components';
 import { componentState } from 'react-cmf';

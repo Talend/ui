@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Action as PureAction } from 'react-talend-components';
-import { api } from 'react-cmf';
+import actions from '../actionAPI';
 
 /**
  * @param {Object} props react props
@@ -8,14 +9,17 @@ import { api } from 'react-cmf';
 <Action name="menu:demo"></Action>
  */
 function Action({ name, ...rest }, context) {
-	const onClick = (event, payload) => {
-		context.store.dispatch(payload.action.payload);
-	};
+	let action;
+
 	if (name) {
-		const action = api.action.getActionInfo(context, name);
-		return (<PureAction {...action} onClick={onClick} />);
+		action = actions.getProps(context, name, rest.model);
+	} else {
+		action = actions.getProps(context, rest, rest.model);
 	}
-	return (<PureAction {...rest} onClick={onClick} />);
+	if (action.available === false) {
+		return null;
+	}
+	return (<PureAction {...action} />);
 }
 
 Action.propTypes = {

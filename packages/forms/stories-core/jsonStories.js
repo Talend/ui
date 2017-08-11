@@ -1,11 +1,13 @@
 import React from 'react';
-import { action } from '@kadira/storybook';
-import { object } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { object } from '@storybook/addon-knobs';
 import { Tabs, Tab } from 'react-bootstrap';
 import IconsProvider from 'react-talend-components/lib/IconsProvider';
 import { UIForm, ConnectedUIForm } from '../src/UIForm';
 
-const sampleFilenames = require.context('./json', true, /.(js|json)$/);
+const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
+const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
+const fieldsFilenames = require.context('./json/fields', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
@@ -24,31 +26,34 @@ function createCommonProps() {
 		},
 		formName: 'my-form',
 		onChange: action('Change'),
-		onTrigger(type, schema, value, properties) {
-			action('Trigger')(type, schema, value, properties);
-			const key = schema.key[schema.key.length - 1];
-			return key.includes('fail') ?
+		onTrigger(event, payload) {
+			action('Trigger')(event, payload);
+			const schema = payload.schema;
+			const key = schema.key && schema.key[schema.key.length - 1];
+			return key && key.includes('fail') ?
 				Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
 				Promise.resolve({});
 		},
+		onReset: action('onReset'),
 		onSubmit: action('Submit'),
 	};
 }
 
-function createStory(filename) {
+function createStory(category, sampleFilenames, filename) {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const name = capitalizeFirstLetter(sampleName);
 	const props = createCommonProps();
 
 	return {
+		category,
 		name,
 		story() {
 			return (
 				<section>
 					<IconsProvider />
 
-					<Tabs>
+					<Tabs id={'store-tabs'}>
 						<Tab
 							eventKey={0}
 							key={'without'}
@@ -76,8 +81,16 @@ function createStory(filename) {
 	};
 }
 
-sampleFilenames
+conceptsFilenames
 	.keys()
-	.forEach((filename) => { stories.push(createStory(filename)); });
+	.forEach((filename) => { stories.push(createStory('concepts', conceptsFilenames, filename)); });
+
+fieldsetsFilenames
+	.keys()
+	.forEach((filename) => { stories.push(createStory('fieldsets', fieldsetsFilenames, filename)); });
+
+fieldsFilenames
+	.keys()
+	.forEach((filename) => { stories.push(createStory('fields', fieldsFilenames, filename)); });
 
 export default stories;

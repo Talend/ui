@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Label from './LabelTemplate';
 
 /**
@@ -34,6 +35,7 @@ function CustomFieldTemplate(props) {
 		'checkboxes',
 		'checkbox',
 		'radio',
+		'code',
 		'range',
 		'multiSelectTag',
 	].includes(uiWidget);
@@ -67,21 +69,22 @@ function CustomFieldTemplate(props) {
 	);
 }
 
-
-CustomFieldTemplate.propTypes = {
-	id: PropTypes.string,
-	classNames: PropTypes.string,
-	label: PropTypes.string,
-	children: PropTypes.node.isRequired,
-	errors: PropTypes.element,
-	help: PropTypes.element,
-	description: PropTypes.element,
-	hidden: PropTypes.bool,
-	required: PropTypes.bool,
-	displayLabel: PropTypes.bool,
-	schema: PropTypes.object,
-	uiSchema: PropTypes.object,
-};
+if (process.env.NODE_ENV !== 'production') {
+	CustomFieldTemplate.propTypes = {
+		id: PropTypes.string,
+		classNames: PropTypes.string,
+		label: PropTypes.string,
+		children: PropTypes.node.isRequired,
+		errors: PropTypes.element,
+		help: PropTypes.element,
+		description: PropTypes.element,
+		hidden: PropTypes.bool,
+		required: PropTypes.bool,
+		displayLabel: PropTypes.bool,
+		schema: PropTypes.object,
+		uiSchema: PropTypes.object,
+	};
+}
 
 CustomFieldTemplate.defaultProps = {
 	hidden: false,

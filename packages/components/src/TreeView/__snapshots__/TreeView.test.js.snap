@@ -16,6 +16,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       id="id-add"
       onClick={[Function]}
       onFocus={[Function]}
+      onMouseDown={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"
@@ -44,10 +45,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       >
         <div
           className={undefined}
-          data-depth={0}
           data-selected={undefined}
           id="id-0"
           onClick={[Function]}
+          style={
+            Object {
+              "paddingLeft": "20px",
+            }
+          }
         >
           <div
             className={undefined}
@@ -59,6 +64,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               id="id-0-toggle"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -93,7 +99,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             grandpa
           </span>
           <div
-            className="tc-treeview-item-ctrl"
+            className={undefined}
           >
             <div
               className="tc-badge tc-badge-solid"
@@ -110,6 +116,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               id="id-0-talend-trash"
               onClick={[Function]}
               onFocus={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role="link"
               type="button"
@@ -136,10 +143,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
           >
             <div
               className={undefined}
-              data-depth={1}
               data-selected={undefined}
               id="id-0-0"
               onClick={[Function]}
+              style={
+                Object {
+                  "paddingLeft": "35px",
+                }
+              }
             >
               <div
                 className={undefined}
@@ -151,6 +162,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   id="id-0-0-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -185,7 +197,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 mami
               </span>
               <div
-                className="tc-treeview-item-ctrl"
+                className={undefined}
               />
             </div>
             <ul
@@ -197,10 +209,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               >
                 <div
                   className={undefined}
-                  data-depth={2}
                   data-selected={true}
                   id="id-0-0-0"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "paddingLeft": "50px",
+                    }
+                  }
                 >
                   <span
                     className={undefined}
@@ -220,7 +236,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     me
                   </span>
                   <div
-                    className="tc-treeview-item-ctrl"
+                    className={undefined}
                   />
                 </div>
               </li>
@@ -230,10 +246,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               >
                 <div
                   className={undefined}
-                  data-depth={2}
                   data-selected={undefined}
                   id="id-0-0-1"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "paddingLeft": "50px",
+                    }
+                  }
                 >
                   <span
                     className={undefined}
@@ -253,7 +273,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     bro
                   </span>
                   <div
-                    className="tc-treeview-item-ctrl"
+                    className={undefined}
                   />
                 </div>
               </li>
@@ -265,10 +285,14 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
           >
             <div
               className={undefined}
-              data-depth={1}
               data-selected={undefined}
               id="id-0-1"
               onClick={[Function]}
+              style={
+                Object {
+                  "paddingLeft": "35px",
+                }
+              }
             >
               <div
                 className={undefined}
@@ -280,6 +304,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                   id="id-0-1-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
                   role="link"
                   type="button"
@@ -314,7 +339,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 aunt
               </span>
               <div
-                className="tc-treeview-item-ctrl"
+                className={undefined}
               />
             </div>
           </li>

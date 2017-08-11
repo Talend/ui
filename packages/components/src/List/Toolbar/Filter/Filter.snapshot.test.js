@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Filter from './Filter.component';
 
@@ -10,34 +10,34 @@ describe('Filter', () => {
 
 	it('should render', () => {
 		// when
-		const wrapper = renderer.create(<Filter onFilter={noOp} onToggle={noOp} />).toJSON();
+		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = renderer.create(<Filter id="toolbar-filter" onFilter={noOp} onToggle={noOp} />).toJSON();
+		const wrapper = shallow(<Filter id="toolbar-filter" onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render highlighted filter', () => {
 		// when
-		const wrapper = renderer.create(<Filter highlight onFilter={noOp} onToggle={noOp} />).toJSON();
+		const wrapper = shallow(<Filter highlight onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render only toggle icon', () => {
 		// when
-		const wrapper = renderer.create(<Filter onFilter={noOp} onToggle={noOp} docked />).toJSON();
+		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} docked />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render filter input with given placeholder', () => {
@@ -46,10 +46,10 @@ describe('Filter', () => {
 			docked: false,
 			placeholder: 'find something',
 		};
-		const wrapper = renderer.create(<Filter {...defaultProps} />).toJSON();
+		const wrapper = shallow(<Filter {...defaultProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 
 	it('should render filter input with default placeholder', () => {
@@ -57,9 +57,9 @@ describe('Filter', () => {
 		const defaultProps = {
 			docked: false,
 		};
-		const wrapper = renderer.create(<Filter {...defaultProps} />).toJSON();
+		const wrapper = shallow(<Filter {...defaultProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.node).toMatchSnapshot();
 	});
 });

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const REQUIRED_FIELD_SYMBOL = '*';
 
@@ -16,10 +17,12 @@ const Label = (props) => {
 	);
 };
 
-Label.propTypes = {
-	label: PropTypes.string,
-	required: PropTypes.bool,
-	id: PropTypes.string,
-};
+if (process.env.NODE_ENV !== 'production') {
+	Label.propTypes = {
+		label: PropTypes.string,
+		required: PropTypes.bool,
+		id: PropTypes.string,
+	};
+}
 
 export default Label;
