@@ -21,7 +21,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		}
 
 		.control {
-			border-right: 1px solid $gray-lighter;
+			border-right: 1px solid $wild-sand;
 			display: flex;
 			flex-direction: column;
 			padding: 0 $padding-small;
@@ -57,8 +57,8 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			}
 
 			fieldset {
-				div {
-					border-bottom: 1px solid $gray-lighter;
+				> div:first-child {
+					border-bottom: 1px solid $wild-sand;
 
 					div {
 						display: inline-block;
