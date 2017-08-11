@@ -1,5 +1,5 @@
 
-> react-talend-containers@0.100.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> react-talend-containers@0.102.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -15,6 +15,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
+  33:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -35,11 +41,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:8   error  'React' is defined but never used                                                              no-unused-vars
   7:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
+  4:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 13 problems (12 errors, 1 warning)
+✖ 16 problems (15 errors, 1 warning)
 
