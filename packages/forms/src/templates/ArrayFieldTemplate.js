@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 
 import { Icon, IconsProvider } from '@talend/react-components';
 
 import theme from './ArrayFieldTemplate.scss';
 
 function FieldTemplate({ element, cantDelete }) {
+	const arrayElement = classNames(theme.arrayElement, element.itemData.isClosed && theme.closed);
 	return (
-		<div className={theme.arrayElement}>
-			{!element.itemData.isClosed &&
+		<div className={arrayElement}>
+			{
 				<div className={theme.control}>
 					<button
 						name={`btn-delete-element-${element.index}`}
@@ -19,23 +21,27 @@ function FieldTemplate({ element, cantDelete }) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					<button
-						name={`btn-move-element-up-${element.index}`}
-						disabled={!element.hasMoveUp}
-						onClick={element.onReorderClick(element.index, element.index - 1)}
-						title="Move Up"
-					>
-						<Icon name="talend-caret-down" transform="flip-vertical" />
-					</button>
-					<button
-						name={`btn-move-element-down-${element.index}`}
-						disabled={!element.hasMoveDown}
-						onClick={element.onReorderClick(element.index, element.index + 1)}
-						title="Move Down"
-					>
-						<Icon name="talend-caret-down" />
-					</button>
-				</div>}
+					{!element.itemData.isClosed &&
+						<div className={theme.orderaction}>
+							<button
+								name={`btn-move-element-up-${element.index}`}
+								disabled={!element.hasMoveUp}
+								onClick={element.onReorderClick(element.index, element.index - 1)}
+								title="Move Up"
+							>
+								<Icon name="talend-caret-down" transform="flip-vertical" />
+							</button>
+							<button
+								name={`btn-move-element-down-${element.index}`}
+								disabled={!element.hasMoveDown}
+								onClick={element.onReorderClick(element.index, element.index + 1)}
+								title="Move Down"
+							>
+								<Icon name="talend-caret-down" />
+							</button>
+						</div>}
+				</div>
+			}
 			<div className={theme.element}>
 				{element.children}
 			</div>
@@ -54,12 +60,18 @@ function ArrayFieldTemplate(props) {
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{items && items.map(element => <FieldTemplate
-				element={element}
-				cantDelete={items.length <= minItems}
-			/>)}
+			{items &&
+				items.map(element =>
+					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
+				)}
 			{canAdd &&
-				<button className="btn btn-info" type="button" name="btn-new-element" disabled={items.length >= maxItems} onClick={onAddClick}>
+				<button
+					className="btn btn-info"
+					type="button"
+					name="btn-new-element"
+					disabled={items.length >= maxItems}
+					onClick={onAddClick}
+				>
 					{`NEW ${props.type}`}
 				</button>}
 		</div>
