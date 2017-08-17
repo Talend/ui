@@ -25,4 +25,9 @@ $tc-enumeration-font-size: 1.4rem !default;
 	header {
 		flex-shrink: 0;
 	}
+
+	.tc-enumeration-hint {
+		color: $silver;
+		font-style: oblique;
+	}
 }

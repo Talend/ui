@@ -73,11 +73,18 @@ Enumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
+function hintClasses() {
+	return classNames({
+		[theme['tc-enumeration-hint']]: true,
+		'tc-enumeration-hint': true,
+	});
+}
+
 function EmptyListPlaceholder({ displayMode }) {
 	const EMPTY_LIST_PLACEHOLDER_DEFAULT = 'The list is empty';
 	const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
 
-	return (<p className="help-block">
+	return (<p className={hintClasses()}>
 		{ displayMode === DISPLAY_MODE_DEFAULT ?
 				EMPTY_LIST_PLACEHOLDER_DEFAULT
 				: EMPTY_LIST_PLACEHOLDER_SEARCH }

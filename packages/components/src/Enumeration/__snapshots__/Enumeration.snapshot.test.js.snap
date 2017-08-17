@@ -15,7 +15,7 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
     />
   </header>
   <p
-    className="help-block"
+    className="undefined tc-enumeration-hint"
   >
     The list is empty
   </p>
@@ -39,7 +39,7 @@ exports[`Enumeration should render with EmptyListPlaceholder in search mode when
     />
   </header>
   <p
-    className="help-block"
+    className="undefined tc-enumeration-hint"
   >
     No results
   </p>
@@ -2018,7 +2018,7 @@ exports[`Enumeration should render with header without items 1`] = `
     </div>
   </header>
   <p
-    className="help-block"
+    className="undefined tc-enumeration-hint"
   >
     The list is empty
   </p>
