@@ -73,7 +73,20 @@ Enumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
+function EmptyListPlaceholder({ displayMode }) {
+	const EMPTY_LIST_PLACEHOLDER_DEFAULT = 'The list is empty';
+	const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
+
+	return (<p className="help-block">
+		{displayMode === DISPLAY_MODE_DEFAULT ? EMPTY_LIST_PLACEHOLDER_DEFAULT : EMPTY_LIST_PLACEHOLDER_SEARCH}
+	</p>);
+}
+
+EmptyListPlaceholder.propTypes = {
+	displayMode: Enumeration.propTypes.displayMode
+};
+
+function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit, displayMode }) {
 	if (items.length > 0) {
 		return (<Items
 			items={items}
@@ -82,7 +95,7 @@ function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
 			searchCriteria={searchCriteria}
 		/>);
 	}
-	return null;
+	return (<EmptyListPlaceholder displayMode={displayMode} />);
 }
 
 ItemsEnumeration.propTypes = {

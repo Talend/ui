@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Enumeration should render with EmptyListPlaceholder in default mode when there's no items in list 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      Values
+    </span>
+    <div
+      className="actions"
+    />
+  </header>
+  <p
+    className="help-block"
+  >
+    The list is empty
+  </p>
+</div>
+`;
+
+exports[`Enumeration should render with EmptyListPlaceholder in search mode when there's no items in list 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search"
+      type="text"
+      value={undefined}
+    />
+  </header>
+  <p
+    className="help-block"
+  >
+    No results
+  </p>
+</div>
+`;
+
 exports[`Enumeration should render with header in add state and list in default state 1`] = `
 <div
   className="undefined tc-enumeration"
@@ -1971,5 +2017,10 @@ exports[`Enumeration should render with header without items 1`] = `
       </button>
     </div>
   </header>
+  <p
+    className="help-block"
+  >
+    The list is empty
+  </p>
 </div>
 `;
