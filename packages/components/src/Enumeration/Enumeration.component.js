@@ -78,12 +78,14 @@ function EmptyListPlaceholder({ displayMode }) {
 	const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
 
 	return (<p className="help-block">
-		{displayMode === DISPLAY_MODE_DEFAULT ? EMPTY_LIST_PLACEHOLDER_DEFAULT : EMPTY_LIST_PLACEHOLDER_SEARCH}
+		{ displayMode === DISPLAY_MODE_DEFAULT ?
+				EMPTY_LIST_PLACEHOLDER_DEFAULT
+				: EMPTY_LIST_PLACEHOLDER_SEARCH }
 	</p>);
 }
 
 EmptyListPlaceholder.propTypes = {
-	displayMode: Enumeration.propTypes.displayMode
+	displayMode: Enumeration.propTypes.displayMode,
 };
 
 function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit, displayMode }) {

@@ -15,10 +15,9 @@ describe('Enumeration', () => {
 			headerDefault: [],
 		};
 		const wrapper = renderer.create(
-				<Enumeration {...props} />
+			<Enumeration {...props} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
-
 	});
 
 	it('should render with EmptyListPlaceholder in search mode when there\'s no items in list', () => {
@@ -29,10 +28,9 @@ describe('Enumeration', () => {
 			headerDefault: [],
 		};
 		const wrapper = renderer.create(
-				<Enumeration {...props} />
+			<Enumeration {...props} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
-
 	});
 
 	it('should render with header in default state, list in default state and required component', () => {
