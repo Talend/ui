@@ -29,5 +29,7 @@ $tc-enumeration-font-size: 1.4rem !default;
 	.tc-enumeration-hint {
 		color: $silver;
 		font-style: oblique;
+		box-shadow: inset 0 21px 3px -20px $shadow;
+		padding: $padding-normal $padding-small;
 	}
 }

@@ -80,10 +80,10 @@ function hintClasses() {
 	});
 }
 
-function EmptyListPlaceholder({ displayMode }) {
-	const EMPTY_LIST_PLACEHOLDER_DEFAULT = 'The list is empty';
-	const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
+const EMPTY_LIST_PLACEHOLDER_DEFAULT = 'The list is empty';
+const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
 
+function EmptyListPlaceholder({ displayMode }) {
 	return (<p className={hintClasses()}>
 		{ displayMode === DISPLAY_MODE_DEFAULT ?
 				EMPTY_LIST_PLACEHOLDER_DEFAULT
