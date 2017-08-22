@@ -5,6 +5,7 @@ Object {
   "ArrayFieldTemplate": [Function],
   "actions": Array [],
   "buttonBlockClass": "form-actions",
+  "children": undefined,
   "className": "tc-form rjsf pristine",
   "data": Object {
     "jsonSchema": Object {
