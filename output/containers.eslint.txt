@@ -17,7 +17,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  33:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  34:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
