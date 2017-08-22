@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
+import ArrayFieldTemplate from 'react-talend-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
 export const DEFAULT_STATE = new Map({});
@@ -127,9 +128,11 @@ class Form extends React.Component {
 		});
 		return (
 			<ComponentForm
+				ArrayFieldTemplate={ArrayFieldTemplate}
 				className={className}
 				data={data}
 				actions={this.formActions()}
+				fields={this.props.fields}
 				onTrigger={this.onTrigger}
 				onChange={this.onChange}
 				onSubmit={this.onSubmit}

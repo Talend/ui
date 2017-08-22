@@ -54,8 +54,12 @@ function getItemsMap(items) {
 	return items.reduce((a, b) => Object.assign(a, getValueLabelPair(b)), {});
 }
 
-function itemsContainerClickHandler(e) {
-	e.preventDefault();
+let dontBlur = false;
+function itemsContainerClickHandler() {
+	dontBlur = true;
+	setTimeout(() => {
+		dontBlur = false;
+	});
 }
 
 /**
@@ -114,6 +118,10 @@ class DatalistWidget extends React.Component {
 	}
 
 	onBlur(event) {
+		if (dontBlur) {
+			return;
+		}
+
 		const inputLabel = event.target.value;
 		const { options, onChange } = this.props;
 		const { value, lastKnownValue } = this.state;
@@ -121,7 +129,6 @@ class DatalistWidget extends React.Component {
 		const isIncluded = this.isPartOfItems(value);
 
 		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
-
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
 			if (inputLabel !== this.getLabel(lastKnownValue)) {
