@@ -166,10 +166,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -244,10 +240,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -322,10 +314,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -556,10 +544,6 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -634,10 +618,6 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -798,10 +778,6 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -876,10 +852,6 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -954,10 +926,6 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1118,10 +1086,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1196,10 +1160,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1274,10 +1234,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1760,10 +1716,6 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1838,10 +1790,6 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1916,10 +1864,6 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
