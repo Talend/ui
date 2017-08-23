@@ -70,6 +70,7 @@ Enumeration.propTypes = {
 	inputPlaceholder: PropTypes.string,
 	inputValue: PropTypes.string,
 	label: PropTypes.string,
+	showCheckboxes: PropTypes.bool,
 	...ItemEditPropTypes,
 };
 
@@ -95,13 +96,16 @@ EmptyListPlaceholder.propTypes = {
 	displayMode: Enumeration.propTypes.displayMode,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit, displayMode }) {
+function ItemsEnumeration({
+		items, itemsProp, searchCriteria, currentEdit, displayMode, showCheckboxes,
+	}) {
 	if (items.length > 0) {
 		return (<Items
 			items={items}
 			itemsProp={itemsProp}
 			currentEdit={currentEdit}
 			searchCriteria={searchCriteria}
+			showCheckboxes={showCheckboxes}
 		/>);
 	}
 	return (<EmptyListPlaceholder displayMode={displayMode} />);
@@ -111,6 +115,7 @@ ItemsEnumeration.propTypes = {
 	items: Enumeration.propTypes.items,
 	itemsProp: Enumeration.propTypes.itemsProp,
 	searchCriteria: Enumeration.propTypes.searchCriteria,
+	showCheckboxes: Enumeration.propTypes.showCheckboxes,
 	...ItemEditPropTypes,
 };
 

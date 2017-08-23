@@ -9,6 +9,9 @@ $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
 $tc-enumeration-item-font-size: 14px;
 $tc-enumeration-item-error-padding: 0 $padding-normal;
+$selected-item-color: #fafafa;
+$item-checkbox-margin: 5px;
+$item-checkbox-size: 20px;
 
 .tc-enumeration-item {
 	display: flex;
@@ -96,8 +99,17 @@ $tc-enumeration-item-error-padding: 0 $padding-normal;
 	}
 }
 
+.tc-enumeration-checkbox {
+	display: inline-block;
+	margin: 0 $item-checkbox-margin $item-checkbox-margin 0;
+	height: $item-checkbox-size;
+	width: $item-checkbox-size;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
 .selected-item {
-	background-color: #D9EEFF;
+	background-color: $selected-item-color;
 }
 
 .tc-enumeration-item:hover {
