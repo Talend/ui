@@ -39,7 +39,7 @@ module.exports = {
                   password: process.env['NEXUS_PASSWORD']
                 },
                 formData:{
-                  r: 'TalendOpenSource' + (release ? 'Release' : 'Snapshot'),
+                  r: release ? 'releases' : 'snapshots',
                   hasPom: 'false',
                   e: mvnConfig.packaging,
                   g: mvnConfig.groupId,
