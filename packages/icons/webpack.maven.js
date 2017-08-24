@@ -32,6 +32,7 @@ module.exports = {
           const jar = `${mvnConfig.artifactId}-${mvnConfig.version}.${mvnConfig.packaging}`;
           const file = path.join(__dirname, `dist/maven/${jar}`);
           if (fs.statSync(file).isFile()) {
+            console.log(JSON.stringify(process.env));
             request.post({
                 url: mvnConfig.repository + '/service/local/artifact/maven/content',
                 auth: {
