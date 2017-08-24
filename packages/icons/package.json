@@ -26,7 +26,8 @@
     "test": "echo no test",
     "test:cov": "echo no test",
     "start": "echo nothing to start",
-    "svgo": "svgo -f src/svg --config=.svgo.yml"
+    "svgo": "svgo -f src/svg --config=.svgo.yml",
+    "maven": "webpack --config webpack.maven.js --progress"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -44,7 +45,10 @@
     "react": "15.5.4",
     "style-loader": "^0.13.1",
     "svgo": "0.7.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "zip-webpack-plugin": "2.0.0",
+    "copy-webpack-plugin": "4.0.1",
+    "request": "2.81.0"
   },
   "keywords": [
     "Talend",
