@@ -117,8 +117,8 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(nextProps){
-		if(nextProps.value !== this.props.value){
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value !== this.props.value) {
 			this.setValue(nextProps.value);
 		}
 	}
@@ -151,24 +151,24 @@ class DatalistWidget extends React.Component {
 
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
-		case keycode.codes.esc:
-			this.resetValue();
-			event.preventDefault();
-			break;
-		case keycode.codes.enter:
-			// could be null in case of no match
-			if (focusedItemIndex != null) {
-				this.selectItem(focusedItemIndex);
-			}
-			event.preventDefault();
-			break;
-		case keycode.codes.up:
-		case keycode.codes.down:
-			event.preventDefault();
-			this.focusOnItem(newFocusedItemIndex);
-			break;
-		default:
-			break;
+			case keycode.codes.esc:
+				this.resetValue();
+				event.preventDefault();
+				break;
+			case keycode.codes.enter:
+				// could be null in case of no match
+				if (focusedItemIndex != null) {
+					this.selectItem(focusedItemIndex);
+				}
+				event.preventDefault();
+				break;
+			case keycode.codes.up:
+			case keycode.codes.down:
+				event.preventDefault();
+				this.focusOnItem(newFocusedItemIndex);
+				break;
+			default:
+				break;
 		}
 	}
 
