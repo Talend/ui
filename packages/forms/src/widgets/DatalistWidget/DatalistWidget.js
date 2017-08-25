@@ -117,6 +117,12 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
+	componentWillReceiveProps(nextProps){
+		if(nextProps.value !== this.props.value){
+			this.setValue(nextProps.value);
+		}
+	}
+
 	onBlur(event) {
 		if (dontBlur) {
 			return;
