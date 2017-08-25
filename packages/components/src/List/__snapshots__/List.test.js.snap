@@ -77,12 +77,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -98,12 +94,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -148,12 +140,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -169,12 +157,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -219,12 +203,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -240,12 +220,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -624,16 +600,20 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -643,12 +623,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play fa-rotate-180"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -687,12 +671,16 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -706,23 +694,25 @@ exports[`List should render 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
+          onMouseDown={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"
@@ -814,12 +804,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -835,12 +821,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -885,12 +867,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -906,12 +884,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -956,12 +930,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -977,12 +947,8 @@ exports[`List should render 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -998,15 +964,87 @@ exports[`List should render 1`] = `
 </div>
 `;
 
-exports[`List should render empty list 1`] = `
+exports[`List should render empty list in large 1`] = `
 <div
   className="tc-list"
 >
-  <span
-    className={undefined}
+  <div
+    className="tc-list-display"
   >
-    No result found
-  </span>
+    <p
+      className={undefined}
+    >
+      No result found
+    </p>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in table 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <div>
+      <table
+        className="table tc-list-display-table"
+      >
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <span
+                className={undefined}
+              >
+                Id
+              </span>
+              <div
+                aria-hidden="true"
+              >
+                Id
+              </div>
+            </th>
+            <th>
+              <span
+                className={undefined}
+              >
+                Name
+              </span>
+              <div
+                aria-hidden="true"
+              >
+                Name
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+      <p
+        className={undefined}
+      >
+        No result found
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List should render empty list in tile 1`] = `
+<div
+  className="tc-list"
+>
+  <div
+    className="tc-list-display"
+  >
+    <p
+      className={undefined}
+    >
+      No result found
+    </p>
+  </div>
 </div>
 `;
 
@@ -1373,16 +1411,20 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-backward"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
           <li
-            className="btn-link tc-pagination-ctrl-prev"
+            className="btn-link"
             role="presentation"
             style={undefined}
           >
@@ -1392,12 +1434,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play fa-rotate-180"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1436,12 +1482,16 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-play"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-left"
+                />
+              </svg>
             </a>
           </li>
           <li
@@ -1455,24 +1505,26 @@ exports[`List should render id if provided 1`] = `
               onClick={[Function]}
               role="button"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                className="fa fa-forward"
+                className="tc-svg-icon"
                 focusable="false"
                 title={null}
-              />
+              >
+                <use
+                  xlinkHref="#talend-chevron-end"
+                />
+              </svg>
             </a>
           </li>
         </ul>
         <button
-          aria-describedby={42}
           className="navbar-right btn btn-link"
           disabled={false}
           id="context-filter"
-          onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
-          onMouseOut={[Function]}
+          onMouseDown={[Function]}
           onMouseOver={[Function]}
           role={null}
           type="button"
@@ -1564,12 +1616,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     1
@@ -1585,12 +1633,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -1635,12 +1679,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     2
@@ -1656,12 +1696,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -1706,12 +1742,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     3
@@ -1727,12 +1759,8 @@ exports[`List should render id if provided 1`] = `
                   className="cell"
                 >
                   <span
-                    aria-describedby={42}
                     className="item-text"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar

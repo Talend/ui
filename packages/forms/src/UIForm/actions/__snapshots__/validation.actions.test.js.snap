@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validation actions #validate action should create the action payload 1`] = `
+Object {
+  "errors": "error",
+  "formName": "formName",
+  "type": "TF_SET_PARTIAL_ERROR",
+}
+`;
+
+exports[`Validation actions #validateAll action should create the action payload 1`] = `
+Object {
+  "errors": Array [
+    "errors",
+  ],
+  "formName": "formName",
+  "type": "TF_SET_ALL_ERRORS",
+}
+`;

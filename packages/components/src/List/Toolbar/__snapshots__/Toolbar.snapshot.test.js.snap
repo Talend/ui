@@ -15,6 +15,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
         disabled={false}
         id="my-toolbar-actions-add"
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
@@ -58,6 +59,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         disabled={false}
         id="my-toolbar-actions-delete"
         onClick={[Function]}
+        onMouseDown={[Function]}
         role={null}
         type="button"
       >
@@ -242,14 +244,12 @@ exports[`Toolbar should render filter form 1`] = `
       className="container-fluid"
     >
       <button
-        aria-describedby={42}
         className="navbar-right btn btn-link"
         disabled={false}
         id="my-toolbar-filter"
-        onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
-        onMouseOut={[Function]}
+        onMouseDown={[Function]}
         onMouseOver={[Function]}
         role={null}
         type="button"
@@ -392,16 +392,20 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-backward"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
           </a>
         </li>
         <li
-          className="btn-link tc-pagination-ctrl-prev"
+          className="btn-link"
           role="presentation"
           style={undefined}
         >
@@ -411,12 +415,16 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-play fa-rotate-180"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
           </a>
         </li>
         <li
@@ -455,12 +463,16 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-play"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
           </a>
         </li>
         <li
@@ -474,12 +486,16 @@ exports[`Toolbar should render pagination 1`] = `
             onClick={[Function]}
             role="button"
           >
-            <i
+            <svg
               aria-hidden="true"
-              className="fa fa-forward"
+              className="tc-svg-icon"
               focusable="false"
               title={null}
-            />
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
           </a>
         </li>
       </ul>

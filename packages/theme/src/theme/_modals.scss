@@ -1,5 +1,12 @@
 
+.modal-dialog {
+	max-height: 80vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .modal {
+
 	&-header {
 		border-top-left-radius: $border-radius-base;
 		border-top-right-radius: $border-radius-base;
@@ -17,7 +24,12 @@
 		}
 	}
 
+	&-body {
+		flex-grow: 1;
+	}
+
 	&-footer {
+		flex-shrink: 0;
 		border-top: none;
 	}
 

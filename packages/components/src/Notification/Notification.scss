@@ -85,16 +85,16 @@ $icon-size: $svg-md-size;
 
 		.tc-notification-timer-bar {
 			border-width: 2px 0 1px;
-			border-radius: 2px;
 			border-style: solid;
 			position: absolute;
 			bottom: 0;
 			margin: 0 (-$padding-normal);
 			animation: timer-bar 4s linear;
+			width: 100%;
 		}
 
 		&:hover > .tc-notification-timer-bar {
-			width: 100%;
+			transform: translateX(0%);
 			animation: none;
 		}
 	}
@@ -102,18 +102,18 @@ $icon-size: $svg-md-size;
 	.tc-notification[pin='true'] {
 		.tc-notification-timer-bar {
 			animation: none;
-			width: 100%;
+			transform: translateX(0%);
 		}
 	}
 }
 
 @keyframes  timer-bar {
 	from {
-		width: 100%;
+		transform: translateX(0%);
 	}
 
 	to {
-		width: 0;
+		transform: translateX(-100%);
 	}
 }
 
@@ -128,14 +128,12 @@ $icon-size: $svg-md-size;
 :global {
 	@keyframes tc-notification-slide-in {
 		from {
-			margin-top: 0;
 			transform: translateY(-100%);
 			opacity: 0;
 			z-index: 1;
 		}
 
 		to {
-			margin-top: $padding-larger;
 			transform: translateY(0);
 			opacity: 1;
 			z-index: 1;
@@ -144,21 +142,13 @@ $icon-size: $svg-md-size;
 
 	@keyframes tc-notification-slide-out {
 		from {
-			margin-top: $padding-larger;
-			padding-top: $padding-normal;
-			padding-bottom: $padding-large;
 			transform: translateY(0);
-			max-height: 400px;
 			opacity: 1;
 			z-index: 1;
 		}
 
 		to {
-			margin-top: 0;
-			padding-top: 0;
-			padding-bottom: 0;
 			transform: translateY(-100%);
-			max-height: 0;
 			opacity: 0;
 			z-index: 1;
 		}

@@ -70,13 +70,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="undefined tc-enumeration-item-actions"
             >
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -112,13 +110,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
             id="1-item"
           >
             <button
-              aria-describedby={42}
               className="undefined tc-enumeration-item-label btn btn-default"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -131,13 +127,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="undefined tc-enumeration-item-actions"
             >
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -154,13 +148,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 </svg>
               </button>
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -196,13 +188,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
             id="2-item"
           >
             <button
-              aria-describedby={42}
               className="undefined tc-enumeration-item-label btn btn-default"
               disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
-              onMouseOut={[Function]}
+              onMouseDown={[Function]}
               onMouseOver={[Function]}
               role={null}
               type="button"
@@ -215,13 +205,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="undefined tc-enumeration-item-actions"
             >
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -238,13 +226,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 </svg>
               </button>
               <button
-                aria-describedby={42}
                 className="btn btn-link"
                 disabled={false}
-                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseOut={[Function]}
+                onMouseDown={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"

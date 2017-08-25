@@ -1,18 +1,41 @@
 import { api } from 'react-cmf';
 
+/**
+ * add support for expression in actions.
+ * it change the action props by their expression value
+ * it support the following props in the action
+ * * available
+ * * disabled
+ * * inProgress
+ * * labelExpression
+ */
+function evalExpressions(action, context, payload = {}) {
+	const newAction = api.expression.getProps(action, ['available', 'disabled', 'inProgress'], context, payload);
+	if (action.labelExpression) {
+		delete newAction.labelExpression;
+		newAction.label = api.expression.call(action.labelExpression, context, newAction);
+	}
+	return newAction;
+}
+
 export function getActionsProps(context, ids, model) {
 	if (!ids) {
 		return [];
 	}
-
 	let tmpIds = ids;
-	if (typeof ids === 'string') {
+	const onlyOne = typeof ids === 'string' || (typeof ids === 'object' && !Array.isArray(ids));
+	if (onlyOne) {
 		tmpIds = [ids];
 	}
 
-	const infos = tmpIds.map(id => api.action.getActionInfo(context, id));
+	const infos = tmpIds.map((id) => {
+		if (typeof id === 'string') {
+			return api.action.getActionInfo(context, id);
+		}
+		return id;
+	});
+
 	const props = infos.map(info => Object.assign({
-		model,
 		onClick(event, data) {
 			if (info.actionCreator) {
 				context.store.dispatch(
@@ -24,9 +47,9 @@ export function getActionsProps(context, ids, model) {
 				}, info.payload));
 			}
 		},
-	}, info));
+	}, evalExpressions(info, context, { model })));
 
-	if (typeof ids === 'string') {
+	if (onlyOne) {
 		return props[0];
 	}
 
@@ -35,4 +58,5 @@ export function getActionsProps(context, ids, model) {
 
 export default {
 	getProps: getActionsProps,
+	evalExpressions,
 };

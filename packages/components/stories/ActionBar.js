@@ -1,6 +1,6 @@
 import React from 'react';
 import talendIcons from 'talend-icons/dist/react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 
 import { Action, Icon, ActionBar, IconsProvider } from '../src/index';
 
@@ -20,10 +20,26 @@ const actions = {
 			onClick: action('You clicked me'),
 		},
 		{
-			displayMode: 'splitDropdown',
+			displayMode: ActionBar.DISPLAY_MODES.SPLIT_DROPDOWN,
 			label: 'Secondary3',
 			icon: 'talend-cog',
 			onClick: action('on split button click'),
+			items: [
+				{
+					label: 'From Local',
+					onClick: action('From Local click'),
+				},
+				{
+					label: 'From Remote',
+					onClick: action('From Remote click'),
+				},
+			],
+			emptyDropdownLabel: 'No option',
+		},
+		{
+			displayMode: ActionBar.DISPLAY_MODES.DROPDOWN,
+			label: 'Dropdown',
+			icon: 'talend-cog',
 			items: [
 				{
 					label: 'From Local',
@@ -82,7 +98,7 @@ const multiSelectActions = {
 const btnGroupActions = {
 	left: [
 		{
-			displayMode: 'btnGroup',
+			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
 			actions: [
 				{
 					label: 'hidden mean tooltips',
@@ -111,7 +127,7 @@ const btnGroupActions = {
 			],
 		},
 		{
-			displayMode: 'btnGroup',
+			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
 			actions: [
 				{
 					label: 'you can also add',
@@ -136,7 +152,7 @@ const btnGroupActions = {
 	],
 	right: [
 		{
-			displayMode: 'btnGroup',
+			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
 			actions: [
 				{
 					label: 'table',

@@ -1,9 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
+import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export const renderInputComponent = (props) => {
@@ -131,18 +133,15 @@ export const renderSectionTitle = (section) => {
 };
 
 export const renderItem = (item, { value }) => {
-	const splittedTitle = !value ? [item.title] : item.title.split(value);
-	const emphasisedTitle = splittedTitle.map((title, index) => (
-		<span key={index}>
-			{title}
-			{index !== splittedTitle.length - 1 &&
-			<em className={theme['highlight-match']}>{value}</em>}
-		</span>
-	));
+	const title = item.title ? item.title.trim() : '';
 	return (
-		<div className={theme.item}>
-			<span className={theme['item-title']}>{emphasisedTitle}</span>
-			<p className={theme['item-description']}>{item.description}</p>
+		<div className={theme.item} title={title}>
+			<span className={theme['item-title']}>
+				<Emphasis value={value} text={title} />
+			</span>
+			<p className={theme['item-description']}>
+				<Emphasis value={value} text={item.description} />
+			</p>
 		</div>
 	);
 };

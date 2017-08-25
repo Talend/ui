@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model reducers #TF_UPDATE_FORM_DATA should mutate array item 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "from": "toto",
+      "message": "lol",
+    },
+    Object {
+      "from": "tata",
+      "message": "newMessage",
+    },
+  ],
+  "props": "oldProps",
+  "user": Object {
+    "firstname": "oldName",
+  },
+}
+`;
+
+exports[`Model reducers #TF_UPDATE_FORM_DATA should mutate nested value 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "from": "toto",
+      "message": "lol",
+    },
+    Object {
+      "from": "tata",
+      "message": "oldMessage",
+    },
+  ],
+  "props": "oldProps",
+  "user": Object {
+    "firstname": "newName",
+  },
+}
+`;
+
+exports[`Model reducers #TF_UPDATE_FORM_DATA should mutate simple value 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "from": "toto",
+      "message": "lol",
+    },
+    Object {
+      "from": "tata",
+      "message": "oldMessage",
+    },
+  ],
+  "props": "newProps",
+  "user": Object {
+    "firstname": "oldName",
+  },
+}
+`;

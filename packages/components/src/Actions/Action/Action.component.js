@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classnames from 'classnames';
 import {
 	Button,
 	OverlayTrigger,
@@ -56,6 +58,8 @@ function getContent(props) {
 	);
 }
 
+function noOp() {}
+
 /**
  * @param {object} props react props
  * @example
@@ -78,16 +82,27 @@ function Action(props) {
 		label,
 		link,
 		model,
-		onClick,
+		onMouseDown = noOp,
+		onClick = noOp,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
+		available,
 		...rest
 	} = props;
 
+	if (!available) {
+		return null;
+	}
+
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick = event => onClick(event, {
+	const rClick = onClick && (event => onClick(event, {
+		action: { label, ...rest },
+		model,
+	}));
+
+	const rMouseDown = event => onMouseDown(event, {
 		action: { label, ...rest },
 		model,
 	});
@@ -96,6 +111,7 @@ function Action(props) {
 
 	const btn = (
 		<Button
+			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
 			disabled={inProgress || disabled}
@@ -105,7 +121,6 @@ function Action(props) {
 			{buttonContent}
 		</Button>
 	);
-
 	if (hideLabel || tooltip || tooltipLabel) {
 		return (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
@@ -127,13 +142,14 @@ Action.propTypes = {
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
 };
 
 Action.defaultProps = {
+	available: true,
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,

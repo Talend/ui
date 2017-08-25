@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Map } from 'immutable';
 import { List as Component } from 'react-talend-components';
 import get from 'lodash/get';
@@ -102,6 +103,7 @@ class List extends React.Component {
 				items,
 				columns: get(this.props, 'list.columns', []),
 			},
+			virtualized: this.props.virtualized,
 		};
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
@@ -139,6 +141,7 @@ class List extends React.Component {
 					this.onFilter(event, data);
 				};
 				props.toolbar.filter.docked = state.filterDocked;
+				props.toolbar.filter.value = state.searchQuery;
 			}
 
 			props.toolbar.actionBar = { actions: {} };

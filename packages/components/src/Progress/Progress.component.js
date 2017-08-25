@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import TooltipTrigger from '../TooltipTrigger';
@@ -15,17 +16,23 @@ function normalize(percent) {
 	return percent;
 }
 
-function Progress({ id, percent, tooltip }) {
-	const normalizedPercent = normalize(percent);
+function Progress({ id, percent, tooltip, infinite, contained }) {
+	const normalizedPercent = infinite ? 100 : normalize(percent);
 	const style = { width: `${normalizedPercent}%` };
 
 	const rootClassNames = classNames(
 		theme.progress,
-		{ [theme.hidden]: normalizedPercent === 0 },
+		{
+			[theme.hidden]: normalizedPercent === 0,
+			[theme.fixed]: !contained,
+			[theme.infinite]: infinite,
+		}
 	);
 
 	let progress = (
-		<div style={style} className={theme['progress-percent']} />
+		<div style={style} className={theme['progress-percent']}>
+			{ infinite && <div className={theme['infinite-indicator']} /> }
+		</div>
 	);
 
 	if (tooltip) {
@@ -36,17 +43,15 @@ function Progress({ id, percent, tooltip }) {
 		);
 	}
 
-	return (
-		<div id={id} className={rootClassNames}>
-			{progress}
-		</div>
-	);
+	return <div id={id} className={rootClassNames}>{progress}</div>;
 }
 
 Progress.propTypes = {
 	id: PropTypes.string,
 	percent: PropTypes.number,
 	tooltip: PropTypes.string,
+	infinite: PropTypes.bool,
+	contained: PropTypes.bool,
 };
 
 export default Progress;

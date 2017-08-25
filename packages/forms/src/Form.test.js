@@ -169,7 +169,7 @@ describe('<Form/>', () => {
 		});
 
 		it('should Render the <DatalistWidget /> component', () => {
-			expect(wrapper.containsMatchingElement(<DatalistWidget />)).toBeTruthy();
+			expect(wrapper.find(DatalistWidget).length).toEqual(1);
 		});
 
 		it('should handle changes', () => {
@@ -253,6 +253,17 @@ describe('<Form/>', () => {
 		it('should handle submit', () => {
 			wrapper.simulate('submit');
 			expect(onSubmit.mock.calls.length).toEqual(1);
+		});
+	});
+
+	describe('children', () => {
+		it('should render children', () => {
+			wrapper = shallow(
+				<Form data={data} onSubmit={onSubmit}>
+					<h1>test</h1>
+				</Form>
+			);
+			expect(wrapper.find('h1')).toBeDefined();
 		});
 	});
 

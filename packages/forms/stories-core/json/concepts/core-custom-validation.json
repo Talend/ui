@@ -1,0 +1,32 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "lastname": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "lastname",
+      "firstname"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "lastname",
+      "title": "Last Name",
+      "description": "This field has custom validation (less than 5 chars)",
+      "customValidation": true
+    },
+    {
+      "key": "firstname",
+      "title": "First Name",
+      "description": "This field has no custom validation"
+    }
+  ],
+  "properties": {}
+}

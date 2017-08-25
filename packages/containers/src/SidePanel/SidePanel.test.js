@@ -44,5 +44,20 @@ describe('SidePanel:getActions', () => {
 		context.router = { location: { pathname: '/different' } };
 		const notactive = getActions(['menu:routerReplace'], context)[0];
 		expect(notactive.active).toBe(undefined);
+
+		context.router = { location: { pathname: '/push' } };
+		const push = getActions(['menu:routerPush'], context)[0];
+		expect(push.active).toBe(true);
+
+		context.router = { location: { pathname: '/href' } };
+		const href = getActions(['menu:href'], context)[0];
+		expect(href.active).toBe(true);
+	});
+
+	it('should handle actionCreator with href', () => {
+		const context = store.context();
+		context.router = { location: { pathname: '/href' } };
+		const action = getActions(['menu:href'], context)[0];
+		expect(action.href).toBe('/href');
 	});
 });

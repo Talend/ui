@@ -1,0 +1,58 @@
+$tc-list-large-hover-bg: $concrete !default;
+$tc-list-large-field-label-color: $brand-primary-darker !default;
+$tc-list-large-field-value-color: $dove-gray !default;
+
+.tc-list-large {
+	padding: $padding-small;
+
+	.inner-box {
+		border: 1px solid currentColor;
+		border-radius: 3px;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+
+		&:hover {
+			background: $tc-list-large-hover-bg;
+		}
+	}
+
+	.header {
+		padding: $padding-smaller $padding-small $padding-smaller $padding-large;
+		display: flex;
+		align-items: center;
+
+		:global(.tc-list-title) {
+			flex-grow: 1;
+			flex-shrink: 1;
+		}
+	}
+
+	.content {
+		column-count: 3;
+		flex: 1;
+		min-height: 0;
+		padding: 0 $padding-large;
+
+		> li {
+			list-style: none;
+			display: flex;
+		}
+	}
+
+	.field-label {
+		color: $tc-list-large-field-label-color;
+		margin-bottom: $padding-small;
+		margin-right: $padding-small;
+		text-transform: uppercase;
+	}
+
+	.field-value {
+		color: $tc-list-large-field-value-color;
+		margin-bottom: $padding-small;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

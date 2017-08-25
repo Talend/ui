@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -17,12 +18,15 @@ import theme from './SidePanel.scss';
  ];
  <SidePanel
 	 actions={ actions }
-	 onToggleDock={ action('Toggle dock clicked') }
 	 docked={ isDocked }
+	 selected= { selectedItem }
+	 onToggleDock={ action('Toggle dock clicked') }
+	 onSelect={ action('onItemSelect') }
  />
  *
  */
 function SidePanel(props) {
+	const { selected, onSelect } = props;
 	const actions = props.actions || [];
 
 	const dockedCSS = { [theme.docked]: props.docked };
@@ -36,6 +40,12 @@ function SidePanel(props) {
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
+	const isActionSelected = (action) => {
+		if (selected) {
+			return action === selected;
+		}
+		return action.active;
+	};
 
 	return (
 		<nav className={navCSS}>
@@ -54,10 +64,10 @@ function SidePanel(props) {
 				</li>
 				{actions.map(action => (
 					<li
-						key={action.label}
+						key={action.key || action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
-							{ active: !!action.active },
+							{ active: isActionSelected(action) },
 						)}
 					>
 						<Action
@@ -65,7 +75,14 @@ function SidePanel(props) {
 							bsStyle="link"
 							role="link"
 							className={theme.link}
-							onClick={action.onClick}
+							onClick={(event) => {
+								if (onSelect) {
+									onSelect(event, action);
+								}
+								if (action.onClick) {
+									action.onClick(event);
+								}
+							}}
 							label={action.label}
 							icon={action.icon}
 							hideLabel={props.docked}
@@ -78,18 +95,22 @@ function SidePanel(props) {
 	);
 }
 
+const actionPropType = PropTypes.shape({
+	active: PropTypes.bool,
+	icon: PropTypes.string,
+	key: PropTypes.string,
+	label: PropTypes.string,
+	onClick: PropTypes.func,
+});
+
 SidePanel.propTypes = {
-	id: React.PropTypes.string,
-	actions: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			label: React.PropTypes.string,
-			icon: React.PropTypes.string,
-			onClick: React.PropTypes.func,
-		}),
-	),
-	onToggleDock: React.PropTypes.func,
-	docked: React.PropTypes.bool,
-	tooltipPlacement: React.PropTypes.string,
+	id: PropTypes.string,
+	actions: PropTypes.arrayOf(actionPropType),
+	onSelect: PropTypes.func,
+	onToggleDock: PropTypes.func,
+	docked: PropTypes.bool,
+	selected: actionPropType,
+	tooltipPlacement: PropTypes.string,
 };
 
 SidePanel.defaultProps = {

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HttpError should render a forbidden http error message 1`] = `
+<div
+  className="http-error"
+  data-status={403}
+>
+  <div
+    className="http-error-content http-error-403"
+    style={undefined}
+  >
+    <h1>
+      Access denied
+    </h1>
+    <p>
+      You are not allowed to access this page
+    </p>
+  </div>
+</div>
+`;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { api } from 'react-cmf';
 import { Actions as PureActions } from 'react-talend-components';
 
@@ -29,7 +30,9 @@ Actions.propTypes = {
 };
 
 Actions.contextTypes = {
-	store: React.PropTypes.object,
+	store: PropTypes.object,
 };
+
+Actions.displayName = 'CMF(Actions)';
 
 export default Actions;

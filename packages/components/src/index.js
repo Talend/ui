@@ -71,6 +71,7 @@ import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
 import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
 import TalendBadge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
@@ -78,10 +79,13 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
+import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
+import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
+import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
 import ObjectViewer from './ObjectViewer';
@@ -92,6 +96,7 @@ import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
+import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 
 export {
@@ -102,14 +107,17 @@ export {
 	Actions,
 	AppHeaderBar,
 	HeaderBar,
+	HttpError,
 	Breadcrumbs,
 	CircularProgress,
 	Checkbox,
 	CollapsiblePanel,
 	Dialog,
 	Enumeration,
+	ListView,
 	ConfirmDialog,
 	Drawer,
+	Emphasis,
 	TreeView,
 	TalendBadge as Badge,
 	Icon,
@@ -125,6 +133,7 @@ export {
 	Toggle,
 	TooltipTrigger,
 	Typeahead,
+	VirtualizedList,
 	WithDrawer,
 
 	Alert,
@@ -152,6 +161,7 @@ export {
 	HelpBlock,
 	Image,
 	InputGroup,
+	JSONSchemaRenderer,
 	Jumbotron,
 	Label,
 	ListGroup,

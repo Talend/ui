@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import {
 	defaultFieldValue,
@@ -62,19 +63,19 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func.isRequired,
 		formData: PropTypes.oneOfType([
-			React.PropTypes.string,
-			React.PropTypes.number,
+			PropTypes.string,
+			PropTypes.number,
 		]),
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([
 				PropTypes.func,
-				PropTypes.object
+				PropTypes.object,
 			])).isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
 		}),
-		formContext: PropTypes.object.isRequired,
+		name: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,

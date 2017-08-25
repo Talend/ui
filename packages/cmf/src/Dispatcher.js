@@ -3,8 +3,10 @@
  * @module react-cmf/lib/Dispatcher
  *
  */
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import React from 'react';
+import cmfConnect from './cmfConnect';
 import api from './api';
 
 /**
@@ -17,7 +19,7 @@ import api from './api';
 export function checkIfActionInfoExist(props, context) {
 	api.action.getOnProps(props).forEach((name) => {
 		if (typeof props[name] === 'string') {
-			api.action.getActionInfo(context, props[name]);
+			api.action.getActionCreatorFunction(context, props[name]);
 		}
 	});
 }
@@ -33,6 +35,17 @@ function myfunc(event, props, context) {
 </Dispatcher>
  */
 export class Dispatcher extends React.Component {
+	static displayName = 'Dispatcher';
+	static propTypes = {
+		children: PropTypes.node.isRequired,
+		stopPropagation: PropTypes.bool,
+		preventDefault: PropTypes.bool,
+		dispatchActionCreator: PropTypes.func,
+	};
+
+	static contextTypes = {
+		registry: PropTypes.object.isRequired,
+	};
 
 	/**
 	 * @param  {object} props only one child under children
@@ -67,8 +80,11 @@ export class Dispatcher extends React.Component {
 		if (this.props.stopPropagation) {
 			event.stopPropagation();
 		}
+		if (this.props.preventDefault) {
+			event.preventDefault();
+		}
 		if (this.props[eventName]) {
-			this.props[eventName](event, this.props, this.context);
+			this.props.dispatchActionCreator(this.props[eventName], event, this.props);
 		}
 	}
 
@@ -82,7 +98,7 @@ export class Dispatcher extends React.Component {
 			(child) => {
 				const props = {};
 				onProps.forEach((name) => {
-					props[name] = (event) => this.onEvent(event, name);
+					props[name] = event => this.onEvent(event, name);
 				});
 				return React.cloneElement(child, props);
 			}
@@ -94,24 +110,9 @@ export class Dispatcher extends React.Component {
 
 Dispatcher.defaultProps = {
 	stopPropagation: false,
+	preventDefault: false,
 };
-
-Dispatcher.propTypes = {
-	children: PropTypes.node.isRequired,
-	stopPropagation: PropTypes.bool,
-};
-
-Dispatcher.contextTypes = {
-	store: PropTypes.object.isRequired,
-	registry: PropTypes.object.isRequired,
-	router: PropTypes.object.isRequired,
-};
-
-
-const ConnectedDispatcher = connect(
-	undefined,
-	api.action.mapDispatchToProps
-)(Dispatcher);
+const ConnectedDispatcher = cmfConnect({})(Dispatcher);
 
 /**
  * This component purpose is to decorate any component and map an user event

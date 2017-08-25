@@ -1,0 +1,46 @@
+.json-schema-renderer {
+
+	margin-top: $padding-large;
+	margin-left: $padding-large;
+
+	div {
+		margin-bottom: $padding-larger;
+
+		dt {
+			font-weight: 400;
+			font-size: 14px;
+			color: $dark-silver;
+		}
+
+		dd {
+			font-size: 16px;
+			font-weight: 400;
+			color: $black;
+			padding-top: $padding-smaller;
+		}
+
+		&.array {
+
+			dd {
+				display: inline;
+			}
+
+			dd:after {
+				content: ', ';
+			}
+
+			dd:last-child:after {
+				content: '';
+			}
+		}
+
+		&.object {
+
+			h2 {
+				font-size: 1.7rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

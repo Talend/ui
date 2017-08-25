@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { SidePanel, IconsProvider } from '../src/index';
@@ -30,32 +30,59 @@ const actions = [
 	},
 ];
 
-storiesOf('SidePanel', module)
-	.addWithInfo('default', () => {
-		return (
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				<SidePanel
-					id="context"
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					docked={false}
-					tooltipPlacement="top"
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('docked', () =>
-		(
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				<SidePanel
-					actions={actions}
-					onToggleDock={action('Toggle dock clicked')}
-					docked
-					tooltipPlacement="top"
-				/>
-			</div>
-		)
-	);
+const items = [{
+	key: 'preparations',
+	label: 'Preparations',
+	icon: 'talend-dataprep',
+}, {
+	key: 'datasets',
+	label: 'Datasets',
+	icon: 'talend-download',
+}, {
+	key: 'favorites',
+	label: 'Favorites',
+	icon: 'talend-star',
+}];
+
+const stories = storiesOf('SidePanel', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
+	.addWithInfo('default', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				id="context"
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked={false}
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('docked', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('with onSelect function', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<SidePanel
+				actions={items}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				selected={items[1]}
+				tooltipPlacement="top"
+			/>
+		</div>
+	));
 

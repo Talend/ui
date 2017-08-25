@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import {
 	defaultFieldValue,
@@ -73,6 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 		idSchema: PropTypes.object,
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
+		name: PropTypes.string,
 		formData: PropTypes.bool,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,

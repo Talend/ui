@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render header with one button 1`] = `
+<header
+  className="tc-listview-header"
+>
+  <strong>
+    Values
+  </strong>
+  <div
+    className="actions"
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="tc-svg-icon"
+        focusable="false"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-search"
+        />
+      </svg>
+    </button>
+  </div>
+</header>
+`;

@@ -7,7 +7,7 @@ $tf-typeahead-no-result-color: $silver !default;
 .tf-typeahead-container {
 	display: flex;
 	padding: 0;
-	border: 0;
+	border: none;
 	box-shadow: none;
 }
 
@@ -22,6 +22,8 @@ $tf-typeahead-no-result-color: $silver !default;
 }
 
 .items-container {
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	margin-top: $padding-smaller;
 	top: 100%;
@@ -34,6 +36,7 @@ $tf-typeahead-no-result-color: $silver !default;
 	border-radius: $border-radius-base;
 	box-shadow: 0 1px 3px 0 $tf-typeahead-items-shadow-color;
 	overflow-y: auto;
+	z-index: 999;
 }
 
 .no-result {

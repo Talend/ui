@@ -74,4 +74,34 @@ describe('Progress', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render an infinite progress with tooltip', () => {
+		// given
+		const props = {
+			id: 'my-progress',
+			infinite: true,
+			tooltip: 'Hey dude !',
+		};
+
+		// when
+		const wrapper = renderer.create(<Progress {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a contained progress', () => {
+		// given
+		const props = {
+			id: 'my-progress',
+			contained: true,
+			percent: 60,
+		};
+
+		// when
+		const wrapper = renderer.create(<Progress {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
 });

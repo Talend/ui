@@ -39,6 +39,7 @@ This generator has multiple subgenerators, so you use one of the following:
 * `yo talend:dotfiles` -> [talend common dotfiles](https://github.com/Talend/tools/tree/master/tools-javascript) for javascript project
 * `yo talend:react-cmf` -> create a project based on react-cmf
 * `yo talend:react-component` -> add a react component
+* `yo talend:create-cell` -> add a custom cell for the virtualized list ( components )
 
 Running `yo talend` will launch the library creation wizard.
 It will do the following:

@@ -1,19 +1,26 @@
 import get from 'lodash/get';
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { SidePanel as Component } from 'react-talend-components';
-import { api, componentState } from 'react-cmf';
+import { componentState } from 'react-cmf';
 import { Map } from 'immutable';
+
+import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
 });
 
-
 export function getActions(actionIds, context) {
 	return actionIds.map((id) => {
-		const info = api.action.getActionInfo(context, id);
-		info.onClick = () => context.store.dispatch(info.payload);
-		const route = get(info, 'payload.cmf.routerReplace');
+		const info = getActionsProps(context, id);
+		let route = get(info, 'payload.cmf.routerReplace');
+		if (!route) {
+			route = get(info, 'payload.cmf.routerPush');
+		}
+		if (!route) {
+			route = get(info, 'href');
+		}
 		if (route) {
 			const currentRoute = context.router.location.pathname;
 			if (currentRoute.indexOf(route) !== -1) {
@@ -39,8 +46,9 @@ class SidePanel extends React.Component {
 		...componentState.propTypes,
 	};
 	static contextTypes = {
-		store: React.PropTypes.object,
-		router: React.PropTypes.object,
+		store: PropTypes.object,
+		router: PropTypes.object,
+		registry: PropTypes.object,
 	};
 
 	constructor(props, context) {

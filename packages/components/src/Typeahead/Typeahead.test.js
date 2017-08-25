@@ -165,7 +165,7 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('click');
+			typeaheadInstance.find('Item').at(0).simulate('mouseDown');
 
 			// then
 			expect(onSelect).toBeCalled();

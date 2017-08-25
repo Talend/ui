@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`test component state management action creators addComponentState dispatch well formed action object 1`] = `
 Object {
   "componentName": "componentName",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
@@ -137,6 +137,28 @@ const listProps = {
 	},
 };
 
+const tabs = {
+	items: [
+		{
+			id: 'tab-bar-action-1',
+			key: '1',
+			label: 'Tab1',
+		},
+		{
+			id: 'tab-bar-action-2',
+			key: '2',
+			label: 'Tab2',
+		},
+		{
+			id: 'tab-bar-action-3',
+			key: '3',
+			label: 'Tab3',
+		},
+	],
+	onSelect: action('onSelect'),
+	selected: '2',
+};
+
 storiesOf('Layout', module)
 	.addWithInfo('OneColumn', () => (
 		<Layout
@@ -150,6 +172,16 @@ storiesOf('Layout', module)
 	.addWithInfo('OneColumn with scroll', () => (
 		<Layout
 			header={header}
+			mode="OneColumn"
+		>
+			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('OneColumn with tabs', () => (
+		<Layout
+			header={header}
+			tabs={tabs}
 			mode="OneColumn"
 		>
 			{content}
@@ -171,6 +203,17 @@ storiesOf('Layout', module)
 			header={header}
 			mode="TwoColumns"
 			one={sidePanel}
+		>
+			{content}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('TwoColumns with tabs', () => (
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			tabs={tabs}
 		>
 			{content}
 			<IconsProvider defaultIcons={icons} />

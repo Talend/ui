@@ -4,10 +4,14 @@
  */
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
-import invariant from 'invariant';
 
+import PropTypes from 'prop-types';
+
+import React from 'react';
 import { connect } from 'react-redux';
 import registry from './registry';
+import { mapStateToViewProps } from './settings';
+import deprecated from './deprecated';
 
 const COMPONENT_PREFIX = '_.route.component';
 const HOOK_PREFIX = '_.route.hook';
@@ -56,92 +60,25 @@ function getFunction(id) {
 	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
 }
 
-export function attachRef(state, obj) {
-	let props = obj;
-	if (props._ref) {
-		const ref = state.cmf.settings.ref[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
-			{},
-			state.cmf.settings.ref[props._ref],
-			obj
-		);
-		delete props._ref;
-	}
-	return props;
-}
-
-/**
- * return props for a given view with reference and override support
- *
- * @example
-
-// state.cmf.settings should look like this
-
-  "views":{
-	"homepage": {
-	  "sidemenu": {
-		"_ref": "SidePanel#default"
-	  },
-	  "listview": {
-		"_ref": "List#default",
-		"collectionId": "streams"
-	  }
-	}
-  },
-  "ref": {
-	 "SidePanel#default": {
-	   "actions": ["menu:1", "menu:2", ...]
-	 }
-  }
-
-//in that case you will have the following props for the homepage view
-
-  {
-	sidemenu: {
-	  "actions": ["menu:1", "menu:2", ...]
-	},
-	listview: {
-	  ...
-	}
-  }
-
- *
- * @param  {Object} state     redux state
- * @param  {Object} context   React context with store. It's optional
- * @param  {function} component React component
- * @param  {String} view      id of the view
- * @return {Object}           React props for the component
- */
-export function mapStateToViewProps(state, context, view) {
-	const settings = state.cmf.settings;
-	let props = Object.assign(
-		{},
-		settings.views[view],
-	);
-	if (context && context.store) {
-		props.dispatch = context.store.dispatch;
-	}
-	props = attachRef(state, props);
-	Object.keys(props).forEach(
-		key => {
-			props[key] = attachRef(state, props[key]);
-		}
-	);
-	return props;
-}
-
 /**
  * return
  * @param  {[type]} state [description]
  * @param  {[type]} view  [description]
  * @return {[type]}       [description]
  */
-export function connectView(context, component, view) {
+function oldConnectView(context, component, view) {
 	return connect(
-		(state) => mapStateToViewProps(state, context, view)
+		state => mapStateToViewProps(state, { view })
 	)(component);
 }
+
+export const connectView = deprecated(
+	oldConnectView,
+	(args) => {
+		const cName = args[1].displayName || args[1].name || 'Unknown';
+		return `The component ${cName} must be connected using cmfConnect`;
+	},
+);
 
 /**
  * internal. Is here to replace all 'component' from an object by their
@@ -153,8 +90,15 @@ function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
 		item.component = getComponentFromRegistry(context, item.component);
-		if (item.view) {
+		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
+		} else if (item.view && item.component.CMFContainer) {
+			const WithView = item.component;
+			item.component = props => <WithView view={item.view} {...props} />;
+			item.component.displayName = 'WithView';
+			item.component.propTypes = {
+				view: PropTypes.string,
+			};
 		}
 	}
 	if (item.components) {
@@ -173,7 +117,7 @@ function loadComponents(context, item) {
 		item.onEnter = getFunction(item.onEnter);
 	}
 	if (item.childRoutes) {
-		item.childRoutes.forEach((route) => loadComponents(context, route));
+		item.childRoutes.forEach(route => loadComponents(context, route));
 	}
 	if (item.indexRoute) {
 		loadComponents(context, item.indexRoute);

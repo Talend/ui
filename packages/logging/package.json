@@ -28,20 +28,20 @@
   },
   "homepage": "https://github.com/Talend/ui/packages/logging#readme",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-core": "6.14.0",
-    "babel-eslint": "6.1.2",
-    "babel-jest": "15.0.0",
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
     "babel-loader": "6.2.5",
     "babel-plugin-transform-object-rest-spread": "6.16.0",
     "babel-preset-es2015": "6.14.0",
-    "eslint": "^3.17.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.0",
-    "jest": "^19.0.2",
-    "jest-cli": "^19.0.2"
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^11.0.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
+    "jest": "20.0.3",
+    "jest-cli": "20.0.3"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -56,8 +56,7 @@
       "./env__tests.js"
     ]
   },
-  "peerDependencies": {},
-  "version": "0.72.3",
+  "version": "0.102.4",
   "dependencies": {
     "tracekit": "^0.4.4",
     "whatwg-fetch": "^2.0.2"

@@ -2,9 +2,9 @@
 
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #FFF !default;
-$tc-drawer-transition-duration: 0.23s !default;
+$tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-action-bar-background-color: lighten($alto, 5%) !default;
+$tc-action-bar-background-color: $concrete !default;
 
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
@@ -16,11 +16,11 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 }
 
 .tc-drawer {
+	pointer-events: all;
 	background-color: $tc-drawer-bgcolor;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top: 0;
-	transform: translateX(0%);
 	right: 0;
 	bottom: 0;
 	width: 50vw;
@@ -50,17 +50,6 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	width: 100%;
 }
 
-:global(.tc-with-drawer-wrapper) > .drawer-stacked +
-:global(.tc-with-drawer-wrapper)  > .drawer-stacked {
-	width: 98%;
-}
-
-:global(.tc-with-drawer-wrapper) > .drawer-stacked +
-:global(.tc-with-drawer-wrapper) > .drawer-stacked +
-:global(.tc-with-drawer-wrapper) > .drawer-stacked {
-	width: 96%;
-}
-
 .tc-drawer-header {
 	padding: $padding-normal;
 	background-color: $brand-primary-lighter;
@@ -69,6 +58,11 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 		font-size: $font-size-large;
 		margin: 0;
 		color: white;
+		text-transform: uppercase;
+		text-overflow: ellipsis;
+		width: 90%;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 }
 
@@ -110,28 +104,15 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	}
 }
 
-// This animation is made global so you can use it in your own project
-
-:global(.tc-drawer-enter),
-:global(.tc-drawer-appear),
-:global(.tc-drawer-leave) {
-	transition: transform $tc-drawer-transition-duration $tc-drawer-transition-easing;
+:global(.tc-with-drawer-wrapper) > :global(.tc-drawer.stacked)::after {
+	background: rgba(0, 0, 0, 0.4);
+	content: ' ';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
 
-:global(.tc-drawer-enter),
-:global(.tc-drawer-appear) {
-	transform: translateX(100%);
-
-	&:global(.tc-drawer-enter-active),
-	&:global(.tc-drawer-appear-active) {
-		transform: translateX(0%);
-	}
-}
-
-:global(.tc-drawer-leave) {
-	transform: translateX(0%);
-
-	&:global(.tc-drawer-leave-active) {
-		transform: translateX(100%);
-	}
+:global(.tc-with-drawer-wrapper:last-child) > :global(.tc-drawer.stacked)::after {
+	content: none;
 }

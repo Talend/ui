@@ -1,31 +1,68 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
+import talendIcons from 'talend-icons/dist/react';
 
-import { ActionSplitDropdown } from '../src/index';
+import { ActionSplitDropdown, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-environment': talendIcons['talend-environment'],
+	'talend-logo-dp': talendIcons['talend-logo-dp'],
+	'talend-logo-ic': talendIcons['talend-logo-ic'],
+};
+
+
+const items = [
+	{
+		label: 'From Local',
+		onClick: action('From Local click'),
+	},
+	{
+		label: 'From Remote',
+		onClick: action('From Remote click'),
+	},
+];
+
+const itemsWithIcons = [
+	{
+		...items[0],
+		icon: 'talend-logo-ic',
+	},
+	{
+		...items[1],
+		icon: 'talend-logo-dp',
+	},
+];
 
 const myAction = {
 	label: 'Add File',
-	icon: 'talend-plus-circle',
+	icon: 'talend-environment',
 	onClick: action('onAdd'),
-	items: [
-		{
-			label: 'From Local',
-			onClick: action('From Local click'),
-		},
-		{
-			label: 'From Remote',
-			onClick: action('From Remote click'),
-		},
-	],
+	items,
 	emptyDropdownLabel: 'No option',
 };
 
-storiesOf('ActionSplitDropdown', module)
+const decoratedStories = storiesOf('ActionSplitDropdown', module)
+	.addDecorator(story => (
+		<div>
+			{story()}
+			<div className="container" style={{ paddingTop: 40 }} />
+			<IconsProvider defaultIcons={icons} />
+		</div>
+	));
+
+decoratedStories
 	.addWithInfo('default', () => (
 		<div>
 			<p>By default :</p>
 			<div id="default">
 				<ActionSplitDropdown {...myAction} />
+			</div>
+			<p>Options with icons</p>
+			<div id="icon">
+				<ActionSplitDropdown
+					{...myAction}
+					items={itemsWithIcons}
+				/>
 			</div>
 			<p>Without icon</p>
 			<div id="noicon">

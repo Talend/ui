@@ -23,7 +23,7 @@ $brand-primary-light:   tint($brand-primary, 12) !default;
 $brand-primary-dark:    shade($brand-primary, 12) !default;
 $brand-primary-darker:  shade($brand-primary, 25) !default;
 $brand-secondary:       $rio-grande !default;
-$brand-success:         $limeade !default;
+$brand-success:         $rio-grande !default;
 $brand-info:            $scooter !default;
 $brand-warning:         $lightning-yellow !default;
 $brand-danger:          $chestnut-rose !default;
@@ -67,10 +67,16 @@ $font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
+$font-weight-bold: 600;
+
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+$form-label-base-color: #888 !default;
+$form-base-font-weight: 400 !default;
+$form-input-font-size: 16px !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
@@ -206,7 +212,7 @@ $input-bg:                       transparent !default;
 $input-bg-disabled:              $gray-lighter !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+$input-color:                    $black !default;
 //** `<input>` border color
 $input-border:                   #CCC !default;
 
@@ -233,7 +239,7 @@ $input-height-large:             (ceil($font-size-large * $line-height-large) + 
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2) !default;
 
 //** `.form-group` margin
-$form-group-margin-bottom:       15px !default;
+$form-group-margin-bottom:       25px !default;
 
 $legend-color:                   $gray-dark !default;
 $legend-border-color:            #E5E5E5 !default;

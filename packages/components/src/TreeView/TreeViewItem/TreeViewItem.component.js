@@ -1,9 +1,12 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Action, Icon, Badge } from '../../';
 
 import css from './TreeViewItem.scss';
 
+const PADDING_NORMAL = 15;
+const PADDING_LARGE = 20;
 function getActionHandler(func, item) {
 	return function actionHandler(event) {
 		event.stopPropagation();
@@ -75,15 +78,16 @@ function TreeViewItem({
 			link
 		/>);
 	}
+	const paddingLeft = `${(depth * PADDING_NORMAL) + PADDING_LARGE}px`;
 
 	return (
 		<li className={css['tc-treeview-li']} data-hidden={hidden}>
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				className={css['tc-treeview-item']}
-				data-depth={depth}
 				data-selected={selected}
 				onClick={selectHandler}
 				id={id}
+				style={{ paddingLeft }}
 			>
 				{!children.length ||
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
@@ -92,7 +96,7 @@ function TreeViewItem({
 				}
 				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
 				<span>{name}</span>
-				<div className={'tc-treeview-item-ctrl'}>
+				<div className={css['tc-treeview-item-ctrl']}>
 					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>

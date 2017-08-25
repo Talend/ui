@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classnames from 'classnames';
+import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import theme from './Layout.scss';
@@ -25,7 +27,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, footer, mode, drawers, children, ...rest }) {
+function Layout({ header, footer, mode, drawers, tabs, children, ...rest }) {
 	const appCSS = classnames(
 		'tc-layout',
 		theme.layout,
@@ -55,7 +57,7 @@ function Layout({ header, footer, mode, drawers, children, ...rest }) {
 				<div className={headerCSS}>{header}</div>
 			}
 			{Component &&
-				<Component drawers={drawers} {...rest}>{children}</Component>
+				<Component drawers={drawers} tabs={tabs} {...rest}>{children}</Component>
 			}
 			{footer &&
 				<footer role="contentinfo" className={footerCSS}>{footer}</footer>
@@ -69,6 +71,7 @@ Layout.propTypes = {
 	footer: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
+	tabs: PropTypes.shape(TabBar.propTypes),
 	children: PropTypes.node,
 };
 

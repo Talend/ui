@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 
@@ -13,13 +14,27 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 export function RenderButton({ id, value, className, item, onClick }) {
-	function click(event) {
+	function executeOnClickAction(event) {
 		event.stopPropagation();
 		onClick(event, item);
 	}
 
+	function click(event) {
+		// only fires onclick when left-click
+		if (event.button === 0) {
+			executeOnClickAction(event);
+		}
+	}
+
+	function mouseDown(event) {
+		// only fires onclick when middle-click
+		if (event.button === 1) {
+			executeOnClickAction(event);
+		}
+	}
+
 	return (
-		<Button id={id} className={className} onClick={click} role="link" bsStyle="link">
+		<Button id={id} className={className} onMouseDown={mouseDown} onClick={click} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);

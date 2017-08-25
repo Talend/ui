@@ -97,12 +97,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -121,13 +117,9 @@ exports[`DisplayTable should render column actions 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -141,13 +133,11 @@ exports[`DisplayTable should render column actions 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -160,13 +150,11 @@ exports[`DisplayTable should render column actions 1`] = `
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -193,13 +181,11 @@ exports[`DisplayTable should render column actions 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="favorite btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -216,13 +202,11 @@ exports[`DisplayTable should render column actions 1`] = `
                     </svg>
                   </button>
                   <button
-                    aria-describedby={42}
                     className="certify btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -250,12 +234,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -271,12 +251,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -292,12 +268,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -318,12 +290,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -342,13 +310,9 @@ exports[`DisplayTable should render column actions 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -365,12 +329,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -386,12 +346,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -407,12 +363,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -428,12 +380,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -454,12 +402,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -478,13 +422,9 @@ exports[`DisplayTable should render column actions 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -501,12 +441,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -522,12 +458,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -543,12 +475,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -564,12 +492,8 @@ exports[`DisplayTable should render column actions 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -688,12 +612,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -712,13 +632,9 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -732,13 +648,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -751,13 +665,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -784,13 +696,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="favorite btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -807,13 +717,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     </svg>
                   </button>
                   <button
-                    aria-describedby={42}
                     className="certify btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -844,13 +752,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="favorite btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -867,13 +773,11 @@ exports[`DisplayTable should render screen reader compatible column actions with
                     </svg>
                   </button>
                   <button
-                    aria-describedby={42}
                     className="certify btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -901,12 +805,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -922,12 +822,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -943,12 +839,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -969,12 +861,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -993,13 +881,9 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -1016,12 +900,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -1037,12 +917,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -1058,12 +934,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1079,12 +951,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1100,12 +968,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1126,12 +990,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -1150,13 +1010,9 @@ exports[`DisplayTable should render screen reader compatible column actions with
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -1173,12 +1029,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -1194,12 +1046,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -1215,12 +1063,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1236,12 +1080,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1257,12 +1097,8 @@ exports[`DisplayTable should render screen reader compatible column actions with
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1362,12 +1198,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -1386,13 +1218,9 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-0-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -1406,13 +1234,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -1425,13 +1251,11 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -1455,12 +1279,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1476,12 +1296,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1497,12 +1313,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1523,12 +1335,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -1547,13 +1355,9 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-1-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -1570,12 +1374,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1591,12 +1391,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1612,12 +1408,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1638,12 +1430,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -1662,13 +1450,9 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-2-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -1685,12 +1469,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1706,12 +1486,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1727,12 +1503,8 @@ exports[`DisplayTable should render selected list element with custom selectedCl
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1832,12 +1604,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -1856,13 +1624,9 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-0-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -1876,13 +1640,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -1895,13 +1657,11 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -1925,12 +1685,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -1946,12 +1702,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1967,12 +1719,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -1993,12 +1741,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -2017,13 +1761,9 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-1-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -2040,12 +1780,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -2061,12 +1797,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2082,12 +1814,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2108,12 +1836,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -2132,13 +1856,9 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-2-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -2155,12 +1875,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -2176,12 +1892,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2197,12 +1909,8 @@ exports[`DisplayTable should render selected list element with defaut 'active' c
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2233,6 +1941,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2252,6 +1961,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2288,6 +1998,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2307,6 +2018,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2326,6 +2038,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2345,6 +2058,7 @@ exports[`DisplayTable should render sortable headers 1`] = `
               className="btn btn-link"
               disabled={false}
               onClick={[Function]}
+              onMouseDown={[Function]}
               role="link"
               type="button"
             >
@@ -2373,12 +2087,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -2397,13 +2107,9 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -2417,13 +2123,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2436,13 +2140,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2469,13 +2171,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="favorite btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2492,13 +2192,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     </svg>
                   </button>
                   <button
-                    aria-describedby={42}
                     className="certify btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2529,13 +2227,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="favorite btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2552,13 +2248,11 @@ exports[`DisplayTable should render sortable headers 1`] = `
                     </svg>
                   </button>
                   <button
-                    aria-describedby={42}
                     className="certify btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -2586,12 +2280,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -2607,12 +2297,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2628,12 +2314,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2654,12 +2336,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -2678,13 +2356,9 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -2701,12 +2375,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -2722,12 +2392,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -2743,12 +2409,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -2764,12 +2426,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2785,12 +2443,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2811,12 +2465,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -2835,13 +2485,9 @@ exports[`DisplayTable should render sortable headers 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -2858,12 +2504,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -2879,12 +2521,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   
@@ -2900,12 +2538,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -2921,12 +2555,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -2942,12 +2572,8 @@ exports[`DisplayTable should render sortable headers 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3047,12 +2673,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -3071,13 +2693,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -3091,13 +2709,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -3110,13 +2726,11 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -3140,12 +2754,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3161,12 +2771,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3182,12 +2788,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3208,12 +2810,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -3232,13 +2830,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -3255,12 +2849,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3276,12 +2866,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3297,12 +2883,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3323,12 +2905,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -3347,13 +2925,9 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id={undefined}
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -3370,12 +2944,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3391,12 +2961,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3412,12 +2978,8 @@ exports[`DisplayTable should render with default title property (name) 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3530,6 +3092,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     disabled={false}
                     id={undefined}
                     onClick={[Function]}
+                    onMouseDown={[Function]}
                     role="link"
                     type="button"
                   >
@@ -3544,13 +3107,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -3563,13 +3124,11 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -3593,12 +3152,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Hello world
@@ -3614,12 +3169,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3635,12 +3186,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3656,12 +3203,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3695,6 +3238,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     disabled={false}
                     id={undefined}
                     onClick={[Function]}
+                    onMouseDown={[Function]}
                     role="link"
                     type="button"
                   >
@@ -3712,12 +3256,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Foo
@@ -3733,12 +3273,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3754,12 +3290,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3775,12 +3307,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3808,6 +3336,7 @@ exports[`DisplayTable should render with defined title property 1`] = `
                     disabled={false}
                     id={undefined}
                     onClick={[Function]}
+                    onMouseDown={[Function]}
                     role="link"
                     type="button"
                   >
@@ -3825,12 +3354,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Bar
@@ -3846,12 +3371,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -3867,12 +3388,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3888,12 +3405,8 @@ exports[`DisplayTable should render with defined title property 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -3993,12 +3506,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -4017,13 +3526,9 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-0-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -4037,13 +3542,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -4056,13 +3559,11 @@ exports[`DisplayTable should render with id if provided 1`] = `
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -4086,12 +3587,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4107,12 +3604,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4128,12 +3621,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4154,12 +3643,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -4178,13 +3663,9 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-1-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -4201,12 +3682,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4222,12 +3699,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4243,12 +3716,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4269,12 +3738,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -4293,13 +3758,9 @@ exports[`DisplayTable should render with id if provided 1`] = `
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-2-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -4316,12 +3777,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4337,12 +3794,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4358,12 +3811,8 @@ exports[`DisplayTable should render with id if provided 1`] = `
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4463,12 +3912,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   0
@@ -4487,13 +3932,9 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-0-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Hello world
@@ -4507,13 +3948,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   className="tc-actions btn-group"
                 >
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -4526,13 +3965,11 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                     />
                   </button>
                   <button
-                    aria-describedby={42}
                     className="btn btn-link"
                     disabled={false}
-                    onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
+                    onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role="link"
                     type="button"
@@ -4556,12 +3993,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4577,12 +4010,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4598,12 +4027,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4624,12 +4049,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   1
@@ -4648,13 +4069,9 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-1-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Foo
@@ -4671,12 +4088,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4692,12 +4105,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4713,12 +4122,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4739,12 +4144,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2
@@ -4763,13 +4164,9 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                   className={undefined}
                 >
                   <span
-                    aria-describedby={42}
                     className={undefined}
                     id="table-list-2-title"
-                    onBlur={[Function]}
-                    onClick={null}
                     onFocus={[Function]}
-                    onMouseOut={[Function]}
                     onMouseOver={[Function]}
                   >
                     Bar
@@ -4786,12 +4183,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   Jean-Pierre DUPONT
@@ -4807,12 +4200,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22
@@ -4828,12 +4217,8 @@ exports[`DisplayTable should render with item custom className if provided 1`] =
                 className="cell"
               >
                 <span
-                  aria-describedby={42}
                   className="item-text"
-                  onBlur={[Function]}
-                  onClick={null}
                   onFocus={[Function]}
-                  onMouseOut={[Function]}
                   onMouseOver={[Function]}
                 >
                   2016-09-22

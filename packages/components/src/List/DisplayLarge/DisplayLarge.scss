@@ -29,7 +29,7 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 		visibility: hidden;
 		position: absolute;
 		right: 0;
-		background: linear-gradient(to right, transparent, $tc-list-display-large-background-color $padding-large);
+		background: linear-gradient(to right, rgba($tc-list-display-large-background-color, 0), $tc-list-display-large-background-color $padding-large);
 		padding-left: $padding-large;
 	}
 }

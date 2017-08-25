@@ -66,11 +66,7 @@ $tc-toggle-color: #555964 !default;
 		padding-left: 1px;
 	}
 
-	:global(.toggle) {
-		display: flex;
-	}
-
-	svg {
+	.toggle svg {
 		transform-origin: center;
 	}
 
@@ -97,18 +93,20 @@ $tc-toggle-color: #555964 !default;
 
 		.panel-title {
 			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			flex-basis: 100%;
 			overflow: hidden;
 			text-decoration: none;
-			align-items: center;
 			font-size: 1.4rem;
-			justify-content: space-between;
-			min-height: 4rem;
 			padding-left: 5px;
 			padding-right: 5px;
 
 			> * {
 				@include col-style;
+				display: flex;
+				align-items: center;
+				height: 4rem;
 			}
 		}
 	}
@@ -118,6 +116,10 @@ $tc-toggle-color: #555964 !default;
 	.panel-heading {
 		.panel-title {
 			flex-basis: calc(100% - 35px);
+
+			:global(.label) {
+				padding: 0.3em 0.6em;
+			}
 		}
 	}
 

@@ -1,6 +1,7 @@
 /**
  * @module react-cmf/lib/UIRouter
  */
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -25,13 +26,13 @@ const UIRouter = (props, context) => {
 };
 
 UIRouter.propTypes = {
-	history: React.PropTypes.object,
-	routes: React.PropTypes.object,
+	history: PropTypes.object,
+	routes: PropTypes.object,
 };
 UIRouter.contextTypes = {
-	registry: React.PropTypes.object,
+	registry: PropTypes.object,
 };
-const mapStateToProps = (state) => ({ routes: state.cmf.settings.routes });
+const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
 export default connect(
 	mapStateToProps
 )(UIRouter);

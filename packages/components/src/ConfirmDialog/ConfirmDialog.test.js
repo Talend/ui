@@ -1,17 +1,19 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
-import ConfirmDialog from './ConfirmDialog.component';
+import { mount } from 'enzyme';
 
+import ConfirmDialog from './ConfirmDialog.component';
 
 function mockFakeComponent(name) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name);
-		return (<div {...rest} className={mergedClassName}>{children}</div>);
+		return <div {...rest} className={mergedClassName}>{children}</div>;
 	};
 	fakeComponent.propTypes = {
-		children: React.PropTypes.oneOfType([React.PropTypes.any]),
-		className: React.PropTypes.string,
+		children: PropTypes.oneOfType([PropTypes.any]),
+		className: PropTypes.string,
 	};
 	return fakeComponent;
 }
@@ -26,9 +28,11 @@ jest.mock('react-bootstrap/lib/Modal', () => {
 
 	return Modal;
 });
-jest.mock('react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
+jest.mock('react-bootstrap/lib/ProgressBar', () =>
+	mockFakeComponent('ProgressBar'),
+);
 
-const children = (<div>BODY</div>);
+const children = <div>BODY</div>;
 
 const cancelAction = {
 	label: 'CANCEL',
@@ -53,9 +57,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
-		).toJSON();
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -70,9 +74,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
-		).toJSON();
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -89,9 +93,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
-		).toJSON();
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -108,9 +112,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
-		).toJSON();
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -128,9 +132,55 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<ConfirmDialog {...properties}>{children}</ConfirmDialog>
-		).toJSON();
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
+		// given
+		const properties = {
+			header: 'Hello world',
+			show: true,
+			validateAction,
+			cancelAction,
+			bodyOverflow: false,
+		};
+		const noOp = () => {};
+		// when
+		const wrapper = mount(
+			<ConfirmDialog onHide={noOp} animation={false} {...properties}>
+				<p>Content</p>
+			</ConfirmDialog>,
+		);
+
+		// then
+		expect(wrapper.ref('modal').root.node.props.bodyOverflow).toBe(false);
+	});
+
+	it('should render with additional actions', () => {
+		// given
+		const properties = {
+			header: 'Hello world',
+			show: true,
+			validateAction,
+			cancelAction,
+			secondaryActions: [
+				{
+					label: 'Keep on Github',
+					onClick: jest.fn(),
+					bsStyle: 'info',
+				},
+			],
+		};
+
+		// when
+		const wrapper = renderer
+			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

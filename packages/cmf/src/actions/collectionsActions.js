@@ -30,7 +30,10 @@ export const removeCollection = collectionId => (
 		let error = false;
 		if (!state.cmf.collections.get(collectionId)) {
 			error = true;
-			invariant(false, `Can't remove collection ${collectionId} since it doesn't already exist.`);
+			invariant(
+				process.env.NODE_ENV === 'production',
+				`Can't remove collection ${collectionId} since it doesn't already exist.`,
+			);
 		}
 		if (!error) {
 			dispatch({
