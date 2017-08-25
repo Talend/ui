@@ -47,6 +47,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
+  120:38  error  Missing space before opening brace  space-before-blocks
+  121:3   error  Expected space(s) after "if"        keyword-spacing
+  121:43  error  Missing space before opening brace  space-before-blocks
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -60,5 +65,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 37 problems (37 errors, 0 warnings)
 
