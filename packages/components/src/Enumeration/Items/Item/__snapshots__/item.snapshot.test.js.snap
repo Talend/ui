@@ -9,10 +9,6 @@ exports[`Item should display a selected item 1`] = `
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role={null}
     type="button"
   >
     <span>
@@ -34,10 +30,6 @@ exports[`Item should display value with three buttons 1`] = `
     className="undefined tc-enumeration-item-label btn btn-default"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role={null}
     type="button"
   >
     <span>
