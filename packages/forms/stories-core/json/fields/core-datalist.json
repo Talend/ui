@@ -31,5 +31,7 @@
       "widget": "datalist"
     }
   ],
-  "properties": {}
+  "properties": {
+    "simpleDatalist": "Pine[apple]"
+  }
 }
