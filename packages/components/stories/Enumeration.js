@@ -90,6 +90,14 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
+const defaultEmptyListProps = Object.assign({}, props, { items: [] });
+
+const searchModeEmptyListProps = Object.assign(
+		{},
+		defaultEmptyListProps,
+		{ displayMode: 'DISPLAY_MODE_SEARCH' }
+);
+
 const dropDownActionsProps = {
 	...props,
 	headerDefault: [{
@@ -185,6 +193,15 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
+	.addWithInfo('default - empty list', () => (
+			<div>
+				<p>Empty list by default:</p>
+				<IconsProvider />
+				<Enumeration
+					{...defaultEmptyListProps}
+				/>
+			</div>
+	))
 	.addWithInfo('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
@@ -220,6 +237,15 @@ storiesOf('Enumeration', module)
 				{...searchProps}
 			/>
 		</div>
+	))
+	.addWithInfo('search mode - empty list', () => (
+			<div>
+				<p>empty list in search mode :</p>
+				<IconsProvider />
+				<Enumeration
+						{...searchModeEmptyListProps}
+				/>
+			</div>
 	))
 	.addWithInfo('selected values', () => (
 		<div>

@@ -1,0 +1,13 @@
+
+> talend-log@0.102.4 lint:es /home/travis/build/Talend/ui/packages/logging
+> eslint --config .eslintrc --ext .js src
+
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/logging/src/transport.js
+  33:27  warning  Unexpected console statement  no-console
+  38:3   warning  Unexpected console statement  no-console
+  41:29  warning  Unexpected console statement  no-console
+
+✖ 3 problems (0 errors, 3 warnings)
+

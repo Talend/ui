@@ -450,7 +450,7 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^7.1.1:
+autoprefixer@^7.1.1, autoprefixer@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.2.tgz#fbeaf07d48fd878e0682bf7cbeeade728adb2b18"
   dependencies:
@@ -1436,9 +1436,9 @@ bootstrap-sass@3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-talend-theme@^0.101.0:
-  version "0.101.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.101.0.tgz#9b710a0cb1e4d28742b4da972d2bd17b9695907f"
+bootstrap-talend-theme@^0.102.0:
+  version "0.102.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-talend-theme/-/bootstrap-talend-theme-0.102.0.tgz#31146c7130b1445205abb76336a7163ba2d5ce48"
   dependencies:
     bootstrap-sass "3.3.7"
 
@@ -5821,9 +5821,9 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-talend-components@^0.101.0:
-  version "0.101.0"
-  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.101.0.tgz#2d4a777bed00f543acf18881a035ad8f8db11b55"
+react-talend-components@^0.102.0:
+  version "0.102.0"
+  resolved "https://registry.yarnpkg.com/react-talend-components/-/react-talend-components-0.102.0.tgz#cfc3e8b8ea5afbb0ad391c68b3733b797dd1b34f"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "^7.0.0"
@@ -6660,9 +6660,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-talend-icons@^0.101.0:
-  version "0.101.0"
-  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.101.0.tgz#385c862ab31bc81e7a6d3e6f8953911aa16a0c98"
+talend-icons@^0.102.0:
+  version "0.102.0"
+  resolved "https://registry.yarnpkg.com/talend-icons/-/talend-icons-0.102.0.tgz#b08cdbe6c98b9a7dd2e506b749de5b779f376eaf"
 
 talend-json-schema-form-core@1.0.2-alpha.2:
   version "1.0.2-alpha.2"
