@@ -169,6 +169,23 @@ describe('DatalistWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should set value when receiving a new value from props', () => {
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={schema}
+				onChange={onChange}
+			/>
+		);
+
+		wrapper.setProps({ value: 'new' });
+
+		// then
+		expect(wrapper.state('value')).toEqual('new');
+	});
+
 	it('should not change the value if it is the same', () => {
 		// given
 		const onChange = jest.fn();
