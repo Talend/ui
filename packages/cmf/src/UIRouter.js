@@ -1,6 +1,8 @@
 /**
  * @module react-cmf/lib/UIRouter
  */
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';

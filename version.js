@@ -33,8 +33,8 @@ const VERSIONS = {
 	'react-dom': REACT_VERSION,
 	'react-i18next': '^1.8.0',
 	'react-redux': '5.0.5',
-	'react-router': '3.0.5',
-	'react-router-redux': '4.0.8',
+	'react-router': '4.1.2',
+	'react-router-redux': '5.0.0-alpha.6',
 	'react-test-renderer': REACT_VERSION,
 	'react-virtualized': '^9.7.0',
 	reselect: '^2.5.4',
@@ -112,6 +112,7 @@ let files = [
 	'./packages/icons/package.json',
 	'./packages/logging/package.json',
 	'./packages/theme/package.json',
+	'./examples/cmf-app/package.json',
 ];
 
 if (program.path) {
