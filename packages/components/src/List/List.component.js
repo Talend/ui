@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import Toolbar from './Toolbar';
@@ -47,7 +48,7 @@ ListToolbar.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }) {
+function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
 	if (useContent) {
 		return (
 			<Content
@@ -75,8 +76,8 @@ function DisplayModeComponent({ id, useContent, displayMode, list, virtualized }
 	}
 }
 DisplayModeComponent.propTypes = {
-	id: PropTypes.string,
 	displayMode: PropTypes.string,
+	id: PropTypes.string,
 	list: PropTypes.oneOfType([
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
@@ -85,7 +86,7 @@ DisplayModeComponent.propTypes = {
 	virtualized: PropTypes.bool,
 };
 
-function ListDisplay({ id, useContent, displayMode, list, virtualized }) {
+function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -134,7 +135,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-export function List({ id, displayMode, toolbar, list, useContent, virtualized, t }) {
+export function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
@@ -149,10 +150,10 @@ export function List({ id, displayMode, toolbar, list, useContent, virtualized, 
 				t={t}
 			/>
 			<ListDisplay
-				id={id}
-				useContent={useContent}
 				displayMode={displayMode}
+				id={id}
 				list={list}
+				useContent={useContent}
 				virtualized={virtualized}
 			/>
 		</div>

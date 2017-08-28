@@ -18,7 +18,9 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   }
   height={600}
   id="my-list-id"
+  isActive={[Function]}
   isSelected={[Function]}
+  onRowClick={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}

@@ -22,6 +22,8 @@ $tf-typeahead-no-result-color: $silver !default;
 }
 
 .items-container {
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	margin-top: $padding-smaller;
 	top: 100%;

@@ -1,9 +1,6 @@
-import { configure, setAddon } from '@storybook/react';
-import infoAddon from '@storybook/addon-info';
+import { configure } from '@storybook/react';
 
 import 'bootstrap-talend-theme/src/theme/theme.scss';
-
-setAddon(infoAddon);
 
 function loadStories() {
 	require('../stories');

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
@@ -33,6 +34,8 @@ function RendererSelector(props) {
 		height,
 		id,
 		isSelected,
+		isActive,
+		onRowClick,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -48,7 +51,9 @@ function RendererSelector(props) {
 				collection={collection}
 				height={height}
 				id={id}
+				isActive={isActive}
 				isSelected={isSelected}
+				onRowClick={onRowClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
 				sortBy={sortBy}
@@ -64,7 +69,9 @@ function RendererSelector(props) {
 			collection={collection}
 			height={height}
 			id={id}
+			isActive={isActive}
 			isSelected={isSelected}
+			onRowClick={onRowClick}
 			rowHeight={rowHeight}
 			rowRenderer={getRowRenderer(type)}
 			selectionToggle={selectionToggle}

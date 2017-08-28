@@ -3,7 +3,9 @@
  * @module react-cmf/lib/Dispatcher
  *
  */
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React from 'react';
 import cmfConnect from './cmfConnect';
 import api from './api';
 
@@ -33,6 +35,17 @@ function myfunc(event, props, context) {
 </Dispatcher>
  */
 export class Dispatcher extends React.Component {
+	static displayName = 'Dispatcher';
+	static propTypes = {
+		children: PropTypes.node.isRequired,
+		stopPropagation: PropTypes.bool,
+		preventDefault: PropTypes.bool,
+		dispatchActionCreator: PropTypes.func,
+	};
+
+	static contextTypes = {
+		registry: PropTypes.object.isRequired,
+	};
 
 	/**
 	 * @param  {object} props only one child under children
@@ -99,19 +112,6 @@ Dispatcher.defaultProps = {
 	stopPropagation: false,
 	preventDefault: false,
 };
-
-Dispatcher.propTypes = {
-	children: PropTypes.node.isRequired,
-	stopPropagation: PropTypes.bool,
-	preventDefault: PropTypes.bool,
-	dispatchActionCreator: PropTypes.func,
-};
-
-Dispatcher.contextTypes = {
-	registry: PropTypes.object.isRequired,
-};
-
-
 const ConnectedDispatcher = cmfConnect({})(Dispatcher);
 
 /**

@@ -1,65 +1,64 @@
 
-> react-talend-forms@0.99.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.102.4 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  558:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  566:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  567:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  570:3  error  Prop type `array` is forbidden   react/forbid-prop-types
-  576:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  589:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  596:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  623:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  624:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  644:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  645:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  560:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  568:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  569:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  572:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  591:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  598:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  625:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  626:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  646:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  647:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
-  71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  74:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
+  86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
+  60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  62:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
+  84:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  85:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
+  7:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
+  23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
+  38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  39:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  40:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-  79:74  error  Multiple spaces found before 'role'                                                  no-multi-spaces
-  81:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  59:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
-  82:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  83:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-  6:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  22:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  37:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  39:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  77:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
-  71:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  122:3  error  Prop type `any` is forbidden  react/forbid-prop-types
+  123:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
-  55:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  66:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  56:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 35 problems (35 errors, 0 warnings)
+✖ 34 problems (34 errors, 0 warnings)
 

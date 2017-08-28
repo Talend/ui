@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
@@ -218,74 +219,74 @@ HeaderBar.Products = Products;
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
-		isFull: React.PropTypes.bool,
-		renderers: React.PropTypes.shape({
-			Action: React.PropTypes.func,
+		isFull: PropTypes.bool,
+		renderers: PropTypes.shape({
+			Action: PropTypes.func,
 		}),
-		t: React.PropTypes.func.isRequired,
+		t: PropTypes.func.isRequired,
 	};
 
 	Brand.propTypes = {
-		isSeparated: React.PropTypes.bool,
-		renderers: React.PropTypes.shape({
-			Action: React.PropTypes.func,
+		isSeparated: PropTypes.bool,
+		renderers: PropTypes.shape({
+			Action: PropTypes.func,
 		}),
 	};
 
 	Environment.propTypes = {
-		renderers: React.PropTypes.shape({
-			ActionDropdown: React.PropTypes.func,
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
 		}),
 	};
 
 	Search.propTypes = {
 		...Typeahead.propTypes,
-		renderers: React.PropTypes.shape({
-			Typeahead: React.PropTypes.func,
+		renderers: PropTypes.shape({
+			Typeahead: PropTypes.func,
 		}),
 	};
 
 	Help.propTypes = {
-		renderers: React.PropTypes.shape({
-			ActionSplitDropdown: React.PropTypes.func,
-			Action: React.PropTypes.func,
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
 		}),
-		t: React.PropTypes.func.isRequired,
+		t: PropTypes.func.isRequired,
 	};
 
 	User.propTypes = {
-		renderers: React.PropTypes.shape({
-			ActionDropdown: React.PropTypes.func,
-			name: React.PropTypes.string.isRequired,
-			firstName: React.PropTypes.string,
-			lastName: React.PropTypes.string,
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
+			name: PropTypes.string.isRequired,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
 		}),
 	};
 
 	Products.propTypes = {
-		renderers: React.PropTypes.shape({
-			ActionDropdown: React.PropTypes.func,
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
 		}),
-		t: React.PropTypes.func.isRequired,
+		t: PropTypes.func.isRequired,
 	};
 
 	HeaderBar.propTypes = {
-		logo: React.PropTypes.shape(Logo.propTypes).isRequired,
-		brand: React.PropTypes.shape(Brand.propTypes).isRequired,
-		env: React.PropTypes.shape(Environment.propTypes),
-		search: React.PropTypes.shape(Search.propTypes),
-		help: React.PropTypes.shape(Help.propTypes),
-		user: React.PropTypes.shape(User.propTypes),
-		products: React.PropTypes.shape(Products.propTypes),
-		renderers: React.PropTypes.shape({
-			Logo: React.PropTypes.func,
-			Brand: React.PropTypes.func,
-			Environment: React.PropTypes.func,
-			Search: React.PropTypes.func,
-			User: React.PropTypes.func,
-			Products: React.PropTypes.func,
+		logo: PropTypes.shape(Logo.propTypes),
+		brand: PropTypes.shape(Brand.propTypes),
+		env: PropTypes.shape(Environment.propTypes),
+		search: PropTypes.shape(Search.propTypes),
+		help: PropTypes.shape(Help.propTypes),
+		user: PropTypes.shape(User.propTypes),
+		products: PropTypes.shape(Products.propTypes),
+		renderers: PropTypes.shape({
+			Logo: PropTypes.func,
+			Brand: PropTypes.func,
+			Environment: PropTypes.func,
+			Search: PropTypes.func,
+			User: PropTypes.func,
+			Products: PropTypes.func,
 		}),
-		t: React.PropTypes.func, // react-i18next
+		t: PropTypes.func,
 	};
 }
 

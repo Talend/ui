@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
@@ -84,14 +85,14 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 }
 
 Toolbar.propTypes = {
-	id: React.PropTypes.string,
-	actionBar: React.PropTypes.shape(ActionBar.propTypes),
-	selectAllCheckbox: React.PropTypes.shape(SelectAll.propTypes),
-	display: React.PropTypes.shape(SelectDisplayMode.propTypes),
-	sort: React.PropTypes.shape(SelectSortBy.propTypes),
-	pagination: React.PropTypes.shape(Pagination.propTypes),
-	filter: React.PropTypes.shape(Filter.propTypes),
-	t: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	actionBar: PropTypes.shape(ActionBar.propTypes),
+	selectAllCheckbox: PropTypes.shape(SelectAll.propTypes),
+	display: PropTypes.shape(SelectDisplayMode.propTypes),
+	sort: PropTypes.shape(SelectSortBy.propTypes),
+	pagination: PropTypes.shape(Pagination.propTypes),
+	filter: PropTypes.shape(Filter.propTypes),
+	t: PropTypes.func.isRequired,
 };
 
 export default Toolbar;
