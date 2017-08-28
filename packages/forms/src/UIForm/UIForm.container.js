@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
 

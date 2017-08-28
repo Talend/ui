@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';

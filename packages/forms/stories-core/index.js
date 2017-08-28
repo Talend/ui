@@ -14,31 +14,60 @@ import jsonStories from './jsonStories';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
 
+// integrate widget code
+import 'brace/theme/monokai';
+import 'brace/ext/language_tools';
+import 'brace/mode/python';
+import 'brace/snippets/python';
+
 const reducers = { forms: formReducer };
 const reducer = combineReducers(reducers);
 const store = createStore(reducer);
 
 a11y(ReactDOM);
 
-const decoratedStories = storiesOf('Form', module)
-	.addDecorator(withKnobs)
-	.addDecorator(story => (
-		<Provider store={store}>
-			<div className="container-fluid">
-				<div
-					className="col-md-offset-1 col-md-10"
-					style={{ marginTop: '20px', marginBottom: '20px' }}
-				>
-					<Well>
-						{story()}
-					</Well>
-				</div>
+const forStoryDecorator = story => (
+	<Provider store={store}>
+		<div className="container-fluid">
+			<div
+				className="col-md-offset-1 col-md-10"
+				style={{ marginTop: '20px', marginBottom: '20px' }}
+			>
+				<Well>
+					{story()}
+				</Well>
 			</div>
-		</Provider>
-	));
+		</div>
+	</Provider>
+);
 
-jsonStories.forEach(({ name, story }) => {
-	decoratedStories.add(name, story);
+const coreConceptsStories = storiesOf('Core concepts', module)
+	.addDecorator(withKnobs)
+	.addDecorator(forStoryDecorator);
+
+const coreFieldsetsStories = storiesOf('Core fieldsets', module)
+	.addDecorator(withKnobs)
+	.addDecorator(forStoryDecorator);
+
+const coreFieldsStories = storiesOf('Core fields', module)
+	.addDecorator(withKnobs)
+	.addDecorator(forStoryDecorator);
+
+jsonStories.forEach(({ category, name, story }) => {
+	switch (category) {
+	case 'concepts':
+		coreConceptsStories.add(name, story);
+		break;
+	case 'fieldsets':
+		coreFieldsetsStories.add(name, story);
+		break;
+	case 'fields':
+		coreFieldsStories.add(name, story);
+		break;
+	default:
+		console.error(`No category ${category} found for story ${name}`);
+	}
 });
-decoratedStories.add(customWidgetStory.name, customWidgetStory.story);
-decoratedStories.add(customActionsStory.name, customActionsStory.story);
+
+coreConceptsStories.add(customWidgetStory.name, customWidgetStory.story);
+coreConceptsStories.add(customActionsStory.name, customActionsStory.story);

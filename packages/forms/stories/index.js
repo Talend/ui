@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
@@ -16,7 +17,9 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
 a11y(ReactDOM);
 
-const decoratedStories = storiesOf('Form', module).addDecorator(withKnobs).addDecorator(story =>
+const decoratedStories = storiesOf('Form', module)
+.addDecorator(withKnobs)
+.addDecorator(story =>
 	<div className="container-fluid">
 		<div
 			className="col-md-offset-1 col-md-10"
@@ -106,11 +109,8 @@ decoratedStories.add('Multiple actions', () => {
 
 function CustomDatalist(...args) {
 	function renderItemsContainer({ children, ...containerProps }) {
-		const { className, ...rest } = containerProps;
-
 		return (
-			<div className={className}>
-				<div {...rest} />
+			<div {...containerProps}>
 				{children}
 				{children &&
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
@@ -268,7 +268,7 @@ decoratedStories.add('Datalist in modal', () => {
 			show: true,
 			size: 'small',
 			keyboard: true,
-		}
+		},
 	};
 
 	// Need to override style for this demo (items-container must be scrollable)
@@ -382,7 +382,7 @@ class FormDemo extends React.Component {
 	}
 }
 
-decoratedStories.add('custom array', () => {
+decoratedStories.add('Custom array', () => {
 	const schema = {
 		jsonSchema: {
 			title: 'A filter form',
@@ -392,6 +392,8 @@ decoratedStories.add('custom array', () => {
 				filters: {
 					type: 'array',
 					title: 'A list of strings',
+					minItems: 1,
+					maxItems: 5,
 					items: {
 						type: 'object',
 						properties: {

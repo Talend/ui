@@ -40,16 +40,19 @@ const selected = [
 
 const actions = [
 	{
+		id: 'edit',
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
 	},
 	{
+		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 	},
 	{
+		id: 'related',
 		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'talend-folder',
@@ -124,7 +127,7 @@ const props = {
 			key: 'name',
 			iconKey: 'icon',
 			displayModeKey: 'display',
-			onClick: action('onClick'),
+			onClick: action('onTitleClick'),
 			onEditCancel: action('onEditCancel'),
 			onEditSubmit: action('onEditSubmit'),
 		},
@@ -426,6 +429,31 @@ storiesOf('List', module)
 				</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - activation', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
+		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list" >
+				<h1>List</h1>
+				<p>
+					You can manage selection by passing 2 props : onRowClick and isActive.<br />
+					<b>onRowClick(event, item)</b> : item selection callback<br />
+					<b>isActive(item)</b> : returns true if the item is selected
+					<pre>
+						listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
+						listProps.itemProps.isActive = (item) => item.id === 0;<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<h2>Table</h2>
+				<List {...selectedItemsProps} virtualized />
+				<h2>Large</h2>
+				<List {...selectedItemsProps} displayMode="large" virtualized />
 			</div>
 		);
 	})

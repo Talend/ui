@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -93,22 +94,22 @@ function SidePanel(props) {
 	);
 }
 
-const actionPropType = React.PropTypes.shape({
-	active: React.PropTypes.bool,
-	icon: React.PropTypes.string,
-	key: React.PropTypes.string,
-	label: React.PropTypes.string,
-	onClick: React.PropTypes.func,
+const actionPropType = PropTypes.shape({
+	active: PropTypes.bool,
+	icon: PropTypes.string,
+	key: PropTypes.string,
+	label: PropTypes.string,
+	onClick: PropTypes.func,
 });
 
 SidePanel.propTypes = {
-	id: React.PropTypes.string,
-	actions: React.PropTypes.arrayOf(actionPropType),
-	onSelect: React.PropTypes.func,
-	onToggleDock: React.PropTypes.func,
-	docked: React.PropTypes.bool,
+	id: PropTypes.string,
+	actions: PropTypes.arrayOf(actionPropType),
+	onSelect: PropTypes.func,
+	onToggleDock: PropTypes.func,
+	docked: PropTypes.bool,
 	selected: actionPropType,
-	tooltipPlacement: React.PropTypes.string,
+	tooltipPlacement: PropTypes.string,
 };
 
 SidePanel.defaultProps = {

@@ -1,12 +1,13 @@
-const SASS_DATA = '@import \'~bootstrap-talend-theme/src/theme/guidelines\';';
+const SASS_DATA = "@import '~bootstrap-talend-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
 const webpack = require.main.require('webpack');
 
-module.exports = (storybookBaseConfig) => {
+module.exports = storybookBaseConfig => {
 	// remove Uglification plugin to improve build time in CI
 	const uglifyIndex = storybookBaseConfig.plugins.findIndex(
-		element => element instanceof webpack.optimize.UglifyJsPlugin);
+		element => element instanceof webpack.optimize.UglifyJsPlugin
+	);
 	storybookBaseConfig.plugins.splice(uglifyIndex, 1);
 	storybookBaseConfig.module.rules.push(
 		{
@@ -26,9 +27,7 @@ module.exports = (storybookBaseConfig) => {
 				{
 					loader: 'postcss-loader',
 					options: {
-						autoprefixer: {
-							browsers: ['last 2 versions'],
-						},
+						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
 					},
 				},
 				{
@@ -42,14 +41,13 @@ module.exports = (storybookBaseConfig) => {
 		{
 			test: /\.scss$/,
 			exclude: /theme.scss/,
-			use: ['style-loader',
+			use: [
+				'style-loader',
 				'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
 				{
 					loader: 'postcss-loader',
 					options: {
-						autoprefixer: {
-							browsers: ['last 2 versions'],
-						},
+						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
 					},
 				},
 				{

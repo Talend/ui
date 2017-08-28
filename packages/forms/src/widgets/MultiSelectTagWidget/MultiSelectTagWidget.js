@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Badge from 'react-talend-components/lib/Badge';
 import { MenuItem } from 'react-bootstrap';
@@ -313,30 +314,30 @@ DropDownOptions.defaultProps = {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	const Tag = React.PropTypes.shape({
-		label: React.PropTypes.string.isRequired,
-		value: React.PropTypes.string,
+	const Tag = PropTypes.shape({
+		label: PropTypes.string.isRequired,
+		value: PropTypes.string,
 	});
 
 	DropDownOptions.propTypes = {
-		options: React.PropTypes.arrayOf(Tag),
-		onSelectOption: React.PropTypes.func.isRequired,
-		filterText: React.PropTypes.string,
-		createIfNoneMatch: React.PropTypes.bool,
-		onCreateNew: React.PropTypes.func,
-		onMouseEvent: React.PropTypes.func,
-		selectedIndex: React.PropTypes.number,
-		noAvailableMessage: React.PropTypes.string,
+		options: PropTypes.arrayOf(Tag),
+		onSelectOption: PropTypes.func.isRequired,
+		filterText: PropTypes.string,
+		createIfNoneMatch: PropTypes.bool,
+		onCreateNew: PropTypes.func,
+		onMouseEvent: PropTypes.func,
+		selectedIndex: PropTypes.number,
+		noAvailableMessage: PropTypes.string,
 	};
 
 	MultiSelectTagWidget.propTypes = {
-		value: React.PropTypes.array, //eslint-disable-line
-		options: React.PropTypes.shape({
-			enumOptions: React.PropTypes.arrayOf(Tag),
+		value: PropTypes.array, //eslint-disable-line
+		options: PropTypes.shape({
+			enumOptions: PropTypes.arrayOf(Tag),
 		}),
-		readonly: React.PropTypes.bool,
-		onChange: React.PropTypes.func,
-		schema: React.PropTypes.object.isRequired, //eslint-disable-line
+		readonly: PropTypes.bool,
+		onChange: PropTypes.func,
+		schema: PropTypes.object.isRequired, //eslint-disable-line
 	};
 }
 

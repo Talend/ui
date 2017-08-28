@@ -60,6 +60,7 @@ describe('UIForm component', () => {
 				}
 			);
 			expect(props.onTrigger).not.toBeCalled();
+			expect(props.setErrors).not.toBeCalled();
 		});
 
 		it('should trigger "after" trigger', () => {
@@ -80,9 +81,30 @@ describe('UIForm component', () => {
 					type: 'after',
 					schema: mergedSchema[1],
 					value: newValue,
-					error: null,
+					error: undefined,
 					properties: data.properties,
 				}
+			);
+		});
+
+		it('should set errors, applying widget errors hook', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const newValue = 'toto is toto';
+			const event = { target: { value: newValue } };
+			const newErrors = { lastname: 'lol' };
+
+			// when
+			wrapper.instance().onChange(
+				event,
+				{ schema: mergedSchema[0], value: newValue },
+				{ widgetChangeErrors() { return newErrors; } }
+			);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(
+				props.formName,
+				newErrors
 			);
 		});
 	});

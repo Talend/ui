@@ -10,6 +10,17 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		transition: box-shadow 0.3s cubic-bezier(.25, .8, .25, 1);
 		margin-bottom: $padding-normal;
 
+		&.closed {
+			.delete {
+				visibility: hidden;
+			}
+			&:hover {
+				.delete {
+					visibility: initial;
+				}
+			}
+		}
+
 		&:hover {
 			background: $white;
 			box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
@@ -21,13 +32,24 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		}
 
 		.control {
-			border-right: 1px solid $gray-lighter;
+			border-right: 1px solid $wild-sand;
 			display: flex;
 			flex-direction: column;
 			padding: 0 $padding-small;
+			.orderaction {
+				display: flex;
+				flex-direction: column;
+				padding-top: ($padding-normal * 2);
+			}
 
 			.delete {
-				margin: $padding-normal 0 ($padding-normal * 2) 0;
+				margin: $padding-normal 0 $padding-small 0;
+				&.hidden {
+					display: none;
+					&:hover {
+						display: initial;
+					}
+				}
 			}
 
 			button {
@@ -50,6 +72,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		.element {
 			flex-grow: 1;
 			padding: 0;
+			overflow: hidden;
 
 			> div {
 				padding: 0;
@@ -57,19 +80,27 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			}
 
 			fieldset {
-				div {
-					border-bottom: 1px solid $gray-lighter;
+				> div:first-child {
+					border-bottom: 1px solid $wild-sand;
+					// to forbid children selection of text on double click
+					user-select: none;
 
 					div {
 						display: inline-block;
 						width: inherit;
+						max-width: 100%;
 
 						legend {
 							color: $gray-light;
 							font-size: $font-size-base;
 							margin: 0;
-							padding: $padding-normal;
-							width: inherit;
+							max-width: 100%;
+							overflow: hidden;
+							padding: $padding-normal ($padding-large * 2) $padding-normal $padding-normal;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							// to allow classic text selection
+							user-select: text;
 
 							&:hover {
 								cursor: pointer;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Layout } from 'react-talend-components';
 
 import AppHeaderBar from '../AppHeaderBar';
@@ -12,13 +13,23 @@ function getContent(Component, props) {
 	return (<Component {...props} />);
 }
 
+function wrapChildren(children) {
+	if (children && children.props && children.props.children) {
+		return [children, ...wrapChildren(children.props.children)];
+	} else if (children && !children.props) {
+		// this happens ony in tests with enzyme's mount
+		return [];
+	}
+	return [children];
+}
+
 function HomeListView({ sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
 	let drawers = children || [];
 	if (!Array.isArray(drawers)) {
-		drawers = [drawers];
+		drawers = wrapChildren(drawers);
 	}
 
 	return (
