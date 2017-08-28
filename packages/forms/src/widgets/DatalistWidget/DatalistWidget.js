@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Emphasis from 'react-talend-components/lib/Emphasis';
 import classnames from 'classnames';
@@ -53,8 +54,12 @@ function getItemsMap(items) {
 	return items.reduce((a, b) => Object.assign(a, getValueLabelPair(b)), {});
 }
 
-function itemsContainerClickHandler(e) {
-	e.preventDefault();
+let dontBlur = false;
+function itemsContainerClickHandler() {
+	dontBlur = true;
+	setTimeout(() => {
+		dontBlur = false;
+	});
 }
 
 /**
@@ -112,7 +117,17 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value !== this.props.value) {
+			this.setValue(nextProps.value);
+		}
+	}
+
 	onBlur(event) {
+		if (dontBlur) {
+			return;
+		}
+
 		const inputLabel = event.target.value;
 		const { options, onChange } = this.props;
 		const { value, lastKnownValue } = this.state;
@@ -120,7 +135,6 @@ class DatalistWidget extends React.Component {
 		const isIncluded = this.isPartOfItems(value);
 
 		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
-
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
 			if (inputLabel !== this.getLabel(lastKnownValue)) {

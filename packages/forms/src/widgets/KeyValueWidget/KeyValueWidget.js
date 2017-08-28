@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Text from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
@@ -71,8 +72,8 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object,
 		formData: PropTypes.object,
 		value: PropTypes.oneOfType([
-			React.PropTypes.string,
-			React.PropTypes.number,
+			PropTypes.string,
+			PropTypes.number,
 		]),
 		onChange: PropTypes.func,
 	};

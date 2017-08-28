@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import SchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
 import TitleField from 'react-jsonschema-form/lib/components/fields/TitleField';
 

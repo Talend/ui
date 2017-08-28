@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import {
 	Table as VirtualizedTable,
@@ -20,22 +21,31 @@ function ListTable(props) {
 		collection,
 		height,
 		id,
+		isActive,
 		isSelected,
-		selectionToggle,
+		onRowClick,
 		sort,
 		sortBy,
 		sortDirection,
 		width,
 	} = props;
 
-	const RowTableRenderer = selectionToggle ?
-		RowSelectionRenderer( // eslint-disable-line new-cap
+	let RowTableRenderer = DefaultTableRowRenderer;
+	if (isActive || isSelected) {
+		RowTableRenderer = RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
 				isSelected,
+				isActive,
 				getRowData: rowProps => rowProps.rowData,
-			}) :
-		DefaultTableRowRenderer;
+			}
+		);
+	}
+
+	let onRowClickCallback;
+	if (onRowClick) {
+		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
+	}
 
 	return (
 		<VirtualizedTable
@@ -44,12 +54,13 @@ function ListTable(props) {
 			headerHeight={35}
 			height={height}
 			id={id}
+			onRowClick={onRowClickCallback}
+			noRowsRenderer={NoRows}
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={50}
 			rowRenderer={RowTableRenderer}
-			noRowsRenderer={NoRows}
 			sort={sort}
 			sortBy={sortBy}
 			sortDirection={sortDirection}
@@ -65,8 +76,9 @@ ListTable.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
-	selectionToggle: PropTypes.func,
+	onRowClick: PropTypes.func,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,

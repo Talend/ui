@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -50,9 +51,9 @@ function Badge({ label, tcStyle, onDelete }) {
 }
 
 Badge.propTypes = {
-	label: React.PropTypes.string,
-	tcStyle: React.PropTypes.string,
-	onDelete: React.PropTypes.func,
+	label: PropTypes.string,
+	tcStyle: PropTypes.string,
+	onDelete: PropTypes.func,
 };
 
 Badge.defaultProps = {

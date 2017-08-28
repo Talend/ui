@@ -117,6 +117,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   height={600}
   id="my-list"
   noRowsRenderer={[Function]}
+  onRowClick={[Function]}
   onRowsRendered={[Function]}
   onScroll={[Function]}
   overscanIndicesGetter={[Function]}

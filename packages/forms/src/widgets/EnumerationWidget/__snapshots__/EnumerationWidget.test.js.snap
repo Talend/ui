@@ -487,7 +487,17 @@ exports[`EnumerationWidget delete all 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_DEFAULT"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              The list is empty
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -1028,7 +1038,17 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_ADD"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              No results
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -1502,7 +1522,17 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_DEFAULT"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              The list is empty
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -1983,7 +2013,17 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           onInputChange={[Function]}
           required={true}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_DEFAULT"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              The list is empty
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -2699,6 +2739,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}
@@ -3486,7 +3527,17 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_SEARCH"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              No results
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -3973,7 +4024,17 @@ exports[`EnumerationWidget should delete an item 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_DEFAULT"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              The list is empty
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -4608,6 +4669,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}
@@ -5451,6 +5513,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}
@@ -6419,6 +6482,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}
@@ -7761,7 +7825,17 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
           onInputChange={[Function]}
           required={false}
           setFormData={[Function]}
-        />
+        >
+          <EmptyListPlaceholder
+            displayMode="DISPLAY_MODE_DEFAULT"
+          >
+            <p
+              className="undefined tc-enumeration-hint"
+            >
+              The list is empty
+            </p>
+          </EmptyListPlaceholder>
+        </ItemsEnumeration>
       </div>
     </Enumeration>
   </div>
@@ -8420,6 +8494,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}
@@ -10009,6 +10084,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       noRowsRenderer={[Function]}
                       onRowsRendered={[Function]}
                       onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
                       onSectionRendered={[Function]}
                       overscanColumnCount={0}
                       overscanIndicesGetter={[Function]}

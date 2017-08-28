@@ -7,6 +7,32 @@ jest.mock('../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSize
 );
 
 describe('Enumeration', () => {
+	it('should render with EmptyListPlaceholder in default mode when there\'s no items in list', () => {
+		const props = {
+			displayMode: 'DISPLAY_MODE_DEFAULT',
+			items: [],
+			headerInput: [],
+			headerDefault: [],
+		};
+		const wrapper = renderer.create(
+			<Enumeration {...props} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with EmptyListPlaceholder in search mode when there\'s no items in list', () => {
+		const props = {
+			displayMode: 'DISPLAY_MODE_SEARCH',
+			items: [],
+			headerInput: [],
+			headerDefault: [],
+		};
+		const wrapper = renderer.create(
+			<Enumeration {...props} />
+		).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render with header in default state, list in default state and required component', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',

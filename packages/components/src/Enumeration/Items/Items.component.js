@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
 
@@ -161,9 +162,9 @@ Items.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
-		getItemHeight: React.PropTypes.oneOfType([
-			React.PropTypes.func,
-			React.PropTypes.number,
+		getItemHeight: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.number,
 		]),
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,

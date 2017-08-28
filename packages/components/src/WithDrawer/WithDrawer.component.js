@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CSSTransitionGroup } from 'react-css-transition';
 
 import Drawer from '../Drawer';

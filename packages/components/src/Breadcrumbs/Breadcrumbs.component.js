@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
@@ -101,15 +102,15 @@ function Breadcrumbs(props) {
 }
 
 Breadcrumbs.propTypes = {
-	id: React.PropTypes.string,
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			text: React.PropTypes.string.isRequired,
-			title: React.PropTypes.string,
-			onClick: React.PropTypes.func,
+	id: PropTypes.string,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			text: PropTypes.string.isRequired,
+			title: PropTypes.string,
+			onClick: PropTypes.func,
 		}),
 	),
-	maxItems: React.PropTypes.number,
+	maxItems: PropTypes.number,
 };
 
 Breadcrumbs.defaultProps = {

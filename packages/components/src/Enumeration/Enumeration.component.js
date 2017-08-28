@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import headerPropTypes from './Header/Header.propTypes';
@@ -52,9 +53,9 @@ Enumeration.propTypes = {
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
-		getItemHeight: React.PropTypes.oneOfType([
-			React.PropTypes.func,
-			React.PropTypes.number,
+		getItemHeight: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.number,
 		]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
@@ -72,7 +73,29 @@ Enumeration.propTypes = {
 	...ItemEditPropTypes,
 };
 
-function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
+function hintClasses() {
+	return classNames({
+		[theme['tc-enumeration-hint']]: true,
+		'tc-enumeration-hint': true,
+	});
+}
+
+const EMPTY_LIST_PLACEHOLDER_DEFAULT = 'The list is empty';
+const EMPTY_LIST_PLACEHOLDER_SEARCH = 'No results';
+
+function EmptyListPlaceholder({ displayMode }) {
+	return (<p className={hintClasses()}>
+		{ displayMode === DISPLAY_MODE_DEFAULT ?
+				EMPTY_LIST_PLACEHOLDER_DEFAULT
+				: EMPTY_LIST_PLACEHOLDER_SEARCH }
+	</p>);
+}
+
+EmptyListPlaceholder.propTypes = {
+	displayMode: Enumeration.propTypes.displayMode,
+};
+
+function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit, displayMode }) {
 	if (items.length > 0) {
 		return (<Items
 			items={items}
@@ -81,7 +104,7 @@ function ItemsEnumeration({ items, itemsProp, searchCriteria, currentEdit }) {
 			searchCriteria={searchCriteria}
 		/>);
 	}
-	return null;
+	return (<EmptyListPlaceholder displayMode={displayMode} />);
 }
 
 ItemsEnumeration.propTypes = {

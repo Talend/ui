@@ -1,9 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import {
 	extractSpecialFields,
 	getId,
 	getLabel,
+	getRowData,
 	renderCell,
 } from '../utils/gridrow';
 
@@ -31,11 +33,17 @@ function RowLarge({ className, index, key, parent, style }) {
 			</li>
 		);
 	});
+	let onRowClick;
+	if (parent.props.onRowClick) {
+		onRowClick = event => parent.props.onRowClick(event, getRowData(parent, index));
+	}
 
 	return (
 		<div
 			className={classNames(rowThemes)}
 			key={key}
+			role="button"
+			onClick={onRowClick}
 			style={style}
 		>
 			<div

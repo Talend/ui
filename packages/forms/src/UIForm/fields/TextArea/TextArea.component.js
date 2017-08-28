@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 
 export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
