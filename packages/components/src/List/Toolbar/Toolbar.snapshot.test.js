@@ -2,7 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Toolbar from './Toolbar.component';
-import t from '../../../test/translate';
 
 jest.mock('react-dom');
 
@@ -69,7 +68,7 @@ const filter = {
 describe('Toolbar', () => {
 	it('should render empty toolbar', () => {
 		// when
-		const wrapper = renderer.create(<Toolbar t={t} />).toJSON();
+		const wrapper = renderer.create(<Toolbar />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -82,7 +81,6 @@ describe('Toolbar', () => {
 			actionBar: {
 				actions: actionBar.actions,
 			},
-			t,
 		};
 
 		// when
@@ -97,7 +95,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			actionBar,
-			t,
 		};
 
 		// when
@@ -112,7 +109,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			selectAllCheckbox,
-			t,
 		};
 
 		// when
@@ -127,7 +123,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			display,
-			t,
 		};
 
 		// when
@@ -142,7 +137,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			sort,
-			t,
 		};
 
 		// when
@@ -157,7 +151,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			filter,
-			t,
 		};
 
 		// when
@@ -172,7 +165,6 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			pagination,
-			t,
 		};
 
 		// when

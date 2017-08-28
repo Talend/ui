@@ -10,7 +10,8 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
-import NAME_SPACE_I18N_COMPONENTS from '../utils/nameSpaceI18n';
+import { defaultTranslateFn } from '../translate';
+import { I18N_DOMAIN } from '../constants';
 
 function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {
@@ -37,6 +38,11 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	}
 	return (<Toolbar {...toolbarProps} />);
 }
+
+ListToolbar.defaultProps = {
+	t: defaultTranslateFn,
+};
+
 ListToolbar.propTypes = {
 	id: PropTypes.string,
 	displayMode: PropTypes.string,
@@ -170,4 +176,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(NAME_SPACE_I18N_COMPONENTS)(List);
+export default translate(I18N_DOMAIN)(List);

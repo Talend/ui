@@ -9,7 +9,8 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
-import NAME_SPACE_I18N_COMPONENTS from '../utils/nameSpaceI18n';
+import defaultTranslateFn from '../translate';
+import { I18N_DOMAIN } from '../constants';
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -217,6 +218,10 @@ HeaderBar.Help = Help;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
 
+HeaderBar.defaultProps = {
+	t: defaultTranslateFn,
+};
+
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
 		isFull: PropTypes.bool,
@@ -294,4 +299,4 @@ export {
 	HeaderBar,
 };
 
-export default translate(NAME_SPACE_I18N_COMPONENTS, { i18n })(HeaderBar);
+export default translate(I18N_DOMAIN, { i18n })(HeaderBar);

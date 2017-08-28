@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { List } from './List.component';
-import t from '../../test/translate';
 
 jest.mock('react-dom');
 
@@ -53,7 +52,6 @@ const props = {
 	displayMode: 'table',
 	list: listProps,
 	toolbar: toolbarProps,
-	t,
 };
 
 describe('List', () => {

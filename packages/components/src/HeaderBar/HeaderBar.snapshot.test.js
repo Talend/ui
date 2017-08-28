@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Immutable from 'immutable';
 
-import t from '../../test/translate';
 import { HeaderBar } from './HeaderBar.component';
 
 const typeaheadItems = [
@@ -118,7 +117,6 @@ const props = {
 		],
 		onSelect: jest.fn(),
 	},
-	t,
 };
 
 describe('HeaderBar', () => {

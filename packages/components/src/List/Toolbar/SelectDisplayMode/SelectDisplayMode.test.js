@@ -2,13 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import SelectDisplayMode from './SelectDisplayMode.component';
-import t from '../../../../test/translate';
 
 jest.mock('react-dom');
 
 const requiredProps = {
 	onChange: jest.fn(),
-	t,
 };
 
 describe('SelectDisplayMode', () => {

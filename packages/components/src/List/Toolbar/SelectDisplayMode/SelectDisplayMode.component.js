@@ -3,6 +3,7 @@ import React from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
+import defaultTranslateFn from '../../../translate';
 import Icon from '../../../Icon';
 
 function getIcon(selected) {
@@ -67,6 +68,10 @@ function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 		</Nav>
 	);
 }
+
+SelectDisplayMode.defaultProps = {
+	t: defaultTranslateFn,
+};
 
 SelectDisplayMode.propTypes = {
 	id: PropTypes.string,

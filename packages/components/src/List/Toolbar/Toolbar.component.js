@@ -11,6 +11,7 @@ import Label from './Label';
 import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
+import defaultTranslateFn from '../../translate';
 
 function adaptActionsIds(actions, parentId) {
 	return actions &&
@@ -83,6 +84,10 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 		</div>
 	);
 }
+
+Toolbar.defaultProps = {
+	t: defaultTranslateFn,
+};
 
 Toolbar.propTypes = {
 	id: PropTypes.string,
