@@ -219,7 +219,7 @@ HeaderBar.User = User;
 HeaderBar.Products = Products;
 
 HeaderBar.defaultProps = {
-	defaultTranslateFn,
+	t: defaultTranslateFn,
 };
 
 if (process.env.NODE_ENV !== 'production') {
