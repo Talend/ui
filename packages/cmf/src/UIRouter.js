@@ -20,20 +20,24 @@ function CMFRoute(props, context) {
 	const { path, view, childRoutes, component } = props;
 	const Component = getComponent(view, component, context);
 
+	let safePath = path;
+	if (!safePath.startsWith('/')) {
+		safePath = `${props.cmfParentPath || ''}/${path}`;
+	}
 	// Warning: You should not use <Route component> and <Route children>
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
 		return (
 			<Component view={view} {...subprops}>
 				{childRoutes ? childRoutes.map((route, index) => (
-					<CMFRoute key={index} {...route} />
+					<CMFRoute key={index} {...route} cmfParentPath={safePath} />
 				)) : null}
 			</Component>
 		);
 	}
 	return (
 		<Route
-			path={path}
+			path={safePath}
 			exact
 			component={SubComponent}
 		/>
@@ -41,6 +45,7 @@ function CMFRoute(props, context) {
 }
 
 CMFRoute.propTypes = {
+	cmfParentPath: PropTypes.string,
 	path: PropTypes.string,
 	component: PropTypes.string,
 	view: PropTypes.string,
@@ -116,7 +121,12 @@ CMFRouter.propTypes = {
 	history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	routes: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
-const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-export default connect(
-	mapStateToProps
-)(CMFRouter);
+
+function mapStateToProps(state) {
+	return {
+		routes: state.cmf.settings.routes,
+		router: state.router,  // force re render on router change
+	};
+}
+
+export default connect(mapStateToProps)(CMFRouter);
