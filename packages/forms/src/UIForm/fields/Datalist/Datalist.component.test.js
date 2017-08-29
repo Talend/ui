@@ -2,6 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Autowhatever from 'react-autowhatever';
+import keycode from 'keycode';
 import Datalist from './Datalist.component';
 
 const schema = {
@@ -111,10 +112,26 @@ describe('Datalist component', () => {
 
 	it('should reset previous value on ESC keydown', () => {
 		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				schema={schema}
+				value={'foo'}
+			/>
+		);
+		expect(wrapper.find(Autowhatever).props().value).toBe('foo');
+		wrapper.find('input').at(0).simulate('change', { target: { value: 'newValue' } });
+		expect(wrapper.find(Autowhatever).props().value).toBe('newValue');
 
 		// when
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
 
 		// then
+		expect(wrapper.find(Autowhatever).props().value).toBe('foo');
 	});
 
 	it('should select value on ENTER keydown with a selected suggestion', () => {
