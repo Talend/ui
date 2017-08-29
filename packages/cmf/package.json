@@ -51,6 +51,7 @@
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
+    "prop-types": "^15.5.10",
     "react": "15.5.4",
     "react-addons-test-utils": "15.5.1",
     "react-dom": "15.5.4",
@@ -87,6 +88,7 @@
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "lodash": "4.17.4",
+    "prop-types": "^15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",
@@ -100,7 +102,7 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0"
   },
-  "version": "0.100.0",
+  "version": "0.103.0",
   "dependencies": {
     "hoist-non-react-statics": "^1.2.0"
   }

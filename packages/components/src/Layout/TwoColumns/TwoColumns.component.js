@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 
@@ -46,10 +47,10 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 }
 
 TwoColumns.propTypes = {
-	one: React.PropTypes.element,
-	children: React.PropTypes.node,
-	drawers: React.PropTypes.arrayOf(React.PropTypes.node),
-	tabs: React.PropTypes.shape(TabBar.propTypes),
+	one: PropTypes.element,
+	children: PropTypes.node,
+	drawers: PropTypes.arrayOf(PropTypes.node),
+	tabs: PropTypes.shape(TabBar.propTypes),
 };
 
 export default TwoColumns;

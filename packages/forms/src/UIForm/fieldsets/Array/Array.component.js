@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import Widget from '../../Widget';

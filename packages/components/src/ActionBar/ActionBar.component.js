@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import css from './ActionBar.scss';

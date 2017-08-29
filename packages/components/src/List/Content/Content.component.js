@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -43,11 +44,11 @@ function Content(props) {
 }
 
 Content.propTypes = {
-	id: React.PropTypes.string,
-	displayMode: React.PropTypes.string,
-	columns: React.PropTypes.arrayOf(Column.propTypes).isRequired,
+	id: PropTypes.string,
+	displayMode: PropTypes.string,
+	columns: PropTypes.arrayOf(Column.propTypes).isRequired,
 	actions: Item.propTypes.actions,
-	items: React.PropTypes.arrayOf(React.PropTypes.object),
+	items: PropTypes.arrayOf(PropTypes.object),
 	itemProps: Item.propTypes.itemProps,
 };
 

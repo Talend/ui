@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
@@ -11,8 +12,8 @@ function mockFakeComponent(name) {
 		return <div {...rest} className={mergedClassName}>{children}</div>;
 	};
 	fakeComponent.propTypes = {
-		children: React.PropTypes.oneOfType([React.PropTypes.any]),
-		className: React.PropTypes.string,
+		children: PropTypes.oneOfType([PropTypes.any]),
+		className: PropTypes.string,
 	};
 	return fakeComponent;
 }
