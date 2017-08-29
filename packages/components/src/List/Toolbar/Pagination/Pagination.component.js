@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import uuid from 'uuid';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -123,12 +124,12 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 }
 
 Pagination.propTypes = {
-	id: React.PropTypes.string,
-	startIndex: React.PropTypes.number,
-	itemsPerPage: React.PropTypes.number,
-	totalResults: React.PropTypes.number.isRequired,
-	itemsPerPageOptions: React.PropTypes.arrayOf(React.PropTypes.number),
-	onChange: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	startIndex: PropTypes.number,
+	itemsPerPage: PropTypes.number,
+	totalResults: PropTypes.number.isRequired,
+	itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+	onChange: PropTypes.func.isRequired,
 };
 
 Pagination.defaultProps = {

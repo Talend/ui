@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -25,10 +26,10 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 }
 
 SelectAll.propTypes = {
-	id: React.PropTypes.string,
-	items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-	isSelected: React.PropTypes.func.isRequired,
-	onToggleAll: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	items: PropTypes.arrayOf(PropTypes.object).isRequired,
+	isSelected: PropTypes.func.isRequired,
+	onToggleAll: PropTypes.func.isRequired,
 };
 
 export default SelectAll;

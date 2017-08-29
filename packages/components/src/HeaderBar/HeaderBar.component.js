@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -51,9 +52,9 @@ function Logo({ isFull, renderers, ...props }) {
 }
 
 Logo.propTypes = {
-	isFull: React.PropTypes.bool,
-	renderers: React.PropTypes.shape({
-		Action: React.PropTypes.func,
+	isFull: PropTypes.bool,
+	renderers: PropTypes.shape({
+		Action: PropTypes.func,
 	}),
 };
 
@@ -79,9 +80,9 @@ function Brand({ name, isSeparated, renderers, ...props }) {
 }
 
 Brand.propTypes = {
-	isSeparated: React.PropTypes.bool,
-	renderers: React.PropTypes.shape({
-		Action: React.PropTypes.func,
+	isSeparated: PropTypes.bool,
+	renderers: PropTypes.shape({
+		Action: PropTypes.func,
 	}),
 };
 
@@ -99,8 +100,8 @@ function Environment({ renderers, ...props }) {
 }
 
 Environment.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
+	renderers: PropTypes.shape({
+		ActionDropdown: PropTypes.func,
 	}),
 };
 
@@ -122,8 +123,8 @@ function Search({ renderers, ...props }) {
 }
 
 Search.propTypes = Typeahead.propTypes;
-Search.propTypes.renderers = React.PropTypes.shape({
-	Typeahead: React.PropTypes.func,
+Search.propTypes.renderers = PropTypes.shape({
+	Typeahead: PropTypes.func,
 });
 
 function Help({ renderers, ...props }) {
@@ -147,9 +148,9 @@ function Help({ renderers, ...props }) {
 }
 
 Help.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionSplitDropdown: React.PropTypes.func,
-		Action: React.PropTypes.func,
+	renderers: PropTypes.shape({
+		ActionSplitDropdown: PropTypes.func,
+		Action: PropTypes.func,
 	}),
 };
 
@@ -189,11 +190,11 @@ function User({ name, firstName, lastName, renderers, ...rest }) {
 }
 
 User.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
-		name: React.PropTypes.string.isRequired,
-		firstName: React.PropTypes.string,
-		lastName: React.PropTypes.string,
+	renderers: PropTypes.shape({
+		ActionDropdown: PropTypes.func,
+		name: PropTypes.string.isRequired,
+		firstName: PropTypes.string,
+		lastName: PropTypes.string,
 	}),
 };
 
@@ -216,8 +217,8 @@ function Products({ renderers, ...props }) {
 }
 
 Products.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
+	renderers: PropTypes.shape({
+		ActionDropdown: PropTypes.func,
 	}),
 };
 
@@ -260,20 +261,20 @@ HeaderBar.User = User;
 HeaderBar.Products = Products;
 
 HeaderBar.propTypes = {
-	logo: React.PropTypes.shape(Logo.propTypes),
-	brand: React.PropTypes.shape(Brand.propTypes),
-	env: React.PropTypes.shape(Environment.propTypes),
-	search: React.PropTypes.shape(Search.propTypes),
-	help: React.PropTypes.shape(Help.propTypes),
-	user: React.PropTypes.shape(User.propTypes),
-	products: React.PropTypes.shape(Products.propTypes),
-	renderers: React.PropTypes.shape({
-		Logo: React.PropTypes.func,
-		Brand: React.PropTypes.func,
-		Environment: React.PropTypes.func,
-		Search: React.PropTypes.func,
-		User: React.PropTypes.func,
-		Products: React.PropTypes.func,
+	logo: PropTypes.shape(Logo.propTypes),
+	brand: PropTypes.shape(Brand.propTypes),
+	env: PropTypes.shape(Environment.propTypes),
+	search: PropTypes.shape(Search.propTypes),
+	help: PropTypes.shape(Help.propTypes),
+	user: PropTypes.shape(User.propTypes),
+	products: PropTypes.shape(Products.propTypes),
+	renderers: PropTypes.shape({
+		Logo: PropTypes.func,
+		Brand: PropTypes.func,
+		Environment: PropTypes.func,
+		Search: PropTypes.func,
+		User: PropTypes.func,
+		Products: PropTypes.func,
 	}),
 };
 
