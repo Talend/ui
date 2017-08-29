@@ -6,7 +6,7 @@ Object {
   "actions": Array [],
   "buttonBlockClass": "form-actions",
   "children": undefined,
-  "className": "tc-form rjsf pristine",
+  "className": "tc-form rjsf foo pristine",
   "data": Object {
     "jsonSchema": Object {
       "schema": true,
