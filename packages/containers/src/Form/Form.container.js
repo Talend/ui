@@ -122,7 +122,7 @@ class Form extends React.Component {
 			uiSchema: this.uiSchema(),
 			properties: this.data(),
 		};
-		const className = classnames('tc-form', 'rjsf', {
+		const className = classnames('tc-form', 'rjsf', this.props.className, {
 			dirty: state.dirty,
 			pristine: !state.dirty,
 		});

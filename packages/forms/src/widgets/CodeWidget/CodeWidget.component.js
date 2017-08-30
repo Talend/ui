@@ -73,7 +73,7 @@ try {
 					setOptions={setOptions}
 					enableSnippets
 					value={value}
-					theme="monokai"
+					theme="chrome"
 					showGutter={false}
 					showPrintMargin={false}
 					{...contextProps}
