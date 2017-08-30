@@ -186,7 +186,7 @@ class Datalist extends Component {
 				<div className={theme['tf-datalist']}>
 					<Typeahead
 						id={this.props.id}
-						autoFocus={this.props.schema.autoFocus}
+						autoFocus={this.props.schema.autoFocus || false}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
 						multiSection={false}
