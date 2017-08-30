@@ -41,7 +41,8 @@ const nodeReducer = (state = defaultState, action) => {
 		.setIn(['in', action.nodeId], new Map())
 		.setIn(['childrens', action.nodeId], new Map())
 		.setIn(['parents', action.nodeId], new Map());
-	case FLOWDESIGNER_NODE_MOVE || FLOWDESIGNER_NODE_MOVE_END:
+	case FLOWDESIGNER_NODE_MOVE:
+	case FLOWDESIGNER_NODE_MOVE_END:
 		if (!state.getIn('nodes', action.nodeId)) {
 			invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
 		}

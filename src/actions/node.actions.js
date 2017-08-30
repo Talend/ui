@@ -39,11 +39,13 @@ export const addNode = (
  * @param {{x: number, y: number}} nodePosition - the new absolute position of the node
  * @return {Object}
  */
-export const moveNodeTo = (nodeId, nodePosition) => ({
-	type: FLOWDESIGNER_NODE_MOVE,
-	nodeId,
-	nodePosition,
-});
+export function moveNodeTo(nodeId, nodePosition) {
+	return {
+		type: FLOWDESIGNER_NODE_MOVE,
+		nodeId,
+		nodePosition,
+	};
+}
 
 /**
  * Ask to apply the same movement to multiples nodesId
@@ -64,11 +66,13 @@ export const applyMovementTo = (nodesId, movement) => ({
  * @param {{x: number, y: number}} nodePosition - the new absolute position of the node
  * @return {Object}
  */
-export const moveNodeToEnd = (nodeId, nodePosition) => ({
-	type: FLOWDESIGNER_NODE_MOVE_END,
-	nodeId,
-	nodePosition,
-});
+export function moveNodeToEnd(nodeId, nodePosition) {
+	return {
+		type: FLOWDESIGNER_NODE_MOVE_END,
+		nodeId,
+		nodePosition,
+	};
+}
 
 /**
  * set node size

@@ -11,6 +11,7 @@ class NodesRenderer extends React.Component {
 		nodeTypeMap: PropTypes.object.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
+		snapToGrid: PropTypes.bool.isRequired,
 	}
 
 	constructor(props) {
@@ -34,6 +35,7 @@ class NodesRenderer extends React.Component {
 				moveNodeTo={this.props.moveNodeTo}
 				moveNodeToEnd={this.props.moveNodeToEnd}
 				key={node.id}
+				snapToGrid={this.props.snapToGrid}
 			/>
 		);
 	}

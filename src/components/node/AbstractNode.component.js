@@ -9,7 +9,7 @@ import invariant from 'invariant';
 
 import { NodeType } from '../../constants/flowdesigner.proptypes';
 import { PositionRecord } from '../../constants/flowdesigner.model';
-import { PORT_SINK, PORT_SOURCE } from '../../constants/flowdesigner.constants';
+import { GRID_SIZE, PORT_SINK, PORT_SOURCE } from '../../constants/flowdesigner.constants';
 
 export const ABSTRACT_NODE_INVARIANT = `<AbstractNode /> should not be used without giving it a children
 ex: <AbstractNode><rect /></AbstractNode>`;
@@ -74,6 +74,7 @@ class AbstractNode extends React.Component {
 		node: NodeType.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
+		snapToGrid: PropTypes.bool.isRequired,
 		onDragStart: PropTypes.func,
 		onDrag: PropTypes.func,
 		onDragEnd: PropTypes.func,
@@ -90,6 +91,7 @@ class AbstractNode extends React.Component {
 		this.onDrag = this.onDrag.bind(this);
 		this.onDragEnd = this.onDragEnd.bind(this);
 		this.renderContent = this.renderContent.bind(this);
+		this.getEventPosition = this.getEventPosition.bind(this);
 	}
 
 	componentDidMount() {
@@ -125,17 +127,34 @@ class AbstractNode extends React.Component {
 
 	onDrag() {
 		this.d3Node.data([this.props.node.getPosition()]);
-		this.props.moveNodeTo(this.props.node.id, event);
+		const position = {
+			x: event.x,
+			y: event.y,
+			movementX: event.sourceEvent.movementX,
+			movementY: event.sourceEvent.movementY,
+		};
+		this.props.moveNodeTo(this.props.node.id, position);
 		if (this.props.onDrag) {
-			this.props.onDrag(event);
+			this.props.onDrag(position);
 		}
 	}
 
 	onDragEnd() {
-		this.props.moveNodeToEnd(this.props.node.id, event);
+		const position = this.getEventPosition(event);
+		this.props.moveNodeToEnd(this.props.node.id, position);
 		if (this.props.onDragEnd) {
-			this.props.onDragEnd(event);
+			this.props.onDragEnd(position);
 		}
+	}
+
+	getEventPosition() {
+		if (this.props.snapToGrid) {
+			return {
+				x: event.x - (event.x % GRID_SIZE),
+				y: event.y - (event.y % GRID_SIZE),
+			};
+		}
+		return { x: event.x, y: event.y };
 	}
 
 	renderContent() {

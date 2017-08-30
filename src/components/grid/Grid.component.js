@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { GRID_SIZE } from '../../constants/flowdesigner.constants';
+
 function Grid({ transform }) {
 	const smallGridSize = 10 * transform.k;
-	const largeGridSize = 50 * transform.k;
+	const largeGridSize = GRID_SIZE * transform.k;
 	const smallGridOpacity = transform.k < 1 ? transform.k : 1;
 	return (
 		<g>

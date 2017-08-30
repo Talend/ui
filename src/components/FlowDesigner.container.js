@@ -31,7 +31,12 @@ export class FlowDesigner extends React.Component {
 		transformToApply: ZoomHandler.propTypes.transformToApply,
 		setZoom: ZoomHandler.propTypes.setZoom,
 		gridComponent: PropTypes.element,
+		snapToGrid: PropTypes.bool,
 	}
+
+	static defaultProps = {
+		snapToGrid: false,
+	};
 
 	constructor(props) {
 		super(props);
@@ -129,6 +134,7 @@ export class FlowDesigner extends React.Component {
 							moveNodeTo={this.props.moveNodeTo}
 							moveNodeToEnd={this.props.moveNodeToEnd}
 							nodes={this.props.nodes}
+							snapToGrid={this.props.snapToGrid}
 						/>
 						<PortsRenderer
 							portTypeMap={this.state.portTypeMap}
