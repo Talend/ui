@@ -29,6 +29,23 @@ describe('Text field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
+	it('should render password input', () => {
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				schema={{ ...schema, widget: 'password' }}
+				value={'toto'}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
 	it('should render disabled input', () => {
 		// given
 		const disabledSchema = {

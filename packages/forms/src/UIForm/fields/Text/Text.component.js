@@ -6,7 +6,7 @@ import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
+	const { autoFocus, description, disabled, placeholder, readOnly, title, type, widget } = schema;
 
 	return (
 		<FieldTemplate
@@ -31,7 +31,7 @@ export default function Text(props) {
 					)
 				}
 				readOnly={readOnly}
-				type={type}
+				type={widget || type}
 				value={value}
 			/>
 		</FieldTemplate>
@@ -52,6 +52,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
+			widget: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};

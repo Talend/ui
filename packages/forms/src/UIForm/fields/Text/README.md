@@ -24,7 +24,7 @@ This widget allows you to render a text/number input.
 
 | Property | Description | Default |
 |---|---|---|
-| widget | Value : `text` (or undefined, because this is the default) |  |
+| widget | `text` &#124; `password` &#124; `number` | `text` (for strings), `number` (for number) |
 | title | The title to display above field |  |
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
@@ -47,6 +47,5 @@ This widget allows you to render a text/number input.
 
 **Result**
 
-![Text](screenshot.png)
-![Number](screenshot-number.png)
+![Text](screenshot.gif)
 ![Text with error](screenshot-with-error.png)

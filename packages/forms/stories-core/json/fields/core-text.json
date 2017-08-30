@@ -1,0 +1,33 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Text",
+    "properties": {
+      "text": {
+        "type": "string"
+      },
+      "number": {
+        "type": "number"
+      },
+      "password": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "text",
+      "title": "Simple text"
+    },
+    {
+      "key": "number",
+      "title": "Number"
+    },
+    {
+      "key": "password",
+      "title": "Password",
+      "widget": "password"
+    }
+  ],
+  "properties": {}
+}
