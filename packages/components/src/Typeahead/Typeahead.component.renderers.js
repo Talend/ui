@@ -8,7 +8,7 @@ import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-export const renderInputComponent = (props) => {
+export function renderInputComponent(props) {
 	const {
 		key,
 		debounceMinLength,
@@ -40,7 +40,7 @@ export const renderInputComponent = (props) => {
 			{renderedIcon}
 		</div>
 	);
-};
+}
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -51,7 +51,7 @@ renderInputComponent.propTypes = {
 	}),
 };
 
-const ItemContainer = (props) => {
+function ItemContainer(props) {
 	const { items, noResultText, searching, searchingText, ...containerProps } = props;
 	const { className, ...restProps } = containerProps;
 	if (searching) {
@@ -71,7 +71,7 @@ const ItemContainer = (props) => {
 	return (
 		<div {...containerProps} />
 	);
-};
+}
 ItemContainer.propTypes = {
 	className: PropTypes.string,
 	items: PropTypes.arrayOf(
@@ -94,7 +94,7 @@ ItemContainer.propTypes = {
 	searchingText: PropTypes.string,
 };
 
-export const renderItemsContainerFactory = (items, noResultText, searching, searchingText) => {
+export function renderItemsContainerFactory(items, noResultText, searching, searchingText) {
 	const renderItemsContainerComponent = (props) => {
 		const { id, key, ref, ...rest } = props;
 		return (
@@ -121,9 +121,9 @@ export const renderItemsContainerFactory = (items, noResultText, searching, sear
 	};
 
 	return renderItemsContainerComponent;
-};
+}
 
-export const renderSectionTitle = (section) => {
+export function renderSectionTitle(section) {
 	if (section) {
 		return (
 			<div className={theme['section-header']}>
@@ -133,9 +133,9 @@ export const renderSectionTitle = (section) => {
 		);
 	}
 	return null;
-};
+}
 
-export const renderItem = (item, { value }) => {
+export function renderItem(item, { value }) {
 	let title;
 	let description;
 	if (typeof item === 'string') {
@@ -154,4 +154,4 @@ export const renderItem = (item, { value }) => {
 			</p>}
 		</div>
 	);
-};
+}

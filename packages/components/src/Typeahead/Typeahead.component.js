@@ -106,6 +106,7 @@ Typeahead.defaultProps = {
 	id: uuid.v4(),
 	position: 'left',
 	items: null,
+	autoFocus: true,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
 	searching: false,
