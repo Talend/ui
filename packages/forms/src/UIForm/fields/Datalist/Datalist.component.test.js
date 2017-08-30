@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import Autowhatever from 'react-autowhatever';
+import Typeahead from 'react-talend-components/lib/Typeahead';
 import keycode from 'keycode';
 import Datalist from './Datalist.component';
 
@@ -57,7 +56,7 @@ describe('Datalist component', () => {
 		wrapper.find('input').at(0).simulate('change', { target: { value: 'fo' } });
 
 		// then
-		expect(wrapper.find(Autowhatever).props().items).toEqual(['foo', 'foobar']);
+		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
 	});
 
 	it('should reset suggestions and change value on blur', () => {
@@ -75,14 +74,14 @@ describe('Datalist component', () => {
 		);
 		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
-		expect(wrapper.find(Autowhatever).props().items.length).toBe(2);
+		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
 
 		// when
 		input.simulate('blur');
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: 'fo' });
-		expect(wrapper.find(Autowhatever).props().items.length).toBe(0);
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
 	it('should update suggestions based on value on focus', () => {
@@ -98,13 +97,13 @@ describe('Datalist component', () => {
 				value={'foo'}
 			/>
 		);
-		expect(wrapper.find(Autowhatever).props().items).toEqual([]);
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
 		wrapper.find('input').at(0).simulate('focus');
 
 		// then
-		expect(wrapper.find(Autowhatever).props().items).toEqual([
+		expect(wrapper.find(Typeahead).props().items).toEqual([
 			'foo',
 			'foobar',
 		]);
@@ -123,62 +122,84 @@ describe('Datalist component', () => {
 				value={'foo'}
 			/>
 		);
-		expect(wrapper.find(Autowhatever).props().value).toBe('foo');
+		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 		wrapper.find('input').at(0).simulate('change', { target: { value: 'newValue' } });
-		expect(wrapper.find(Autowhatever).props().value).toBe('newValue');
+		expect(wrapper.find(Typeahead).props().value).toBe('newValue');
 
 		// when
 		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
 
 		// then
-		expect(wrapper.find(Autowhatever).props().value).toBe('foo');
-	});
-
-	it('should select value on ENTER keydown with a selected suggestion', () => {
-		// given
-
-		// when
-
-		// then
-	});
-
-	it('should change value on ENTER keydown with no selected suggestion', () => {
-		// given
-
-		// when
-
-		// then
-	});
-
-	it('should reset suggestions on ENTER keydown', () => {
-		// given
-
-		// when
-
-		// then
+		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
 
 	it('should display all suggestions on DOWN keydown when there are no suggestions yet', () => {
 		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				schema={schema}
+				value={'foo'}
+			/>
+		);
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
+		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.down });
 
 		// then
+		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
 	});
 
-	it('should select suggestion on DOWN keydown', () => {
+	it('should change value on ENTER keydown with no selected suggestion', () => {
 		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				schema={schema}
+				value={'foo'}
+			/>
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'fo' } });
+		expect(onChange).not.toBeCalled();
 
 		// when
+		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
+		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: 'fo' });
 	});
 
-	it('should select suggestion on UP keydown', () => {
+	it('should reset suggestions on ENTER keydown', () => {
 		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				schema={schema}
+				value={'foo'}
+			/>
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'fo' } });
+		expect(wrapper.find(Typeahead).props().items.length).not.toBe(0);
 
 		// when
+		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 });

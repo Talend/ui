@@ -99,7 +99,6 @@ class Datalist extends Component {
 			}
 			this.setState({ focusedItemIndex: newFocusedItemIndex });
 			break;
-			// no break: it executes the focused index
 		case keycode.codes.up:
 			event.preventDefault();
 			this.setState({ focusedItemIndex: newFocusedItemIndex });

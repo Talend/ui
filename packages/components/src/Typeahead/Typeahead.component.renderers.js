@@ -75,16 +75,19 @@ const ItemContainer = (props) => {
 ItemContainer.propTypes = {
 	className: PropTypes.string,
 	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
-			suggestions: PropTypes.arrayOf(
-				PropTypes.shape({
-					title: PropTypes.string,
-					description: PropTypes.string,
-				}),
-			),
-		}),
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({
+				title: PropTypes.string,
+				description: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						description: PropTypes.string,
+					}),
+				),
+			}),
+		])
 	),
 	noResultText: PropTypes.string,
 	searching: PropTypes.bool,

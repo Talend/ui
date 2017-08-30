@@ -146,16 +146,19 @@ Typeahead.propTypes = {
 	focusedItemIndex: PropTypes.number,
 	multiSection: PropTypes.bool,
 	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
-			suggestions: PropTypes.arrayOf(
-				PropTypes.shape({
-					title: PropTypes.string,
-					description: PropTypes.string,
-				}),
-			),
-		}),
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({
+				title: PropTypes.string,
+				description: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						description: PropTypes.string,
+					}),
+				),
+			}),
+		])
 	),
 };
 
