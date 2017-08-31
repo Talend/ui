@@ -53,8 +53,7 @@ class UIForm extends React.PureComponent {
 		this.props.updateFormData(
 			payload.formName,
 			payload.schema,
-			payload.value,
-			payload.error
+			payload.value
 		);
 		if (this.props.onChange) {
 			this.props.onChange(event, payload);

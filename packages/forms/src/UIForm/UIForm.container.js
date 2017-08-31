@@ -38,14 +38,10 @@ export default class UIForm extends React.Component {
 		const action = updateFormData(
 			payload.formName,
 			payload.schema,
-			payload.value,
-			payload.error
+			payload.value
 		);
 		this.setState(
-			{
-				properties: modelReducer(this.state.properties, action),
-				errors: validationReducer(this.state.errors, action),
-			},
+			{ properties: modelReducer(this.state.properties, action) },
 			this.props.onChange && (() => { this.props.onChange(event, payload); })
 		);
 	}

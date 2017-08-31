@@ -12,7 +12,7 @@ function getSelectedOptions(select, multiple) {
 	return select.value;
 }
 
-export default function Select({ id, isValid, errorMessage, onChange, schema = {}, value }) {
+export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const { autoFocus, description, disabled, placeholder, readOnly, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
@@ -32,6 +32,7 @@ export default function Select({ id, isValid, errorMessage, onChange, schema = {
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
+				onBlur={event => onFinish(event, schema)}
 				onChange={
 					event => onChange(
 						event,
@@ -68,6 +69,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

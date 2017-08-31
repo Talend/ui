@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { merge } from 'talend-json-schema-form-core';
 
-import { TRIGGER_AFTER } from './utils/triggers';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
+import { getValue, omit } from './utils/properties';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -17,9 +17,10 @@ export default class UIForm extends React.Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
+		this.onFinish = this.onFinish.bind(this);
 		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 	}
 
 	/**
@@ -37,41 +38,55 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
-	 * Fire callbacks while interacting with form fields
-	 * - onChange: for each field change
-	 * - onTrigger: when trigger is provided and its value is "after"
+	 * Fire onChange callback while interacting with form fields
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
 	 * @param value The payload new value
-	 * @param deepValidation Validate the subItems
-	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
 	 */
-	onChange(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
-		const error = validateSingle(
-			schema,
-			value,
-			this.props.properties,
-			this.props.customValidation,
-			deepValidation
-		)[schema.key];
-
+	onChange(event, { schema, value }) {
 		const payload = {
 			formName: this.props.formName,
 			properties: this.props.properties,
 			schema,
 			value,
-			error,
 		};
 		this.props.onChange(event, payload);
+	}
 
-		if (schema.triggers && schema.triggers.includes(TRIGGER_AFTER)) {
-			this.onTrigger(event, { type: TRIGGER_AFTER, ...payload });
-		}
+	/**
+	 * Perform validation and triggers when user has finished to change a value
+	 * @param event The event that triggered the callback
+	 * @param schema The payload field schema
+	 * @param deepValidation Validate the subItems
+	 * @param value The new value. If not provided, the value in props.properties will be used
+	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
+	 */
+	onFinish(event, schema, { deepValidation = false, value, widgetChangeErrors } = {}) {
+		// validate current field
+		const newValue = value === undefined ? getValue(this.props.properties, schema.key) : value;
+		const error = validateSingle(
+			schema,
+			newValue,
+			this.props.properties,
+			this.props.customValidation,
+			deepValidation
+		)[schema.key];
 
+		// update errors map
+		let errors = error ?
+			{ ...this.props.errors, [schema.key]: error } :
+			omit(this.props.errors, schema.key.toString());
 		if (widgetChangeErrors) {
-			const errors = widgetChangeErrors(this.props.errors);
-			errors[schema.key] = error;
-			this.props.setErrors(this.props.formName, errors);
+			errors = widgetChangeErrors(this.props.errors);
+		}
+		this.props.setErrors(this.props.formName, errors);
+
+		// trigger if current field is correct
+		if (!error && schema.triggers && schema.triggers.length) {
+			this.onTrigger(
+				event,
+				{ trigger: schema.triggers[0], schema }
+			);
 		}
 	}
 
@@ -79,9 +94,8 @@ export default class UIForm extends React.Component {
 	 * Triggers an onTrigger callback that is allowed to modify the form
 	 * @param event The event that triggered the callback
 	 * @param payload The trigger payload
-	 * type The type of trigger
+	 * trigger The type of trigger
 	 * schema The field schema
-	 * value The field value
 	 */
 	onTrigger(event, payload) {
 		const { formName, updateForm, onTrigger, setError, properties } = this.props;
@@ -177,6 +191,7 @@ export default class UIForm extends React.Component {
 							key={index}
 							formName={this.props.formName}
 							onChange={this.onChange}
+							onFinish={this.onFinish}
 							onTrigger={this.onTrigger}
 							schema={nextSchema}
 							properties={this.props.properties}

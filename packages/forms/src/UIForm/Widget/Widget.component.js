@@ -6,7 +6,7 @@ import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 export default function Widget(props) {
-	const { errors, formName, onChange, onTrigger, properties, schema, widgets } = props;
+	const { errors, formName, onChange, onFinish, onTrigger, properties, schema, widgets } = props;
 	const { key, type, validationMessage, widget } = schema;
 	const widgetId = widget || type;
 	const WidgetImpl = widgets[widgetId] || defaultWidgets[widgetId];
@@ -26,6 +26,7 @@ export default function Widget(props) {
 			formName={formName}
 			isValid={!error}
 			onChange={onChange}
+			onFinish={onFinish}
 			onTrigger={onTrigger}
 			properties={properties}
 			schema={schema}
@@ -40,6 +41,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formName: PropTypes.string,
 		onChange: PropTypes.func,
+		onFinish: PropTypes.func,
 		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
 			key: PropTypes.array,

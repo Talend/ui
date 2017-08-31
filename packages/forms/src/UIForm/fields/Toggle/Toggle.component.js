@@ -4,7 +4,7 @@ import Toggle from 'react-talend-components/lib/Toggle';
 import FieldTemplate from '../FieldTemplate';
 
 function ToggleWidget(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { autoFocus, description, disabled, title } = schema;
 
 	return (
@@ -19,6 +19,7 @@ function ToggleWidget(props) {
 				disabled={disabled}
 				id={id}
 				label={title}
+				onBlur={event => onFinish(event, schema)}
 				onChange={event => onChange(event, { schema, value: !value })}
 			/>
 		</FieldTemplate>
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

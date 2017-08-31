@@ -62,10 +62,8 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 		const value = [...this.props.value, defaultValue];
 
-		this.props.onChange(
-			event,
-			{ schema: arrayMergedSchema, value }
-		);
+		this.props.onChange(event, { schema: arrayMergedSchema, value });
+		this.props.onFinish(event, arrayMergedSchema, { value });
 	}
 
 	onRemove(event, indexToRemove) {
@@ -86,11 +84,8 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		return this.props.onChange(
-			event,
-			{ schema, value },
-			{ widgetChangeErrors }
-		);
+		this.props.onChange(event, { schema, value });
+		this.props.onFinish(event, schema, { value, widgetChangeErrors });
 	}
 
 	onReorder(event, { previousIndex, nextIndex }) {
@@ -119,11 +114,8 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		return this.props.onChange(
-			event,
-			{ schema, value },
-			{ widgetChangeErrors }
-		);
+		this.props.onChange(event, { schema, value });
+		this.props.onFinish(event, schema, { value, widgetChangeErrors });
 	}
 
 	render() {
@@ -183,6 +175,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,
 	};
