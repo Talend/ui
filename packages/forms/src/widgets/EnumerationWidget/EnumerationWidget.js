@@ -4,8 +4,11 @@ import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import i18n from 'i18next';
+
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
-import NAME_SPACE_I18N_FORMS from '../../nameSpaceI18n';
+import I18N_DOMAIN from '../../constants';
+import defaultTranslateFn from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -787,7 +790,11 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
+EnumerationForm.defaultProps = {
+	t: defaultTranslateFn,
+};
+
 export {
 	EnumerationForm,
 };
-export default translate(NAME_SPACE_I18N_FORMS)(EnumerationForm);
+export default translate(I18N_DOMAIN, { i18n })(EnumerationForm);

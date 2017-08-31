@@ -17,6 +17,10 @@ import DatalistWidget from '../src/widgets/DatalistWidget';
 import createCollapsibleFieldset from '../src/fields/CollapsibleFieldset';
 import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
+function changeLanguage(language) {
+	i18n.changeLanguage(language);
+}
+
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
@@ -28,9 +32,7 @@ const decoratedStories = storiesOf('Form', module)
 			style={{ marginTop: '20px', marginBottom: '20px' }}
 		>
 			<Well>
-				<I18nextProvider i18n={i18n}>
-					{story()}
- 				<I18nextProvider i18n={i18n}>
+				{story()}
 			</Well>
 		</div>
 	</div>,
@@ -57,6 +59,23 @@ sampleFilenames.keys().forEach(filename => {
 		</section>,
 	);
 });
+
+decoratedStories.add('enumeration i18n', () =>
+	<I18nextProvider i18n={i18n}>
+		<section>
+			<button onClick={() => changeLanguage('fr')}>fr</button>
+			<button onClick={() => changeLanguage('it')}>it</button>
+			<IconsProvider />
+			<Form
+				autocomplete="off"
+				data={object('Enumeration', sampleFilenames('./enumeration.json'))}
+				onChange={action('Change')}
+				onBlur={action('Blur')}
+				onSubmit={action('Submit')}
+			/>
+		</section>
+	</I18nextProvider>
+);
 
 decoratedStories.add('Multiple actions', () => {
 	const actions = [

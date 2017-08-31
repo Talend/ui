@@ -1,18 +1,23 @@
 import i18n from 'i18next';
 
+import I18N_DOMAIN from '../../src/constants';
+
 i18n
 	.init({
-		// locales load path. lng = language, ns = namespace
-		// backend: {
-		// 	loadPath: '/locales/{{lng}}/{{ns}}.json',
-		// },
-
-		// have a common namespace used around the full app
-		// ns: ['common'],
-		// defaultNS: 'common',
-
-		// Fallback language
-		// fallbackLng: 'en',
+		resources: {
+			fr: {
+				[I18N_DOMAIN]: {
+					ENUMERATION_WIDGET_VALIDATE_AND_ADD: 'Valider et ajouter',
+					ENUMERATION_WIDGET_ADD_ITEM: 'Ajouter un document',
+				},
+			},
+			it: {
+				[I18N_DOMAIN]: {
+					ENUMERATION_WIDGET_VALIDATE_AND_ADD: 'Convalida e aggiungi',
+					ENUMERATION_WIDGET_ADD_ITEM: 'Aggiungi elemento',
+				},
+			},
+		},
 		debug: false,
 		wait: true, // globally set to wait for loaded translations in translate hoc
 	});
