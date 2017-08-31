@@ -1,6 +1,11 @@
 $tf-filterwidget-shadow-color: $shadow !default;
 
 .ArrayFieldTemplate {
+
+	.addBtn {
+		margin-bottom: 30px;
+	}
+
 	.arrayElement {
 		display: flex;
 		background: $wild-sand;
