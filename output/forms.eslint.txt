@@ -5,17 +5,17 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  564:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  572:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  573:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  576:3  error  Prop type `array` is forbidden   react/forbid-prop-types
-  582:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  595:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  602:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  629:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  630:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  650:3  error  Prop type `object` is forbidden  react/forbid-prop-types
-  651:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  560:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  568:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  569:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  572:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  591:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  598:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  625:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  626:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  646:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  647:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
