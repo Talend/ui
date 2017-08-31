@@ -150,7 +150,6 @@ function DefaultNormalArrayFieldTemplate(props) {
 					description={props.schema.description}
 				/>
 			) : null}
-
 			<div
 				className="row array-item-list"
 				key={`array-item-list-${props.idSchema.$id}`}
@@ -199,6 +198,11 @@ class ArrayField extends Component {
 		if (isFixedItems(schema) && allowAdditionalItems(schema)) {
 			itemSchema = schema.additionalItems;
 		}
+		formData.map((item) => {
+			const i = item || {};
+			i.isClosed = true;
+			return i;
+		});
 		this.props.onChange([
 			...formData,
 			getDefaultFormState(itemSchema, undefined, definitions),
