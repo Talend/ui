@@ -1,5 +1,5 @@
 
-> react-cmf@0.104.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> @talend/react-cmf@0.105.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
