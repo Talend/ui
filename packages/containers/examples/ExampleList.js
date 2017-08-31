@@ -77,30 +77,41 @@ const items = Immutable.fromJS([
 	},
 ]);
 
+function changeLanguage(language) {
+	i18n.changeLanguage(language);
+}
+
 const ExampleList = {
 	default: () => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<IconsProvider />
-				<div className="list-container">
-					<List {...props} items={items} />
-				</div>
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} />
 			</div>
-		</I18nextProvider>
+		</div>
 	),
 	'no toolbar': () => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<IconsProvider />
-				<div className="list-container">
-					<List list={list} actions={actions} items={items} />
-				</div>
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List list={list} actions={actions} items={items} />
 			</div>
-		</I18nextProvider>
+		</div>
 	),
 	virtualized: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} virtualized />
+			</div>
+		</div>
+	),
+	i18n: () => (
 		<I18nextProvider i18n={i18n}>
 			<div>
+				<p>Change language on the toolbar</p>
+				<button onClick={() => changeLanguage('fr')}>fr</button>
+				<button onClick={() => changeLanguage('it')}>it</button>
 				<IconsProvider />
 				<div className="list-container">
 					<List {...props} items={items} virtualized />

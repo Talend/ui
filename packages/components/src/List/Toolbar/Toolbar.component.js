@@ -72,22 +72,18 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 					className={theme['tc-list-toolbar']}
 					role="toolbar" fluid
 				>
-					{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} />)}
-					{display && (<Label text={t('LIST_DISPLAY', { defaultValue: 'Display:' })} htmlFor={displayModeId} />)}
+					{selectAllCheckbox && (<SelectAll {...selectAllCheckbox} t={t} />)}
+					{display && (<Label text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })} htmlFor={displayModeId} />)}
 					{display && (<SelectDisplayMode id={displayModeId} {...display} t={t} />)}
-					{sort && (<Label text={t('LIST_SORT_BY', { defaultValue: 'Sort by:' })} htmlFor={id && `${id}-sort-by`} />)}
-					{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} />)}
-					{pagination && (<Label text={t('LIST_PAGINATION_SHOW', { defaultValue: 'Show:' })} htmlFor={id && `${id}-pagination-size`} />)}
+					{sort && (<Label text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })} htmlFor={id && `${id}-sort-by`} />)}
+					{sort && (<SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />)}
+					{pagination && (<Label text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })} htmlFor={id && `${id}-pagination-size`} />)}
 					{pagination && (<Pagination id={id && `${id}-pagination`} {...pagination} />)}
-					{filter && (<Filter id={id && `${id}-filter`} {...filter} />)}
+					{filter && (<Filter id={id && `${id}-filter`} {...filter} t={t} />)}
 				</Navbar>)}
 		</div>
 	);
 }
-
-Toolbar.defaultProps = {
-	t: defaultTranslateFn,
-};
 
 Toolbar.propTypes = {
 	id: PropTypes.string,
@@ -98,6 +94,10 @@ Toolbar.propTypes = {
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(Filter.propTypes),
 	t: PropTypes.func.isRequired,
+};
+
+Toolbar.defaultProps = {
+	t: defaultTranslateFn,
 };
 
 export default Toolbar;

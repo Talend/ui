@@ -69,16 +69,16 @@ function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	);
 }
 
-SelectDisplayMode.defaultProps = {
-	t: defaultTranslateFn,
-};
-
 SelectDisplayMode.propTypes = {
 	id: PropTypes.string,
 	mode: PropTypes.string,
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
+};
+
+SelectDisplayMode.defaultProps = {
+	t: defaultTranslateFn,
 };
 
 export default SelectDisplayMode;

@@ -323,12 +323,11 @@ function getActionsProps() {
 	return columnActionsProps;
 }
 
+function changeLanguage(language) {
+	i18n.changeLanguage(language);
+}
+
 storiesOf('List', module)
-	.addDecorator(story => (
-		<I18nextProvider i18n={i18n}>
-			{story()}
-		</I18nextProvider>
-  ))
 	.add('Tile', () => {
 		const tprops = {
 			...props,
@@ -800,5 +799,17 @@ storiesOf('List', module)
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
+		</div>
+	))
+	.add('DEPRECATED - list with i18n', () => (
+		<div>
+			<h1>List</h1>
+			<p>Change language in the toolbar</p>
+			<button onClick={() => changeLanguage('fr')}>fr</button>
+			<button onClick={() => changeLanguage('it')}>it</button>
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>
+				<List {...getPropsFor('tile')} />
+			</I18nextProvider>
 		</div>
 	));

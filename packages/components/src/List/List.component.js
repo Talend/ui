@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import i18n from 'i18next';
+
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
@@ -10,7 +12,6 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
-import { defaultTranslateFn } from '../translate';
 import { I18N_DOMAIN } from '../constants';
 
 function ListToolbar({ id, toolbar, displayMode, list, t }) {
@@ -38,10 +39,6 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	}
 	return (<Toolbar {...toolbarProps} />);
 }
-
-ListToolbar.defaultProps = {
-	t: defaultTranslateFn,
-};
 
 ListToolbar.propTypes = {
 	id: PropTypes.string,
@@ -176,4 +173,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(I18N_DOMAIN)(List);
+export default translate(I18N_DOMAIN, { i18n })(List);
