@@ -198,11 +198,7 @@ class ArrayField extends Component {
 		if (isFixedItems(schema) && allowAdditionalItems(schema)) {
 			itemSchema = schema.additionalItems;
 		}
-		formData.map((item) => {
-			const i = item || {};
-			i.isClosed = true;
-			return i;
-		});
+		formData.forEach(item => Object.assign(item, { isClosed: true }));
 		this.props.onChange([
 			...formData,
 			getDefaultFormState(itemSchema, undefined, definitions),
