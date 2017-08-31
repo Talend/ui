@@ -24,8 +24,9 @@ This widget allows you to render a text/number input.
 
 | Property | Description | Default |
 |---|---|---|
-| widget | `text` &#124; `password` &#124; `number` | `text` (for strings), `number` (for number) |
+| widget | `text` | `text` |
 | title | The title to display above field |  |
+| type | The input type. You can for example pass `password` | The jsonSchema type |
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
 | placeholder | Text to display as placeholder |  |

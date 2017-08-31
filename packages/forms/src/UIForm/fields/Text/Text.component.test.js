@@ -37,7 +37,7 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
-				schema={{ ...schema, widget: 'password' }}
+				schema={{ ...schema, type: 'password' }}
 				value={'toto'}
 			/>
 		);
