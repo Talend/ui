@@ -12,29 +12,28 @@
 
 /* eslint-disable prefer-rest-params */
 export default function deprecated(fn, msg, log) {
-  // eslint-disable-line no-console
-  let called = false;
-  return function wrapper() {
-    if (!called) {
-      called = true;
-      let message = msg;
-      if (typeof msg === "function") {
-        message = msg(arguments);
-      }
+	let called = false;
+	return function wrapper() {
+		if (!called) {
+			called = true;
+			let message = msg;
+			if (typeof msg === 'function') {
+				message = msg(arguments);
+			}
 
-      if (log) {
-        log(`DEPRECATED: ${message}`);
-        // eslint-disable-line no-console
-      } else if (console) {
-        if (console.warn) {
-          // eslint-disable-line no-console
-          console.warn(`DEPRECATED: ${message}`);
-        } else if (console.log) {
-          // eslint-disable-line no-console
-          console.log(`DEPRECATED: ${message}`);
-        }
-      }
-    }
-    return fn.apply(this, arguments);
-  };
+			if (log) {
+				log(`DEPRECATED: ${message}`);
+				// eslint-disable-line no-console
+			} else if (console) {
+				if (console.warn) {
+					// eslint-disable-line no-console
+					console.warn(`DEPRECATED: ${message}`);
+				} else if (console.log) {
+					// eslint-disable-line no-console
+					console.log(`DEPRECATED: ${message}`);
+				}
+			}
+		}
+		return fn.apply(this, arguments);
+	};
 }
