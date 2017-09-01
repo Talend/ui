@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Badge from './Badge.component';
+import { Badge } from './Badge.component';
 
 jest.mock('react-dom');
 

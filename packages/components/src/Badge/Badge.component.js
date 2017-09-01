@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import i18n from 'i18next';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN from '../constants';
+import defaultTranslateFn from '../translate';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
@@ -27,10 +31,10 @@ function badgeLabelClasses(onDelete) {
 	});
 }
 
-function renderDeleteIcon(onDelete) {
+function renderDeleteIcon(onDelete, t) {
 	return (
 		<Action
-			label="delete"
+			label={t('BADGE_DELETE', { defaultValue: 'delete' })}
 			hideLabel
 			onClick={onDelete}
 			icon="talend-cross"
@@ -39,13 +43,13 @@ function renderDeleteIcon(onDelete) {
 	);
 }
 
-function Badge({ label, tcStyle, onDelete }) {
+function Badge({ label, tcStyle, onDelete, t }) {
 	return (
 		<div className={badgeClasses(tcStyle, onDelete)}>
 			<span className={badgeLabelClasses(onDelete)}>
 				{label}
 			</span>
-			{onDelete && renderDeleteIcon(onDelete)}
+			{onDelete && renderDeleteIcon(onDelete, t)}
 		</div>
 	);
 }
@@ -54,10 +58,16 @@ Badge.propTypes = {
 	label: PropTypes.string,
 	tcStyle: PropTypes.string,
 	onDelete: PropTypes.func,
+	t: PropTypes.func.isRequired,
 };
 
 Badge.defaultProps = {
 	tcStyle: 'solid',
+	t: defaultTranslateFn,
 };
 
-export default Badge;
+export {
+	Badge,
+};
+
+export default translate(I18N_DOMAIN, { i18n })(Badge);
