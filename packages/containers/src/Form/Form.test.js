@@ -13,6 +13,7 @@ describe('Container(Form)', () => {
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
+				className="foo"
 				formProps={{ other: true }} // extra props
 			/>
 		);
