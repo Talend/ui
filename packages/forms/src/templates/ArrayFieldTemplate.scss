@@ -18,6 +18,9 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			.delete {
 				visibility: hidden;
 			}
+			.element fieldset div:not(:first-child) {
+				display: none;
+			}
 			&:hover {
 				.delete {
 					visibility: initial;
