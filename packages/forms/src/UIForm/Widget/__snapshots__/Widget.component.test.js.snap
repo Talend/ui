@@ -50,7 +50,7 @@ exports[`Widget component should render widget 1`] = `
   id="myForm-user-firstname"
   isValid={false}
   onChange={[Function]}
-  onFinish={undefined}
+  onFinish={[Function]}
   onTrigger={[Function]}
   properties={
     Object {

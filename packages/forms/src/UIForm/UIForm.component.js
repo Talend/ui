@@ -57,15 +57,15 @@ export default class UIForm extends React.Component {
 	 * Perform validation and triggers when user has finished to change a value
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
-	 * @param deepValidation Validate the subItems
 	 * @param value The new value
+	 * @param deepValidation Validate the subItems
 	 * Most of the time, this value is not provided. It will be taken from props.properties
 	 * This allows to perform triggers/validation while changing a value
 	 * (ex: add an element in array)
 	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
 	 * (ex: shift the errors in array elements on remove)
 	 */
-	onFinish(event, schema, { deepValidation = false, value, widgetChangeErrors } = {}) {
+	onFinish(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
 		// validate current field
 		const newValue = value !== undefined ?
 			value :

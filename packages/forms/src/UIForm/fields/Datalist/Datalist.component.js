@@ -130,10 +130,9 @@ class Datalist extends Component {
 		const previousValue = persist ? value : this.state.previousValue;
 		this.setState({ value, previousValue });
 		if (persist) {
-			this.props.onChange(event, {
-				schema: this.props.schema,
-				value,
-			});
+			const payload = { schema: this.props.schema, value };
+			this.props.onChange(event, payload);
+			this.props.onFinish(event,payload);
 		}
 	}
 
@@ -219,6 +218,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

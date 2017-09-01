@@ -62,8 +62,9 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 		const value = [...this.props.value, defaultValue];
 
-		this.props.onChange(event, { schema: arrayMergedSchema, value });
-		this.props.onFinish(event, arrayMergedSchema, { value });
+		const payload = { schema: arrayMergedSchema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload);
 	}
 
 	onRemove(event, indexToRemove) {
@@ -84,8 +85,9 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		this.props.onChange(event, { schema, value });
-		this.props.onFinish(event, schema, { value, widgetChangeErrors });
+		const payload = { schema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
 	onReorder(event, { previousIndex, nextIndex }) {
@@ -114,8 +116,9 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		this.props.onChange(event, { schema, value });
-		this.props.onFinish(event, schema, { value, widgetChangeErrors });
+		const payload = { schema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
 	render() {

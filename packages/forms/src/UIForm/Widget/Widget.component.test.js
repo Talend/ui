@@ -25,6 +25,7 @@ describe('Widget component', () => {
 			<Widget
 				formName={'myForm'}
 				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
 				schema={schema}

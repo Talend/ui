@@ -30,7 +30,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 				disabled={disabled}
 				name={key[key.length - 1]}
 				placeholder={placeholder}
-				onBlur={event => onFinish(event, schema)}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={event => onChange(event, { schema, value: event.target.value })}
 				readOnly={readOnly}
 				rows={rows}

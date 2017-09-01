@@ -32,7 +32,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				onBlur={event => onFinish(event, schema)}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={
 					event => onChange(
 						event,

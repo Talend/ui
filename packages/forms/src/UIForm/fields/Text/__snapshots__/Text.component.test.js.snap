@@ -65,6 +65,7 @@ exports[`Text field should render password input 1`] = `
     disabled={undefined}
     id="myForm"
     label="My input title"
+    onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
     readOnly={undefined}

@@ -23,7 +23,7 @@ export default function Text(props) {
 				className="form-control"
 				disabled={disabled}
 				label={title}
-				onBlur={event => onFinish(event, schema)}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={
 					event => onChange(
 						event,

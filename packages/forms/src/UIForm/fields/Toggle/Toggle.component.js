@@ -19,7 +19,7 @@ function ToggleWidget(props) {
 				disabled={disabled}
 				id={id}
 				label={title}
-				onBlur={event => onFinish(event, schema)}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={event => onChange(event, { schema, value: !value })}
 			/>
 		</FieldTemplate>
