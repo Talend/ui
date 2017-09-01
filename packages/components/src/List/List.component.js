@@ -12,7 +12,7 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
-import { I18N_DOMAIN } from '../constants';
+import I18N_DOMAIN from '../constants';
 
 function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {

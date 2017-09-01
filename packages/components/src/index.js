@@ -66,7 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
-import { I18N_DOMAIN } from './constants';
+import I18N_DOMAIN from './constants';
 
 import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';

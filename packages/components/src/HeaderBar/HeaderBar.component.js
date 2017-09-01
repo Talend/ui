@@ -10,7 +10,7 @@ import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import defaultTranslateFn from '../translate';
-import { I18N_DOMAIN } from '../constants';
+import I18N_DOMAIN from '../constants';
 
 function getRenderers(renderers) {
 	return Object.assign(
