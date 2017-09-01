@@ -16,12 +16,15 @@ describe('talend:app', function () {
 			.withOptions({})
 			.withPrompts({
 				name: 'helloapp',
-			});
+			})
 	});
 
 	describe('default settings', function () {
 		beforeEach(function onDone(done) {
+			this.timeout(5000);
 			this.app.on('end', done);
+			this.app.on('error', error => console.log('error', error));
+			this.app.on('ready', () => console.log('ready'));
 		});
 
 		it('generates base files', function () {
