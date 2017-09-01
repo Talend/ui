@@ -410,7 +410,7 @@ describe('EnumerationWidget', () => {
 		it('should split with using coma separator and trim the sub strings', () => {
 			// given
 			const enumerationWidget = new EnumerationWidget({
-				t: key => key,
+				t: () => {},
 			});
 			// when
 			const resultArray =
