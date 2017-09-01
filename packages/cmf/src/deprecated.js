@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * @module react-cmf/lib/deprecated
  */
