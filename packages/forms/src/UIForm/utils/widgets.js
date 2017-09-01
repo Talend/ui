@@ -27,6 +27,7 @@ const widgets = {
 	checkboxes: CheckBoxes,
 	datalist: Datalist,
 	number: Text,
+	password: Text,
 	radios: Radios,
 	radioOrSelect: RadioOrSelect,
 	reset: Button,
