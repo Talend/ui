@@ -23,13 +23,10 @@ export default function deprecated(fn, msg, log) {
 
 			if (log) {
 				log(`DEPRECATED: ${message}`);
-				// eslint-disable-line no-console
 			} else if (console) {
 				if (console.warn) {
-					// eslint-disable-line no-console
 					console.warn(`DEPRECATED: ${message}`);
 				} else if (console.log) {
-					// eslint-disable-line no-console
 					console.log(`DEPRECATED: ${message}`);
 				}
 			}
