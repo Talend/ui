@@ -26,7 +26,7 @@
     "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
-    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-containers && npm run extract-i18n-forms",
+    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms",
     "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false",
     "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false"
   },
