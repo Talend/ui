@@ -27,8 +27,8 @@
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms",
-    "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false",
-    "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false"
+    "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
+    "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
   },
   "watch": {
     "build-cmf": {
