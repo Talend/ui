@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { I18N_DOMAIN } from 'react-talend-components';
+import I18N_DOMAIN from 'react-talend-components';
 
 i18n
 	.init({

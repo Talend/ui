@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { I18N_DOMAIN } from '../../src/constants';
+import I18N_DOMAIN from '../../src/constants';
 
 i18n
 	.init({
