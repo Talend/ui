@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import Typeahead from 'react-talend-components/lib/Typeahead';
@@ -207,6 +208,7 @@ class Datalist extends Component {
 	}
 }
 
+Datalist.displayName = 'Datalist field';
 Datalist.defaultProps = {
 	value: '',
 };
