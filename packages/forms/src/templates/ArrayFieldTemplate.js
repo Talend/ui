@@ -13,6 +13,7 @@ function FieldTemplate({ element, cantDelete }) {
 			{
 				<div className={theme.control}>
 					<button
+						type="button"
 						name={`btn-delete-element-${element.index}`}
 						disabled={cantDelete}
 						className={theme.delete}
@@ -24,6 +25,7 @@ function FieldTemplate({ element, cantDelete }) {
 					{!element.itemData.isClosed &&
 						<div className={theme.orderaction}>
 							<button
+								type="button"
 								name={`btn-move-element-up-${element.index}`}
 								disabled={!element.hasMoveUp}
 								onClick={element.onReorderClick(element.index, element.index - 1)}
@@ -32,6 +34,7 @@ function FieldTemplate({ element, cantDelete }) {
 								<Icon name="talend-caret-down" transform="flip-vertical" />
 							</button>
 							<button
+								type="button"
 								name={`btn-move-element-down-${element.index}`}
 								disabled={!element.hasMoveDown}
 								onClick={element.onReorderClick(element.index, element.index + 1)}

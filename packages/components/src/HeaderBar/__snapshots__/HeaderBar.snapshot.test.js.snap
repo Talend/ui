@@ -244,6 +244,7 @@ exports[`HeaderBar shoud render  HeaderBar with full logo 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               icon={
                 Object {
                   "bsStyle": "link",
@@ -254,6 +255,7 @@ exports[`HeaderBar shoud render  HeaderBar with full logo 1`] = `
               }
               id="header-search"
               items={null}
+              multiSection={true}
               noResultText="No result."
               onToggle={[Function]}
               position="left"
@@ -1316,6 +1318,7 @@ exports[`HeaderBar should render HeaderBAr with help split dropdown 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               icon={
                 Object {
                   "bsStyle": "link",
@@ -1326,6 +1329,7 @@ exports[`HeaderBar should render HeaderBAr with help split dropdown 1`] = `
               }
               id="header-search"
               items={null}
+              multiSection={true}
               noResultText="No result."
               onToggle={[Function]}
               position="left"
@@ -2659,8 +2663,10 @@ exports[`HeaderBar should render HeaderBar while searching 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               id={42}
               items={null}
+              multiSection={true}
               noResultText="No result."
               onBlur={[Function]}
               onChange={[Function]}
@@ -2670,17 +2676,20 @@ exports[`HeaderBar should render HeaderBar while searching 1`] = `
               value="le"
             >
               <Autowhatever
+                autoFocus={true}
                 focusedItemIndex={null}
                 focusedSectionIndex={null}
                 getSectionItems={[Function]}
                 id={42}
                 inputProps={
                   Object {
+                    "autoFocus": true,
                     "debounceMinLength": undefined,
                     "debounceTimeout": undefined,
                     "icon": undefined,
                     "onBlur": [Function],
                     "onChange": [Function],
+                    "onFocus": undefined,
                     "onKeyDown": undefined,
                     "placeholder": undefined,
                     "value": "le",
@@ -4033,6 +4042,7 @@ exports[`HeaderBar should render HeaderBar with environment dropdown 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               icon={
                 Object {
                   "bsStyle": "link",
@@ -4043,6 +4053,7 @@ exports[`HeaderBar should render HeaderBar with environment dropdown 1`] = `
               }
               id="header-search"
               items={null}
+              multiSection={true}
               noResultText="No result."
               onToggle={[Function]}
               position="left"
@@ -5085,8 +5096,10 @@ exports[`HeaderBar should render HeaderBar with no search result 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               id={42}
               items={Array []}
+              multiSection={true}
               noResultText="No result."
               onBlur={[Function]}
               onChange={[Function]}
@@ -5096,17 +5109,20 @@ exports[`HeaderBar should render HeaderBar with no search result 1`] = `
               value="le"
             >
               <Autowhatever
+                autoFocus={true}
                 focusedItemIndex={null}
                 focusedSectionIndex={null}
                 getSectionItems={[Function]}
                 id={42}
                 inputProps={
                   Object {
+                    "autoFocus": true,
                     "debounceMinLength": undefined,
                     "debounceTimeout": undefined,
                     "icon": undefined,
                     "onBlur": [Function],
                     "onChange": [Function],
+                    "onFocus": undefined,
                     "onKeyDown": undefined,
                     "placeholder": undefined,
                     "value": "le",
@@ -6202,8 +6218,10 @@ exports[`HeaderBar should render HeaderBar with search input 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               id={42}
               items={null}
+              multiSection={true}
               noResultText="No result."
               onBlur={[Function]}
               onChange={[Function]}
@@ -6213,17 +6231,20 @@ exports[`HeaderBar should render HeaderBar with search input 1`] = `
               searchingText="Searching for matches…"
             >
               <Autowhatever
+                autoFocus={true}
                 focusedItemIndex={null}
                 focusedSectionIndex={null}
                 getSectionItems={[Function]}
                 id={42}
                 inputProps={
                   Object {
+                    "autoFocus": true,
                     "debounceMinLength": undefined,
                     "debounceTimeout": undefined,
                     "icon": undefined,
                     "onBlur": [Function],
                     "onChange": [Function],
+                    "onFocus": undefined,
                     "onKeyDown": undefined,
                     "placeholder": "Search...",
                     "value": undefined,
@@ -7324,6 +7345,7 @@ exports[`HeaderBar should render default HeaderBar 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               icon={
                 Object {
                   "bsStyle": "link",
@@ -7334,6 +7356,7 @@ exports[`HeaderBar should render default HeaderBar 1`] = `
               }
               id="header-search"
               items={null}
+              multiSection={true}
               noResultText="No result."
               onToggle={[Function]}
               position="left"
@@ -8484,6 +8507,7 @@ exports[`HeaderBar with search results 1`] = `
             role="search"
           >
             <Typeahead
+              autoFocus={true}
               id={42}
               items={
                 Array [
@@ -8540,6 +8564,7 @@ exports[`HeaderBar with search results 1`] = `
                   },
                 ]
               }
+              multiSection={true}
               noResultText="No result."
               onBlur={[Function]}
               onChange={[Function]}
@@ -8550,17 +8575,20 @@ exports[`HeaderBar with search results 1`] = `
               value="le"
             >
               <Autowhatever
+                autoFocus={true}
                 focusedItemIndex={null}
                 focusedSectionIndex={null}
                 getSectionItems={[Function]}
                 id={42}
                 inputProps={
                   Object {
+                    "autoFocus": true,
                     "debounceMinLength": undefined,
                     "debounceTimeout": undefined,
                     "icon": undefined,
                     "onBlur": [Function],
                     "onChange": [Function],
+                    "onFocus": undefined,
                     "onKeyDown": undefined,
                     "placeholder": undefined,
                     "value": "le",
