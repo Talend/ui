@@ -4,56 +4,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/App.js
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  32:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  67:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/deprecated.js
-  16:3   error    Expected indentation of 1 tab but found 2 spaces   indent
-  17:3   error    Expected indentation of 0 tabs but found 2 spaces  indent
-  17:3   error    Expected indentation of 1 tab but found 2 spaces   indent
-  18:5   error    Expected indentation of 1 tab but found 4 spaces   indent
-  19:7   error    Expected indentation of 1 tab but found 6 spaces   indent
-  20:7   error    Expected indentation of 1 tab but found 6 spaces   indent
-  21:7   error    Expected indentation of 1 tab but found 6 spaces   indent
-  21:26  error    Strings must use singlequote                       quotes
-  22:9   error    Expected indentation of 1 tab but found 8 spaces   indent
-  23:7   error    Expected indentation of 0 tabs but found 6 spaces  indent
-  25:7   error    Expected indentation of 1 tab but found 6 spaces   indent
-  26:9   error    Expected indentation of 1 tab but found 8 spaces   indent
-  28:7   error    Expected indentation of 0 tabs but found 6 spaces  indent
-  29:9   error    Expected indentation of 1 tab but found 8 spaces   indent
-  29:13  warning  Unexpected console statement                       no-console
-  31:11  error    Expected indentation of 1 tab but found 10 spaces  indent
-  31:11  warning  Unexpected console statement                       no-console
-  32:9   error    Expected indentation of 0 tabs but found 8 spaces  indent
-  32:20  warning  Unexpected console statement                       no-console
-  34:11  warning  Unexpected console statement                       no-console
-  34:11  error    Expected indentation of 1 tab but found 10 spaces  indent
-  35:9   error    Expected indentation of 0 tabs but found 8 spaces  indent
-  36:7   error    Expected indentation of 0 tabs but found 6 spaces  indent
-  37:5   error    Expected indentation of 0 tabs but found 4 spaces  indent
-  38:5   error    Expected indentation of 1 tab but found 4 spaces   indent
-  39:3   error    Expected indentation of 0 tabs but found 2 spaces  indent
-
-/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
-  8:2  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
-  56:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  59:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
-/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
-  29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-✖ 37 problems (31 errors, 6 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
