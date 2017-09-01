@@ -22,13 +22,15 @@ export default function deprecated(fn, msg, log) {
 				message = msg(arguments);
 			}
 
+			message = `DEPRECATED: ${message}`;
+
 			if (log) {
-				log(`DEPRECATED: ${message}`);
+				log(message);
 			} else if (console) {
 				if (console.warn) {
-					console.warn(`DEPRECATED: ${message}`);
+					console.warn(message);
 				} else if (console.log) {
-					console.log(`DEPRECATED: ${message}`);
+					console.log(message);
 				}
 			}
 		}
