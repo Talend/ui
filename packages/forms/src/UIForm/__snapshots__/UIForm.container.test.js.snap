@@ -2,9 +2,7 @@
 
 exports[`UIForm container #onChange should update state properties and errors 1`] = `
 Object {
-  "errors": Object {
-    "lastname": "too short",
-  },
+  "errors": Object {},
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
