@@ -99,6 +99,7 @@ function createCollapsibleFieldset(title) {
 							onClick={this.toggle}
 							id={`${idSchema.$id}__collapse`}
 							title="Collapse"
+							type="button"
 							className="toggle"
 						>
 							<Icon name="talend-caret-down" transform={iconTransform} />
