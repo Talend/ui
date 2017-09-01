@@ -58,13 +58,19 @@ export default class UIForm extends React.Component {
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
 	 * @param deepValidation Validate the subItems
-	 * @param value The new value. If not provided, the value in props.properties will be used
+	 * @param value The new value
+	 * Most of the time, this value is not provided. It will be taken from props.properties
+	 * This allows to perform triggers/validation while changing a value
+	 * (ex: add an element in array)
 	 * @param widgetChangeErrors Change errors hook, allows any widget to manipulate the errors map
+	 * (ex: shift the errors in array elements on remove)
 	 */
 	onFinish(event, schema, { deepValidation = false, value, widgetChangeErrors } = {}) {
 		// validate current field
-		const newValue = value === undefined ? getValue(this.props.properties, schema.key) : value;
-		const error = validateSingle(
+		const newValue = value !== undefined ?
+			value :
+			getValue(this.props.properties, schema.key);
+		const valueError = validateSingle(
 			schema,
 			newValue,
 			this.props.properties,
@@ -73,16 +79,22 @@ export default class UIForm extends React.Component {
 		)[schema.key];
 
 		// update errors map
-		let errors = error ?
-			{ ...this.props.errors, [schema.key]: error } :
-			omit(this.props.errors, schema.key.toString());
+		let errors;
+		if (valueError) {
+			errors = {
+				...this.props.errors,
+				[schema.key]: valueError,
+			};
+		} else {
+			errors = omit(this.props.errors, schema.key.toString());
+		}
 		if (widgetChangeErrors) {
-			errors = widgetChangeErrors(this.props.errors);
+			errors = widgetChangeErrors(errors);
 		}
 		this.props.setErrors(this.props.formName, errors);
 
 		// trigger if current field is correct
-		if (!error && schema.triggers && schema.triggers.length) {
+		if (!valueError && schema.triggers && schema.triggers.length) {
 			this.onTrigger(
 				event,
 				{ trigger: schema.triggers[0], schema }
@@ -245,9 +257,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		customValidation: PropTypes.func,
 		/**
-		 * User callback: Trigger > after callback.
-		 * Prototype: function onTrigger(event, { type, schema, value, properties })
-		 * This is executed on changes on fields with uiSchema > triggers : ['after']
+		 * User callback: Trigger
+		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
 		/** Custom widgets */
