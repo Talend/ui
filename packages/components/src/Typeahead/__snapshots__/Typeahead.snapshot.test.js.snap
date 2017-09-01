@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typeahead items should render typeahead results with match 1`] = `
+exports[`Typeahead items should render typeahead items with match 1`] = `
 <div
   style={Object {}}
 >
@@ -25,6 +25,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
+      onFocus={undefined}
       onKeyDown={undefined}
       placeholder={undefined}
       role="combobox"
@@ -236,7 +237,7 @@ exports[`Typeahead items should render typeahead results with match 1`] = `
 </div>
 `;
 
-exports[`Typeahead items should render typeahead with results 1`] = `
+exports[`Typeahead items should render typeahead with object items 1`] = `
 <div
   style={Object {}}
 >
@@ -261,6 +262,7 @@ exports[`Typeahead items should render typeahead with results 1`] = `
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
+      onFocus={undefined}
       onKeyDown={undefined}
       placeholder={undefined}
       role="combobox"
@@ -414,7 +416,95 @@ exports[`Typeahead items should render typeahead with results 1`] = `
 </div>
 `;
 
-exports[`Typeahead items should render typeahead without results 1`] = `
+exports[`Typeahead items should render typeahead with string items 1`] = `
+<div
+  style={Object {}}
+>
+  <div
+    className={undefined}
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={true}
+      aria-haspopup={true}
+      aria-owns="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={true}
+      className="form-control"
+      id="react-autowhatever-my-search-input"
+      onBlur={undefined}
+      onChange={undefined}
+      onFocus={undefined}
+      onKeyDown={undefined}
+      placeholder={undefined}
+      role="combobox"
+      style={Object {}}
+      type="text"
+      value={undefined}
+    />
+  </div>
+  <div
+    id="react-autowhatever-my-search"
+  >
+    <div
+      style={Object {}}
+    >
+      <ul
+        role="listbox"
+        style={Object {}}
+      >
+        <li
+          id="react-autowhatever-my-search--item-0"
+          onMouseDown={undefined}
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className={undefined}
+            title="category 1"
+          >
+            <span
+              className={undefined}
+            >
+              <span>
+                category 1
+              </span>
+            </span>
+          </div>
+        </li>
+        <li
+          id="react-autowhatever-my-search--item-1"
+          onMouseDown={undefined}
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className={undefined}
+            title="category 2"
+          >
+            <span
+              className={undefined}
+            >
+              <span>
+                category 2
+              </span>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead without items 1`] = `
 <div
   style={Object {}}
 >
@@ -439,6 +529,7 @@ exports[`Typeahead items should render typeahead without results 1`] = `
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
+      onFocus={undefined}
       onKeyDown={undefined}
       placeholder={undefined}
       role="combobox"
@@ -489,6 +580,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       id="react-autowhatever-my-search-input"
       onBlur={undefined}
       onChange={undefined}
+      onFocus={undefined}
       onKeyDown={undefined}
       placeholder={undefined}
       role="combobox"
