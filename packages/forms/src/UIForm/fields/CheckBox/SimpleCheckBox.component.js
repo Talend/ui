@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function SimpleCheckBox({ id, label, onChange, schema, value }) {
+	const { autoFocus, disabled = false } = schema;
 	return (
 		<div className="checkbox">
 			<label>
 				<input
 					id={id}
-					autoFocus={schema.autoFocus}
-					disabled={schema.disabled}
+					autoFocus={autoFocus}
+					disabled={disabled}
 					label={label}
 					onChange={event => onChange(event, { schema, value: event.target.checked })}
 					type="checkbox"
