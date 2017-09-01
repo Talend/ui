@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Datalist component should render typeahead 1`] = `
+<FieldTemplate
+  description="This is my datalist"
+  errorMessage="This should be correct"
+  id="my-datalist"
+  isValid={true}
+  label="My List"
+>
+  <div
+    className={undefined}
+  >
+    <Typeahead
+      autoFocus={true}
+      focusedItemIndex={undefined}
+      id="my-datalist"
+      items={null}
+      multiSection={false}
+      noResultText="No result."
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      position="left"
+      searching={false}
+      searchingText="Searching for matches…"
+      theme={
+        Object {
+          "container": "tf-datalist-container",
+          "itemsContainer": undefined,
+          "itemsList": undefined,
+        }
+      }
+      value="foo"
+    />
+    <div
+      className={undefined}
+    >
+      <span
+        className="caret"
+      />
+    </div>
+  </div>
+</FieldTemplate>
+`;
