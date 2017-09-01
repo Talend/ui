@@ -48,6 +48,30 @@ exports[`Text field should render input 1`] = `
 </FieldTemplate>
 `;
 
+exports[`Text field should render password input 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+>
+  <input
+    autoFocus={true}
+    className="form-control"
+    disabled={undefined}
+    id="myForm"
+    label="My input title"
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={undefined}
+    type="password"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
 exports[`Text field should render readonly input 1`] = `
 <FieldTemplate
   description="my text input hint"
