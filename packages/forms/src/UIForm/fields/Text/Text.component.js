@@ -6,7 +6,15 @@ import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
-	const { autoFocus, description, disabled, placeholder, readOnly, title, type } = schema;
+	const {
+		autoFocus,
+		description,
+		disabled = false,
+		placeholder,
+		readOnly = false,
+		title,
+		type
+	} = schema;
 
 	return (
 		<FieldTemplate

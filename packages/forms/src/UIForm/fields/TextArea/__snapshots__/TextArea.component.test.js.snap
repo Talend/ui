@@ -18,7 +18,7 @@ exports[`TextArea field should render disabled textarea 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     rows={5}
     value="toto"
   />
@@ -37,13 +37,13 @@ exports[`TextArea field should render provided rows 1`] = `
   <textarea
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     name="comment"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     rows={10}
     value="toto"
   />
@@ -62,7 +62,7 @@ exports[`TextArea field should render readonly textarea 1`] = `
   <textarea
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     name="comment"
     onBlur={[Function]}
@@ -87,13 +87,13 @@ exports[`TextArea field should render textarea 1`] = `
   <textarea
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     name="comment"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     rows={5}
     value="toto"
   />

@@ -1,12 +1,8 @@
 
-> react-cmf@0.105.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> react-cmf@0.106.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/cmf/src/App.js
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  32:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   67:3  warning  Unexpected console statement  no-console
@@ -14,18 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   8:2  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
-  56:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  59:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
-/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
-  29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-✖ 11 problems (9 errors, 2 warnings)
+✖ 3 problems (1 error, 2 warnings)
 

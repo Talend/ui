@@ -18,7 +18,7 @@ exports[`Text field should render disabled input 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     type="text"
     value="toto"
   />
@@ -37,13 +37,13 @@ exports[`Text field should render input 1`] = `
   <input
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     label="My input title"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     type="text"
     value="toto"
   />
@@ -62,13 +62,13 @@ exports[`Text field should render password input 1`] = `
   <input
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     label="My input title"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"
-    readOnly={undefined}
+    readOnly={false}
     type="password"
     value="toto"
   />
@@ -87,7 +87,7 @@ exports[`Text field should render readonly input 1`] = `
   <input
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="myForm"
     label="My input title"
     onBlur={[Function]}

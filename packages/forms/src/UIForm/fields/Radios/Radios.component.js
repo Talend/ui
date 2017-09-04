@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 
 export default function Radios({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
-	const { autoFocus, description, disabled, inline, title } = schema;
+	const { autoFocus, description, disabled = false, inline, title } = schema;
 
 	const radioClassNames = classNames({
 		radio: !inline,

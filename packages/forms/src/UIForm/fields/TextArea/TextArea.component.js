@@ -6,10 +6,10 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 	const {
 		autoFocus,
 		description,
-		disabled,
+		disabled = false,
 		key,
 		placeholder,
-		readOnly,
+		readOnly = false,
 		rows = 5,
 		title,
 	} = schema;
