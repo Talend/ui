@@ -86,6 +86,7 @@ class Items extends React.PureComponent {
 					item={itemWithIndex}
 					itemProps={itemPropDefault}
 					searchCriteria={this.props.searchCriteria}
+					showCheckboxes={this.props.showCheckboxes}
 				/>
 			);
 		}
