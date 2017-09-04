@@ -126,7 +126,6 @@ class AbstractNode extends React.Component {
 	}
 
 	onDrag() {
-		this.d3Node.data([this.props.node.getPosition()]);
 		const position = {
 			x: event.x,
 			y: event.y,
@@ -142,6 +141,7 @@ class AbstractNode extends React.Component {
 	onDragEnd() {
 		const position = this.getEventPosition(event);
 		this.props.moveNodeToEnd(this.props.node.id, position);
+		this.d3Node.data([position]);
 		if (this.props.onDragEnd) {
 			this.props.onDragEnd(position);
 		}
