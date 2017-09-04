@@ -54,7 +54,7 @@
     "lodash": "4.17.4",
     "react": "15.5.4",
     "react-addons-test-utils": "15.5.1",
-    "react-cmf": "^0.105.0",
+    "react-cmf": "^0.106.0",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",
     "react-router": "3.0.5",
@@ -91,7 +91,7 @@
     "invariant": "2.2.2",
     "lodash": "4.17.4",
     "react": "15.5.4",
-    "react-cmf": "^0.105.0",
+    "react-cmf": "^0.106.0",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",
     "react-router": "3.0.5",
@@ -104,7 +104,7 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0"
   },
-  "version": "0.105.0",
+  "version": "0.106.0",
   "dependencies": {
     "hoist-non-react-statics": "^1.2.0",
     "mock-socket": "^7.0.0"
