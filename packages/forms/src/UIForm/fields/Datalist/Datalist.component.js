@@ -132,7 +132,7 @@ class Datalist extends Component {
 		if (persist) {
 			const payload = { schema: this.props.schema, value };
 			this.props.onChange(event, payload);
-			this.props.onFinish(event,payload);
+			this.props.onFinish(event, payload);
 		}
 	}
 

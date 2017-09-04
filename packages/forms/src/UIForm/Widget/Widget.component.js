@@ -6,10 +6,10 @@ import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 export default function Widget(props) {
-	const { errors, formName, onChange, onFinish, onTrigger, properties, schema, widgets } = props;
+	const { errors, formName, properties, schema } = props;
 	const { key, type, validationMessage, widget } = schema;
 	const widgetId = widget || type;
-	const WidgetImpl = widgets[widgetId] || defaultWidgets[widgetId];
+	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
 
 	if (!WidgetImpl) {
 		return null;
@@ -25,9 +25,9 @@ export default function Widget(props) {
 			errorMessage={errorMessage}
 			formName={formName}
 			isValid={!error}
-			onChange={onChange}
-			onFinish={onFinish}
-			onTrigger={onTrigger}
+			onChange={props.onChange}
+			onFinish={props.onFinish}
+			onTrigger={props.onTrigger}
 			properties={properties}
 			schema={schema}
 			errors={errors}

@@ -66,10 +66,15 @@ export default class UIForm extends React.Component {
 	 * (ex: shift the errors in array elements on remove)
 	 */
 	onFinish(event, { schema, value }, { deepValidation = false, widgetChangeErrors } = {}) {
-		// validate current field
-		const newValue = value !== undefined ?
-			value :
-			getValue(this.props.properties, schema.key);
+		// get property value
+		let newValue;
+		if (value !== undefined) {
+			newValue = value;
+		} else {
+			newValue = getValue(this.props.properties, schema.key);
+		}
+
+		// validate value
 		const valueError = validateSingle(
 			schema,
 			newValue,
@@ -93,7 +98,7 @@ export default class UIForm extends React.Component {
 		}
 		this.props.setErrors(this.props.formName, errors);
 
-		// trigger if current field is correct
+		// trigger if value is correct
 		if (!valueError && schema.triggers && schema.triggers.length) {
 			const payload = { trigger: schema.triggers[0], schema };
 			if (value !== undefined) {
