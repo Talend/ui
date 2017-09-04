@@ -23,7 +23,7 @@ describe('UIForm container', () => {
 	});
 
 	describe('#onChange', () => {
-		it('should update state properties and errors', () => {
+		it('should update state properties', () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
@@ -35,7 +35,6 @@ describe('UIForm container', () => {
 					formName: props.formName,
 					schema: mergedSchema[0],
 					value: 'toto',
-					error: 'too short',
 				},
 			);
 
@@ -56,7 +55,6 @@ describe('UIForm container', () => {
 					formName: props.formName,
 					schema: mergedSchema[0],
 					value: 'toto',
-					error: 'too short',
 				},
 			);
 
@@ -67,7 +65,6 @@ describe('UIForm container', () => {
 					formName: props.formName,
 					schema: mergedSchema[0],
 					value: 'toto',
-					error: 'too short',
 					properties: props.properties,
 				}
 			);
