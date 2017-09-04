@@ -6,7 +6,7 @@ import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
-import { getValue, omit } from './utils/properties';
+import { getValue, mutateValue, omit } from './utils/properties';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
@@ -57,7 +57,7 @@ export default class UIForm extends React.Component {
 	 * Perform validation and triggers when user has finished to change a value
 	 * @param event The event that triggered the callback
 	 * @param schema The payload field schema
-	 * @param value The new value
+	 * @param value The new value, provided if not already taken into account
 	 * @param deepValidation Validate the subItems
 	 * Most of the time, this value is not provided. It will be taken from props.properties
 	 * This allows to perform triggers/validation while changing a value
@@ -95,9 +95,14 @@ export default class UIForm extends React.Component {
 
 		// trigger if current field is correct
 		if (!valueError && schema.triggers && schema.triggers.length) {
+			const payload = { trigger: schema.triggers[0], schema };
+			if (value !== undefined) {
+				payload.properties = mutateValue(this.props.properties, schema.key, value);
+			}
+
 			this.onTrigger(
 				event,
-				{ trigger: schema.triggers[0], schema }
+				payload
 			);
 		}
 	}
@@ -118,9 +123,9 @@ export default class UIForm extends React.Component {
 		return onTrigger(
 			event,
 			{
-				...payload,
 				formName,
 				properties,
+				...payload,
 			}
 		)
 			.then(newForm => updateForm(

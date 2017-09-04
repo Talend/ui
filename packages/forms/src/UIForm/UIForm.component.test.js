@@ -63,64 +63,48 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onFinish', () => {
-		xit('should call onChange callback', () => {
+		it('should perform trigger', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
-			const newValue = 'toto';
-			const event = { target: { value: newValue } };
-			const inputValidationError = 'String is too short (4 chars), minimum 10';
-
-			// when
-			wrapper.find('input').at(0).simulate('change', event);
-
-			// then
-			expect(props.onChange).toBeCalledWith(
-				expect.anything(),
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: newValue,
-					error: inputValidationError,
-					properties: data.properties,
-				}
-			);
-			expect(props.onTrigger).not.toBeCalled();
-			expect(props.setErrors).not.toBeCalled();
-		});
-
-		xit('should trigger "after" trigger', () => {
-			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
-			const newValue = 'toto is toto';
-			const event = { target: { value: newValue } };
+			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'toto' }} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.find('input').at(1).simulate('change', event);
+			wrapper.find('input').at(1).simulate('blur');
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(
 				expect.anything(),
 				{
 					formName: props.formName,
-					type: 'after',
+					trigger: 'after',
 					schema: mergedSchema[1],
-					value: newValue,
-					error: undefined,
-					properties: data.properties,
+					properties: { firstname: 'toto' },
 				}
 			);
 		});
 
-		xit('should set errors, applying widget errors hook', () => {
+		it('should NOT perform trigger when field has errors', () => {
+			// given: required firstname is empty
+			const wrapper = mount(<UIForm {...data} {...props} />);
+			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
+
+			// when
+			wrapper.find('input').at(1).simulate('blur');
+
+			// then
+			expect(props.onTrigger).not.toBeCalled();
+		});
+
+		it('should set errors, applying widget errors hook', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
+			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.instance().onChange(
+			wrapper.instance().onFinish(
 				event,
 				{ schema: mergedSchema[0], value: newValue },
 				{ widgetChangeErrors() { return newErrors; } }
