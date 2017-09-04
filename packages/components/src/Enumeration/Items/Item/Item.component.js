@@ -1,8 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Button } from 'react-bootstrap';
 import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
+import { Checkbox } from '../../../Toggle';
 import ItemPropTypes from './Item.propTypes';
 
 function itemClasses(isSelected) {
@@ -29,7 +31,7 @@ function itemDefaultActionsClasses() {
 	});
 }
 
-function Item({ id, item, searchCriteria }) {
+function Item({ id, item, searchCriteria, showCheckboxes }) {
 	const {
 		key,
 		actions,
@@ -96,13 +98,20 @@ function Item({ id, item, searchCriteria }) {
 				</button>
 			);
 		}
-		return (<Action
-			key={item.index}
-			label={item[key].join(',')}
-			onClick={event => onSelectItem(item, event)}
-			className={itemLabelClasses()}
-			tooltip
-		/>);
+
+		return (
+			<Button
+				className={itemLabelClasses()}
+				onClick={event => onSelectItem(item, event)}
+				key={item.index}
+			>
+				{ showCheckboxes && <Checkbox
+					className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
+					checked={item.isSelected}
+				/> }
+				<span>{item[key].join(',')}</span>
+			</Button>
+		);
 	}
 
 	return (

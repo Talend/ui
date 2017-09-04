@@ -153,6 +153,11 @@ selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
 	isSelected: index % 2 === 0,
 }));
 
+const selectedValuesCheckboxesProps = {
+	...selectedValuesProps,
+	showCheckboxes: true,
+};
+
 const headerErrorProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_ADD',
@@ -254,6 +259,17 @@ storiesOf('Enumeration', module)
 			<Enumeration
 				{...selectedValuesProps}
 			/>
+		</div>
+	))
+	.addWithInfo('selected values with checkboxes', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<form>
+				<Enumeration
+					{...selectedValuesCheckboxesProps}
+				/>
+			</form>
 		</div>
 	))
 	.addWithInfo('with header error', () => (
