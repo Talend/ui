@@ -5,7 +5,7 @@ import FieldTemplate from '../FieldTemplate';
 
 function ToggleWidget(props) {
 	const { id, isValid, errorMessage, onChange, schema, value } = props;
-	const { autoFocus, description, disabled, title } = schema;
+	const { autoFocus, description, disabled = false, title } = schema;
 
 	return (
 		<FieldTemplate

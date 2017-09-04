@@ -81,7 +81,7 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         autoFocus={true}
         checked={false}
-        disabled={undefined}
+        disabled={false}
         id="myForm-0"
         name="myForm"
         onChange={[Function]}
@@ -100,7 +100,7 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         autoFocus={true}
         checked={false}
-        disabled={undefined}
+        disabled={false}
         id="myForm-1"
         name="myForm"
         onChange={[Function]}
@@ -119,7 +119,7 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         autoFocus={true}
         checked={true}
-        disabled={undefined}
+        disabled={false}
         id="myForm-2"
         name="myForm"
         onChange={[Function]}
@@ -148,7 +148,7 @@ exports[`Radios field should render radios 1`] = `
       <input
         autoFocus={true}
         checked={false}
-        disabled={undefined}
+        disabled={false}
         id="myForm-0"
         name="myForm"
         onChange={[Function]}
@@ -167,7 +167,7 @@ exports[`Radios field should render radios 1`] = `
       <input
         autoFocus={true}
         checked={false}
-        disabled={undefined}
+        disabled={false}
         id="myForm-1"
         name="myForm"
         onChange={[Function]}
@@ -186,7 +186,7 @@ exports[`Radios field should render radios 1`] = `
       <input
         autoFocus={true}
         checked={true}
-        disabled={undefined}
+        disabled={false}
         id="myForm-2"
         name="myForm"
         onChange={[Function]}

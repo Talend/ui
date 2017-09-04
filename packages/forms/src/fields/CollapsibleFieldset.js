@@ -111,29 +111,28 @@ function createCollapsibleFieldset(title) {
 							description={uiSchema['ui:description'] || schema.description}
 							formContext={formContext}
 						/>}
-					{!formData.isClosed &&
-						orderedProperties.map((fieldName, index) => {
-							if (fieldName !== 'isClosed') {
-								return (
-									<SchemaField
-										key={index}
-										name={fieldName}
-										required={this.isRequired(fieldName)}
-										schema={schema.properties[fieldName]}
-										uiSchema={uiSchema[fieldName]}
-										errorSchema={errorSchema[fieldName]}
-										idSchema={idSchema[fieldName]}
-										formData={formData[fieldName]}
-										onChange={this.onPropertyChange(fieldName)}
-										onBlur={onBlur}
-										registry={registry}
-										disabled={disabled}
-										readonly={readonly}
-									/>
-								);
-							}
-							return null;
-						})}
+					{orderedProperties.map((fieldName, index) => {
+						if (fieldName !== 'isClosed') {
+							return (
+								<SchemaField
+									key={index}
+									name={fieldName}
+									required={this.isRequired(fieldName)}
+									schema={schema.properties[fieldName]}
+									uiSchema={uiSchema[fieldName]}
+									errorSchema={errorSchema[fieldName]}
+									idSchema={idSchema[fieldName]}
+									formData={formData[fieldName]}
+									onChange={this.onPropertyChange(fieldName)}
+									onBlur={onBlur}
+									registry={registry}
+									disabled={disabled}
+									readonly={readonly}
+								/>
+							);
+						}
+						return null;
+					})}
 				</fieldset>
 			);
 		}
