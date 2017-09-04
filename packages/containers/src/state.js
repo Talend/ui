@@ -1,7 +1,7 @@
 import { componentState } from '@talend/react-cmf';
 
-console.warn(`DEPRECATION WARNING: import state, {} from 'react-talend-containers'; is deprecated.
-You should import { componentState } from 'react-cmf'`);  // eslint-disable-line no-console
+console.warn(`DEPRECATION WARNING: import state, {} from '@talend/react-containers'; is deprecated.
+You should import { componentState } from '@talend/react-cmf'`);  // eslint-disable-line no-console
 
 export default componentState;
 
