@@ -17,6 +17,27 @@ program
 const REACT_VERSION = '15.5.4';
 const JEST_VERSION = '20.0.3';
 
+const ADDONS = {
+	'babel-polyfill': '6.20.0',
+	'date-fns': '1.27.2',
+	'focus-outline-manager': '1.0.2',
+	'immutablediff': '0.4.4',
+	'normalize.css': '5.0.0',
+	'path-to-regexp': '1.7.0',
+	'redux-batched-subscribe': '0.1.6',
+	'redux-undo': '0.6.1',
+	'redux-saga': '0.15.4',
+	'react-addons-perf': '15.4.2',
+    "react-autowhatever": "^7.0.0",
+    "react-debounce-input": "^2.4.2",
+	'react-immutable-proptypes': '2.1.0',
+	'react-jsonschema-form': '0.42.0',
+	'react-tap-event-plugin': '2.0.0',
+	"react-virtualized": "^9.3.0",
+	'slugify': '1.1.0',
+	'whatwg-fetch': '1.0.0',
+};
+
 const VERSIONS = {
 	// deps
 	'bootstrap-sass': '3.3.7',
@@ -26,6 +47,7 @@ const VERSIONS = {
 	lodash: '4.17.4',
 	immutable: '3.8.1',
 	invariant: '2.2.2',
+	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
 	'react-addons-test-utils': '15.5.1',
@@ -52,7 +74,7 @@ const VERSIONS = {
 	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '3.1.9',
 	'@storybook/addon-storyshots': '3.1.9',
-	'autoprefixer': '6.7.0',
+	'autoprefixer': '6.7.2',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
