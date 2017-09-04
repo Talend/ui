@@ -96,19 +96,17 @@ EmptyListPlaceholder.propTypes = {
 	displayMode: Enumeration.propTypes.displayMode,
 };
 
-function ItemsEnumeration({
-		items, itemsProp, searchCriteria, currentEdit, displayMode, showCheckboxes,
-	}) {
-	if (items.length > 0) {
+function ItemsEnumeration(props) {
+	if (props.items.length > 0) {
 		return (<Items
-			items={items}
-			itemsProp={itemsProp}
-			currentEdit={currentEdit}
-			searchCriteria={searchCriteria}
-			showCheckboxes={showCheckboxes}
+			items={props.items}
+			itemsProp={props.itemsProp}
+			currentEdit={props.currentEdit}
+			searchCriteria={props.searchCriteria}
+			showCheckboxes={props.showCheckboxes}
 		/>);
 	}
-	return (<EmptyListPlaceholder displayMode={displayMode} />);
+	return (<EmptyListPlaceholder displayMode={props.displayMode} />);
 }
 
 ItemsEnumeration.propTypes = {
