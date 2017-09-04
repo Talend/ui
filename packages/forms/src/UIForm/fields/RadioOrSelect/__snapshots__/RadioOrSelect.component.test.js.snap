@@ -6,6 +6,7 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
   id="myRadioOrSelect"
   isValid={true}
   onChange={[Function]}
+  onFinish={[Function]}
   schema={
     Object {
       "description": "Select me",
@@ -41,6 +42,7 @@ exports[`RadioOrSelect field should render select when titleMap has more than 2 
   id="myRadioOrSelect"
   isValid={true}
   onChange={[Function]}
+  onFinish={[Function]}
   schema={
     Object {
       "description": "Select me",

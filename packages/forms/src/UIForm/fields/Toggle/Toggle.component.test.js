@@ -18,6 +18,7 @@ describe('Toggle field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value
 			/>
@@ -41,6 +42,7 @@ describe('Toggle field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={autoFocusedSchema}
 				value
 			/>
@@ -64,6 +66,7 @@ describe('Toggle field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
 			/>
@@ -82,6 +85,7 @@ describe('Toggle field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value
 			/>
@@ -92,5 +96,27 @@ describe('Toggle field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
+	});
+
+	it('should trigger onFinish on input blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = mount(
+			<Toggle
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value
+			/>
+		);
+
+		// when
+		wrapper.find('input').simulate('blur');
+
+		// then
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
 	});
 });
