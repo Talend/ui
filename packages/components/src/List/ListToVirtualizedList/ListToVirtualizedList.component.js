@@ -23,7 +23,7 @@ function ListToVirtualizedList(props) {
 		titleProps,
 	} = props;
 
-	if (!titleProps.actionsKey) {
+	if (titleProps && !titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
 	// Backward compatibility: find array in object attr:
