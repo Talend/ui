@@ -37,6 +37,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
+  135:29  error  A space is required after ','  comma-spacing
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
@@ -66,5 +69,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 36 problems (36 errors, 0 warnings)
+✖ 37 problems (37 errors, 0 warnings)
 
