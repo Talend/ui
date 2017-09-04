@@ -108,6 +108,7 @@
     }
   },
   "peerDependencies": {
+    "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
