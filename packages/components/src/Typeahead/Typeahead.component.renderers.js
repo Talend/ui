@@ -8,7 +8,7 @@ import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-export const renderInputComponent = (props) => {
+export function renderInputComponent(props) {
 	const {
 		key,
 		debounceMinLength,
@@ -40,7 +40,7 @@ export const renderInputComponent = (props) => {
 			{renderedIcon}
 		</div>
 	);
-};
+}
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -51,7 +51,7 @@ renderInputComponent.propTypes = {
 	}),
 };
 
-const ItemContainer = (props) => {
+function ItemContainer(props) {
 	const { items, noResultText, searching, searchingText, ...containerProps } = props;
 	const { className, ...restProps } = containerProps;
 	if (searching) {
@@ -71,27 +71,30 @@ const ItemContainer = (props) => {
 	return (
 		<div {...containerProps} />
 	);
-};
+}
 ItemContainer.propTypes = {
 	className: PropTypes.string,
 	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
-			suggestions: PropTypes.arrayOf(
-				PropTypes.shape({
-					title: PropTypes.string,
-					description: PropTypes.string,
-				}),
-			),
-		}),
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({
+				title: PropTypes.string,
+				description: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						description: PropTypes.string,
+					}),
+				),
+			}),
+		])
 	),
 	noResultText: PropTypes.string,
 	searching: PropTypes.bool,
 	searchingText: PropTypes.string,
 };
 
-export const renderItemsContainerFactory = (items, noResultText, searching, searchingText) => {
+export function renderItemsContainerFactory(items, noResultText, searching, searchingText) {
 	const renderItemsContainerComponent = (props) => {
 		const { id, key, ref, ...rest } = props;
 		return (
@@ -118,9 +121,9 @@ export const renderItemsContainerFactory = (items, noResultText, searching, sear
 	};
 
 	return renderItemsContainerComponent;
-};
+}
 
-export const renderSectionTitle = (section) => {
+export function renderSectionTitle(section) {
 	if (section) {
 		return (
 			<div className={theme['section-header']}>
@@ -130,18 +133,25 @@ export const renderSectionTitle = (section) => {
 		);
 	}
 	return null;
-};
+}
 
-export const renderItem = (item, { value }) => {
-	const title = item.title ? item.title.trim() : '';
+export function renderItem(item, { value }) {
+	let title;
+	let description;
+	if (typeof item === 'string') {
+		title = item;
+	} else {
+		title = item.title ? item.title.trim() : '';
+		description = item.description;
+	}
 	return (
 		<div className={theme.item} title={title}>
 			<span className={theme['item-title']}>
 				<Emphasis value={value} text={title} />
 			</span>
-			<p className={theme['item-description']}>
-				<Emphasis value={value} text={item.description} />
-			</p>
+			{description && <p className={theme['item-description']}>
+				<Emphasis value={value} text={description} />
+			</p>}
 		</div>
 	);
-};
+}

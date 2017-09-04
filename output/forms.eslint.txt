@@ -1,5 +1,5 @@
 
-> react-talend-forms@0.102.3 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.105.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -35,10 +35,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   85:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-  7:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+  8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.js
+  22:8  error  Missing trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
+  16:7  error  Missing trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -60,5 +66,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 34 problems (34 errors, 0 warnings)
+✖ 36 problems (36 errors, 0 warnings)
 
