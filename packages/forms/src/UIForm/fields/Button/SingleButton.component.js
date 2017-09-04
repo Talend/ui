@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export default function SingleButton({ className, id, onTrigger, schema }) {
 	const {
 		bsStyle,
-		disabled,
+		disabled = false,
 		inProgress,
 		name,
 		title,
