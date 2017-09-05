@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { I18N_DOMAIN } from 'react-talend-components';
+import { I18N_DOMAIN_COMPONENTS } from 'react-talend-components';
 
 i18n
 	.init({
@@ -20,7 +20,7 @@ i18n
 				},
 			},
 			it: {
-				[I18N_DOMAIN]: {
+				[I18N_DOMAIN_COMPONENTS]: {
 					LIST_TOOLBAR_DISPLAY: 'Affissione :',
 					LIST_TOOLBAR_SORT_BY: 'Ordina per :',
 					LIST_TOOLBAR_PAGINATION_SHOW: 'Mostrare :',
