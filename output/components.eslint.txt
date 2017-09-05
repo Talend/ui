@@ -12,17 +12,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/Badge/Badge.component.js
-  67:47  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
+  67:58  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  293:47  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
+  293:58  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/List/List.component.js
-  177:47  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
+  177:58  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
