@@ -101,7 +101,7 @@
     "uuid": "3.0.1",
     "webpack": "^1.14.0",
     "i18next": "^9.0.0",
-    "react-i18next": "^4.3.0"
+    "react-i18next": "^5.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -133,7 +133,7 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "i18next": "^9.0.0",
-    "react-i18next": "^4.3.0",
+    "react-i18next": "^5.2.0",
     "talend-icons": "^0.106.0",
     "uuid": "3.0.1"
   },
