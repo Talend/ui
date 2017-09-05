@@ -12,7 +12,7 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
-import I18N_DOMAIN from '../constants';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {
@@ -174,4 +174,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(I18N_DOMAIN, { i18n: i18n.init() })(List);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(List);

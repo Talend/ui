@@ -66,7 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
-import I18N_DOMAIN from './constants';
+import I18N_DOMAIN_COMPONENTS from './constants';
 
 import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
@@ -206,5 +206,5 @@ export {
 	Thumbnail,
 	Tooltip,
 	Well,
-	I18N_DOMAIN,
+	I18N_DOMAIN_COMPONENTS,
 };

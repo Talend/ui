@@ -1,11 +1,11 @@
 import i18n from 'i18next';
-import I18N_DOMAIN from '../../src/constants';
+import I18N_DOMAIN_COMPONENTS from '../../src/constants';
 
 i18n
 	.init({
 		resources: {
 			fr: {
-				[I18N_DOMAIN]: {
+				[I18N_DOMAIN_COMPONENTS]: {
 					LIST_TOOLBAR_DISPLAY: 'Affichage :',
 					LIST_TOOLBAR_SORT_BY: 'Trier par :',
 					LIST_TOOLBAR_PAGINATION_SHOW: 'Nombre :',
@@ -20,7 +20,7 @@ i18n
 				},
 			},
 			it: {
-				[I18N_DOMAIN]: {
+				[I18N_DOMAIN_COMPONENTS]: {
 					LIST_TOOLBAR_DISPLAY: 'Affissione :',
 					LIST_TOOLBAR_SORT_BY: 'Ordina per :',
 					LIST_TOOLBAR_PAGINATION_SHOW: 'Mostrare :',

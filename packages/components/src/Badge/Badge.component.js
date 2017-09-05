@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import i18n from 'i18next';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN from '../constants';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
@@ -64,4 +64,4 @@ Badge.defaultProps = {
 	tcStyle: 'solid',
 };
 
-export default translate(I18N_DOMAIN, { i18n: i18n.init() })(Badge);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(Badge);

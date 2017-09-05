@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import i18n from 'i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
-import I18N_DOMAIN from '../../constants';
+import I18N_DOMAIN_FORMS from '../../constants';
 import defaultTranslateFn from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
@@ -797,4 +797,4 @@ EnumerationForm.defaultProps = {
 export {
 	EnumerationForm,
 };
-export default translate(I18N_DOMAIN, { i18n })(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS, { i18n })(EnumerationForm);

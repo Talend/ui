@@ -1,3 +1,3 @@
-const I18N_DOMAIN = 'tui-components';
+const I18N_DOMAIN_COMPONENTS = 'tui-components';
 
-export default I18N_DOMAIN;
+export default I18N_DOMAIN_COMPONENTS;
