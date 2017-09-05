@@ -29,7 +29,7 @@
     "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
   "devDependencies": {
-    "autoprefixer": "6.7.2",
+    "autoprefixer": "6.7.7",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-plugin-transform-class-properties": "6.23.0",

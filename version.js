@@ -26,7 +26,7 @@ const ADDONS = {
 	'path-to-regexp': '1.7.0',
 	'prettier': '1.6.1',
 	'redux-batched-subscribe': '0.1.6',
-	'redux-undo': '0.6.1',
+	'redux-undo': 'beta',
 	'redux-saga': '0.15.4',
 	'react-addons-perf': '15.4.2',
 	'react-autowhatever': '7.0.0',
@@ -75,7 +75,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '3.1.9',
 	'@storybook/addon-storyshots': '3.1.9',
-	'autoprefixer': '6.7.2',
+	'autoprefixer': '6.7.7',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
@@ -242,5 +242,11 @@ files.forEach((ppath) => {
 	if (packageJSON.modified || program.force) {
 		delete packageJSON.modified;
 		save(ppath, JSON.stringify(packageJSON, null, 2) + '\n');
+		const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
+		if (fs.existsSync(yarnLock)) {
+			if (!program.quite) {
+				console.log(`you have to update ${yarnLock} yourself`);
+			}
+		}
 	}
 });
