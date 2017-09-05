@@ -14,6 +14,7 @@ export function renderInputComponent(props) {
 		debounceMinLength,
 		debounceTimeout,
 		icon,
+		inputRef,
 		...rest
 	} = props;
 
@@ -29,12 +30,14 @@ export function renderInputComponent(props) {
 					id={key}
 					{...rest}
 					autoFocus
+					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
-					debounceTimeout={debounceTimeout}
+					ref={inputRef}
 				/> : <FormControl
 					id={key}
 					autoFocus
+					inputRef={inputRef}
 					{...rest}
 				/> }
 			{renderedIcon}

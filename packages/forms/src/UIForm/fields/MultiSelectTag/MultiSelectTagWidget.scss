@@ -1,0 +1,43 @@
+$input-padding-right : $padding-normal * 2 + $dropdown-caret-size;
+
+.dropdown {
+	input.form-control {
+		padding-right: $input-padding-right;
+	}
+
+	.tags-container {
+		position: absolute;
+		padding-top: 2px;
+		top: 0;
+		max-width: calc(100% - #{$input-padding-right});
+		pointer-events: none;
+		line-height: 1;
+
+		:global(.tc-badge) {
+			pointer-events: auto;
+			line-height: 1.42857;
+		}
+	}
+
+	.dropdown-toggle {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none
+	}
+
+	.dropdown-menu {
+		max-height: 20rem;
+		overflow-y: auto;
+		max-width: 100%;
+
+		li {
+			a[role='menuitem'] {
+				display: block;
+				overflow-x: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

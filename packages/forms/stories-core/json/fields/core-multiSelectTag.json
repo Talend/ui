@@ -1,0 +1,28 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "MultiSelectTag",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+        }
+      }
+    },
+    "required": [
+      "tags"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "tags",
+      "title": "Tags",
+      "widget": "multiSelectTag"
+    }
+  ],
+  "properties": {
+    "tags": ["Pine[apple]"]
+  }
+}
