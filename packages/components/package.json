@@ -51,7 +51,7 @@
     "@storybook/addon-info": "^3.1.9",
     "@storybook/addon-storyshots": "3.1.9",
     "@storybook/react": "3.1.9",
-    "autoprefixer": "6.7.7",
+    "autoprefixer": "^6.7.7",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -94,12 +94,11 @@
     "react-test-renderer": "15.5.4",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
-    "sass-loader": "4.1.1",
+    "sass-loader": "6.0.5",
     "slimerjs": "^0.10.2",
     "style-loader": "0.16.1",
     "talend-icons": "^0.106.0",
-    "uuid": "3.0.1",
-    "webpack": "^1.14.0"
+    "uuid": "3.0.1"
   },
   "jest": {
     "collectCoverageFrom": [

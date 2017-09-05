@@ -75,7 +75,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '3.1.9',
 	'@storybook/addon-storyshots': '3.1.9',
-	'autoprefixer': '6.7.7',
+	'autoprefixer': '^6.7.7',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
@@ -104,28 +104,19 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	// webpack
 	'copy-webpack-plugin': '4.0.1',
 	'css-loader': '0.28.2',
+	'extract-text-webpack-plugin': '2.1.0',
 	'file-loader': '^0.10.0',
+	'fontgen-loader': '0.2.1',
 	'node-sass': '4.5.3',
 	'postcss-loader': '1.3.1',
+	'sass-loader': '6.0.5',
 	'style-loader': '0.16.1',
 	'url-loader': '0.5.8',
+	webpack: '^2.5.1',
 	'webpack-bundle-analyzer': '2.8.2',
 	'webpack-dashboard': '0.4.0',
+	'webpack-dev-server': '2.4.5',
 });
-
-const WEBPACK_2_VERSIONS = {
-	'extract-text-webpack-plugin': '2.1.0',
-	'sass-loader': '6.0.5',
-	webpack: '^2.5.1',
-	'webpack-dev-server': '^2.4.5',
-};
-
-const WEBPACK_1_VERSIONS = {
-	'extract-text-webpack-plugin': '^1.0.1',
-	'sass-loader': '4.1.1',
-	webpack: '^1.14.0',
-	'webpack-dev-server': '^1.16.5',
-};
 
 let files = [
 	'./packages/cmf/package.json',
@@ -162,11 +153,6 @@ if (program.path) {
 if (program.debug) {
 	console.log(`will update ${files}`);
 }
-
-function getWebpackMajorVersion(source) {
-	return (source.webpack || '').replace('^', '').split('.')[0];
-}
-
 
 function check(source, dep, version) {
 	let modified = false;
@@ -219,21 +205,6 @@ files.forEach((ppath) => {
 	const packageJSON = require(ppath);
 	if (!program.quiet) {
 		console.log(`=== check ${packageJSON.name} ===`);
-	}
-
-	if (packageJSON.devDependencies && packageJSON.devDependencies.webpack) {
-		const webpack = getWebpackMajorVersion(packageJSON.devDependencies);
-		if (webpack === '1') {
-			Object.assign(
-				VERSIONS,
-				WEBPACK_1_VERSIONS
-			);
-		} else {
-			Object.assign(
-				VERSIONS,
-				WEBPACK_2_VERSIONS
-			);
-		}
 	}
 
 	Object.keys(VERSIONS).forEach((dep) => {
