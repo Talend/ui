@@ -344,11 +344,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Tile empty list', () => {
-		const emptyListProps =
-
-
-
-          (props);
+		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 		return (
 			<div>
