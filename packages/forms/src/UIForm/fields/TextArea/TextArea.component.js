@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 
-export default function TextArea({ id, isValid, errorMessage, onChange, schema, value }) {
+export default function TextArea({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const {
 		autoFocus,
 		description,
@@ -30,6 +30,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, schema, 
 				disabled={disabled}
 				name={key[key.length - 1]}
 				placeholder={placeholder}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={event => onChange(event, { schema, value: event.target.value })}
 				readOnly={readOnly}
 				rows={rows}
@@ -45,6 +46,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

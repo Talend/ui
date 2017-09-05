@@ -5,7 +5,7 @@ import FieldTemplate from '../FieldTemplate';
 import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const {
 		autoFocus,
 		description,
@@ -31,13 +31,14 @@ export default function Text(props) {
 				className="form-control"
 				disabled={disabled}
 				label={title}
-				placeholder={placeholder}
+				onBlur={event => onFinish(event, { schema })}
 				onChange={
 					event => onChange(
 						event,
 						{ schema, value: convertValue(type, event.target.value) }
 					)
 				}
+				placeholder={placeholder}
 				readOnly={readOnly}
 				type={type}
 				value={value}
@@ -52,6 +53,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
