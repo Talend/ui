@@ -21,6 +21,7 @@ describe('TextArea field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
 			/>
@@ -44,6 +45,7 @@ describe('TextArea field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
 			/>
@@ -67,6 +69,7 @@ describe('TextArea field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'toto'}
 			/>
@@ -90,6 +93,7 @@ describe('TextArea field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schemaWithRows}
 				value={'toto'}
 			/>
@@ -108,6 +112,7 @@ describe('TextArea field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
 			/>
@@ -120,5 +125,29 @@ describe('TextArea field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value });
+	});
+
+	it('should trigger onFinish on input blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<TextArea
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={'toto'}
+			/>
+		);
+		const value = 'totoa';
+		const event = { target: { value } };
+
+		// when
+		wrapper.find('textarea').simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(event, { schema });
 	});
 });

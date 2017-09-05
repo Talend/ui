@@ -91,6 +91,7 @@ describe('Array component', () => {
 				id={'talend-array'}
 				isValid
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={value}
 			/>
@@ -101,9 +102,10 @@ describe('Array component', () => {
 	});
 
 	describe('#onAdd', () => {
-		it('should trigger onChange with additional empty item', () => {
+		it('should trigger onChange and validation with additional empty item', () => {
 			// given
 			const onChange = jest.fn();
+			const onFinish = jest.fn();
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
@@ -112,6 +114,7 @@ describe('Array component', () => {
 					id={'talend-array'}
 					isValid
 					onChange={onChange}
+					onFinish={onFinish}
 					schema={schema}
 					value={value}
 				/>
@@ -121,14 +124,17 @@ describe('Array component', () => {
 			wrapper.instance().onAdd(event);
 
 			// then
-			expect(onChange).toBeCalledWith(event, { schema, value: value.concat({}) });
+			const payload = { schema, value: value.concat({}) };
+			expect(onChange).toBeCalledWith(event, payload);
+			expect(onFinish).toBeCalledWith(event, payload);
 		});
 	});
 
 	describe('#onRemove', () => {
-		it('should trigger onChange', () => {
+		it('should trigger onChange and validation with new list', () => {
 			// given
 			const onChange = jest.fn();
+			const onFinish = jest.fn();
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
@@ -137,6 +143,7 @@ describe('Array component', () => {
 					id={'talend-array'}
 					isValid
 					onChange={onChange}
+					onFinish={onFinish}
 					schema={schema}
 					value={value}
 				/>
@@ -146,16 +153,14 @@ describe('Array component', () => {
 			wrapper.instance().onRemove(event, 1);
 
 			// then
-			expect(onChange).toBeCalledWith(
-				event,
-				{ schema, value: [value[0], value[2]] },
-				expect.anything()
-			);
+			const payload = { schema, value: [value[0], value[2]] };
+			expect(onChange).toBeCalledWith(event, payload);
+			expect(onFinish).toBeCalledWith(event, payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', () => {
 			// given
-			const onChange = jest.fn();
+			const onFinish = jest.fn();
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
@@ -163,14 +168,15 @@ describe('Array component', () => {
 					errorMessage={'This array is not correct'}
 					id={'talend-array'}
 					isValid
-					onChange={onChange}
+					onChange={jest.fn()}
+					onFinish={onFinish}
 					schema={schema}
 					value={value}
 				/>
 			);
 
 			wrapper.instance().onRemove(event, 1);
-			const options = onChange.mock.calls[0][2];
+			const options = onFinish.mock.calls[0][2];
 
 			const oldErrors = {
 				'comments,0,name': 'This is required',
@@ -192,9 +198,10 @@ describe('Array component', () => {
 	});
 
 	describe('#onReorder', () => {
-		it('should trigger onChange', () => {
+		it('should trigger onChange and validation with new list', () => {
 			// given
 			const onChange = jest.fn();
+			const onFinish = jest.fn();
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
@@ -203,6 +210,7 @@ describe('Array component', () => {
 					id={'talend-array'}
 					isValid
 					onChange={onChange}
+					onFinish={onFinish}
 					schema={schema}
 					value={value}
 				/>
@@ -212,16 +220,14 @@ describe('Array component', () => {
 			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });
 
 			// then
-			expect(onChange).toBeCalledWith(
-				event,
-				{ schema, value: [value[1], value[2], value[0]] },
-				expect.anything()
-			);
+			const payload = { schema, value: [value[1], value[2], value[0]] };
+			expect(onChange).toBeCalledWith(event, payload);
+			expect(onFinish).toBeCalledWith(event, payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', () => {
 			// given
-			const onChange = jest.fn();
+			const onFinish = jest.fn();
 			const event = { target: {} };
 			const wrapper = shallow(
 				<ArrayWidget
@@ -229,14 +235,15 @@ describe('Array component', () => {
 					errorMessage={'This array is not correct'}
 					id={'talend-array'}
 					isValid
-					onChange={onChange}
+					onChange={jest.fn()}
+					onFinish={onFinish}
 					schema={schema}
 					value={value}
 				/>
 			);
 
 			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });
-			const options = onChange.mock.calls[0][2];
+			const options = onFinish.mock.calls[0][2];
 
 			const oldErrors = {
 				'comments,0,name': 'This is required',
