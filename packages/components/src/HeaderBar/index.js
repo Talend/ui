@@ -1,3 +1,3 @@
-import Component from './HeaderBar.component';
+import HeaderBar from './HeaderBar.component';
 
-export default Component;
+export default HeaderBar;

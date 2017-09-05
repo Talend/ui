@@ -567,6 +567,19 @@ storiesOf('List', module)
 		);
 	})
 
+	.add('Virtualized - list with i18n', () => (
+		<div>
+			<h1>List with i18n</h1>
+			<p>Change language in the toolbar</p>
+			<button onClick={() => changeLanguage('fr')}>fr</button>
+			<button onClick={() => changeLanguage('it')}>it</button>
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>
+				<List {...props} virtualized />
+			</I18nextProvider>
+		</div>
+	))
+
 	.add('DEPRECATED - Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
@@ -799,17 +812,5 @@ storiesOf('List', module)
 			<p>Display the list in tile mode</p>
 			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
-		</div>
-	))
-	.add('DEPRECATED - list with i18n', () => (
-		<div>
-			<h1>List</h1>
-			<p>Change language in the toolbar</p>
-			<button onClick={() => changeLanguage('fr')}>fr</button>
-			<button onClick={() => changeLanguage('it')}>it</button>
-			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>
-				<List {...getPropsFor('tile')} />
-			</I18nextProvider>
 		</div>
 	));

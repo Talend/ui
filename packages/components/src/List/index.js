@@ -1,3 +1,3 @@
-import Component from './List.component';
+import List from './List.component';
 
-export default Component;
+export default List;

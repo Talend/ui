@@ -7032,6 +7032,523 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
 </EnumerationForm>
 `;
 
+exports[`EnumerationWidget should wrapped in Translate component 1`] = `
+<Translate(EnumerationForm)>
+  <EnumerationForm
+    i18n={
+      I18n {
+        "logger": Logger {
+          "debug": undefined,
+          "logger": Object {
+            "error": [Function],
+            "log": [Function],
+            "output": [Function],
+            "type": "logger",
+            "warn": [Function],
+          },
+          "options": Object {},
+          "prefix": "i18next:",
+        },
+        "modules": Object {
+          "external": Array [],
+        },
+        "observers": Object {
+          "initialized": Array [
+            [Function],
+          ],
+          "languageChanged": Array [
+            [Function],
+          ],
+          "loaded": Array [
+            [Function],
+          ],
+        },
+        "options": Object {},
+        "services": Object {},
+      }
+    }
+    i18nLoadedAt={null}
+    t={[Function]}
+  >
+    <div>
+      <Enumeration
+        displayMode="DISPLAY_MODE_DEFAULT"
+        headerDefault={
+          Array [
+            Object {
+              "disabled": false,
+              "icon": "talend-search",
+              "id": "search",
+              "label": undefined,
+              "onClick": [Function],
+            },
+            Object {
+              "icon": "talend-plus",
+              "id": "add",
+              "label": undefined,
+              "onClick": [Function],
+            },
+          ]
+        }
+        headerInput={
+          Array [
+            Object {
+              "disabled": true,
+              "icon": "talend-check-plus",
+              "id": "validate-and-add",
+              "key": "validateAdd",
+              "label": undefined,
+              "onClick": [Function],
+            },
+            Object {
+              "disabled": true,
+              "icon": "talend-check",
+              "id": "validate",
+              "key": "validate",
+              "label": undefined,
+              "onClick": [Function],
+            },
+            Object {
+              "icon": "talend-cross",
+              "id": "abort",
+              "key": "abort",
+              "label": undefined,
+              "onClick": [Function],
+            },
+          ]
+        }
+        headerSelected={
+          Array [
+            Object {
+              "icon": "talend-trash",
+              "id": "delete",
+              "label": undefined,
+              "onClick": [Function],
+            },
+          ]
+        }
+        inputRef={[Function]}
+        items={Array []}
+        itemsProp={
+          Object {
+            "actionsDefault": Array [
+              Object {
+                "disabled": false,
+                "icon": "talend-pencil",
+                "id": "edit",
+                "label": undefined,
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-trash",
+                "id": "delete",
+                "label": undefined,
+                "onClick": [Function],
+              },
+            ],
+            "actionsEdit": Array [
+              Object {
+                "disabled": true,
+                "icon": "talend-check",
+                "id": "validate",
+                "label": undefined,
+                "onClick": [Function],
+              },
+              Object {
+                "disabled": false,
+                "icon": "talend-cross",
+                "id": "abort",
+                "label": undefined,
+                "onClick": [Function],
+              },
+            ],
+            "getItemHeight": [Function],
+            "key": "values",
+            "onAbortItem": [Function],
+            "onChangeItem": [Function],
+            "onLoadData": [Function],
+            "onSelectItem": [Function],
+            "onSubmitItem": [Function],
+          }
+        }
+        onAddKeyDown={[Function]}
+        onInputChange={[Function]}
+        required={false}
+        setFormData={[Function]}
+      >
+        <div
+          className="undefined tc-enumeration"
+        >
+          <HeaderEnumeration
+            displayMode="DISPLAY_MODE_DEFAULT"
+            headerDefault={
+              Array [
+                Object {
+                  "disabled": false,
+                  "icon": "talend-search",
+                  "id": "search",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-plus",
+                  "id": "add",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            headerInput={
+              Array [
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check-plus",
+                  "id": "validate-and-add",
+                  "key": "validateAdd",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check",
+                  "id": "validate",
+                  "key": "validate",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-cross",
+                  "id": "abort",
+                  "key": "abort",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            headerSelected={
+              Array [
+                Object {
+                  "icon": "talend-trash",
+                  "id": "delete",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            inputRef={[Function]}
+            items={Array []}
+            itemsProp={
+              Object {
+                "actionsDefault": Array [
+                  Object {
+                    "disabled": false,
+                    "icon": "talend-pencil",
+                    "id": "edit",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "icon": "talend-trash",
+                    "id": "delete",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                ],
+                "actionsEdit": Array [
+                  Object {
+                    "disabled": true,
+                    "icon": "talend-check",
+                    "id": "validate",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "disabled": false,
+                    "icon": "talend-cross",
+                    "id": "abort",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                ],
+                "getItemHeight": [Function],
+                "key": "values",
+                "onAbortItem": [Function],
+                "onChangeItem": [Function],
+                "onLoadData": [Function],
+                "onSelectItem": [Function],
+                "onSubmitItem": [Function],
+              }
+            }
+            onAddKeyDown={[Function]}
+            onInputChange={[Function]}
+            required={false}
+            setFormData={[Function]}
+          >
+            <Header
+              headerDefault={
+                Array [
+                  Object {
+                    "disabled": false,
+                    "icon": "talend-search",
+                    "id": "search",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "icon": "talend-plus",
+                    "id": "add",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                ]
+              }
+              required={false}
+            >
+              <header
+                className="undefined tc-enumeration-header"
+              >
+                <span>
+                  Values
+                </span>
+                <div
+                  className="actions"
+                >
+                  <Action
+                    available={true}
+                    bsStyle="default"
+                    btooltipPlacement="bottom"
+                    disabled={false}
+                    hideLabel={true}
+                    icon="talend-search"
+                    inProgress={false}
+                    link={true}
+                    onClick={[Function]}
+                    tooltipPlacement="top"
+                  >
+                    <TooltipTrigger
+                      tooltipPlacement="top"
+                    >
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        disabled={false}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseOver={[Function]}
+                        role="link"
+                      >
+                        <button
+                          className="btn btn-link"
+                          disabled={false}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseOver={[Function]}
+                          role="link"
+                          type="button"
+                        >
+                          <Icon
+                            name="talend-search"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="tc-svg-icon"
+                              focusable="false"
+                              title={null}
+                            >
+                              <use
+                                xlinkHref="#talend-search"
+                              />
+                            </svg>
+                          </Icon>
+                        </button>
+                      </Button>
+                    </TooltipTrigger>
+                  </Action>
+                  <Action
+                    available={true}
+                    bsStyle="default"
+                    btooltipPlacement="bottom"
+                    disabled={false}
+                    hideLabel={true}
+                    icon="talend-plus"
+                    inProgress={false}
+                    link={true}
+                    onClick={[Function]}
+                    tooltipPlacement="top"
+                  >
+                    <TooltipTrigger
+                      tooltipPlacement="top"
+                    >
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        disabled={false}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseOver={[Function]}
+                        role="link"
+                      >
+                        <button
+                          className="btn btn-link"
+                          disabled={false}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseOver={[Function]}
+                          role="link"
+                          type="button"
+                        >
+                          <Icon
+                            name="talend-plus"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="tc-svg-icon"
+                              focusable="false"
+                              title={null}
+                            >
+                              <use
+                                xlinkHref="#talend-plus"
+                              />
+                            </svg>
+                          </Icon>
+                        </button>
+                      </Button>
+                    </TooltipTrigger>
+                  </Action>
+                </div>
+              </header>
+            </Header>
+          </HeaderEnumeration>
+          <ItemsEnumeration
+            displayMode="DISPLAY_MODE_DEFAULT"
+            headerDefault={
+              Array [
+                Object {
+                  "disabled": false,
+                  "icon": "talend-search",
+                  "id": "search",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-plus",
+                  "id": "add",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            headerInput={
+              Array [
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check-plus",
+                  "id": "validate-and-add",
+                  "key": "validateAdd",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "disabled": true,
+                  "icon": "talend-check",
+                  "id": "validate",
+                  "key": "validate",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-cross",
+                  "id": "abort",
+                  "key": "abort",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            headerSelected={
+              Array [
+                Object {
+                  "icon": "talend-trash",
+                  "id": "delete",
+                  "label": undefined,
+                  "onClick": [Function],
+                },
+              ]
+            }
+            inputRef={[Function]}
+            items={Array []}
+            itemsProp={
+              Object {
+                "actionsDefault": Array [
+                  Object {
+                    "disabled": false,
+                    "icon": "talend-pencil",
+                    "id": "edit",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "icon": "talend-trash",
+                    "id": "delete",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                ],
+                "actionsEdit": Array [
+                  Object {
+                    "disabled": true,
+                    "icon": "talend-check",
+                    "id": "validate",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                  Object {
+                    "disabled": false,
+                    "icon": "talend-cross",
+                    "id": "abort",
+                    "label": undefined,
+                    "onClick": [Function],
+                  },
+                ],
+                "getItemHeight": [Function],
+                "key": "values",
+                "onAbortItem": [Function],
+                "onChangeItem": [Function],
+                "onLoadData": [Function],
+                "onSelectItem": [Function],
+                "onSubmitItem": [Function],
+              }
+            }
+            onAddKeyDown={[Function]}
+            onInputChange={[Function]}
+            required={false}
+            setFormData={[Function]}
+          >
+            <EmptyListPlaceholder
+              displayMode="DISPLAY_MODE_DEFAULT"
+            >
+              <p
+                className="undefined tc-enumeration-hint"
+              >
+                The list is empty
+              </p>
+            </EmptyListPlaceholder>
+          </ItemsEnumeration>
+        </div>
+      </Enumeration>
+    </div>
+  </EnumerationForm>
+</Translate(EnumerationForm)>
+`;
+
 exports[`EnumerationWidget upload file should add a upload icon 1`] = `
 <EnumerationForm
   schema={

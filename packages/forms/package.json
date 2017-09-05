@@ -61,7 +61,7 @@
     "uuid": "3.0.1",
     "webpack": "^1.14.0",
     "react-i18next": "^4.3.0",
-    "i18next": "^8.4.3"
+    "i18next": "^9.0.0"
   },
   "dependencies": {
     "classnames": "2.2.5",
@@ -76,7 +76,7 @@
     "react": "15.5.4",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
-    "i18next": "^8.4.3",
+    "i18next": "^9.0.0",
     "react-i18next": "^4.3.0",
     "react-redux": "v5.0.5",
     "react-talend-components": "^0.105.0",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
+import TranslatedEnumeation, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -11,6 +11,11 @@ jest.mock(
 );
 
 describe('EnumerationWidget', () => {
+	it('should wrapped in Translate component', () => {
+		const wrapper = mount(<TranslatedEnumeation />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	it('should be in default mode', () => {
 		// given
 		const wrapper = mount(<EnumerationWidget />);

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
 import i18n from 'i18next';
+import { translate } from 'react-i18next';
 
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
@@ -138,11 +138,12 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-export function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
+function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
 	);
+
 	return (
 		<div className={classnames}>
 			<ListToolbar
@@ -173,4 +174,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(I18N_DOMAIN, { i18n })(List);
+export default translate(I18N_DOMAIN, { i18n: i18n.init() })(List);

@@ -100,7 +100,7 @@
     "talend-icons": "^0.105.0",
     "uuid": "3.0.1",
     "webpack": "^1.14.0",
-    "i18next": "^8.4.2",
+    "i18next": "^9.0.0",
     "react-i18next": "^4.3.0"
   },
   "jest": {
@@ -132,7 +132,7 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
-    "i18next": "^8.4.2",
+    "i18next": "^9.0.0",
     "react-i18next": "^4.3.0",
     "talend-icons": "^0.105.0",
     "uuid": "3.0.1"
