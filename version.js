@@ -242,12 +242,5 @@ files.forEach((ppath) => {
 	if (packageJSON.modified || program.force) {
 		delete packageJSON.modified;
 		save(ppath, JSON.stringify(packageJSON, null, 2) + '\n');
-		// const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
-		// if (fs.existsSync(yarnLock)) {
-		// 	if (!program.quite) {
-		// 		console.log(`delete ${yarnLock}`);
-		// 	}
-		// 	fs.unlink(yarnLock);
-		// }
 	}
 });
