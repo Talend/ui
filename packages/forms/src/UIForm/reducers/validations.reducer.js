@@ -1,5 +1,4 @@
-import { TF_UPDATE_FORM_DATA, TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from '../actions';
-import { omit } from '../utils/properties';
+import { TF_SET_ALL_ERRORS, TF_SET_PARTIAL_ERROR } from '../actions';
 
 /**
  * Form validations reducer
@@ -8,16 +7,6 @@ import { omit } from '../utils/properties';
  */
 export default function validations(state = {}, action) {
 	switch (action.type) {
-	case TF_UPDATE_FORM_DATA: {
-		const { schema, error } = action;
-		if (error) {
-			return {
-				...state,
-				[schema.key]: error,
-			};
-		}
-		return omit(state, schema.key.toString());
-	}
 	case TF_SET_PARTIAL_ERROR: {
 		if (Object.keys(action.errors).length === 0) {
 			return state;

@@ -26,6 +26,7 @@ describe('RadioOrSelect field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -52,6 +53,7 @@ describe('RadioOrSelect field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={moreThan2OptionsSchema}
 				value={'lol'}
 			/>

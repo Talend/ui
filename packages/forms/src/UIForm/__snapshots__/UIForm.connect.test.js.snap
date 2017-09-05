@@ -2,7 +2,6 @@
 
 exports[`UIForm connect #onChange should update state properties and errors 1`] = `
 Object {
-  "error": "String is too short (4 chars), minimum 10",
   "formName": "myFormName",
   "schema": Object {
     "autoFocus": true,
