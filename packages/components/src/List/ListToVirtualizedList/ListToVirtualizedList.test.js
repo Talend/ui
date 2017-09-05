@@ -68,6 +68,19 @@ describe('ListToVirtualizedList', () => {
 		});
 	});
 
+	it('should NOT add actionsKey without titleProps', () => {
+		// when
+		const wrapper = shallow(<ListToVirtualizedList {...props} titleProps={undefined} />);
+
+		// then
+		wrapper.find(VirtualizedList.Content).forEach((element) => {
+			const eProps = element.props();
+			if (eProps.columnData) {
+				expect(eProps.columnData.actionsKey).toBe('actions');
+			}
+		});
+	});
+
 	it('should find supposedActions based on items', () => {
 		// when
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
