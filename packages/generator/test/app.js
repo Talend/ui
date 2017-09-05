@@ -16,8 +16,8 @@ describe('talend:app', function () {
 			.withOptions({})
 			.withPrompts({
 				name: 'helloapp',
-			})
-	})
+			});
+	});
 
 	describe('default settings', function () {
 		beforeEach(function onDone(done) {
