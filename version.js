@@ -24,6 +24,7 @@ const ADDONS = {
 	'immutablediff': '0.4.4',
 	'normalize.css': '5.0.0',
 	'path-to-regexp': '1.7.0',
+	'prettier': '1.6.1',
 	'redux-batched-subscribe': '0.1.6',
 	'redux-undo': '0.6.1',
 	'redux-saga': '0.15.4',
