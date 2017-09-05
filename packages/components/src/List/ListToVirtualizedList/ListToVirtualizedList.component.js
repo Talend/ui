@@ -52,7 +52,7 @@ function ListToVirtualizedList(props) {
 					label: column.label,
 					dataKey: column.key,
 				};
-				if (column.key === titleProps.key) {
+				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
