@@ -62,10 +62,9 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 		const value = [...this.props.value, defaultValue];
 
-		this.props.onChange(
-			event,
-			{ schema: arrayMergedSchema, value }
-		);
+		const payload = { schema: arrayMergedSchema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload);
 	}
 
 	onRemove(event, indexToRemove) {
@@ -86,11 +85,9 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		return this.props.onChange(
-			event,
-			{ schema, value },
-			{ widgetChangeErrors }
-		);
+		const payload = { schema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
 	onReorder(event, { previousIndex, nextIndex }) {
@@ -119,11 +116,9 @@ export default class ArrayWidget extends React.Component {
 			);
 		}
 
-		return this.props.onChange(
-			event,
-			{ schema, value },
-			{ widgetChangeErrors }
-		);
+		const payload = { schema, value };
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
 	render() {
@@ -183,6 +178,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,
 	};

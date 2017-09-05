@@ -30,6 +30,7 @@ describe('Datalist component', () => {
 				isValid
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -47,6 +48,7 @@ describe('Datalist component', () => {
 				isValid
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -62,12 +64,14 @@ describe('Datalist component', () => {
 	it('should reset suggestions and change value on blur', () => {
 		// given
 		const onChange = jest.fn();
+		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
 				onChange={onChange}
+				onFinish={onFinish}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -80,19 +84,21 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: 'fo' });
+		const payload = { schema, value: 'fo' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
 	it('should update suggestions based on value on focus', () => {
 		// given
-		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
-				onChange={onChange}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -111,13 +117,13 @@ describe('Datalist component', () => {
 
 	it('should reset previous value on ESC keydown', () => {
 		// given
-		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
-				onChange={onChange}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -135,13 +141,13 @@ describe('Datalist component', () => {
 
 	it('should display all suggestions on DOWN keydown when there are no suggestions yet', () => {
 		// given
-		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
-				onChange={onChange}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -158,12 +164,14 @@ describe('Datalist component', () => {
 	it('should change value on ENTER keydown with no selected suggestion', () => {
 		// given
 		const onChange = jest.fn();
+		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
 				onChange={onChange}
+				onFinish={onFinish}
 				schema={schema}
 				value={'foo'}
 			/>
@@ -176,18 +184,20 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: 'fo' });
+		const payload = { schema, value: 'fo' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
 		// given
-		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
 				isValid
 				errorMessage={'This should be correct'}
-				onChange={onChange}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
 			/>

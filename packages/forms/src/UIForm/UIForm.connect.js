@@ -53,8 +53,7 @@ class UIForm extends React.PureComponent {
 		this.props.updateFormData(
 			payload.formName,
 			payload.schema,
-			payload.value,
-			payload.error
+			payload.value
 		);
 		if (this.props.onChange) {
 			this.props.onChange(event, payload);
@@ -123,9 +122,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		onChange: PropTypes.func,
 		/**
-		 * Tigger callback.
-		 * Prototype: function onTrigger(event, { type, schema, value, properties })
-		 * This is executed on changes on fields with uiSchema > triggers : ['after']
+		 * Trigger callback.
+		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
 		/** Custom widgets */

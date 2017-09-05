@@ -4787,51 +4787,26 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 className="tc-enumeration-item"
                                 id="0-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi,tata"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi,tata"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi,tata
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi,tata
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -5648,51 +5623,26 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 className="undefined tc-enumeration-item selected-item"
                                 id="0-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi,tata"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi,tata"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi,tata
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi,tata
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -6618,51 +6568,26 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 className="undefined tc-enumeration-item selected-item"
                                 id="0-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi,tata"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi,tata"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi,tata
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi,tata
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -6853,51 +6778,26 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 className="undefined tc-enumeration-item selected-item"
                                 id="1-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi2,tata2"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi2,tata2"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi2,tata2
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi2,tata2
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -9147,51 +9047,26 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 className="tc-enumeration-item"
                                 id="0-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi,tata"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi,tata"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi,tata
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi,tata
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -9380,51 +9255,26 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 className="tc-enumeration-item"
                                 id="1-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi2,tata2"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi2,tata2"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi2,tata2
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi2,tata2
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -10738,51 +10588,26 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 className="tc-enumeration-item"
                                 id="0-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi,tata"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi,tata"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi,tata
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi,tata
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
@@ -10971,51 +10796,26 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 className="tc-enumeration-item"
                                 id="1-item"
                               >
-                                <Action
-                                  available={true}
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
                                   bsStyle="default"
                                   className="undefined tc-enumeration-item-label"
                                   disabled={false}
-                                  inProgress={false}
-                                  label="titi2,tata2"
                                   onClick={[Function]}
-                                  tooltip={true}
-                                  tooltipPlacement="top"
                                 >
-                                  <TooltipTrigger
-                                    label="titi2,tata2"
-                                    tooltipPlacement="top"
+                                  <button
+                                    className="undefined tc-enumeration-item-label btn btn-default"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="default"
-                                      className="undefined tc-enumeration-item-label"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onMouseDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role={null}
-                                    >
-                                      <button
-                                        className="undefined tc-enumeration-item-label btn btn-default"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role={null}
-                                        type="button"
-                                      >
-                                        <span>
-                                          titi2,tata2
-                                        </span>
-                                      </button>
-                                    </Button>
-                                  </TooltipTrigger>
-                                </Action>
+                                    <span>
+                                      titi2,tata2
+                                    </span>
+                                  </button>
+                                </Button>
                                 <div
                                   className="undefined tc-enumeration-item-actions"
                                 >
