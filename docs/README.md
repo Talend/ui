@@ -11,6 +11,8 @@ To contribute on this, you need to install [Jekyll](https://jekyllrb.com/).
 jekyll serve
 ```
 
+The app is served on [http://localhost:4000/ui/](http://localhost:4000/ui/) 
+
 For more advanced commands, see the official [documentation](https://jekyllrb.com/docs/usage/)
 
 ### Add a post
