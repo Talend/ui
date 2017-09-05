@@ -35,10 +35,10 @@ const ADDONS = {
 	'react-tap-event-plugin': '2.0.0',
 	'react-virtualized': '9.3.0',
 	'slugify': '1.1.0',
-	'whatwg-fetch': '1.0.0',
+	'whatwg-fetch': '2.0.3',
 };
 
-const VERSIONS = {
+const VERSIONS = Object.assign({}, ADDONS, {
 	// deps
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
@@ -110,7 +110,7 @@ const VERSIONS = {
 	'url-loader': '0.5.8',
 	'webpack-bundle-analyzer': '2.8.2',
 	'webpack-dashboard': '0.4.0',
-};
+});
 
 const WEBPACK_2_VERSIONS = {
 	'extract-text-webpack-plugin': '2.1.0',
@@ -241,12 +241,12 @@ files.forEach((ppath) => {
 	if (packageJSON.modified || program.force) {
 		delete packageJSON.modified;
 		save(ppath, JSON.stringify(packageJSON, null, 2) + '\n');
-		const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
-		if (fs.existsSync(yarnLock)) {
-			if (!program.quite) {
-				console.log(`delete ${yarnLock}`);
-			}
-			//fs.unlink(yarnLock);
-		}
+		// const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
+		// if (fs.existsSync(yarnLock)) {
+		// 	if (!program.quite) {
+		// 		console.log(`delete ${yarnLock}`);
+		// 	}
+		// 	fs.unlink(yarnLock);
+		// }
 	}
 });

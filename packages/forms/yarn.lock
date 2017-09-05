@@ -5706,7 +5706,7 @@ react-addons-test-utils@15.5.1:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-autowhatever@^7.0.0:
+react-autowhatever@7.0.0, react-autowhatever@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-7.0.0.tgz#7ea19f8024183acf1568fc8e4b76c0d0cc250d00"
   dependencies:
@@ -5810,7 +5810,7 @@ react-inspector@^2.1.1:
     babel-runtime "^6.23.0"
     is-dom "^1.0.9"
 
-react-jsonschema-form@^0.42.0:
+react-jsonschema-form@0.42.0:
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/react-jsonschema-form/-/react-jsonschema-form-0.42.0.tgz#61999e94523fb316cc9f8171de2351e3c6938485"
   dependencies:

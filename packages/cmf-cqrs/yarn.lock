@@ -3134,9 +3134,9 @@ react-addons-test-utils@15.5.1:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-cmf@^0.99.0:
-  version "0.99.0"
-  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.99.0.tgz#b8145838a7bc3ffe428143dcba5c97415b9f0979"
+react-cmf@^0.106.0:
+  version "0.106.0"
+  resolved "https://registry.yarnpkg.com/react-cmf/-/react-cmf-0.106.0.tgz#b5dea7cbd7500e1cdff9f4c4d89427d34e1882d7"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 

@@ -59,6 +59,6 @@
   "version": "0.106.0",
   "dependencies": {
     "tracekit": "^0.4.4",
-    "whatwg-fetch": "^2.0.2"
+    "whatwg-fetch": "2.0.3"
   }
 }
