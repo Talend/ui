@@ -23,7 +23,7 @@ function ListToVirtualizedList(props) {
 		titleProps,
 	} = props;
 
-	if (!titleProps.actionsKey) {
+	if (titleProps && !titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
 	// Backward compatibility: find array in object attr:
@@ -52,7 +52,7 @@ function ListToVirtualizedList(props) {
 					label: column.label,
 					dataKey: column.key,
 				};
-				if (column.key === titleProps.key) {
+				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
