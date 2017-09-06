@@ -5,7 +5,7 @@ i18n
 	.init({
 		resources: {
 			fr: {
-				[I18N_DOMAIN]: {
+				[I18N_DOMAIN_COMPONENTS]: {
 					LIST_TOOLBAR_DISPLAY: 'Affichage :',
 					LIST_TOOLBAR_SORT_BY: 'Trier par :',
 					LIST_TOOLBAR_PAGINATION_SHOW: 'Nombre :',

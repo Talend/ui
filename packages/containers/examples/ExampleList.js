@@ -77,10 +77,6 @@ const items = Immutable.fromJS([
 	},
 ]);
 
-function changeLanguage(language) {
-	i18n.changeLanguage(language);
-}
-
 const ExampleList = {
 	default: () => (
 		<div>
@@ -110,8 +106,8 @@ const ExampleList = {
 		<I18nextProvider i18n={i18n}>
 			<div>
 				<p>Change language on the toolbar</p>
-				<button onClick={() => changeLanguage('fr')}>fr</button>
-				<button onClick={() => changeLanguage('it')}>it</button>
+				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button onClick={() => i18n.changeLanguage('it')}>it</button>
 				<IconsProvider />
 				<div className="list-container">
 					<List {...props} items={items} virtualized />

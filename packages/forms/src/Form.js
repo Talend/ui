@@ -212,7 +212,5 @@ Form.defaultProps = {
 
 Form.displayName = 'TalendForm';
 
-export {
-	I18N_DOMAIN_FORMS,
-};
+export { I18N_DOMAIN_FORMS };
 export default Form;

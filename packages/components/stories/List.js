@@ -323,10 +323,6 @@ function getActionsProps() {
 	return columnActionsProps;
 }
 
-function changeLanguage(language) {
-	i18n.changeLanguage(language);
-}
-
 storiesOf('List', module)
 	.add('Tile', () => {
 		const tprops = {
@@ -567,8 +563,8 @@ storiesOf('List', module)
 		<div>
 			<h1>List with i18n</h1>
 			<p>Change language in the toolbar</p>
-			<button onClick={() => changeLanguage('fr')}>fr</button>
-			<button onClick={() => changeLanguage('it')}>it</button>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
 			<IconsProvider defaultIcons={icons} />
 			<I18nextProvider i18n={i18n}>
 				<List {...props} virtualized />

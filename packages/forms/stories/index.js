@@ -17,10 +17,6 @@ import DatalistWidget from '../src/widgets/DatalistWidget';
 import createCollapsibleFieldset from '../src/fields/CollapsibleFieldset';
 import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
-function changeLanguage(language) {
-	i18n.changeLanguage(language);
-}
-
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
@@ -42,7 +38,7 @@ const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 
-sampleFilenames.keys().forEach(filename => {
+sampleFilenames.keys().forEach((filename) => {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
@@ -63,8 +59,8 @@ sampleFilenames.keys().forEach(filename => {
 decoratedStories.add('enumeration i18n', () =>
 	<I18nextProvider i18n={i18n}>
 		<section>
-			<button onClick={() => changeLanguage('fr')}>fr</button>
-			<button onClick={() => changeLanguage('it')}>it</button>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
 			<IconsProvider />
 			<Form
 				autocomplete="off"
@@ -307,7 +303,7 @@ decoratedStories.add('Datalist in modal', () => {
 	);
 });
 
-const UnknownWidget = props => {
+const UnknownWidget = (props) => {
 	const { value } = props;
 
 	return (
@@ -358,11 +354,11 @@ decoratedStories.add('Custom widget', () => {
 
 class FormDemo extends React.Component {
 	static fields = {
-		CollapsibleFieldset: createCollapsibleFieldset(formData => {
+		CollapsibleFieldset: createCollapsibleFieldset((formData) => {
 			if (formData.function) {
 				return (
 					<span>
-						{Object.keys(formData).reduce((acc, item, index) => {
+						{Object.keys(formData).reduce((acc, item) => {
 							if (item !== 'isClosed') {
 								return `${acc}${formData[item]} `;
 							}
