@@ -74,7 +74,7 @@
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",
-    "react-talend-components": "^0.106.0",
+    "react-talend-components": "^0.107.0",
     "redux": "3.6.0"
   },
   "scripts": {
