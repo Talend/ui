@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && ./copylibs.js",
-    "update-versions": "./version.js",
+    "update-versions": "./version.js && lerna exec -- yarn && ./copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
