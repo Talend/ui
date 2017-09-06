@@ -794,7 +794,5 @@ EnumerationForm.defaultProps = {
 	t: defaultTranslateFn,
 };
 
-export {
-	EnumerationForm,
-};
-export default translate(I18N_DOMAIN_FORMS, { i18n })(EnumerationForm);
+export { EnumerationForm };
+export default translate(I18N_DOMAIN_FORMS, { i18n: i18n.init() })(EnumerationForm);

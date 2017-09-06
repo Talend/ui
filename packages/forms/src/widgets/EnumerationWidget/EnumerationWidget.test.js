@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import TranslatedEnumeation, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
+import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -12,7 +12,7 @@ jest.mock(
 
 describe('EnumerationWidget', () => {
 	it('should wrapped in Translate component', () => {
-		const wrapper = mount(<TranslatedEnumeation />);
+		const wrapper = mount(<TranslatedEnumeration />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -107,7 +107,6 @@ describe('EnumerationWidget', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
-
 
 	it('should select multiple  items', () => {
 		// given
@@ -208,7 +207,6 @@ describe('EnumerationWidget', () => {
 				/>);
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
-
 
 		it('should send a event with a method to simulate the click on the input file', () => {
 			// given
