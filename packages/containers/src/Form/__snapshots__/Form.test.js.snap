@@ -66,35 +66,6 @@ Array [
 ]
 `;
 
-exports[`Container(Form) should use props.onSubmit 1`] = `
-Object {
-  "foo": "bar",
-}
-`;
-
-exports[`Container(Form) should use props.onSubmit 2`] = `
-Array [
-  "myaction",
-  null,
-  Object {
-    "formData": Object {
-      "foo": "bar",
-    },
-    "props": Object {
-      "dispatchActionCreator": [Function],
-      "onSubmit": [Function],
-      "onSubmitActionCreator": "myaction",
-      "setState": [Function],
-      "state": Immutable.Map {
-        data: Immutable.Map {
-                schema: true,
-        },
-},
-    },
-  },
-]
-`;
-
 exports[`Container(Form) should use props.onTrigger 1`] = `
 Array [
   Object {
