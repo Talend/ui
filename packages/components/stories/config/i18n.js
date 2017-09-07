@@ -17,6 +17,8 @@ i18n
 					LIST_SELECT_DISPLAY_MODE_TILE: 'Tuile',
 					LIST_FILTER_TOGGLE: 'Afficher le filtre',
 					LIST_FILTER_REMOVE: 'Supprimer le filtre',
+					ENUMERATION_EMPTY_LIST: 'La liste est vide',
+					ENUMERATION_HEADER_LABEL: 'Valeurs',
 				},
 			},
 			it: {
@@ -32,6 +34,8 @@ i18n
 					LIST_SELECT_DISPLAY_MODE_TILE: 'Piastrella',
 					LIST_FILTER_TOGGLE: 'Ginocchiera filtro',
 					LIST_FILTER_REMOVE: 'Rimuova il filtro',
+					ENUMERATION_EMPTY_LIST: 'L\'elenco è vuoto',
+					ENUMERATION_HEADER_LABEL: 'Valori',
 				},
 			},
 		},

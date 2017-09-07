@@ -34,6 +34,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "i18next": "^9.0.0",
     "invariant": "2.2.2",
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
@@ -49,6 +50,7 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
+    "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
     "react-talend-components": "^0.107.0",
     "react-test-renderer": "15.5.4",
@@ -58,28 +60,28 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "6.0.5",
     "talend-icons": "^0.107.0",
-    "uuid": "3.0.1",
-    "react-i18next": "^5.2.0",
-    "i18next": "^9.0.0"
+    "uuid": "3.0.1"
   },
   "dependencies": {
     "classnames": "2.2.5",
     "keycode": "2.1.9",
+    "lodash": "^4.17.4",
+    "map-obj": "^2.0.0",
     "prop-types": "15.5.10",
     "react-autowhatever": "7.0.0",
     "react-jsonschema-form": "0.42.0",
     "talend-json-schema-form-core": "1.0.2-alpha.2"
   },
   "peerDependencies": {
+    "i18next": "^9.0.0",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.5.4",
+    "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
     "react-talend-components": "^0.107.0",
-    "redux": "3.6.0",
-    "react-i18next": "^5.2.0",
-    "i18next": "^9.0.0"
+    "redux": "3.6.0"
   },
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
