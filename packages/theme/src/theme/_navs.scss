@@ -73,6 +73,7 @@
 	}
 
 	&-tabs {
+		background-color: tint($brand-primary, 90);
 		border: none;
 		font-size: $font-size-small;
 
@@ -80,34 +81,34 @@
 			margin: 0;
 
 			> a,
-			> button {
+			> button,
+			> .btn-link {
 				padding: $padding-normal;
 				letter-spacing: 0.6px;
 				line-height: 1;
 				text-transform: uppercase;
-				color: rgba(1, 1, 1, 0.6);
+				color: tint($black, 40);
 				background: transparent;
 				border: none;
 				outline: none;
 
+				&:hover,
 				&:focus {
-					background: rgba(0, 0, 0, 0.06);
-				}
-
-				&:hover {
-					background: rgba(0, 0, 0, 0.03);
+					background-color: tint($brand-primary, 85);
 				}
 			}
 
 			&.active {
 				> a,
-				> button {
+				> button,
+				> .btn-link {
+					background-color: tint($brand-primary, 75);
 					box-shadow: 0 -2px 0 $brand-primary inset;
+					color: tint($black, 15);
 
-					&,
 					&:focus,
 					&:hover {
-						background: transparent;
+						background-color: tint($brand-primary, 70);
 						border: none;
 					}
 				}
