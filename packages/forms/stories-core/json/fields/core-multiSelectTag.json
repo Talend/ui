@@ -9,6 +9,13 @@
           "type": "string",
           "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
         }
+      },
+      "restrictedtags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+        }
       }
     },
     "required": [
@@ -18,6 +25,14 @@
   "uiSchema": [
     {
       "key": "tags",
+      "description": "This field accepts new items",
+      "restricted": false,
+      "title": "Tags",
+      "widget": "multiSelectTag"
+    },
+    {
+      "key": "restrictedtags",
+      "description": "This field doesn't accept new items",
       "title": "Tags",
       "widget": "multiSelectTag"
     }

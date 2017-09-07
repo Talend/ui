@@ -9,9 +9,8 @@ import FieldTemplate from '../FieldTemplate';
 import theme from './MultiSelectTagWidget.scss';
 
 const INPUT_TEXT_INDENT = 7.5;
-const INPUT_HEIGHT = 32;
-const BADGE_HEIGHT = 24;
-const BADGES_MARGIN_TOP = 7;
+const TAGS_HEIGHT = 28;
+const TAGS_MARGIN_TOP = 5;
 const INPUT_MIN_WIDTH = 135;
 
 function escapeRegexCharacters(str) {
@@ -30,7 +29,7 @@ function getLabel(titleMap, value) {
 function Tags({ onRemoveTag, onTagsMount, readonly, titleMap, value }) {
 	return (
 		<div
-			className={classNames(theme['tags-container'], 'tags-container')}
+			className={classNames(theme.tags, 'tags')}
 			ref={onTagsMount}
 		>
 			{
@@ -65,6 +64,11 @@ export default class MultiSelectTag extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: '' };
+		this.theme = {
+			container: theme.typeahead,
+			itemsContainer: theme['items-container'],
+			itemsList: theme.items,
+		};
 
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
@@ -76,31 +80,24 @@ export default class MultiSelectTag extends React.Component {
 		this.resetSuggestions = this.resetSuggestions.bind(this);
 	}
 
+	componentDidMount() {
+		this.updateSpaces();
+	}
+
+	componentDidUpdate({ value }) {
+		if (!this.input || !this.tags || value === this.props.value) {
+			return;
+		}
+
+		this.updateSpaces();
+	}
+
 	onInputMount(input) {
 		this.input = input;
 	}
 
 	onTagsMount(tags) {
-		if (tags && this.input) {
-			const lastTag = tags.querySelector('div.tc-badge:last-child');
-			if (lastTag) {
-				const paddingLeft = lastTag.offsetLeft + lastTag.offsetWidth + INPUT_TEXT_INDENT;
-				let paddingTop = lastTag.offsetTop - BADGES_MARGIN_TOP;
-				const toNextLine = (this.input.offsetWidth - paddingLeft) < INPUT_MIN_WIDTH;
-				if (toNextLine) {
-					paddingTop += BADGE_HEIGHT;
-					this.input.style.paddingLeft = `${INPUT_TEXT_INDENT}px`;
-				} else {
-					this.input.style.paddingLeft = `${paddingLeft}px`;
-				}
-				this.input.style.paddingTop = `${paddingTop}px`;
-				this.input.style.height = `${parseInt(this.input.style.paddingTop, 10) + INPUT_HEIGHT}px`;
-			} else {
-				this.input.style.paddingLeft = '0px';
-				this.input.style.paddingTop = '0px';
-				this.input.style.height = `${INPUT_HEIGHT}px`;
-			}
-		}
+		this.tags = tags;
 	}
 
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
@@ -147,7 +144,6 @@ export default class MultiSelectTag extends React.Component {
 		this.props.onFinish(event, payload);
 
 		this.updateSuggestions('');
-		this.input.focus();
 	}
 
 	onRemoveTag(event, tagValue) {
@@ -166,19 +162,46 @@ export default class MultiSelectTag extends React.Component {
 		});
 	}
 
-	updateSuggestions(value = '') {
-		let suggestions = this.props.schema.titleMap.map(item => item.value);
-		if (value) {
-			const escapedValue = escapeRegexCharacters(value.trim());
+	updateSpaces() {
+		if (this.props.value.length) {
+			const lastTag = this.tags.querySelector('div.tc-badge:last-child');
+			const paddingLeft = lastTag.offsetLeft + lastTag.offsetWidth + INPUT_TEXT_INDENT;
+			let paddingTop = lastTag.offsetTop - TAGS_MARGIN_TOP;
+			const toNextLine = (this.input.offsetWidth - paddingLeft) < INPUT_MIN_WIDTH;
+			if (toNextLine) {
+				paddingTop += TAGS_HEIGHT;
+				this.input.style.paddingLeft = '0px';
+			} else {
+				this.input.style.paddingLeft = `${paddingLeft}px`;
+			}
+			this.input.style.marginTop = `${paddingTop}px`;
+		} else {
+			this.input.style.paddingLeft = '0px';
+			this.input.style.paddingTop = '0px';
+		}
+	}
+
+	updateSuggestions(value) {
+		const currentValue = value === undefined ? this.state.value : value;
+		let suggestions = this.props.schema.titleMap
+			.map(item => item.value)
+			.filter(item => this.props.value.indexOf(item) < 0);
+
+		if (currentValue) {
+			const escapedValue = escapeRegexCharacters(currentValue.trim());
 			const regex = new RegExp(escapedValue, 'i');
 			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
 
-			if (!suggestions.length) {
-				suggestions.push(getNewItemText(value));
+			if (!suggestions.length && this.props.schema.restricted === false) {
+				suggestions.push(getNewItemText(currentValue));
 			}
 		}
 
-		this.setState({ focusedItemIndex: 0, suggestions, value });
+		this.setState({
+			focusedItemIndex: suggestions.length ? 0 : undefined,
+			suggestions,
+			value: currentValue,
+		});
 	}
 
 	render() {
@@ -192,7 +215,7 @@ export default class MultiSelectTag extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 			>
-				<div className={'lol'}>
+				<div className={theme.wrapper}>
 					<Typeahead
 						id={id}
 						autoFocus={schema.autoFocus || false}
@@ -208,8 +231,12 @@ export default class MultiSelectTag extends React.Component {
 						onSelect={this.onSelectTag}
 						placeholder={schema.placeholder}
 						readOnly={schema.readOnly || false}
+						theme={this.theme}
 						value={this.state.value}
 					/>
+					<div className={theme.caret}>
+						<span className="caret" />
+					</div>
 					<Tags
 						onRemoveTag={this.onRemoveTag}
 						onTagsMount={this.onTagsMount}
@@ -236,6 +263,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(PropTypes.shape({
 				name: PropTypes.string.isRequired,

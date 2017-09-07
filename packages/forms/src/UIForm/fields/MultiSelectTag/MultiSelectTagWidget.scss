@@ -1,43 +1,62 @@
-$input-padding-right : $padding-normal * 2 + $dropdown-caret-size;
+$tf-datalist-items-background-color: $white !default;
+$tf-datalist-items-shadow-color: $shadow !default;
+$tf-typeahead-input-width: 135px !default;
 
-.dropdown {
-	input.form-control {
-		padding-right: $input-padding-right;
-	}
 
-	.tags-container {
-		position: absolute;
-		padding-top: 2px;
-		top: 0;
-		max-width: calc(100% - #{$input-padding-right});
-		pointer-events: none;
-		line-height: 1;
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
 
-		:global(.tc-badge) {
-			pointer-events: auto;
-			line-height: 1.42857;
+	.typeahead {
+		width: 100%;
+
+		> div {
+			width: 100%;
+		}
+
+		.items-container {
+			position: absolute;
+			margin-top: $padding-smaller;
+			top: 100%;
+			right: 0;
+			left: 0;
+			max-height: 70vh;
+			min-width: $tf-typeahead-input-width;
+			font-size: 1.5rem;
+			background-color: $tf-datalist-items-background-color;
+			border-radius: $border-radius-base;
+			box-shadow: 0 1px 3px 0 $tf-datalist-items-shadow-color;
+			overflow-y: auto;
+			z-index: 999;
+		}
+
+		.items {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+
+			> li > div {
+				padding: $padding-smaller;
+			}
 		}
 	}
 
-	.dropdown-toggle {
+	.caret {
 		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		pointer-events: none
+		bottom: $padding-smaller;
+		right: $padding-smaller;
 	}
 
-	.dropdown-menu {
-		max-height: 20rem;
-		overflow-y: auto;
-		max-width: 100%;
+	.tags {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 28px;
+		pointer-events: none;
 
-		li {
-			a[role='menuitem'] {
-				display: block;
-				overflow-x: hidden;
-				text-overflow: ellipsis;
-			}
+		:global(.tc-badge) {
+			pointer-events: auto;
 		}
 	}
 }
