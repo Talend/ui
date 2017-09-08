@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import keycode from 'keycode';
-import Badge from 'react-talend-components/lib/Badge';
 import Typeahead from 'react-talend-components/lib/Typeahead';
 import FieldTemplate from '../FieldTemplate';
+import Tags from './Tags.component';
 
 import theme from './MultiSelectTagWidget.scss';
 
@@ -19,45 +18,6 @@ function escapeRegexCharacters(str) {
 
 function getNewItemText(value) {
 	return `${value} (new)`;
-}
-
-function getLabel(titleMap, value) {
-	const itemConf = titleMap.find(item => item.value === value);
-	return itemConf ? itemConf.name : value;
-}
-
-function Tags({ onRemoveTag, onTagsMount, readonly, titleMap, value }) {
-	return (
-		<div
-			className={classNames(theme.tags, 'tags')}
-			ref={onTagsMount}
-		>
-			{
-				value.map((val, index) => {
-					const label = getLabel(titleMap, val);
-					const badgeProps = { label, key: index };
-					if (!readonly) {
-						badgeProps.onDelete = event => onRemoveTag(event, val);
-					}
-					return (
-						<Badge {...badgeProps} />
-					);
-				})
-			}
-		</div>
-	);
-}
-if (process.env.NODE_ENV !== 'production') {
-	Tags.propTypes = {
-		onRemoveTag: PropTypes.func,
-		onTagsMount: PropTypes.func,
-		readonly: PropTypes.bool,
-		titleMap: PropTypes.arrayOf(PropTypes.shape({
-			name: PropTypes.string,
-			value: PropTypes.string,
-		})).isRequired,
-		value: PropTypes.arrayOf(PropTypes.string).isRequired,
-	};
 }
 
 export default class MultiSelectTag extends React.Component {
@@ -75,31 +35,56 @@ export default class MultiSelectTag extends React.Component {
 		this.onInputMount = this.onInputMount.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onRemoveTag = this.onRemoveTag.bind(this);
-		this.onSelectTag = this.onSelectTag.bind(this);
+		this.onAddTag = this.onAddTag.bind(this);
 		this.onTagsMount = this.onTagsMount.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
 	}
 
+	/**
+	 * Update input spacing on mount
+	 */
 	componentDidMount() {
 		this.updateSpaces();
 	}
 
+	/**
+	 * On Tags value change
+	 * - Update input spacing
+	 * - Update suggestions if they are displayed
+	 * @param value The tags values
+	 */
 	componentDidUpdate({ value }) {
 		if (!this.input || !this.tags || value === this.props.value) {
 			return;
 		}
-
 		this.updateSpaces();
+		if (this.state.suggestions) {
+			this.updateSuggestions();
+		}
 	}
 
+	/**
+	 * Save input ref
+	 * @param input The input ref
+	 */
 	onInputMount(input) {
 		this.input = input;
 	}
 
+	/**
+	 * Save tags list ref
+	 * @param tags The tags list ref
+	 */
 	onTagsMount(tags) {
 		this.tags = tags;
 	}
 
+	/**
+	 * Manage suggestion selection
+	 * @param event
+	 * @param focusedItemIndex
+	 * @param newFocusedItemIndex
+	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
 		case keycode.codes.enter:
@@ -107,9 +92,9 @@ export default class MultiSelectTag extends React.Component {
 				break;
 			}
 			event.preventDefault();
+			// suggestions are displayed and an item has the focus : we select it
 			if (Number.isInteger(focusedItemIndex)) {
-				// suggestions are displayed and an item has the focus : we select it
-				this.onSelectTag(event, { itemIndex: focusedItemIndex });
+				this.onAddTag(event, { itemIndex: focusedItemIndex });
 			}
 			break;
 		case keycode.codes.down:
@@ -122,15 +107,28 @@ export default class MultiSelectTag extends React.Component {
 		}
 	}
 
+	/**
+	 * Update suggestions on input value change
+	 * @param event The input change event
+	 * @param value The new input value
+	 */
 	onChange(event, { value }) {
 		this.updateSuggestions(value);
 	}
 
+	/**
+	 * Update suggestions on input focus
+	 */
 	onFocus() {
 		this.updateSuggestions();
 	}
 
-	onSelectTag(event, { itemIndex }) {
+	/**
+	 * Add a new tag
+	 * @param event The user event
+	 * @param itemIndex The selected suggestion index
+	 */
+	onAddTag(event, { itemIndex }) {
 		const currentValue = this.state.value;
 		const selectedOption = this.state.suggestions[itemIndex];
 		const isCreation = getNewItemText(currentValue) === selectedOption;
@@ -142,19 +140,25 @@ export default class MultiSelectTag extends React.Component {
 		};
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
-
 		this.updateSuggestions('');
 	}
 
-	onRemoveTag(event, tagValue) {
-		const payload = {
-			schema: this.props.schema,
-			value: this.props.value.filter(val => val !== tagValue),
-		};
+	/**
+	 * Remove a tag
+	 * @param event The user event
+	 * @param itemIndex The tag index
+	 */
+	onRemoveTag(event, itemIndex) {
+		const value = this.props.value.slice(0);
+		value.splice(itemIndex, 1);
+		const payload = { schema: this.props.schema, value };
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 	}
 
+	/**
+	 * Remove all suggestions
+	 */
 	resetSuggestions() {
 		this.setState({
 			suggestions: undefined,
@@ -162,6 +166,9 @@ export default class MultiSelectTag extends React.Component {
 		});
 	}
 
+	/**
+	 * Add spaces on input to place it after the tags
+	 */
 	updateSpaces() {
 		if (this.props.value.length) {
 			const lastTag = this.tags.querySelector('div.tc-badge:last-child');
@@ -181,6 +188,12 @@ export default class MultiSelectTag extends React.Component {
 		}
 	}
 
+	/**
+	 * Update suggestions
+	 * - remove current tags values
+	 * - filter based on input value
+	 * @param value The new input value. Undefined if we should use the current input value.
+	 */
 	updateSuggestions(value) {
 		const currentValue = value === undefined ? this.state.value : value;
 		let suggestions = this.props.schema.titleMap
@@ -228,7 +241,7 @@ export default class MultiSelectTag extends React.Component {
 						onFocus={this.onFocus}
 						inputRef={this.onInputMount}
 						onKeyDown={this.onKeyDown}
-						onSelect={this.onSelectTag}
+						onSelect={this.onAddTag}
 						placeholder={schema.placeholder}
 						readOnly={schema.readOnly || false}
 						theme={this.theme}
