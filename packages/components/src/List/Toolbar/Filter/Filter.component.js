@@ -6,6 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
 
+import defaultTranslateFn from '../../../translate';
 import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
 import theme from './Filter.scss';
@@ -96,6 +97,7 @@ function Filter(props) {
 		onToggle,
 		placeholder,
 		value,
+		t,
 	} = props;
 	if (docked) {
 		return (
@@ -103,7 +105,7 @@ function Filter(props) {
 				id={id}
 				className="navbar-right"
 				onClick={onToggle}
-				label="Toggle filter"
+				label={t('LIST_FILTER_TOGGLE', { defaultValue: 'Toggle filter' })}
 				hideLabel
 				icon="talend-search"
 				bsStyle="link"
@@ -146,7 +148,7 @@ function Filter(props) {
 					id={id && `${id}-cross-icon`}
 					bsStyle="link"
 					icon="talend-cross"
-					label="Remove filter"
+					label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 					hideLabel
 					onClick={onToggle}
 				/>
@@ -167,11 +169,13 @@ Filter.propTypes = {
 	highlight: PropTypes.bool,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
+	t: PropTypes.func.isRequired,
 };
 
 Filter.defaultProps = {
 	docked: true,
 	placeholder: 'Filter',
+	t: defaultTranslateFn,
 };
 
 export default Filter;

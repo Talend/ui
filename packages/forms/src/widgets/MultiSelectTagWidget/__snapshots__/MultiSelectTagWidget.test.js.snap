@@ -23,10 +23,9 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
   <div
     className="tags-container"
   >
-    <Badge
+    <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid"
     />
   </div>
   <DropDownOptions
@@ -72,10 +71,9 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
   <div
     className="tags-container"
   >
-    <Badge
+    <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid"
     />
   </div>
 </div>
@@ -104,10 +102,9 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   <div
     className="tags-container"
   >
-    <Badge
+    <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
-      tcStyle="solid"
     />
   </div>
   <DropDownOptions
