@@ -5,8 +5,6 @@ import Enumeration from 'react-talend-components/lib/Enumeration';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import i18n from 'i18next';
-import { merge } from 'lodash';
-import mapObject from 'map-obj';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import I18N_DOMAIN_FORMS from '../../constants';
@@ -67,8 +65,6 @@ class EnumerationForm extends React.Component {
 		this.addInputs = [{
 			disabled: true,
 			label: t('ENUMERATION_WIDGET_VALIDATE_AND_ADD', { defaultValue: 'Validate and Add' }),
-			i18n: 'ENUMERATION_WIDGET_VALIDATE_AND_ADD',
-			defaultValue: 'Validate and Add',
 			icon: 'talend-check-plus',
 			id: 'validate-and-add',
 			key: 'validateAdd',
@@ -76,16 +72,12 @@ class EnumerationForm extends React.Component {
 		}, {
 			disabled: true,
 			label: t('ENUMERATION_WIDGET_VALIDATE', { defaultValue: 'Validate' }),
-			i18n: 'ENUMERATION_WIDGET_VALIDATE',
-			defaultValue: 'Validate',
 			icon: 'talend-check',
 			id: 'validate',
 			key: 'validate',
 			onClick: this.onAddHandler.bind(this),
 		}, {
 			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
-			i18n: 'ENUMERATION_WIDGET_ABORT',
-			defaultValue: 'Abort',
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
@@ -93,8 +85,6 @@ class EnumerationForm extends React.Component {
 		}];
 		this.searchInputsActions = [{
 			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
-			i18n: 'ENUMERATION_WIDGET_ABORT',
-			defaultValue: 'Abort',
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
@@ -102,8 +92,6 @@ class EnumerationForm extends React.Component {
 		}];
 		this.loadingInputsActions = [{
 			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Loading' }),
-			i18n: 'ENUMERATION_WIDGET_LOADING',
-			defaultValue: 'Loading',
 			icon: 'talend-cross',
 			inProgress: true,
 			id: 'loading',
@@ -111,16 +99,12 @@ class EnumerationForm extends React.Component {
 		this.itemEditActions = [{
 			disabled: true,
 			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Validate' }),
-			i18n: 'ENUMERATION_WIDGET_LOADING',
-			defaultValue: 'Validate',
 			icon: 'talend-check',
 			id: 'validate',
 			onClick: this.onSubmitItem.bind(this),
 		}, {
 			disabled: false,
 			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
-			i18n: 'ENUMERATION_WIDGET_ABORT',
-			defaultValue: 'Abort',
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: this.onAbortItem.bind(this),
@@ -128,15 +112,11 @@ class EnumerationForm extends React.Component {
 		this.defaultActions = [{
 			disabled: false,
 			label: t('ENUMERATION_WIDGET_EDIT', { defaultValue: 'Edit' }),
-			i18n: 'ENUMERATION_WIDGET_EDIT',
-			defaultValue: 'Edit',
 			icon: 'talend-pencil',
 			id: 'edit',
 			onClick: this.onEnterEditModeItem.bind(this),
 		}, {
 			label: t('ENUMERATION_WIDGET_REMOVE_VALUE', { defaultValue: 'Remove value' }),
-			i18n: 'ENUMERATION_WIDGET_REMOVE_VALUE',
-			defaultValue: 'Remove value',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItem.bind(this),
@@ -144,8 +124,6 @@ class EnumerationForm extends React.Component {
 		this.defaultHeaderActions = [{
 			disabled: false,
 			label: t('ENUMERATION_WIDGET_SEARCH_VALUES', { defaultValue: 'Search for specific values' }),
-			i18n: 'ENUMERATION_WIDGET_SEARCH_VALUES',
-			defaultValue: 'Search for specific values',
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
@@ -154,22 +132,16 @@ class EnumerationForm extends React.Component {
 		if (this.allowImport) {
 			this.defaultHeaderActions.push({
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', { defaultValue: 'Import values from a file' }),
-				i18n: 'ENUMERATION_WIDGET_IMPORT_FROM_FILE',
-				defaultValue: 'Import values from a file',
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
 				displayMode: 'dropdown',
 				items: [{
 					label: t('ENUMERATION_WIDGET_ADD_FROM_FILE', { defaultValue: 'Add values from a file' }),
-					i18n: 'ENUMERATION_WIDGET_ADD_FROM_FILE',
-					defaultValue: 'Add values from a file',
 					id: 'append-uploding',
 					onClick: this.onImportAppendClick.bind(this),
 				}, {
 					label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', { defaultValue: 'Overwrite existing values' }),
-					i18n: 'ENUMERATION_WIDGET_OVERWRITE_VALUES',
-					defaultValue: 'Overwrite existing values',
 					id: 'append-uploding',
 					onClick: this.onImportOverwriteClick.bind(this),
 				}],
@@ -178,8 +150,6 @@ class EnumerationForm extends React.Component {
 
 		this.defaultHeaderActions.push({
 			label: t('ENUMERATION_WIDGET_ADD_ITEM', { defaultValue: 'Add item' }),
-			i18n: 'ENUMERATION_WIDGET_ADD_ITEM',
-			defaultValue: 'Add item',
 			icon: 'talend-plus',
 			id: 'add',
 			onClick: this.changeDisplayToAddMode.bind(this),
@@ -187,8 +157,6 @@ class EnumerationForm extends React.Component {
 
 		this.selectedHeaderActions = [{
 			label: t('ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES', { defaultValue: 'Remove selected values' }),
-			i18n: 'ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES',
-			defaultValue: 'Remove selected values',
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItems.bind(this),
@@ -229,9 +197,6 @@ class EnumerationForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ items: nextProps.formData });
-		if (nextProps.i18nLoadedAt && nextProps.i18nLoadedAt !== this.props.i18nLoadedAt) {
-			this.setState(this.updateI18nLabels);
-		}
 	}
 
 	onImportAppendClick() {
@@ -645,19 +610,6 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
-	updateI18nLabels(state) {
-		const translateFn = this.props.t;
-		// mapObject transforms the property i18n to a translated label
-		// merge to avoid to lose the i18n key for the next update
-		return merge(state, mapObject(state, (key, value, source) => {
-			if (source.defaultValue && key === 'i18n') {
-				return ['label', translateFn(value, source.defaultValue)];
-			}
-
-			return [key, value];
-		}, { deep: true }));
-	}
-
 	itemSubmitHandler() {
 		this.setState(prevState => ({
 			itemsProp: {
@@ -844,7 +796,6 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
-		i18nLoadedAt: PropTypes.object, // eslint-disable-line
 		t: PropTypes.func.isRequired,
 	};
 }

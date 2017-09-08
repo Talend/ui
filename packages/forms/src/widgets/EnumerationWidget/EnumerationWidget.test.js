@@ -407,24 +407,6 @@ describe('EnumerationWidget', () => {
 			successUploadHandler();
 			expect(toJson(wrapper.update())).toMatchSnapshot();
 		});
-
-		it('should refresh the translations', () => {
-			let lng = 'fr';
-			// given
-			const wrapper = mount(<EnumerationWidget
-				t={key => `translated-${lng}-${key}`}
-			/>);
-
-			// when
-			lng = 'en';
-			wrapper.instance().componentWillReceiveProps({
-				i18nLoadedAt: 'foo',
-				formData: [],
-			});
-
-			// then
-			expect(wrapper.state()).toMatchSnapshot();
-		});
 	});
 
 	describe('utils method', () => {
