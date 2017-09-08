@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import i18n from 'i18next';
+import { translate } from 'react-i18next';
+
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
 import DisplayLarge from './DisplayLarge';
@@ -9,8 +12,9 @@ import DisplayTile from './DisplayTile';
 import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function ListToolbar({ id, toolbar, displayMode, list }) {
+function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	if (!toolbar) {
 		return null;
 	}
@@ -18,6 +22,7 @@ function ListToolbar({ id, toolbar, displayMode, list }) {
 	const toolbarProps = {
 		...toolbar,
 		id,
+		t,
 	};
 
 	if (toolbar.display) {
@@ -34,6 +39,7 @@ function ListToolbar({ id, toolbar, displayMode, list }) {
 	}
 	return (<Toolbar {...toolbarProps} />);
 }
+
 ListToolbar.propTypes = {
 	id: PropTypes.string,
 	displayMode: PropTypes.string,
@@ -42,6 +48,7 @@ ListToolbar.propTypes = {
 		PropTypes.shape(Content.propTypes),
 	]),
 	toolbar: PropTypes.shape(Toolbar.propTypes),
+	t: PropTypes.func.isRequired,
 };
 
 function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
@@ -131,11 +138,12 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, useContent, virtualized }) {
+function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 	const classnames = classNames(
 		'tc-list',
 		theme.list,
 	);
+
 	return (
 		<div className={classnames}>
 			<ListToolbar
@@ -143,6 +151,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized }) {
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
+				t={t}
 			/>
 			<ListDisplay
 				displayMode={displayMode}
@@ -165,4 +174,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default List;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(List);

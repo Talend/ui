@@ -2,8 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import List from './List.component';
 
-jest.mock('react-dom');
-
 const listProps = {
 	columns: [
 		{ key: 'id', label: 'Id' },

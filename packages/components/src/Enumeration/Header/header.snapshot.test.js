@@ -8,6 +8,7 @@ describe('Header', () => {
 	it('should render header with one dropdown and two items', () => {
 		// given
 		const props = {
+			label: 'Values',
 			headerDefault: [{
 				displayMode: 'dropdown',
 				label: 'Add item',
@@ -38,6 +39,7 @@ describe('Header', () => {
 	it('should render header with one button', () => {
 		// given
 		const props = {
+			label: 'Values',
 			headerDefault: [{
 				label: 'Add item',
 				icon: 'talend-plus',
@@ -58,6 +60,7 @@ describe('Header', () => {
 	it('should render header with one button and indicate the component is required', () => {
 		// given
 		const props = {
+			label: 'Values',
 			required: true,
 			headerDefault: [{
 				label: 'Add item',

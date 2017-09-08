@@ -66,6 +66,8 @@ import {
 	Well,
 } from 'react-bootstrap';
 
+import I18N_DOMAIN_COMPONENTS from './constants';
+
 import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
@@ -95,6 +97,7 @@ import Status from './Status';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
+import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
@@ -132,6 +135,7 @@ export {
 	TabBar,
 	Toggle,
 	TooltipTrigger,
+	getTranslated,
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
@@ -202,4 +206,5 @@ export {
 	Thumbnail,
 	Tooltip,
 	Well,
+	I18N_DOMAIN_COMPONENTS,
 };
