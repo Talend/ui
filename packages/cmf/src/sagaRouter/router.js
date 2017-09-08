@@ -46,13 +46,9 @@ export default function* routerSaga(history, routes) {
 					match,
 				};
 			} else if (shouldCancelSaga(maybeSaga, match)) {
-				if (maybeSaga) {
-					yield cancel(maybeSaga.saga);
-				}
+				yield cancel(maybeSaga.saga);
 			} else if (shouldRestartSaga(maybeSaga, match)) {
-				if (maybeSaga) {
-					yield cancel(maybeSaga.saga);
-				}
+				yield cancel(maybeSaga.saga);
 				sagas[routeFragment] = {
 					saga: yield spawn(routes[routeFragment], match.params),
 					match,
