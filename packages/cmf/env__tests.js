@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+
 const fetch = jest.fn(
 	(url, config) => new Promise((resolve) => {
 		if (config.response) {
