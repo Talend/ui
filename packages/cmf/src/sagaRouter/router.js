@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { spawn, take, cancel } from 'redux-saga/effects';
 import isEqual from 'lodash/isEqual';
 
