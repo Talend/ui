@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
+<FieldTemplate
+  description="This is the MultiSelectTag field"
+  errorMessage="This is wrong"
+  id="my-select-tag"
+  isValid={true}
+  label="Tags"
+>
+  <div
+    className={undefined}
+  >
+    <Typeahead
+      autoFocus={true}
+      disabled={false}
+      focusedItemIndex={undefined}
+      id="my-select-tag"
+      inputRef={[Function]}
+      items={null}
+      multiSection={false}
+      noResultText="No result."
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      placeholder="Type here"
+      position="left"
+      readOnly={false}
+      searching={false}
+      searchingText="Searching for matches…"
+      theme={
+        Object {
+          "container": undefined,
+          "itemsContainer": undefined,
+          "itemsList": undefined,
+        }
+      }
+      value=""
+    />
+    <div
+      className={undefined}
+    >
+      <span
+        className="caret"
+      />
+    </div>
+    <Tags
+      onRemoveTag={[Function]}
+      onTagsMount={[Function]}
+      readonly={false}
+      titleMap={
+        Array [
+          Object {
+            "name": "toto",
+            "value": "titi",
+          },
+          Object {
+            "name": "tata",
+            "value": "tutu",
+          },
+        ]
+      }
+      value={
+        Array [
+          "aze",
+          "tutu",
+        ]
+      }
+    />
+  </div>
+</FieldTemplate>
+`;
