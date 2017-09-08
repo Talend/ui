@@ -52,6 +52,7 @@ renderInputComponent.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 	}),
+	inputRef: PropTypes.func,
 };
 
 function ItemContainer(props) {
