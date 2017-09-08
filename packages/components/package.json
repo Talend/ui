@@ -98,7 +98,9 @@
     "slimerjs": "^0.10.2",
     "style-loader": "0.16.1",
     "talend-icons": "^0.107.0",
-    "uuid": "3.0.1"
+    "uuid": "3.0.1",
+    "i18next": "^9.0.0",
+    "react-i18next": "^5.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -129,6 +131,8 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
+    "i18next": "^9.0.0",
+    "react-i18next": "^5.2.0",
     "talend-icons": "^0.107.0",
     "uuid": "3.0.1"
   },

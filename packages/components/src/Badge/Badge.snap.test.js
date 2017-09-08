@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 
 import Badge from './Badge.component';
 
-jest.mock('react-dom');
-
 describe('Badge', () => {
 	it('should render Badge without icon in outline style', () => {
 		// given
