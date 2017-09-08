@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import EnumerationWidget from './EnumerationWidget';
+import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
 jest.mock(
 	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -11,6 +11,11 @@ jest.mock(
 );
 
 describe('EnumerationWidget', () => {
+	it('should wrapped in Translate component', () => {
+		const wrapper = mount(<TranslatedEnumeration />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	it('should be in default mode', () => {
 		// given
 		const wrapper = mount(<EnumerationWidget />);
@@ -102,7 +107,6 @@ describe('EnumerationWidget', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
-
 
 	it('should select multiple  items', () => {
 		// given
@@ -203,7 +207,6 @@ describe('EnumerationWidget', () => {
 				/>);
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
-
 
 		it('should send a event with a method to simulate the click on the input file', () => {
 			// given
@@ -409,7 +412,9 @@ describe('EnumerationWidget', () => {
 	describe('utils method', () => {
 		it('should split with using coma separator and trim the sub strings', () => {
 			// given
-			const enumerationWidget = new EnumerationWidget({});
+			const enumerationWidget = new EnumerationWidget({
+				t: () => {},
+			});
 			// when
 			const resultArray =
 				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');

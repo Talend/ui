@@ -1,7 +1,9 @@
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import { storiesOf, action } from '@storybook/react';
 
 import { Enumeration, IconsProvider } from '../src/index';
+import i18n from './config/i18n';
 
 const addItemAction = {
 	label: 'Add item',
@@ -197,6 +199,19 @@ storiesOf('Enumeration', module)
 				{...props}
 			/>
 		</div>
+	))
+	.addWithInfo('default - empty list with i18n', () => (
+			<div>
+				<p>Empty list by default:</p>
+				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button onClick={() => i18n.changeLanguage('it')}>it</button>
+				<IconsProvider />
+				<I18nextProvider i18n={i18n}>
+					<Enumeration
+						{...defaultEmptyListProps}
+					/>
+				</I18nextProvider>
+			</div>
 	))
 	.addWithInfo('default - empty list', () => (
 			<div>
