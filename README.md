@@ -88,8 +88,7 @@ front-end stack.
 [devdependencies-image-forms]: https://david-dm.org/Talend/react-talend-forms/dev-status.svg
 [devdependencies-url-forms]: https://david-dm.org/Talend/react-talend-forms#info=devDependencies
 [peerdependencies-image-forms]: https://david-dm.org/Talend/react-talend-forms/peer-status.svg
-[peerdependencies-url-components]: https://david-dm.org/Talend/react-talend-components?type=peer
-
+[peerdependencies-url-forms]: https://david-dm.org/Talend/react-talend-forms?type=peer
 
 # [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
 
