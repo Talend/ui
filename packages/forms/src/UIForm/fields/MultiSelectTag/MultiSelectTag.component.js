@@ -2,15 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import Typeahead from 'react-talend-components/lib/Typeahead';
+import Badge from 'react-talend-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
-import Tags from './Tags.component';
 
 import theme from './MultiSelectTagWidget.scss';
-
-const INPUT_TEXT_INDENT = 7.5;
-const TAGS_HEIGHT = 28;
-const TAGS_MARGIN_TOP = 5;
-const INPUT_MIN_WIDTH = 135;
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -18,6 +13,11 @@ function escapeRegexCharacters(str) {
 
 function getNewItemText(value) {
 	return `${value} (new)`;
+}
+
+function getLabel(titleMap, value) {
+	const itemConf = titleMap.find(item => item.value === value);
+	return itemConf ? itemConf.name : value;
 }
 
 export default class MultiSelectTag extends React.Component {
@@ -32,51 +32,10 @@ export default class MultiSelectTag extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
-		this.onInputMount = this.onInputMount.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onRemoveTag = this.onRemoveTag.bind(this);
 		this.onAddTag = this.onAddTag.bind(this);
-		this.onTagsMount = this.onTagsMount.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
-	}
-
-	/**
-	 * Update input spacing on mount
-	 */
-	componentDidMount() {
-		this.updateSpaces();
-	}
-
-	/**
-	 * On Tags value change
-	 * - Update input spacing
-	 * - Update suggestions if they are displayed
-	 * @param value The tags values
-	 */
-	componentDidUpdate({ value }) {
-		if (!this.input || !this.tags || value === this.props.value) {
-			return;
-		}
-		this.updateSpaces();
-		if (this.state.suggestions) {
-			this.updateSuggestions();
-		}
-	}
-
-	/**
-	 * Save input ref
-	 * @param input The input ref
-	 */
-	onInputMount(input) {
-		this.input = input;
-	}
-
-	/**
-	 * Save tags list ref
-	 * @param tags The tags list ref
-	 */
-	onTagsMount(tags) {
-		this.tags = tags;
 	}
 
 	/**
@@ -101,6 +60,11 @@ export default class MultiSelectTag extends React.Component {
 		case keycode.codes.up:
 			event.preventDefault();
 			this.setState({ focusedItemIndex: newFocusedItemIndex });
+			break;
+		case keycode.codes.backspace:
+			if (!this.state.value && this.props.value.length) {
+				this.onRemoveTag(event, this.props.value.length - 1);
+			}
 			break;
 		default:
 			break;
@@ -167,28 +131,6 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	/**
-	 * Add spaces on input to place it after the tags
-	 */
-	updateSpaces() {
-		if (this.props.value.length) {
-			const lastTag = this.tags.querySelector('div.tc-badge:last-child');
-			const paddingLeft = lastTag.offsetLeft + lastTag.offsetWidth + INPUT_TEXT_INDENT;
-			let paddingTop = lastTag.offsetTop - TAGS_MARGIN_TOP;
-			const toNextLine = (this.input.offsetWidth - paddingLeft) < INPUT_MIN_WIDTH;
-			if (toNextLine) {
-				paddingTop += TAGS_HEIGHT;
-				this.input.style.paddingLeft = '0px';
-			} else {
-				this.input.style.paddingLeft = `${paddingLeft}px`;
-			}
-			this.input.style.marginTop = `${paddingTop}px`;
-		} else {
-			this.input.style.paddingLeft = '0px';
-			this.input.style.paddingTop = '0px';
-		}
-	}
-
-	/**
 	 * Update suggestions
 	 * - remove current tags values
 	 * - filter based on input value
@@ -228,7 +170,20 @@ export default class MultiSelectTag extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 			>
-				<div className={theme.wrapper}>
+				<div className={`${theme.wrapper} form-control`}>
+					{
+						this.props.value.map((val, index) => {
+							const label = getLabel(schema.titleMap, val);
+							const badgeProps = { label, key: index };
+							if (!schema.readOnly && !schema.disabled) {
+								badgeProps.onDelete = event => this.onRemoveTag(event, index);
+							}
+							return (
+								<Badge {...badgeProps} />
+							);
+						})
+					}
+
 					<Typeahead
 						id={id}
 						autoFocus={schema.autoFocus || false}
@@ -239,7 +194,6 @@ export default class MultiSelectTag extends React.Component {
 						onBlur={this.resetSuggestions}
 						onChange={this.onChange}
 						onFocus={this.onFocus}
-						inputRef={this.onInputMount}
 						onKeyDown={this.onKeyDown}
 						onSelect={this.onAddTag}
 						placeholder={schema.placeholder}
@@ -250,13 +204,6 @@ export default class MultiSelectTag extends React.Component {
 					<div className={theme.caret}>
 						<span className="caret" />
 					</div>
-					<Tags
-						onRemoveTag={this.onRemoveTag}
-						onTagsMount={this.onTagsMount}
-						readonly={schema.readOnly || schema.disabled}
-						titleMap={schema.titleMap}
-						value={this.props.value}
-					/>
 				</div>
 			</FieldTemplate>
 		);

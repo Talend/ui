@@ -1,18 +1,34 @@
+@import "~react-talend-components/lib/Badge/Badge.scss";
+@import "~bootstrap-talend-theme/src/theme/_forms.scss";
 $tf-datalist-items-background-color: $white !default;
 $tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
 
-
 .wrapper {
 	position: relative;
 	display: flex;
-	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	align-items: baseline;
+
+	border: 0;
+	border-radius: 0;
+	height: auto;
+	padding: 0;
+
+	box-shadow: $form-shadow;
+	&:focus-within {
+		box-shadow: $form-focus-shadow;
+	}
 
 	.typeahead {
-		width: 100%;
+		flex-grow: 1;
 
 		> div {
 			width: 100%;
+		}
+
+		:global(input) {
+			padding-left: $tc-badge-horizontal-margin;
 		}
 
 		.items-container {
@@ -46,17 +62,5 @@ $tf-typeahead-input-width: 135px !default;
 		position: absolute;
 		bottom: $padding-smaller;
 		right: $padding-smaller;
-	}
-
-	.tags {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 28px;
-		pointer-events: none;
-
-		:global(.tc-badge) {
-			pointer-events: auto;
-		}
 	}
 }

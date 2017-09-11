@@ -9,14 +9,21 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   label="Tags"
 >
   <div
-    className={undefined}
+    className="undefined form-control"
   >
+    <Translate(Badge)
+      label="aze"
+      onDelete={[Function]}
+    />
+    <Translate(Badge)
+      label="tata"
+      onDelete={[Function]}
+    />
     <Typeahead
       autoFocus={true}
       disabled={false}
       focusedItemIndex={undefined}
       id="my-select-tag"
-      inputRef={[Function]}
       items={null}
       multiSection={false}
       noResultText="No result."
@@ -46,29 +53,6 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
         className="caret"
       />
     </div>
-    <Tags
-      onRemoveTag={[Function]}
-      onTagsMount={[Function]}
-      readonly={false}
-      titleMap={
-        Array [
-          Object {
-            "name": "toto",
-            "value": "titi",
-          },
-          Object {
-            "name": "tata",
-            "value": "tutu",
-          },
-        ]
-      }
-      value={
-        Array [
-          "aze",
-          "tutu",
-        ]
-      }
-    />
   </div>
 </FieldTemplate>
 `;
