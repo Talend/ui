@@ -192,6 +192,35 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
+	.addWithInfo('stacked drawer with custom classes ', () => {
+		const drawerActions = {
+			actions: {
+				left: [connect],
+				right: [primary],
+			},
+		};
+
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+			>
+				<Drawer
+					stacked title="I'm stacked drawer"
+					footerActions={drawerActions}
+					headerClass="myClass"
+					bodyClass="myClass"
+					footerClass="myClass"
+				>
+					<h1>Hello drawer 1</h1>
+					<p>{ "You should not being able to read this because I'm first. Some random text goes here...  random text goes here...  random text goes here...  random text goes here... " }</p>
+				</Drawer>
+				<span>zone with drawer</span>
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
 	.addWithInfo('With tabs', () => {
 		const drawersWithTabs = [(
 			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>

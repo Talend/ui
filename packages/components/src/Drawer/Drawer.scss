@@ -51,10 +51,14 @@ $tc-action-bar-background-color: $concrete !default;
 }
 
 .tc-drawer-header {
-	padding: $padding-normal;
 	background-color: $brand-primary-lighter;
 
-	h1 {
+	.tc-drawer-header-title {
+		padding: $padding-normal;
+		position: relative;
+	}
+
+	.tc-drawer-header-title h1 {
 		font-size: $font-size-large;
 		margin: 0;
 		color: white;
@@ -82,6 +86,10 @@ $tc-action-bar-background-color: $concrete !default;
 	padding: $padding-large $padding-normal;
 	flex-grow: 1;
 	overflow-y: auto;
+}
+
+.tc-drawer-actionbar {
+  background: $tc-action-bar-background-color;
 }
 
 .tc-drawer-footer {
