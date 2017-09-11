@@ -6,7 +6,6 @@ import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
 
-
 const primary = {
 	label: 'Primary',
 	bsStyle: 'primary',

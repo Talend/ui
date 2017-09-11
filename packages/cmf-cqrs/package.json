@@ -33,7 +33,7 @@
     "mock-socket": "^7.0.0"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^0.106.1",
+    "@talend/react-cmf": "^0.107.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -70,6 +70,7 @@
     "redux-batched-actions": "0.2.0",
     "redux-logger": "3.0.6",
     "redux-mock-store": "1.2.3",
+    "redux-saga": "0.15.4",
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
@@ -78,7 +79,7 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^0.106.1",
+    "@talend/react-cmf": "^0.107.0",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
     "invariant": "2.2.2",

@@ -17,7 +17,29 @@ program
 const REACT_VERSION = '15.5.4';
 const JEST_VERSION = '20.0.3';
 
-const VERSIONS = {
+const ADDONS = {
+	'babel-polyfill': '6.20.0',
+	'date-fns': '1.27.2',
+	'focus-outline-manager': '1.0.2',
+	'immutablediff': '0.4.4',
+	'normalize.css': '5.0.0',
+	'path-to-regexp': '1.7.0',
+	'prettier': '1.6.1',
+	'redux-batched-subscribe': '0.1.6',
+	'redux-undo': 'beta',
+	'redux-saga': '0.15.4',
+	'react-addons-perf': '15.4.2',
+	'react-autowhatever': '7.0.0',
+	'react-debounce-input': '2.4.2',
+	'react-immutable-proptypes': '2.1.0',
+	'react-jsonschema-form': '0.42.0',
+	'react-tap-event-plugin': '2.0.0',
+	'react-virtualized': '9.3.0',
+	'slugify': '1.1.0',
+	'whatwg-fetch': '2.0.3',
+};
+
+const VERSIONS = Object.assign({}, ADDONS, {
 	// deps
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
@@ -26,13 +48,15 @@ const VERSIONS = {
 	lodash: '4.17.4',
 	immutable: '3.8.1',
 	invariant: '2.2.2',
+	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
 	'react-addons-test-utils': '15.5.1',
 	'react-addons-css-transition-group': '15.5.2',
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
-	'react-i18next': '^1.8.0',
+	'i18next': '^9.0.0',
+	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',
@@ -51,8 +75,12 @@ const VERSIONS = {
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '3.1.9',
-	'@storybook/addon-storyshots': '3.1.9',
-	'autoprefixer': '6.7.0',
+	'@storybook/addon-storyshots': '^3.2.0',
+	'@storybook/addon-actions': '^3.2.0',
+	'@storybook/addon-info': '^3.2.0',
+	'@storybook/addon-knobs': '^3.2.0',
+	'@storybook/addons': '^3.2.0',
+	'autoprefixer': '^6.7.7',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
@@ -81,28 +109,19 @@ const VERSIONS = {
 	// webpack
 	'copy-webpack-plugin': '4.0.1',
 	'css-loader': '0.28.2',
+	'extract-text-webpack-plugin': '2.1.0',
 	'file-loader': '^0.10.0',
+	'fontgen-loader': '0.2.1',
 	'node-sass': '4.5.3',
 	'postcss-loader': '1.3.1',
+	'sass-loader': '6.0.5',
 	'style-loader': '0.16.1',
 	'url-loader': '0.5.8',
+	webpack: '^2.5.1',
 	'webpack-bundle-analyzer': '2.8.2',
 	'webpack-dashboard': '0.4.0',
-};
-
-const WEBPACK_2_VERSIONS = {
-	'extract-text-webpack-plugin': '2.1.0',
-	'sass-loader': '6.0.5',
-	webpack: '^2.5.1',
-	'webpack-dev-server': '^2.4.5',
-};
-
-const WEBPACK_1_VERSIONS = {
-	'extract-text-webpack-plugin': '^1.0.1',
-	'sass-loader': '4.1.1',
-	webpack: '^1.14.0',
-	'webpack-dev-server': '^1.16.5',
-};
+	'webpack-dev-server': '2.4.5',
+});
 
 let files = [
 	'./packages/cmf/package.json',
@@ -139,11 +158,6 @@ if (program.path) {
 if (program.debug) {
 	console.log(`will update ${files}`);
 }
-
-function getWebpackMajorVersion(source) {
-	return (source.webpack || '').replace('^', '').split('.')[0];
-}
-
 
 function check(source, dep, version) {
 	let modified = false;
@@ -198,21 +212,6 @@ files.forEach((ppath) => {
 		console.log(`=== check ${packageJSON.name} ===`);
 	}
 
-	if (packageJSON.devDependencies && packageJSON.devDependencies.webpack) {
-		const webpack = getWebpackMajorVersion(packageJSON.devDependencies);
-		if (webpack === '1') {
-			Object.assign(
-				VERSIONS,
-				WEBPACK_1_VERSIONS
-			);
-		} else {
-			Object.assign(
-				VERSIONS,
-				WEBPACK_2_VERSIONS
-			);
-		}
-	}
-
 	Object.keys(VERSIONS).forEach((dep) => {
 		checkAll(packageJSON, dep);
 	});
@@ -222,9 +221,8 @@ files.forEach((ppath) => {
 		const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
 		if (fs.existsSync(yarnLock)) {
 			if (!program.quite) {
-				console.log(`delete ${yarnLock}`);
+				console.log(`you have to update ${yarnLock} yourself`);
 			}
-			//fs.unlink(yarnLock);
 		}
 	}
 });

@@ -80,7 +80,6 @@ class Form extends React.Component {
 				formData,
 			});
 		}
-		this.props.setState({ data: undefined, dirty: false });
 	}
 
 	formActions() {
