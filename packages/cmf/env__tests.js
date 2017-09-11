@@ -1,4 +1,5 @@
 import 'babel-polyfill'; // eslint-disable-line
+
 const fetch = jest.fn(
 	(url, config) =>
 		new Promise((resolve) => {

@@ -1,1 +1,1 @@
-import 'babel-polyfill'; // eslint-disable-line
+import 'babel-polyfill';
