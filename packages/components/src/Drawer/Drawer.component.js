@@ -122,7 +122,7 @@ function DrawerContent({ children, bodyClass, ...rest }) {
 
 DrawerContent.propTypes = {
 	children: PropTypes.node,
-	bodyClass: PropTypes.string(),
+	bodyClass: PropTypes.string,
 };
 
 function DrawerFooter({ children }) {
