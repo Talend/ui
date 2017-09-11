@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import invariant from 'invariant';
 
 import Icon from '../../Icon';
+import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.scss';
 
-function noop() {}
+function noop() { }
 
 const VALIDE_TYPES = ['number', 'string', 'boolean'];
 const COMPLEX_TYPES = ['object', 'array'];
@@ -28,10 +29,9 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 		<button
 			type="button"
 			className={`btn btn-link btn-xs ${theme[type]} ${theme.native}`}
-			onClick={e => onClick(e, { data, edit, jsonpath })}
-		>
+			onClick={e => onClick(e, { data, edit, jsonpath })} >
 			{display}
-		</button>
+		</button >
 	);
 }
 
@@ -104,6 +104,32 @@ export function getDataInfo(data) {
 	return info;
 }
 
+function abstracter(acc, item) {
+	const arrayAbstract = '[...]';
+	const objectAbstract = '{...}';
+
+	if (Array.isArray(item)) {
+		return acc.length > 0 ? `${acc}, ${arrayAbstract}` : arrayAbstract;
+	} else if (typeof item === 'object') {
+		return acc.length > 0 ? `${acc}, ${objectAbstract}` : objectAbstract;
+	}
+	return acc.length > 0 ? `${acc}, ${item}` : `${item}`;
+}
+
+export function getDataAbstract(data) {
+	let abstract = '';
+
+	if (Array.isArray(data)) {
+		abstract = data.reduce((acc, item) => abstracter(acc, item), abstract);
+	} else if (typeof data === 'object') {
+		const oKeys = Object.keys(data);
+
+		abstract = oKeys.reduce((acc, key) => abstracter(acc, data[key]), abstract);
+	}
+
+	return abstract;
+}
+
 export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	if (data === undefined) {
 		return null;
@@ -141,6 +167,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	return (
 		<LineItem name={name} mouseOverData={{ data, isOpened, isEdited }}>
 			<span className={theme.hierarchical}>
+				{!name && 'Root'}
 				<button
 					type="button"
 					className={btn}
@@ -148,7 +175,12 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				>
 					<Icon name={iconName} transform={iconTransform} />
 					{info.type}
-					<sup className="badge">{info.length}</sup>
+					<TooltipTrigger
+						className="offset"
+						label={getDataAbstract(data)}
+						tooltipPlacement="right">
+						<sup className="badge">{info.length}</sup>
+					</TooltipTrigger>
 				</button>
 				<ul className={!isOpened ? 'hidden' : null}>
 					{info.keys.map((key, i) => {
@@ -207,7 +239,7 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (onSubmit) {
 		return (
 			<form
-				className={`tc-object-viewer ${theme.container}`}
+				className={`tc-object-viewer ${theme.container} `}
 				onSubmit={(event) => {
 					onSubmit(event);
 					event.preventDefault();
@@ -218,7 +250,7 @@ export function JSONLike({ onSubmit, ...props }) {
 		);
 	}
 	return (
-		<div className={`tc-object-viewer ${theme.container}`}>
+		<div className={`tc-object-viewer ${theme.container} `}>
 			<Item {...props} />
 		</div>
 	);
