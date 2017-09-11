@@ -1,11 +1,13 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.talend.component.Component;
+
+import java.util.List;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.
@@ -42,7 +44,11 @@ public class Item extends Component {
      * @return The title button WebElement
      */
     public WebElement getTitle() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        final List<WebElement> buttons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        if (buttons.size() == 1) {
+            return buttons.get(0);
+        }
+        return null;
     }
 
     /**
@@ -79,7 +85,14 @@ public class Item extends Component {
      * Click on item title.
      */
     public void clickOnTitle() {
-        getTitle().click();
+        final WebElement title = getTitle();
+        if (!title.isDisplayed()) {
+            final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+            jsExec.executeScript("arguments[0].scrollIntoView", title);
+        }
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(title).click().perform();
     }
 
     /**
