@@ -52,6 +52,7 @@
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
+    "path-to-regexp": "^2.0.0",
     "react": "15.5.4",
     "react-addons-test-utils": "15.5.1",
     "react-cmf": "^0.108.0",
@@ -107,6 +108,7 @@
   },
   "version": "0.108.0",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "hoist-non-react-statics": "^1.2.0",
     "mock-socket": "^7.0.0"
   }

@@ -51,6 +51,7 @@
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
+    "path-to-regexp": "^2.0.0",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-addons-test-utils": "15.5.1",
@@ -63,7 +64,8 @@
     "redux-batched-actions": "0.2.0",
     "redux-logger": "3.0.6",
     "redux-mock-store": "1.2.3",
-    "redux-saga": "0.15.4",
+    "redux-saga": "^0.15.4",
+    "redux-saga-tester": "^1.0.345",
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
@@ -89,6 +91,7 @@
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "lodash": "4.17.4",
+    "path-to-regexp": "^2.0.0",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4",
@@ -106,6 +109,7 @@
   },
   "version": "0.108.0",
   "dependencies": {
-    "hoist-non-react-statics": "^1.2.0"
+    "hoist-non-react-statics": "^1.2.0",
+    "babel-polyfill": "^6.26.0"
   }
 }
