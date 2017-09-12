@@ -94,9 +94,10 @@ public class Table extends Component {
     public boolean canScrollDown() {
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
         final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
-        final Long scrollHeight = (Long) jsExec.executeScript("return arguments[0].scrollHeight;", grid);
-        final Long scrollBottom = (Long) jsExec.executeScript("return arguments[0].scrollTop + arguments[0].offsetHeight;", grid);
-        return scrollBottom < scrollHeight;
+        return (boolean) jsExec.executeScript(
+                "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
+                grid
+        );
     }
 
     /**
@@ -110,8 +111,7 @@ public class Table extends Component {
 
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
         final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
-        final Long offsetHeight = (Long) jsExec.executeScript("return arguments[0].offsetHeight;", grid);
-        jsExec.executeScript("arguments[0].scrollTop += " + offsetHeight, grid);
+        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
         return true;
     }
 
@@ -138,8 +138,6 @@ public class Table extends Component {
 
             if (item == null && !this.scrollDown()) {
                 throw new NotFoundException("List table item not found with title " + itemTitle);
-            } else if (item == null) {
-
             }
         }
 

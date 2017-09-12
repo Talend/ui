@@ -28,7 +28,7 @@ const icons = {
 };
 
 const titleProps = {
-	onClick: action('click'),
+	onClick: action('onTitleClick'),
 	actionsKey: 'titleActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',

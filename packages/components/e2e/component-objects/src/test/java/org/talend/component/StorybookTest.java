@@ -26,7 +26,6 @@ public class StorybookTest {
     public static void before() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        driver.get("http://talend.surge.sh/components/");
         driver.get("http://localhost:6006/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

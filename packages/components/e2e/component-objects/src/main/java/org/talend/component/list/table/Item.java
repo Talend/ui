@@ -1,7 +1,6 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -86,13 +85,10 @@ public class Item extends Component {
      */
     public void clickOnTitle() {
         final WebElement title = getTitle();
-        if (!title.isDisplayed()) {
-            final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
-            jsExec.executeScript("arguments[0].scrollIntoView", title);
-        }
-
-        Actions actions = new Actions(driver);
-        actions.moveToElement(title).click().perform();
+        final Actions actions = new Actions(driver)
+                .moveToElement(title)
+                .click(title);
+        actions.perform();
     }
 
     /**
