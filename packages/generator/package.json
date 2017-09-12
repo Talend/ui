@@ -50,5 +50,5 @@
     "test": "npm run test:lint && npm run test:unit"
   },
   "license": "Apache-2.0",
-  "version": "0.107.0"
+  "version": "0.109.0"
 }
