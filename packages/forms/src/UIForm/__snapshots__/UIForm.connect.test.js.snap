@@ -83,6 +83,7 @@ Object {
 exports[`UIForm connect should render form 1`] = `
 <UIForm
   autoComplete="off"
+  className="my-form-class"
   createForm={[Function]}
   customValidation={[Function]}
   data={
