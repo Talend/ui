@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import i18n from 'i18next';
+import { createInstance } from 'i18next';
 import { translate } from 'react-i18next';
 
 import defaultTranslateFn from '../translate';
@@ -196,4 +196,4 @@ HeaderEnumeration.defaultProps = {
 	t: defaultTranslateFn,
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.createInstance({}, () => {}) })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: createInstance({}, () => {}) })(Enumeration);

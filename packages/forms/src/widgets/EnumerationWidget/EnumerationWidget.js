@@ -4,7 +4,7 @@ import keycode from 'keycode';
 import Enumeration from 'react-talend-components/lib/Enumeration';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
-import i18n from 'i18next';
+import { createInstance } from 'i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import I18N_DOMAIN_FORMS from '../../constants';
@@ -805,4 +805,4 @@ EnumerationForm.defaultProps = {
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS, { i18n: i18n.createInstance({}, () => {}) })(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS, { i18n: createInstance({}, () => {}) })(EnumerationForm);
