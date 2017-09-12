@@ -161,6 +161,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onClick={props.onClick}
 					onChange={props.onChange}
 				/>
+				({info.type})
 			</LineItem>
 		);
 	}
@@ -181,7 +182,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onClick={e => props.onClick(e, { data, isOpened, jsonpath })}
 				>
 					<Icon name={iconName} transform={iconTransform} />
-					{info.type}
+					({info.type})
 					<TooltipTrigger
 						className="offset"
 						label={getDataAbstract(data)}
