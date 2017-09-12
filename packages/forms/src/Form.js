@@ -19,6 +19,7 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
+import I18N_DOMAIN_FORMS from './constants';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -211,4 +212,5 @@ Form.defaultProps = {
 
 Form.displayName = 'TalendForm';
 
+export { I18N_DOMAIN_FORMS };
 export default Form;

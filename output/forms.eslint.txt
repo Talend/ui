@@ -1,5 +1,5 @@
 
-> react-talend-forms@0.107.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> react-talend-forms@0.108.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -53,6 +53,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
+  808:53  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -66,5 +69,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 36 problems (36 errors, 0 warnings)
+✖ 37 problems (37 errors, 0 warnings)
 

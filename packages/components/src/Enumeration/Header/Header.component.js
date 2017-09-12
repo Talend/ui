@@ -50,7 +50,7 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault, required, label = 'Values' }) {
+function Header({ headerDefault, required, label }) {
 	return (
 		<header className={headerClasses()}>
 			<span>{label}{required && '*'}</span>
