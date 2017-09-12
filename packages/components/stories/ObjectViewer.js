@@ -18,6 +18,8 @@ const data = [
 	{ business_id: 3, name: 'Gordon\'s Bar', category: 'Cafe', rating: 1, num_of_reviews: 152, attributes: { good_for: { dessert: false, kids: false, drinks: true, breakfast: true, lunch: true, dinner: true }, parking: { lot: true, valet: false, garage: true }, take_reservations: true, noise_level: 'noisy' }, location: { zipType: 'STANDARD', zip: 65638, decommisioned: false, taxReturnsFiled: 123, location: 'NA- US - MO - DRURY', estimatedPopulation: 123, locationType: 'PRIMARY', totalWages: 456, state: 'MO', longitude: -92.32, latitude: 36.92, city: 'DRURY' } }
 ];
 
+const veryLongDatasetLabel = 'Dataset of something that I cant\'t imagine; Dataset of something that I cant\'t imagine; Dataset of something that I cant\'t imagine';
+
 const handler = {
 	edited: ['$[0][\'int\']'],
 	opened: ['$', '$[0]', '$[0][\'obj\']'],
@@ -48,6 +50,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} tupleLabel="Record" />
+		</div>
+	))
+	.addWithInfo('tree with very large root label', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={data} rootLabel={veryLongDatasetLabel} tupleLabel="Record" />
 		</div>
 	))
 	.addWithInfo('tree with handler', () => (

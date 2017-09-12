@@ -253,14 +253,30 @@ export function JSONLike({ onSubmit, ...props }) {
 					event.preventDefault();
 				}}
 			>
-				{props.rootLabel || 'root'}
+				<TooltipTrigger
+					label={props.rootLabel || 'root'}
+					tooltipPlacement="right"
+				>
+					<div className={theme.rootLabelOverflow}>
+						{props.rootLabel || 'root'}
+					</div>
+				</TooltipTrigger>
 				<Item {...props} />
 			</form>
 		);
 	}
+
 	return (
 		<div className={`tc-object-viewer ${theme.container} `}>
-			{props.rootLabel || 'root'}
+			<TooltipTrigger
+				label={props.rootLabel || 'root'}
+				tooltipPlacement="right"
+			>
+				<div className={theme.rootLabelOverflow}>
+					{props.rootLabel || 'root'}
+				</div>
+			</TooltipTrigger>
+
 			<Item {...props} />
 		</div>
 	);

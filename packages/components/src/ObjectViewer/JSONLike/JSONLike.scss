@@ -22,4 +22,12 @@
 	.name:after {
 		content: ':';
 	}
+
+	.rootLabelOverflow{
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 25%;
+		text-overflow: ellipsis;
+	}
+	
 }
