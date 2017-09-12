@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Engine should render Badge 1`] = `
+exports[`BadgeSpec should render Badge 1`] = `
 <div
   className="tc-badge"
   onClick={undefined}
@@ -13,7 +13,7 @@ exports[`Engine should render Badge 1`] = `
 </div>
 `;
 
-exports[`Engine should render Badge with category and delete icon 1`] = `
+exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 <div
   className="tc-badge"
   onClick={undefined}
@@ -52,7 +52,7 @@ exports[`Engine should render Badge with category and delete icon 1`] = `
 </div>
 `;
 
-exports[`Engine should render Badge with delete icon 1`] = `
+exports[`BadgeSpec should render Badge with delete icon 1`] = `
 <div
   className="tc-badge"
   onClick={undefined}
@@ -86,7 +86,7 @@ exports[`Engine should render Badge with delete icon 1`] = `
 </div>
 `;
 
-exports[`Engine should render disabled Badge with delete icon 1`] = `
+exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
 <div
   className="tc-badge tc-badge-disabled"
   onClick={false}
@@ -120,7 +120,7 @@ exports[`Engine should render disabled Badge with delete icon 1`] = `
 </div>
 `;
 
-exports[`Engine should render selected Badge with delete icon 1`] = `
+exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
   className="tc-badge tc-badge-selected"
   onClick={undefined}

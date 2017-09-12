@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Badge from './Badge.component';
 
-describe('Engine', () => {
+describe('BadgeSpec', () => {
 	it('should render Badge', () => {
 		// given
 		const props = {

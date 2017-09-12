@@ -17,13 +17,17 @@ const icons = {
 	'talend-cross': talendIcons['talend-cross'],
 };
 
-const onDelete = name => ({
-	onDelete: action(`remove badge ${name}`),
-});
+function onDelete(name) {
+	return {
+		onDelete: action(`remove badge ${name}`),
+	};
+}
 
-const onSelect = name => ({
-	onSelect: action(`select badge ${name}`),
-});
+function onSelect(name) {
+	return {
+		onSelect: action(`select badge ${name}`),
+	};
+}
 
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
