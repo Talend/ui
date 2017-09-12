@@ -38,6 +38,12 @@ stories
 			<ObjectViewer data={data} />
 		</div>
 	))
+	.addWithInfo('tree with labels', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={data} rootLabel="cafesDataset" tupleLabel="Record" />
+		</div>
+	))
 	.addWithInfo('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

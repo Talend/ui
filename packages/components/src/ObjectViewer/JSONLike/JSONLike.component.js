@@ -83,7 +83,7 @@ LineItem.propTypes = {
 	mouseOverData: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 };
 
-export function getDataInfo(data) {
+export function getDataInfo(data, tupleLabel) {
 	const info = {
 		type: typeof data,
 		keys: Object.keys(data),
@@ -99,6 +99,10 @@ export function getDataInfo(data) {
 	} else if (info.type === 'object') {
 		info.keys = Object.keys(data);
 		info.length = info.keys.length;
+
+		if (tupleLabel && tupleLabel.length > 0) {
+			info.type = tupleLabel;
+		}
 	}
 
 	return info;
@@ -131,10 +135,14 @@ export function getDataAbstract(data) {
 }
 
 export function Item({ data, name, opened, edited, jsonpath, ...props }) {
+	if (props.tupleLabel) {
+		COMPLEX_TYPES.push(props.tupleLabel);
+	}
+
 	if (data === undefined) {
 		return null;
 	}
-	const info = getDataInfo(data);
+	const info = getDataInfo(data, props.tupleLabel);
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1 || props.onClick === noop;
@@ -167,7 +175,6 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	return (
 		<LineItem name={name} mouseOverData={{ data, isOpened, isEdited }}>
 			<span className={theme.hierarchical}>
-				{!name && 'Root'}
 				<button
 					type="button"
 					className={btn}
@@ -216,6 +223,7 @@ Item.propTypes = {
 	opened: PropTypes.arrayOf(PropTypes.string),
 	edited: PropTypes.arrayOf(PropTypes.string),
 	jsonpath: PropTypes.string,
+	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onClick: PropTypes.func,
 	onSubmit: PropTypes.func,
@@ -245,12 +253,14 @@ export function JSONLike({ onSubmit, ...props }) {
 					event.preventDefault();
 				}}
 			>
+				{props.rootLabel}
 				<Item {...props} />
 			</form>
 		);
 	}
 	return (
 		<div className={`tc-object-viewer ${theme.container} `}>
+			{props.rootLabel}
 			<Item {...props} />
 		</div>
 	);
@@ -258,6 +268,8 @@ export function JSONLike({ onSubmit, ...props }) {
 
 JSONLike.propTypes = {
 	onSubmit: PropTypes.func,
+	rootLabel: PropTypes.string,
+	tupleLabel: PropTypes.string,
 };
 
 export default JSONLike;
