@@ -253,14 +253,14 @@ export function JSONLike({ onSubmit, ...props }) {
 					event.preventDefault();
 				}}
 			>
-				{props.rootLabel}
+				{props.rootLabel || 'root'}
 				<Item {...props} />
 			</form>
 		);
 	}
 	return (
 		<div className={`tc-object-viewer ${theme.container} `}>
-			{props.rootLabel}
+			{props.rootLabel || 'root'}
 			<Item {...props} />
 		</div>
 	);

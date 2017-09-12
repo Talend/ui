@@ -44,6 +44,12 @@ stories
 			<ObjectViewer data={data} rootLabel="cafesDataset" tupleLabel="Record" />
 		</div>
 	))
+	.addWithInfo('tree without rootLabel', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={data} tupleLabel="Record" />
+		</div>
+	))
 	.addWithInfo('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
