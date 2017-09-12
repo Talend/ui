@@ -107,9 +107,9 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0"
   },
-  "version": "0.108.0",
+  "version": "0.109.0",
   "dependencies": {
-    "hoist-non-react-statics": "^1.2.0",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "hoist-non-react-statics": "^1.2.0"
   }
 }
