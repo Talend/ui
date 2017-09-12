@@ -13,6 +13,7 @@ function FieldTemplate({ element, cantDelete }) {
 			{
 				<div className={theme.control}>
 					<button
+						type="button"
 						name={`btn-delete-element-${element.index}`}
 						disabled={cantDelete}
 						className={theme.delete}
@@ -24,6 +25,7 @@ function FieldTemplate({ element, cantDelete }) {
 					{!element.itemData.isClosed &&
 						<div className={theme.orderaction}>
 							<button
+								type="button"
 								name={`btn-move-element-up-${element.index}`}
 								disabled={!element.hasMoveUp}
 								onClick={element.onReorderClick(element.index, element.index - 1)}
@@ -32,6 +34,7 @@ function FieldTemplate({ element, cantDelete }) {
 								<Icon name="talend-caret-down" transform="flip-vertical" />
 							</button>
 							<button
+								type="button"
 								name={`btn-move-element-down-${element.index}`}
 								disabled={!element.hasMoveDown}
 								onClick={element.onReorderClick(element.index, element.index + 1)}
@@ -57,16 +60,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 function ArrayFieldTemplate(props) {
 	const { items, canAdd, onAddClick, minItems, maxItems } = props;
+	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{items &&
-				items.map(element =>
-					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
-				)}
 			{canAdd &&
 				<button
-					className="btn btn-info"
+					className={addBtnClass}
 					type="button"
 					name="btn-new-element"
 					disabled={items.length >= maxItems}
@@ -74,6 +74,10 @@ function ArrayFieldTemplate(props) {
 				>
 					{`NEW ${props.type}`}
 				</button>}
+			{items &&
+				items.map(element =>
+					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
+				)}
 		</div>
 	);
 }

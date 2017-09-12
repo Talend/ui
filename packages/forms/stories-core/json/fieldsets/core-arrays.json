@@ -35,6 +35,7 @@
   "uiSchema": [
     {
       "key": "comments",
+      "triggers": ["validation"],
       "items": [
         {
           "key": "comments[].name",

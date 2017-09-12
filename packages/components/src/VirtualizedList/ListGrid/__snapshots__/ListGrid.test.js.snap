@@ -48,6 +48,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       noRowsRenderer={[Function]}
       onRowsRendered={[Function]}
       onScroll={[Function]}
+      onScrollbarPresenceChange={[Function]}
       onSectionRendered={[Function]}
       overscanColumnCount={0}
       overscanIndicesGetter={[Function]}

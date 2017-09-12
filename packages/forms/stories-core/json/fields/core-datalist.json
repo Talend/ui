@@ -1,0 +1,37 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Datalist",
+    "properties": {
+      "simpleDatalist": {
+        "type": "string",
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      },
+      "restrictedDatalist": {
+        "type": "string",
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      }
+    },
+    "required": [
+      "simpleDatalist"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "simpleDatalist",
+      "restricted": false,
+      "title": "Simple Datalist",
+      "description": "This datalist accepts values that are not in the list of suggestions",
+      "widget": "datalist"
+    },
+    {
+      "key": "restrictedDatalist",
+      "title": "Datalist with restricted options",
+      "description": "This datalist does not allow other values than the possible choices",
+      "widget": "datalist"
+    }
+  ],
+  "properties": {
+    "simpleDatalist": "Pine[apple]"
+  }
+}

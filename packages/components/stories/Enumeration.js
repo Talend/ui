@@ -1,7 +1,9 @@
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import { storiesOf, action } from '@storybook/react';
 
 import { Enumeration, IconsProvider } from '../src/index';
+import i18n from './config/i18n';
 
 const addItemAction = {
 	label: 'Add item',
@@ -153,6 +155,11 @@ selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
 	isSelected: index % 2 === 0,
 }));
 
+const selectedValuesCheckboxesProps = {
+	...selectedValuesProps,
+	showCheckboxes: true,
+};
+
 const headerErrorProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_ADD',
@@ -192,6 +199,19 @@ storiesOf('Enumeration', module)
 				{...props}
 			/>
 		</div>
+	))
+	.addWithInfo('default - empty list with i18n', () => (
+			<div>
+				<p>Empty list by default:</p>
+				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button onClick={() => i18n.changeLanguage('it')}>it</button>
+				<IconsProvider />
+				<I18nextProvider i18n={i18n}>
+					<Enumeration
+						{...defaultEmptyListProps}
+					/>
+				</I18nextProvider>
+			</div>
 	))
 	.addWithInfo('default - empty list', () => (
 			<div>
@@ -254,6 +274,17 @@ storiesOf('Enumeration', module)
 			<Enumeration
 				{...selectedValuesProps}
 			/>
+		</div>
+	))
+	.addWithInfo('selected values with checkboxes', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<form>
+				<Enumeration
+					{...selectedValuesCheckboxesProps}
+				/>
+			</form>
 		</div>
 	))
 	.addWithInfo('with header error', () => (
