@@ -1,4 +1,4 @@
-import reduxLocalStorage from './reduxLocalStorage';
+import reduxLocalStorage from '../../src/reduxstorage/reduxLocalStorage';
 
 describe('reduxLocalStorage', () => {
 	it('should expose API', () => {
@@ -31,23 +31,22 @@ describe('reduxLocalStorage', () => {
 		localStorage.getItem = getItem;
 		const origin = window.localStorage;
 		window.localStorage = localStorage;
-		reduxLocalStorage.loadInitialState({
-			key: 'data-streams-redux',
-			whitelist: [
-				['cmf', 'components', 'SidePanel'],
-				['cmf', 'components', 'Container(Form)'],
-			],
-		}).then((storage) => {
-			expect(
-				storage.initialState
-					.cmf
-					.components
-					.getIn(['SidePanel', 'default', 'toggle'])
-			).toBe(true);
-			done();
-			window.localStorage = origin;
-		}, (error) => {
-			throw new Error(error);
-		});
+		reduxLocalStorage
+			.loadInitialState({
+				key: 'data-streams-redux',
+				whitelist: [['cmf', 'components', 'SidePanel'], ['cmf', 'components', 'Container(Form)']],
+			})
+			.then(
+				(storage) => {
+					expect(
+						storage.initialState.cmf.components.getIn(['SidePanel', 'default', 'toggle'])
+					).toBe(true);
+					done();
+					window.localStorage = origin;
+				},
+				(error) => {
+					throw new Error(error);
+				}
+			);
 	});
 });
