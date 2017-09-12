@@ -108,6 +108,7 @@ export function initProps() {
 	return {
 		autoComplete: 'off',
 		customValidation: jest.fn(),
+		className: 'my-form-class',
 		formName: 'myFormName',
 		id: 'myFormId',
 		onChange: jest.fn(),

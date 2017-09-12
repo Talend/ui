@@ -227,6 +227,7 @@ exports[`UIForm container should render form 2`] = `
   action={undefined}
   actions={undefined}
   autoComplete="off"
+  className="my-form-class"
   customValidation={[Function]}
   encType={undefined}
   errors={Object {}}
