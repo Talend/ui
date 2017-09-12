@@ -192,7 +192,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('stacked drawer with custom classes ', () => {
+	.addWithInfo('stacked drawer with custom classes', () => {
 		const drawerActions = {
 			actions: {
 				left: [connect],
