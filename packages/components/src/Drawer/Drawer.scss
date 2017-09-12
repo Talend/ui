@@ -5,6 +5,8 @@ $tc-drawer-bgcolor: #FFF !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-action-bar-background-color: $concrete !default;
+$tc-drawer-content-max-width: 650px !default;
+$tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
@@ -46,8 +48,25 @@ $tc-action-bar-background-color: $concrete !default;
 	height: 100%;
 }
 
+.tc-drawer-tabs-container {
+	background-color: $tc-drawer-tabs-background;
+}
+
 .drawer-stacked {
 	width: 100%;
+}
+
+@media screen and (min-width: $screen-xs-max) {
+	.drawer-stacked {
+		.tc-drawer-header-title,
+		.tc-drawer-tabs,
+		.tc-drawer-content,
+		.tc-drawer-actionbar,
+		.tc-drawer-footer > nav {
+			width: $tc-drawer-content-max-width;
+			margin: 0 auto;
+		}
+	}
 }
 
 .tc-drawer-header {
@@ -88,7 +107,7 @@ $tc-action-bar-background-color: $concrete !default;
 	overflow-y: auto;
 }
 
-.tc-drawer-actionbar {
+.tc-drawer-actionbar-container {
   background: $tc-action-bar-background-color;
 }
 

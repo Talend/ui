@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 
 import talendIcons from 'talend-icons/dist/react';
-import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar } from '../src/index';
+import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar, ActionBar } from '../src/index';
 
 const header = <AppHeaderBar app="Example App Name" />;
 
@@ -33,8 +33,8 @@ const actions = [
 	},
 ];
 
-const connect = {
-	label: 'Connect',
+const cancel = {
+	label: 'Cancel',
 	onClick: action('You clicked me'),
 };
 
@@ -50,9 +50,10 @@ const onCancelAction = {
 };
 
 const panelActions = {
-	left: [],
+	left: [
+		cancel,
+	],
 	right: [
-		connect,
 		primary,
 	],
 };
@@ -192,35 +193,6 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('stacked drawer with custom classes', () => {
-		const drawerActions = {
-			actions: {
-				left: [connect],
-				right: [primary],
-			},
-		};
-
-		return (
-			<Layout
-				header={header}
-				mode="TwoColumns"
-				one={sidePanel}
-			>
-				<Drawer
-					stacked title="I'm stacked drawer"
-					footerActions={drawerActions}
-					headerClass="myClass"
-					bodyClass="myClass"
-					footerClass="myClass"
-				>
-					<h1>Hello drawer 1</h1>
-					<p>{ "You should not being able to read this because I'm first. Some random text goes here...  random text goes here...  random text goes here...  random text goes here... " }</p>
-				</Drawer>
-				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
-			</Layout>
-		);
-	})
 	.addWithInfo('With tabs', () => {
 		const drawersWithTabs = [(
 			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
@@ -298,6 +270,38 @@ storiesOf('Drawer', module)
 				</Tab.Container>
 			</Drawer.Container>
 		)];
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={customDrawers}
+			>
+				<span>zone with drawer</span>
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('Custom stacked', () => {
+		const customDrawers = [(
+			<Drawer.Container stacked>
+				<Tab.Container
+					defaultActiveKey="info"
+				>
+					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+						<Drawer.Title title="Custom drawer with tabs and a super long name that breaks the drawer title" onCancelAction={onCancelAction} />
+						<Tab.Content>
+							<Drawer.Content>
+								<p>content</p>
+							</Drawer.Content>
+							<Drawer.Footer>
+								<ActionBar actions={panelActions} />
+							</Drawer.Footer>
+						</Tab.Content>
+					</div>
+				</Tab.Container>
+			</Drawer.Container>
+	)];
 		return (
 			<Layout
 				header={header}
