@@ -95,7 +95,7 @@ function DrawerTitle({ title, children, onCancelAction }) {
 	return (
 		<div className={theme['tc-drawer-header']}>
 			<div className={theme['tc-drawer-header-title']}>
-				<h1>{title}</h1>
+				<h1 title={title}>{title}</h1>
 				{cancelActionComponent(onCancelAction)}
 			</div>
 			<div className={theme['tc-drawer-header-with-tabs']}>
