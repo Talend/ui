@@ -12,10 +12,10 @@ $tf-typeahead-input-width: 135px !default;
 
 	border: 0;
 	border-radius: 0;
+	box-shadow: $form-shadow;
 	height: auto;
 	padding: 0;
 
-	box-shadow: $form-shadow;
 	&:focus-within {
 		box-shadow: $form-focus-shadow;
 	}

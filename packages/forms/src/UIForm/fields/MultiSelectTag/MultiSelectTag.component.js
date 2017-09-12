@@ -5,7 +5,7 @@ import Typeahead from 'react-talend-components/lib/Typeahead';
 import Badge from 'react-talend-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
 
-import theme from './MultiSelectTagWidget.scss';
+import theme from './MultiSelectTag.scss';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -17,7 +17,10 @@ function getNewItemText(value) {
 
 function getLabel(titleMap, value) {
 	const itemConf = titleMap.find(item => item.value === value);
-	return itemConf ? itemConf.name : value;
+	if (itemConf) {
+		return itemConf.name;
+	}
+	return value;
 }
 
 export default class MultiSelectTag extends React.Component {
@@ -47,9 +50,6 @@ export default class MultiSelectTag extends React.Component {
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
 		case keycode.codes.enter:
-			if (!this.state.suggestions) {
-				break;
-			}
 			event.preventDefault();
 			// suggestions are displayed and an item has the focus : we select it
 			if (Number.isInteger(focusedItemIndex)) {

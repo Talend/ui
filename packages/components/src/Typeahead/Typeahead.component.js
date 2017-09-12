@@ -106,12 +106,14 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 }
 
 Typeahead.defaultProps = {
-	id: uuid.v4(),
-	position: 'left',
-	items: null,
 	autoFocus: true,
+	disabled: false,
+	id: uuid.v4(),
+	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
+	position: 'left',
+	readOnly: false,
 	searching: false,
 	searchingText: 'Searching for matches…',
 };

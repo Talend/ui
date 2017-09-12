@@ -438,7 +438,7 @@ describe('Validation utils', () => {
 					items: {
 						type: 'string',
 						enum: ['M', 'F'],
-					}
+					},
 				},
 				type: 'text',
 				widget: 'multiSelectTag',
@@ -457,7 +457,7 @@ describe('Validation utils', () => {
 					items: {
 						type: 'string',
 						enum: undefined,
-					}
+					},
 				},
 				type: 'text',
 				widget: 'multiSelectTag',
