@@ -1,4 +1,4 @@
-$tc-status-icon-size: $svg-md-size !default;
+$tc-status-icon-size: $svg-sm-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;
 
@@ -8,6 +8,10 @@ $tc-status-space-btn-icon-label: 5px !default;
 	align-items: center;
 	min-height: $tc-status-action-min-size;
 
+	&-label {
+		text-transform: uppercase;
+	}
+
 	> svg {
 		width: $tc-status-icon-size;
 		height: $tc-status-icon-size;
@@ -15,10 +19,10 @@ $tc-status-space-btn-icon-label: 5px !default;
 	}
 
 	&-actions {
-		visibility: hidden;
 		position: absolute;
 		top: 0;
 		left: 0;
+		visibility: hidden;
 	}
 
 	&.action:hover {
