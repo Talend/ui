@@ -805,4 +805,4 @@ EnumerationForm.defaultProps = {
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS, { i18n: i18n.init() })(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS, { i18n: i18n.cloneInstance() })(EnumerationForm);

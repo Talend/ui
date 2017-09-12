@@ -196,4 +196,4 @@ HeaderEnumeration.defaultProps = {
 	t: defaultTranslateFn,
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.cloneInstance() })(Enumeration);

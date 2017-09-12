@@ -290,4 +290,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(HeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.cloneInstance() })(HeaderBar);

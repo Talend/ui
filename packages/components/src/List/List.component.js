@@ -174,4 +174,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(List);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.cloneInstance() })(List);
