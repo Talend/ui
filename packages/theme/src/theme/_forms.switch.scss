@@ -1,0 +1,83 @@
+.switch {
+	input[type='checkbox'],
+	.checkbox input[type='checkbox'],
+	&.checkbox input[type='checkbox'] {
+		position: absolute;
+		clip: rect(1px, 1px, 1px, 1px);
+		padding: 0;
+		border: none;
+		height: 1px;
+		width: 1px;
+		overflow: hidden;
+
+		+ * {
+			padding-left: 2rem;
+		}
+
+		+ *:before,
+		+ *:after,
+		&:checked + *:before,
+		&:checked + *:after {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			transition: background 0.2s ease, transform 0.2s ease;
+			border-radius: 10rem;
+			border-color: transparent;
+			box-shadow: inset .1rem .1rem .5rem $silver;
+		}
+
+		+ *:before,
+		&:checked + *:before {
+			width: 3rem;
+			height: .6rem;
+			margin-top: .5rem;
+			background: $alto;
+			border: none;
+			transform: rotate(0deg);
+		}
+
+		+ *:after,
+		&:checked + *:after {
+			width: 1.5rem;
+			height: 1.5rem;
+			background-color: $wild-sand;
+			box-shadow: 0 .1rem .3rem .1rem rgba(150, 150, 150, 0.45);
+			z-index: 1;
+		}
+
+		&:checked {
+			+ *:before {
+				background-color: $scooter;
+			}
+
+			+ *:after {
+				transform: translate(16px, 0);
+			}
+		}
+
+		&:focus,
+		&:disabled {
+			+ *:after {
+				border-color: transparent;
+			}
+		}
+
+		&:focus {
+			+ *:after {
+				background-color: $white;
+			}
+		}
+
+		&:disabled {
+			+ *:before {
+				background-color: $gallery;
+			}
+
+			+ *:after {
+				box-shadow: 0 .1rem .3rem .1rem rgba(150, 150, 150, 0.15);
+			}
+		}
+	}
+}
