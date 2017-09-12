@@ -1,5 +1,5 @@
 
-> react-talend-components@0.108.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.109.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -12,7 +12,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/Badge/Badge.component.js
-  67:58  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
+  34:3   error  Visible, non-interactive elements should not have mouse or keyboard event listeners                                 jsx-a11y/no-static-element-interactions
+  61:58  error  Caution: `i18n` also has a named export `init`. Check if you meant to write `import {init} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
   197:2   error  Missing semicolon                                                                                                   semi
@@ -39,5 +40,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 15 problems (15 errors, 0 warnings)
+✖ 16 problems (16 errors, 0 warnings)
 
