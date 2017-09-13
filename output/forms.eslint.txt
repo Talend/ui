@@ -53,9 +53,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  808:1  error  Line 808 exceeds the maximum line length of 100  max-len
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -69,5 +66,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 37 problems (37 errors, 0 warnings)
+✖ 36 problems (36 errors, 0 warnings)
 
