@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
-import i18n from 'i18next';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
@@ -10,6 +9,7 @@ import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -290,4 +290,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(HeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderBar);
