@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import defaultTranslateFn from '../../../translate';
+import { getDefaultTranslate } from '../../../translate';
 import theme from './SelectAll.scss';
 
 function SelectAll({ id, items, isSelected, onToggleAll, t }) {
@@ -35,7 +35,7 @@ SelectAll.propTypes = {
 };
 
 SelectAll.defaultProps = {
-	t: defaultTranslateFn,
+	t: getDefaultTranslate,
 };
 
 export default SelectAll;
