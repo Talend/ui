@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 import {
 	getDefaultTranslate,
-	getDefaultI18n,
+	DEFAULT_I18N,
 } from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
@@ -198,4 +198,4 @@ HeaderEnumeration.defaultProps = {
 	t: getDefaultTranslate,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: getDefaultI18n() })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Enumeration);

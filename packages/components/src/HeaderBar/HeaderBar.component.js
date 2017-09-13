@@ -9,7 +9,7 @@ import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { getDefaultI18n } from '../translate';
+import { DEFAULT_I18N } from '../translate';
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -290,4 +290,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: getDefaultI18n() })(HeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderBar);
