@@ -14,7 +14,7 @@ $tc-typeahead-only-icon-color: #CCC !default;
 $tc-typeahead-section-header-color: #63AEBD !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
-$tc-typeahead-items-border-radius: 4px !default;
+$tc-typeahead-items-border-radius: $border-radius-base !default;
 $tc-typeahead-items-font-size: 1.5rem !default;
 
 .tc-typeahead-container {
