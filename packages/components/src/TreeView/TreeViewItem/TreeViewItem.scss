@@ -114,7 +114,7 @@ $item-height: 40px;
 			}
 		}
 
-		:global(.tc-badge) {
+		:global(.tc-badge-button) {
 			height: $item-height - 2 * $padding-small;
 			margin: 0 $padding-normal 0 0;
 			border: none;

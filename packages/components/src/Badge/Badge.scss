@@ -1,17 +1,59 @@
 $badge-label-font-size: 13px;
 $badge-height: 25px;
+$badge-delete-icon-size: $svg-xs-size;
 // it should sum up in 25px height:
 $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-height-base) / 2;
-$badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-padding} - #{$svg-xs-size / 2});
 
 .tc-badge {
 	display: inline-flex;
-	height: $badge-height;
-	margin: $padding-smaller;
-	padding: $badge-label-vertical-padding $padding-small;
-	background-color: $gallery;
-	cursor: pointer;
-	letter-spacing: 0.4px;
+	max-width: 100%;
+
+	&-readonly.tc-badge {
+		.tc-badge-button {
+			padding-right: $padding-small;
+		}
+	}
+
+	.tc-badge-button {
+		display: inline-flex;
+		height: $badge-height;
+		margin: $padding-smaller;
+		padding: $badge-label-vertical-padding $padding-small;
+		padding-right: calc(#{$padding-larger} + #{$badge-delete-icon-size});
+		background-color: $gallery;
+		letter-spacing: 0.4px;
+		border: none;
+		max-width: 100%;
+
+		.tc-badge-category {
+			background-color: $concrete;
+			font-size: $badge-label-font-size;
+			text-transform: uppercase;
+
+			margin-top: -$badge-label-vertical-padding;
+			margin-right: $padding-small;
+			margin-left: -$padding-small;
+			margin-bottom: -$badge-label-vertical-padding;
+			padding: $badge-label-vertical-padding $padding-small;
+		}
+
+		.tc-badge-label {
+			font-size: $badge-label-font-size;
+			font-weight: 700;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		&:hover {
+			background-color: $alto;
+
+			.tc-badge-category {
+				background-color: $gallery;
+			}
+		}
+	}
 
 	svg,
 	.tc-badge-label,
@@ -19,33 +61,50 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 		color: $dark-silver;
 	}
 
-	.tc-badge-category {
-		background-color: $concrete;
-		font-weight: 400;
-		font-size: $badge-label-font-size;
-		text-transform: uppercase;
+	&-selected:not(&-disabled) {
+		svg,
+		.tc-badge-label,
+		.tc-badge-category {
+			color: $white;
+		}
 
-		margin-top: -$badge-label-vertical-padding;
-		margin-right: $padding-small;
-		margin-left: -$padding-small;
-		margin-bottom: -$badge-label-vertical-padding;
-		padding: $badge-label-vertical-padding $padding-small;
+		.tc-badge-button {
+			background-color: $scooter;
+
+			.tc-badge-category {
+				background-color: rgba($white, 0.2);
+			}
+
+			&:hover {
+				background-color: darken($scooter, 10);
+			}
+		}
 	}
 
-	.tc-badge-label {
-		font-size: $badge-label-font-size;
-		font-weight: 700;
+	&-disabled {
+		.tc-badge-button {
+			background-color: $gallery;
 
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+			svg,
+			.tc-badge-label,
+			.tc-badge-category {
+				color: $silver;
+			}
+
+			.tc-badge-category {
+				background-color: $concrete;
+			}
+		}
 	}
 
 	.tc-badge-delete-icon {
-		margin-left: $padding-large;
-		padding: $badge-icon-vertical-padding 0;
+		position: relative;
+		margin: auto;
+		height: $badge-height - 2 * $badge-label-vertical-padding;
+		padding: 0;
 		background: transparent;
 		box-shadow: none;
+		left: -$padding-large;
 
 		&:hover {
 			box-shadow: none;
@@ -54,49 +113,9 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 		svg {
 			display: block;
 			margin: 0;
-			height: $svg-xs-size;
-			width: $svg-xs-size;
-		}
-	}
-
-	&:hover {
-		background-color: $alto;
-
-		.tc-badge-category {
-			background-color: $gallery;
-		}
-	}
-
-	&-selected:not(&-disabled) {
-		background-color: $scooter;
-
-		svg,
-		.tc-badge-label,
-		.tc-badge-category {
-			color: $white;
-		}
-
-		.tc-badge-category {
-			background-color: rgba($white, 0.2);
-		}
-
-		&:hover {
-			background-color: darken($scooter, 10);
-		}
-	}
-
-	&-disabled {
-		cursor: not-allowed;
-		background-color: $gallery;
-
-		svg,
-		.tc-badge-label,
-		.tc-badge-category {
-			color: $silver;
-		}
-
-		.tc-badge-category {
-			background-color: $concrete;
+			height: $badge-delete-icon-size;
+			width: $badge-delete-icon-size;
 		}
 	}
 }
+

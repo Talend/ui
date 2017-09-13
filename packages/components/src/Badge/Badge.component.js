@@ -22,29 +22,27 @@ function renderDeleteIcon(onClick, disabled, t) {
 }
 
 function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
-	function onDeleteClick(e, ...rest) {
-		e.stopPropagation();
-		onDelete(e, ...rest);
-	}
-
-	const badgeClasses = classNames(
+	const containerClasses = classNames(
 		'tc-badge', theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
 		disabled && ['tc-badge-disabled', theme['tc-badge-disabled']],
+		!onDelete && ['tc-badge-readonly', theme['tc-badge-readonly']],
 	);
+	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
-	// noinspection Eslint
 	return (
-		<div className={badgeClasses} onClick={!disabled && onSelect}>
-			{category && <span className={categoryClasses}>
-				{category}
-			</span>}
-			<span className={labelClasses}>
-				{label}
-			</span>
-			{onDelete && renderDeleteIcon(onDeleteClick, disabled, t)}
+		<div className={containerClasses}>
+			<button className={badgeClasses} onClick={!disabled && onSelect} disabled={disabled}>
+				{category && <span className={categoryClasses}>
+					{category}
+				</span>}
+				<span className={labelClasses}>
+					{label}
+				</span>
+			</button>
+			{onDelete && renderDeleteIcon(onDelete, disabled, t)}
 		</div>
 	);
 }

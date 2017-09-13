@@ -11,6 +11,7 @@ const defaultStyle = {
 const columnStyle = {
 	flexGrow: '1',
 	maxWidth: '250px',
+	padding: '0 10px',
 };
 
 const icons = {

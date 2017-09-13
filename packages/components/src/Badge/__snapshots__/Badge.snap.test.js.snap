@@ -2,32 +2,42 @@
 
 exports[`BadgeSpec should render Badge 1`] = `
 <div
-  className="tc-badge"
-  onClick={undefined}
+  className="tc-badge tc-badge-readonly"
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
   >
-    Label
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
 </div>
 `;
 
 exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 <div
   className="tc-badge"
-  onClick={undefined}
 >
-  <span
-    className="tc-badge-category"
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
   >
-    Category
-  </span>
-  <span
-    className="tc-badge-label"
-  >
-    Label
-  </span>
+    <span
+      className="tc-badge-category"
+    >
+      Category
+    </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
@@ -55,13 +65,18 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 exports[`BadgeSpec should render Badge with delete icon 1`] = `
 <div
   className="tc-badge"
-  onClick={undefined}
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
   >
-    Label
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
@@ -89,13 +104,18 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
 exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
 <div
   className="tc-badge tc-badge-disabled"
-  onClick={false}
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={true}
+    onClick={false}
   >
-    Label
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={true}
@@ -123,13 +143,18 @@ exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
 exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
   className="tc-badge tc-badge-selected"
-  onClick={undefined}
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
   >
-    Label
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
