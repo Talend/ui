@@ -9,17 +9,25 @@ src/theme/_buttons.scss
 src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
+src/theme/_forms.checkbox.scss
+  15:1  warning  Space expected between blocks          empty-line-between-blocks
+  15:7  warning  Selectors must be placed on new lines  single-line-per-selector
+  18:1  warning  Space expected between blocks          empty-line-between-blocks
+  29:1  warning  Space expected between blocks          empty-line-between-blocks
+  29:7  warning  Selectors must be placed on new lines  single-line-per-selector
+  32:1  warning  Space expected between blocks          empty-line-between-blocks
+
 src/theme/_forms.scss
    23:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    24:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    41:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    42:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    91:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  277:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  290:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  303:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  326:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  470:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  210:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  223:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  236:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  259:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  405:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -27,5 +35,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 22 problems (14 errors, 8 warnings)
 
