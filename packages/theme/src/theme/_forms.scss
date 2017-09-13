@@ -204,73 +204,6 @@ form {
 		}
 	}
 
-	input[type='checkbox'],
-	.checkbox input[type='checkbox'],
-	.checkbox-inline input[type='checkbox'] {
-
-		&:before,
-		&:after,
-		+ *:before,
-		+ *:after {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-
-		&:after,
-		+ *:after {
-			@include transition(240ms);
-			content: '';
-			display: inline-block;
-			width: 18px;
-			height: 18px;
-			border: 2px solid $gray;
-			border-radius: 2px;
-			background-color: $white;
-		}
-
-		&:checked:before,
-		&:checked + *:before {
-			@include rotate(45deg);
-			content: '';
-			top: 2px;
-			left: 6px;
-			display: table;
-			width: 6px;
-			height: 12px;
-			border: 2px solid $white;
-			border-top-width: 0;
-			border-left-width: 0;
-			z-index: 1;
-		}
-
-		&:focus {
-			outline: none;
-		}
-
-		&:focus:after,
-		&:focus + *:after {
-			border-color: $brand-primary;
-		}
-
-		&:checked:after,
-		&:checked + *:after {
-			background-color: $brand-primary;
-			border-color: $brand-primary;
-		}
-
-		&:disabled:after,
-		&:disabled + *:after {
-			border-color: $gray-light;
-		}
-
-		&:disabled:checked:after,
-		&:disabled:checked + *:after {
-			background-color: $gray-light;
-			border-color: transparent;
-		}
-	}
-
 	.has-warning {
 		input:not([type=checkbox]),
 		.form-control,
@@ -396,6 +329,8 @@ form {
 		border-bottom: none;
 	}
 }
+
+@import 'forms.checkbox';
 
 .switch {
 	input[type='checkbox'],
