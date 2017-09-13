@@ -11,7 +11,7 @@ import Label from './Label';
 import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
-import defaultTranslateFn from '../../translate';
+import { getDefaultTranslate } from '../../translate';
 
 function adaptActionsIds(actions, parentId) {
 	return actions &&
@@ -97,7 +97,7 @@ Toolbar.propTypes = {
 };
 
 Toolbar.defaultProps = {
-	t: defaultTranslateFn,
+	t: getDefaultTranslate,
 };
 
 export default Toolbar;
