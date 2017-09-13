@@ -3,17 +3,16 @@
 exports[`Status should render a label 1`] = `
 <div
   className="tc-status text-success undefined"
+  role="status"
 >
   
   <span
     className="tc-status-label"
   >
-     
     Successful
-     
   </span>
   <span
-    className={undefined}
+    className="tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -62,6 +61,7 @@ exports[`Status should render a label 1`] = `
 exports[`Status should render a label with Icon 1`] = `
 <div
   className="tc-status text-success undefined"
+  role="status"
 >
   <i
     aria-hidden="true"
@@ -72,12 +72,10 @@ exports[`Status should render a label with Icon 1`] = `
   <span
     className="tc-status-label"
   >
-     
     Successful
-     
   </span>
   <span
-    className={undefined}
+    className="tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -126,6 +124,7 @@ exports[`Status should render a label with Icon 1`] = `
 exports[`Status should render a label with Icon without actions 1`] = `
 <div
   className="tc-status text-success"
+  role="status"
 >
   <i
     aria-hidden="true"
@@ -136,12 +135,10 @@ exports[`Status should render a label with Icon without actions 1`] = `
   <span
     className="tc-status-label"
   >
-     
     Successful
-     
   </span>
   <span
-    className={undefined}
+    className="tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -153,6 +150,7 @@ exports[`Status should render a label with Icon without actions 1`] = `
 exports[`Status should render a label with a continuous circular progress 1`] = `
 <div
   className="tc-status text-info undefined"
+  role="status"
 >
   <svg
     className=""
@@ -176,12 +174,10 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
   <span
     className="tc-status-label"
   >
-     
     In Progress
-     
   </span>
   <span
-    className={undefined}
+    className="tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -230,6 +226,7 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
 exports[`Status should render a label with a fixed circular progress 1`] = `
 <div
   className="tc-status text-info undefined"
+  role="status"
 >
   <svg
     className=""
@@ -253,12 +250,10 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
   <span
     className="tc-status-label"
   >
-     
     In Progress
-     
   </span>
   <span
-    className={undefined}
+    className="tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
