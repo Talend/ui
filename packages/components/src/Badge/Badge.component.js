@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import i18n from 'i18next';
+import { init } from 'i18next';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -35,6 +35,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
+	// noinspection Eslint
 	return (
 		<div className={badgeClasses} onClick={!disabled && onSelect}>
 			{category && <span className={categoryClasses}>
@@ -63,4 +64,4 @@ Badge.defaultProps = {
 	disabled: false,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(Badge);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: init() })(Badge);

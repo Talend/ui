@@ -13,7 +13,9 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 	cursor: pointer;
 	letter-spacing: 0.4px;
 
-	.tc-badge-label, svg, .tc-badge-category {
+	svg,
+	.tc-badge-label,
+	.tc-badge-category {
 		color: $dark-silver;
 	}
 
@@ -68,7 +70,9 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 	&-selected:not(&-disabled) {
 		background-color: $scooter;
 
-		.tc-badge-label, svg, .tc-badge-category {
+		svg,
+		.tc-badge-label,
+		.tc-badge-category {
 			color: $white;
 		}
 
@@ -85,7 +89,9 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 		cursor: not-allowed;
 		background-color: $gallery;
 
-		.tc-badge-label, svg, .tc-badge-category {
+		svg,
+		.tc-badge-label,
+		.tc-badge-category {
 			color: $silver;
 		}
 
