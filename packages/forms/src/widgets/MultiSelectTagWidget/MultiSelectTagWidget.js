@@ -10,8 +10,8 @@ const ENTER = 'ENTER';
 const LEAVE = 'LEAVE';
 
 const INPUT_TEXT_INDENT = 7.5;
-const INPUT_HEIGHT = 32;
-const BADGE_HEIGHT = 24;
+const INPUT_HEIGHT = 40;
+const BADGE_HEIGHT = 25;
 const BADGES_MARGIN_TOP = 7;
 const INPUT_MIN_WIDTH = 135;
 const DROP_DOWN_ITEM_HEIGHT = 39;

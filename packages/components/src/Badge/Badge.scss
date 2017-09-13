@@ -7,7 +7,6 @@ $badge-icon-vertical-padding: calc(#{$badge-height / 2 - $badge-label-vertical-p
 .tc-badge {
 	display: inline-flex;
 	height: $badge-height;
-	max-width: calc(100% - #{2*$padding-smaller + 2*$padding-small});
 	margin: $padding-smaller;
 	padding: $badge-label-vertical-padding $padding-small;
 	background-color: $gallery;
