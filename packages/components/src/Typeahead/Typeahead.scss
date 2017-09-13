@@ -13,7 +13,9 @@ $tc-typeahead-icon-color: #CCC !default;
 $tc-typeahead-only-icon-color: #CCC !default;
 $tc-typeahead-section-header-color: #63AEBD !default;
 
-$tc-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
+$tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
+$tc-typeahead-items-border-radius: 4px !default;
+$tc-typeahead-items-font-size: 1.5rem !default;
 
 .tc-typeahead-container {
 	position: relative;
@@ -29,10 +31,10 @@ $tc-typeahead-items-shadow-color: rgba(0, 0, 0, 0.4) !default;
 		top: 100%;
 		max-height: 70vh;
 		min-width: $tc-typeahead-input-width;
-		font-size: 1.5rem;
+		font-size: $tc-typeahead-items-font-size;
 		background-color: $tc-typeahead-opened-items-container-background-color;
-		border-radius: 4px;
-		box-shadow: 0 1px 3px 0 $tc-typeahead-items-shadow-color;
+		border-radius: $tc-typeahead-items-border-radius;
+		box-shadow: $tc-typeahead-items-box-shadow;
 		overflow-y: auto;
 	}
 
