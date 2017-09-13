@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { init } from 'i18next';
+import i18n, { init } from 'i18next';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -64,4 +64,4 @@ Badge.defaultProps = {
 	disabled: false,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: init() })(Badge);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: init.call(i18n) })(Badge);
