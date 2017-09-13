@@ -108,7 +108,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
   <button
     className="tc-badge-button"
     disabled={true}
-    onClick={false}
+    onClick={undefined}
   >
     <span
       className="tc-badge-label"

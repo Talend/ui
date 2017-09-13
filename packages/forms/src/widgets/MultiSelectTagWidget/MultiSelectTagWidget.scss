@@ -13,7 +13,7 @@ $input-padding-right : $padding-normal * 2 + $dropdown-caret-size;
 		pointer-events: none;
 		line-height: 1;
 
-		:global(.tc-badge-button) {
+		:global(.tc-badge) {
 			pointer-events: auto;
 			line-height: 1.42857;
 		}

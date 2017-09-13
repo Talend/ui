@@ -9,16 +9,19 @@ import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
 function renderDeleteIcon(onClick, disabled, t) {
-	return (
-		<Action
-			label={t('BADGE_DELETE', { defaultValue: 'delete' })}
-			hideLabel
-			onClick={onClick}
-			disabled={disabled}
-			icon="talend-cross"
-			className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
-		/>
-	);
+	if (onClick) {
+		return (
+			<Action
+				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+				hideLabel
+				onClick={onClick}
+				disabled={disabled}
+				icon="talend-cross"
+				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
+			/>
+		);
+	}
+	return null;
 }
 
 function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
@@ -34,7 +37,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
 
 	return (
 		<div className={containerClasses}>
-			<button className={badgeClasses} onClick={!disabled && onSelect} disabled={disabled}>
+			<button className={badgeClasses} onClick={onSelect} disabled={disabled}>
 				{category && <span className={categoryClasses}>
 					{category}
 				</span>}
@@ -42,7 +45,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
 					{label}
 				</span>
 			</button>
-			{onDelete && renderDeleteIcon(onDelete, disabled, t)}
+			{renderDeleteIcon(onDelete, disabled, t)}
 		</div>
 	);
 }
