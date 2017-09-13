@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { createInstance } from 'i18next';
 import { translate } from 'react-i18next';
 
-import defaultTranslateFn from '../translate';
+import {
+	getDefaultTranslate,
+	getDefaultI18n,
+} from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
@@ -193,7 +195,7 @@ HeaderEnumeration.propTypes = {
 };
 
 HeaderEnumeration.defaultProps = {
-	t: defaultTranslateFn,
-}
+	t: getDefaultTranslate,
+};
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: createInstance({}, () => {}) })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: getDefaultI18n() })(Enumeration);

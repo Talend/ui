@@ -3,7 +3,7 @@ import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
-import defaultTranslateFn from '../../../translate';
+import { getDefaultTranslate } from '../../../translate';
 import theme from './SelectSortBy.scss';
 
 function SortByItem({ option, index, id }) {
@@ -87,7 +87,7 @@ SelectSortBy.propTypes = {
 };
 
 SelectSortBy.defaultProps = {
-	t: defaultTranslateFn,
+	t: getDefaultTranslate,
 };
 
 export default SelectSortBy;

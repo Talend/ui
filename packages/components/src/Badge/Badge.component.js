@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { createInstance } from 'i18next';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import { getDefaultI18n } from '../translate';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
@@ -64,4 +64,4 @@ Badge.defaultProps = {
 	tcStyle: 'solid',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: createInstance({}, () => {}) })(Badge);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: getDefaultI18n() })(Badge);
