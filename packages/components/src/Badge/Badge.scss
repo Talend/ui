@@ -8,12 +8,6 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 	display: inline-flex;
 	max-width: 100%;
 
-	&-readonly.tc-badge {
-		.tc-badge-button {
-			padding-right: $padding-small;
-		}
-	}
-
 	.tc-badge-button {
 		display: inline-flex;
 		height: $badge-height;
@@ -61,6 +55,12 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 		color: $dark-silver;
 	}
 
+	&-readonly.tc-badge {
+		.tc-badge-button {
+			padding-right: $padding-small;
+		}
+	}
+
 	&-selected:not(&-disabled) {
 		svg,
 		.tc-badge-label,
@@ -105,10 +105,6 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 		background: transparent;
 		box-shadow: none;
 		left: -$padding-large;
-
-		&:hover {
-			box-shadow: none;
-		}
 
 		svg {
 			display: block;
