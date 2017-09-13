@@ -2,6 +2,11 @@
 .container {
 	display: block;
 
+	svg{
+		padding: 2px;
+		margin-right:5px;
+	}
+
 	li {
 		list-style-type: none;
 		font-size: 1rem;
@@ -9,6 +14,12 @@
 
 	button{
 		font-size : 1.4rem;
+	}
+
+	
+	button > sup{
+		top : -1;
+		margin-left: 15px;
 	}
 
 	.opened {
@@ -23,11 +34,19 @@
 		content: ':';
 	}
 
+	sup::before{
+		margin-right : 15px; 
+	}
+
 	.rootLabelOverflow{
 		white-space: nowrap;
 		overflow: hidden;
 		max-width: 25%;
 		text-overflow: ellipsis;
+	}
+
+	.selectedLine{
+		background-color : yellow;
 	}
 	
 }
