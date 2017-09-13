@@ -1,7 +1,15 @@
 
-> react-talend-components@0.108.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.109.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
+
+src/Badge/Badge.scss
+  17:19  warning  Selectors must be placed on new lines  single-line-per-selector
+  17:24  warning  Selectors must be placed on new lines  single-line-per-selector
+  72:20  warning  Selectors must be placed on new lines  single-line-per-selector
+  72:25  warning  Selectors must be placed on new lines  single-line-per-selector
+  89:20  warning  Selectors must be placed on new lines  single-line-per-selector
+  89:25  warning  Selectors must be placed on new lines  single-line-per-selector
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
@@ -9,5 +17,5 @@ src/VirtualizedList/NoRows/NoRows.scss
 src/VirtualizedList/RowSelection/RowSelection.scss
   12:1  warning  Space expected between blocks  empty-line-between-blocks
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 8 problems (0 errors, 8 warnings)
 
