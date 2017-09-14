@@ -39,4 +39,4 @@ export const FLOWDESIGNER_LINK_REMOVE_DATA = 'FLOWDESIGNER_LINK_REMOVE_DATA';
 export const PORT_SOURCE = 'SOURCE';
 export const PORT_SINK = 'SINK';
 
-export const GRID_SIZE = 62.5;
+export const GRID_SIZE = 40;

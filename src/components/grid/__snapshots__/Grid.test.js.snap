@@ -14,21 +14,21 @@ exports[`Grid.component should render a grid by default 1`] = `
     </pattern>
     <pattern
       fill="none"
-      height={62.5}
+      height={40}
       id="grid"
       patternUnits="userSpaceOnUse"
       stroke="#BFBDBD"
       strokeWidth="0.5"
-      width={62.5}
+      width={40}
       x={0}
       y={0}>
       <rect
         fill="url(#smallGrid)"
         fillOpacity={1}
-        height={62.5}
-        width={62.5} />
+        height={40}
+        width={40} />
       <path
-        d="M 62.5 0 L 0 0 0 62.5" />
+        d="M 40 0 L 0 0 0 40" />
     </pattern>
   </defs>
   <rect
@@ -61,21 +61,21 @@ exports[`Grid.component should render custom component with transform injected 1
     </pattern>
     <pattern
       fill="none"
-      height={62.5}
+      height={40}
       id="grid"
       patternUnits="userSpaceOnUse"
       stroke="#BFBDBD"
       strokeWidth="0.5"
-      width={62.5}
+      width={40}
       x={0}
       y={0}>
       <rect
         fill="url(#smallGrid)"
         fillOpacity={1}
-        height={62.5}
-        width={62.5} />
+        height={40}
+        width={40} />
       <path
-        d="M 62.5 0 L 0 0 0 62.5" />
+        d="M 40 0 L 0 0 0 40" />
     </pattern>
   </defs>
   <rect
