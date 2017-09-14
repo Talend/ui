@@ -1,8 +1,9 @@
-$badge-label-font-size: 13px;
-$badge-height: 25px;
-$badge-delete-icon-size: $svg-xs-size;
+$tc-badge-label-font-size: 13px !default;
+$tc-badge-height: 25px !default;
+$tc-badge-delete-icon-size: $svg-xs-size !default;
 // it should sum up in 25px height:
-$badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-height-base) / 2;
+$tc-badge-vertical-padding: ($tc-badge-height - $tc-badge-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-margin: $padding-smaller !default;
 
 .tc-badge {
 	display: inline-flex;
@@ -10,10 +11,10 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 
 	.tc-badge-button {
 		display: inline-flex;
-		height: $badge-height;
-		margin: $padding-smaller;
-		padding: $badge-label-vertical-padding $padding-small;
-		padding-right: calc(#{$padding-larger} + #{$badge-delete-icon-size});
+		height: $tc-badge-height;
+		margin: $tc-badge-margin;
+		padding: $tc-badge-vertical-padding $padding-small;
+		padding-right: calc(#{$padding-larger} + #{$tc-badge-delete-icon-size});
 		background-color: $gallery;
 		letter-spacing: 0.4px;
 		border: none;
@@ -21,18 +22,18 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 
 		.tc-badge-category {
 			background-color: $concrete;
-			font-size: $badge-label-font-size;
+			font-size: $tc-badge-label-font-size;
 			text-transform: uppercase;
 
-			margin-top: -$badge-label-vertical-padding;
+			margin-top: -$tc-badge-vertical-padding;
 			margin-right: $padding-small;
 			margin-left: -$padding-small;
-			margin-bottom: -$badge-label-vertical-padding;
-			padding: $badge-label-vertical-padding $padding-small;
+			margin-bottom: -$tc-badge-vertical-padding;
+			padding: $tc-badge-vertical-padding $padding-small;
 		}
 
 		.tc-badge-label {
-			font-size: $badge-label-font-size;
+			font-size: $tc-badge-label-font-size;
 			font-weight: 700;
 
 			overflow: hidden;
@@ -100,7 +101,7 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 	.tc-badge-delete-icon {
 		position: relative;
 		margin: auto;
-		height: $badge-height - 2 * $badge-label-vertical-padding;
+		height: $tc-badge-height - 2 * $tc-badge-vertical-padding;
 		padding: 0;
 		background: transparent;
 		box-shadow: none;
@@ -109,8 +110,8 @@ $badge-label-vertical-padding: ($badge-height - $badge-label-font-size * $line-h
 		svg {
 			display: block;
 			margin: 0;
-			height: $badge-delete-icon-size;
-			width: $badge-delete-icon-size;
+			height: $tc-badge-delete-icon-size;
+			width: $tc-badge-delete-icon-size;
 		}
 	}
 }
