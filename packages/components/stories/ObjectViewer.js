@@ -26,29 +26,20 @@ const data = [
 
 const handler = {
 	edited: ['$[0][\'int\']'],
-	opened: ['$', '$[0]', '$[0][\'obj\']'],
+	opened: ['$', '$[0]', '$[0][\'attributes\']'],
 	onClick: action('onClick'),
-	/* onClick: (e) => {
-		action('onClick');
-		console.log('on click', e);
-	},*/
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 };
 
-let selectedJsonpath = "$[0]['name']";
+let selectedJsonpath = "$[0][\'name\']";
 
 const handlerHighlight = {
 	edited: ['$[0][\'int\']'],
-	opened: ['$', '$[0]', '$[0][\'obj\']'],
-	onClick: (e) => {
-		action('onClick');
-		console.log('on click', e);
-	},
-	notifySelection: (e, jsonpath) => {
-		action('onSelect');
+	opened: ['$', '$[0]', '$[0][\'attributes\']'],
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
-		console.log('notifySelection depuis ObjectViewer', e, jsonpath);
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),

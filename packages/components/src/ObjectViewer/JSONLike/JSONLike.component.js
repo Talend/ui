@@ -15,7 +15,7 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
-export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
+export function NativeValue({ data, edit, onClick, onChange, jsonpath, selectedJsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -28,10 +28,25 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 	if (edit) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
+
+	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
+
+	if (isSelectedLine) {
+		return (
+			<button
+				type="button"
+				className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.lineValueSelected}`}
+				onClick={e => onClick(e, { data, edit, jsonpath })}
+			>
+				{display}
+			</button >
+		);
+	}
+
 	return (
 		<button
 			type="button"
-			className={`btn btn-link btn-xs ${theme[type]} ${theme.native}`}
+			className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.lineValue}`}
 			onClick={e => onClick(e, { data, edit, jsonpath })}
 		>
 			{display}
@@ -49,6 +64,7 @@ NativeValue.propTypes = {
 	onClick: PropTypes.func,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
+	selectedJsonpath: PropTypes.string,
 };
 
 /**
@@ -65,7 +81,7 @@ export function getJSONPath(key, prefix, type) {
 	return `${prefix}['${key}']`;
 }
 
-export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJsonpath, notifySelection, children }) {
+export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJsonpath, onSelect, children }) {
 	const props = {};
 
 	if (onMouseOver && onMouseOver !== noop) {
@@ -76,7 +92,7 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 
 	const onClick = (e) => {
 		e.stopPropagation();
-		notifySelection(e, jsonpath);
+		onSelect(e, jsonpath);
 	};
 
 	return (
@@ -98,7 +114,7 @@ LineItem.propTypes = {
 	mouseOverData: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
 	jsonpath: PropTypes.string,
 	selectedJsonpath: PropTypes.string,
-	notifySelection: PropTypes.func,
+	onSelect: PropTypes.func,
 };
 
 export function getDataInfo(data, tupleLabel) {
@@ -141,12 +157,16 @@ export function abstracter(acc, item) {
 	if (acc.length > 0) {
 		return `${acc}, ${item}`;
 	}
+
+	if (typeof item === 'boolean') {
+		return item.toString();
+	}
+
 	return item;
 }
 
 export function getDataAbstract(data) {
 	let abstract = '';
-
 	if (Array.isArray(data)) {
 		abstract = data.reduce((acc, item) => abstracter(acc, item), abstract);
 	} else if (typeof data === 'object') {
@@ -171,13 +191,15 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1 || props.onClick === noop;
 
+	const isSelectedLine = (props.selectedJsonpath && (props.selectedJsonpath === jsonpath));
+
 	if (isNativeType) {
 		return (
 			<LineItem
 				name={name}
 				onMouseOver={props.onMouseOver}
 				mouseOverData={{ data, isOpened, isEdited }}
-				notifySelection={props.notifySelection}
+				onSelect={props.onSelect}
 				jsonpath={jsonpath}
 				selectedJsonpath={props.selectedJsonpath}
 			>
@@ -187,6 +209,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					jsonpath={jsonpath}
 					onClick={props.onClick}
 					onChange={props.onChange}
+					selectedJsonpath={props.selectedJsonpath}
 				/>
 				<div className={theme.lineType}>
 					({info.type})
@@ -205,7 +228,12 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	return (
 		<div>
 			<Icon name={iconName} transform={iconTransform} className="btn btn-xs btn-link container" />
-			<LineItem name={name} mouseOverData={{ data, isOpened, isEdited }} notifySelection={props.notifySelection} jsonpath={jsonpath}>
+			<LineItem
+				name={name}
+				mouseOverData={{ data, isOpened, isEdited }}
+				onSelect={props.onSelect}
+				jsonpath={jsonpath}
+				selectedJsonpath={props.selectedJsonpath}>
 				<span className={theme.hierarchical}>
 					<div
 						className={`${theme.lineType}`}
@@ -216,7 +244,8 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{info.length}</sup>
 					</TooltipTrigger>
-					<ul className={!isOpened ? 'hidden' : null}>
+					<ul className={!isOpened ? 'hidden' : `${theme.verticalLine}`}>
+
 						{info.keys.map((key, i) => {
 							const jpath = getJSONPath(key, jsonpath, info.type);
 							return (
@@ -232,10 +261,11 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 								</li>
 							);
 						})}
+
 					</ul>
 				</span>
 			</LineItem>
-		</div>
+		</div >
 	);
 }
 
@@ -254,7 +284,7 @@ Item.propTypes = {
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onClick: PropTypes.func,
-	notifySelection: PropTypes.func,
+	onSelect: PropTypes.func,
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
 	onChange: PropTypes.func,

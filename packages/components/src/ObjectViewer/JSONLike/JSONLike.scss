@@ -10,6 +10,7 @@
 	li {
 		list-style-type: none;
 		font-size: 1rem;
+		display: flex;
 	}
 
 	button{
@@ -66,17 +67,28 @@
 	.selectedLine{
 		background-color : #5D88AA;
 		opacity: 0.75;
+		color: black;
 	}
 	
 	.lineKey{
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		opacity: 0.75;
+		padding-left : 5px;
 	}
 
 	.lineValue{
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
+		vertical-align: baseline;
+		color: black;
+	}
+
+	.lineValueSelected{
+		font-family: 'Source Sans Pro';
+		font-size: 15px;
+		vertical-align: baseline;
+		color:white;
 	}
 
 	.lineType{
@@ -85,5 +97,9 @@
 		opacity: 0.75;
 		display:inline;
 		margin-right : 15px;
+	}
+
+	.verticalLine{
+		border-left: solid 1px #5D88AA;
 	}
 }
