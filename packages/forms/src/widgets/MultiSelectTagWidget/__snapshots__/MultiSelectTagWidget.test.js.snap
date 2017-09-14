@@ -22,10 +22,20 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
   </div>
   <div
     className="tags-container"
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
   >
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      style={
+        Object {
+          "display": "inline-flex",
+        }
+      }
     />
   </div>
   <DropDownOptions
@@ -70,10 +80,20 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
   </div>
   <div
     className="tags-container"
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
   >
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      style={
+        Object {
+          "display": "inline-flex",
+        }
+      }
     />
   </div>
 </div>
@@ -101,10 +121,20 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   </div>
   <div
     className="tags-container"
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
   >
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      style={
+        Object {
+          "display": "inline-flex",
+        }
+      }
     />
   </div>
   <DropDownOptions

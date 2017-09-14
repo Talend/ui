@@ -24,7 +24,7 @@ function renderDeleteIcon(onClick, disabled, t) {
 	return null;
 }
 
-function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
+function Badge({ label, category, onDelete, onSelect, selected, disabled, t, ...rest }) {
 	const containerClasses = classNames(
 		'tc-badge', theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
@@ -36,7 +36,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t }) {
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
 	return (
-		<div className={containerClasses}>
+		<div className={containerClasses} {...rest}>
 			<button className={badgeClasses} onClick={onSelect} disabled={disabled}>
 				{category && <span className={categoryClasses}>
 					{category}
@@ -58,6 +58,7 @@ Badge.propTypes = {
 	selected: PropTypes.bool,
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
+	rest: PropTypes.any, // eslint-disable-line react/forbid-prop-types
 };
 
 Badge.defaultProps = {
