@@ -63,7 +63,7 @@
     "babel-preset-es2015": "6.18.0",
     "babel-preset-react": "6.16.0",
     "bootstrap-sass": "3.3.7",
-    "bootstrap-talend-theme": "^0.107.0",
+    "bootstrap-talend-theme": "^0.110.0",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "1.5.0",
@@ -75,6 +75,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "i18next": "^9.0.0",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "jest": "20.0.3",
@@ -90,6 +91,7 @@
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "15.5.4",
+    "react-i18next": "^5.2.0",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "15.5.4",
     "rimraf": "^2.6.1",
@@ -97,10 +99,8 @@
     "sass-loader": "6.0.5",
     "slimerjs": "^0.10.2",
     "style-loader": "0.16.1",
-    "talend-icons": "^0.107.0",
-    "uuid": "3.0.1",
-    "i18next": "^9.0.0",
-    "react-i18next": "^5.2.0"
+    "talend-icons": "^0.110.0",
+    "uuid": "3.0.1"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -122,8 +122,9 @@
   },
   "peerDependencies": {
     "bootstrap-sass": "3.3.7",
-    "bootstrap-talend-theme": "^0.107.0",
+    "bootstrap-talend-theme": "^0.110.0",
     "classnames": "2.2.5",
+    "i18next": "^9.0.0",
     "invariant": "2.2.2",
     "keycode": "2.1.9",
     "prop-types": "15.5.10",
@@ -131,10 +132,9 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
-    "i18next": "^9.0.0",
     "react-i18next": "^5.2.0",
-    "talend-icons": "^0.107.0",
+    "talend-icons": "^0.110.0",
     "uuid": "3.0.1"
   },
-  "version": "0.107.0"
+  "version": "0.110.0"
 }
