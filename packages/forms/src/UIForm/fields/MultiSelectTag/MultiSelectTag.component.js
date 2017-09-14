@@ -42,6 +42,20 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	/**
+	 * On Tags value change, we update suggestions if they are displayed
+	 * @param value The tags values
+	 */
+	componentDidUpdate({ value }) {
+		if (value === this.props.value) {
+			return;
+		}
+		if (this.state.suggestions) {
+			this.updateSuggestions();
+		}
+	}
+
+
+	/**
 	 * Manage suggestion selection
 	 * @param event
 	 * @param focusedItemIndex
@@ -202,7 +216,7 @@ export default class MultiSelectTag extends React.Component {
 						value={this.state.value}
 					/>
 					<div className={theme.caret}>
-						<span className="caret" />
+						<span className="caret"/>
 					</div>
 				</div>
 			</FieldTemplate>
