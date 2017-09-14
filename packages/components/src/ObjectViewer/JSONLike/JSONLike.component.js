@@ -12,6 +12,9 @@ function noop() { }
 const VALIDE_TYPES = ['number', 'string', 'boolean'];
 const COMPLEX_TYPES = ['object', 'array'];
 
+export const ARRAY_ABSTRACT = '[...]';
+export const OBJECT_ABSTRACT = '{...}';
+
 export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
@@ -28,8 +31,9 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 	return (
 		<button
 			type="button"
-			className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.native}`}
-			onClick={e => onClick(e, { data, edit, jsonpath })} >
+			className={`btn btn-link btn-xs ${theme[type]} ${theme.native}`}
+			onClick={e => onClick(e, { data, edit, jsonpath })}
+		>
 			{display}
 		</button >
 	);
@@ -122,16 +126,22 @@ export function getDataInfo(data, tupleLabel) {
 	return info;
 }
 
-function abstracter(acc, item) {
-	const arrayAbstract = '[...]';
-	const objectAbstract = '{...}';
-
+export function abstracter(acc, item) {
 	if (Array.isArray(item)) {
-		return acc.length > 0 ? `${acc}, ${arrayAbstract}` : arrayAbstract;
+		if (acc.length > 0) {
+			return `${acc}, ${ARRAY_ABSTRACT}`;
+		}
+		return ARRAY_ABSTRACT;
 	} else if (typeof item === 'object') {
-		return acc.length > 0 ? `${acc}, ${objectAbstract}` : objectAbstract;
+		if (acc.length > 0) {
+			return `${acc}, ${OBJECT_ABSTRACT}`;
+		}
+		return OBJECT_ABSTRACT;
 	}
-	return acc.length > 0 ? `${acc}, ${item}` : `${item}`;
+	if (acc.length > 0) {
+		return `${acc}, ${item}`;
+	}
+	return item;
 }
 
 export function getDataAbstract(data) {

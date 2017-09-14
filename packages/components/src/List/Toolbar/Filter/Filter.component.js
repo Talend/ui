@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
 
-import defaultTranslateFn from '../../../translate';
+import { getDefaultTranslate } from '../../../translate';
 import { Action } from '../../../Actions';
 import Icon from '../../../Icon';
 import theme from './Filter.scss';
@@ -175,7 +175,7 @@ Filter.propTypes = {
 Filter.defaultProps = {
 	docked: true,
 	placeholder: 'Filter',
-	t: defaultTranslateFn,
+	t: getDefaultTranslate,
 };
 
 export default Filter;
