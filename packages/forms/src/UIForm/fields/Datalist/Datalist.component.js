@@ -154,6 +154,10 @@ class Datalist extends Component {
 	 * @param value The value to base suggestions on
 	 */
 	updateSuggestions(value) {
+		if (this.props.schema.readOnly || this.props.schema.disabled) {
+			return;
+		}
+
 		let suggestions = this.props.schema.titleMap.map(item => item.value);
 		if (value) {
 			const escapedValue = escapeRegexCharacters(value.trim());
@@ -187,6 +191,7 @@ class Datalist extends Component {
 					<Typeahead
 						id={this.props.id}
 						autoFocus={this.props.schema.autoFocus || false}
+						disabled={this.props.schema.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
 						multiSection={false}
@@ -195,6 +200,8 @@ class Datalist extends Component {
 						onFocus={this.onFocus}
 						onKeyDown={this.onKeyDown}
 						onSelect={this.onSelect}
+						placeholder={this.props.schema.placeholder}
+						readOnly={this.props.schema.readOnly || false}
 						theme={this.theme}
 						value={this.state.value}
 					/>
@@ -231,7 +238,6 @@ if (process.env.NODE_ENV !== 'production') {
 				name: PropTypes.string.isRequired,
 				value: PropTypes.string.isRequired,
 			})),
-			type: PropTypes.string,
 		}),
 		value: PropTypes.string,
 	};

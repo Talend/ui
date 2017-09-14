@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn"] }] */
 /**
  * @module react-cmf/lib/reducers/componentsReducers
  */
@@ -8,25 +9,55 @@ import ACTIONS from '../actions';
 
 export const defaultState = new Map();
 
-export function componentAlreadyExists(action) {
-	let buff = `Can't set up your component ${action.componentName} `;
-	buff += `on key ${action.key} since this association already exist`;
-	return buff;
-}
-
-export function componentDoesntExists(action) {
-	let type;
-	if (action.type === ACTIONS.componentsActions.COMPONENT_MERGE_STATE) {
-		type = 'can\'t be merged';
-	} else if (action.type === ACTIONS.componentsActions.COMPONENT_REMOVE_STATE) {
-		type = 'can\'t be removed';
+/**
+ * given the state and action, determine if another component try to bind to a specific
+ * component name space state and warn the user about this behaviour
+ * @param {Object} state the CMF application state
+ * @param {Object} action a redux action
+ */
+export function warnIfAnotherComponentBind(state, action) {
+	if (process.env.NODE_ENV !== 'production') {
+		if (state.getIn([action.componentName, action.key])) {
+			console.warn(`Beware component ${action.componentName} try to recreate an existing
+ State namespace ${action.key}, meaning that the original one will be overloaded`);
+		}
 	}
-	let buff = `The component state ${type} since the `;
-	buff += `${action.componentName}, ${action.key} association doesn't exist.`;
-	return buff;
 }
 
 /**
+ * given the state and action, determine if a component at unmount try to delete
+ * a state namespace that doesn't exist anymore and warn the user about this behavior
+ * @param {Object} state the CMF application state
+ * @param {Object} action a redux action
+ */
+export function warnIfRemovingStateDoesntExist(state, action) {
+	if (process.env.NODE_ENV !== 'production') {
+		if (!state.getIn([action.componentName, action.key])) {
+			console.warn(`Beware the component ${action.componentName} try to remove a non existing
+ State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
+ to this specific namespace`);
+		}
+	}
+}
+
+/**
+ * given the state and action, determine if a component try to update a state namespace that
+ * doesn't exist, throw an errror at dev time since such a behavior may lead to unintended bug
+ * or runtime errors later on app execution.
+ * @param {Object} state the CMF application state
+ * @param {Object} action a redux action
+ */
+export function errorIfMergingStateDoesntExist(state, action) {
+	if (!state.getIn([action.componentName, action.key])) {
+		invariant(
+			process.env.NODE_ENV === 'production',
+			`Error, the component ${action.componentName} try to mutate a non existing
+ State namespace ${action.key}, this namespace may be not yet created or already removed.`);
+	}
+}
+
+/**
+ * Reducer on charge to manage component remote state.
  * @param  {object} state  initial state
  * @param  {object} action the executed action
  * @return {object}        the new state
@@ -34,12 +65,7 @@ export function componentDoesntExists(action) {
 export function componentsReducers(state = defaultState, action) {
 	switch (action.type) {
 	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
-		if (state.getIn([action.componentName, action.key])) {
-			invariant(
-				false,
-				componentAlreadyExists(action),
-			);
-		}
+		warnIfAnotherComponentBind(state, action);
 		if (action.initialComponentState) {
 			return state.setIn(
 				[action.componentName, action.key],
@@ -52,25 +78,14 @@ export function componentsReducers(state = defaultState, action) {
 			new Map()
 		);
 	case ACTIONS.componentsActions.COMPONENT_MERGE_STATE:
-		if (!state.getIn([action.componentName, action.key])) {
-			invariant(
-				process.env.NODE_ENV === 'production',
-				componentDoesntExists(action)
-			);
-		}
+		errorIfMergingStateDoesntExist(state, action);
 
 		return state.mergeIn(
 			[action.componentName, action.key],
 			fromJS(action.componentState)
 		);
 	case ACTIONS.componentsActions.COMPONENT_REMOVE_STATE:
-		if (!state.getIn([action.componentName, action.key])) {
-			invariant(
-				process.env.NODE_ENV === 'production',
-				componentDoesntExists(action)
-			);
-		}
-
+		warnIfRemovingStateDoesntExist(state, action);
 		return state.deleteIn([action.componentName, action.key]);
 	default: {
 		const subAction = get(action, 'cmf.componentState');
