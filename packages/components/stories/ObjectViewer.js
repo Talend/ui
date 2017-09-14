@@ -36,7 +36,7 @@ const handler = {
 	onChange: action('onChange'),
 };
 
-let selectJsonpath = null;
+let selectedJsonpath = "$[0]['name']";
 
 const handlerHighlight = {
 	edited: ['$[0][\'int\']'],
@@ -47,7 +47,7 @@ const handlerHighlight = {
 	},
 	notifySelection: (e, jsonpath) => {
 		action('onSelect');
-		selectJsonpath = jsonpath;
+		selectedJsonpath = jsonpath;
 		console.log('notifySelection depuis ObjectViewer', e, jsonpath);
 	},
 	onSubmit: action('onSubmit'),
@@ -69,7 +69,7 @@ stories
 	.addWithInfo('tree with hightlighting', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={data} {...handlerHighlight} selectJsonpath={selectJsonpath} />
+			<ObjectViewer data={data} {...handlerHighlight} selectedJsonpath={selectedJsonpath} />
 		</div>
 	))
 	.addWithInfo('tree with labels', () => (

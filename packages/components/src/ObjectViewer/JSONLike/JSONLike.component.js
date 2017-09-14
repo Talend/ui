@@ -28,7 +28,7 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath }) {
 	return (
 		<button
 			type="button"
-			className={`btn btn-link btn-xs ${theme[type]} ${theme.native}`}
+			className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.native}`}
 			onClick={e => onClick(e, { data, edit, jsonpath })} >
 			{display}
 		</button >
@@ -81,7 +81,7 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 			onClick={onClick}
 			{...props }
 		>
-			{name ? <span className={theme.name}> {name}</span > : null}
+			{name ? <span className={`${theme.name} ${theme.lineKey}`}> {name}</span > : null}
 			{children}
 		</span >
 	);
@@ -178,8 +178,10 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onClick={props.onClick}
 					onChange={props.onChange}
 				/>
-				({info.type})
-			</LineItem>
+				<div className={theme.lineType}>
+					({info.type})
+				</div>
+			</LineItem >
 		);
 	}
 
@@ -195,16 +197,15 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 			<Icon name={iconName} transform={iconTransform} className="btn btn-xs btn-link container" />
 			<LineItem name={name} mouseOverData={{ data, isOpened, isEdited }} notifySelection={props.notifySelection} jsonpath={jsonpath}>
 				<span className={theme.hierarchical}>
-					<button
-						type="button"
-						className={btn}
+					<div
+						className={`${theme.lineType}`}
 						onClick={e => props.onClick(e, { data, isOpened, jsonpath })}
 					>
 						({info.type})
-						<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
-							<sup className="badge">{info.length}</sup>
-						</TooltipTrigger>
-					</button>
+					</div>
+					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
+						<sup className="badge">{info.length}</sup>
+					</TooltipTrigger>
 					<ul className={!isOpened ? 'hidden' : null}>
 						{info.keys.map((key, i) => {
 							const jpath = getJSONPath(key, jsonpath, info.type);
