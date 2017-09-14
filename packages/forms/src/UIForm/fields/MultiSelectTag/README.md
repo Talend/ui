@@ -1,28 +1,29 @@
-# Datalist
+# MultiSelectTag
 
-This widget allows you to render a Typeahead.
+This widget allows you to render a Typeahead to add multiple tags.
 
 **Json Schema**
 
 | Property | Description |
 |---|---|
-| type | `string` |
-| enum | The array of possible suggestions |
+| type | `array` |
+| items.type | The type of array items |
+| items.enum | The array of suggestions |
 
 
 ```json
 {
   "type": "object",
-  "title": "Datalist",
+  "title": "MultiSelectTag",
   "properties": {
-    "simpleDatalist": {
-      "type": "string",
-      "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      }
     }
-  },
-  "required": [
-    "simpleDatalist"
-  ]
+  }
 }
 ```
 
@@ -38,20 +39,20 @@ This widget allows you to render a Typeahead.
 | restricted | If the value is restricted to the possible suggestions | `true` |
 | title | The title to display next to the field |  |
 | titleMap | A mapping of value/label to display |  |
-| widget | The widget to use | `datalist` |
+| widget | The widget to use | `multiSelectTag` |
 
 ```json
 [
     {
-      "key": "simpleDatalist",
+      "key": "multiSelectTag",
       "restricted": false,
-      "title": "Simple Datalist",
+      "title": "Simple multiSelectTag",
       "description": "This datalist accepts values that are not in the list of suggestions",
-      "widget": "datalist"
+      "widget": "multiSelectTag"
     }
   ]
 ```
 
 **Result**
 
-![Datalist](screenshot.gif)
+![MultiSelectTag](screenshot.gif)

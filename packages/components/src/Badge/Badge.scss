@@ -1,8 +1,10 @@
+$tc-badge-horizontal-margin: $padding-normal / 2;
+
 .tc-badge {
 	border-radius: $border-radius-base;
 	display: inline-block;
 	font-size: $font-size-small;
-	margin: $padding-smaller $padding-normal / 2 0;
+	margin: $padding-smaller $tc-badge-horizontal-margin 0;
 	max-width: calc(100% - #{$padding-normal});
 	padding: 0 $padding-smaller;
 	position: relative;

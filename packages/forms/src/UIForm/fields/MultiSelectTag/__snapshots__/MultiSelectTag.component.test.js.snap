@@ -1,21 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datalist component should render typeahead 1`] = `
+exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
 <FieldTemplate
-  description="This is my datalist"
-  errorMessage="This should be correct"
-  id="my-datalist"
+  description="This is the MultiSelectTag field"
+  errorMessage="This is wrong"
+  id="my-select-tag"
   isValid={true}
-  label="My List"
+  label="Tags"
 >
   <div
-    className={undefined}
+    className="undefined form-control"
   >
+    <Translate(Badge)
+      label="aze"
+      onDelete={[Function]}
+    />
+    <Translate(Badge)
+      label="tata"
+      onDelete={[Function]}
+    />
     <Typeahead
       autoFocus={true}
       disabled={false}
       focusedItemIndex={undefined}
-      id="my-datalist"
+      id="my-select-tag"
       items={null}
       multiSection={false}
       noResultText="No result."
@@ -31,12 +39,12 @@ exports[`Datalist component should render typeahead 1`] = `
       searchingText="Searching for matches…"
       theme={
         Object {
-          "container": "tf-datalist-container",
+          "container": undefined,
           "itemsContainer": undefined,
           "itemsList": undefined,
         }
       }
-      value="foo"
+      value=""
     />
     <div
       className={undefined}
