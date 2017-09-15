@@ -15,7 +15,7 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
-export function NativeValue({ data, edit, onClick, onChange, jsonpath, selectedJsonpath }) {
+export function NativeValue({ data, edit, onSelect, onEdit, onChange, jsonpath, selectedJsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -31,11 +31,21 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath, selectedJ
 
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
+	const stopAndEdit = (e) => {
+		e.stopPropagation();
+		onEdit(e, { data, edit, jsonpath });
+	};
+	//to use until edit is implemented
+	const stopAndSelect = (e) => {
+		e.stopPropagation();
+		onSelect(e, jsonpath);
+	};
+
 	if (isSelectedLine) {
 		return (
 			<div
 				className={`${theme.native} ${theme.lineValueSelected}`}
-				onClick={e => onClick(e, { data, edit, jsonpath })}
+				onClick={stopAndSelect}
 			>
 				{display}
 			</div>
@@ -45,7 +55,7 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath, selectedJ
 	return (
 		<div
 			className={`${theme[type]} ${theme.native} ${theme.lineValue}`}
-			onClick={e => onClick(e, { data, edit, jsonpath })}
+			onClick={stopAndSelect}
 		>
 			{display}
 		</div>
@@ -59,7 +69,8 @@ NativeValue.propTypes = {
 		PropTypes.string,
 	]),
 	edit: PropTypes.bool,
-	onClick: PropTypes.func,
+	onEdit: PropTypes.func,
+	onSelect: PropTypes.func,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
 	selectedJsonpath: PropTypes.string,
@@ -90,7 +101,7 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	const onSelectFn = (e) => {
+	const stopAndSelect = (e) => {
 		e.stopPropagation();
 		onSelect(e, jsonpath);
 	};
@@ -98,7 +109,7 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 	return (
 		<span
 			className={isSelectedLine ? theme.selectedLine : isHovered ? theme.unselectedLineHover : null}
-			onClick={onSelectFn}
+			onClick={stopAndSelect}
 			{...props }
 		>
 			{name ? <span className={`${theme.name} ${theme.lineKey}`}> {name}</span > : null}
@@ -206,7 +217,8 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					data={data}
 					edit={isEdited}
 					jsonpath={jsonpath}
-					onClick={props.onClick}
+					onSelect={props.onSelect}
+					onEdit={props.onEdit}
 					onChange={props.onChange}
 					selectedJsonpath={props.selectedJsonpath}
 				/>
@@ -242,7 +254,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				<span className={theme.hierarchical}>
 					<div
 						className={`${theme.lineType}`}
-						onClick={e => props.onClick(e, { data, isOpened, jsonpath })}
+						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
 						&nbsp;&nbsp;({info.type})
 					</div>
@@ -288,7 +300,7 @@ Item.propTypes = {
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
-	onClick: PropTypes.func,
+	onEdit: PropTypes.func,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	selectedJsonpath: PropTypes.string,
@@ -301,7 +313,9 @@ Item.defaultProps = {
 	edited: [],
 	jsonpath: '$',
 	onMouseOver: noop,
-	onClick: noop,
+	onEdit: noop,
+	onToggle: noop,
+	onSelect: noop,
 };
 
 /**

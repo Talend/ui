@@ -62,7 +62,7 @@ class ObjectViewer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.onClick = this.onClick.bind(this);
+		this.onEdit = this.onEdit.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 	}
@@ -81,14 +81,9 @@ class ObjectViewer extends React.Component {
 		}
 	}
 
-	onClick(event, data) {
+	onEdit(event, data) {
 		let newState;
-		if (data.isOpened) {
-			newState = close(data.jsonpath, this.props.state);
-		} else if (data.isOpened === false) {
-			// we don't want to match on undefined as false
-			newState = open(data.jsonpath, this.props.state);
-		} else if (data.edit === false) {
+		if (data.edit === false) {
 			newState = edit(data.jsonpath, this.props.state);
 		}
 		if (newState) {
@@ -121,11 +116,11 @@ class ObjectViewer extends React.Component {
 			<Component
 				data={this.props.data}
 				displayMode={this.props.displayMode}
-				onClick={this.onClick}
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
 				onSelect={this.onSelect}
 				onToggle={this.onToggle}
+				onEdit={this.onEdit}
 				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
