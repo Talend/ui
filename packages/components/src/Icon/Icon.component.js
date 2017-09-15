@@ -29,6 +29,10 @@ export const SVG_TRANSFORMS = {
 
 export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
 
+function preventDefault(event) {
+	event.preventDefault();
+}
+
 /**
  * SVG implementation is inspired by
  * http://svgicons.sparkk.fr/
@@ -36,7 +40,7 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform }) {
+function Icon({ className, name, title, transform, onClick }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -59,6 +63,26 @@ function Icon({ className, name, title, transform }) {
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
+	if (onClick && name) {
+		const classname = classnames(
+			theme['svg-icon'],
+			'tc-svg-icon',
+			className,
+			SVG_TRANSFORMS[transform],
+		);
+		return (
+			<a
+				xlinkHref="#"
+				onClick={onClick}
+				className={`tfd-svg-anchor ${theme.link}`}
+			>
+				<svg className={classname} {...accessibility}>
+					<use xlinkHref={`#${name}`} />
+				</svg>
+			</a>
+		);
+
+	}
 	if (name) {
 		const classname = classnames(
 			theme['svg-icon'],
@@ -80,6 +104,7 @@ Icon.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
+	onClick: PropTypes.func,
 };
 
 export default Icon;
