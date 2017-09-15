@@ -9,6 +9,7 @@ import { componentState } from 'react-cmf';
 export const DEFAULT_STATE = new Map({
 	edited: new List(),  // Array of JSONPath
 	opened: new List(),  // Array of JSONPath
+	selectedJsonpath: '',  // selected JSONPath
 	modified: new Map(),  // Store the onChange
 });
 
@@ -16,6 +17,13 @@ export function open(path, state) {
 	return state.set(
 		'opened',
 		state.get('opened').push(path),
+	);
+}
+
+export function select(path, state) {
+	return state.set(
+		'selectedJsonpath',
+		path,
 	);
 }
 
@@ -53,8 +61,24 @@ class ObjectViewer extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.onToggle = this.onToggle.bind(this);
 		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onToggle(event, data) {
+		let newState;
+		if (data.isOpened) {
+			newState = close(data.jsonpath, this.props.state);
+		} else if (data.isOpened === false) {
+			// we don't want to match on undefined as false
+			newState = open(data.jsonpath, this.props.state);
+		}
+
+		if (newState) {
+			this.props.setState(newState);
+		}
 	}
 
 	onClick(event, data) {
@@ -81,6 +105,14 @@ class ObjectViewer extends React.Component {
 		this.props.setState(newState);
 	}
 
+	onSelect(event, data) {
+		const newState = select(
+			data,
+			this.props.state
+		);
+		this.props.setState(newState);
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		// TODO: add support for mutate the data using modified state
@@ -92,6 +124,9 @@ class ObjectViewer extends React.Component {
 				onClick={this.onClick}
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
+				onSelect={this.onSelect}
+				onToggle={this.onToggle}
+				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
 			/>

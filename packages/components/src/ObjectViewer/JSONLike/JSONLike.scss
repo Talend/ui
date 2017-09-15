@@ -23,8 +23,23 @@
 		margin-left: 15px;
 	}
 
+	.link {
+		cursor: pointer;
+	}
+	
+
 	.opened {
 		color: red;
+	}
+
+	.widerIconSelection{
+		display : inline-flex;
+		width: 16px;
+		height: 16px;
+	}
+
+	.unselectedLineHover:hover{
+		background-color: green;
 	}
 
 	:global(.btn) {
@@ -32,24 +47,20 @@
 	}
 
 	.name:after {
-		content: ':';
+		content: ':  ';
 	}
 
 	sup{
 		top: -0.2em;
 		height: 16px;
 		width: 16px;
-		background-color: #5D88AA;
-		opacity: 0.5;
-
+		
+		
 		border-width: 1px;
-		border-color: #5D88AA;
-		/* border opacity */
-
+		background-color: rgba(93,136,170,0.15);
 		font-family: 'Source Sans Pro';
 		font-size: 12px;
-		color: #000000;
-
+		color : rgba(93,136,170, 1);
 		display :inline-table;
 	}
 
@@ -65,9 +76,9 @@
 	}
 
 	.selectedLine{
-		background-color : #5D88AA;
+		background-color :rgba(93,136,170, 0.1);
 		opacity: 0.75;
-		color: black;
+		color: black !important;
 	}
 	
 	.lineKey{
@@ -75,6 +86,7 @@
 		font-size: 15px;
 		opacity: 0.75;
 		padding-left : 5px;
+		display:inline;
 	}
 
 	.lineValue{
@@ -82,24 +94,27 @@
 		font-size: 15px;
 		vertical-align: baseline;
 		color: black;
+		display:inline;
 	}
 
 	.lineValueSelected{
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		vertical-align: baseline;
-		color:white;
+		display:inline;
 	}
 
 	.lineType{
-		font-family: 'Source Sans Pro';
+		font-family: 'Inconsolata';
 		font-size: 14px;
 		opacity: 0.75;
 		display:inline;
 		margin-right : 15px;
+		vertical-align: top;
 	}
 
 	.verticalLine{
-		border-left: solid 1px #5D88AA;
+		border-left: solid 1px rgba(0,0,0,0.1);
+		margin-left : 7px;
 	}
 }

@@ -33,24 +33,22 @@ export function NativeValue({ data, edit, onClick, onChange, jsonpath, selectedJ
 
 	if (isSelectedLine) {
 		return (
-			<button
-				type="button"
-				className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.lineValueSelected}`}
+			<div
+				className={`${theme.native} ${theme.lineValueSelected}`}
 				onClick={e => onClick(e, { data, edit, jsonpath })}
 			>
 				{display}
-			</button >
+			</div>
 		);
 	}
 
 	return (
-		<button
-			type="button"
-			className={`btn btn-link btn-xs ${theme[type]} ${theme.native} ${theme.lineValue}`}
+		<div
+			className={`${theme[type]} ${theme.native} ${theme.lineValue}`}
 			onClick={e => onClick(e, { data, edit, jsonpath })}
 		>
 			{display}
-		</button >
+		</div>
 	);
 }
 
@@ -88,17 +86,19 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 		props.onMouseOver = e => onMouseOver(e, mouseOverData);
 	}
 
+	const isHovered = (mouseOverData.data.jsonpath === jsonpath);
+
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	const onClick = (e) => {
+	const onSelectFn = (e) => {
 		e.stopPropagation();
 		onSelect(e, jsonpath);
 	};
 
 	return (
 		<span
-			className={isSelectedLine ? theme.selectedLine : null}
-			onClick={onClick}
+			className={isSelectedLine ? theme.selectedLine : isHovered ? theme.unselectedLineHover : null}
+			onClick={onSelectFn}
 			{...props }
 		>
 			{name ? <span className={`${theme.name} ${theme.lineKey}`}> {name}</span > : null}
@@ -189,9 +189,8 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	const info = getDataInfo(data, props.tupleLabel);
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
-	const isOpened = opened.indexOf(jsonpath) !== -1 || props.onClick === noop;
+	const isOpened = opened.indexOf(jsonpath) !== -1;
 
-	const isSelectedLine = (props.selectedJsonpath && (props.selectedJsonpath === jsonpath));
 
 	if (isNativeType) {
 		return (
@@ -220,18 +219,24 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
-	const btn = classNames(
-		'btn btn-xs btn-link',
-		theme.btn,
-	);
+
 
 	return (
 		<div>
-			<Icon name={iconName} transform={iconTransform} className="btn btn-xs btn-link container" />
+			<Icon
+				name={iconName}
+				transform={iconTransform}
+				className={theme.widerIconSelection}
+				onClick={(e) => {
+					e.stopPropagation();
+					props.onToggle(e, { data, isOpened, jsonpath });
+				}}
+			/>
 			<LineItem
 				name={name}
 				mouseOverData={{ data, isOpened, isEdited }}
 				onSelect={props.onSelect}
+				onToggle={props.onToggle}
 				jsonpath={jsonpath}
 				selectedJsonpath={props.selectedJsonpath}>
 				<span className={theme.hierarchical}>
@@ -239,7 +244,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 						className={`${theme.lineType}`}
 						onClick={e => props.onClick(e, { data, isOpened, jsonpath })}
 					>
-						({info.type})
+						&nbsp;&nbsp;({info.type})
 					</div>
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{info.length}</sup>
@@ -284,6 +289,7 @@ Item.propTypes = {
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onClick: PropTypes.func,
+	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
