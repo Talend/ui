@@ -2614,7 +2614,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
       >
         <g
           className="ti-tmc-positive-bg"
-          fill="#4f8992"
+          fill="#737785"
           fillRule="nonzero"
         >
           <path
@@ -5513,7 +5513,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
       >
         <g
           className="ti-tmc-positive-bg"
-          fill="#4f8992"
+          fill="#737785"
           fillRule="nonzero"
         >
           <path
