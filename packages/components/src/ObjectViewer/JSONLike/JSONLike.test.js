@@ -49,7 +49,7 @@ describe('JSONLike', () => {
 		});
 
 		it('abstracts an object with an array inside', () => {
-			expect(getDataAbstract(mixedObject)).toEqual(`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiter`);
+			expect(getDataAbstract(mixedObject)).toEqual(`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiet`);
 		});
 
 		it('abstracts an array', () => {
