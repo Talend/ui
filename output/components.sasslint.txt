@@ -3,14 +3,11 @@
 > sass-lint -v -q
 
 
-src/SidePanel/SidePanel.scss
-  82:3  warning  Mixed tabs and spaces  indentation
-
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
 src/VirtualizedList/RowSelection/RowSelection.scss
   12:1  warning  Space expected between blocks  empty-line-between-blocks
 
-✖ 3 problems (0 errors, 3 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
