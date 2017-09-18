@@ -13,6 +13,7 @@ const icons = {
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-cross': talendIcons['talend-cross'],
+	'talend-opener': talendIcons['talend-opener'],
 };
 
 const actions = [
