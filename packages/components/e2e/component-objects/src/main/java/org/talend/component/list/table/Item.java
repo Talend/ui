@@ -1,11 +1,13 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.talend.component.Component;
+
+import java.util.List;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.
@@ -42,7 +44,11 @@ public class Item extends Component {
      * @return The title button WebElement
      */
     public WebElement getTitle() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        final List<WebElement> titleButtons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        if (titleButtons.size() == 1) {
+            return titleButtons.get(0);
+        }
+        return null;
     }
 
     /**
@@ -79,7 +85,15 @@ public class Item extends Component {
      * Click on item title.
      */
     public void clickOnTitle() {
-        getTitle().click();
+        final WebElement title = getTitle();
+        if (title == null) {
+            throw new NotFoundException("Item title element not found. Not able to click on it.");
+
+        }
+        final Actions actions = new Actions(driver)
+                .moveToElement(title)
+                .click(title);
+        actions.perform();
     }
 
     /**

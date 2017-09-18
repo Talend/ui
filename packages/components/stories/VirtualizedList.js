@@ -28,7 +28,7 @@ const icons = {
 };
 
 const titleProps = {
-	onClick: action('click'),
+	onClick: action('onTitleClick'),
 	actionsKey: 'titleActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
@@ -173,7 +173,7 @@ const collection = [
 for (let i = collection.length; i < 100; i += 1) {
 	collection.push({
 		id: i,
-		name: 'Title with icon and actions',
+		name: `Title with icon and actions ${i}`,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',

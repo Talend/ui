@@ -6,6 +6,7 @@ $input-padding-right : $padding-normal * 2 + $dropdown-caret-size;
 	}
 
 	.tags-container {
+		display: inline-block;
 		position: absolute;
 		padding-top: 2px;
 		top: 0;
