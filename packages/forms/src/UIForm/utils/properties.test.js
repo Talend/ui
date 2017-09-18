@@ -124,5 +124,20 @@ describe('Properties utils', () => {
 				},
 			});
 		});
+
+		it('should add a value, creating nested objects', () => {
+			// given
+			const key = ['user', 'firstname'];
+
+			// when
+			const value = mutateValue(undefined, key, 'titi');
+
+			// then
+			expect(value).toEqual({
+				user: {
+					firstname: 'titi',
+				},
+			});
+		});
 	});
 });

@@ -9,7 +9,7 @@ public class ListTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("Open List", "Open Virtualized - table display");
+        goToStory("List", "Virtualized - table display");
     }
 
     @Test

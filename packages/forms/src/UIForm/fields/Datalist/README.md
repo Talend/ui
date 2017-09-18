@@ -4,7 +4,7 @@ This widget allows you to render a Typeahead.
 
 **Json Schema**
 
-| Property for single checkbox | Description |
+| Property | Description |
 |---|---|
 | type | `string` |
 | enum | The array of possible suggestions |

@@ -19,7 +19,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 		disabled = false,
 		placeholder,
 		readOnly = false,
-		title
+		title,
 	} = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
