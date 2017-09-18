@@ -1,6 +1,7 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -43,9 +44,9 @@ public class Item extends Component {
      * @return The title button WebElement
      */
     public WebElement getTitle() {
-        final List<WebElement> buttons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
-        if (buttons.size() == 1) {
-            return buttons.get(0);
+        final List<WebElement> titleButtons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        if (titleButtons.size() == 1) {
+            return titleButtons.get(0);
         }
         return null;
     }
@@ -85,6 +86,10 @@ public class Item extends Component {
      */
     public void clickOnTitle() {
         final WebElement title = getTitle();
+        if (title == null) {
+            throw new NotFoundException("Item title element not found. Not able to click on it.");
+
+        }
         final Actions actions = new Actions(driver)
                 .moveToElement(title)
                 .click(title);

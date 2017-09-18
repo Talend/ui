@@ -84,7 +84,6 @@ public class Table extends Component {
      */
     public void scrollToTop() {
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
         jsExec.executeScript("arguments[0].scrollTop = 0", grid);
     }
 
@@ -93,7 +92,6 @@ public class Table extends Component {
      */
     public boolean canScrollDown() {
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
         return (boolean) jsExec.executeScript(
                 "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
                 grid
@@ -110,7 +108,6 @@ public class Table extends Component {
         }
 
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        final JavascriptExecutor jsExec = (JavascriptExecutor) driver;
         jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
         return true;
     }
