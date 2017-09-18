@@ -64,11 +64,14 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			autoFocus: rest.autoFocus,
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
+			disabled: rest.disabled,
+			inputRef: rest.inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
 			onKeyDown: rest.onKeyDown,
 			placeholder: rest.placeholder,
+			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
 		},
@@ -103,12 +106,14 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 }
 
 Typeahead.defaultProps = {
-	id: uuid.v4(),
-	position: 'left',
-	items: null,
 	autoFocus: true,
+	disabled: false,
+	id: uuid.v4(),
+	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
+	position: 'left',
+	readOnly: false,
 	searching: false,
 	searchingText: 'Searching for matches…',
 };
@@ -134,10 +139,13 @@ Typeahead.propTypes = {
 	autoFocus: PropTypes.bool,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
+	disabled: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	inputRef: PropTypes.func,
 	placeholder: PropTypes.string,
+	readOnly: PropTypes.bool,
 	value: PropTypes.string,
 
 	// suggestions

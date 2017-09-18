@@ -9,14 +9,27 @@ import { getValue, omitAll } from '../utils/properties';
 export function adaptAdditionalRules(mergedSchema) {
 	// skip enum validation if explicitly not restricted
 	const { schema } = mergedSchema;
-	if (mergedSchema.restricted === false && schema.enum) {
-		return {
-			...mergedSchema,
-			schema: {
-				...schema,
-				enum: undefined,
-			},
-		};
+	if (mergedSchema.restricted === false) {
+		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					items: {
+						...schema.items,
+						enum: undefined,
+					},
+				},
+			};
+		} else if (schema.enum) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					enum: undefined,
+				},
+			};
+		}
 	}
 
 	return mergedSchema;

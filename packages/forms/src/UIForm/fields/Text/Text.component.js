@@ -13,7 +13,7 @@ export default function Text(props) {
 		placeholder,
 		readOnly = false,
 		title,
-		type
+		type,
 	} = schema;
 
 	return (
