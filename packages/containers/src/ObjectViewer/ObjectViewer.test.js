@@ -5,6 +5,7 @@ import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
+const selectedPath = '$[0][\'str\']';
 const data = [
 	{
 		int: 1,
@@ -48,7 +49,8 @@ describe('Container ObjectViewer', () => {
 		expect(props.onChange).toBe(undefined);
 		expect(props.onSubmit).toBe(undefined);
 		expect(props.data).toBe(data);
-		expect(typeof props.onClick).toBe('function');
+		expect(typeof props.onSelect).toBe('function');
+		expect(typeof props.onToggle).toBe('function');
 		expect(Array.isArray(props.opened)).toBe(true);
 		expect(props.opened.length).toBe(0);
 		expect(Array.isArray(props.edited)).toBe(true);
@@ -57,19 +59,23 @@ describe('Container ObjectViewer', () => {
 		expect(wrapper.props().opened.length).toBe(0);
 		const path = '$[0][\'obj\']';
 		// open
-		props.onClick(null, {
+		props.onToggle(null, {
 			isOpened: false,
 			jsonpath: path,
 		});
 		expect(setState.mock.calls.length).toBe(1);
 		expect(setState.mock.calls[0][0].get('opened').get(0)).toBe(path);
 		// close
-		props.onClick(null, {
+		props.onToggle(null, {
 			isOpened: true,
 			jsonpath: path,
 		});
 		expect(setState.mock.calls.length).toBe(2);
 		expect(setState.mock.calls[1][0].get('opened').size).toBe(0);
+		// select
+		props.onSelect(null, selectedPath);
+		expect(setState.mock.calls.length).toBe(3);
+		expect(setState.mock.calls[2][0].get('selectedJsonpath')).toBe(selectedPath);
 	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
@@ -85,19 +91,20 @@ describe('Container ObjectViewer', () => {
 		const props = wrapper.props();
 		const path = '$[0][\'int\']';
 		expect(typeof props.onChange).toBe('function');
+		expect(typeof props.onEdit).toBe('function');
 		expect(props.onSubmit).toBe(onSubmit);
 		props.onChange({
 			target: {
 				value: 2,
 			},
 		}, {
-			jsonpath: path,
-		});
+				jsonpath: path,
+			});
 		expect(setState.mock.calls.length).toBe(1);
 		expect(setState.mock.calls[0][0].get('modified').size).toBe(1);
 		expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
 
-		props.onClick(null, {
+		props.onEdit(null, {
 			edit: false,
 			jsonpath: path,
 		});
