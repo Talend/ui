@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import invariant from 'invariant';
 
 import Icon from '../../Icon';
@@ -35,7 +34,8 @@ export function NativeValue({ data, edit, onSelect, onEdit, onChange, jsonpath, 
 		e.stopPropagation();
 		onEdit(e, { data, edit, jsonpath });
 	};
-	//to use until edit is implemented
+
+	// to use until edit is implemented
 	const stopAndSelect = (e) => {
 		e.stopPropagation();
 		onSelect(e, jsonpath);
@@ -250,6 +250,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				onSelect={props.onSelect}
 				onToggle={props.onToggle}
 				jsonpath={jsonpath}
+
 				selectedJsonpath={props.selectedJsonpath}>
 				<span className={theme.hierarchical}>
 					<div

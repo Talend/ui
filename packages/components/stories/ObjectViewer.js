@@ -32,7 +32,7 @@ const handler = {
 	onChange: action('onChange'),
 };
 
-let selectedJsonpath = "$[0][\'name\']";
+let selectedJsonpath = "$[0][\'attributes\']";
 
 const handlerHighlight = {
 	edited: ['$[0][\'int\']'],
