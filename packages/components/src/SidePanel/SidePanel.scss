@@ -6,21 +6,19 @@
 /// Side panel toggle button color
 /// @type Color
 $tc-side-panel-toggle-color: tint($brand-primary, 75);
+$tc-side-panel-width: 200px!default;
+$tc-side-panel-docked-width: 54px!default;
 
 .tc-side-panel {
 	overflow-x: hidden;
 	padding: 0;
-	transition: 0.2s padding ease-out;
+	transition: 0.2s width ease-out;
+	width: $tc-side-panel-width;
 
 	:global(.btn) svg:global(.tc-svg-icon) {
 		width: $svg-lg-size;
 		height: $svg-lg-size;
 		margin: 0;
-	}
-
-	.action-list {
-		margin: 0;
-		transition: 0.2s margin ease-out;
 	}
 
 	.link {
@@ -31,10 +29,6 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 		:global(.tc-svg-icon) + span {
 			margin-left: $padding-normal;
 			vertical-align: text-bottom;
-		}
-
-		span {
-			transition: 0.2s opacity linear;
 		}
 	}
 
@@ -48,7 +42,7 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 	}
 
 	&.docked {
-		padding: 0;
+		width: $tc-side-panel-docked-width;
 
 		:global(.nav-pills) {
 			//override nav-pill a bit
@@ -60,10 +54,6 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 				:global(.tc-svg-icon) {
 					transform: rotate(-180deg);
 				}
-			}
-
-			.link span {
-				opacity: 0;
 			}
 		}
 	}
