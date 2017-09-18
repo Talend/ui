@@ -90,7 +90,15 @@ export function getJSONPath(key, prefix, type) {
 	return `${prefix}['${key}']`;
 }
 
-export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJsonpath, onSelect, children }) {
+export function LineItem({
+	name,
+	onMouseOver,
+	mouseOverData,
+	jsonpath,
+	selectedJsonpath,
+	onSelect,
+	children,
+}) {
 	const props = {};
 
 	if (onMouseOver && onMouseOver !== noop) {
@@ -110,7 +118,7 @@ export function LineItem({ name, onMouseOver, mouseOverData, jsonpath, selectedJ
 		<span
 			className={isSelectedLine ? theme.selectedLine : isHovered ? theme.unselectedLineHover : null}
 			onClick={stopAndSelect}
-			{...props }
+			{...props}
 		>
 			{name ? <span className={`${theme.name} ${theme.lineKey}`}> {name}</span > : null}
 			{children}
@@ -250,8 +258,8 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				onSelect={props.onSelect}
 				onToggle={props.onToggle}
 				jsonpath={jsonpath}
-
-				selectedJsonpath={props.selectedJsonpath}>
+				selectedJsonpath={props.selectedJsonpath}
+			>
 				<span className={theme.hierarchical}>
 					<div
 						className={`${theme.lineType}`}

@@ -29,10 +29,6 @@ export const SVG_TRANSFORMS = {
 
 export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
 
-function preventDefault(event) {
-	event.preventDefault();
-}
-
 /**
  * SVG implementation is inspired by
  * http://svgicons.sparkk.fr/
@@ -81,7 +77,6 @@ function Icon({ className, name, title, transform, onClick }) {
 				</svg>
 			</a>
 		);
-
 	}
 	if (name) {
 		const classname = classnames(

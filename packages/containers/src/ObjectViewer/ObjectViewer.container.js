@@ -9,7 +9,7 @@ import { componentState } from 'react-cmf';
 export const DEFAULT_STATE = new Map({
 	edited: new List(),  // Array of JSONPath
 	opened: new List(),  // Array of JSONPath
-	selectedJsonpath: '',  // selected JSONPath
+	selectedJsonpath: '',  // Selected JSONPath
 	modified: new Map(),  // Store the onChange
 });
 

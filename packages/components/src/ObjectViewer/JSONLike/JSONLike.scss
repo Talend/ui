@@ -2,7 +2,7 @@
 .container {
 	display: block;
 
-	svg{
+	svg {
 		padding: 2px;
 		margin-right:5px;
 	}
@@ -13,12 +13,11 @@
 		display: flex;
 	}
 
-	button{
+	button {
 		font-size : 1.4rem;
 	}
 
-	
-	button > sup{
+	button > sup {
 		top : -1;
 		margin-left: 15px;
 	}
@@ -26,19 +25,18 @@
 	.link {
 		cursor: pointer;
 	}
-	
 
 	.opened {
 		color: red;
 	}
 
-	.widerIconSelection{
+	.widerIconSelection {
 		display : inline-flex;
 		width: 16px;
 		height: 16px;
 	}
 
-	.unselectedLineHover:hover{
+	.unselectedLineHover:hover {
 		background-color: green;
 	}
 
@@ -50,12 +48,10 @@
 		content: ':  ';
 	}
 
-	sup{
+	sup {
 		top: -0.2em;
 		height: 16px;
 		width: 16px;
-		
-		
 		border-width: 1px;
 		background-color: rgba(93,136,170,0.15);
 		font-family: 'Source Sans Pro';
@@ -64,24 +60,24 @@
 		display :inline-table;
 	}
 
-	sup::before{
-		margin-right : 15px; 
+	sup::before {
+		margin-right : 15px;
 	}
 
-	.rootLabelOverflow{
+	.rootLabelOverflow {
 		white-space: nowrap;
 		overflow: hidden;
 		max-width: 25%;
 		text-overflow: ellipsis;
 	}
 
-	.selectedLine{
+	.selectedLine {
 		background-color :rgba(93,136,170, 0.1);
 		opacity: 0.75;
 		color: black !important;
 	}
-	
-	.lineKey{
+
+	.lineKey {
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		opacity: 0.75;
@@ -89,7 +85,7 @@
 		display:inline;
 	}
 
-	.lineValue{
+	.lineValue {
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		vertical-align: baseline;
@@ -97,14 +93,14 @@
 		display:inline;
 	}
 
-	.lineValueSelected{
+	.lineValueSelected {
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		vertical-align: baseline;
 		display:inline;
 	}
 
-	.lineType{
+	.lineType {
 		font-family: 'Inconsolata';
 		font-size: 14px;
 		opacity: 0.75;
@@ -113,8 +109,8 @@
 		vertical-align: top;
 	}
 
-	.verticalLine{
+	.verticalLine {
 		border-left: solid 1px rgba(0,0,0,0.1);
 		margin-left : 7px;
-	}	  
+	}
 }
