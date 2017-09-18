@@ -23,6 +23,7 @@ const data = [
 	{ business_id: 3, name: 'Cecelia\'s Club', category: 'Cafe', rating: 4, num_of_reviews: 16547, attributes: { good_for: { dessert: true, kids: false, drinks: false, breakfast: true, lunch: false, dinner: false }, parking: { lot: true, valet: true, garage: false }, take_reservations: false, noise_level: 'noisy' }, location: { zipType: 'PO BOX', zip: 47445, decommisioned: false, taxReturnsFiled: 123, location: 'NA-US - IN - MIDLAND', estimatedPopulation: 123, locationType: 'PRIMARY', totalWages: 456, state: 'IN', longitude: -87.16, latitude: 39.09, city: 'MIDLAND' } },
 	{ business_id: 4, name: 'Gordon\'s Bar', category: 'Cafe', rating: 1, num_of_reviews: 152, attributes: { good_for: { dessert: false, kids: false, drinks: true, breakfast: true, lunch: true, dinner: true }, parking: { lot: true, valet: false, garage: true }, take_reservations: true, noise_level: 'noisy' }, location: { zipType: 'STANDARD', zip: 65638, decommisioned: false, taxReturnsFiled: 123, location: 'NA- US - MO - DRURY', estimatedPopulation: 123, locationType: 'PRIMARY', totalWages: 456, state: 'MO', longitude: -92.32, latitude: 36.92, city: 'DRURY' } }
 ];
+const primitiveArray = [1, 2, 3];
 
 const handler = {
 	edited: ['$[0][\'int\']'],
@@ -45,6 +46,17 @@ const handlerHighlight = {
 	onChange: action('onChange'),
 };
 
+const openedNativeTypeHandler = {
+	edited: [],
+	opened: [],
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+};
+
 const stories = storiesOf('ObjectViewer', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
@@ -55,6 +67,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} />
+		</div>
+	))
+	.addWithInfo('primitive array tree', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={primitiveArray} {...openedNativeTypeHandler} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting', () => (

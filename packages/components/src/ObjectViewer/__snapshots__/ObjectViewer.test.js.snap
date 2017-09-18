@@ -19231,6 +19231,182 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
 </div>
 `;
 
+exports[`Storyshots ObjectViewer primitive array tree 1`] = `
+<div>
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-caret-down"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="8,13.6 0,5.6 2.6,3 8,8.4 13.4,3 16,5.6 "
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-chevron-left"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="10.914 15.936 2.979 8 10.914 0.064 13.021 2.172 7.193 8 13.021 13.828 10.914 15.936"
+        />
+      </svg>
+    </symbol>
+  </svg>
+  <form
+    className="tc-object-viewer undefined "
+    onSubmit={[Function]}
+  >
+    <div
+      className={undefined}
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+    >
+      root
+    </div>
+    <div>
+      <a
+        className="tfd-svg-anchor undefined"
+        onClick={[Function]}
+        xlinkHref="#"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-chevron-left"
+          />
+        </svg>
+      </a>
+      <span
+        className={null}
+        onClick={[Function]}
+      >
+        <span
+          className={undefined}
+        >
+          <div
+            className="undefined"
+            onClick={[Function]}
+          >
+              (
+            array
+            )
+          </div>
+          <sup
+            className="badge"
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            3
+          </sup>
+          <ul
+            className="hidden"
+          >
+            <li>
+              <span
+                className={null}
+                onClick={[Function]}
+              >
+                <span
+                  className="undefined undefined"
+                >
+                   
+                  0
+                </span>
+                <div
+                  className="undefined undefined undefined"
+                  onClick={[Function]}
+                >
+                  1
+                </div>
+                <div
+                  className={undefined}
+                >
+                  (
+                  number
+                  )
+                </div>
+              </span>
+            </li>
+            <li>
+              <span
+                className={null}
+                onClick={[Function]}
+              >
+                <span
+                  className="undefined undefined"
+                >
+                   
+                  1
+                </span>
+                <div
+                  className="undefined undefined undefined"
+                  onClick={[Function]}
+                >
+                  2
+                </div>
+                <div
+                  className={undefined}
+                >
+                  (
+                  number
+                  )
+                </div>
+              </span>
+            </li>
+            <li>
+              <span
+                className={null}
+                onClick={[Function]}
+              >
+                <span
+                  className="undefined undefined"
+                >
+                   
+                  2
+                </span>
+                <div
+                  className="undefined undefined undefined"
+                  onClick={[Function]}
+                >
+                  3
+                </div>
+                <div
+                  className={undefined}
+                >
+                  (
+                  number
+                  )
+                </div>
+              </span>
+            </li>
+          </ul>
+        </span>
+      </span>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`Storyshots ObjectViewer table default 1`] = `
 <div>
   <svg

@@ -177,11 +177,7 @@ export function abstracter(acc, item) {
 		return `${acc}, ${item}`;
 	}
 
-	if (typeof item === 'boolean') {
-		return item.toString();
-	}
-
-	return item;
+	return `${item}`;
 }
 
 export function getDataAbstract(data) {
