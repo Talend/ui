@@ -30,6 +30,15 @@ function shouldRestartSaga(maybeSaga, match) {
 	return false;
 }
 
+function parseSagaState(routeFragments, sagas, currentLocation, index) {
+	const routeFragment = routeFragments[index];
+	return {
+		routeFragment,
+		match: matchPath(currentLocation.pathname, { path: routeFragment }),
+		maybeSaga: sagas[routeFragment],
+	};
+}
+
 export default function* routerSaga(history, routes) {
 	const sagas = {};
 	while (true) {
@@ -37,18 +46,31 @@ export default function* routerSaga(history, routes) {
 		const currentLocation = history.getCurrentLocation();
 		const routeFragments = Object.keys(routes);
 		for (let index = 0; index < routeFragments.length;) {
-			const routeFragment = routeFragments[index];
-			const match = matchPath(currentLocation.pathname, { path: routeFragment });
-			const maybeSaga = sagas[routeFragment];
-			if (shouldStartSaga(maybeSaga, match)) {
+			const { routeFragment, match, maybeSaga } = parseSagaState(
+				routeFragments,
+				sagas,
+				currentLocation,
+				index,
+			);
+			if (shouldCancelSaga(maybeSaga, match)) {
+				yield cancel(maybeSaga.saga);
+			} else if (shouldRestartSaga(maybeSaga, match)) {
+				yield cancel(maybeSaga.saga);
 				sagas[routeFragment] = {
 					saga: yield spawn(routes[routeFragment], match.params),
 					match,
 				};
-			} else if (shouldCancelSaga(maybeSaga, match)) {
-				yield cancel(maybeSaga.saga);
-			} else if (shouldRestartSaga(maybeSaga, match)) {
-				yield cancel(maybeSaga.saga);
+			}
+			index += 1;
+		}
+		for (let index = 0; index < routeFragments.length;) {
+			const { routeFragment, match, maybeSaga } = parseSagaState(
+				routeFragments,
+				sagas,
+				currentLocation,
+				index,
+			);
+			if (shouldStartSaga(maybeSaga, match)) {
 				sagas[routeFragment] = {
 					saga: yield spawn(routes[routeFragment], match.params),
 					match,
