@@ -43,17 +43,16 @@ export default class MultiSelectTag extends React.Component {
 
 	/**
 	 * On Tags value change, we update suggestions if they are displayed
-	 * @param value The tags values
+	 * @param nextProps The new props
 	 */
-	componentDidUpdate({ value }) {
-		if (value === this.props.value) {
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value === this.props.value) {
 			return;
 		}
 		if (this.state.suggestions) {
-			this.updateSuggestions();
+			this.updateSuggestions(undefined, nextProps);
 		}
 	}
-
 
 	/**
 	 * Manage suggestion selection
@@ -149,27 +148,31 @@ export default class MultiSelectTag extends React.Component {
 	 * - remove current tags values
 	 * - filter based on input value
 	 * @param value The new input value. Undefined if we should use the current input value.
+	 * @param props The props to use. If not provided, it used this.props.
 	 */
-	updateSuggestions(value) {
-		const currentValue = value === undefined ? this.state.value : value;
-		let suggestions = this.props.schema.titleMap
-			.map(item => item.value)
-			.filter(item => this.props.value.indexOf(item) < 0);
+	updateSuggestions(value, props) {
+		this.setState((oldState) => {
+			const currentValue = value === undefined ? oldState.value : value;
+			const currentProps = props === undefined ? this.props : props;
+			let suggestions = currentProps.schema.titleMap
+				.map(item => item.value)
+				.filter(item => currentProps.value.indexOf(item) < 0);
 
-		if (currentValue) {
-			const escapedValue = escapeRegexCharacters(currentValue.trim());
-			const regex = new RegExp(escapedValue, 'i');
-			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+			if (currentValue) {
+				const escapedValue = escapeRegexCharacters(currentValue.trim());
+				const regex = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(itemValue => regex.test(itemValue));
 
-			if (!suggestions.length && this.props.schema.restricted === false) {
-				suggestions.push(getNewItemText(currentValue));
+				if (!suggestions.length && currentProps.schema.restricted === false) {
+					suggestions.push(getNewItemText(currentValue));
+				}
 			}
-		}
 
-		this.setState({
-			focusedItemIndex: suggestions.length ? 0 : undefined,
-			suggestions,
-			value: currentValue,
+			return {
+				focusedItemIndex: suggestions.length ? 0 : undefined,
+				suggestions,
+				value: currentValue,
+			};
 		});
 	}
 
