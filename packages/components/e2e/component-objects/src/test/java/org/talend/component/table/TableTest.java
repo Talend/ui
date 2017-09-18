@@ -21,7 +21,7 @@ public class TableTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("Open List", "Open Virtualized - table display");
+        goToStory("List", "Virtualized - table display");
     }
 
     @Test
@@ -50,7 +50,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_get_all_items() {
         // when
-        final java.util.List<Item> items = tableObject.getItems();
+        final java.util.List<Item> items = tableObject.getDisplayedItems();
 
         // then
         assertThat(items, hasSize(4));
@@ -122,6 +122,19 @@ public class TableTest extends StorybookTest {
 
         // when
         tableObject.getItem("Title with actions").clickOnTitle();
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onTitleClick:"));
+    }
+
+    @Test
+    public void should_scroll_and_click_on_item_title() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        assertThat(getActionLog(), not(startsWith("▶onTitleClick:")));
+
+        // when
+        tableObject.getItem("Title with icon and actions 25").clickOnTitle();
 
         // then
         assertThat(getActionLog(), startsWith("▶onTitleClick:"));
