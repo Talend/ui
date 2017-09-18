@@ -83,17 +83,6 @@ decoratedStories
 			<Typeahead {...props} />
 		);
 	})
-	.addWithInfo('on the right', () => {
-		const props = {
-			placeholder: 'Search...',
-			position: 'right',
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-		};
-		return (
-			<Typeahead {...props} />
-		);
-	})
 	.addWithInfo('searching', () => {
 		const props = {
 			value: 'Lorem ipsum',
@@ -123,6 +112,19 @@ decoratedStories
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			items: [],
+		};
+		return (
+			<Typeahead {...props} />
+		);
+	})
+	.addWithInfo('on the right', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			position: 'right',
 		};
 		return (
 			<Typeahead {...props} />
