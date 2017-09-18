@@ -41,10 +41,12 @@ function parseSagaState(routeFragments, sagas, currentLocation, index) {
 
 export default function* routerSaga(history, routes) {
 	const sagas = {};
+	let shouldStart = [];
+	const routeFragments = Object.keys(routes);
 	while (true) {
 		yield take('@@router/LOCATION_CHANGE');
+		shouldStart = [];
 		const currentLocation = history.getCurrentLocation();
-		const routeFragments = Object.keys(routes);
 		for (let index = 0; index < routeFragments.length;) {
 			const { routeFragment, match, maybeSaga } = parseSagaState(
 				routeFragments,
@@ -60,22 +62,22 @@ export default function* routerSaga(history, routes) {
 					saga: yield spawn(routes[routeFragment], match.params),
 					match,
 				};
+			} else if (shouldStartSaga(maybeSaga, match)) {
+				shouldStart.push(routeFragment);
 			}
 			index += 1;
 		}
-		for (let index = 0; index < routeFragments.length;) {
-			const { routeFragment, match, maybeSaga } = parseSagaState(
-				routeFragments,
+		for (let index = 0; index < shouldStart.length;) {
+			const { routeFragment, match } = parseSagaState(
+				shouldStart,
 				sagas,
 				currentLocation,
 				index,
 			);
-			if (shouldStartSaga(maybeSaga, match)) {
-				sagas[routeFragment] = {
-					saga: yield spawn(routes[routeFragment], match.params),
-					match,
-				};
-			}
+			sagas[routeFragment] = {
+				saga: yield spawn(routes[shouldStart[index]], match.params),
+				match,
+			};
 			index += 1;
 		}
 	}
