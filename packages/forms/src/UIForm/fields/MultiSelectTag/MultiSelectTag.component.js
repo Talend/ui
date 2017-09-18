@@ -219,7 +219,7 @@ export default class MultiSelectTag extends React.Component {
 						value={this.state.value}
 					/>
 					<div className={theme.caret}>
-						<span className="caret"/>
+						<span className="caret" />
 					</div>
 				</div>
 			</FieldTemplate>
