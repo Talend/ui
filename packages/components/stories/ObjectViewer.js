@@ -34,6 +34,7 @@ const handler = {
 };
 
 let selectedJsonpath = "$[0][\'attributes\']";
+const showType = true;
 
 const handlerHighlight = {
 	edited: ['$[0][\'int\']'],
@@ -79,6 +80,17 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} {...handlerHighlight} selectedJsonpath={selectedJsonpath} />
+		</div>
+	))
+	.addWithInfo('tree with hightlighting and type', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer
+				data={data}
+				{...handlerHighlight}
+				selectedJsonpath={selectedJsonpath}
+				showType={showType}
+			/>
 		</div>
 	))
 	.addWithInfo('tree with labels', () => (
