@@ -115,7 +115,6 @@ export function LineItem({
 	}
 
 	const isHovered = (mouseOverData.data.jsonpath === jsonpath);
-
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
 	function stopAndSelect(e) {
@@ -251,7 +250,6 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
-
 
 	return (
 		<div>
