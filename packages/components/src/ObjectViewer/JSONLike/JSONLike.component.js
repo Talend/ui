@@ -240,7 +240,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					selectedJsonpath={props.selectedJsonpath}
 				/>
 				{props.showType &&
-					<div className={theme.lineType}>
+					<div className={`tc-object-viewer-linetype ${theme.lineType}`}>
 						({info.type})
 					</div>
 				}
@@ -272,7 +272,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 			>
 				<span className={theme.hierarchical}>
 					{props.showType ? (<div
-						className={`${theme.lineType}`}
+						className={`tc-object-viewer-linetype ${theme.lineType}`}
 						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
 						({info.type})
@@ -370,6 +370,7 @@ export function JSONLike({ onSubmit, ...props }) {
 		);
 	}
 
+	console.log('dbg props', props);
 	return (
 		<div className={`tc-object-viewer ${theme.container} `}>
 			<TooltipTrigger

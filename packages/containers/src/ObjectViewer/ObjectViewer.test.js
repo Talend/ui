@@ -1,11 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
 const selectedPath = '$[0][\'str\']';
+const kTrue = true;
 const data = [
 	{
 		int: 1,
@@ -76,6 +77,31 @@ describe('Container ObjectViewer', () => {
 		props.onSelect(null, selectedPath);
 		expect(setState.mock.calls.length).toBe(3);
 		expect(setState.mock.calls[2][0].get('selectedJsonpath')).toBe(selectedPath);
+	});
+	xit('should not display types by default', () => {
+		const setState = jest.fn();
+		const wrapper = shallow(
+			<Container
+				data={data}
+				state={DEFAULT_STATE}
+				setState={setState}
+			/>,
+		);
+
+		expect(wrapper.find('.tc-object-viewer-linetype').length).toBe(0);
+	});
+	xit('should display types', () => {
+		const setState = jest.fn();
+		const wrapper = mount(
+			<Container
+				data={data}
+				state={DEFAULT_STATE}
+				setState={setState}
+				showType={kTrue}
+			/>,
+		);
+
+		expect(wrapper.find('.tc-object-viewer-linetype').length).not.toBe(0);
 	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
