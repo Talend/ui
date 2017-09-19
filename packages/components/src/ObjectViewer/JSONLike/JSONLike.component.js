@@ -250,6 +250,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
+	const decoratedLength = (info.type === 'array') ? `[${info.length}]` : `(${info.length})`;
 
 	return (
 		<div>
@@ -272,16 +273,18 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 			>
 				<span className={theme.hierarchical}>
 					{props.showType ? (<div
-						className={`tc-object-viewer-linetype ${theme.lineType}`}
+						className={`tc- object - viewer - linetype ${theme.lineType} `}
 						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
 						({info.type})
 					</div>
 					) : null}
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
-						<sup className="badge">{info.length}</sup>
+						<sup className="badge">
+							{decoratedLength}
+						</sup>
 					</TooltipTrigger>
-					<ul className={!isOpened ? 'hidden' : `${theme.verticalLine}`}>
+					<ul className={!isOpened ? 'hidden' : `${theme.verticalLine} `}>
 
 						{info.keys.map((key, i) => {
 							const jpath = getJSONPath(key, jsonpath, info.type);
@@ -351,7 +354,7 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (onSubmit) {
 		return (
 			<form
-				className={`tc-object-viewer ${theme.container} `}
+				className={`tc- object - viewer ${theme.container} `}
 				onSubmit={(event) => {
 					onSubmit(event);
 					event.preventDefault();
@@ -372,7 +375,7 @@ export function JSONLike({ onSubmit, ...props }) {
 
 	console.log('dbg props', props);
 	return (
-		<div className={`tc-object-viewer ${theme.container} `}>
+		<div className={`tc- object - viewer ${theme.container} `}>
 			<TooltipTrigger
 				label={rootComputedLabel}
 				tooltipPlacement="right"
