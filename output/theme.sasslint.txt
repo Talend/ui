@@ -10,12 +10,13 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.checkbox.scss
-  15:1  warning  Space expected between blocks          empty-line-between-blocks
-  15:7  warning  Selectors must be placed on new lines  single-line-per-selector
-  18:1  warning  Space expected between blocks          empty-line-between-blocks
-  29:1  warning  Space expected between blocks          empty-line-between-blocks
-  29:7  warning  Selectors must be placed on new lines  single-line-per-selector
-  32:1  warning  Space expected between blocks          empty-line-between-blocks
+  15:1   warning  Space expected between blocks          empty-line-between-blocks
+  15:7   warning  Selectors must be placed on new lines  single-line-per-selector
+  18:1   warning  Space expected between blocks          empty-line-between-blocks
+  29:1   warning  Space expected between blocks          empty-line-between-blocks
+  29:7   warning  Selectors must be placed on new lines  single-line-per-selector
+  32:1   warning  Space expected between blocks          empty-line-between-blocks
+  85:11  warning  Whitespace required before {           space-before-brace
 
 src/theme/_forms.scss
    23:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -35,5 +36,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 22 problems (14 errors, 8 warnings)
+✖ 23 problems (14 errors, 9 warnings)
 
