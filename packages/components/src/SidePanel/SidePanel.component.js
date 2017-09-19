@@ -57,7 +57,7 @@ function SidePanel(props) {
 						bsStyle="link"
 						onClick={props.onToggleDock}
 						label="Toggle side panel"
-						icon="talend-arrow-left"
+						icon="talend-opener"
 						hideLabel
 						tooltipPlacement={props.tooltipPlacement}
 					/>
