@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
+import classNames from 'classnames';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -14,7 +15,14 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
-export function NativeValue({ data, edit, onSelect, onEdit, onChange, jsonpath, selectedJsonpath }) {
+export function NativeValue({
+	data,
+	edit,
+	onSelect,
+	onChange,
+	jsonpath,
+	selectedJsonpath,
+}) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -30,16 +38,10 @@ export function NativeValue({ data, edit, onSelect, onEdit, onChange, jsonpath, 
 
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	const stopAndEdit = (e) => {
-		e.stopPropagation();
-		onEdit(e, { data, edit, jsonpath });
-	};
-
-	// to use until edit is implemented
-	const stopAndSelect = (e) => {
-		e.stopPropagation();
-		onSelect(e, jsonpath);
-	};
+	function stopAndSelect(event) {
+		event.stopPropagation();
+		onSelect(event, jsonpath);
+	}
 
 	if (isSelectedLine) {
 		return (
@@ -69,7 +71,6 @@ NativeValue.propTypes = {
 		PropTypes.string,
 	]),
 	edit: PropTypes.bool,
-	onEdit: PropTypes.func,
 	onSelect: PropTypes.func,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
@@ -114,9 +115,14 @@ export function LineItem({
 		onSelect(e, jsonpath);
 	};
 
+	const classes = classNames({
+		[theme.selectedLine]: isSelectedLine,
+		[theme.unselectedLineHover]: isHovered,
+	});
+
 	return (
 		<span
-			className={isSelectedLine ? theme.selectedLine : isHovered ? theme.unselectedLineHover : null}
+			className={classes}
 			onClick={stopAndSelect}
 			{...props}
 		>

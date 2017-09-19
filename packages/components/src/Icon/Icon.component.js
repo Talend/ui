@@ -67,6 +67,8 @@ function Icon({ className, name, title, transform, onClick }) {
 			SVG_TRANSFORMS[transform],
 		);
 		return (
+			// eslint doesn't recognizes the xlinkHref mention
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<a
 				xlinkHref="#"
 				onClick={onClick}
