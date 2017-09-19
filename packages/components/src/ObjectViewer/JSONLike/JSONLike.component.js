@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
+import { isObject } from 'lodash';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -226,9 +227,11 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 					selectedJsonpath={props.selectedJsonpath}
 				/>
-				<div className={theme.lineType}>
-					({info.type})
-				</div>
+				{props.showType &&
+					<div className={theme.lineType}>
+						({info.type})
+					</div>
+				}
 			</LineItem >
 		);
 	}
@@ -261,7 +264,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 						className={`${theme.lineType}`}
 						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
-						&nbsp;&nbsp;({info.type})
+						{props.showType && (info.type)}
 					</div>
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{info.length}</sup>
@@ -311,6 +314,7 @@ Item.propTypes = {
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
 	onChange: PropTypes.func,
+	showType: PropTypes.bool,
 };
 
 Item.defaultProps = {
@@ -329,6 +333,9 @@ Item.defaultProps = {
  * @param {object} props react
  */
 export function JSONLike({ onSubmit, ...props }) {
+	const rootIsObject = isObject(props.data);
+	const rootComputedLabel = rootIsObject ? props.rootLabel ? props.rootLabel : 'root' : null;
+
 	if (onSubmit) {
 		return (
 			<form
@@ -339,11 +346,11 @@ export function JSONLike({ onSubmit, ...props }) {
 				}}
 			>
 				<TooltipTrigger
-					label={props.rootLabel || 'root'}
+					label={rootComputedLabel}
 					tooltipPlacement="right"
 				>
 					<div className={theme.rootLabelOverflow}>
-						{props.rootLabel || 'root'}
+						{rootComputedLabel}
 					</div>
 				</TooltipTrigger>
 				<Item {...props} />
@@ -354,11 +361,11 @@ export function JSONLike({ onSubmit, ...props }) {
 	return (
 		<div className={`tc-object-viewer ${theme.container} `}>
 			<TooltipTrigger
-				label={props.rootLabel || 'root'}
+				label={rootComputedLabel}
 				tooltipPlacement="right"
 			>
 				<div className={theme.rootLabelOverflow}>
-					{props.rootLabel || 'root'}
+					{rootComputedLabel}
 				</div>
 			</TooltipTrigger>
 
