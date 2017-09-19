@@ -17,7 +17,7 @@ const data = [
 ];
 
 let selectedJsonpath = "$[0][\'name\']";
-
+const kTrue = true;
 
 const ExampleObjectViewer = {
 	default: () => (
@@ -30,6 +30,12 @@ const ExampleObjectViewer = {
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} />
+		</div>
+	),
+	'JsonLike with types': () => (
+		<div>
+			<IconsProvider />
+			<ObjectViewer data={data} showType={kTrue} />
 		</div>
 	),
 	'list default': () => (

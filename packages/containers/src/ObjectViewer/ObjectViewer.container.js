@@ -116,6 +116,7 @@ class ObjectViewer extends React.Component {
 			<Component
 				data={this.props.data}
 				displayMode={this.props.displayMode}
+				showType={this.props.showType}
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
 				onSelect={this.onSelect}

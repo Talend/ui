@@ -271,12 +271,13 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				selectedJsonpath={props.selectedJsonpath}
 			>
 				<span className={theme.hierarchical}>
-					<div
+					{props.showType ? (<div
 						className={`${theme.lineType}`}
 						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
-						{props.showType && (info.type)}
+						({info.type})
 					</div>
+					) : null}
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{info.length}</sup>
 					</TooltipTrigger>
