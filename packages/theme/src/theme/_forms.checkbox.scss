@@ -12,7 +12,8 @@ $tt-checkbox-ripple-color: rgba(111, 148, 182, 0.1) !default; // FIXME Guideline
 	0% {
 		transform: scale3d(0.3, 0.3, 1);
 	}
-	25%, 50% {
+	25%,
+	50% {
 		opacity: 1;
 	}
 	100% {
@@ -26,7 +27,8 @@ $tt-checkbox-ripple-color: rgba(111, 148, 182, 0.1) !default; // FIXME Guideline
 	0% {
 		transform: scale3d(0.3, 0.3, 1);
 	}
-	25%, 50% {
+	25%,
+	50% {
 		opacity: 1;
 	}
 	100% {
@@ -82,7 +84,7 @@ input[type='checkbox'],
 	}
 
 	&:after,
-	+ * :after{
+	+ * :after {
 		$margin-ripple: (-1 * ($tt-checkbox-ripple-size/2));
 		position: absolute;
 		content: '';
