@@ -1,5 +1,5 @@
 
-> react-talend-components@0.110.0 lint:es /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.111.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -15,21 +15,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Icon/Icon.component.js
+  70:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.component.js
-  17:3  error  Expected indentation of 1 tab but found 2   indent
-  18:4  error  Expected indentation of 2 tabs but found 3  indent
-  19:3  error  Expected indentation of 1 tab but found 2   indent
-  20:4  error  Expected indentation of 2 tabs but found 3  indent
-  21:3  error  Expected indentation of 1 tab but found 2   indent
-  22:4  error  Expected indentation of 2 tabs but found 3  indent
-  23:3  error  Expected indentation of 1 tab but found 2   indent
-  24:4  error  Expected indentation of 2 tabs but found 3  indent
-  25:3  error  Expected indentation of 1 tab but found 2   indent
-  26:4  error  Expected indentation of 2 tabs but found 3  indent
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
+   17:1   error  Line 17 exceeds the maximum line length of 100                                       max-len
+   33:8   error  'stopAndEdit' is assigned a value but never used                                     no-unused-vars
+   46:4   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+   56:3   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  118:3   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  119:15  error  Do not nest ternary expressions                                                      no-nested-ternary
+  260:6   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -38,5 +38,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 20 problems (20 errors, 0 warnings)
+✖ 18 problems (18 errors, 0 warnings)
 

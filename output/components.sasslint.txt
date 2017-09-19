@@ -1,11 +1,46 @@
 
-> react-talend-components@0.110.0 lint:style /home/travis/build/Talend/ui/packages/components
+> react-talend-components@0.111.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
 src/ObjectViewer/JSONLike/JSONLike.scss
-  10:7   warning  Whitespace required before {  space-before-brace
-  11:12  warning  No space allowed before `:`   space-before-colon
+    7:15  warning  Space expected after `:`                                                  space-after-colon
+   17:12  warning  No space allowed before `:`                                               space-before-colon
+   21:6   warning  No space allowed before `:`                                               space-before-colon
+   33:3   error    Class '.widerIconSelection' should be written in lowercase with hyphens   class-name-format
+   34:10  warning  No space allowed before `:`                                               space-before-colon
+   39:3   error    Class '.unselectedLineHover' should be written in lowercase with hyphens  class-name-format
+   56:28  warning  Commas should be followed by a space                                      space-after-comma
+   56:32  warning  Commas should be followed by a space                                      space-after-comma
+   56:36  warning  Commas should be followed by a space                                      space-after-comma
+   59:8   warning  No space allowed before `:`                                               space-before-colon
+   59:18  warning  Commas should be followed by a space                                      space-after-comma
+   59:22  warning  Commas should be followed by a space                                      space-after-comma
+   60:10  warning  No space allowed before `:`                                               space-before-colon
+   60:11  warning  Space expected after `:`                                                  space-after-colon
+   64:15  warning  No space allowed before `:`                                               space-before-colon
+   67:3   error    Class '.rootLabelOverflow' should be written in lowercase with hyphens    class-name-format
+   74:3   error    Class '.selectedLine' should be written in lowercase with hyphens         class-name-format
+   75:19  warning  No space allowed before `:`                                               space-before-colon
+   75:20  warning  Space expected after `:`                                                  space-after-colon
+   75:28  warning  Commas should be followed by a space                                      space-after-comma
+   75:32  warning  Commas should be followed by a space                                      space-after-comma
+   77:16  error    !important not allowed                                                    no-important
+   80:3   error    Class '.lineKey' should be written in lowercase with hyphens              class-name-format
+   84:15  warning  No space allowed before `:`                                               space-before-colon
+   85:10  warning  Space expected after `:`                                                  space-after-colon
+   88:3   error    Class '.lineValue' should be written in lowercase with hyphens            class-name-format
+   93:10  warning  Space expected after `:`                                                  space-after-colon
+   96:3   error    Class '.lineValueSelected' should be written in lowercase with hyphens    class-name-format
+  100:10  warning  Space expected after `:`                                                  space-after-colon
+  103:3   error    Class '.lineType' should be written in lowercase with hyphens             class-name-format
+  107:10  warning  Space expected after `:`                                                  space-after-colon
+  108:15  warning  No space allowed before `:`                                               space-before-colon
+  112:3   error    Class '.verticalLine' should be written in lowercase with hyphens         class-name-format
+  113:32  warning  Commas should be followed by a space                                      space-after-comma
+  113:34  warning  Commas should be followed by a space                                      space-after-comma
+  113:36  warning  Commas should be followed by a space                                      space-after-comma
+  114:14  warning  No space allowed before `:`                                               space-before-colon
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
@@ -13,5 +48,5 @@ src/VirtualizedList/NoRows/NoRows.scss
 src/VirtualizedList/RowSelection/RowSelection.scss
   12:1  warning  Space expected between blocks  empty-line-between-blocks
 
-✖ 4 problems (0 errors, 4 warnings)
+✖ 39 problems (10 errors, 29 warnings)
 

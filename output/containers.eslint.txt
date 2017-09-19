@@ -1,5 +1,5 @@
 
-> react-talend-containers@0.110.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> react-talend-containers@0.111.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -32,7 +32,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+    2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  101:5  error  Expected indentation of 3 tabs but found 4                                    indent
+  102:4  error  Expected indentation of 2 tabs but found 3                                    indent
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   1:8   error  'React' is defined but never used                                                              no-unused-vars
@@ -47,5 +49,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 15 problems (14 errors, 1 warning)
+✖ 17 problems (16 errors, 1 warning)
 
