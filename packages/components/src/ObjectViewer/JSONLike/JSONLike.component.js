@@ -91,6 +91,13 @@ export function getJSONPath(key, prefix, type) {
 	return `${prefix}['${key}']`;
 }
 
+function getName(name) {
+	if (!name) {
+		return null;
+	}
+	return <span className={`${theme.name} ${theme.lineKey}`}> {name}</span>;
+}
+
 export function LineItem({
 	name,
 	onMouseOver,
@@ -110,10 +117,10 @@ export function LineItem({
 
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	const stopAndSelect = (e) => {
+	function stopAndSelect(e) {
 		e.stopPropagation();
 		onSelect(e, jsonpath);
-	};
+	}
 
 	const classes = classNames({
 		[theme.selectedLine]: isSelectedLine,
@@ -126,7 +133,7 @@ export function LineItem({
 			onClick={stopAndSelect}
 			{...props}
 		>
-			{name ? <span className={`${theme.name} ${theme.lineKey}`}> {name}</span > : null}
+			{getName(name)}
 			{children}
 		</span >
 	);
