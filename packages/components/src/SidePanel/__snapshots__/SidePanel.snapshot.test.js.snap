@@ -83,15 +83,14 @@ exports[`Storyshots SidePanel default 1`] = `
     >
       <li
         className={undefined}
+        title="Collapse"
       >
         <button
           className="btn btn-link"
           disabled={false}
           id="context-toggle-dock"
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -105,6 +104,7 @@ exports[`Storyshots SidePanel default 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li
@@ -276,14 +276,13 @@ exports[`Storyshots SidePanel docked 1`] = `
     >
       <li
         className={undefined}
+        title="Expand"
       >
         <button
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -297,6 +296,7 @@ exports[`Storyshots SidePanel docked 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li
@@ -462,14 +462,13 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
     >
       <li
         className={undefined}
+        title="Collapse"
       >
         <button
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -483,6 +482,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li

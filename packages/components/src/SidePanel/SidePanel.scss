@@ -104,6 +104,10 @@ $toggle-button-opacity: 0.75;
 				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
+
+			:global(.tc-svg-icon) + span {
+				margin-left: 0;
+			}
 		}
 
 		&:hover {
