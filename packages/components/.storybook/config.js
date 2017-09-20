@@ -1,8 +1,8 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
-
-import 'babel-polyfill';
 
 import { configure, setAddon } from '@storybook/react';
 import infoAddon from '@storybook/addon-info';
