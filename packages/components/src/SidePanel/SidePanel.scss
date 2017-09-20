@@ -44,12 +44,14 @@ $toggle-button-padding: $padding-small - 1;
 		padding: $padding-normal $padding-large;
 		text-overflow: inherit;
 	}
+
 	:global(.nav-pills .btn.btn-link) > span {
 		vertical-align: middle;
 		text-overflow: ellipsis;
 		width: $tc-side-panel-labels-width;
 		overflow: hidden;
 	}
+
 	:global(.tc-side-panel-list-item):hover {
 		background-color: $list-item-hover-color;
 	}
